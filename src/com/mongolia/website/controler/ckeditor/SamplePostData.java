@@ -12,6 +12,8 @@ public class SamplePostData {
 	public String getAllFormFieldsAndValues() {
 		StringBuffer sb = new StringBuffer();
 		String fieldValue = "";
+		
+		
 		try {
 			this.request.setCharacterEncoding("utf-8");
 		} catch (Exception ex) {
