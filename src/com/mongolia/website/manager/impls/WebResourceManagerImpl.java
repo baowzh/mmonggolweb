@@ -53,7 +53,7 @@ public class WebResourceManagerImpl implements WebResourceManager {
 	private WebSiteVisitorManager webSiteVisitorManager;
 	@Autowired
 	private ChannelManagerDao channelDao;
-
+	
 	@Override
 	public void doAddIImgGroup(ImgGrpupValue imgGrpupValue)
 			throws ManagerException {
