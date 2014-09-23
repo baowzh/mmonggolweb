@@ -420,7 +420,7 @@ public class BlogManagerAction {
 			agentkind = 0;
 		}
 		map.put("agentkind", agentkind);
-		return new ModelAndView("userspace/updDoc", map);
+		return new ModelAndView("userspace/createDoc", map);
 	}
 
 	/**
