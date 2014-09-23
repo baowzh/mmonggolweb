@@ -2024,4 +2024,17 @@ public class BlogManagerAction {
 		//
 
 	}
+	@RequestMapping("/gzipdoccontent.do")
+	public ModelAndView gzipdoccontent(HttpServletRequest request,
+			ModelMap map) throws Exception {
+		try {
+			this.webResourceManager.gzipdoccontent();
+			map.put("success", 1);
+		} catch (Exception ex) {
+			map.put("success", 0);
+			map.put("mess", ex.getMessage());
+		}
+		return new ModelAndView("jsonView", map);
+	}
+	
 }
