@@ -83,7 +83,6 @@ public class BlogManagerAction {
 	private UserManager userManager;
 	@Autowired
 	private WebSiteVisitorManager webSiteVisitorManager;
-
 	/**
 	 * 进入个人主页
 	 * 
