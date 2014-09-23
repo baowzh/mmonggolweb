@@ -17,7 +17,8 @@ import org.springframework.web.socket.handler.PerConnectionWebSocketHandler;
 @Configuration
 @EnableWebMvc
 @EnableWebSocket
-public class WebConfig extends WebMvcConfigurerAdapter implements WebSocketConfigurer {
+public class WebConfig extends WebMvcConfigurerAdapter implements WebSocketConfigurer
+{
 
 	@Override
 	public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
