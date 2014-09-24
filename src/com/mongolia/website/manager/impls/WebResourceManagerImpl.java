@@ -132,8 +132,10 @@ public class WebResourceManagerImpl implements WebResourceManager {
 			returnList = webResourceDao.getImgList(params);
 			for (ImgValue imgValue : returnList) {
 				byte[] imgcontent = imgValue.getImgcontent();
-				byte newcontent[] = this.ungzipdoccontent(imgcontent);
-				imgValue.setImgcontent(newcontent);
+				if (imgcontent != null) {
+					byte newcontent[] = this.ungzipdoccontent(imgcontent);
+					imgValue.setImgcontent(newcontent);
+				}
 			}
 			return returnList;
 		} catch (Exception ex) {
