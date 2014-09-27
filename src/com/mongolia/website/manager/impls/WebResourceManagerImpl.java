@@ -200,9 +200,11 @@ public class WebResourceManagerImpl implements WebResourceManager {
 		try {
 			List<DocumentValue> docs = webResourceDao.getDocList(params);
 			for (DocumentValue documentValue : docs) {
-				byte[] newdoccontent = this.ungzipdoccontent(documentValue
-						.getDoccontent());
-				documentValue.setDoccontent(newdoccontent);
+				if (documentValue.getDoccontent() != null) {
+					byte[] newdoccontent = this.ungzipdoccontent(documentValue
+							.getDoccontent());
+					documentValue.setDoccontent(newdoccontent);
+				}
 			}
 			return docs;
 		} catch (Exception ex) {
