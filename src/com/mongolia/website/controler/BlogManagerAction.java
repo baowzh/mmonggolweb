@@ -50,6 +50,7 @@ import com.mongolia.website.controler.ckeditor.SamplePostData;
 import com.mongolia.website.manager.ManagerException;
 import com.mongolia.website.manager.interfaces.UserManager;
 import com.mongolia.website.manager.interfaces.WebResourceManager;
+import com.mongolia.website.manager.interfaces.WebSiteManager;
 import com.mongolia.website.manager.interfaces.WebSiteVisitorManager;
 import com.mongolia.website.model.DocumentValue;
 import com.mongolia.website.model.ImgGrpupValue;
@@ -83,6 +84,9 @@ public class BlogManagerAction {
 	private UserManager userManager;
 	@Autowired
 	private WebSiteVisitorManager webSiteVisitorManager;
+	@Autowired
+	private WebSiteManager webSiteManager;
+
 	/**
 	 * 进入个人主页
 	 * 
@@ -1201,8 +1205,8 @@ public class BlogManagerAction {
 					.getAttribute("user");// 在线session
 			String currentuserid = sessionUser.getUserid();
 			String pageIndex = request.getParameter("pageIndex");
-			if(pageIndex==null){
-				pageIndex="1";
+			if (pageIndex == null) {
+				pageIndex = "1";
 			}
 			List<MessageValue> receiveMessList = this.webResourceManager
 					.getReceMessList(currentuserid, null,
@@ -2017,16 +2021,18 @@ public class BlogManagerAction {
 			mati.appendTail(bufferi);
 			comment = bufferi.toString();
 			messageValue.setContenthtml(comment);
-			SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd");
-			messageValue.setSendtimestr(format.format(messageValue.getSendtime()));
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+			messageValue.setSendtimestr(format.format(messageValue
+					.getSendtime()));
 			//
 		}
 		//
 
 	}
+
 	@RequestMapping("/gzipdoccontent.do")
-	public ModelAndView gzipdoccontent(HttpServletRequest request,
-			ModelMap map) throws Exception {
+	public ModelAndView gzipdoccontent(HttpServletRequest request, ModelMap map)
+			throws Exception {
 		try {
 			this.webResourceManager.gzipdoccontent();
 			map.put("success", 1);
@@ -2036,5 +2042,29 @@ public class BlogManagerAction {
 		}
 		return new ModelAndView("jsonView", map);
 	}
-	
+
+	/**
+	 * 审核内容
+	 * 
+	 * @param request
+	 * @param response
+	 * @param map
+	 * @return
+	 */
+	@RequestMapping("/uploaddoc.do")
+	public ModelAndView checkDocument(HttpServletRequest request,
+			HttpServletResponse response, ModelMap map) {
+		String docid = request.getParameter("docid");
+		String docids[] = { docid };
+		try {
+			this.webSiteManager.doCheckDocument(docids, new Integer(3));
+			map.put("success", 1);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			map.put("success", 0);
+			return new ModelAndView("error", map);
+		}
+		return new ModelAndView("jsonView", map);
+	}
+
 }

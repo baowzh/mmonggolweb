@@ -75,6 +75,7 @@ public class StaticConstants {
 	public static Integer USER_KIND2 = 2;
 	public static Integer DOCSTATUS1 = 1;
 	public static Integer DOCSTATUS2 = 2;
+	public static Integer DOCSTATUS3 = 3;
 	/**
 	 * 星期
 	 */

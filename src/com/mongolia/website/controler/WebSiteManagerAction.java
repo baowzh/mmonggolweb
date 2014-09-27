@@ -332,7 +332,7 @@ public class WebSiteManagerAction implements PaingActionIA {
 		String docids = request.getParameter("docids");
 		String ids[] = docids.split(",");
 		try {
-			this.webSiteManager.doCheckDocument(ids, new Integer(1));
+			this.webSiteManager.doCheckDocument(ids, new Integer(2));
 			map.put("success", 1);
 		} catch (Exception ex) {
 			ex.printStackTrace();
