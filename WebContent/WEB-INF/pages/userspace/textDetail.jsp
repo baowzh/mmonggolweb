@@ -89,7 +89,7 @@
 											href="toupddoc.do?docid=<c:out value="${documentValue.docid}" />">
 											   </a>
 										<a href="javascript:deldoc(1);">   </a>
-										<a href="javascript:deldoc(1);">  </a>
+										<a href="javascript:upload();">  </a>
 									</c:if>
 								</div>
 								<!--    -->
