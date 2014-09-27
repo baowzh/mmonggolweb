@@ -5,7 +5,7 @@ var ws = null;
 /**
  * 链接url
  */
-var url = 'ws://127.0.0.1:8080/echo';
+var url = 'ws://192.168.1.100:8080/website/echo';
 /**
  * 
  */
@@ -58,7 +58,7 @@ var echo = function() {
 		var message = document.getElementById('message').value;
 		logsendmess('Sent: ' + message);
 		var jsonMess = '{"message":{"sourceid":"'
-				+ currentsessioninfo.managerInfo.managerid + '","destid":"'
+				+ currentsessioninfo.managerInfo.username + '","destid":"'
 				+ currentsessioninfo.currentuser + '","content":"' + message
 				+ '"}}';
 		ws.send(jsonMess);
@@ -88,7 +88,7 @@ var updateTransport = function(transport) {
 
 var logsendmess = function(message) {
 	var htmlStr = '<p><em class=\"lan\">'
-			+ currentsessioninfo.managerInfo.managerid + '</em><span>'
+			+ currentsessioninfo.managerInfo.username + '</em><span>'
 			+ startTime() + '</span></p><p class=\"indent\">' + message
 			+ '</p></li>';
 	$("#console").append(htmlStr)
@@ -107,7 +107,7 @@ var logreceivemess = function(message) {
 		var userliststr = "";
 		var indexi = 0;
 		for (i in messjson.userids) {
-			if (messjson.userids[i] != currentsessioninfo.managerInfo.managerid) {
+			if (messjson.userids[i] != currentsessioninfo.managerInfo.username) {
 				currentsessioninfo.onLineUserList.push(messjson.userids[i]);
 				userliststr = userliststr
 						+ '<li><a href="javascript:currentsessioninfo.setcurrentuserinfo('
@@ -150,20 +150,20 @@ var checklogin = function() {
 		cache : false,
 		type : 'POST',
 		dataType : "json",
-		url : '../checklogin.jhtml',// 请求的action路径
+		url : 'checklogin.do',// 请求的action路径
 		error : function() {// 请求失败处理函数
 			MessageWindow.showMess('链接服务异常，请稍后在试。');
 		},
 		success : function(data) { // 请求成功后处理函数。
-			if (data.login == '0') {
+			if (data.login == 'false') {
 				$("#loginform").css("display", "block");
 				$("#chatroom").css("display", "none");
-			} else if (data.login == '1') {
+			} else if (data.login == 'true') {
 				currentsessioninfo = new sessionfin();
-				currentsessioninfo.setManagerInfo(data.managerValue);
+				currentsessioninfo.setManagerInfo(data.userinfo);
 				$("#loginform").css("display", "none");
 				$("#chatroom").css("display", "block");
-				url = url + "?managerid=" + data.managerValue.managerid;
+				url = url + "?managerid=" + data.userinfo.username;
 				connect();
 			}
 		}

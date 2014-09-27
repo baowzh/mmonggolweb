@@ -52,166 +52,7 @@
 	</div>
 	<div class="lmainR ofh" style="text-align: center;">
 		<div class="navCard ">
-			<div class="m1ln nav2">
-				<a href="javascript:;">  </a>
-			</div>
-			<div class="m1ln navl">
-				<a href="pagingquery.do?docchannel=32222233332222"> 
-				</a>
-			</div>
-			<div class="m1ln navl">
-				<a href="pagingquery.do?docchannel=11111111111111">
-					 </a>
-			</div>
-			<div class="m1ln navl">
-				<a href="pagingquery.do?docchannel=11111111111112">  </a>
-			</div>
-			<div class="m1ln navl">
-				<a href="pagingquery.do?docchannel=32222233332223">
-					 </a>
-			</div>
-			<div class="m1ln navl">
-				<a href="pagingquery.do?docchannel=32222233332224">
-					 </a>
-			</div>
-			<div class="m1ln navl">
-				<a href="pagingquery.do?docchannel=32222233332222"> 
-				</a>
-			</div>
-			<div class="m1ln navl">
-				<a href="pagingquery.do?docchannel=11111111111123"></a>
-			</div>
-			<div class="m1ln nav2">
-				<a href="javascript:;">  </a>
-			</div>
-			<div class="m1ln navl">
-				<a href="pagingquery.do?docchannel=11111111111124"> 
-				</a>
-			</div>
-			<div class="m1ln navl">
-				<a href="pagingquery.do?docchannel=11111111111125"> 
-				</a>
-			</div>
-			<div class="m1ln navl">
-				<a href="pagingquery.do?docchannel=11111111111126">  </a>
-			</div>
-			<div class="m1ln navl">
-				<a href="pagingquery.do?docchannel=11111111111127"> </a>
-			</div>
-			<div class="m1ln navl">
-				<a href="pagingquery.do?docchannel=11111111111128"> </a>
-			</div>
-			<div class="m1ln navl">
-				<a href="pagingquery.do?docchannel=11111111111129"> </a>
-			</div>
-			<div class="m1ln navl">
-				<a href="#"></a>
-			</div>
-			<div class="m1ln nav2">
-				<a href="javascript:;">  </a>
-			</div>
-			<div class="m1ln navl">
-				<a href="pagingquery.do?docchannel=11111111111130">  </a>
-			</div>
-			<div class="m1ln navl">
-				<a href="pagingquery.do?docchannel=11111111111131">
-					 </a>
-			</div>
-			<div class="m1ln navl">
-				<a href="pagingquery.do?docchannel=11111111111132">  </a>
-			</div>
-			<div class="m1ln navl">
-				<a href="pagingquery.do?docchannel=11111111111133"> 
-					 </a>
-			</div>
-			<div class="m1ln navl">
-				<a href="pagingquery.do?docchannel=11111111111134"> 
-					 </a>
-			</div>
-			<div class="m1ln navl">
-				<a href="pagingquery.do?docchannel=11111111111135"> 
-				</a>
-			</div>
-			<div class="m1ln navl">
-				<a href="pagingquery.do?docchannel=32222233332222"></a>
-			</div>
-			<div class="m1ln nav2">
-				<a href="javascript:;">  </a>
-			</div>
-			<div class="m1ln navl">
-				<a href="pagingquery.do?docchannel=11111111111115">  </a>
-			</div>
-			<div class="m1ln navl">
-				<a href="pagingquery.do?docchannel=32222233332222"> 
-					 </a>
-			</div>
-			<div class="m1ln navl">
-				<a href="pagingquery.do?docchannel=32222233331114"> 
-				</a>
-			</div>
-			<div class="m1ln navl">
-				<a href="pagingquery.do?docchannel=11111111111116"> </a>
-			</div>
-			<div class="m1ln navl">
-				<a href="pagingquery.do?docchannel=11111111111117"> 
-				</a>
-			</div>
-			<div class="m1ln navl">
-				<a href="pagingquery.do?docchannel=11111111111118"> 
-					 </a>
-			</div>
-			<div class="m1ln navl">
-				<a href="pagingquery.do?docchannel=11111111111119"> 
-				</a>
-			</div>
-			<div class="m1ln navl">
-				<a href="pagingquery.do?docchannel=11111111111110"> 
-					 </a>
-			</div>
-			<div class="m1ln navl">
-				<a href="pagingquery.do?docchannel=11111111111120">
-					 </a>
-			</div>
-			<div class="m1ln navl">
-				<a href="pagingquery.do?docchannel=11111111111121"> 
-				</a>
-			</div>
-			<div class="m1ln navl">
-				<a href="pagingquery.do?docchannel=11111111111122">
-					 </a>
-			</div>
-			<div class="m1ln navl">
-				<a href="pagingquery.do?docchannel=32222233332222">
-					  </a>
-			</div>
-			<div class="m1ln navl">
-				<a href="pagingquery.do?docchannel=32222233332222"></a>
-			</div>
-			<div class="m1ln nav2">
-				<a href="javascript:;">  </a>
-			</div>
-			<div class="m1ln navl">
-				<a href="pagingquery.do?docchannel=32222233332222"> 
-					 </a>
-			</div>
-			<div class="m1ln navl">
-				<a href="pagingquery.do?docchannel=32222233332222"> 
-				</a>
-			</div>
-			<div class="m1ln navl">
-				<a href="pagingquery.do?docchannel=32222233332222">
-					 </a>
-			</div>
-			<div class="m1ln navl">
-				<a href="pagingquery.do?docchannel=32222233332222">  </a>
-			</div>
-			<div class="m1ln navl">
-				<a href="pagingquery.do?docchannel=32222233332222">
-					 </a>
-			</div>
-			<div class="m1ln navl">
-				<a href="pagingquery.do?docchannel=32222233332222">  </a>
-			</div>
+			<%@ include file="head.jsp"%>
 		</div>
 		<div class="cbt"></div>
 	</div>
@@ -291,8 +132,8 @@
 				<div class="cardt1">
 					<a name="sonin"></a>
 					<div class="ttl1 m1ln">
-						<a href="pagingquery.do?docchannel=32222233332222">
-							 </a>
+						<a href="pagingquery.do?docchannel=11111111111110">
+							 </a>
 					</div>
 					<div class="nwsls1">
 
@@ -320,11 +161,11 @@
 				<div class="cardt1">
 					<a name="svrgal"></a>
 					<div class="ttl1 m1ln">
-						<a href="pagingquery.do?docchannel=11111111111111">
-							 </a>
+						<a href="pagingquery.do?docchannel=11111111111111"> 
+							 </a>
 					</div>
 					<div class="nwsls1">
-						<c:forEach items="${indexPageContent.educationarts}"
+						<c:forEach items="${indexPageContent.bookarts}"
 							var="documentValue" varStatus="status">
 							<div class="nwsl1">
 								<div class="title">
@@ -347,11 +188,11 @@
 				<div class="cardt1" style="background: #fffff">
 					<a name="tuuh"></a>
 					<div class="ttl1 m1ln">
-						<a href="pagingquery.do?docchannel=11111111111112"> 
-						</a>
+						<a href="pagingquery.do?docchannel=11111111111115">
+							 </a>
 					</div>
 					<div class="nwsls1">
-						<c:forEach items="${indexPageContent.historyarts}"
+						<c:forEach items="${indexPageContent.literature}"
 							var="documentValue" varStatus="status">
 							<div class="nwsl1">
 								<div class="title">
@@ -481,12 +322,12 @@
 				<div class="cardt3">
 					<a name="sinljilge"></a>
 					<div class="ttl1 m1ln">
-						<a href="pagingquery.do?docchannel=32222233332223">
-							 </a>
+						<a href="pagingquery.do?docchannel=11111111111132"> 
+						</a>
 					</div>
 					<div class="nwsls1" style="width: 180px;">
-						<c:forEach items="${indexPageContent.sciencearts}"
-							var="documentValue" varStatus="status">
+						<c:forEach items="${indexPageContent.health}" var="documentValue"
+							varStatus="status">
 							<div class="nwsl1">
 								<div class="title">
 									<a
@@ -508,12 +349,11 @@
 				<div class="cardt1">
 					<a name="onol"></a>
 					<div class="ttl1 m1ln">
-						<a href="pagingquery.do?docchannel=32222233332224">
-							 </a>
+						<a href="pagingquery.do?docchannel=11111111111118"> </a>
 					</div>
 					<div class="nwsls1">
-						<c:forEach items="${indexPageContent.theoryarts}"
-							var="documentValue" varStatus="status">
+						<c:forEach items="${indexPageContent.sport}" var="documentValue"
+							varStatus="status">
 							<div class="nwsl1">
 								<div class="title">
 									<a
@@ -536,11 +376,11 @@
 				<div class="cardt1">
 					<a name="hebshmel"></a>
 					<div class="ttl1 m1ln">
-						<a href="pagingquery.do?docchannel=32222233332222">
-							 </a>
+						<a href="pagingquery.do?docchannel=32222233312226">
+							 </a>
 					</div>
 					<div class="nwsls1">
-						<c:forEach items="${indexPageContent.sayingarts}"
+						<c:forEach items="${indexPageContent.discussarts}"
 							var="documentValue" varStatus="status">
 							<div class="nwsl1">
 								<div class="title">
@@ -572,8 +412,8 @@
 				<div class="cardt1">
 					<a name="#nairag"></a>
 					<div class="ttl1 m1ln">
-						<a href="pagingquery.do?docchannel=11111111111124">
-							 </a>
+						<a href="pagingquery.do?docchannel=11111111111119">
+							 </a>
 					</div>
 					<div class="nwsls1">
 						<c:forEach items="${indexPageContent.poemsarts}"
@@ -600,11 +440,11 @@
 				<div class="cardt1">
 					<a name="dvv"></a>
 					<div class="ttl1 m1ln">
-						<a href="pagingquery.do?docchannel=11111111111125">
-							 </a>
+						<a href="pagingquery.do?docchannel=32222233331114"> 
+						</a>
 					</div>
 					<div class="nwsls1">
-						<c:forEach items="${indexPageContent.musicarts}"
+						<c:forEach items="${indexPageContent.Anecdotes}"
 							var="documentValue" varStatus="status">
 							<div class="nwsl1">
 								<div class="title">
@@ -628,11 +468,11 @@
 				<div class="   cardt1  " style="background: #ffffff">
 					<a name="kino"></a>
 					<div class="ttl1 m1ln">
-						<a href="pagingquery.do?docchannel=11111111111126"> 
+						<a href="pagingquery.do?docchannel=32222233312224"> 
 						</a>
 					</div>
 					<div class="nwsls1">
-						<c:forEach items="${indexPageContent.moviearts}"
+						<c:forEach items="${indexPageContent.socialarts}"
 							var="documentValue" varStatus="status">
 							<div class="nwsl1">
 								<div class="title">
@@ -656,11 +496,11 @@
 				<div class="cardt1">
 					<a name="nairvvlal"></a>
 					<div class="ttl1 m1ln">
-						<a href="pagingquery.do?docchannel=11111111111127">
+						<a href="pagingquery.do?docchannel=22222233332224">
 						</a>
 					</div>
 					<div class="nwsls1">
-						<c:forEach items="${indexPageContent.proesarts}"
+						<c:forEach items="${indexPageContent.monggoldiscuss}"
 							var="documentValue" varStatus="status">
 							<div class="nwsl1">
 								<div class="title">
@@ -684,10 +524,11 @@
 				<div class="cardt1">
 					<a name="uglel"></a>
 					<div class="ttl1 m1ln">
-						<a href="pagingquery.do?docchannel=11111111111128"> </a>
+						<a href="pagingquery.do?docchannel=11111111111128">
+							 </a>
 					</div>
 					<div class="nwsls1">
-						<c:forEach items="${indexPageContent.paperarts}"
+						<c:forEach items="${indexPageContent.monggolian}"
 							var="documentValue" varStatus="status">
 							<div class="nwsl1">
 								<div class="title">
@@ -711,10 +552,11 @@
 				<div class="cardt1" style="background: #ffffff">
 					<a name="tvvjis"></a>
 					<div class="ttl1 m1ln">
-						<a href="pagingquery.do?docchannel=11111111111129"> </a>
+						<a href="pagingquery.do?docchannel=11111111111122">
+							 </a>
 					</div>
 					<div class="nwsls1">
-						<c:forEach items="${indexPageContent.storyarts}"
+						<c:forEach items="${indexPageContent.technicarts}"
 							var="documentValue" varStatus="status">
 							<div class="nwsl1">
 								<div class="title">
@@ -790,299 +632,6 @@
 				</div>
 			</div>
 		</div>
-		<div class="  lcell" style="width: 990px;">
-			<div class="lcell cardlogin   "
-				style="background: white; margin-top: 5px">
-				<img src="img/8.jpg" width="600" height="400" />
-			</div>
-			<div class="lcell " style="height: 350px; width: 238px;">
-				<div class="cardt3">
-					<div class="nwsls1">
-						<div class="nwsl1">
-							<div class="title" style="height: 320px;">
-								<a href="textDetail.html">    
-									         
-									     </a>
-							</div>
-						</div>
-						<div class="nwsl1">
-							<div class="title" style="height: 320px;">
-								<a href="textDetail.html">    
-									         
-									     </a>
-							</div>
-						</div>
-						<div class="nwsl1">
-							<div class="title" style="height: 320px;">
-								<a href="textDetail.html">    
-									         
-									     </a>
-							</div>
-						</div>
-						<div class="nwsl1">
-							<div class="title" style="height: 320px;">
-								<a href="textDetail.html">    
-									         
-									     </a>
-							</div>
-						</div>
-						<div class="nwsl1">
-							<div class="title" style="height: 320px;">
-								<a href="textDetail.html">    
-									         
-									     </a>
-							</div>
-						</div>
-						<div class="nwsl1">
-							<div class="title" style="height: 320px;">
-								<a href="textDetail.html">    
-									         
-									     </a>
-							</div>
-						</div>
-						<div class="nwsl1">
-							<div class="title" style="height: 320px;">
-								<a href="textDetail.html">    
-									         
-									     </a>
-							</div>
-						</div>
-						<div class="nwsl1">
-							<div class="title" style="height: 320px;">
-								<a href="textDetail.html">    
-									         
-									     </a>
-							</div>
-						</div>
-						<div class="nwsl1">
-							<div class="title" style="height: 320px;">
-								<a href="textDetail.html">    
-									         
-									     </a>
-							</div>
-						</div>
-						<div class="nwsl1">
-							<div class="title" style="height: 320px;">
-								<a href="textDetail.html">    
-									         
-									     </a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="lcell cell1">
-				<div class="cardt1">
-					<div class="ttl1 m1ln">
-						<a href="#">   </a>
-					</div>
-					<div class="nwsls1">
-						<div class="ad">
-							<img src="img/6.jpg" width="240" />
-						</div>
-						<div class="ad">
-							<img src="img/14.jpg" width="240" />
-						</div>
-						<div class="ad">
-							<img src="img/01.jpg" width="240" />
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="lcell cell1">
-				<div class="cardt1">
-					<div class="ttl1 m1ln">
-						<a href="#"> </a>
-					</div>
-					<div class="nwsls1">
-						<div class="ad">
-							<img src="img/6.jpg" width="240" />
-						</div>
-						<div class="ad">
-							<img src="img/14.jpg" width="240" />
-						</div>
-						<div class="ad">
-							<img src="img/01.jpg" width="240" />
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="lmainR">
-		<div class="  lcell" style="width: 90px; height: 700px;">
-			<div
-				style="width: 80px; height: 690px; background: url(img/nogoonsuld.png) center no-repeat; margin: 5px; border: solid 1px #39F; border-radius: 5px;"></div>
-		</div>
-		<div class="  lcell" style="width: 900px;">
-			<div class="lcell cell1">
-				<div class="cardt1">
-					<a name="edin"></a>
-					<div class="ttl1 m1ln">
-						<a href="pagingquery.do?docchannel=11111111111130">  </a>
-					</div>
-					<div class="nwsls1">
-						<c:forEach items="${indexPageContent.economicarts}"
-							var="documentValue" varStatus="status">
-							<div class="nwsl1">
-								<div class="title">
-									<a
-										href="getuserdocdetail.do?docid=<c:out value="${documentValue.docid}"/>"><c:out
-											value="${documentValue.doctitle}" /> </a>
-								</div>
-								<div class="author">
-									<a
-										href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
-										<c:out value="${documentValue.docauthor}" />
-									</a>
-								</div>
-							</div>
-						</c:forEach>
-
-					</div>
-				</div>
-			</div>
-			<div class="lcell cell1">
-				<div class="cardt1">
-					<a name="idgen"></a>
-					<div class="ttl1 m1ln">
-						<a href="pagingquery.do?docchannel=11111111111131">
-							 </a>
-					</div>
-					<div class="nwsls1">
-						<c:forEach items="${indexPageContent.foodarts}"
-							var="documentValue" varStatus="status">
-							<div class="nwsl1">
-								<div class="title">
-									<a
-										href="getuserdocdetail.do?docid=<c:out value="${documentValue.docid}"/>"><c:out
-											value="${documentValue.doctitle}" /> </a>
-								</div>
-								<div class="author">
-									<a
-										href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
-										<c:out value="${documentValue.docauthor}" />
-									</a>
-								</div>
-							</div>
-						</c:forEach>
-
-					</div>
-				</div>
-			</div>
-			<div class="lcell cell1">
-				<div class="   cardt1  " style="background: #ffffff">
-					<a name="eruul"></a>
-					<div class="ttl1 m1ln">
-						<a href="pagingquery.do?docchannel=11111111111132"> 
-						</a>
-					</div>
-					<div class="nwsls1">
-						<c:forEach items="${indexPageContent.healtharts}"
-							var="documentValue" varStatus="status">
-							<div class="nwsl1">
-								<div class="title">
-									<a
-										href="getuserdocdetail.do?docid=<c:out value="${documentValue.docid}"/>"><c:out
-											value="${documentValue.doctitle}" /> </a>
-								</div>
-								<div class="author">
-									<a
-										href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
-										<c:out value="${documentValue.docauthor}" />
-									</a>
-								</div>
-							</div>
-						</c:forEach>
-
-					</div>
-				</div>
-			</div>
-			<div class="lcell cell1">
-				<div class="cardt1">
-					<a name="vrgmal"></a>
-					<div class="ttl1 m1ln">
-						<a href="pagingquery.do?docchannel=11111111111133"> 
-							 </a>
-					</div>
-					<div class="nwsls1">
-						<c:forEach items="${indexPageContent.plantarts}"
-							var="documentValue" varStatus="status">
-							<div class="nwsl1">
-								<div class="title">
-									<a
-										href="getuserdocdetail.do?docid=<c:out value="${documentValue.docid}"/>"><c:out
-											value="${documentValue.doctitle}" /> </a>
-								</div>
-								<div class="author">
-									<a
-										href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
-										<c:out value="${documentValue.docauthor}" />
-									</a>
-								</div>
-							</div>
-						</c:forEach>
-
-					</div>
-				</div>
-			</div>
-			<div class="lcell cell1">
-				<div class="cardt1">
-					<a name="amitan"></a>
-					<div class="ttl1 m1ln">
-						<a href="pagingquery.do?docchannel=11111111111134"> 
-							 </a>
-					</div>
-					<div class="nwsls1">
-						<c:forEach items="${indexPageContent.animalarts}"
-							var="documentValue" varStatus="status">
-							<div class="nwsl1">
-								<div class="title">
-									<a
-										href="getuserdocdetail.do?docid=<c:out value="${documentValue.docid}"/>"><c:out
-											value="${documentValue.doctitle}" /> </a>
-								</div>
-								<div class="author">
-									<a
-										href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
-										<c:out value="${documentValue.docauthor}" />
-									</a>
-								</div>
-							</div>
-						</c:forEach>
-
-					</div>
-				</div>
-			</div>
-			<div class="lcell cell1">
-				<div class="cardt1" style="background: #ffffff">
-					<a name="domog"></a>
-					<div class="ttl1 m1ln">
-						<a href="pagingquery.do?docchannel=11111111111135">
-							 </a>
-					</div>
-					<div class="nwsls1">
-						<c:forEach items="${indexPageContent.allegoryarts}"
-							var="documentValue" varStatus="status">
-							<div class="nwsl1">
-								<div class="title">
-									<a
-										href="getuserdocdetail.do?docid=<c:out value="${documentValue.docid}"/>"><c:out
-											value="${documentValue.doctitle}" /> </a>
-								</div>
-								<div class="author">
-									<a
-										href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
-										<c:out value="${documentValue.docauthor}" />
-									</a>
-								</div>
-							</div>
-						</c:forEach>
-
-					</div>
-				</div>
-			</div>
-		</div>
 	</div>
 	<div class="lmainR">
 		<div class="  lcell" style="width: 990px;">
@@ -1114,221 +663,22 @@
 				</div>
 			</div>
 		</div>
-		<div class="  lcell" style="width: 990px;">
-			<div class="lcell cardlogin   "
-				style="background: white; margin-top: 5px">
-				<img src="img/8.jpg" width="600" height="400" />
-			</div>
-			<div class="lcell " style="height: 350px; width: 238px;">
-				<div class="cardt3">
-					<div class="nwsls1">
-						<div class="nwsl1">
-							<div class="title" style="height: 320px;">
-								<a href="textDetail.html">    
-									         
-									     </a>
-							</div>
-						</div>
-						<div class="nwsl1">
-							<div class="title" style="height: 320px;">
-								<a href="textDetail.html">    
-									         
-									     </a>
-							</div>
-						</div>
-						<div class="nwsl1">
-							<div class="title" style="height: 320px;">
-								<a href="textDetail.html">    
-									         
-									     </a>
-							</div>
-						</div>
-						<div class="nwsl1">
-							<div class="title" style="height: 320px;">
-								<a href="textDetail.html">    
-									         
-									     </a>
-							</div>
-						</div>
-						<div class="nwsl1">
-							<div class="title" style="height: 320px;">
-								<a href="textDetail.html">    
-									         
-									     </a>
-							</div>
-						</div>
-						<div class="nwsl1">
-							<div class="title" style="height: 320px;">
-								<a href="textDetail.html">    
-									         
-									     </a>
-							</div>
-						</div>
-						<div class="nwsl1">
-							<div class="title" style="height: 320px;">
-								<a href="textDetail.html">    
-									         
-									     </a>
-							</div>
-						</div>
-						<div class="nwsl1">
-							<div class="title" style="height: 320px;">
-								<a href="textDetail.html">    
-									         
-									     </a>
-							</div>
-						</div>
-						<div class="nwsl1">
-							<div class="title" style="height: 320px;">
-								<a href="textDetail.html">    
-									         
-									     </a>
-							</div>
-						</div>
-						<div class="nwsl1">
-							<div class="title" style="height: 320px;">
-								<a href="textDetail.html">    
-									         
-									     </a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="lcell cell1">
-				<div class="cardt1">
-					<div class="ttl1 m1ln">
-						<a href="#">  </a>
-					</div>
-					<div class="nwsls1">
-						<div class="ad">
-							<img src="img/6.jpg" width="240" />
-						</div>
-						<div class="ad">
-							<img src="img/14.jpg" width="240" />
-						</div>
-						<div class="ad">
-							<img src="img/01.jpg" width="240" />
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="lcell cell1">
-				<div class="cardt1">
-					<div class="ttl1 m1ln">
-						<a href="#">  </a>
-					</div>
-					<div class="nwsls1">
-						<div class="ad">
-							<img src="img/6.jpg" width="240" />
-						</div>
-						<div class="ad">
-							<img src="img/14.jpg" width="240" />
-						</div>
-						<div class="ad">
-							<img src="img/01.jpg" width="240" />
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
 	</div>
 	<div class="lmainR">
 		<div class="  lcell" style="width: 90px; height: 700px;">
 			<div
-				style="width: 80px; height: 690px; background: url(img/alagsuld.png) center no-repeat; margin: 5px; border: solid 1px #39F; border-radius: 5px;"></div>
+				style="width: 80px; height: 690px; background: url(img/nogoonsuld.png) center no-repeat; margin: 5px; border: solid 1px #39F; border-radius: 5px;"></div>
 		</div>
 		<div class="  lcell" style="width: 900px;">
 			<div class="lcell cell1">
 				<div class="cardt1">
-					<a name="shog"></a>
+					<a name="edin"></a>
 					<div class="ttl1 m1ln">
-						<a href="pagingquery.do?docchannel=11111111111115">  </a>
+						<a href="pagingquery.do?docchannel=11111111111114">
+							 </a>
 					</div>
 					<div class="nwsls1">
-						<c:forEach items="${indexPageContent.humorarts}"
-							var="documentValue" varStatus="status">
-							<div class="nwsl1">
-								<div class="title">
-									<a
-										href="getuserdocdetail.do?docid=<c:out value="${documentValue.docid}"/>"><c:out
-											value="${documentValue.doctitle}" /> </a>
-								</div>
-								<div class="author">
-									<a
-										href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
-										<c:out value="${documentValue.docauthor}" />
-									</a>
-								</div>
-							</div>
-						</c:forEach>
-
-					</div>
-				</div>
-			</div>
-			<div class="lcell cell1">
-				<div class="cardt1">
-					<a name="vyvn"></a>
-					<div class="ttl1 m1ln">
-						<a href="#">   </a>
-					</div>
-					<div class="nwsls1">
-						<c:forEach items="${indexPageContent.humorarts}"
-							var="documentValue" varStatus="status">
-							<div class="nwsl1">
-								<div class="title">
-									<a
-										href="getuserdocdetail.do?docid=<c:out value="${documentValue.docid}"/>"><c:out
-											value="${documentValue.doctitle}" /> </a>
-								</div>
-								<div class="author">
-									<a
-										href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
-										<c:out value="${documentValue.docauthor}" />
-									</a>
-								</div>
-							</div>
-						</c:forEach>
-
-					</div>
-				</div>
-			</div>
-			<div class="lcell cell1">
-				<div class="   cardt1  " style="background: #ffffff">
-					<a name="haqin"></a>
-					<div class="ttl1 m1ln">
-						<a href="pagingquery.do?docchannel=32222233332222">
-							 </a>
-					</div>
-					<div class="nwsls1">
-						<c:forEach items="${indexPageContent.craftarts}"
-							var="documentValue" varStatus="status">
-							<div class="nwsl1">
-								<div class="title">
-									<a
-										href="getuserdocdetail.do?docid=<c:out value="${documentValue.docid}"/>"><c:out
-											value="${documentValue.doctitle}" /> </a>
-								</div>
-								<div class="author">
-									<a
-										href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
-										<c:out value="${documentValue.docauthor}" />
-									</a>
-								</div>
-							</div>
-						</c:forEach>
-
-					</div>
-				</div>
-			</div>
-			<div class="lcell cell1">
-				<div class="cardt1">
-					<a name="temdeglel"></a>
-					<div class="ttl1 m1ln">
-						<a href="pagingquery.do?docchannel=11111111111116"> </a>
-					</div>
-					<div class="nwsls1">
-						<c:forEach items="${indexPageContent.logarts}" var="documentValue"
+						<c:forEach items="${indexPageContent.nature}" var="documentValue"
 							varStatus="status">
 							<div class="nwsl1">
 								<div class="title">
@@ -1350,13 +700,13 @@
 			</div>
 			<div class="lcell cell1">
 				<div class="cardt1">
-					<a name="xaxin"></a>
+					<a name="idgen"></a>
 					<div class="ttl1 m1ln">
-						<a href="pagingquery.do?docchannel=11111111111117">
-							 </a>
+						<a href="pagingquery.do?docchannel=11111111111125">
+							 </a>
 					</div>
 					<div class="nwsls1">
-						<c:forEach items="${indexPageContent.beliefarts}"
+						<c:forEach items="${indexPageContent.musicarts}"
 							var="documentValue" varStatus="status">
 							<div class="nwsl1">
 								<div class="title">
@@ -1373,109 +723,18 @@
 							</div>
 						</c:forEach>
 
-					</div>
-				</div>
-			</div>
-			<div class="lcell cell1">
-				<div class="cardt1" style="background: #ffffff">
-					<a name="eren"></a>
-					<div class="ttl1 m1ln">
-						<a href="pagingquery.do?docchannel=11111111111118"> 
-							 </a>
-					</div>
-					<div class="nwsls1">
-						<c:forEach items="${indexPageContent.leaderarts}"
-							var="documentValue" varStatus="status">
-							<div class="nwsl1">
-								<div class="title">
-									<a
-										href="getuserdocdetail.do?docid=<c:out value="${documentValue.docid}"/>"><c:out
-											value="${documentValue.doctitle}" /> </a>
-								</div>
-								<div class="author">
-									<a
-										href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
-										<c:out value="${documentValue.docauthor}" />
-									</a>
-								</div>
-							</div>
-						</c:forEach>
-
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="lmainR">
-		<div class="  lcell" style="width: 90px; height: 700px;">
-			<div
-				style="width: 80px; height: 690px; background: url(img/tanison.png) center no-repeat; margin: 5px; border: solid 1px #39F; border-radius: 5px;"></div>
-		</div>
-		<div class="  lcell" style="width: 900px;">
-			<div class="lcell cell1">
-				<div class="cardt1">
-					<a name="biqilge"></a>
-					<div class="ttl1 m1ln">
-						<a href="pagingquery.do?docchannel=11111111111119">
-							 </a>
-					</div>
-					<div class="nwsls1">
-						<c:forEach items="${indexPageContent.handwritingarts}"
-							var="documentValue" varStatus="status">
-							<div class="nwsl1">
-								<div class="title">
-									<a
-										href="getuserdocdetail.do?docid=<c:out value="${documentValue.docid}"/>"><c:out
-											value="${documentValue.doctitle}" /> </a>
-								</div>
-								<div class="author">
-									<a
-										href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
-										<c:out value="${documentValue.docauthor}" />
-									</a>
-								</div>
-							</div>
-						</c:forEach>
-
-					</div>
-				</div>
-			</div>
-			<div class="lcell cell1">
-				<div class="cardt1">
-					<a name="svrvgch"></a>
-					<div class="ttl1 m1ln">
-						<a href="pagingquery.do?docchannel=11111111111110"> 
-							 </a>
-					</div>
-					<div class="nwsls1">
-						<c:forEach items="${indexPageContent.studentsarts}"
-							var="documentValue" varStatus="status">
-							<div class="nwsl1">
-								<div class="title">
-									<a
-										href="getuserdocdetail.do?docid=<c:out value="${documentValue.docid}"/>"><c:out
-											value="${documentValue.doctitle}" /> </a>
-								</div>
-								<div class="author">
-									<a
-										href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
-										<c:out value="${documentValue.docauthor}" />
-									</a>
-								</div>
-							</div>
-						</c:forEach>
 					</div>
 				</div>
 			</div>
 			<div class="lcell cell1">
 				<div class="   cardt1  " style="background: #ffffff">
-					<a name="asvvlt"></a>
+					<a name="eruul"></a>
 					<div class="ttl1 m1ln">
-						<a href="pagingquery.do?docchannel=11111111111120">
-							 </a>
+						<a href="pagingquery.do?docchannel=11111111111129">
+							 </a>
 					</div>
 					<div class="nwsls1">
-						<c:forEach items="${indexPageContent.questionarts}"
+						<c:forEach items="${indexPageContent.pictures}"
 							var="documentValue" varStatus="status">
 							<div class="nwsl1">
 								<div class="title">
@@ -1497,102 +756,10 @@
 			</div>
 			<div class="lcell cell1">
 				<div class="cardt1">
-					<a name="nair"></a>
+					<a name="vrgmal"></a>
 					<div class="ttl1 m1ln">
-						<a href="pagingquery.do?docchannel=11111111111121">
-							 </a>
-					</div>
-					<div class="nwsls1">
-						<c:forEach items="${indexPageContent.entertainmentarts}"
-							var="documentValue" varStatus="status">
-							<div class="nwsl1">
-								<div class="title">
-									<a
-										href="getuserdocdetail.do?docid=<c:out value="${documentValue.docid}"/>"><c:out
-											value="${documentValue.doctitle}" /> </a>
-								</div>
-								<div class="author">
-									<a
-										href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
-										<c:out value="${documentValue.docauthor}" />
-									</a>
-								</div>
-							</div>
-						</c:forEach>
-
-					</div>
-				</div>
-			</div>
-			<div class="lcell cell1">
-				<div class="cardt1">
-					<a name="sodlol"></a>
-					<div class="ttl1 m1ln">
-						<a href="pagingquery.do?docchannel=11111111111122">
-							 </a>
-					</div>
-					<div class="nwsls1">
-						<c:forEach items="${indexPageContent.technicarts}"
-							var="documentValue" varStatus="status">
-							<div class="nwsl1">
-								<div class="title">
-									<a
-										href="getuserdocdetail.do?docid=<c:out value="${documentValue.docid}"/>"><c:out
-											value="${documentValue.doctitle}" /> </a>
-								</div>
-								<div class="author">
-									<a
-										href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
-										<c:out value="${documentValue.docauthor}" />
-									</a>
-								</div>
-							</div>
-						</c:forEach>
-
-					</div>
-				</div>
-			</div>
-			<div class="lcell cell1">
-				<div class="cardt1" style="background: #ffffff">
-					<a name="busgui"></a>
-					<div class="ttl1 m1ln">
-						<a href="pagingquery.do?docchannel=32222233332222">
-							  </a>
-					</div>
-					<div class="nwsls1">
-						<c:forEach items="${indexPageContent.forwomanarts}"
-							var="documentValue" varStatus="status">
-							<div class="nwsl1">
-								<div class="title">
-									<a
-										href="getuserdocdetail.do?docid=<c:out value="${documentValue.docid}"/>"><c:out
-											value="${documentValue.doctitle}" /> </a>
-								</div>
-								<div class="author">
-									<a
-										href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
-										<c:out value="${documentValue.docauthor}" />
-									</a>
-								</div>
-							</div>
-						</c:forEach>
-
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="lmainR">
-		<div class="  lcell" style="width: 90px; height: 700px;">
-			<div
-				style="width: 80px; height: 690px; background: url(img/harsuld.gif) center no-repeat; margin: 5px; border: solid 1px #39F; border-radius: 5px;"></div>
-		</div>
-		<div class="  lcell" style="width: 900px;">
-			<div class="lcell cell1">
-				<div class="cardt1">
-					<a name="hvvl"></a>
-					<div class="ttl1 m1ln">
-						<a href="pagingquery.do?docchannel=32222233332222"> 
-							 </a>
+						<a href="pagingquery.do?docchannel=32222233312222"> 
+						</a>
 					</div>
 					<div class="nwsls1">
 						<c:forEach items="${indexPageContent.lawarts}" var="documentValue"
@@ -1611,100 +778,18 @@
 								</div>
 							</div>
 						</c:forEach>
-					</div>
-				</div>
-			</div>
-			<div class="lcell cell1">
-				<div class="cardt1">
-					<a name="mergjil"></a>
-					<div class="ttl1 m1ln">
-						<a href="pagingquery.do?docchannel=32222233332222">
-							 </a>
-					</div>
-					<div class="nwsls1">
-						<c:forEach items="${indexPageContent.newtechnique}"
-							var="documentValue" varStatus="status">
-							<div class="nwsl1">
-								<div class="title">
-									<a
-										href="getuserdocdetail.do?docid=<c:out value="${documentValue.docid}"/>"><c:out
-											value="${documentValue.doctitle}" /> </a>
-								</div>
-								<div class="author">
-									<a
-										href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
-										<c:out value="${documentValue.docauthor}" />
-									</a>
-								</div>
-							</div>
-						</c:forEach>
-					</div>
-				</div>
-			</div>
-			<div class="lcell cell1">
-				<div class="   cardt1  " style="background: #ffffff">
-					<a name="niigem"></a>
-					<div class="ttl1 m1ln">
-						<a href="pagingquery.do?docchannel=32222233332222">
-							 </a>
-					</div>
-					<div class="nwsls1">
-						<c:forEach items="${indexPageContent.socialarts}"
-							var="documentValue" varStatus="status">
-							<div class="nwsl1">
-								<div class="title">
-									<a
-										href="getuserdocdetail.do?docid=<c:out value="${documentValue.docid}"/>"><c:out
-											value="${documentValue.doctitle}" /> </a>
-								</div>
-								<div class="author">
-									<a
-										href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
-										<c:out value="${documentValue.docauthor}" />
-									</a>
-								</div>
-							</div>
-						</c:forEach>
-					</div>
-				</div>
-			</div>
-			<div class="lcell cell1">
-				<div class="cardt1">
-					<a name="qirig"></a>
-					<div class="ttl1 m1ln">
-						<a href="pagingquery.do?docchannel=32222233332222"> 
-						</a>
-					</div>
-					<div class="nwsls1">
-						<c:forEach items="${indexPageContent.military}"
-							var="documentValue" varStatus="status">
-							<div class="nwsl1">
-								<div class="title">
-									<a
-										href="getuserdocdetail.do?docid=<c:out value="${documentValue.docid}"/>"><c:out
-											value="${documentValue.doctitle}" /> </a>
-								</div>
-								<div class="author">
-									<a
-										href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
-										<c:out value="${documentValue.docauthor}" />
-									</a>
-								</div>
-							</div>
-						</c:forEach>
 
 					</div>
 				</div>
 			</div>
 			<div class="lcell cell1">
 				<div class="cardt1">
-					<a name="bolbson"></a>
+					<a name="amitan"></a>
 					<div class="ttl1 m1ln">
-						<a href="pagingquery.do?docchannel=32222233332222">
-							 </a>
+						<a href="pagingquery.do?docchannel=11111111111127">  </a>
 					</div>
 					<div class="nwsls1">
-						<c:forEach items="${indexPageContent.discussarts}"
+						<c:forEach items="${indexPageContent.humorous}"
 							var="documentValue" varStatus="status">
 							<div class="nwsl1">
 								<div class="title">
@@ -1726,12 +811,13 @@
 			</div>
 			<div class="lcell cell1">
 				<div class="cardt1" style="background: #ffffff">
-					<a name="nom"></a>
+					<a name="domog"></a>
 					<div class="ttl1 m1ln">
-						<a href="pagingquery.do?docchannel=32222233332222">  </a>
+						<a href="pagingquery.do?docchannel=11111111111112"> 
+						</a>
 					</div>
 					<div class="nwsls1">
-						<c:forEach items="${indexPageContent.bookarts}"
+						<c:forEach items="${indexPageContent.historyarts}"
 							var="documentValue" varStatus="status">
 							<div class="nwsl1">
 								<div class="title">
@@ -1747,12 +833,12 @@
 								</div>
 							</div>
 						</c:forEach>
+
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
 	<div class="lmainR ofh" style="text-align: center;">
 		<div class="tailCard">
 			<div class="msheet" style="height: 100px; width: 800px;">
@@ -1768,6 +854,7 @@
 		<div class="cbt"></div>
 	</div>
 	<!-- JiaThis Button BEGIN -->
+
 	<div class="jiathis_share_slide jiathis_share_32x32"
 		id="jiathis_share_slide">
 		<div class="jiathis_share_slide_top" id="jiathis_share_title"></div>
@@ -1794,6 +881,7 @@
 			</div>
 		</div>
 	</div>
+
 	<!-- JiaThis Button END -->
 	<!-- UJian Button BEGIN -->
 	<script type="text/javascript"
