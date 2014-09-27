@@ -5,7 +5,7 @@ var ws = null;
 /**
  * 链接url
  */
-var url = 'ws://192.168.1.100:8080/website/echo';
+var url = 'ws://192.168.1.102:8080/website/echo';
 /**
  * 
  */
