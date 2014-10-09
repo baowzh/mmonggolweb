@@ -91,7 +91,7 @@ public class StaticConstants {
 
 	public static Integer IMG_NEWS_FETCHNUM = 7;
 	/**
-	 *  消息类型-评论
+	 * 消息类型-评论
 	 */
 	public static Integer MESS_TYPE_COMM = 1;
 	/**
@@ -122,5 +122,7 @@ public class StaticConstants {
 	 * 文本问题
 	 */
 	public static Integer QUESTION_TEXT = 3;
+	public static String sitename1 = "sulde";
 
+	public static String sitename2 = "altanhurd";
 }
