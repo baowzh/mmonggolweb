@@ -45,6 +45,8 @@ public class UserValue implements UserDetails {
 
 	private String province;
 	private String nowprovince;
+	private String provincename;
+	private String nowprovincename;
 	private String phone;
 	private String qq;
 	private String email;
@@ -64,8 +66,12 @@ public class UserValue implements UserDetails {
 	private String parentcode1;
 	private String hsien;
 	private String nowhsien;
+	private String hsienname;
+	private String nowhsienname;
 	private String profession;
 	private Integer blogclass;
+	private String professioncode;
+	private String professionname;
 
 	public String getLastip() {
 		return lastip;
@@ -548,6 +554,54 @@ public class UserValue implements UserDetails {
 
 	public void setBlogclass(Integer blogclass) {
 		this.blogclass = blogclass;
+	}
+
+	public String getProvincename() {
+		return provincename;
+	}
+
+	public void setProvincename(String provincename) {
+		this.provincename = provincename;
+	}
+
+	public String getNowprovincename() {
+		return nowprovincename;
+	}
+
+	public void setNowprovincename(String nowprovincename) {
+		this.nowprovincename = nowprovincename;
+	}
+
+	public String getHsienname() {
+		return hsienname;
+	}
+
+	public void setHsienname(String hsienname) {
+		this.hsienname = hsienname;
+	}
+
+	public String getNowhsienname() {
+		return nowhsienname;
+	}
+
+	public void setNowhsienname(String nowhsienname) {
+		this.nowhsienname = nowhsienname;
+	}
+
+	public String getProfessioncode() {
+		return professioncode;
+	}
+
+	public void setProfessioncode(String professioncode) {
+		this.professioncode = professioncode;
+	}
+
+	public String getProfessionname() {
+		return professionname;
+	}
+
+	public void setProfessionname(String professionname) {
+		this.professionname = professionname;
 	}
 
 }
