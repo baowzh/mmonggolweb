@@ -77,7 +77,7 @@
 					</div>
 					<div class="lcell cell1"
 						style="text-align: justify; text-justify: newspaper;width: 250px;">
-						<c:forEach items="${indexPageContent.bookarts}"
+						<c:forEach items="${indexPageContent.selectedarts}"
 							var="documentValue" varStatus="status">
 							<div class="nwsl1">
 								<div class="title">
