@@ -72,6 +72,9 @@ public class DocumentValue {
 	private Integer commentCount=new Integer(0);;
 	private Integer self = new Integer(0);
 	private Integer ireadcount;
+	private String chnaname;
+	private String compiler;
+	private String oldid;
 	private SimpleDateFormat formater = new SimpleDateFormat("yyyy-MM-dd");
 
 	public String getDocid() {
@@ -626,6 +629,30 @@ public class DocumentValue {
 	public void setIreadcount(Integer ireadcount) {
 		this.ireadcount = ireadcount;
 	}
-	
 
+	public String getChnaname() {
+		return chnaname;
+	}
+
+	public void setChnaname(String chnaname) {
+		this.chnaname = chnaname;
+	}
+
+	public String getCompiler() {
+		return compiler;
+	}
+
+	public void setCompiler(String compiler) {
+		this.compiler = compiler;
+	}
+
+	public String getOldid() {
+		return oldid;
+	}
+
+	public void setOldid(String oldid) {
+		this.oldid = oldid;
+	}
+	
+	
 }
