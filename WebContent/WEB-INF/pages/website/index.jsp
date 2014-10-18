@@ -20,6 +20,13 @@
 <script src="js/messagebox/jquery.msgbox.js"></script>
 <script src="js/messagebox/jquery.dragndrop.min.js"></script>
 <link rel="stylesheet" href="js\messagebox\jquery.msgbox.css" />
+<style>
+<c:if test="${agentkind==0}">
+body {
+	font-size: 17px;
+}
+</c:if>
+</style>
 </head>
 
 <body>
@@ -73,10 +80,10 @@
 			<div class="lcell cell1" style="width: 400px;">
 				<div class="   cardt1  " style="width: 398px;">
 					<div class="ttl1 m1ln">
-						<a href="javascript:void();">  </a>
+						<a href="javascript:void();"> </a>
 					</div>
 					<div class="lcell cell1"
-						style="text-align: justify; text-justify: newspaper;width: 250px;">
+						style="text-align: justify; text-justify: newspaper; width: 250px;">
 						<c:forEach items="${indexPageContent.selectedarts}"
 							var="documentValue" varStatus="status">
 							<div class="nwsl1">

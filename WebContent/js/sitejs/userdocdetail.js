@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
 	// 放新浪微博表情
 	$("#message_face").jqfaceedit({
 		txtAreaObj : $("#commentdiv"),
@@ -86,6 +85,44 @@ var addcomment = function(dtype, hidden) {
 				}
 			}
 
+		}
+	});
+
+};
+var readdoc = function(documentid) {
+	$.ajax({
+		async : true,
+		cache : false,
+		type : 'POST',
+		dataType : "json",
+		url : "readdoc.do",// 请求的action路径
+		error : function() {// 请求失败处理函数
+			alert('请求失败');
+		},
+		data : {
+			docid : documentid
+		},
+		success : function(data) { // 请求成功后处理函数。
+
+			$("#docid").val(data.documentValue.docid);
+			$("#doctitle").html(data.documentValue.doctitle);
+
+			if (data.documentValue.sharecount == null) {
+				$("#sharecount").text(0);
+			} else {
+				$("#sharecount").text(data.documentValue.sharecount);
+			}
+			if (data.documentValue.markcount == null) {
+				$("#markcount").text(0);
+			} else {
+				$("#markcount").text(data.documentValue.markcount);
+			}
+			$("#readcount").text(data.documentValue.readcount);
+			$("#commentCount").text(data.documentValue.commentCount);
+
+			$("#doccontent").html(data.documentValue.htmlstr);
+			loaddoccomment();
+			setheight();
 		}
 	});
 
