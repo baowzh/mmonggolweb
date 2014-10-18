@@ -115,7 +115,8 @@
 		hsien,
 		nowhsien,
 		professioncode,
-		blogclass
+		blogclass,
+		oldid
 		)
 		values
 		(
@@ -147,7 +148,8 @@
 		#hsien#,
 		#nowhsien#,
 		#professioncode#,
-		#blogclass#
+		#blogclass#,
+		#oldid#
 		)
 	</insert>
 
