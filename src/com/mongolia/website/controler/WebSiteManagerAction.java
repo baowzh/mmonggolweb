@@ -26,9 +26,11 @@ import org.springframework.web.servlet.ModelAndView;
 import com.mongolia.website.controler.ckeditor.SamplePostData;
 import com.mongolia.website.controler.freemarker.CustomFreeMarkerConfigurer;
 import com.mongolia.website.manager.interfaces.UserManager;
+import com.mongolia.website.manager.interfaces.WebResourceManager;
 import com.mongolia.website.manager.interfaces.WebSiteManager;
 import com.mongolia.website.manager.interfaces.WebSiteVisitorManager;
 import com.mongolia.website.model.MenuValue;
+import com.mongolia.website.model.MessagePaingModel;
 import com.mongolia.website.model.OpinionValue;
 import com.mongolia.website.model.PagingIndex;
 import com.mongolia.website.model.PaingModel;
@@ -53,6 +55,8 @@ public class WebSiteManagerAction implements PaingActionIA {
 	private UserManager userManager;
 	@Autowired
 	private WebSiteVisitorManager webSiteVisitorManager;
+	@Autowired
+	private WebResourceManager webResourceManager;
 
 	/**
 	 * 打开后台管理功能
@@ -684,6 +688,40 @@ public class WebSiteManagerAction implements PaingActionIA {
 			ex.printStackTrace();
 		}
 		return new ModelAndView("sitemanager/checkphoto", map);
+	}
+
+	@RequestMapping("/commentlist.do")
+	public ModelAndView commentlist(HttpServletRequest request, ModelMap map,
+			QueryDocForm queryDocForm) {
+		try {
+			Map<String, Object> queryParams = new HashMap<String, Object>();
+			queryParams.put("resourcekind", StaticConstants.RESOURCE_TYPE_DOC);
+			queryParams.put("artname", queryDocForm.getAuthorname());
+			queryParams.put("status", queryDocForm.getStatus());
+			queryParams.put("strcrtime", queryDocForm.getStrcrtime());
+			queryParams.put("endcrtime", queryDocForm.getEndcrtime());
+			MessagePaingModel messagePaingModel = this.webResourceManager
+					.paingQueryComment(queryParams, 30,
+							queryDocForm.getPageindex());
+			map.put("messagePaingModel", messagePaingModel);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return new ModelAndView("sitemanager/commentlist", map);
+	}
+
+	@RequestMapping("/synuserdata.do")
+	public ModelAndView synuserdata(HttpServletRequest request, ModelMap map,
+			QueryDocForm queryDocForm) {
+		try {
+		   // this.webResourceManager.synOldUser();
+			this.webResourceManager.synOldDoc();
+			//this.webResourceManager.synOldMess();
+			//this.webResourceManager.synOldImg();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return new ModelAndView("redirect:index.do", map);
 	}
 
 }
