@@ -3,6 +3,10 @@ package com.mongolia.website.manager.impls;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLConnection;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -32,6 +36,7 @@ import com.mongolia.website.model.FriendValue;
 import com.mongolia.website.model.ImgGrpupValue;
 import com.mongolia.website.model.ImgValue;
 import com.mongolia.website.model.MarkedResourceValue;
+import com.mongolia.website.model.MessagePaingModel;
 import com.mongolia.website.model.MessageValue;
 import com.mongolia.website.model.PagingIndex;
 import com.mongolia.website.model.PaingModel;
@@ -338,14 +343,15 @@ public class WebResourceManagerImpl implements WebResourceManager {
 			map.put("docpagecount", pageCount);
 			// 组织首页分页连接
 			List<PagingIndex> pageIndexs = new ArrayList<PagingIndex>();
-			for (int i = 0; i < pageCount; i++) {
+			for (int i = 0; i < pageCount && i < 3; i++) {
 				PagingIndex pagingIndex = new PagingIndex();
 				pagingIndex.setPageindex(i + 1);
 				pageIndexs.add(pagingIndex);
 			}
-			if (pageIndexs.size() > 1) {
+			//if (pageIndexs.size() > 1) {
 				map.put("docpageIndexs", pageIndexs);
-			}
+			//}
+			map.put("pageCount", pageCount);
 			// 获取用户朋友列表 只显示8个
 			List<FriendValue> fvalues = this.getFriendValues(null,
 					blogUser.getUserid(), null,
@@ -383,15 +389,15 @@ public class WebResourceManagerImpl implements WebResourceManager {
 					StaticConstants.DOCTYPE_DOC, 1, 24);
 			map.put("sharePaingModel", sharePaingModel);
 			List<PagingIndex> sharepageIndexs = new ArrayList<PagingIndex>();
-			for (int i = 0; i < sharePaingModel.getPagecount(); i++) {
+			for (int i = 0; i < sharePaingModel.getPagecount() && i < 3; i++) {
+
 				PagingIndex pagingIndex = new PagingIndex();
 				pagingIndex.setPageindex(i + 1);
-				// 先不设置连接
 				sharepageIndexs.add(pagingIndex);
 			}
-			if (pageIndexs.size() > 1) {
-				map.put("sharepageIndexs", sharepageIndexs);
-			}
+			// if (pageIndexs.size() > 1) {
+			map.put("sharepageIndexs", sharepageIndexs);
+			// }
 			// 添加一个浏览记录
 			if (self.intValue() == 0) {
 				VisitorValue visitorValue = new VisitorValue();
@@ -563,27 +569,27 @@ public class WebResourceManagerImpl implements WebResourceManager {
 
 	@Override
 	public List<MessageValue> getResourceCommentList(String resourceid,
-			Integer resourceType, String userid, String messid, String senderid)
-			throws ManagerException {
+			Integer resourceType, String userid, String messid,
+			String senderid, Integer staus) throws ManagerException {
 		// TODO Auto-generated method stub
 		try {
 			List<MessageValue> comments = new ArrayList<MessageValue>();
 			if (resourceType == StaticConstants.RESOURCE_TYPE_DOC) {
 				comments = this.webResourceDao.getCommentList(resourceid,
 						StaticConstants.RESOURCE_TYPE_DOC, userid, messid,
-						senderid);
+						senderid, staus);
 			} else if (resourceType == StaticConstants.RESOURCE_TYPE_IMG) {
 				comments = this.webResourceDao.getCommentList(resourceid,
 						StaticConstants.RESOURCE_TYPE_IMG, userid, messid,
-						senderid);
+						senderid, staus);
 			} else if (resourceType == StaticConstants.RESOURCE_TYPE_VIDEO) {
 				comments = this.webResourceDao.getCommentList(resourceid,
 						StaticConstants.RESOURCE_TYPE_VIDEO, userid, messid,
-						senderid);
+						senderid, staus);
 			} else {
 				comments = this.webResourceDao.getCommentList(resourceid,
 						StaticConstants.RESOURCE_TYPE_DOC, userid, messid,
-						senderid);
+						senderid, staus);
 			}
 			for (int i = 0; i < comments.size(); i++) {
 				MessageValue messageValue = comments.get(i);
@@ -794,7 +800,7 @@ public class WebResourceManagerImpl implements WebResourceManager {
 		// TODO Auto-generated method stub
 		try {
 			List<MessageValue> messageList = this.getResourceCommentList(
-					resourceid, resourceType, userid, messageid, null);
+					resourceid, resourceType, userid, messageid, null, null);
 			if (messageList == null || messageList.isEmpty()) {
 				throw new ManagerException("01");
 			}
@@ -1418,6 +1424,225 @@ public class WebResourceManagerImpl implements WebResourceManager {
 			ex.printStackTrace();
 			return null;
 		}
+	}
+
+	@Override
+	public MessagePaingModel paingQueryComment(Map<String, Object> params,
+			Integer rowcount, Integer pageIndex) throws Exception {
+		// TODO Auto-generated method stub
+		if (pageIndex == null || pageIndex == 0) {
+			pageIndex = 1;
+		}
+		Integer startindex = (pageIndex - 1) * rowcount;
+		params.put("startindex", startindex);
+		params.put("fechcount", rowcount);
+		List<MessageValue> mess = this.webResourceDao.getCommentList(params);
+		for (int i = 0; i < mess.size(); i++) {
+			MessageValue messageValue = mess.get(i);
+
+			messageValue.setContenthtml(new String(messageValue
+					.getMessagecont(), "utf-8"));
+			java.text.SimpleDateFormat simpleDateFormat = new SimpleDateFormat(
+					"yyyy-MM-dd HH:mm:ss");
+			if (messageValue.getSendtime() != null) {
+
+				messageValue.setSendtimestr(simpleDateFormat
+						.format(messageValue.getSendtime()));
+			}
+		}
+		showemotion(mess);
+		Integer totalRowCount = this.webResourceDao.getCommentCount(params);
+		int pageCount = totalRowCount / rowcount;
+		if (totalRowCount % rowcount > 0) {
+			pageCount = pageCount + 1;
+		}
+		MessagePaingModel paingModel = new MessagePaingModel();
+		paingModel.setRowcount("" + totalRowCount);
+		paingModel.setPagecount(pageCount);
+		if (paingModel.getPageindex() < paingModel.getPagecount()) {
+			paingModel.setNextindex(pageCount);
+		} else {
+			paingModel.setNextindex(paingModel.getPageindex() + 1);
+		}
+		if (paingModel.getPageindex() > 1) {
+			paingModel.setPreviousindex(paingModel.getPageindex() - 1);
+		} else {
+			paingModel.setPreviousindex(1);
+		}
+		paingModel.setMesslist(mess);
+		return paingModel;
+	}
+
+	/**
+	 * 
+	 * @param comments
+	 */
+	private void showemotion(List<MessageValue> comments) {
+		//
+		for (MessageValue messageValue : comments) {
+			//
+			// 使用正则表达式替换表情部分
+			String comment = messageValue.getContenthtml();
+			String matchStr = "\\[\\w+\\]";
+			Pattern destStri = Pattern.compile(matchStr);// ^
+			Matcher mati = destStri.matcher(comment);
+			StringBuffer bufferi = new StringBuffer();
+			while (mati.find()) {
+				String groupi = mati.group(0);
+				groupi = groupi.substring(1, groupi.length() - 1);
+				String imgStr = "<img src=\"img/faces/" + groupi + ".gif\"/>";
+				mati.appendReplacement(bufferi, imgStr);
+
+			}
+			mati.appendTail(bufferi);
+			comment = bufferi.toString();
+			messageValue.setContenthtml(comment);
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+			messageValue.setSendtimestr(format.format(messageValue
+					.getSendtime()));
+			//
+		}
+		//
+	}
+
+	@Override
+	public void synOldUser() throws Exception {
+		// TODO Auto-generated method stub
+		List<UserValue> users = this.webResourceDao.getOldUsers();
+		for (UserValue userValuei : users) {
+			userValuei.setUserid(UUIDMaker.getUUID());
+			String urlstr = "http://www.altanhurd.com/Upfiles/User/"
+					+ userValuei.getImguser();
+			userValuei.setUserkind(1);
+			try {
+				URL url = new URL(urlstr);
+				URLConnection rulConnection = url.openConnection();
+				HttpURLConnection httpUrlConnection = (HttpURLConnection) rulConnection;
+				httpUrlConnection.connect();
+				InputStream iniputStream = httpUrlConnection.getInputStream();
+				int length = iniputStream.available();
+				byte reader[] = new byte[length];
+				iniputStream.read(reader);
+				userValuei.setHeadimg(reader);
+				userValuei.setHeadimgsm(reader);
+				iniputStream.close();
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+			userManager.doCreateUser(userValuei);
+		}
+
+	}
+
+	@Override
+	public void synOldDoc() throws Exception {
+		// TODO Auto-generated method stub
+		List<DocumentValue> docs = this.webResourceDao.getOldDocs();
+
+		for (DocumentValue documentValuei : docs) {
+			try {
+				documentValuei.setDocid(UUIDMaker.getUUID());
+				if (documentValuei.getHtmlstr() == null) {
+					continue;
+				}
+				// 替换图片和flash位置
+				String doccontent = documentValuei.getHtmlstr();
+				if (documentValuei.getOldid().equalsIgnoreCase("1665")) {
+					System.out.println(doccontent);
+				}
+				// 替换图片地址
+				String matchStr = "\\[(img src=){1}+\\w+(.){1}\\w+\\]";
+				Pattern destStri = Pattern.compile(matchStr);// ^
+				Matcher mati = destStri.matcher(doccontent);
+				StringBuffer bufferi = new StringBuffer();
+				while (mati.find()) {
+					String groupi = mati.group(0);
+					groupi = groupi.substring(1, groupi.length() - 1);
+					String imgid = groupi.split("=")[1];
+					mati.appendReplacement(bufferi,
+							"<img src=\"http://www.altanhurd.com/Upfiles/"
+									+ imgid + "\" complete=\"complete\"\\>");
+				}
+				mati.appendTail(bufferi);
+				doccontent = bufferi.toString();
+				documentValuei.setHtmlstr(doccontent);
+				// [FLASH=http://player.youku.com/player.php/sid/XNDk2MDM2MDI4/v.swf]
+				// [FLASH=http://www.dapenti.com/blog/index.asp]
+				matchStr = "\\[(FLASH=){1}+http[s]?:\\/\\/([\\w-]+\\.)+[\\w-]+([\\w-./?%&=]*)?\\]";
+				// matchStr = "\\[(FLASH=){1}+http[s]?:\\/\\/+(\\w|.)+\\]";
+				destStri = Pattern.compile(matchStr);// ^
+				mati = destStri.matcher(doccontent);
+				bufferi = new StringBuffer();
+				while (mati.find()) {
+					String groupi = mati.group(0);
+					groupi = groupi.substring(1, groupi.length() - 1);
+					String flashurl = groupi.split("=")[1];
+					mati.appendReplacement(bufferi, "[[" + flashurl + "]]");
+				}
+				mati.appendTail(bufferi);
+				doccontent = bufferi.toString();
+				// doccontent=doccontent.replaceAll("\r\n", "<p>");
+				documentValuei.setHtmlstr(doccontent);
+				//
+				documentValuei.setDoccontent(documentValuei.getHtmlstr()
+						.getBytes());
+				documentValuei.setHtmlstr(new String(documentValuei
+						.getDoccontent()));
+				documentValuei.setDocstatus(2);
+				documentValuei.setDocsource(new Double(1));
+				documentValuei.setDoctype(1);
+				documentValuei.setDocid(UUIDMaker.getUUID());
+				this.doAdddoc(documentValuei);
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+		}
+
+	}
+
+	@Override
+	public void synOldMess() throws Exception {
+		// TODO Auto-generated method stub
+		// List<MessageValue> mess = this.webResourceDao.getOldMess();
+		// for (MessageValue messageValuei : mess) {
+		// this.doAddCommentOnResource(messageValuei.getResourceid(), 1,
+		// messageValuei.getUserid(), messageValuei.getContenthtml(),
+		// messageValuei.getMessagesenderid(), "",
+		// StaticConstants.MESS_TYPE_COMM, 1);
+		// }
+
+	}
+
+	@Override
+	public void synOldImg() throws Exception {
+		// TODO Auto-generated method stub
+		List<ImgValue> imgs = this.webResourceDao.getOldImgs();
+		for (ImgValue imgValuei : imgs) {
+			String urlstr = "http://www.altanhurd.com/jirvg/"
+					+ imgValuei.getImgurl();
+			try {
+				URL url = new URL(urlstr);
+				URLConnection rulConnection = url.openConnection();
+				HttpURLConnection httpUrlConnection = (HttpURLConnection) rulConnection;
+				httpUrlConnection.connect();
+				InputStream iniputStream = httpUrlConnection.getInputStream();
+				int length = iniputStream.available();
+				byte reader[] = new byte[length];
+				iniputStream.read(reader);
+				imgValuei.setImgcontent(reader);
+				iniputStream.close();
+			} catch (Exception ex) {
+				ex.printStackTrace();
+				continue;
+			}
+			imgValuei.setImgid(imgValuei.getImgurl());
+			imgValuei.setImgname(imgValuei.getImgid());
+			imgValuei.setImgdesc("tongbu");
+			imgValuei.setWidth(200);
+			imgValuei.setHeight(210);
+			this.doAddImg(imgValuei);
+		}
+
 	}
 
 }
