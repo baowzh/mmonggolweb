@@ -18,6 +18,7 @@ import com.mongolia.website.model.MarkedResourceValue;
 import com.mongolia.website.model.MessageValue;
 import com.mongolia.website.model.QuestionValue;
 import com.mongolia.website.model.ShareResourceValue;
+import com.mongolia.website.model.UserValue;
 import com.mongolia.website.model.VisitorValue;
 import com.mongolia.website.model.VoteDetailValue;
 import com.mongolia.website.model.VoteResultDetailValue;
@@ -193,7 +194,7 @@ public class WebResourceDaoImpl extends BaseDaoiBatis implements WebResourceDao 
 	@Override
 	public List<MessageValue> getCommentList(String resourceid,
 			Integer resourceKind, String userid, String messageid,
-			String senderid) throws Exception {
+			String senderid, Integer status) throws Exception {
 		// TODO Auto-generated method stub
 		Map<String, Object> queryparams = new HashMap<String, Object>();
 		queryparams.put("resourceid", resourceid);
@@ -803,8 +804,48 @@ public class WebResourceDaoImpl extends BaseDaoiBatis implements WebResourceDao 
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("startindex", 0);
 		params.put("fechcount", doccount);
-		return this.getSqlMapClientTemplate().queryForList("getTopDocumentWithClickCount", params);
+		return this.getSqlMapClientTemplate().queryForList(
+				"getTopDocumentWithClickCount", params);
 	}
-	
+
+	@Override
+	public List<MessageValue> getCommentList(Map<String, Object> queryParams)
+			throws Exception {
+		// TODO Auto-generated method stub
+		return this.getSqlMapClientTemplate().queryForList("paingquerycomment",
+				queryParams);
+	}
+
+	@Override
+	public Integer getCommentCount(Map<String, Object> queryParams)
+			throws Exception {
+		// TODO Auto-generated method stub
+		return (Integer) this.getSqlMapClientTemplate().queryForObject(
+				"paingquerycommentcount", queryParams);
+	}
+
+	@Override
+	public List<UserValue> getOldUsers() throws Exception {
+		// TODO Auto-generated method stub
+		return this.getSqlMapClientTemplate().queryForList("olduserList");
+	}
+
+	@Override
+	public List<DocumentValue> getOldDocs() throws Exception {
+		// TODO Auto-generated method stub
+		return this.getSqlMapClientTemplate().queryForList("oldDocList");
+	}
+
+	@Override
+	public List<ImgValue> getOldImgs() throws Exception {
+		// TODO Auto-generated method stub
+		return this.getSqlMapClientTemplate().queryForList("oldimgList");
+	}
+
+	@Override
+	public List<MessageValue> getOldMess() throws Exception {
+		// TODO Auto-generated method stub
+		return this.getSqlMapClientTemplate().queryForList("oldmess");
+	}
 
 }
