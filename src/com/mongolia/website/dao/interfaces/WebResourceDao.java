@@ -682,4 +682,6 @@ public interface WebResourceDao extends BaseDao {
 
 	public List<MessageValue> getOldMess() throws Exception;
 
+	public List<ImgGrpupValue> getOldImgGroup() throws Exception;
+
 }

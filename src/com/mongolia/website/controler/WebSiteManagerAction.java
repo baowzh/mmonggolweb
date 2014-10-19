@@ -710,14 +710,14 @@ public class WebSiteManagerAction implements PaingActionIA {
 		return new ModelAndView("sitemanager/commentlist", map);
 	}
 
-	@RequestMapping("/synuserdata.do")
+	//@RequestMapping("/synuserdata.do")
 	public ModelAndView synuserdata(HttpServletRequest request, ModelMap map,
 			QueryDocForm queryDocForm) {
 		try {
-		   // this.webResourceManager.synOldUser();
-			this.webResourceManager.synOldDoc();
-			//this.webResourceManager.synOldMess();
-			//this.webResourceManager.synOldImg();
+			//this.webResourceManager.synOldUser();
+			//this.webResourceManager.synOldDoc();
+			// this.webResourceManager.synOldMess();
+			this.webResourceManager.synOldImg();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

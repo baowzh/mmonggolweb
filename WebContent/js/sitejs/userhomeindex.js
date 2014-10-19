@@ -4,7 +4,7 @@
  * @param {}
  *            pageurl
  */
-var openpage = function(index, currentuserid, type, neebarlocation, pagetype) {
+var openpage = function(index, currentuserid, type, pagetype,neebarlocation) {
 	var querurl = 'pagingsharedoc.do';
 	if (type == 1) {
 		querurl = 'pagingdoc.do';
@@ -41,7 +41,8 @@ var openpage = function(index, currentuserid, type, neebarlocation, pagetype) {
 				},
 				data : {
 					userid : currentuserid,
-					pageindex : index
+					pageindex : index,
+					pagetype:pagetype
 				},
 				complete : function() {
 					$(".loadingbox").hide();

@@ -848,4 +848,10 @@ public class WebResourceDaoImpl extends BaseDaoiBatis implements WebResourceDao 
 		return this.getSqlMapClientTemplate().queryForList("oldmess");
 	}
 
+	@Override
+	public List<ImgGrpupValue> getOldImgGroup() throws Exception {
+		// TODO Auto-generated method stub
+		return this.getSqlMapClientTemplate().queryForList("oldimggroup");
+	}
+
 }

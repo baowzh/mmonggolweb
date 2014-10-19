@@ -57,13 +57,15 @@
 		imggroupkind ,
 		userid,
 		faceimg,
-		createdtime
+		createdtime,
+		oldid
 		) values( #imggroupid#,
 		#imggroupname#,
 		#imggroupkind# ,
 		#userid# ,
 		#faceimg#,
-		#createdtime#
+		#createdtime#,
+		#oldid#
 		)
 	</insert>
 	<select id="getImgGrpupList" parameterClass="java.util.Map"

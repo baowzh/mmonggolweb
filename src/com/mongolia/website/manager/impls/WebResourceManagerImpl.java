@@ -2,6 +2,8 @@ package com.mongolia.website.manager.impls;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -348,9 +350,9 @@ public class WebResourceManagerImpl implements WebResourceManager {
 				pagingIndex.setPageindex(i + 1);
 				pageIndexs.add(pagingIndex);
 			}
-			//if (pageIndexs.size() > 1) {
-				map.put("docpageIndexs", pageIndexs);
-			//}
+			// if (pageIndexs.size() > 1) {
+			map.put("docpageIndexs", pageIndexs);
+			// }
 			map.put("pageCount", pageCount);
 			// 获取用户朋友列表 只显示8个
 			List<FriendValue> fvalues = this.getFriendValues(null,
@@ -1520,16 +1522,21 @@ public class WebResourceManagerImpl implements WebResourceManager {
 				HttpURLConnection httpUrlConnection = (HttpURLConnection) rulConnection;
 				httpUrlConnection.connect();
 				InputStream iniputStream = httpUrlConnection.getInputStream();
-				int length = iniputStream.available();
-				byte reader[] = new byte[length];
-				iniputStream.read(reader);
-				userValuei.setHeadimg(reader);
-				userValuei.setHeadimgsm(reader);
+				byte reader[] = new byte[1024];
+				int length = 0;
+				ByteArrayOutputStream ooutStream = new ByteArrayOutputStream();
+				while ((length = iniputStream.read(reader)) != -1) {
+					ooutStream.write(reader, 0, length);
+				}
+				byte img[] = ooutStream.toByteArray();
+				ooutStream.close();
+				userValuei.setHeadimg(img);
+				userValuei.setHeadimgsm(img);
 				iniputStream.close();
+				userManager.doCreateUser(userValuei);
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}
-			userManager.doCreateUser(userValuei);
 		}
 
 	}
@@ -1616,6 +1623,23 @@ public class WebResourceManagerImpl implements WebResourceManager {
 	@Override
 	public void synOldImg() throws Exception {
 		// TODO Auto-generated method stub
+		// 先创建图片相册
+		File file = new File("c:\\aa.bmp");
+		FileInputStream stream = new FileInputStream(file);
+		int imglength = stream.available();
+		byte[] imgface = new byte[imglength];
+		stream.read(imgface);
+		stream.close();
+		List<ImgGrpupValue> imggroups = this.webResourceDao.getOldImgGroup();
+		for (ImgGrpupValue imgGrpupValuei : imggroups) {
+			imgGrpupValuei.setImggroupid(UUIDMaker.getUUID());
+			imgGrpupValuei.setFaceimg(imgface);
+			try {
+				this.webResourceDao.addIImgGroup(imgGrpupValuei);
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+		}
 		List<ImgValue> imgs = this.webResourceDao.getOldImgs();
 		for (ImgValue imgValuei : imgs) {
 			String urlstr = "http://www.altanhurd.com/jirvg/"
@@ -1626,21 +1650,25 @@ public class WebResourceManagerImpl implements WebResourceManager {
 				HttpURLConnection httpUrlConnection = (HttpURLConnection) rulConnection;
 				httpUrlConnection.connect();
 				InputStream iniputStream = httpUrlConnection.getInputStream();
-				int length = iniputStream.available();
-				byte reader[] = new byte[length];
-				iniputStream.read(reader);
-				imgValuei.setImgcontent(reader);
+				byte reader[] = new byte[1024];
+				int length = 0;
+				ByteArrayOutputStream ooutStream = new ByteArrayOutputStream();
+				while ((length = iniputStream.read(reader)) != -1) {
+					ooutStream.write(reader, 0, length);
+				}
+				imgValuei.setImgcontent(ooutStream.toByteArray());
 				iniputStream.close();
+				imgValuei.setImgid(imgValuei.getImgurl());
+				imgValuei.setImgname(imgValuei.getImgid());
+				imgValuei.setImgdesc("tongbu");
+				imgValuei.setWidth(200);
+				imgValuei.setHeight(210);
+				this.doAddImg(imgValuei);
 			} catch (Exception ex) {
 				ex.printStackTrace();
 				continue;
 			}
-			imgValuei.setImgid(imgValuei.getImgurl());
-			imgValuei.setImgname(imgValuei.getImgid());
-			imgValuei.setImgdesc("tongbu");
-			imgValuei.setWidth(200);
-			imgValuei.setHeight(210);
-			this.doAddImg(imgValuei);
+
 		}
 
 	}

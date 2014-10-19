@@ -7,6 +7,8 @@
 	<typeAlias alias="MessageValue" type="com.mongolia.website.model.MessageValue" />
 	<typeAlias alias="User" type="com.mongolia.website.model.UserValue" />
 	<typeAlias alias="ImgValue" type="com.mongolia.website.model.ImgValue" />
+	<typeAlias alias="ImgGrpupValue" type="com.mongolia.website.model.ImgGrpupValue" />
+
 	<select id="oldDocList" parameterClass="java.util.Map"
 		resultClass="DocumentValue">
 		select article_info.unid as oldid,content as htmlstr,title
@@ -28,8 +30,10 @@
 	</select>
 	<select id="oldimgList" parameterClass="java.util.Map"
 		resultClass="ImgValue">
-		select a.id as oldid,a.habisv_id as imggroupid ,a.jirvg_id
-		as imgurl,a.tailbvri as imgname ,a.qag as docreltime,(select Unid from
+		select a.id as oldid, (select imggroupid from imggroup
+		where imggroup.oldid=a.habisv_id) as imggroupid ,a.jirvg_id
+		as
+		imgurl,a.tailbvri as imgname ,a.qag as docreltime,(select Unid from
 		article_user where article_user.nebterehunere=a.nere_n) as userid from
 		jirvg a
 	</select>
@@ -39,6 +43,18 @@
 		article_user.nebterehunere=a.nere) as messagesenderid, (select unid
 		from article_user where article_user.nebterehunere=a.jchiyagqi_id) as
 		userid from article_remark a
+	</select>
+	<select id="oldimggroup" parameterClass="java.util.Map"
+		resultClass="ImgGrpupValue">
+		select a.unid as oldid ,a.title as imggroupname ,'1'
+		as
+		imggroupkind , (select userid from user where oldid in ( select unid
+		from article_user where
+		article_user.nebterehunere=a.writer) ) as
+		userid,a.Intime as
+		createdtime from article_info a where a.content is
+		null
+		and EXISTS (select 1 from jirvg where jirvg.habisv_id=a.Unid )
 	</select>
 
 </sqlMap>

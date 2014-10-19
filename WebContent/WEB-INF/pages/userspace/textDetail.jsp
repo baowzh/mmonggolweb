@@ -277,7 +277,7 @@
 										<span id="pagenext" class="spanstyle">&nbsp;&gt;&nbsp;
 									</span>
 									</a> <a class="first disabled" id="lasta"
-										href="javascript:openpage('<c:out value="${pageCount}" />','<c:out value="${user.userid}" />',1,0,trur);switchclass('pagelast');">
+										href="javascript:openpage('<c:out value="${pageCount}" />','<c:out value="${user.userid}" />',1,0,true);switchclass('pagelast');">
 										<span id="pagelast" class="spanstyle">&gt;&gt; </span>
 									</a>
 								</div>
