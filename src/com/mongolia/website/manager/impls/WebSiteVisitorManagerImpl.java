@@ -121,7 +121,7 @@ public class WebSiteVisitorManagerImpl extends BaseManagerImpl implements
 		Date endDate = new Date();
 		int fechtime = 0;
 		List<UserValue> topUsers = new ArrayList<UserValue>();
-		while (fechtime < 30 && topUsers.size() <= 12) {
+		while (fechtime < 30 && topUsers.size() <= 10) {
 			Calendar calendar = java.util.Calendar.getInstance();
 			calendar.setTime(new Date());
 			calendar.add(Calendar.WEEK_OF_YEAR, 0 - fechtime);
