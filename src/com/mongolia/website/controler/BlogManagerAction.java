@@ -854,6 +854,9 @@ public class BlogManagerAction {
 			if (imgList != null && !imgList.isEmpty()) {
 				// 获取本相册所有照片
 				Map<String, Object> getimgParmas = new HashMap<String, Object>();
+				if(imggroupid==null){
+					imggroupid=imgList.get(0).getImggroupid();
+				}
 				getimgParmas.put("imggroupid", imggroupid);
 				List<ImgValue> imgs = this.webResourceManager
 						.getImgList(getimgParmas);
