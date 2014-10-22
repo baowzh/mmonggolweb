@@ -38,7 +38,6 @@ import com.mongolia.website.model.FriendValue;
 import com.mongolia.website.model.ImgGrpupValue;
 import com.mongolia.website.model.ImgValue;
 import com.mongolia.website.model.MarkedResourceValue;
-import com.mongolia.website.model.MessagePaingModel;
 import com.mongolia.website.model.MessageValue;
 import com.mongolia.website.model.PagingIndex;
 import com.mongolia.website.model.PaingModel;
@@ -205,7 +204,8 @@ public class WebResourceManagerImpl implements WebResourceManager {
 	}
 
 	@Override
-	public List getDocList(Map<String, Object> params) throws ManagerException {
+	public List<DocumentValue> getDocList(Map<String, Object> params)
+			throws ManagerException {
 		// TODO Auto-generated method stub
 		try {
 			List<DocumentValue> docs = webResourceDao.getDocList(params);
@@ -308,7 +308,7 @@ public class WebResourceManagerImpl implements WebResourceManager {
 					blogUser.getUserid(), blogUser.getUsername());
 			UserValue currentUser = users.get(0);
 			map.put("user", currentUser);
-			PaingModel pagingModel = new PaingModel();
+			PaingModel<DocumentValue> pagingModel = new PaingModel<DocumentValue>();
 			pagingModel.setUserid(blogUser.getUserid());
 			pagingModel.setDoctype(StaticConstants.RESOURCE_TYPE_DOC);
 			if (self.intValue() == 0) {
@@ -319,9 +319,9 @@ public class WebResourceManagerImpl implements WebResourceManager {
 			}
 			pagingModel.setPageindex(1);
 			pagingModel.setDocchannel(docchannel);
-			PaingModel pagingModel1 = webSiteVisitorManager
+			PaingModel<DocumentValue> pagingModel1 = webSiteVisitorManager
 					.pagingquerydoc(pagingModel);
-			List<DocumentValue> docList = pagingModel1.getDocList();
+			List<DocumentValue> docList = pagingModel1.getModelList();
 			for (int i = 0; i < docList.size(); i++) {
 				DocumentValue documentValue = docList.get(i);
 				documentValue.setSelf(self);
@@ -387,8 +387,9 @@ public class WebResourceManagerImpl implements WebResourceManager {
 			map.put("blogNews", this.webResourceDao.getBlogNews(
 					blogUser.getUserid(), queryDate1));
 			// 获取当前博主分享的作品
-			PaingModel sharePaingModel = this.pagingQuerySharedDocs(params,
-					StaticConstants.DOCTYPE_DOC, 1, 24);
+			PaingModel<DocumentValue> sharePaingModel = this
+					.pagingQuerySharedDocs(params, StaticConstants.DOCTYPE_DOC,
+							1, 24);
 			map.put("sharePaingModel", sharePaingModel);
 			List<PagingIndex> sharepageIndexs = new ArrayList<PagingIndex>();
 			for (int i = 0; i < sharePaingModel.getPagecount() && i < 3; i++) {
@@ -1292,7 +1293,7 @@ public class WebResourceManagerImpl implements WebResourceManager {
 	}
 
 	@Override
-	public PaingVoteResult pagingqueryVoteResult(String voteid,
+	public PaingModel<VoteResultValue> pagingqueryVoteResult(String voteid,
 			String questionid, Integer pageindex) throws Exception {
 		// TODO Auto-generated method stub
 		// 获取总行数
@@ -1303,32 +1304,33 @@ public class WebResourceManagerImpl implements WebResourceManager {
 		Integer fechcount = 5;
 		List<VoteResultValue> result = this.webResourceDao.getVoteResult(
 				voteid, questionid, startindex, fechcount);
-		PaingVoteResult paingVoteResult = new PaingVoteResult();
+		PaingModel<VoteResultValue> paingVoteResult = new PaingModel<VoteResultValue>();
 		//
 		int pageCount = votecount / 5;
 		if (pageCount % 5 > 0) {
 			pageCount = pageCount + 1;
 		}
 		//
-		paingVoteResult.setPageCount(pageCount);
+		paingVoteResult.setPagecount(pageCount);
 		paingVoteResult.setPageindex(pageindex);
-		paingVoteResult.setResultcount(votecount);
-		paingVoteResult.setResults(result);
+		paingVoteResult.setRowcount(votecount.toString());
+		paingVoteResult.setModelList(result);
 		return paingVoteResult;
 	}
 
 	@Override
-	public PaingModel pagingQuerySharedDocs(Map<String, Object> params,
-			int doctype, int pageindex, int pagesize) throws Exception {
+	public PaingModel<DocumentValue> pagingQuerySharedDocs(
+			Map<String, Object> params, int doctype, int pageindex, int pagesize)
+			throws Exception {
 		// TODO Auto-generated method stub
-		PaingModel paingModel = new PaingModel();
+		PaingModel<DocumentValue> paingModel = new PaingModel<DocumentValue>();
 		int rowcount = this.webResourceDao.getSharedDocCount(params, doctype);
 		int start = (pageindex - 1) * pagesize;
 		params.put("start", start);
 		params.put("rowcount", pagesize);
 		params.put("doctype", doctype);
 		List<DocumentValue> docList = this.webResourceDao.getSharedDocs(params);
-		paingModel.setDocList(docList);
+		paingModel.setModelList(docList);
 		paingModel.setRowcount("" + rowcount);
 		int pageCount = rowcount / paingModel.getPagesize();
 		if (rowcount % paingModel.getPagesize() > 0) {
@@ -1429,8 +1431,9 @@ public class WebResourceManagerImpl implements WebResourceManager {
 	}
 
 	@Override
-	public MessagePaingModel paingQueryComment(Map<String, Object> params,
-			Integer rowcount, Integer pageIndex) throws Exception {
+	public PaingModel<MessageValue> paingQueryComment(
+			Map<String, Object> params, Integer rowcount, Integer pageIndex)
+			throws Exception {
 		// TODO Auto-generated method stub
 		if (pageIndex == null || pageIndex == 0) {
 			pageIndex = 1;
@@ -1458,7 +1461,7 @@ public class WebResourceManagerImpl implements WebResourceManager {
 		if (totalRowCount % rowcount > 0) {
 			pageCount = pageCount + 1;
 		}
-		MessagePaingModel paingModel = new MessagePaingModel();
+		PaingModel<MessageValue> paingModel = new PaingModel<MessageValue>();
 		paingModel.setRowcount("" + totalRowCount);
 		paingModel.setPagecount(pageCount);
 		if (paingModel.getPageindex() < paingModel.getPagecount()) {
@@ -1471,7 +1474,7 @@ public class WebResourceManagerImpl implements WebResourceManager {
 		} else {
 			paingModel.setPreviousindex(1);
 		}
-		paingModel.setMesslist(mess);
+		paingModel.setModelList(mess);
 		return paingModel;
 	}
 
