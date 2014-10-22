@@ -51,7 +51,7 @@
 									</td>
 
 								</tr>
-								<c:forEach items="${messagePaingModel.messlist}"
+								<c:forEach items="${messagePaingModel.modelList}"
 									var="documentValue" varStatus="status">
 									<tr>
 										<td>

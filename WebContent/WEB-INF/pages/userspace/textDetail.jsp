@@ -77,9 +77,9 @@
 									</span> 
 								</div>
 								<!--    -->
-								<div id="doccontent">
+<!-- 								<div id="doccontent"> -->
 									<c:out value="${documentValue.htmlstr}" escapeXml="false" />
-								</div>
+<!-- 								</div> -->
 								<!--    -->
 								<br>
 								<!--        -->
@@ -234,14 +234,15 @@
 								<c:forEach items="${docList}" var="documentValue"
 									varStatus="status">
 									<div class="m1ln">
-										<a><img src="img/dot.gif"></a> <a
+										<a><img src="img/dot.gif"></a>
+										<!-- <a
 											href="javascript:readdoc('<c:out value="${documentValue.docid}" />');"><c:out
-												value="${documentValue.doctitle}" escapeXml="false" /> </a>
-										<!--  
+												value="${documentValue.doctitle}" escapeXml="false" /> </a>-->
+										
 										<a
 											href="getuserdocdetail.do?docid=<c:out value="${documentValue.docid}" />"><c:out
 												value="${documentValue.doctitle}" escapeXml="false" /> </a>
-												-->
+												
 									</div>
 								</c:forEach>
 							</div>

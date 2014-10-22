@@ -848,7 +848,7 @@ body {
 		<div class="cbt"></div>
 	</div>
 	<!-- JiaThis Button BEGIN -->
-
+<!-- 
 	<div class="jiathis_share_slide jiathis_share_32x32"
 		id="jiathis_share_slide">
 		<div class="jiathis_share_slide_top" id="jiathis_share_title"></div>
@@ -875,11 +875,13 @@ body {
 			</div>
 		</div>
 	</div>
-
+ -->
 	<!-- JiaThis Button END -->
 	<!-- UJian Button BEGIN -->
+	<!-- 
 	<script type="text/javascript"
 		src="http://v1.ujian.cc/code/ujian.js?type=slide"></script>
+		 -->
 	<!-- UJian Button END -->
 </body>
 <script>
