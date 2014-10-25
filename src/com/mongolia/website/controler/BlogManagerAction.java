@@ -1700,6 +1700,7 @@ public class BlogManagerAction {
 	@RequestMapping("/updvote.do")
 	public ModelAndView updvote(HttpServletRequest request, ModelMap map) {
 		String voteid = request.getParameter("voteid");
+		String redirecturl = request.getParameter("redirecturl");
 		try {
 			Map<String, Object> params = new HashMap<String, Object>();
 			params.put("voteid", voteid);
@@ -1709,11 +1710,16 @@ public class BlogManagerAction {
 				map.put("voteid", votes.get(0).getVoteid());
 				map.put("votevalue", votes.get(0));
 			}
-
+			map.put("redirecturl", redirecturl);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
+		// if (redirecturl != null && !redirecturl.equalsIgnoreCase("")) {
+		// return new ModelAndView("redirect:" + redirecturl);
+		// } else {
 		return new ModelAndView("vote/votedesign");
+		// }
+
 	}
 
 	@RequestMapping("/savevote.do")
@@ -1777,6 +1783,29 @@ public class BlogManagerAction {
 	public ModelAndView joinvote(HttpServletRequest request, ModelMap map) {
 		String voteid = request.getParameter("voteid");
 		try {
+			// joinvote.do?redirecturl
+			String redirecturl = request.getParameter("redirecturl");
+			Integer self = new Integer(0);
+			UserValue sessionUser = (UserValue) request.getSession()
+					.getAttribute("user");
+			UserValue user = null;
+			String userid = request.getParameter("userid");
+			if (userid == null || userid.equalsIgnoreCase("")) {
+				user = (UserValue) request.getSession().getAttribute("user");// 在线session
+				self = new Integer(1);
+			} else {
+				List<UserValue> uservalues = this.userManager.getUsers(userid,
+						null);// 被浏览用户
+				user = uservalues.get(0);
+				if (sessionUser != null
+						&& sessionUser.getUserid().equalsIgnoreCase(
+								user.getUserid())) {
+					self = new Integer(1);
+				} else {
+					self = new Integer(0);
+				}
+			}
+			map.put("self", self);
 			Map<String, Object> params = new HashMap<String, Object>();
 			params.put("voteid", voteid);
 			List<VoteValue> votes = this.webResourceManager.getVoteList(params);
@@ -1789,6 +1818,7 @@ public class BlogManagerAction {
 			JSONObject json = new JSONObject();
 			json.put("vote", votes);
 			map.put("jsonvote", json.toString());
+			map.put("redirecturl", redirecturl);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
