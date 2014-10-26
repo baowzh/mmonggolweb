@@ -24,12 +24,16 @@ public class VerifyCodeServlet extends HttpServlet {
 	/**
 	 * 验证码图片的宽度。
 	 */
-	private int width = 30;
+	//private int width = 30;
+	
+	private int width = 80;
 
 	/**
 	 * 验证码图片的高度。
 	 */
-	private int height = 80;
+	//private int height = 80;
+	private int height = 24;
+
 
 	/**
 	 * 验证码字符个数
@@ -89,9 +93,11 @@ public class VerifyCodeServlet extends HttpServlet {
 		//		fontHeight = height - 12;	   //生成随机数的数字高度
 		//		codeY = height - 8;			   //生成随机数的垂直距离
 
-		xx = height / (codeCount + 2); //生成随机数的垂直距离
-		fontHeight = width - 12; //生成随机数的数字宽度
-		codeY = height - 8; //生成随机数的垂直距离
+		xx = width / (codeCount + 2); //生成随机数的垂直距离
+		//fontHeight = width - 12; //生成随机数的数字宽度
+		fontHeight = height-8; //生成随机数的数字宽度
+		//codeY = height - 8; //生成随机数的垂直距离
+		codeY=width-8;
 
 	}
 
@@ -145,7 +151,7 @@ public class VerifyCodeServlet extends HttpServlet {
 
 			// 用随机产生的颜色将验证码绘制到图像中。
 			gd.setColor(new Color(red, green, blue));
-			gd.drawString(strRand, 10, (i + 1) * 20);
+			gd.drawString(strRand,80- (i+1)* 15,20);
 
 			// 将产生的四个随机数组合在一起。
 			randomCode.append(strRand);

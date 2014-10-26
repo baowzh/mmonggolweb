@@ -15,7 +15,16 @@
 							<link href="icons/favicon.ico" type="image/x-icon"
 								rel="shortcut icon">
 								<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+								<script type="text/javascript" src="js/sitejs/index.js"></script>
 								<script type="text/javascript" src="js/browser.js"></script>
+								<link href="img/css/main.css" type="text/css" rel="stylesheet" />
+								<link href="img/css/login.css" type="text/css" rel="stylesheet" />
+								<script type="text/javascript" src="js/sitejs/regist.js"></script>
+								<script type="text/javascript" src="js/util/js/messageWindow.js"></script>
+								<script type="text/javascript" src="js\tween.js"></script>
+								<script src="js/messagebox/jquery.msgbox.js"></script>
+								<script src="js/messagebox/jquery.dragndrop.min.js"></script>
+								<link rel="stylesheet" href="js\messagebox\jquery.msgbox.css" />
 								<style>
 #picBox {
 	width: 390px;
@@ -465,20 +474,33 @@
 							<a href="#"> <span></span>
 							</a>
 						</h3>
-						<div class="search-box4-1-1">
+						<div class="search-box4-1-1" id="loginform">
 							<div class="search-box2-1">
 								<div class="mglc">
 									<ul class="news-title">
 										<form action="" method="post">
-											<li class="m">   <input
-												name="nebterehunere" type="text" size="18" maxLength="36" /></li>
-											<li class="m">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-											<li class="m">  <input name="nebterehunere"
+											<li class="m">   <input name="username"
 												type="text" size="18" maxLength="36" /></li>
-											<li class="m">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-											<li class="m">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
-												type="submit" value="" class="sub_btn" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
-												type="submit" value="" class="sub_btn" /></li>
+											<li class="m">  <input name="password"
+												type="password" size="18" maxLength="36" /></li>
+											<li class="m">
+												<table>
+													<tr>
+														<td>  </td>
+														<td><img src="verifyCodeServlet" id="varifyimg"
+															width="80" height="21" /></td>
+														<td><input name="validcode" type="text" size="4"
+															style="height: 18px; width: 44px;" maxLength="4" /></td>
+													</tr>
+												</table>
+											</li>
+											<li class="m">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!-- 											<input -->
+												<!-- 												type="submit" value="" class="sub_btn" /> -->
+												<a href="javascript:login();"> </a>
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!-- 												<input -->
+												<!-- 												type="submit" value="" class="sub_btn" /> -->
+												<a href="registe.do"> </a>
+											</li>
 										</form>
 									</ul>
 								</div>
@@ -498,13 +520,30 @@
 						<div class="top-box4-1-1">
 							<div class="top-box2-1">
 								<div class="mglc">
-									<ul class="news-title">
+									<ul class="news-title" style="-webkit-padding-start: 0px;">
 										<c:forEach items="${indexPageContent.recentDocs}"
 											var="documentValue" varStatus="status">
 											<li class="m"><a
 												href="getuserdocdetail.do?docid=<c:out value="${documentValue.docid}"/>"
 												target="_blank" class="tit_text_overflow"><c:out
 														value="${documentValue.doctitle}" /></a></li>
+											<!--  
+											<li class="m" style="padding-right: 0px;">
+												<div class="newslist">
+													<div class="docauthor">
+														<a><c:out value="${documentValue.docauthor}" /></a>
+													</div>
+													<div class="doctitle">
+														<a
+															href="getuserdocdetail.do?docid=<c:out value="${documentValue.docid}"/>"
+															target="_blank" class="tit_text_overflow"><c:out
+																value="${documentValue.doctitle}" /></a>
+													</div>
+
+
+												</div>
+											</li>
+											-->
 										</c:forEach>
 										<!--  
 										<li class="m"><a href="#" target="_blank"

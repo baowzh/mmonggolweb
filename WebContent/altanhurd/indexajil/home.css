@@ -271,8 +271,8 @@ body{
 	direction: rtl;
 	font-family: chagaan;
 	text-align: right; 
-  font-size: 12px;
-  height:25px
+    font-size: 12px;
+    height:21px
 }
 .ie_all .search-box2-1  input{
    writing-mode: tb-rl; 
