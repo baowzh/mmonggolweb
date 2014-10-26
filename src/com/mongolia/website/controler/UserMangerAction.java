@@ -1,8 +1,13 @@
 package com.mongolia.website.controler;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -31,6 +36,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.mongolia.website.manager.impls.SysConfig;
 import com.mongolia.website.manager.interfaces.UserManager;
 import com.mongolia.website.model.DistrictValue;
 import com.mongolia.website.model.FriendValue;
@@ -44,6 +50,7 @@ import com.mongolia.website.util.UUIDMaker;
 public class UserMangerAction {
 	@Autowired
 	private UserManager userManager;
+	
 
 	/**
 	 * 获取用户信息
@@ -87,6 +94,7 @@ public class UserMangerAction {
 			if (!validcode.equalsIgnoreCase(sessioncheckcode)) {
 				throw new Exception("1");
 			}
+			// 调用服务密码加密
 			success = this.userManager.doLogin(userValue);
 			if (success == true) {
 				List<UserValue> userValues = this.userManager.getUsers(

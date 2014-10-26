@@ -27,6 +27,8 @@ public class SysConfig {
 	private Integer recentdoccount;
 	@Value("${activeusercount}")
 	private Integer activeusercount;
+	@Value("${online}")
+	private Integer online;
 
 	public String getSitename() {
 		return sitename;
@@ -107,6 +109,13 @@ public class SysConfig {
 	public void setActiveusercount(Integer activeusercount) {
 		this.activeusercount = activeusercount;
 	}
-	
+
+	public Integer getOnline() {
+		return online;
+	}
+
+	public void setOnline(Integer online) {
+		this.online = online;
+	}
 
 }

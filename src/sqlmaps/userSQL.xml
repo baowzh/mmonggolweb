@@ -56,7 +56,8 @@
 		professioncode,
 		(select professionname from profession where
 		profession.professioncode=user.professioncode ) as professionname,
-		blogclass
+		blogclass,
+		oldid
 		from
 		user
 		<dynamic prepend="where">

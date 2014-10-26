@@ -487,8 +487,9 @@
 												<table>
 													<tr>
 														<td>  </td>
-														<td><img src="verifyCodeServlet" id="varifyimg"
-															width="80" height="21" /></td>
+														<td><a href="javascript:replaceverifycode();"><img
+																src="verifyCodeServlet" id="varifyimg" width="80"
+																height="21" /></a></td>
 														<td><input name="validcode" type="text" size="4"
 															style="height: 18px; width: 44px;" maxLength="4" /></td>
 													</tr>
