@@ -376,7 +376,8 @@
 		retnum from document where <![CDATA[CRTIME>=#startDate#]]>
 		and
 	<![CDATA[ CRTIME<=#endDate#]]>
-		GROUP BY userid) b where a.userid=b.userid order by retnum desc limit 0,9
+		GROUP BY userid) b where a.userid=b.userid order by retnum desc limit
+		0,#fetchcount#
 	</select>
 	<select id="getRecentRegistUsers" parameterClass="java.util.Map"
 		resultClass="UserValue">
@@ -584,4 +585,10 @@
 			</isNotNull>
 		</dynamic>
 	</select>
+	<select id="getRecentActiveUsers" parameterClass="java.util.Map"
+		resultClass="UserValue">
+		select DISTINCT user.* from user,document where
+		user.userid=document.userid and document.DOCTYPE=1 order by document.CRTIME desc limit 0,#fechcount#
+	</select>
+
 </sqlMap>

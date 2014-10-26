@@ -727,7 +727,7 @@
 	</select>
 	<select id="getTopDocumentWithClickCount" parameterClass="java.util.Map"
 		resultClass="DocumentValue">
-		select * from document order by document.readcount desc
+		select * from document where doctype=1 order by document.readcount desc
 		limit
 		#startindex#,#fechcount#
 	</select>
@@ -780,5 +780,12 @@
 			</isNotNull>
 		</dynamic>
 	</select>
+	<select id="getRecentDocs" parameterClass="java.util.Map"
+		resultClass="DocumentValue">
+		select * from document where docstatus=2 and doctype=1  order by document.crtime desc
+		limit
+		0,#fechcount#
+	</select>
+	
 
 </sqlMap>
