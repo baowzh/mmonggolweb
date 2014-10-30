@@ -74,7 +74,7 @@
 	</insert>
 	<select id="getUserDocList" parameterClass="java.util.Map"
 		resultClass="DocumentValue">
-		select * from document
+		select document.*,(select channel.CHNLNAME from channel where document.DOCCHANNEL=channel.CHANNELID ) as docchannelname from document
 		<dynamic prepend="where">
 			<isNotNull prepend="and" property="docid">
 				docid=#docid#
