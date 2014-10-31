@@ -106,7 +106,11 @@ var loadChildDistrict = function(selid, type) {
 
 };
 var showselpanel = function(show, divid) {
+	// alert(x);
+	// alert(y);
 	if (show) {
+		$("#" + divid).css("left", document.body.scrollLeft + x);
+		$("#" + divid).css("top", document.body.scrollTop + y);
 		$("#" + divid).show();
 	} else {
 		$("#" + divid).hide();
@@ -118,3 +122,12 @@ var changeSel = function(code, name, codeid, nameid, divid) {
 	$("#" + codeid).val(code);
 	$('#' + divid).hide();
 }
+var x = 0;
+var y = 0;
+$(document).ready($(function() {
+	$(document).mousemove(function(event) {
+		// alert(event);
+		x = event.clientX;
+		y = event.clientY;
+	});
+}));
