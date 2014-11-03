@@ -177,6 +177,10 @@
 								</a>
 							</div>
 						</div>
+						<div class="time">
+							<font size="1px;"><c:out
+									value="${visitorValue.visitdatestr}" /></font>
+						</div>
 					</div>
 				</div>
 			</c:forEach>

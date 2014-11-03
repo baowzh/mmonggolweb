@@ -330,18 +330,18 @@
 							<div class="search-box2-1">
 								<div class="mglc">
 									<ul class="news-title">
-										<form action="" method="post">
-											<li class="m"><input name="nebterehunere" type="text"
+										<form action="searchform" id="searchform" method="post">
+											<li class="m"><input name="searchtext" id="searchtext" type="text"
 												size="36" maxLength="36" /></li>
 											<li class="m">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
 											<li class="m">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
-												type="radio" name="type" value="1" /> 
+												type="radio" name="type" value="1" onclick="javascript:setsearchtype('searchblog.do');" />
 												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio"
-												name="type" value="2" /> 
+												name="type" value="2" onclick="javascript:setsearchtype('searchdoc.do');" /> 
 											</li>
 											<li class="m">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
 											<li class="m">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
-												type="submit" value=" " class="sub_btn" /></li>
+												type="button" value="" onclick="javascript:search()" class="sub_btn"  /></li>
 										</form>
 									</ul>
 								</div>

@@ -185,14 +185,23 @@ var logout = function() {
 	});
 
 };
-var search = function(action) {
+/**
+ * 
+ */
+var search = function() {
 	var searchtext = $("#searchtext").val();
 	if (searchtext == null || searchtext == '') {
-		MessageWindow.showMess('      ');
+		MessageWindow.showMess('     ');
 		return;
 	}
-	$("#searchform").attr("action", action);
+	// $("#searchform").attr("action", action);
 	$("#searchform").submit();
+};
+/**
+ * 
+ */
+var setsearchtype=function(action){
+	$("#searchform").attr("action", action);
 };
 /**
  * 播放顶部广告
