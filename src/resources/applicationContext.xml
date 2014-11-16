@@ -15,7 +15,6 @@
 			</list>
 		</property>
 	</bean>
-<!-- 	<util:properties id="remoteSettings" location="classpath:/resources/config.properties" />    -->
 	<!--数据源-->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
 		<property name="driverClass"><value>${jdbc.driverClassName}</value></property>
@@ -47,11 +46,11 @@
 	<bean id="freemarkerConfiguration" class="org.springframework.beans.factory.config.PropertiesFactoryBean"> 
 		<property name="location" value="classpath:/resources/freemarker.properties"/>
 	</bean>
-	<bean id="templateLoader" class="com.mongolia.website.controler.freemarker.CustomTemplateLoader"/> 
+	<bean id="templateLoader" class="com.mongolia.website.controller.freemarker.CustomTemplateLoader"/> 
 		
 	<!-- 配置freeMarker的模板路径 -->
 	<!--<bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">--> 
-	<bean id="freemarkerConfig" class="com.mongolia.website.controler.freemarker.CustomFreeMarkerConfigurer"> 
+	<bean id="freemarkerConfig" class="com.mongolia.website.controller.freemarker.CustomFreeMarkerConfigurer"> 
 		<property name="freemarkerSettings" ref="freemarkerConfiguration"/>  				
 		<property name="freemarkerVariables">    
 			<map>       
@@ -62,6 +61,25 @@
 			 <list>
 			 	<ref bean="templateLoader"/>
 			 </list>
+		</property>
+	</bean>
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host">
+			<value>${mailhost}</value>
+		</property>
+		<property name="port">
+			<value>${mailport}</value>
+		</property>
+		<property name="username">
+			<value>${mailusername}</value>
+		</property>
+		<property name="password">
+			<value>${mailpassword}</value>
+		</property>
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+			</props>
 		</property>
 	</bean>
 	<tx:annotation-driven transaction-manager="transactionManager" />

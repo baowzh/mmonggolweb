@@ -1,12 +1,13 @@
 package com.mongolia.website.manager.impls;
 
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 
-import com.mongolia.website.manager.interfaces.WechatService;
-import com.mongolia.website.util.MessageUtil;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.mongolia.website.manager.interfaces.WechatService;
+@Service("wechatServiceImpl")
+@Transactional(rollbackFor = Exception.class)
 public class WechatServiceImpl implements WechatService {
 	public String coreService(HttpServletRequest request) {
 		// 默认返回的文本消息内容
