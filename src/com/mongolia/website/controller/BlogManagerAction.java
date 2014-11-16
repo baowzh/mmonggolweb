@@ -1,4 +1,4 @@
-package com.mongolia.website.controler;
+package com.mongolia.website.controller;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -46,7 +46,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mongolia.website.controler.ckeditor.SamplePostData;
+import com.mongolia.website.controller.ckeditor.SamplePostData;
 import com.mongolia.website.manager.ManagerException;
 import com.mongolia.website.manager.interfaces.ChannelManager;
 import com.mongolia.website.manager.interfaces.UserManager;
@@ -117,6 +117,7 @@ public class BlogManagerAction {
 			Integer self = new Integer(0);
 			if (userid == null || userid.equalsIgnoreCase("")) {
 				user = (UserValue) request.getSession().getAttribute("user");// 在线session
+				map.put("maillogin", sessionUser.getMaillogin());
 				self = new Integer(1);
 			} else {
 				List<UserValue> uservalues = this.userManager.getUsers(userid,
@@ -126,6 +127,7 @@ public class BlogManagerAction {
 						&& sessionUser.getUserid().equalsIgnoreCase(
 								user.getUserid())) {
 					self = new Integer(1);
+					map.put("maillogin", sessionUser.getMaillogin());
 				} else {
 					self = new Integer(0);
 				}
@@ -213,6 +215,9 @@ public class BlogManagerAction {
 					.getAttribute("user");
 			Integer self = new Integer(0);
 			String docid = request.getParameter("docid");
+			if (docid != null && docid.indexOf("?") > 0) {
+				docid = docid.split("\\?")[0];
+			}
 			String pageindex = request.getParameter("pageindex");
 			Integer pindex = 1;
 			if (pageindex != null && !pageindex.equalsIgnoreCase("")) {

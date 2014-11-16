@@ -1,4 +1,4 @@
-package com.mongolia.website.controler;
+package com.mongolia.website.controller;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;

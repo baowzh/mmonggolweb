@@ -1,4 +1,4 @@
-package com.mongolia.website.controler;
+package com.mongolia.website.controller;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -44,7 +44,6 @@ import com.mongolia.website.util.UUIDMaker;
 public class UserMangerAction {
 	@Autowired
 	private UserManager userManager;
-	
 
 	/**
 	 * 获取用户信息
@@ -730,16 +729,15 @@ public class UserMangerAction {
 		try {
 			UserValue sessionUser = (UserValue) request.getSession()
 					.getAttribute("user");// 在线session
-			String userid = sessionUser.getUserid();
-			String username = request.getParameter("username");
-			String pass = request.getParameter("pass");
-			String oldpass = request.getParameter("oldpass");
-			if (!sessionUser.getUsername().equalsIgnoreCase(username)) {
+			if (sessionUser == null) {
 				map.put("mess", "3");
 				return new ModelAndView("jsonView", map);
-			} else {// 修改用户密码
-				this.userManager.doModifyPass(userid, username, pass, oldpass);
 			}
+			String userid = sessionUser.getUserid();
+			String pass = request.getParameter("pass");
+			String oldpass = request.getParameter("oldpass");
+			this.userManager.doModifyPass(userid, pass, oldpass,
+					sessionUser.getMaillogin());
 			map.put("mess", "1");
 		} catch (Exception ex) {
 			map.put("mess", ex.getMessage());
@@ -782,4 +780,67 @@ public class UserMangerAction {
 		}
 
 	}
+
+	@RequestMapping("/getpasswithmail.do")
+	public ModelAndView getpasswith(HttpServletRequest request, ModelMap map) {
+		try {
+			String username = request.getParameter("username");
+			String validcode = request.getParameter("validcode");
+			if (username == null || username.equalsIgnoreCase("")) {
+				map.put("mess", "2");
+				return new ModelAndView("jsonView", map);
+			}
+			if (validcode == null || validcode.equalsIgnoreCase("")) {
+				map.put("mess", "3");
+				return new ModelAndView("jsonView", map);
+			}
+			UserValue uservalue = this.userManager.getmaillogincode(username);
+			String maillogincode = uservalue.getMailloginid();
+			request.getServletContext().setAttribute(maillogincode, username);
+			request.getServletContext().setAttribute(username + "time",
+					System.currentTimeMillis());
+			request.getServletContext().setAttribute(username, username);
+			map.put("mailaddress", uservalue.getEmail());
+			map.put("mess", "1");
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			map.put("mess", ex.getMessage());
+		}
+		return new ModelAndView("jsonView", map);
+	}
+
+	@RequestMapping("/loginmail.do")
+	public ModelAndView loginmail(HttpServletRequest request, ModelMap map) {
+		String id = request.getParameter("id");
+		Object username = request.getServletContext().getAttribute(id);
+		if (username == null) {
+			return new ModelAndView("redirect:tologin.do");
+		} else {
+			Long createtime = (Long) request.getServletContext().getAttribute(
+					username + "time");
+			if (System.currentTimeMillis() - createtime > 2 * 60 * 60 * 1000) {// 超过2小时则不让登录
+				return new ModelAndView("redirect:tologin.do");
+			} else {
+				String username_name = (String) request.getServletContext()
+						.getAttribute("" + username);
+				List<UserValue> users = this.userManager.getUsers(null,
+						username_name);
+				if (users == null || users.isEmpty()) {
+					return new ModelAndView("redirect:tologin.do");
+				} else {
+					UserValue sessionUserValue = users.get(0);
+					sessionUserValue.setLogindate(new Date());
+					sessionUserValue.setMaillogin(1);
+					request.getSession().setAttribute("user", sessionUserValue);// 在线session
+					// 清楚mail登录秘钥
+					//request.getServletContext().removeAttribute(id);
+					return new ModelAndView("redirect:gouserindex.do?userid="
+							+ sessionUserValue.getUserid());
+				}
+
+			}
+		}
+
+	}
+
 }

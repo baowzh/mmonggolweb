@@ -9,8 +9,14 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
+
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 import com.mongolia.website.dao.interfaces.UserManagerDao;
@@ -32,6 +38,8 @@ public class UserManagerImpl implements UserManager {
 	private WebResourceDao webResourceDao;
 	@Autowired
 	private SysConfig sysConfig;
+	@Autowired
+	private JavaMailSenderImpl mailSender;
 
 	@Override
 	public void doCreateUser(UserValue userValue) throws Exception {
@@ -186,21 +194,20 @@ public class UserManagerImpl implements UserManager {
 	}
 
 	@Override
-	public void doModifyPass(String userid, String username, String pass,
-			String oldpass) throws Exception {
+	public void doModifyPass(String userid, String pass, String oldpass,
+			Integer maillogin) throws Exception {
 		// TODO Auto-generated method stub
 		List<UserValue> users = this.getUsers(userid, null);
 		if (users == null || users.isEmpty()) {
 			throw new ManagerException("用户不存在");
 		} else {
-			UserValue userValue = users.get(0);
-			if (!userValue.getUsername().equalsIgnoreCase(username)) {
-				throw new ManagerException("3");
+			if (maillogin.intValue() == 0) {
+				UserValue userValue = users.get(0);
+				if (!oldpass.equalsIgnoreCase(userValue.getPassword())) {
+					throw new ManagerException("2");
+				}
 			}
-			if (!oldpass.equalsIgnoreCase(userValue.getPassword())) {
-				throw new ManagerException("4");
-			}
-			this.userManagerDao.modifyUserPass(userid, username, pass);
+			this.userManagerDao.modifyUserPass(userid, pass);
 		}
 	}
 
@@ -225,6 +232,47 @@ public class UserManagerImpl implements UserManager {
 		// TODO Auto-generated method stub
 		return this.userManagerDao.getProfessionValues(professioncode,
 				professionname);
+	}
+
+	@Override
+	public UserValue getmaillogincode(String username) throws Exception {
+		// TODO Auto-generated method stub
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("username", username);
+		List<UserValue> users = this.userManagerDao.getUser(params);
+		if (users == null || users.isEmpty()) {
+			throw new Exception("4");
+		}
+		UserValue userValue = users.get(0);
+		if (userValue.getEmail() == null
+				|| userValue.getEmail().equalsIgnoreCase("")) {
+			throw new Exception("5");
+		}
+		MimeMessage mailMessage = this.mailSender.createMimeMessage();
+		this.mailSender.setUsername("imubwz@126.com");
+		this.mailSender.setPassword("bwZ24%");
+		this.mailSender.setHost("smtp.126.com");
+		this.mailSender.getPassword();
+		this.mailSender.getHost();
+		Properties prop = new Properties();
+		prop.put("mail.smtp.auth", "true"); // 将这个参数设为true，让服务器进行认证,认证用户名和密码是否正确
+		prop.put("mail.smtp.timeout", "25000");
+		mailSender.setJavaMailProperties(prop);
+		MimeMessageHelper messageHelper = new MimeMessageHelper(mailMessage,true,"utf-8");
+		messageHelper.setTo(userValue.getEmail());
+		messageHelper.setSubject(this.sysConfig.getSitename() + "找回密码提示");
+		String uuid = UUIDMaker.getUUID();
+		messageHelper
+				.setFrom(new InternetAddress(this.mailSender.getUsername()));
+		String mailstr = "<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /></head><body><h1>>您好！请在2个小时之内点击<a href=\""
+				+ this.sysConfig.getSiteaddress()
+				+ "/loginmail.do?id="
+				+ uuid
+				+ "\"这里</a>登陆系统，并修改密码</h1></body></html>";
+		messageHelper.setText(mailstr, true);
+		mailSender.send(mailMessage);
+		userValue.setMailloginid(uuid);
+		return userValue;
 	}
 
 }
