@@ -172,6 +172,7 @@
 	<!-- 隐藏的div -->
 	<%@ include file="bloghiddendiv.jsp"%>
 	<!-- 隐藏的div -->
+	<div class="wrp m0a ribbon"></div>
 </body>
 </html>
 <script type="text/javascript" src="img/css/mSheetAutoHeight.js"></script>

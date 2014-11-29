@@ -126,5 +126,6 @@
 			<div class="cbt"></div>
 		</div>
 		<%@ include file="bloghiddendiv.jsp"%>
+		<div class="wrp m0a ribbon"></div>
 </body>
 </html>

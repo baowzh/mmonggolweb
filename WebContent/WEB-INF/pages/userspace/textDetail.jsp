@@ -344,5 +344,6 @@
 	<script type="text/javascript"
 		src="http://v1.ujian.cc/code/ujian.js?type=slide"></script>
 	<!-- UJian Button END -->
+	<div class="wrp m0a ribbon"></div>
 </body>
 </html>
