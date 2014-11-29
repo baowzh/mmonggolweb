@@ -201,7 +201,7 @@
 							</div>
 							<div class="mnlist" style="height: 150px;">
 								<a id="registlink" href="registe.do">
-									&nbsp;&nbsp;&nbsp;&nbsp;</a> <a href="javascript:login();">
+									&nbsp;&nbsp;&nbsp;&nbsp;</a> <a href="javascript:login();"> 
 								</a>
 							</div>
 						</form>

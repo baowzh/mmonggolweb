@@ -68,7 +68,7 @@ public class StaticConstants {
 	public static Integer IMGWIDTHSM = 334;
 	public static Integer IMGHEIGHTSM = 446;
 	public static String NO_LOGIIN_USERID = "999";
-	public static Integer DEFAULT_PAGESIZE = 100;
+	public static Integer DEFAULT_PAGESIZE = 48;
 	public static Integer INDEX_DOC_ROWCOUNT = 12;
 	public static String IMGCHANNELID = "IMG";
 	public static Integer USER_KIND1 = 1;
