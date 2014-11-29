@@ -266,11 +266,11 @@ public class UserManagerImpl implements UserManager {
 		String uuid = UUIDMaker.getUUID();
 		messageHelper
 				.setFrom(new InternetAddress(this.mailSender.getUsername()));
-		String mailstr = "<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /></head><body><h1>>您好！请在2个小时之内点击<a href=\""
+		String mailstr = "<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /></head><body><h1>>您好！请在2个小时之内点击这里<a href=\""
 				+ this.sysConfig.getSiteaddress()
 				+ "/loginmail.do?id="
 				+ uuid
-				+ "\"这里</a>登陆系统，并修改密码</h1></body></html>";
+				+ "\"</a>登陆系统，并修改密码</h1></body></html>";
 		messageHelper.setText(mailstr, true);
 		mailSender.send(mailMessage);
 		userValue.setMailloginid(uuid);
