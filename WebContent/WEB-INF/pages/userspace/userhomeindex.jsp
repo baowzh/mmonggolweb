@@ -6,6 +6,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Blog Home</title>
+<link href="site/css/main.css" rel="stylesheet" type="text/css" />
+<link href="site/css/index.css" rel="stylesheet" type="text/css" />
 <link href="img/css/main.css" type="text/css" rel="stylesheet" />
 <link href="img/css/listpages.css" type="text/css" rel="stylesheet" />
 <link href="img/css/doccheck.css" type="text/css" rel="stylesheet" />
@@ -25,13 +27,13 @@
 </head>
 <body>
 	<form method="post" id="alinkform">
-		<div class="lmainR ofh" style="text-align: center; height: 64px;">
-			<img src="img/logo.png" width="980" />
+		<div class="wrp m0a logo">
+			<div class="naveFrame">
+				<%@ include file="../website/head.jsp"%>
+			</div>
+			<div class="cbt"></div>
 		</div>
-
-		<div class="lmainR ofh" style="text-align: center;">
-			<%@ include file="bloghead.jsp"%>
-		</div>
+		<div class="wrp m0a ribbon"></div>
 		<div class="lmainR">
 			<div class="  lcell"
 				style="width: 990px; margin-top: 200px; overflow: visible;">

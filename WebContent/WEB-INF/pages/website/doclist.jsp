@@ -6,11 +6,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
-<!-- <link href="img/css/main.css" type="text/css" rel="stylesheet" /> -->
-<!-- <link href="img/css/huh.css" type="text/css" rel="stylesheet" /> -->
 <link href="site/css/main.css" rel="stylesheet" type="text/css" />
 <link href="site/css/index.css" rel="stylesheet" type="text/css" />
-<!-- <link href="img/css/listpages.css" type="text/css" rel="stylesheet" /> -->
 <script type="text/javascript" src="js/jqGrid/js/jquery-1.9.1.js"></script>
 </head>
 <body>
@@ -21,9 +18,12 @@
 			</div>
 			<div class="cbt"></div>
 		</div>
+		<div class="wrp m0a ribbon"></div>
 		<div class="layer m0a">
-			<div class="card1" style="height: 500px; width: 1000px; margin: 0px;">
-				<div class="listCardTtl ttlStl1" style="height: 500px;">
+			<div class="card1"
+				style="height: 500px; width: 1000px; margin: 5px 0px;">
+				<div class="listCardTtl ttlStl1"
+					style="height: 500px; text-align: center;">
 					<div class="ttl">
 						<c:out value="${channel.chnlname}" />
 					</div>
