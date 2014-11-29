@@ -112,7 +112,7 @@
 					<a href="#"> </a>
 				</div>
 			</div>
-			<div class="listCardBody" style="height: 320px;">
+			<div class="listCardBody" style="height: 330px;">
 				<c:forEach items="${indexPageContent.selecteddocs}"
 					var="documentValue" varStatus="status">
 					<div class="nwsl1">

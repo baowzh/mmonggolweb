@@ -115,6 +115,7 @@
 			</div>
 		</div>
 		<div class="lmainR ofh" style="text-align: center;">
+		<div class="wrp m0a ribbon"></div>
 			<div class="tailCard">
 				<div class="msheet" style="height: 100px; width: 800px;"><%@ include
 						file="../website/tail.jsp"%></div>
@@ -172,7 +173,6 @@
 	<!-- 隐藏的div -->
 	<%@ include file="bloghiddendiv.jsp"%>
 	<!-- 隐藏的div -->
-	<div class="wrp m0a ribbon"></div>
 </body>
 </html>
 <script type="text/javascript" src="img/css/mSheetAutoHeight.js"></script>

@@ -119,6 +119,7 @@
 			</div>
 		</div>
 		<div class="lmainR ofh" style="text-align: center;">
+		<div class="wrp m0a ribbon"></div>
 			<div class="tailCard">
 				<div class="msheet" style="height: 100px; width: 800px;"><%@ include
 						file="../website/tail.jsp"%></div>
@@ -126,6 +127,6 @@
 			<div class="cbt"></div>
 		</div>
 		<%@ include file="bloghiddendiv.jsp"%>
-		<div class="wrp m0a ribbon"></div>
+		
 </body>
 </html>

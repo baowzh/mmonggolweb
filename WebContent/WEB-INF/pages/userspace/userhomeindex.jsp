@@ -366,6 +366,7 @@
 			type="hidden" name="userid" id="userid"
 			value="<c:out value="${user.userid}" />"></input>
 		<div class="lmainR ofh" style="text-align: center;">
+		<div class="wrp m0a ribbon"></div>
 			<div class="tailCard">
 				<div class="msheet" style="height: 100px; width: 800px;">
 
@@ -456,6 +457,5 @@
 	<script type="text/javascript"
 		src="http://v1.ujian.cc/code/ujian.js?type=slide"></script>
 	<!-- UJian Button END -->
-	<div class="wrp m0a ribbon"></div>
 </body>
 </html>
