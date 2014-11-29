@@ -75,7 +75,7 @@ body {
 }
 
 .ttlStl1 {
-	background: url(../img/buttonBG.png) repeat-y center;
+	background: url(../img/more.jpg) repeat-y;
 	color: #C00;
 }
 
@@ -89,6 +89,7 @@ body {
 }
 
 .ttl {
+	padding-top:60px;
 	writing-mode: tb-lr;
 	-webkit-writing-mode: vertical-lr;
 	-moz-writing-mode: vertical-lr;
@@ -97,7 +98,7 @@ body {
 	-webkit-text-orientation: sideways-right;
 	line-height: 32px;
 	width: 32px;
-	height: 210px;
+	height: 140px;
 }
 
 .more {
