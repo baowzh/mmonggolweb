@@ -24,15 +24,12 @@ public class VerifyCodeServlet extends HttpServlet {
 	/**
 	 * 验证码图片的宽度。
 	 */
-	// private int width = 30;
-
-	private int width = 80;
+	private int width = 30;
 
 	/**
 	 * 验证码图片的高度。
 	 */
-	// private int height = 80;
-	private int height = 24;
+	private int height = 80;
 
 	/**
 	 * 验证码字符个数
@@ -44,7 +41,7 @@ public class VerifyCodeServlet extends HttpServlet {
 	 */
 	private int xx = 0;
 
-	/**
+	/** 
 	 * 字体高度
 	 */
 	private int fontHeight;
@@ -88,15 +85,13 @@ public class VerifyCodeServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		// xx = width / (codeCount + 2); //生成随机数的水平距离
-		// fontHeight = height - 12; //生成随机数的数字高度
-		// codeY = height - 8; //生成随机数的垂直距离
+		//		xx = width / (codeCount + 2);  //生成随机数的水平距离
+		//		fontHeight = height - 12;	   //生成随机数的数字高度
+		//		codeY = height - 8;			   //生成随机数的垂直距离
 
-		xx = width / (codeCount + 2); // 生成随机数的垂直距离
-		// fontHeight = width - 12; //生成随机数的数字宽度
-		fontHeight = height - 8; // 生成随机数的数字宽度
-		// codeY = height - 8; //生成随机数的垂直距离
-		codeY = width - 8;
+		xx = height / (codeCount + 2); //生成随机数的垂直距离
+		fontHeight = width - 10; //生成随机数的数字宽度
+		codeY = height - 8; //生成随机数的垂直距离
 
 	}
 
@@ -116,7 +111,7 @@ public class VerifyCodeServlet extends HttpServlet {
 		gd.fillRect(0, 0, width, height);
 
 		// 创建字体，字体的大小应该根据图片的高度来定。
-		Font font = new Font("Fixedsys", Font.PLAIN, fontHeight);
+		Font font = new Font("Fixedsys", Font.PLAIN, 18);
 		// 设置字体。
 		gd.setFont(font);
 
@@ -131,8 +126,8 @@ public class VerifyCodeServlet extends HttpServlet {
 			int y = random.nextInt(width);
 			int xl = random.nextInt(12);
 			int yl = random.nextInt(12);
-			// gd.drawLine(x, y, x + xl, y + yl);
-			// gd.drawLine(y, x, y + yl, x + xl);
+			//gd.drawLine(x, y, x + xl, y + yl);
+			//gd.drawLine(y, x, y + yl, x + xl);
 		}
 
 		// randomCode用于保存随机产生的验证码，以便用户登录后进行验证。
@@ -149,8 +144,9 @@ public class VerifyCodeServlet extends HttpServlet {
 			blue = random.nextInt(255);
 
 			// 用随机产生的颜色将验证码绘制到图像中。
-			gd.setColor(new Color(red, green, blue));
-			gd.drawString(strRand, 80 - (i + 1) * 15, 20);
+			//gd.setColor(new Color(red, green, blue));
+			gd.setColor(new Color(255, 0, 0));
+			gd.drawString(strRand, 10, (i + 1) * 20);
 
 			// 将产生的四个随机数组合在一起。
 			randomCode.append(strRand);

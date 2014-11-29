@@ -11,6 +11,8 @@ import java.util.Set;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.sf.json.JSONObject;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -29,6 +31,7 @@ import com.mongolia.website.manager.interfaces.UserManager;
 import com.mongolia.website.manager.interfaces.WebResourceManager;
 import com.mongolia.website.manager.interfaces.WebSiteManager;
 import com.mongolia.website.manager.interfaces.WebSiteVisitorManager;
+import com.mongolia.website.model.DistrictValue;
 import com.mongolia.website.model.DocumentValue;
 import com.mongolia.website.model.MenuValue;
 import com.mongolia.website.model.MessageValue;
@@ -40,6 +43,7 @@ import com.mongolia.website.model.QueryOpinionFrom;
 import com.mongolia.website.model.QueryUserForm;
 import com.mongolia.website.model.TopDocumentValue;
 import com.mongolia.website.model.UserValue;
+import com.mongolia.website.util.PageUtil;
 import com.mongolia.website.util.StaticConstants;
 
 /**
@@ -48,7 +52,7 @@ import com.mongolia.website.util.StaticConstants;
  * @author baowzh
  */
 @Controller
-public class WebSiteManagerAction  {
+public class WebSiteManagerAction {
 	@Autowired
 	private WebSiteManager webSiteManager;
 	@Autowired
@@ -176,7 +180,26 @@ public class WebSiteManagerAction  {
 					&& queryDocForm.getChannel().equalsIgnoreCase("#")) {
 				queryDocParams.put("channelid", null);
 			} else {
-				queryDocParams.put("channelid", queryDocForm.getChannel());
+				if (queryDocForm.getChannel() != null
+						&& queryDocForm.getChannel().equalsIgnoreCase(
+								StaticConstants.SEL_TYPE90)) {
+					queryDocParams.put("toptype", 4);
+				} else if (queryDocForm.getChannel() != null
+						&& queryDocForm.getChannel().equalsIgnoreCase(
+								StaticConstants.SEL_TYPE91)) {
+					queryDocParams.put("toptype", 1);
+				} else if (queryDocForm.getChannel() != null
+						&& queryDocForm.getChannel().equalsIgnoreCase(
+								StaticConstants.SEL_TYPE92)) {
+					queryDocParams.put("toptype", 2);
+				} else if (queryDocForm.getChannel() != null
+						&& queryDocForm.getChannel().equalsIgnoreCase(
+								StaticConstants.SEL_TYPE93)) {
+					queryDocParams.put("toptype", 3);
+				} else {
+					queryDocParams.put("channelid", queryDocForm.getChannel());
+				}
+
 			}
 			if (queryDocForm.getAuthorname() != null
 					&& queryDocForm.getAuthorname().equalsIgnoreCase("")) {
@@ -211,8 +234,8 @@ public class WebSiteManagerAction  {
 					|| queryDocForm.getPageindex() == 0) {
 				queryDocForm.setPageindex(1);
 			}
-			Integer startindex = ((queryDocForm.getPageindex() - 1) * 30);
-			queryDocParams.put("displaydoccount", 30);
+			Integer startindex = ((queryDocForm.getPageindex() - 1) * 28);
+			queryDocParams.put("displaydoccount", 28);
 			queryDocParams.put("startindex", startindex);
 			queryDocParams.put("doctype", StaticConstants.DOCTYPE_DOC);
 			Map<String, Object> result = this.webSiteManager
@@ -306,22 +329,6 @@ public class WebSiteManagerAction  {
 		return new ModelAndView("sitemanager/sitemanagerindex", map);
 	}
 
-//	@RequestMapping("/pagingdata.do")
-//	@Override
-//	public ModelAndView pagingData(PaingModel model, ModelMap map) {
-//		// TODO Auto-generated method stub
-//		System.out.println(" 分页查询方法1");
-//		return new ModelAndView("jsonView", map);
-//	}
-//
-//	@RequestMapping("/refreshdata.do")
-//	@Override
-//	public ModelAndView refreshData(PaingModel model, ModelMap map) {
-//		// TODO Auto-generated method stub
-//		System.out.println(" 分页查询方法2");
-//		return new ModelAndView("jsonView", map);
-//	}
-
 	/**
 	 * 审核内容
 	 * 
@@ -396,6 +403,16 @@ public class WebSiteManagerAction  {
 			map.put("users", paingUser.getModelList());
 			map.put("usercount", paingUser.getRowcount());
 			map.put("queryform", queryUserForm);
+			//
+			List<DistrictValue> districts = this.userManager.getDistrictValues(
+					null, null, "top");
+			JSONObject json = new JSONObject();
+			map.put("districts", districts);
+			List<DistrictValue> districts1 = this.userManager
+					.getDistrictValues(null, null, null);
+			json.put("districts", districts1);
+			map.put("districtsdata", json.toString());
+			//
 			List<PagingIndex> indexs = new ArrayList<PagingIndex>();
 			for (int i = 0; i < paingUser.getPagecount(); i++) {
 				PagingIndex pagingIndex = new PagingIndex();// 就显示首页，末页和当前页，当前页前面，后面
@@ -637,7 +654,7 @@ public class WebSiteManagerAction  {
 			paingModel.setStartrow((paingModel.getPageindex() - 1) * 24);
 			paingModel.setEndrow(paingModel.getPagesize());
 			paingModel.setPagesize(24);
-			paingModel.setDocstatus(StaticConstants.DOCSTATUS1);
+			// paingModel.setDocstatus(StaticConstants.DOCSTATUS1);
 			PaingModel<DocumentValue> pageModel = webSiteVisitorManager
 					.pagingquerydoc(paingModel);
 			map.put("imgList", pageModel.getModelList());
@@ -686,6 +703,8 @@ public class WebSiteManagerAction  {
 			map.put("pagingindexs", indexs);
 			map.put("imgcount", pageModel.getRowcount());
 			map.put("idAndIndexrel", idAndIndexrel);
+			String linkstr = PageUtil.getPagingImgLink(pageModel, 1);
+			map.put("linkstr", linkstr);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -724,6 +743,39 @@ public class WebSiteManagerAction  {
 			ex.printStackTrace();
 		}
 		return new ModelAndView("redirect:index.do", map);
+	}
+
+	@RequestMapping("/addSelectedDocs.do")
+	public ModelAndView addSelectedDocs(HttpServletRequest request,
+			HttpServletResponse response, ModelMap map) {
+		String docids = request.getParameter("docids");
+		String type = request.getParameter("type");
+		String ids[] = docids.split(",");
+		try {
+			this.webSiteManager.addSelectedDocs(ids, type);
+			map.put("success", 1);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			map.put("success", 0);
+			return new ModelAndView("error", map);
+		}
+		return new ModelAndView("jsonView", map);
+	}
+
+	@RequestMapping("/delSelectedDocs.do")
+	public ModelAndView delSelectedDocs(HttpServletRequest request,
+			HttpServletResponse response, ModelMap map) {
+		String docids = request.getParameter("docids");
+		String ids[] = docids.split(",");
+		try {
+			this.webSiteManager.deleteTopDocument(ids);
+			map.put("success", 1);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			map.put("success", 0);
+			return new ModelAndView("error", map);
+		}
+		return new ModelAndView("jsonView", map);
 	}
 
 }

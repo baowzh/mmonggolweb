@@ -497,7 +497,10 @@
 				username=#username#
 			</isNotNull>
 			<isNotNull prepend="and" property="district">
-				username=#district#
+				province=#district#
+			</isNotNull>
+			<isNotNull prepend="and" property="qx">
+				hsien=#qx#
 			</isNotNull>
 			<isNotNull prepend="and" property="likeusername">
 			<![CDATA[( instr(artname,trim(#likeusername#))>0 or  artname like #likeusername#||'%'   ) ]]>
@@ -590,7 +593,8 @@
 	<select id="getRecentActiveUsers" parameterClass="java.util.Map"
 		resultClass="UserValue">
 		select DISTINCT user.* from user,document where
-		user.userid=document.userid and document.DOCTYPE=1 order by document.CRTIME desc limit 0,#fechcount#
+		user.userid=document.userid and document.DOCTYPE=1 order by
+		document.CRTIME desc limit 0,#fechcount#
 	</select>
 	<select id="getVisitTime" parameterClass="java.util.Map"
 		resultClass="VisitorValue">

@@ -150,7 +150,7 @@ public class WebResourceDaoImpl extends BaseDaoiBatis implements WebResourceDao 
 			inStr = inStr.substring(0, inStr.length() - 1);
 		}
 		if(inStr.equalsIgnoreCase("")){
-			inStr="''";
+			inStr="''";	
 		}
 		params.put("instr", inStr);
 		List<VisitorValue> visitortimes = this.getSqlMapClientTemplate()
@@ -893,5 +893,13 @@ public class WebResourceDaoImpl extends BaseDaoiBatis implements WebResourceDao 
 		return this.getSqlMapClientTemplate().queryForList(
 				"getRecentActiveUsers", params);
 	}
+
+	@Override
+	public void updTopDocument(Map<String, Object> params) throws Exception {
+		// TODO Auto-generated method stub
+		this.getSqlMapClientTemplate().update("updtopdoc", params);
+		
+	}
+	
 
 }

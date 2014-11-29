@@ -124,7 +124,7 @@
 					</table>
 				</div>
 				<div class="  artlistcell"
-					style="width: 840px; height: 598px; overflow: scroll;">
+					style="width: 840px; height: 630px; overflow: scroll;">
 					<div class="artListcell acell1">
 						<div class="anwsls1">
 							<table>
@@ -249,13 +249,14 @@
 					</div>
 				</div>
 
-				<div class="mnlist" style="text-align: center; height: 400px;">
-					<a href="javascript:checkdoc()"></a> <a
-						href="javascript:checkdoc()"></a>  <a
-						href="javascript:checkdoc()"> </a>  <a
-						href="javascript:deletedoc()"> </a> <a
-						href="javascript:asTopWriting()">   </a> <a
-						href="sitemanagerindex.do"></a>
+				<div class="mnlist" style="text-align: center; height: 550px;">
+					<a href="javascript:checkdoc();"></a>&nbsp;&nbsp;<a
+						href="javascript:addselecteddoc();"></a>&nbsp;&nbsp;<a
+						href="javascript:delselecteddoc();"> </a>&nbsp;&nbsp;<a
+						href="javascript:addindexdoc();">  </a>&nbsp;&nbsp;<a
+						href="javascript:deletedoc();"> </a>&nbsp;&nbsp;<a
+						href="javascript:asTopWriting();">  
+						&nbsp;&nbsp;</a> <a href="sitemanagerindex.do"></a>
 				</div>
 			</div>
 		</form>
@@ -289,7 +290,7 @@
 						</div>
 					</td>
 					<td>
-						<div class="mfl">
+						<div class="inputHolder">
 							<select name="toptype" id="toptype"
 								style="writing-mode: tb-lr; -webkit-writing-mode: vertical-lr;">
 								<option value="3">  </option>
@@ -305,9 +306,9 @@
 						</div>
 					</td>
 					<td>
-						<div class="mfl">
+						<div class="inputHolder">
 							<input type="text" name="playindex" id="playindex"
-								style="height: 210px;"></input>
+								></input>
 						</div>
 					</td>
 					<td>
@@ -321,9 +322,9 @@
 		</div>
 	</div>
 	<div class="lmainR ofh" style="text-align: center;">
-		<div class="tailCard">
-			<%@ include file="../website/tail.jsp"%>
-		</div>
+		<!-- 		<div class="tailCard"> -->
+		<%@ include file="../website/tail.jsp"%>
+		<!-- 		</div> -->
 		<div class="cbt"></div>
 	</div>
 </body>

@@ -1,0 +1,373 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+	margin: 0;
+	font-family: "MenksoftQagan";
+	font-size: 17px;
+	line-height: 100%;
+}
+
+.logo {
+	background: url(../img/LOGO.jpg) no-repeat;
+	height: 170px;
+}
+
+.navItem {
+	width: 25px;
+	line-height: 25px;
+	height: 105px;
+	overflow: hidden;
+	float: left;
+}
+
+.mln {
+	writing-mode: tb-rl;
+	-webkit-writing-mode: vertical-lr;
+	-moz-writing-mode: vertical-lr;
+	-ms-writing-mode: vertical-lr;
+	-o-writing-mode: vertical-lr;
+	-webkit-text-orientation: sideways-right;
+}
+
+.mln a {
+	color: #666;
+	text-decoration: none;
+}
+
+.naveFrame {
+	position: relative;
+	left: 23em;
+	top: 2em;
+}
+
+.ribbon {
+	background: url(../img/vgalja.jpg);
+	height: 24px;
+	width: 1000px;
+}
+
+.layer {
+	width: 1000px;
+	background: #f8f8f8;
+	margin: 0px auto;
+}
+
+.listCard {
+	height: 320px;
+	float: left;
+	padding: 0;
+	margin: 0;
+}
+
+.listCard+.listCard {
+	padding-left: 5px;
+}
+
+.listCardTtl {
+	float: left;
+	border: solid 1px #ccc;
+	height: 300px;
+	padding: 9px 0;
+	line-height: 32px;
+	width: 32px;
+	border-radius: 5px 0px 0px 5px;
+	overflow: hidden;
+}
+
+.ttlStl1 {
+	background: url(../img/buttonBG.png) repeat-y center;
+	color: #C00;
+}
+
+.listCardBody {
+	border: solid 1px #ccc;
+	border-left: none;
+	height: 300px;
+	padding: 4px;
+	overflow: hidden;
+	border-radius: 0px 5px 5px 0px;
+}
+
+.ttl {
+	writing-mode: tb-lr;
+	-webkit-writing-mode: vertical-lr;
+	-moz-writing-mode: vertical-lr;
+	-ms-writing-mode: vertical-lr;
+	-o-writing-mode: vertical-lr;
+	-webkit-text-orientation: sideways-right;
+	line-height: 32px;
+	width: 32px;
+	height: 210px;
+}
+
+.more {
+	writing-mode: tb-lr;
+	-webkit-writing-mode: vertical-lr;
+	-moz-writing-mode: vertical-lr;
+	-ms-writing-mode: vertical-lr;
+	-o-writing-mode: vertical-lr;
+	-webkit-text-orientation: sideways-right;
+	line-height: 32px;
+	width: 32px;
+	height: 80px;
+	text-align: right;
+	padding-bottom: 1em;
+	-moz-writing-mode: vertical-lr;
+	-ms-writing-mode: vertical-lr;
+	-o-writing-mode: vertical-lr;
+	-webkit-text-orientation: sideways-right;
+}
+
+.more a {
+	color: blue;
+	text-decoration: none;
+}
+
+.listItem {
+	line-height: 22px;
+	width: 22px;
+	writing-mode: tb-lr;
+	-webkit-writing-mode: vertical-lr;
+	-webkit-text-orientation: sideways-right;
+	overflow: hidden;
+	word-break: keep-all;
+	display: inline-block;
+	height: 310px;
+	padding-top: 10px;
+	background: url(../img/qig_1_v.jpg) center top no-repeat;
+}
+
+.listItem a {
+	color: #666;
+	text-decoration: none;
+}
+
+.avatar1 {
+	width: 60.25px;
+	height: 66.75px;
+	margin: 3px;
+	float: left;
+	overflow: hidden;
+	border: solid 1px #fff;
+	background: white;
+}
+
+.thumb1 {
+	width: 177px;
+	height: 208px;
+	margin: 1px;
+	overflow: hidden;
+	float: left;
+	background: #ccc;
+	border: 5px solid #ddd;
+}
+
+.w400 {
+	width: 400px;
+}
+
+.w190 {
+	width: 190px;
+}
+
+.card1 {
+	width: 390px;
+	height: 320px;
+	float: left;
+	margin: 5px;
+	background: #fff;
+	overflow: hidden;
+}
+
+.card2 {
+	width: 200px;
+	height: 320px;
+	float: left;
+	margin: 5px;
+	background: #fff;
+	overflow: hidden;
+}
+
+.card3 {
+	width: 326.666px;
+	height: 320px;
+	float: left;
+	margin: 5px;
+	background: #fff;
+	overflow: hidden;
+}
+
+.card4 {
+	width: 658px;
+	height: 320px;
+	float: left;
+	margin: 5px;
+	background: #fff;
+	overflow: hidden;
+}
+
+.card5 {
+	width: 989px;
+	height: 450px;
+	float: left;
+	margin: 5px;
+	background: #fff;
+	overflow: hidden;
+}
+
+.card1+.card1 {
+	margin-left: 0
+}
+
+.card1+.card2 {
+	margin-left: 0
+}
+
+.card2+.card1 {
+	margin-left: 0
+}
+
+.card3+.card3 {
+	margin-left: 0
+}
+
+.card3+.card4 {
+	margin-left: 0
+}
+
+.layer .card1, .card2, .card3, .card4 {
+	margin-bottom: 0
+}
+
+.nwsl1 {
+	line-height: 20px;
+	height: 310px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	float: left;
+	background: url(../img/qig_1_v.jpg) center top no-repeat;
+	text-indent: 20px;
+	width: 20px;
+}
+
+.title {
+	white-space: nowrap;
+	writing-mode: tb-lr;
+	-webkit-writing-mode: vertical-lr;
+	-webkit-text-orientation: sideways-right;
+	-ms-text-orientation: sideways-right;
+	text-overflow: ellipsis;
+	line-height: 20px;
+	height: 250px;
+	overflow: hidden;
+}
+
+.title a {
+	color: #666;
+	text-decoration: none;
+}
+
+.author {
+	writing-mode: tb-lr;
+	-webkit-writing-mode: vertical-lr;
+	-webkit-text-orientation: sideways-right;
+	-ms-text-orientation: sideways-right;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	line-height: 20px;
+	height: 40px;
+}
+
+.author a {
+	color: #666;
+	text-decoration: none;
+}
+
+.mnlist {
+	writing-mode: tb-lr;
+	-webkit-writing-mode: vertical-lr;
+	-webkit-text-orientation: sideways-right;
+	-ms-text-orientation: sideways-right;
+	line-height: 20px;
+	height: 320px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	float: left;
+	/* 	background: url(../icon.png) no-repeat center 0px; */
+	text-indent: 20px;
+	width: 20px;
+}
+
+.mnlist a {
+	color: #666;
+	text-decoration: none;
+}
+
+.content {
+	width: 120px;
+	margin-left: auto;
+	margin-right: auto;
+/* 	margin-top: 2px; */
+	height: 280px;
+}
+
+.mglForm {
+	
+}
+
+.mglForm .label {
+	-webkit-writing-mode: vertical-lr;
+	-moz-writing-mode: vertical-lr;
+	-ms-writing-mode: vertical-lr;
+	-o-writing-mode: vertical-lr;
+	writing-mode: tb-lr;
+	line-height: 20px;
+	word-break: keep-all;
+	text-align: left;
+	-webkit-text-orientation: sideways-right;
+	-ms-text-orientation: sideways-right;
+	width: 30px;
+	text-align: left;
+	float: left;
+	height: 7em;
+}
+
+.mglForm .label a {
+	color: #666;
+	text-decoration: none;
+}
+
+.mglForm .inputHolder {
+	width: 30px;
+	height: 11em;
+	overflow: hidden;
+	float: left;
+}
+
+.inputHolder input {
+	/* 	-webkit-width: 6em; */
+	-webkit-transform: rotate(90deg);
+	-webkit-transform-origin: 10px 14px;
+	writing-mode: tb-lr;
+	font-family: "MenksoftQagan";
+}
+
+.lcell {
+	float: left;
+	overflow: hidden;
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+.cardlogin {
+	width: 140px;
+	height: 310px;
+	margin: 5px;
+/* 	border: solid 1px #39F; */
+	border-radius: 5px;
+	background: url(../loginbg.png);
+	color: #666;
+}

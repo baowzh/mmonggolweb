@@ -279,16 +279,17 @@ public class WebSiteVisiterAction {
 		try {
 			Map<String, Object> queryDocParams = new HashMap<String, Object>();
 			queryDocForm.setDoctitle(queryDocForm.getSearchtext());
-			if (queryDocForm.getStatus() != null
-					&& queryDocForm.getStatus().intValue() == 0) {
-				queryDocParams.put("status", null);
-			} else {
-				queryDocParams.put("status", queryDocForm.getStatus());
-			}
+//			if (queryDocForm.getStatus() != null
+//					&& queryDocForm.getStatus().intValue() == 0) {
+//				queryDocParams.put("status", null);
+//			} else {
+				queryDocParams.put("status", StaticConstants.DOCSTATUS2);
+			//}
 			if (queryDocForm.getChannel() != null
 					&& queryDocForm.getChannel().equalsIgnoreCase("#")) {
 				queryDocParams.put("channelid", null);
 			} else {
+				
 				queryDocParams.put("channelid", queryDocForm.getChannel());
 			}
 			if (queryDocForm.getAuthorname() != null
