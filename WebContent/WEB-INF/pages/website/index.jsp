@@ -174,7 +174,7 @@
 		<div class="cls"></div>
 	</div>
 	<div class="layer m0a">
-		<div class="card2">
+		<div class="card2" style="background-image: url(img/arv_ag.jpg)">
 			<div class="  lcell" style="width: 150px; height: 300px;">
 				<div class="lcell cardlogin" id="logindiv" style="height: 290px;">
 					<div class="content" style="padding-left: 14px;">
@@ -199,10 +199,10 @@
 							<div class="inputHolder">
 								<input name="validcode" id="varifycode" value="">
 							</div>
-							<div class="mnlist" style="height: 150px;">
+							<div class="mnlist" style="height: 150px;width:30px;">
 								<a id="registlink" href="registe.do">
-									&nbsp;&nbsp;&nbsp;&nbsp;</a> <a href="javascript:login();"> 
-								</a>
+									&nbsp;&nbsp;&nbsp;&nbsp;</a> <a href="javascript:login();">
+									 </a>
 							</div>
 						</form>
 					</div>

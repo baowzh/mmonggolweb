@@ -96,7 +96,7 @@
 				</div>
 				<div class="mnlist" style="height: 210px; text-align: center;">
 					<a href="javascript:doregist();">  </a> &nbsp;&nbsp;<a
-						href="index.html">  </a>
+						href="index.do">  </a>
 				</div>
 			</div>
 		</form>

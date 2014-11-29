@@ -47,7 +47,7 @@ function initPicPlayer(pics, w, h) {
 		btns
 				.append('<span id="picbtn'
 						+ i
-						+ '" style="cursor:pointer; border:solid 1px #ccc;background-color:#eee; display:inline-block;">&nbsp;'
+						+ '" style="cursor:pointer; border:solid 1px #ccc;background-color:#eee; display:inline-block;font-size:14px;">&nbsp;'
 						+ (i + 1) + '&nbsp;</span>&nbsp;');
 		$('#picbtn' + i).data('index', i);
 		$('#picbtn' + i).click(

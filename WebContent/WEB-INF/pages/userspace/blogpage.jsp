@@ -116,7 +116,7 @@
 
 				<a href="photoAlbumList.do?userid=<c:out value="${user.userid}" />"></a>
 				 <a href="friendlist.do?userid=<c:out value="${user.userid}" />"></a>
-				 <a href="index.html">  </a>
+				 <a href="index.do">  </a>
 			</div>
 		</div>
 		<div class=" flt"
