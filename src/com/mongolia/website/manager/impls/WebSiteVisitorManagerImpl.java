@@ -234,7 +234,7 @@ public class WebSiteVisitorManagerImpl extends BaseManagerImpl implements
 			indexPageContent.put("activeusers", activeusers);
 		}
 		List<TopDocumentValue> selecteddocs = this.getTopDocuments(
-				StaticConstants.TOP_TYPE4, null, 15);
+				StaticConstants.TOP_TYPE4, null, sysConfig.getSelecteddoccount());
 		indexPageContent.put("selecteddocs", selecteddocs);
 		return indexPageContent;
 	}

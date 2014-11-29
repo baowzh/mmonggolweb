@@ -10,7 +10,7 @@ $(document).ready(
 				dataType : "json",
 				url : "gechannels.do",// 请求的action路径
 				data : {
-					menutype : 1
+					type : 2
 				},
 				error : function() {// 请求失败处理函数
 					alert('请求失败');
@@ -220,7 +220,7 @@ var addemotion = function(face) {
 }
 var showselePanel = function(show, event) {
 	if (show) {
-		$('#citys').css("width", 300);
+		$('#citys').css("width", 400);
 		$('#citys').css("left", document.body.scrollLeft + positionx);
 		$('#citys').css("top", document.body.scrollTop + positiony);
 		$("#citys").show(300);

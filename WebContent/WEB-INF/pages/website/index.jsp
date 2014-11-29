@@ -12,6 +12,7 @@
 <script type="text/javascript" src="js/sitejs/regist.js"></script>
 <script type="text/javascript" src="js/util/js/messageWindow.js"></script>
 <script type="text/javascript" src="js\tween.js"></script>
+<script type="text/javascript" src="js/sitejs/imgnews.js"></script>
 <script src="js/messagebox/jquery.msgbox.js"></script>
 <script src="js/messagebox/jquery.dragndrop.min.js"></script>
 <link rel="stylesheet" href="js\messagebox\jquery.msgbox.css" />
@@ -98,38 +99,46 @@
 	</div>
 	<div class="wrp m0a ribbon"></div>
 	<div class="layer m0a">
-		<div class="card1"></div>
-		<div class="card1">
-			<div class="listCardTtl ttlStl1">
+		<div class="card1" style="height: 340px; width: 380px;">
+			<div style="width: 380px; height: 330px; padding: 5px;">
+				<div class="sldrFrm" id="picplayer"
+					style="width: 375px; height: 330px;"></div>
+			</div>
+		</div>
+		<div class="card1" style="height: 340px; width: 430px;">
+			<div class="listCardTtl ttlStl1" style="height: 320px;">
 				<div class="ttl"> </div>
 				<div class="more">
 					<a href="#"> </a>
 				</div>
 			</div>
-			<div class="listCardBody">
-				<c:forEach items="${indexPageContent.selectedarts}"
+			<div class="listCardBody" style="height: 320px;">
+				<c:forEach items="${indexPageContent.selecteddocs}"
 					var="documentValue" varStatus="status">
 					<div class="nwsl1">
 						<div class="title">
 							<a
 								href="getuserdocdetail.do?docid=<c:out value="${documentValue.docid}"/>"
 								target="_blank" class="tit_text_overflow"><c:out
-									value="${documentValue.doctitle}" /></a>
+									value="${documentValue.title}" /></a>
 						</div>
 						<div class="author">
-							<a href="#"></a>
+							<a
+								href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
+								<c:out value="${documentValue.docauthor}" />
+							</a>
 						</div>
 					</div>
 
 				</c:forEach>
 			</div>
 		</div>
-		<div class="card2">
-			<div class="listCardTtl ttlStl1">
+		<div class="card2" style="height: 340px; width: 170px;">
+			<div class="listCardTtl ttlStl1" style="height: 320px;">
 				<div class="ttl"></div>
 				<div class="more"></div>
 			</div>
-			<div class="listCardBody">
+			<div class="listCardBody" style="height: 320px; padding-top: 30px;">
 				<form id="searchform" class="mglForm" method="post">
 					<div class="inputHolder"></div>
 					<c:if test="${agentkind==1}">
@@ -138,8 +147,7 @@
 							<input type="text" name="searchtext" id="searchtext"
 								style="width: 290px; height: 21px; -webkit-transform-origin: 15px 18px;" />
 						</div>
-						<div class="inputHolder"></div>
-
+						<!-- 						<div class="inputHolder"></div> -->
 						<div class="label" style="height: 300px; text-align: center;">
 							<a id="searchbloga" href="javascript:search('searchblog.do');">
 								 </a> &nbsp;&nbsp; <a id="searchdoca"
@@ -152,7 +160,7 @@
 							<input type="text" name="searchtext" id="searchtext"
 								style="height: 290px; width: 21px;" />
 						</div>
-						<div class="inputHolder"></div>
+						<div class="inputHolder" style="width: 10px;"></div>
 
 						<div class="label" style="height: 300px; text-align: center;">
 							<a id="searchbloga" href="javascript:search('searchblog.do');">
@@ -220,7 +228,10 @@
 									value="${documentValue.doctitle}" /></a>
 						</div>
 						<div class="author">
-							<a href="#"></a>
+							<a
+								href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
+								<c:out value="${documentValue.docauthor}" />
+							</a>
 						</div>
 					</div>
 				</c:forEach>
@@ -230,7 +241,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"> </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="#"> </a>
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -245,7 +256,10 @@
 									value="${documentValue.doctitle}" /></a>
 						</div>
 						<div class="author">
-							<a href="#"></a>
+							<a
+								href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
+								<c:out value="${documentValue.docauthor}" />
+							</a>
 						</div>
 					</div>
 
@@ -260,7 +274,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"></div>
 				<div class="more">
-					<!-- 					<a href="#"> </a> -->
+					<!-- 					<a href="#"> </a> -->
 				</div>
 			</div>
 			<div class="listCardBody" style="background: #eee;">
@@ -320,7 +334,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"> </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="#"> </a>
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -335,7 +349,10 @@
 									value="${documentValue.doctitle}" /></a>
 						</div>
 						<div class="author">
-							<a href="#"></a>
+							<a
+								href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
+								<c:out value="${documentValue.docauthor}" />
+							</a>
 						</div>
 					</div>
 
@@ -347,7 +364,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"> </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="#"> </a>
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -362,7 +379,10 @@
 									value="${documentValue.doctitle}" /></a>
 						</div>
 						<div class="author">
-							<a href="#"></a>
+							<a
+								href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
+								<c:out value="${documentValue.docauthor}" />
+							</a>
 						</div>
 					</div>
 
@@ -376,46 +396,58 @@
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"></div>
-				<div class="more">
-					<a href="#"> </a>
-				</div>
+				<!-- 				<div class="more"> -->
+				<!-- 					<a href="#"> </a> -->
+				<!-- 				</div> -->
 			</div>
 			<div class="listCardBody">
-				<div class="listItem">
-					<a href="#">       </a>
+				<div class=" avatar1">
+					<img src="img/vip.jpg" width="63" />
 				</div>
-				<div class="listItem">
-					<a href="#">       </a>
+				<div class=" avatar1">
+					<img src="img/vip.jpg" width="63" />
 				</div>
-				<div class="listItem">
-					<a href="#">       </a>
+				<div class=" avatar1">
+					<img src="img/vip.jpg" width="63" />
 				</div>
-				<div class="listItem">
-					<a href="#">       </a>
+				<div class=" avatar1">
+					<img src="img/vip.jpg" width="63" />
 				</div>
-				<div class="listItem">
-					<a href="#">       </a>
+				<div class=" avatar1">
+					<img src="img/vip.jpg" width="63" />
 				</div>
-				<div class="listItem">
-					<a href="#">       </a>
+				<div class=" avatar1">
+					<img src="img/vip.jpg" width="63" />
 				</div>
-				<div class="listItem">
-					<a href="#">       </a>
+				<div class=" avatar1">
+					<img src="img/vip.jpg" width="63" />
 				</div>
-				<div class="listItem">
-					<a href="#">       </a>
+				<div class=" avatar1">
+					<img src="img/vip.jpg" width="63" />
 				</div>
-				<div class="listItem">
-					<a href="#">       </a>
+				<div class=" avatar1">
+					<img src="img/vip.jpg" width="63" />
 				</div>
-				<div class="listItem">
-					<a href="#">       </a>
+				<div class=" avatar1">
+					<img src="img/vip.jpg" width="63" />
 				</div>
-				<div class="listItem">
-					<a href="#">       </a>
+				<div class=" avatar1">
+					<img src="img/vip.jpg" width="63" />
 				</div>
-				<div class="listItem">
-					<a href="#">       </a>
+				<div class=" avatar1">
+					<img src="img/vip.jpg" width="63" />
+				</div>
+				<div class=" avatar1">
+					<img src="img/vip.jpg" width="63" />
+				</div>
+				<div class=" avatar1">
+					<img src="img/vip.jpg" width="63" />
+				</div>
+				<div class=" avatar1">
+					<img src="img/vip.jpg" width="63" />
+				</div>
+				<div class=" avatar1">
+					<img src="img/vip.jpg" width="63" />
 				</div>
 			</div>
 		</div>
@@ -423,7 +455,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl">  </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="#"> </a>
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -437,7 +469,10 @@
 									value="${documentValue.doctitle}" /></a>
 						</div>
 						<div class="author">
-							<a href="#"></a>
+							<a
+								href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
+								<c:out value="${documentValue.docauthor}" />
+							</a>
 						</div>
 					</div>
 
@@ -449,7 +484,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"> </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="#"> </a>
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -464,7 +499,10 @@
 									value="${documentValue.doctitle}" /></a>
 						</div>
 						<div class="author">
-							<a href="#"></a>
+							<a
+								href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
+								<c:out value="${documentValue.docauthor}" />
+							</a>
 						</div>
 					</div>
 
@@ -476,43 +514,60 @@
 	</div>
 	<div class="layer m0a">
 		<div class="card3">
-			<div class="listCardTtl ttlStl1"></div>
+			<div class="listCardTtl ttlStl1">
+				<div class="ttl"></div>
+				<!-- 				<div class="more"> -->
+				<!-- 					<a href="#"> </a> -->
+				<!-- 				</div> -->
+			</div>
 			<div class="listCardBody">
-				<div class="listItem">
-					<a href="#">       </a>
+				<div class=" avatar1">
+					<img src="img/vip.jpg" width="63" />
 				</div>
-				<div class="listItem">
-					<a href="#">       </a>
+				<div class=" avatar1">
+					<img src="img/vip.jpg" width="63" />
 				</div>
-				<div class="listItem">
-					<a href="#">       </a>
+				<div class=" avatar1">
+					<img src="img/vip.jpg" width="63" />
 				</div>
-				<div class="listItem">
-					<a href="#">       </a>
+				<div class=" avatar1">
+					<img src="img/vip.jpg" width="63" />
 				</div>
-				<div class="listItem">
-					<a href="#">       </a>
+				<div class=" avatar1">
+					<img src="img/vip.jpg" width="63" />
 				</div>
-				<div class="listItem">
-					<a href="#">       </a>
+				<div class=" avatar1">
+					<img src="img/vip.jpg" width="63" />
 				</div>
-				<div class="listItem">
-					<a href="#">       </a>
+				<div class=" avatar1">
+					<img src="img/vip.jpg" width="63" />
 				</div>
-				<div class="listItem">
-					<a href="#">       </a>
+				<div class=" avatar1">
+					<img src="img/vip.jpg" width="63" />
 				</div>
-				<div class="listItem">
-					<a href="#">       </a>
+				<div class=" avatar1">
+					<img src="img/vip.jpg" width="63" />
 				</div>
-				<div class="listItem">
-					<a href="#">       </a>
+				<div class=" avatar1">
+					<img src="img/vip.jpg" width="63" />
 				</div>
-				<div class="listItem">
-					<a href="#">       </a>
+				<div class=" avatar1">
+					<img src="img/vip.jpg" width="63" />
 				</div>
-				<div class="listItem">
-					<a href="#">       </a>
+				<div class=" avatar1">
+					<img src="img/vip.jpg" width="63" />
+				</div>
+				<div class=" avatar1">
+					<img src="img/vip.jpg" width="63" />
+				</div>
+				<div class=" avatar1">
+					<img src="img/vip.jpg" width="63" />
+				</div>
+				<div class=" avatar1">
+					<img src="img/vip.jpg" width="63" />
+				</div>
+				<div class=" avatar1">
+					<img src="img/vip.jpg" width="63" />
 				</div>
 			</div>
 		</div>
@@ -520,7 +575,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl">  </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="#"> </a>
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -535,7 +590,10 @@
 									value="${documentValue.doctitle}" /></a>
 						</div>
 						<div class="author">
-							<a href="#"></a>
+							<a
+								href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
+								<c:out value="${documentValue.docauthor}" />
+							</a>
 						</div>
 					</div>
 
@@ -547,7 +605,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"> </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="#"> </a>
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -562,7 +620,10 @@
 									value="${documentValue.doctitle}" /></a>
 						</div>
 						<div class="author">
-							<a href="#"></a>
+							<a
+								href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
+								<c:out value="${documentValue.docauthor}" />
+							</a>
 						</div>
 					</div>
 
@@ -577,7 +638,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl">  </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="#"> </a>
 				</div>
 			</div>
 			<div class="listCardBody" style="background: #eee;">
@@ -637,7 +698,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"> </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="#"> </a>
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -652,7 +713,10 @@
 									value="${documentValue.doctitle}" /></a>
 						</div>
 						<div class="author">
-							<a href="#"></a>
+							<a
+								href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
+								<c:out value="${documentValue.docauthor}" />
+							</a>
 						</div>
 					</div>
 
@@ -664,7 +728,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"> </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="#"> </a>
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -679,7 +743,10 @@
 									value="${documentValue.doctitle}" /></a>
 						</div>
 						<div class="author">
-							<a href="#"></a>
+							<a
+								href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
+								<c:out value="${documentValue.docauthor}" />
+							</a>
 						</div>
 					</div>
 
@@ -692,7 +759,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl">   </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="#"> </a>
 				</div>
 			</div>
 			<div class="listCardBody">asdf</div>
@@ -704,7 +771,7 @@
 			<div class="listCardTtl ttlStl1" style="height: 450px;">
 				<div class="ttl" style="height: 300px;"> </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="#"> </a>
 				</div>
 			</div>
 			<div class="listCardBody" style="height: 450px;">
@@ -728,7 +795,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl">  :</div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="#"> </a>
 				</div>
 			</div>
 			<div class="listCardBody" style="background: #eee;">
@@ -788,7 +855,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl">:</div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="#"> </a>
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -802,7 +869,10 @@
 									value="${documentValue.doctitle}" /></a>
 						</div>
 						<div class="author">
-							<a href="#"></a>
+							<a
+								href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
+								<c:out value="${documentValue.docauthor}" />
+							</a>
 						</div>
 					</div>
 				</c:forEach>
@@ -812,7 +882,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"> </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="#"> </a>
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -826,7 +896,10 @@
 									value="${documentValue.doctitle}" /></a>
 						</div>
 						<div class="author">
-							<a href="#"></a>
+							<a
+								href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
+								<c:out value="${documentValue.docauthor}" />
+							</a>
 						</div>
 					</div>
 				</c:forEach>
@@ -839,18 +912,25 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"> </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="#"> </a>
 				</div>
 			</div>
 			<div class="listCardBody" style="background: #eee;">
 				<c:forEach items="${indexPageContent.topUsers}" var="userValue"
 					varStatus="status">
-					<div class=" avatar1">
-						<a
-							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />"
-							target="_blank"><img
-							src="getsmheadimge.do?userid=<c:out value="${userValue.userid}"/>"
-							title=""></a>
+					<div class="xldgurg" style="height: 70px; width: 80px;">
+						<div class="avtr" style="width: 65px; float: left;">
+							<a
+								href="gouserindex.do?userid=<c:out value="${userValue.userid}" />"><img
+								src="getsmheadimge.do?userid=<c:out value="${userValue.userid}" />"
+								style="width: 47px;" /></a>
+						</div>
+						<div class="m1ln" style="float: left;">
+							<a
+								href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
+								&nbsp;<c:out value="${userValue.artname}" />
+							</a>
+						</div>
 					</div>
 				</c:forEach>
 			</div>
@@ -859,7 +939,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"> </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="#"> </a>
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -873,7 +953,10 @@
 									value="${documentValue.doctitle}" /></a>
 						</div>
 						<div class="author">
-							<a href="#"></a>
+							<a
+								href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
+								<c:out value="${documentValue.docauthor}" />
+							</a>
 						</div>
 					</div>
 				</c:forEach>
@@ -883,7 +966,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"> </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="#"> </a>
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -897,7 +980,10 @@
 									value="${documentValue.doctitle}" /></a>
 						</div>
 						<div class="author">
-							<a href="#"></a>
+							<a
+								href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
+								<c:out value="${documentValue.docauthor}" />
+							</a>
 						</div>
 					</div>
 				</c:forEach>
@@ -910,7 +996,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"></div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="#"> </a>
 				</div>
 			</div>
 			<div class="listCardBody" style="background: #eee;">
@@ -933,7 +1019,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"> </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="#"> </a>
 				</div>
 			</div>
 			<div class="listCardBody" style="background: #eee;">
@@ -947,7 +1033,10 @@
 									value="${documentValue.doctitle}" /></a>
 						</div>
 						<div class="author">
-							<a href="#"></a>
+							<a
+								href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
+								<c:out value="${documentValue.docauthor}" />
+							</a>
 						</div>
 					</div>
 				</c:forEach>
@@ -957,7 +1046,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"> </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="#"> </a>
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -971,7 +1060,10 @@
 									value="${documentValue.doctitle}" /></a>
 						</div>
 						<div class="author">
-							<a href="#"></a>
+							<a
+								href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
+								<c:out value="${documentValue.docauthor}" />
+							</a>
 						</div>
 					</div>
 				</c:forEach>
@@ -981,7 +1073,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"> </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="#"> </a>
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -995,7 +1087,10 @@
 									value="${documentValue.doctitle}" /></a>
 						</div>
 						<div class="author">
-							<a href="#"></a>
+							<a
+								href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
+								<c:out value="${documentValue.docauthor}" />
+							</a>
 						</div>
 					</div>
 				</c:forEach>
@@ -1008,18 +1103,25 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl">     </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="#"> </a>
 				</div>
 			</div>
 			<div class="listCardBody" style="background: #eee;">
-				<c:forEach items="${indexPageContent.topUsers}" var="userValue"
-					varStatus="status">
-					<div class=" avatar1">
-						<a
-							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />"
-							target="_blank"><img
-							src="getsmheadimge.do?userid=<c:out value="${userValue.userid}"/>"
-							title=""></a>
+				<c:forEach items="${indexPageContent.recentLoginUsers}"
+					var="userValue" varStatus="status">
+					<div class="xldgurg" style="height: 70px; width: 80px;">
+						<div class="avtr" style="width: 65px; float: left;">
+							<a
+								href="gouserindex.do?userid=<c:out value="${userValue.userid}" />"><img
+								src="getsmheadimge.do?userid=<c:out value="${userValue.userid}" />"
+								style="width: 47px;" /></a>
+						</div>
+						<div class="m1ln" style="float: left;">
+							<a
+								href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
+								&nbsp;<c:out value="${userValue.artname}" />
+							</a>
+						</div>
 					</div>
 				</c:forEach>
 			</div>
@@ -1028,7 +1130,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"> </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="#"> </a>
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -1042,7 +1144,10 @@
 									value="${documentValue.doctitle}" /></a>
 						</div>
 						<div class="author">
-							<a href="#"></a>
+							<a
+								href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
+								<c:out value="${documentValue.docauthor}" />
+							</a>
 						</div>
 					</div>
 				</c:forEach>
@@ -1052,7 +1157,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"> </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="#"> </a>
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -1066,7 +1171,10 @@
 									value="${documentValue.doctitle}" /></a>
 						</div>
 						<div class="author">
-							<a href="#"></a>
+							<a
+								href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
+								<c:out value="${documentValue.docauthor}" />
+							</a>
 						</div>
 					</div>
 				</c:forEach>
@@ -1079,18 +1187,25 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl">    </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="#"> </a>
 				</div>
 			</div>
 			<div class="listCardBody" style="background: #eee;">
-				<c:forEach items="${indexPageContent.topUsers}" var="userValue"
+				<c:forEach items="${indexPageContent.activeusers}" var="userValue"
 					varStatus="status">
-					<div class=" avatar1">
-						<a
-							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />"
-							target="_blank"><img
-							src="getsmheadimge.do?userid=<c:out value="${userValue.userid}"/>"
-							title=""></a>
+					<div class="xldgurg" style="height: 70px; width: 80px;">
+						<div class="avtr" style="width: 65px; float: left;">
+							<a
+								href="gouserindex.do?userid=<c:out value="${userValue.userid}" />"><img
+								src="getsmheadimge.do?userid=<c:out value="${userValue.userid}" />"
+								style="width: 47px;" /></a>
+						</div>
+						<div class="m1ln" style="float: left;">
+							<a
+								href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
+								&nbsp;<c:out value="${userValue.artname}" />
+							</a>
+						</div>
 					</div>
 				</c:forEach>
 			</div>
@@ -1099,7 +1214,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"> </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="#"> </a>
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -1113,7 +1228,10 @@
 									value="${documentValue.doctitle}" /></a>
 						</div>
 						<div class="author">
-							<a href="#"></a>
+							<a
+								href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
+								<c:out value="${documentValue.docauthor}" />
+							</a>
 						</div>
 					</div>
 				</c:forEach>
@@ -1123,7 +1241,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"> </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="#"> </a>
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -1137,7 +1255,10 @@
 									value="${documentValue.doctitle}" /></a>
 						</div>
 						<div class="author">
-							<a href="#"></a>
+							<a
+								href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
+								<c:out value="${documentValue.docauthor}" />
+							</a>
 						</div>
 					</div>
 				</c:forEach>
@@ -1150,7 +1271,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl">    </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="#"> </a>
 				</div>
 			</div>
 			<div class="listCardBody" style="background: #eee;">
@@ -1170,7 +1291,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"> </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="#"> </a>
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -1184,7 +1305,10 @@
 									value="${documentValue.doctitle}" /></a>
 						</div>
 						<div class="author">
-							<a href="#"></a>
+							<a
+								href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
+								<c:out value="${documentValue.docauthor}" />
+							</a>
 						</div>
 					</div>
 				</c:forEach>
@@ -1194,7 +1318,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"> </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="#"> </a>
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -1208,7 +1332,10 @@
 									value="${documentValue.doctitle}" /></a>
 						</div>
 						<div class="author">
-							<a href="#"></a>
+							<a
+								href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
+								<c:out value="${documentValue.docauthor}" />
+							</a>
 						</div>
 					</div>
 				</c:forEach>
@@ -1218,4 +1345,14 @@
 	</div>
 	<div class="wrp m0a ribbon"></div>
 </body>
+<script>
+	var pics1 = <c:out value="${indexPageContent.pics}" escapeXml="false" />;
+	//$("#searchtext").css
+	if (/webkit/.test(navigator.userAgent.toLowerCase())) {
+		$("#searchtext").attr("style", "width:275px;height:15px;");
+	}
+	if (/msie/.test(navigator.userAgent.toLowerCase())) {
+		$("#searchtext").attr("style", "width:18px;height:275px;");
+	}
+</script>
 </html>

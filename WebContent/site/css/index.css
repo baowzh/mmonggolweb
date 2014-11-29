@@ -82,7 +82,7 @@ body {
 .listCardBody {
 	border: solid 1px #ccc;
 	border-left: none;
-	height: 300px;
+	height: 320px;
 	padding: 4px;
 	overflow: hidden;
 	border-radius: 0px 5px 5px 0px;
@@ -247,7 +247,7 @@ body {
 	text-overflow: ellipsis;
 	float: left;
 	background: url(../img/qig_1_v.jpg) center top no-repeat;
-	text-indent: 20px;
+	text-indent: 12px;
 	width: 20px;
 }
 
@@ -276,7 +276,7 @@ body {
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	line-height: 20px;
-	height: 40px;
+	height: 50px;
 }
 
 .author a {
@@ -425,5 +425,43 @@ body {
 }
 
 .loin .desc {
+	color: #c00
+}
+
+.xldgurg {
+	width: 69px;
+	margin: 5px;
+	height: 310px;
+	float: left;
+	-webkit-writing-mode: vertical-lr;
+	writing-mode: tb-lr;
+}
+
+.xldgurg .avtr {
+	width: 86px;
+	height: 69px;
+	float: left;
+}
+
+.xldgurg .avtr img {
+	width: 50px;
+	height: 59px;
+	border: solid 1px #ccc;
+	padding: 5px;
+	background: #eee;
+}
+
+.xldgurg .desc {
+	width: 60px;
+	padding: 5px;
+	height: 230px;
+	float: left
+}
+
+.xldgurg .desc .m1ln {
+	height: 230px;
+}
+
+.xldgurg .desc {
 	color: #c00
 }
