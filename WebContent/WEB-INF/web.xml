@@ -84,7 +84,7 @@
   </servlet>
   <servlet>
     <servlet-name>VerifyCodeServlet</servlet-name>
-    <servlet-class>com.mongolia.website.controler.VerifyCodeServlet</servlet-class>
+    <servlet-class>com.mongolia.website.controller.VerifyCodeServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>webdispatcher</servlet-name>

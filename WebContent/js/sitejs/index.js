@@ -44,25 +44,29 @@ var login = function() {
 					var imgurl = 'getsmheadimge.do';
 					var homdurl = 'gouserindex.do';
 					if (data.success == 'true') {
-						var innerHTML = ''
-								+ '<div style="padding-top:10px;"><img src=\"'
+						var innerHTML = '<div class=\"loin\" style=\"padding-left:10px;\">'
+								+ '<div class=\"avtr\"><img src=\"'
 								+ imgurl
 								+ '?userid='
 								+ data.userinfo.userid
-								+ '\" width=\"110\" height=\"120\" /></div><div class="mglc" style="padding-right:10px;padding-top:20px;" id="loginform">'
-								+ '<ul class="news-title"><li class="m">   '
+								+ '\"  style=\"width:80px;\" /></div>'
+								+ '<div class=\"desc  \" style=\"width:120px\">'
+								+ '<div class=\"m1ln\">   '
 								+ data.userinfo.artname
-								+ '</li>'
-								+ '<li class="m"><a href=\"'
+								+ '</div>'
+								+ '<div class=\"m1ln\"><a href=\"'
 								+ homdurl
-								+ '\">   </a></li>'
-								+ '<li class=\"m\"><a href=\"'
+								+ '\">   </a></div>'
+								+ '<div class=\"m1ln\"><a href=\"'
 								+ 'javascript:logout();'
-								+ '\"> </a></li>'
-								+ '<li class=\"m\"><a href=\"#\">     : '
-								+ data.userinfo.logindate + '</a></li>'
-								+ '</ul></div>' + '';
-						$("#loginform").html(innerHTML);
+								+ '\"> </a></div>'
+								+ '<div class=\"m1ln\"><a href=\"#\">     : '
+								+ data.userinfo.logindate
+								+ '</a></div>'
+								+ '</div>' + '</div>';
+						// $("#loginform").html(innerHTML);
+						$("#logindiv").html(innerHTML);
+
 					} else {
 						if (data.mess == '1') {
 							MessageWindow
@@ -74,8 +78,16 @@ var login = function() {
 											'<div style=\"writing-mode: tb-lr; -webkit-writing-mode: vertical-lr\"> <br>&nbsp;&nbsp; &nbsp;          '
 													+ '<br><a href=\"registe.do\">&nbsp;&nbsp; &nbsp&nbsp;&nbsp; &nbsp </a>   </div>');
 						} else if (data.mess == '3') {
+
 							MessageWindow
 									.showMess('            ');
+							$('#registlink').attr('href',
+									"javascript:getpass();")
+							$('#registlink').attr('style', 'font-size:10px;');
+							$('#registlink')
+									.html(
+											'<font color="#f00">  </font>');
+
 						} else {
 							//
 						}
@@ -106,7 +118,7 @@ $(document)
 												+ '</div>'
 												+ '</td>'
 												+ '<td style=\"height:70px;width:20px;align:center\">	'
-												+ '<input type=\"text\" name=\"validcode\"  style=\"-webkit-writing-mode: vertical-lr; writing-mode: tb-lr;height:55px;width:15px;\" />'
+												+ '<input type=\"text\" name=\"validcode\"  style=\"-webkit-writing-mode: vertical-lr; writing-mode: tb-lr;height:40px;width:15px;\" />'
 												+ '</td>'
 												+ '</tr>'
 												+ '</table>');
@@ -139,25 +151,27 @@ $(document)
 									if (data.userinfo == null) {
 										return;
 									}
-									var innerHTML = ''
-											+ '<div style="padding-top:10px;"><img src=\"'
+									var innerHTML = '<div class=\"loin\" style=\"padding-left:10px;\">'
+											+ '<div class=\"avtr\"><img src=\"'
 											+ imgurl
 											+ '?userid='
 											+ data.userinfo.userid
-											+ '\" width=\"110\" height=\"120\" /></div><div class="mglc" style="padding-right:10px;padding-top:20px;" id="loginform">'
-											+ '<ul class="news-title"><li class="m">   '
+											+ '\"  style=\"width:80px;\" /></div>'
+											+ '<div class=\"desc  \" style=\"width:120px\">'
+											+ '<div class=\"m1ln\">  '
 											+ data.userinfo.artname
-											+ '</li>'
-											+ '<li class="m"><a href=\"'
+											+ '</div>'
+											+ '<div class=\"m1ln\"><a href=\"'
 											+ homdurl
-											+ '\">   </a></li>'
-											+ '<li class=\"m\"><a href=\"'
+											+ '\">   </a></div>'
+											+ '<div class=\"m1ln\"><a href=\"'
 											+ 'javascript:logout();'
-											+ '\"> </a></li>'
-											+ '<li class=\"m\"><a href=\"#\">     : '
+											+ '\"> </a></div>'
+											+ '<div class=\"m1ln\">   : '
 											+ data.userinfo.logindate
-											+ '</a></li>' + '</ul></div>' + '';
-									$("#loginform").html(innerHTML);
+											+ '</div>' + '</div>' + '</div>';
+									// $("#loginform").html(innerHTML);
+									$("#logindiv").html(innerHTML);
 
 								}
 							});
@@ -185,23 +199,14 @@ var logout = function() {
 	});
 
 };
-/**
- * 
- */
-var search = function() {
+var search = function(action) {
 	var searchtext = $("#searchtext").val();
 	if (searchtext == null || searchtext == '') {
-		MessageWindow.showMess('     ');
+		MessageWindow.showMess('      ');
 		return;
 	}
-	// $("#searchform").attr("action", action);
-	$("#searchform").submit();
-};
-/**
- * 
- */
-var setsearchtype=function(action){
 	$("#searchform").attr("action", action);
+	$("#searchform").submit();
 };
 /**
  * 播放顶部广告
@@ -241,4 +246,31 @@ var showsideadver = function() {
 		$(this).parent().hide();
 		return false;
 	});
+};
+/**
+ * 通过邮箱找回密码
+ */
+var getpass = function() {
+	$.ajax({
+		async : false,
+		cache : false,
+		type : 'POST',
+		dataType : "json",
+		url : 'getpasswithmail.do',// 请求的action路径
+		data : {
+			username : $("input[name='username']").val(),
+			validcode : $("input[name='validcode']").val()
+		},
+		error : function() {// 请求失败处理函数
+			MessageWindow.showMess('    ');
+		},
+		success : function(data) { // 请求成功后处理函数。
+			// window.location.href = 'index.html';
+			if (data.mess == 1) {
+				MessageWindow.showMess('    email:'
+						+ data.mailaddress + '   ');
+			}
+		}
+	});
+
 };

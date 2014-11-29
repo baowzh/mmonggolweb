@@ -7,6 +7,16 @@
 <title>首页</title>
 <link href="site/css/main.css" rel="stylesheet" type="text/css" />
 <link href="site/css/index.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="js/sitejs/index.js"></script>
+<script type="text/javascript" src="js/sitejs/regist.js"></script>
+<script type="text/javascript" src="js/util/js/messageWindow.js"></script>
+<script type="text/javascript" src="js\tween.js"></script>
+<script src="js/messagebox/jquery.msgbox.js"></script>
+<script src="js/messagebox/jquery.dragndrop.min.js"></script>
+<link rel="stylesheet" href="js\messagebox\jquery.msgbox.css" />
+<link href="icons/favicon.ico" type="image/x-icon" rel="ico">
+	<link href="icons/favicon.ico" type="image/x-icon" rel="shortcut icon">
 </head>
 <body>
 	<div class="wrp m0a logo">
@@ -169,7 +179,7 @@
 								:
 							</div>
 							<div class="label" style="width: 27px;">
-								<img src="/verifyCodeServlet" id="varifyimg" width="18"
+								<img src="verifyCodeServlet" id="varifyimg" width="18"
 									height="100">
 							</div>
 							<div class="inputHolder">

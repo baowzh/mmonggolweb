@@ -309,7 +309,7 @@ body {
 	width: 120px;
 	margin-left: auto;
 	margin-right: auto;
-/* 	margin-top: 2px; */
+	/* 	margin-top: 2px; */
 	height: 280px;
 }
 
@@ -366,8 +366,64 @@ body {
 	width: 140px;
 	height: 310px;
 	margin: 5px;
-/* 	border: solid 1px #39F; */
+	/* 	border: solid 1px #39F; */
 	border-radius: 5px;
 	background: url(../loginbg.png);
 	color: #666;
+}
+
+.m1ln {
+	writing-mode: tb-lr;
+	-webkit-writing-mode: vertical-lr;
+	-webkit-text-orientation: sideways-right;
+	-ms-text-orientation: sideways-right;
+	width: 20px;
+	overflow: hidden;
+	float: left;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.m1ln a {
+	color: #666;
+	text-decoration: none;
+}
+/*登录以后*/
+.loin {
+	width: 120px;
+	margin: 5px;
+	height: 310px;
+	float: left;
+}
+
+.loin .avtr {
+	width: 100px;
+	height: 100px;
+	float: center;
+	padding-left: 10px;
+	padding-top: 10px;
+}
+
+.loin .avtr img {
+	width: 100px;
+	height: 100px;
+	border: solid 1px #ccc;
+	padding: 5px;
+	background: #eee;
+}
+
+.loin .desc {
+	width: 60px;
+	padding: 15px;
+	height: 160px;
+	float: center
+}
+
+.loin .desc .m1ln {
+	height: 160px;
+}
+
+.loin .desc {
+	color: #c00
 }
