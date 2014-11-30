@@ -10,6 +10,7 @@
 <link href="img/css/main.css" type="text/css" rel="stylesheet" />
 <script src="js/messagebox/jquery.msgbox.js"></script>
 <script src="js/messagebox/jquery.dragndrop.min.js"></script>
+<link href="img/css/login.css" type="text/css" rel="stylesheet" />
 <link rel="stylesheet" href="js\messagebox\jquery.msgbox.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title> </title>
@@ -18,6 +19,7 @@
 	<div class="lmainR ofh" style="text-align: center; height: 64px;">
 		<img src="img/logo.png" width="980" />
 	</div>
+	<!--  
 	<div class="lmainR ofh" style="text-align: center;">
 		<form action="doregiste.do" id="userinfoform" method="post">
 			<div class="lmainR"
@@ -37,6 +39,7 @@
 					       </div>
 				<div class="mnlist" style="height: 430px;">  
 					      </div>
+				 
 				<table class="m1ln h100" style="height:270px; width:120px;">
 					<tr>
 						<td> :</td>
@@ -89,6 +92,8 @@
 						</td>
 					</tr>
 				</table>
+				
+				
 				<img src="img/turim.gif">
 				<div class="mnlist" style="height: 430px;">
 					<input name="agree" id="agree" type="checkbox">  
@@ -96,16 +101,57 @@
 				</div>
 				<div class="mnlist" style="height: 210px; text-align: center;">
 					<a href="javascript:doregist();">  </a> &nbsp;&nbsp;<a
-						href="index.do">  </a>
+						href="index.html">  </a>
 				</div>
 			</div>
 		</form>
 	</div>
-	<div class="lmainR ofh" style="text-align: center;">
-		<div class="tailCard">
-			<%@ include file="../website/tail.jsp"%>
+	-->
+	<div class="lmainR  ">
+		<div class="loginSheet">
+			<div class="iconContainer"></div>
+			<div class="border">
+				<div class="loginWindow">
+					<div class="content" style="width: 170px;">
+						<form class="mglForm" action="doregiste.do" id="userinfoform"
+							method="post">
+							<div class="label">  </div>
+							<div class="label">  :</div>
+							<div class="label">  </div>
+							<div class="label">
+								  <a href="javascript:replaceverifycode();"></a>
+								:
+							</div>
+							<div class="label">
+								<img src="verifyCodeServlet" id="varifyimg" width="18"
+									height="100" />
+							</div>
+							<div class="inputHolder">
+								<input name="username" id="username" value="" />
+							</div>
+							<div class="inputHolder">
+								<input name="artname" id="artname" value="" />
+							</div>
+							<div class="inputHolder">
+								<input name="password" id="password" type="password" />
+							</div>
+							<div class="inputHolder">
+								<input name="varifycode" id="varifycode" value="" />
+							</div>
+							<div class="mnlist"
+								style="height: 210px; text-indent: 0px; font-size: 16px;">
+								<input name="agree" id="agree" type="checkbox"> 
+								    
+							</div>
+							<div class="mnlist">
+								<a href="javascript:doregist();"></a> &nbsp;&nbsp;<a
+									href="index.do"></a>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
 		</div>
-		<div class="cbt"></div>
 	</div>
 </body>
 </html>
