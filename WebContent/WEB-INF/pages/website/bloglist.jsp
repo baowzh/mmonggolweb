@@ -6,6 +6,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>  blog</title>
+<link href="site/css/main.css" rel="stylesheet" type="text/css" />
+<link href="site/css/index.css" rel="stylesheet" type="text/css" />
 <link href="img/css/main.css" type="text/css" rel="stylesheet" />
 <link href="img/css/huh.css" type="text/css" rel="stylesheet" />
 <link href="img/css/doccheck.css" type="text/css" rel="stylesheet" />
@@ -20,15 +22,13 @@
 <script src="js/jqui/js/jquery-ui-1.10.3.custom.min.js"></script>
 </head>
 <body>
-	<div class="lmainR ofh" style="text-align: center; height: 64px;">
-		<img src="img/logo.png" width="982" />
-	</div>
-	<div class="lmainR ofh" style="text-align: center;">
-		<div class="navCard ">
-			<%@ include file="head.jsp"%>
+		<div class="wrp m0a logo">
+			<div class="naveFrame">
+				<%@ include file="head.jsp"%>
+			</div>
+			<div class="cbt"></div>
 		</div>
-		<div class="cbt"></div>
-	</div>
+		<div class="wrp m0a ribbon"></div>
 	<div class="lmainR ofh">
 		<form action="searchblog.do" method="post" id="queryForm">
 			<div class="lmainR"
@@ -211,12 +211,15 @@
 			</div>
 		</form>
 	</div>
+	<div class="wrp m0a ribbon"></div>
+	<!--  
 	<div class="lmainR ofh" style="text-align: center;">
 		<div class="tailCard">
 			<%@ include file="../website/tail.jsp"%>
 		</div>
 		<div class="cbt"></div>
 	</div>
+	-->
 	<!-- 选择住地（省）-->
 	<div class="channelpanel" id="provinces" style="display: none">
 		<div class="paneltitle">

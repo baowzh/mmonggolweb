@@ -6,6 +6,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Blog Home</title>
+<link href="site/css/main.css" rel="stylesheet" type="text/css" />
+<link href="site/css/index.css" rel="stylesheet" type="text/css" />
 <link href="img/css/main.css" type="text/css" rel="stylesheet" />
 <link href="img/css/listpages.css" type="text/css" rel="stylesheet" />
 <link href="img/css/blog.css" type="text/css" rel="stylesheet" />
@@ -20,8 +22,14 @@
 </head>
 <body>
 	<form id="Form" action="pagingimglist.do" method="post">
-		<div class="lmainR ofh" style="text-align: center; height: 64px;">
-			<img src="img/logo.png" width="980" />
+		<!-- 		<div class="lmainR ofh" style="text-align: center; height: 64px;"> -->
+		<!-- 			<img src="img/logo.png" width="980" /> -->
+		<!-- 		</div> -->
+		<div class="wrp m0a logo">
+			<div class="naveFrame">
+				<%@ include file="../website/head.jsp"%>
+			</div>
+			<div class="cbt"></div>
 		</div>
 		<div class="lmainR ofh">
 			<div class="flt glryBox" style="width: 986px; margin-top: 0px;">
@@ -41,7 +49,7 @@
 						</c:if>
 						<c:if test="${imgValue.docstatus==1}">
 							<input type="checkbox" name="docnamecheckbox"
-								id="<c:out value="${imgValue.docid}" />" >
+								id="<c:out value="${imgValue.docid}" />">
 						</c:if>
 
 					</div>
@@ -84,15 +92,14 @@
 					href="sitemanagerindex.do"><img src="img/goindex.png" /></a></span>
 			</div>
 			<div class=" pagenav">
-			<c:out value="${linkstr}" escapeXml="false" />
+				<c:out value="${linkstr}" escapeXml="false" />
 			</div>
 		</div>
-		<div class="lmainR ofh" style="text-align: center;">
-			<!-- 			<div class="tailCard"> -->
-			<%@ include file="../website/tail.jsp"%>
-			<!-- 			</div> -->
-			<div class="cbt"></div>
-		</div>
+		<!-- 		<div class="lmainR ofh" style="text-align: center;"> -->
+		<%-- 			<%@ include file="../website/tail.jsp"%>			 --%>
+		<!-- 			<div class="cbt"></div> -->
+		<!-- 		</div> -->
+		<div class="wrp m0a ribbon"></div
 	</form>
 </body>
 </html>

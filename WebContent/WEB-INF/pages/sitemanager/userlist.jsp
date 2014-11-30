@@ -6,6 +6,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title> </title>
+<link href="site/css/main.css" rel="stylesheet" type="text/css" />
+<link href="site/css/index.css" rel="stylesheet" type="text/css" />
 <link href="img/css/main.css" type="text/css" rel="stylesheet" />
 <link href="img/css/doccheck.css" type="text/css" rel="stylesheet" />
 <link href="img/css/listpages.css" type="text/css" rel="stylesheet" />
@@ -22,9 +24,16 @@
 <link rel="stylesheet" href="js\messagebox\jquery.msgbox.css" />
 </head>
 <body>
-	<div class="lmainR ofh" style="text-align: center; height: 70px;">
-		<img src="img/logo.png" width="982" />
+	<!-- 	<div class="lmainR ofh" style="text-align: center; height: 70px;"> -->
+	<!-- 		<img src="img/logo.png" width="982" /> -->
+	<!-- 	</div> -->
+	<div class="wrp m0a logo">
+		<div class="naveFrame">
+			<%@ include file="../website/head.jsp"%>
+		</div>
+		<div class="cbt"></div>
 	</div>
+	<div class="wrp m0a ribbon"></div>
 	<div class="lmainR ofh">
 		<form action="userlist.do" method="post" id="queryForm">
 			<div class="lmainR"
@@ -84,7 +93,7 @@
 							<div class="m1ln h100">  </div>
 						</td>
 						<td>
-							<div class="inputHolder" style="padding-left:5px;">
+							<div class="inputHolder" style="padding-left: 5px;">
 								<input type="text" name="strregtime" id="strregtime"
 									style="height: 40px;" class="modTxtTime" readonly="readonly"
 									onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" /> - <input
@@ -237,12 +246,13 @@
 			</div>
 		</form>
 	</div>
-	<div class="lmainR ofh" style="text-align: center;">
-		<!-- 		<div class="tailCard"> -->
-		<%@ include file="../website/tail.jsp"%>
-		<!-- 		</div> -->
+	<div class="wrp m0a ribbon"></div>
+	<!--  
+	<div class="lmainR ofh" style="text-align: center;">		
+		<%@ include file="../website/tail.jsp"%>		
 		<div class="cbt"></div>
 	</div>
+	-->
 	<!-- 选择住地（省）-->
 	<div class="channelpanel" id="provinces" style="display: none">
 		<div class="paneltitle">
