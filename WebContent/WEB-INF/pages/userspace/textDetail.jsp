@@ -37,7 +37,7 @@
 <body>
 	<div class="wrp m0a logo">
 		<div class="naveFrame">
-			<%@ include file="../website/head.jsp"%>
+			<%@ include file="bloghead.jsp"%>
 		</div>
 		<div class="cbt"></div>
 	</div>
@@ -304,10 +304,10 @@
 	</div>
 	<div class="lmainR ofh" style="text-align: center;">
 	<div class="wrp m0a ribbon"></div>
-		<div class="tailCard">
-			<div class="msheet" style="height: 100px; width: 800px;">
-				<%@ include file="../website/tail.jsp"%></div>
-		</div>
+<!-- 		<div class="tailCard"> -->
+<!-- 			<div class="msheet" style="height: 100px; width: 800px;"> -->
+<%-- 				<%@ include file="../website/tail.jsp"%></div> --%>
+<!-- 		</div> -->
 		<div class="cbt"></div>
 	</div>
 	<!-- 隐藏的div -->

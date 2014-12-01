@@ -6,6 +6,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Blog Home</title>
+<link href="site/css/main.css" rel="stylesheet" type="text/css" />
+<link href="site/css/index.css" rel="stylesheet" type="text/css" />
 <link href="img/css/main.css" type="text/css" rel="stylesheet" />
 <link href="img/css/listpages.css" type="text/css" rel="stylesheet" />
 <link href="img/css/blog.css" type="text/css" rel="stylesheet" />
@@ -56,15 +58,18 @@
 </head>
 <body>
 	<form id="addnews" action="adddoc.do" method="post">
-		<div class="lmainR ofh" style="text-align: center; height: 64px;">
-			<img src="img/logo.png" width="980" />
+		<div class="wrp m0a logo">
+			<div class="naveFrame">
+				<%@ include file="bloghead.jsp"%>
+			</div>
+			<div class="cbt"></div>
 		</div>
-		<div class="lmainR ofh" style="text-align: center;">
-			<%@ include file="bloghead.jsp"%>
-		</div>
-		<div class="lmainR  ">
-			<div class="roundCornerFrame">
-				<div class="content" id="contentdiv">
+		<div class="wrp m0a ribbon"></div>
+		<div class="lmainR  " style="width: 1000px;">
+			<div class="roundCornerFrame"
+				style="width: 1000px; height: 600px; margin: 0px;">
+				<div class="content" id="contentdiv"
+					style="width: 970px; height: 570px;">
 					<div class="flt"
 						style="width: 90px; height: 520px; background: #def">
 						<div class="label">  </div>
@@ -140,7 +145,7 @@
 						</div>
 						<div>
 							<div class="mnlist"
-								style="width: 20px; height: 400px; text-align: center;">
+								style="width: 24px; height: 400px; text-align: center;">
 								<a href="javascript:checkAndSubmit();"></a>&nbsp;&nbsp;
 								<a href="javascript:openemfacewindow">&nbsp;&nbsp; </a>
 
@@ -152,11 +157,12 @@
 				</div>
 			</div>
 		</div>
-		<div class="lmainR ofh" style="text-align: center;">
-			<div class="tailCard">
-				<div class="msheet" style="height: 100px; width: 800px;">
-					<%@ include file="../website/tail.jsp"%></div>
-			</div>
+		<div class="lmainR ofh" style="text-align: center; width: 1000px;">
+			<div class="wrp m0a ribbon"></div>
+			<!-- 			<div class="tailCard"> -->
+			<!-- 				<div class="msheet" style="height: 100px; width: 800px;"> -->
+			<%-- 					<%@ include file="../website/tail.jsp"%></div> --%>
+			<!-- 			</div> -->
 			<div class="cbt"></div>
 		</div>
 		<div id="validcodediv" class="mnlist"
@@ -175,7 +181,7 @@
 			</table>
 			<br> <br>
 					<div class="mnlist"
-						style="width: 20px; height: 200px; text-align: center;">
+						style="width: 24px; height: 200px; text-align: center;">
 						<a href="javascript:submit();"></a>&nbsp;&nbsp; <a
 							href="javascript:openemfacewindow">&nbsp;&nbsp; </a>
 
@@ -193,7 +199,8 @@
 		<div class="channellist">
 
 			<c:forEach items="${chanels}" var="channel" varStatus="status">
-				<div class="mnlist" style="text-indent: 0px; height: 120px;">
+				<div class="mnlist"
+					style="text-indent: 0px; height: 120px; width: 24px;">
 					<a
 						onclick="javascript:changeCity('<c:out value="${channel.channelid}"/>','<c:out value="${channel.chnlname}"/>')"
 						style="cursor: pointer" class=""><c:out
