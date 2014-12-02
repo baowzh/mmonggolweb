@@ -86,11 +86,11 @@ body {
 	padding: 4px;
 	overflow: hidden;
 	border-radius: 0px 5px 5px 0px;
-	background-image:url(../../img/arv_ag.jpg)
+	background-image: url(../../img/arv_ag.jpg)
 }
 
 .ttl {
-	padding-top:60px;
+	padding-top: 60px;
 	writing-mode: tb-lr;
 	-webkit-writing-mode: vertical-lr;
 	-moz-writing-mode: vertical-lr;
@@ -155,7 +155,8 @@ body {
 }
 
 .thumb1 {
-	width: 177px;
+		width: 176px;
+/* 	width: 201px; */
 	height: 208px;
 	margin: 1px;
 	overflow: hidden;

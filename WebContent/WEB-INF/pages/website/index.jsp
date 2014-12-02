@@ -643,6 +643,7 @@
 				</div>
 			</div>
 			<div class="listCardBody" style="background: #eee;">
+				<!--  
 				<div class=" avatar1">
 					<img src="img/vip.jpg" width="63" />
 				</div>
@@ -691,7 +692,24 @@
 				<div class=" avatar1">
 					<img src="img/vip.jpg" width="63" />
 				</div>
-
+           -->
+				<c:forEach items="${indexPageContent.topUsers}" var="userValue"
+					varStatus="status">
+					<div class="xldgurg" style="height: 70px; width: 80px;">
+						<div class="avtr" style="width: 65px; float: left;">
+							<a
+								href="gouserindex.do?userid=<c:out value="${userValue.userid}" />"><img
+								src="getsmheadimge.do?userid=<c:out value="${userValue.userid}" />"
+								style="width: 47px;" /></a>
+						</div>
+						<div class="m1ln" style="float: left;">
+							<a
+								href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
+								&nbsp;<c:out value="${userValue.artname}" />
+							</a>
+						</div>
+					</div>
+				</c:forEach>
 
 			</div>
 		</div>
@@ -800,6 +818,7 @@
 				</div>
 			</div>
 			<div class="listCardBody" style="background: #eee;">
+				<!--  -
 				<div class=" avatar1">
 					<img src="img/vip.jpg" width="63" />
 				</div>
@@ -848,7 +867,24 @@
 				<div class=" avatar1">
 					<img src="img/vip.jpg" width="63" />
 				</div>
-
+              -->
+				<c:forEach items="${indexPageContent.topUsers}" var="userValue"
+					varStatus="status">
+					<div class="xldgurg" style="height: 70px; width: 80px;">
+						<div class="avtr" style="width: 65px; float: left;">
+							<a
+								href="gouserindex.do?userid=<c:out value="${userValue.userid}" />"><img
+								src="getsmheadimge.do?userid=<c:out value="${userValue.userid}" />"
+								style="width: 47px;" /></a>
+						</div>
+						<div class="m1ln" style="float: left;">
+							<a
+								href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
+								&nbsp;<c:out value="${userValue.artname}" />
+							</a>
+						</div>
+					</div>
+				</c:forEach>
 
 			</div>
 		</div>
