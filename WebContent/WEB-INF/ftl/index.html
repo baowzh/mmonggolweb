@@ -132,33 +132,31 @@
 			<div class="listCardBody" style="height: 320px; padding-top: 30px;">
 				<form id="searchform" class="mglForm" method="post">
 					<div class="inputHolder"></div>
-					<c:if test="${agentkind==1}">
+					<#if agentkind==1>
 						<div class="inputHolder"
 							style="height: 300px; width: 40px; padding-left: 5px;">
 							<input type="text" name="searchtext" id="searchtext"
 								style="width: 290px; height: 21px; -webkit-transform-origin: 15px 18px;" />
 						</div>
-						<!-- 						<div class="inputHolder"></div> -->
 						<div class="label" style="height: 300px; text-align: center;">
 							<a id="searchbloga" href="javascript:search('searchblog.do');">
 								 </a> &nbsp;&nbsp; <a id="searchdoca"
 								href="javascript:search('searchdoc.do');">  </a>
 						</div>
-					</c:if>
-					<c:if test="${agentkind==0}">
+					<#if>
+					<#if agentkind==0>
 						<div class="inputHolder"
 							style="height: 300px; width: 40px; padding-left: 5px;">
 							<input type="text" name="searchtext" id="searchtext"
 								style="height: 290px; width: 21px;" />
 						</div>
 						<div class="inputHolder" style="width: 10px;"></div>
-
 						<div class="label" style="height: 300px; text-align: center;">
 							<a id="searchbloga" href="javascript:search('searchblog.do');">
 								 </a> &nbsp;&nbsp; <a id="searchdoca"
 								href="javascript:search('searchdoc.do');">  </a>
 						</div>
-					</c:if>
+					<#if>
 				</form>
 			</div>
 		</div>
@@ -180,16 +178,16 @@
 							</div>
 							<div class="label" style="width: 27px;">
 								<img src="verifyCodeServlet" id="varifyimg" width="18"
-									height="100">
+									height="100"/>
 							</div>
 							<div class="inputHolder">
-								<input name="username" id="username" value="">
+								<input name="username" id="username" value=""/>
 							</div>
 							<div class="inputHolder">
-								<input name="password" id="password" type="password">
+								<input name="password" id="password" type="password"/>
 							</div>
 							<div class="inputHolder">
-								<input name="validcode" id="varifycode" value="">
+								<input name="validcode" id="varifycode" value=""/>
 							</div>
 							<div class="mnlist" style="height: 150px; width: 30px;">
 								<a id="registlink" href="registe.do">
@@ -310,8 +308,6 @@
 				<div class=" avatar1">
 					<img src="img/vip.jpg" width="63" />
 				</div>
-
-
 			</div>
 		</div>
 		<div class="card3">
@@ -541,7 +537,7 @@
 			</div>
 
 			<div class="listCardBody">
-				<#if indexPageContent.bookarts??> <#list
+				<#if indexPageContent.historyarts??> <#list
 				indexPageContent.historyarts as documentValue>
 
 				<div class="nwsl1">
@@ -1217,7 +1213,7 @@
 
 				<div class=" avatar1">
 					<a href="gouserindex.do?userid=${userValue.userid}" target="_blank"><img
-						src="getsmheadimge.do?userid=${userValue.userid}" title=""></a>
+						src="getsmheadimge.do?userid=${userValue.userid}" title=""/></a>
 				</div>
 				</#list></#if>
 			</div>
@@ -1273,7 +1269,7 @@
 	<div class="wrp m0a ribbon"></div>
 </body>
 <script>
-	var pics1 = ${indexPageContent.pics} escapeXml="false" />;
+	var pics1 = ${indexPageContent.pics}/>;
 	//$("#searchtext").css
 	if (/webkit/.test(navigator.userAgent.toLowerCase())) {
 		$("#searchtext").attr("style", "width:275px;height:15px;");
