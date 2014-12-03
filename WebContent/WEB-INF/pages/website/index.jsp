@@ -489,7 +489,7 @@
 				</div>
 			</div>
 			<div class="listCardBody">
-				<c:forEach items="${indexPageContent.historyarts}"
+				<c:forEach items="${indexPageContent.beliefarts}"
 					var="documentValue" varStatus="status">
 
 					<div class="nwsl1">
@@ -580,7 +580,7 @@
 				</div>
 			</div>
 			<div class="listCardBody">
-				<c:forEach items="${indexPageContent.bookarts}" var="documentValue"
+				<c:forEach items="${indexPageContent.finance}" var="documentValue"
 					varStatus="status">
 
 					<div class="nwsl1">
@@ -1007,7 +1007,7 @@
 				</div>
 			</div>
 			<div class="listCardBody">
-				<c:forEach items="${indexPageContent.poemsarts}" var="documentValue"
+				<c:forEach items="${indexPageContent.culture}" var="documentValue"
 					varStatus="status">
 					<div class="nwsl1">
 						<div class="title">
@@ -1116,7 +1116,7 @@
 				</div>
 			</div>
 			<div class="listCardBody">
-				<c:forEach items="${indexPageContent.poemsarts}" var="documentValue"
+				<c:forEach items="${indexPageContent.newKnowledge}" var="documentValue"
 					varStatus="status">
 					<div class="nwsl1">
 						<div class="title">
