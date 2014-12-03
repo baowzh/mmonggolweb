@@ -209,23 +209,20 @@
 				</div>
 			</div>
 			<div class="listCardBody">
-				<c:forEach items="${indexPageContent.recentDocs}"
-					var="documentValue" varStatus="status">
-
-					<div class="nwsl1">
-						<div class="title">
-							<a href="getuserdocdetail.do?docid=<c:out value=" ${documentValue.docid}"/>"
+				<#if indexPageContent.recentDocs??> <#list
+				indexPageContent.recentDocs as documentValue>
+				<div class="nwsl1">
+					<div class="title">
+						<a href="getuserdocdetail.do?docid=${documentValue.docid}"
 							target="_blank" class="tit_text_overflow">
-							<c:out value="${documentValue.doctitle}" />
-							</a>
-						</div>
-						<div class="author">
-							<a href="gouserindex.do?userid=<c:out value=" ${documentValue.userid}" />">
-							<c:out value="${documentValue.docauthor}" />
-							</a>
-						</div>
+							${documentValue.doctitle} </a>
 					</div>
-				</c:forEach>
+					<div class="author">
+						<a href="gouserindex.do?userid=${documentValue.userid}">
+							${documentValue.docauthor} </a>
+					</div>
+				</div>
+				</#list></#if>
 			</div>
 		</div>
 		<div class="card1">
@@ -236,24 +233,21 @@
 				</div>
 			</div>
 			<div class="listCardBody">
-				<c:forEach items="${indexPageContent.hotdocs}" var="documentValue"
-					varStatus="status">
-
-					<div class="nwsl1">
-						<div class="title">
-							<a href="getuserdocdetail.do?docid=<c:out value=" ${documentValue.docid}"/>"
+				<#if indexPageContent.hotdocs??> <#list indexPageContent.hotdocs as
+				documentValue>
+				<div class="nwsl1">
+					<div class="title">
+						<a href="getuserdocdetail.do?docid=${documentValue.docid}"
 							target="_blank" class="tit_text_overflow">
-							<c:out value="${documentValue.doctitle}" />
-							</a>
-						</div>
-						<div class="author">
-							<a href="gouserindex.do?userid=<c:out value=" ${documentValue.userid}" />">
-							<c:out value="${documentValue.docauthor}" />
-							</a>
-						</div>
+							${documentValue.doctitle} </a>
 					</div>
+					<div class="author">
+						<a href="gouserindex.do?userid=${documentValue.userid}">
+							${documentValue.docauthor} </a>
+					</div>
+				</div>
 
-				</c:forEach>
+				</#list></#if>
 
 			</div>
 		</div>
@@ -328,25 +322,20 @@
 				</div>
 			</div>
 			<div class="listCardBody">
-				<c:forEach items="${indexPageContent.newsarts}" var="documentValue"
-					varStatus="status">
-
-					<div class="nwsl1">
-						<div class="title">
-							<a href="getuserdocdetail.do?docid=<c:out value=" ${documentValue.docid}"/>"
+				<#if indexPageContent.newsarts??> <#list indexPageContent.newsarts
+				as documentValue>
+				<div class="nwsl1">
+					<div class="title">
+						<a href="getuserdocdetail.do?docid=${documentValue.docid}"
 							target="_blank" class="tit_text_overflow">
-							<c:out value="${documentValue.doctitle}" />
-							</a>
-						</div>
-						<div class="author">
-							<a href="gouserindex.do?userid=<c:out value=" ${documentValue.userid}" />">
-							<c:out value="${documentValue.docauthor}" />
-							</a>
-						</div>
+							${documentValue.doctitle} </a>
 					</div>
-
-				</c:forEach>
-
+					<div class="author">
+						<a href="gouserindex.do?userid=${documentValue.userid}">
+							${documentValue.docauthor} </a>
+					</div>
+				</div>
+				</#list></#if>
 			</div>
 		</div>
 		<div class="card3">
@@ -357,25 +346,20 @@
 				</div>
 			</div>
 			<div class="listCardBody">
-				<c:forEach items="${indexPageContent.historyarts}"
-					var="documentValue" varStatus="status">
-
-					<div class="nwsl1">
-						<div class="title">
-							<a href="getuserdocdetail.do?docid=<c:out value=" ${documentValue.docid}"/>"
+				<#if indexPageContent.historyarts??> <#list
+				indexPageContent.historyarts as documentValue>
+				<div class="nwsl1">
+					<div class="title">
+						<a href="getuserdocdetail.do?docid=${documentValue.docid}"
 							target="_blank" class="tit_text_overflow">
-							<c:out value="${documentValue.doctitle}" />
-							</a>
-						</div>
-						<div class="author">
-							<a href="gouserindex.do?userid=<c:out value=" ${documentValue.userid}" />">
-							<c:out value="${documentValue.docauthor}" />
-							</a>
-						</div>
+							${documentValue.doctitle} </a>
 					</div>
-
-				</c:forEach>
-
+					<div class="author">
+						<a href="gouserindex.do?userid=${documentValue.userid}">
+							${documentValue.docauthor} </a>
+					</div>
+				</div>
+				</#list></#if>
 			</div>
 		</div>
 		<div class="cls"></div>
@@ -447,24 +431,20 @@
 				</div>
 			</div>
 			<div class="listCardBody">
-				<c:forEach items="${indexPageContent.bookarts}" var="documentValue"
-					varStatus="status">
-					<div class="nwsl1">
-						<div class="title">
-							<a href="getuserdocdetail.do?docid=<c:out value=" ${documentValue.docid}"/>"
+				<#if indexPageContent.bookarts??> <#list indexPageContent.bookarts
+				as documentValue>
+				<div class="nwsl1">
+					<div class="title">
+						<a href="getuserdocdetail.do?docid=${documentValue.docid}"
 							target="_blank" class="tit_text_overflow">
-							<c:out value="${documentValue.doctitle}" />
-							</a>
-						</div>
-						<div class="author">
-							<a href="gouserindex.do?userid=<c:out value=" ${documentValue.userid}" />">
-							<c:out value="${documentValue.docauthor}" />
-							</a>
-						</div>
+							${documentValue.doctitle} </a>
 					</div>
-
-				</c:forEach>
-
+					<div class="author">
+						<a href="gouserindex.do?userid=${documentValue.userid}">
+							${documentValue.docauthor} </a>
+					</div>
+				</div>
+				</#list></#if>
 			</div>
 		</div>
 		<div class="card3">
@@ -475,25 +455,20 @@
 				</div>
 			</div>
 			<div class="listCardBody">
-				<c:forEach items="${indexPageContent.historyarts}"
-					var="documentValue" varStatus="status">
-
-					<div class="nwsl1">
-						<div class="title">
-							<a href="getuserdocdetail.do?docid=<c:out value=" ${documentValue.docid}"/>"
+				<#if indexPageContent.historyarts??> <#list
+				indexPageContent.historyarts as documentValue>
+				<div class="nwsl1">
+					<div class="title">
+						<a href="getuserdocdetail.do?docid=${documentValue.docid}"
 							target="_blank" class="tit_text_overflow">
-							<c:out value="${documentValue.doctitle}" />
-							</a>
-						</div>
-						<div class="author">
-							<a href="gouserindex.do?userid=<c:out value=" ${documentValue.userid}" />">
-							<c:out value="${documentValue.docauthor}" />
-							</a>
-						</div>
+							${documentValue.doctitle} </a>
 					</div>
-
-				</c:forEach>
-
+					<div class="author">
+						<a href="gouserindex.do?userid=${documentValue.userid}">
+							${documentValue.docauthor} </a>
+					</div>
+				</div>
+				</#list></#if>
 			</div>
 		</div>
 		<div class="cls"></div>
@@ -564,25 +539,23 @@
 					<a href="#"> </a>
 				</div>
 			</div>
+
 			<div class="listCardBody">
-				<c:forEach items="${indexPageContent.bookarts}" var="documentValue"
-					varStatus="status">
+				<#if indexPageContent.bookarts??> <#list
+				indexPageContent.historyarts as documentValue>
 
-					<div class="nwsl1">
-						<div class="title">
-							<a href="getuserdocdetail.do?docid=<c:out value=" ${documentValue.docid}"/>"
+				<div class="nwsl1">
+					<div class="title">
+						<a href="getuserdocdetail.do?docid=${documentValue.docid}"
 							target="_blank" class="tit_text_overflow">
-							<c:out value="${documentValue.doctitle}" />
-							</a>
-						</div>
-						<div class="author">
-							<a href="gouserindex.do?userid=<c:out value=" ${documentValue.userid}" />">
-							<c:out value="${documentValue.docauthor}" />
-							</a>
-						</div>
+							${documentValue.doctitle} </a>
 					</div>
-
-				</c:forEach>
+					<div class="author">
+						<a href="gouserindex.do?userid=${documentValue.userid}">
+							${documentValue.docauthor} </a>
+					</div>
+				</div>
+				</#list></#if>
 
 			</div>
 		</div>
@@ -594,24 +567,21 @@
 				</div>
 			</div>
 			<div class="listCardBody">
-				<c:forEach items="${indexPageContent.nature}" var="documentValue"
-					varStatus="status">
-
-					<div class="nwsl1">
-						<div class="title">
-							<a href="getuserdocdetail.do?docid=<c:out value=" ${documentValue.docid}"/>"
+				<#if indexPageContent.nature??> <#list indexPageContent.nature as
+				documentValue>
+				<div class="nwsl1">
+					<div class="title">
+						<a href="getuserdocdetail.do?docid=${documentValue.docid}"
 							target="_blank" class="tit_text_overflow">
-							<c:out value="${documentValue.doctitle}" />
-							</a>
-						</div>
-						<div class="author">
-							<a href="gouserindex.do?userid=<c:out value=" ${documentValue.userid}" />">
-							<c:out value="${documentValue.docauthor}" />
-							</a>
-						</div>
+							${documentValue.doctitle} </a>
 					</div>
+					<div class="author">
+						<a href="gouserindex.do?userid=${documentValue.userid}">
+							${documentValue.docauthor} </a>
+					</div>
+				</div>
 
-				</c:forEach>
+				</#list></#if>
 
 			</div>
 		</div>
@@ -676,22 +646,21 @@
 					<img src="img/vip.jpg" width="63" />
 				</div>
            -->
-				<c:forEach items="${indexPageContent.topUsers}" var="userValue"
-					varStatus="status">
-					<div class="xldgurg" style="height: 70px; width: 80px;">
-						<div class="avtr" style="width: 65px; float: left;">
-							<a href="gouserindex.do?userid=<c:out value=" ${userValue.userid}" />"><img
-								src="getsmheadimge.do?userid=<c:out value=" ${userValue.userid}" />"
+				<#if indexPageContent.topUsers??> <#list indexPageContent.topUsers
+				as userValue>
+
+				<div class="xldgurg" style="height: 70px; width: 80px;">
+					<div class="avtr" style="width: 65px; float: left;">
+						<a href="gouserindex.do?userid=${userValue.userid}"><img
+							src="getsmheadimge.do?userid=${userValue.userid}"
 							style="width: 47px;" /></a>
-						</div>
-						<div class="m1ln" style="float: left;">
-							<a href="gouserindex.do?userid=<c:out value=" ${userValue.userid}" />">
-							&nbsp;
-							<c:out value="${userValue.artname}" />
-							</a>
-						</div>
 					</div>
-				</c:forEach>
+					<div class="m1ln" style="float: left;">
+						<a href="gouserindex.do?userid=${userValue.userid}"> &nbsp;
+							${userValue.artname} </a>
+					</div>
+				</div>
+				</#list></#if>
 
 			</div>
 		</div>
@@ -703,24 +672,21 @@
 				</div>
 			</div>
 			<div class="listCardBody">
-				<c:forEach items="${indexPageContent.literature}"
-					var="documentValue" varStatus="status">
-
-					<div class="nwsl1">
-						<div class="title">
-							<a href="getuserdocdetail.do?docid=<c:out value=" ${documentValue.docid}"/>"
+				<#if indexPageContent.literature??> <#list
+				indexPageContent.literature as documentValue>
+				<div class="nwsl1">
+					<div class="title">
+						<a href="getuserdocdetail.do?docid=${documentValue.docid}"
 							target="_blank" class="tit_text_overflow">
-							<c:out value="${documentValue.doctitle}" />
-							</a>
-						</div>
-						<div class="author">
-							<a href="gouserindex.do?userid=<c:out value=" ${documentValue.userid}" />">
-							<c:out value="${documentValue.docauthor}" />
-							</a>
-						</div>
+							${documentValue.doctitle} </a>
 					</div>
+					<div class="author">
+						<a href="gouserindex.do?userid=${documentValue.userid}">
+							${documentValue.docauthor} </a>
+					</div>
+				</div>
 
-				</c:forEach>
+				</#list></#if>
 
 			</div>
 		</div>
@@ -732,25 +698,20 @@
 				</div>
 			</div>
 			<div class="listCardBody">
-				<c:forEach items="${indexPageContent.health}" var="documentValue"
-					varStatus="status">
-
-					<div class="nwsl1">
-						<div class="title">
-							<a href="getuserdocdetail.do?docid=<c:out value=" ${documentValue.docid}"/>"
+				<#if indexPageContent.health??> <#list indexPageContent.health as
+				documentValue>
+				<div class="nwsl1">
+					<div class="title">
+						<a href="getuserdocdetail.do?docid=${documentValue.docid}"
 							target="_blank" class="tit_text_overflow">
-							<c:out value="${documentValue.doctitle}" />
-							</a>
-						</div>
-						<div class="author">
-							<a href="gouserindex.do?userid=<c:out value=" ${documentValue.userid}" />">
-							<c:out value="${documentValue.docauthor}" />
-							</a>
-						</div>
+							${documentValue.doctitle} </a>
 					</div>
-
-				</c:forEach>
-
+					<div class="author">
+						<a href="gouserindex.do?userid=${documentValue.userid}">
+							${documentValue.docauthor} </a>
+					</div>
+				</div>
+				</#list></#if>
 			</div>
 		</div>
 		<!--  
@@ -774,15 +735,15 @@
 				</div>
 			</div>
 			<div class="listCardBody" style="height: 450px;">
-				<c:forEach items="${indexPageContent.imgs}" var="imgValue"
-					varStatus="status">
-					<div class="thumb1">
-						<a href="getimginfo.do?imgid=<c:out value=" ${imgValue.imgid}"/>&userid=
-						<c:out value="${imgValue.userid}" />
-						" target="_blank"><img src="getimg.do?imgid=<c:out value=" ${imgValue.imgid}"/>"
-						title=""></a>
-					</div>
-				</c:forEach>
+				<#if indexPageContent.imgs??> <#list indexPageContent.imgs as
+				imgValue>
+				<div class="thumb1">
+					<a
+						href="getimginfo.do?imgid=${imgValue.imgid}&userid=${imgValue.userid}"
+						target="_blank"><img src="getimg.do?imgid=${imgValue.imgid}"
+						title="" /></a>
+				</div>
+				</#list></#if>
 			</div>
 		</div>
 
@@ -848,23 +809,22 @@
 					<img src="img/vip.jpg" width="63" />
 				</div>
               -->
-				<c:forEach items="${indexPageContent.topUsers}" var="userValue"
-					varStatus="status">
-					<div class="xldgurg" style="height: 70px; width: 80px;">
-						<div class="avtr" style="width: 65px; float: left;">
-							<a href="gouserindex.do?userid=<c:out value=" ${userValue.userid}" />"><img
-								src="getsmheadimge.do?userid=<c:out value=" ${userValue.userid}" />"
-							style="width: 47px;" /></a>
-						</div>
-						<div class="m1ln" style="float: left;">
-							<a href="gouserindex.do?userid=<c:out value=" ${userValue.userid}" />">
-							&nbsp;
-							<c:out value="${userValue.artname}" />
-							</a>
-						</div>
+				<#if indexPageContent.topUsers??> <#list indexPageContent.topUsers
+				as userValue>
+				<div class="xldgurg" style="height: 70px; width: 80px;">
+					<div class="avtr" style="width: 65px; float: left;">
+						<a href="gouserindex.do?userid=${userValue.userid}"><img
+							src="getsmheadimge.do?userid=${userValue.userid}"
+						style="width: 47px;" /></a>
 					</div>
-				</c:forEach>
-
+					<div class="m1ln" style="float: left;">
+						<a href="gouserindex.do?userid=${userValue.userid}">
+						&nbsp;
+						${userValue.artname}
+						</a>
+					</div>
+				</div>
+				</#list></#if>
 			</div>
 		</div>
 		<div class="card3">
