@@ -693,7 +693,7 @@
 					<img src="img/vip.jpg" width="63" />
 				</div>
            -->
-				<c:forEach items="${indexPageContent.topUsers}" var="userValue"
+				<c:forEach items="${indexPageContent.newUsers}" var="userValue"
 					varStatus="status">
 					<div class="xldgurg" style="height: 70px; width: 80px;">
 						<div class="avtr" style="width: 65px; float: left;">
@@ -1062,19 +1062,19 @@
 				</div>
 			</div>
 			<div class="listCardBody" style="background: #eee;">
-				<c:forEach items="${indexPageContent.culture}" var="documentValue"
+				<c:forEach items="${indexPageContent.recentDocComm}" var="documentValue"
 					varStatus="status">
 					<div class="nwsl1">
 						<div class="title">
 							<a
-								href="getuserdocdetail.do?docid=<c:out value="${documentValue.docid}"/>"
+								href="getuserdocdetail.do?docid=<c:out value="${documentValue.messageid}"/>"
 								target="_blank" class="tit_text_overflow"><c:out
-									value="${documentValue.doctitle}" /></a>
+									value="${documentValue.contenthtml}" escapeXml="false" /></a>
 						</div>
 						<div class="author">
 							<a
 								href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
-								<c:out value="${documentValue.docauthor}" />
+								<c:out value="${documentValue.artname}" />
 							</a>
 						</div>
 					</div>
