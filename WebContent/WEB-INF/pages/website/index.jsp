@@ -1062,7 +1062,7 @@
 				</div>
 			</div>
 			<div class="listCardBody" style="background: #eee;">
-				<c:forEach items="${indexPageContent.poemsarts}" var="documentValue"
+				<c:forEach items="${indexPageContent.culture}" var="documentValue"
 					varStatus="status">
 					<div class="nwsl1">
 						<div class="title">

@@ -75,7 +75,7 @@ public class UserValue implements UserDetails {
 	private String professionname;
 	private String imguser;
 	private String oldid;
-
+    private String headurl;
 	public String getLastip() {
 		return lastip;
 	}
@@ -638,6 +638,14 @@ public class UserValue implements UserDetails {
 
 	public void setMailloginid(String mailloginid) {
 		this.mailloginid = mailloginid;
+	}
+
+	public String getHeadurl() {
+		return headurl;
+	}
+
+	public void setHeadurl(String headurl) {
+		this.headurl = headurl;
 	}
 
 }

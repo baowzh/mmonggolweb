@@ -563,7 +563,9 @@ public class BlogManagerAction {
 			MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
 			MultiValueMap file = multipartRequest.getMultiFileMap();
 			String path = request.getSession().getServletContext()
-					.getRealPath("/img");
+					.getRealPath("/html/img");
+			String path1 = request.getSession().getServletContext()
+					.getRealPath("/html/photoalbum");
 			Set<String> set = file.keySet();
 			Iterator<String> iterator = set.iterator();
 			ImgValue tempImgValue = new ImgValue();
@@ -582,7 +584,9 @@ public class BlogManagerAction {
 						//
 						tempImgValue = ImgeUtil.CompressPic(
 								commonsMultipartFile.getBytes(), path, imgname);
-						imgValue.setImgurl("img/" + imgname);
+						ImgeUtil.CompressPic(commonsMultipartFile.getBytes(),
+								path1, imgname);
+						imgValue.setImgurl("/html/img/" + imgname);
 						//
 						ImgeUtil.CompressPic(commonsMultipartFile.getBytes(),
 								path, imgname);
@@ -593,14 +597,16 @@ public class BlogManagerAction {
 						byte reader[] = new byte[length];
 						inputStrram.read(reader);
 						inputStrram.close();
-						imgGrpupValue.setFaceimg(reader);
-						imgValue.setImgcontent(reader);
+						//imgGrpupValue.setFaceimg(reader);
+						imgGrpupValue.setImggroupid(UUIDMaker.getUUID());
+						imgGrpupValue.setFaceurl("/html/photoalbum/" + imgname);
+						// imgValue.setImgcontent(reader);
 					}
 				} catch (Exception ex) {
 					return new ModelAndView("sitemanager/error", map);
 				}
 			}
-			imgGrpupValue.setImggroupid(UUIDMaker.getUUID());
+
 			imgGrpupValue.setUserid(sessionUser.getUserid());
 			imgGrpupValue.setImggroupkind("1");
 			imgGrpupValue.setCreatedtime(new Date());
@@ -707,7 +713,7 @@ public class BlogManagerAction {
 						imgname = UUIDMaker.getUUID() + "." + OriginalFilename;
 						tempImgValue = ImgeUtil.CompressPic(
 								commonsMultipartFile.getBytes(), path, imgname);
-						imgValue.setImgurl("img/" + imgname);
+						imgValue.setImgurl("/html/img/" + imgname);
 						// 读取这个文件并把内容写入数据库这样避免数据丢失
 						File imgFile = new File(path, imgname);
 						FileInputStream inputStrram = new FileInputStream(
@@ -716,7 +722,7 @@ public class BlogManagerAction {
 						byte reader[] = new byte[length];
 						inputStrram.read(reader);
 						inputStrram.close();
-						imgValue.setImgcontent(reader);
+						// imgValue.setImgcontent(reader);
 					}
 
 				} catch (Exception ex) {

@@ -58,14 +58,16 @@
 		userid,
 		faceimg,
 		createdtime,
-		oldid
+		oldid,
+		faceurl
 		) values( #imggroupid#,
 		#imggroupname#,
 		#imggroupkind# ,
 		#userid# ,
 		#faceimg#,
 		#createdtime#,
-		#oldid#
+		#oldid#,
+		#faceurl#
 		)
 	</insert>
 	<select id="getImgGrpupList" parameterClass="java.util.Map"
@@ -126,6 +128,9 @@
 			</isNotNull>
 			<isNotNull prepend="," property="faceimg">
 				faceimg=#faceimg#
+			</isNotNull>
+           <isNotNull prepend="," property="faceurl">
+				faceurl=#faceurl#
 			</isNotNull>
 
 		</dynamic>

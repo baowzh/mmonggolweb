@@ -334,7 +334,7 @@ public class UserMangerAction {
 			MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
 			MultiValueMap file = multipartRequest.getMultiFileMap();
 			String path = request.getSession().getServletContext()
-					.getRealPath("/html/img");
+					.getRealPath("/html/userhead");
 			Set<String> set = file.keySet();
 			Iterator iterator = set.iterator();
 			while (iterator.hasNext()) {
@@ -376,6 +376,7 @@ public class UserMangerAction {
 					streamsm.close();
 					userValue.setHeadimg(reader1);
 					userValue.setHeadimgsm(reader2);
+					userValue.setHeadurl("/html/userhead/" + imgname);
 				}
 			}
 			//
@@ -833,7 +834,7 @@ public class UserMangerAction {
 					sessionUserValue.setMaillogin(1);
 					request.getSession().setAttribute("user", sessionUserValue);// 在线session
 					// 清楚mail登录秘钥
-					//request.getServletContext().removeAttribute(id);
+					// request.getServletContext().removeAttribute(id);
 					return new ModelAndView("redirect:gouserindex.do?userid="
 							+ sessionUserValue.getUserid());
 				}

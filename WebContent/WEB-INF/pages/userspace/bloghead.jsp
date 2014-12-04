@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <div class="mln navItem">
-	<a href="index.do">  </a>
+	<a href="index.html">  </a>
 </div>
 <div class="mln navItem">
 	<a
