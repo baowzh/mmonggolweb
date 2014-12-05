@@ -92,7 +92,7 @@
 									
 									<div class="folder photoAlbumC">
 										<div style="width: 80px; margin: 4em 2em;">
-											<div class=" msheet">
+											<div class=" msheet" style="font-size:13px;">
 												<a href="#">    <br /><br />
 												</a>
 											</div>

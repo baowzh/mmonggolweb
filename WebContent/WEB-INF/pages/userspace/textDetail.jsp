@@ -136,17 +136,11 @@
 											<input type="hidden" name="docid" id="docid"
 												value="<c:out value="${documentValue.docid}" />">
 											<div class="commoper" style="display: block;">
-												<!-- 												<table -->
-												<!-- 													style="-webkit-writing-mode: vertical-lr; writing-mode: tb-lr; align: center; width: 20px; height: 400px;"> -->
-												<!-- 													<tr> -->
-												<!-- 														<td style="width: 18px; height: 102px;"> -->
 												<a href="JavaScript:void(0)" id="message_face"><img
 													src="img/pl_bq.png" /></a> <a
 													href="javascript:replaceverifycode();"><img
 													src="verifyCodeServlet" id="varifyimg" width="21"
 													height="100" /></a>&nbsp;&nbsp;
-												<!-- 																</td> -->
-												<!-- 														<td style="width: 18px; height: 60px;"> -->
 												<c:if test="${agentkind==1}">
 													<!-- 谷歌浏览器 -->
 													<input type="text" name="validcode" id="validcode"
@@ -158,21 +152,10 @@
 														style="-webkit-writing-mode: vertical-lr; writing-mode: tb-lr; height: 60px; width: 18px;" />
 												</c:if>
 												&nbsp;&nbsp;
-												<!-- 															</td> -->
-												<!-- 														<td style="width: 18px; height: 120px;"> -->
-
-												<!-- 																</td> -->
-												<!-- 														<td style="width: 18px; height: 120px;"> -->
-
 												<a href="javascript:addcomment(1,0);" style="height: 80px;">
 													&nbsp;  </a>&nbsp; <a
-													href="javascript:addcomment(1,1);"> </a>
-												<!-- 															</td> -->
-
-												<!-- 													</tr> -->
-												<!-- 												</table> -->
+													href="javascript:addcomment(1,1);"> </a>												
 											</div>
-
 										</form>
 									</div>
 								</nobr>

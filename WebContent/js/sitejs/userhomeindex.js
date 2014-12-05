@@ -212,7 +212,7 @@ var writemessage = function() {
 	}
 	$("#messdiv").dialog({
 		height : 480,
-		width : 420,
+		width : 460,
 		resizable : false,
 		modal : true
 
