@@ -7,9 +7,6 @@
 	<a href="pagingquery.do?docchannel=11111111111110"> </a>
 </div>
 <div class="mln navItem">
-	<a href="pagingquery.do?docchannel=11111111111110"> </a>
-</div>
-<div class="mln navItem">
 	<a href="pagingquery.do?docchannel=11111111111112"> </a>
 </div>
 <div class="mln navItem">

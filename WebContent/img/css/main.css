@@ -105,7 +105,8 @@ body.alag {
 	column-rule: dashed 2px #ccc;
 	column-gap: 40px;
 	-webkit-column-width: 400px;
-	-webkit-column-rule: dashed 2px #ccc;
+	/*-webkit-column-rule: dashed 2px #ccc;*/
+        -webkit-column-rule:1px outset #ccc;
 	-webkit-column-gap: 40px;
 	-webkit-writing-mode: vertical-lr;
 	-moz-writing-mode: vertical-lr;

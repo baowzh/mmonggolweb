@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /* CSS Document */
 body {
 	margin: 0;
@@ -36,7 +36,7 @@ body {
 
 .naveFrame {
 	position: relative;
-	left: 23em;
+	left: 15em;
 	top: 2em;
 }
 
@@ -86,7 +86,7 @@ body {
 	padding: 4px;
 	overflow: hidden;
 	border-radius: 0px 5px 5px 0px;
-	background-image: url(../../img/arv_ag.jpg)
+	/*background-image: url(../../img/arv_ag.jpg)*/
 }
 
 .ttl {
