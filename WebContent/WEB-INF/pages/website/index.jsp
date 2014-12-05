@@ -109,7 +109,7 @@
 			<div class="listCardTtl ttlStl1" style="height: 320px;">
 				<div class="ttl"> </div>
 				<div class="more">
-					<a href="#"> </a>
+<!-- 					<a href="#"> </a> -->
 				</div>
 			</div>
 			<div class="listCardBody" style="height: 330px;">
@@ -214,7 +214,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"> </div>
 				<div class="more">
-					<a href="#"> </a>
+<!-- 					<a href="#"> </a> -->
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -242,7 +242,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"> </div>
 				<div class="more">
-					<a href="#"> </a>
+<!-- 					<a href="#"> </a> -->
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -335,7 +335,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"> </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="pagingquery.do?docchannel=11111111111110"> </a>
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -365,7 +365,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"> </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="pagingquery.do?docchannel=11111111111112"> </a>
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -456,7 +456,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl">  </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="pagingquery.do?docchannel=32222233312227"> </a>
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -485,7 +485,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"> </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="pagingquery.do?docchannel=11111111111113"> </a>
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -576,7 +576,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl">  </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="pagingquery.do?docchannel=11111111111113"> </a>
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -606,7 +606,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"> </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="pagingquery.do?docchannel=11111111111114"> </a>
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -717,7 +717,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"> </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="pagingquery.do?docchannel=11111111111115"> </a>
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -747,7 +747,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"> </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="pagingquery.do?docchannel=11111111111132"> </a>
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -790,7 +790,7 @@
 			<div class="listCardTtl ttlStl1" style="height: 450px;">
 				<div class="ttl" style="height: 300px;"> </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="pagingquery.do?docchannel=11111111111129"> </a>
 				</div>
 			</div>
 			<div class="listCardBody" style="height: 450px;">
@@ -814,7 +814,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl">  :</div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="searchblog.do"> </a>
 				</div>
 			</div>
 			<div class="listCardBody" style="background: #eee;">
@@ -892,7 +892,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl">:</div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="pagingquery.do?docchannel=11111111111118"> </a>
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -919,7 +919,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"> </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="pagingquery.do?docchannel=11111111111122"> </a>
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -949,7 +949,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"> </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="searchblog.do"> </a>
 				</div>
 			</div>
 			<div class="listCardBody" style="background: #eee;">
@@ -976,7 +976,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"> </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="pagingquery.do?docchannel=32222233312226"> </a>
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -1003,7 +1003,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"> </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="pagingquery.do?docchannel=11111111111119"> </a>
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -1112,7 +1112,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"> </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="pagingquery.do?docchannel=11111111111121"> </a>
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -1142,7 +1142,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl">     </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="searchblog.do"> </a>
 				</div>
 			</div>
 			<div class="listCardBody" style="background: #eee;">
@@ -1169,7 +1169,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"> </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="pagingquery.do?docchannel=32222233312222"> </a>
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -1196,7 +1196,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"> </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="pagingquery.do?docchannel=32222233312224"> </a>
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -1253,7 +1253,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"> </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="pagingquery.do?docchannel=32222233332224"> </a>
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -1280,7 +1280,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"> </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="pagingquery.do?docchannel=11111111111128"> </a>
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -1330,7 +1330,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"> </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="pagingquery.do?docchannel=11111111111125"> </a>
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -1357,7 +1357,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"> </div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="pagingquery.do?docchannel=11111111111127"> </a>
 				</div>
 			</div>
 			<div class="listCardBody">

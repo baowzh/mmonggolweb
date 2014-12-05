@@ -5,44 +5,43 @@
 </div>
 <div class="mln navItem">
 	<a
-		href="gouserindex.do?userid=<c:out value="${user.userid}" />&docchannel=32222233332222">
-		 </a>
+		href="gouserindex.do?userid=<c:out value="${user.userid}" />&docchannel=11111111111110">
+		 </a>
 </div>
 <div class="mln navItem">
 	<a
-		href="gouserindex.do?userid=<c:out value="${user.userid}" />&docchannel=11111111111112">
-		 </a>
-</div>
-<div class="mln navItem">
-	<a href="pagingquery.do?docchannel=11111111111112"> </a>
+		href="gouserindex.do?userid=<c:out value="${user.userid}" />&docchannel=11111111111112">
+		</a>
 </div>
 <div class="mln navItem">
 	<a
 		href="gouserindex.do?userid=<c:out value="${user.userid}" />&docchannel=32222233312227">
-		  </a>
+		 </a>
 </div>
 <div class="mln navItem">
-	<a href="pagingquery.do?docchannel=11111111111113"> </a>
+	<a
+		href="gouserindex.do?userid=<c:out value="${user.userid}" />&docchannel=11111111111113">
+		</a>
 </div>
 <div class="mln navItem">
 	<a
 		href="gouserindex.do?userid=<c:out value="${user.userid}" />&docchannel=11111111111113">
-		  </a>
+		 </a>
 </div>
 <div class="mln navItem">
 	<a
 		href="gouserindex.do?userid=<c:out value="${user.userid}" />&docchannel=11111111111114">
-		 </a>
+		</a>
 </div>
 <div class="mln navItem">
 	<a
 		href="gouserindex.do?userid=<c:out value="${user.userid}" />&docchannel=11111111111115">
-		 </a>
+		</a>
 </div>
 <div class="mln navItem">
 	<a
-		href="gouserindex.do?userid=<c:out value="${user.userid}" />&docchannel=11111111111132">
-		</a>
+		href="gouserindex.do?userid=<c:out value="${user.userid}" />&docchannel=11111111111132">
+		</a>
 </div>
 <div class="mln navItem">
 	<a
@@ -52,17 +51,17 @@
 <div class="mln navItem">
 	<a
 		href="gouserindex.do?userid=<c:out value="${user.userid}" />&docchannel=11111111111122">
-		 </a>
+		</a>
 </div>
 <div class="mln navItem">
 	<a
 		href="gouserindex.do?userid=<c:out value="${user.userid}" />&docchannel=32222233312226">
-		 </a>
+		</a>
 </div>
 <div class="mln navItem">
 	<a
 		href="gouserindex.do?userid=<c:out value="${user.userid}" />&docchannel=11111111111119">
-		 </a>
+		</a>
 </div>
 <div class="mln navItem">
 	<a
@@ -72,45 +71,44 @@
 <div class="mln navItem">
 	<a
 		href="gouserindex.do?userid=<c:out value="${user.userid}" />&docchannel=11111111111121">
-		 </a>
+		</a>
 </div>
 <div class="mln navItem">
 	<a
 		href="gouserindex.do?userid=<c:out value="${user.userid}" />&docchannel=32222233312222">
-		 </a>
+		</a>
 </div>
 <div class="mln navItem">
 	<a
 		href="gouserindex.do?userid=<c:out value="${user.userid}" />&docchannel=32222233312224">
-		 </a>
+		</a>
 </div>
 <div class="mln navItem">
 	<a
 		href="gouserindex.do?userid=<c:out value="${user.userid}" />&docchannel=32222233332224">
-		 </a>
+		</a>
 </div>
 <div class="mln navItem">
 	<a
 		href="gouserindex.do?userid=<c:out value="${user.userid}" />&docchannel=11111111111128">
-		 </a>
+		</a>
 </div>
 <div class="mln navItem">
 	<a
 		href="gouserindex.do?userid=<c:out value="${user.userid}" />&docchannel=11111111111125">
-		 </a>
+		</a>
 </div>
 <div class="mln navItem">
 	<a
 		href="gouserindex.do?userid=<c:out value="${user.userid}" />&docchannel=11111111111127">
-		 </a>
+		</a>
 </div>
 <div class="mln navItem">
 	<a
 		href="gouserindex.do?userid=<c:out value="${user.userid}" />&docchannel=11111111111129">
-		 </a>
+		</a>
 </div>
 <div class="mln navItem">
 	<a
-		href="gouserindex.do?userid=<c:out value="${user.userid}" />&docchannel=11111111111135">
-	</a>
+		href="gouserindex.do?userid=<c:out value="${user.userid}" />&docchannel=11111111111135"></a>
 </div>

@@ -5,13 +5,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<script type="text/javascript" src="js/jqGrid/js/jquery-1.9.1.js"></script>
-<script type="text/javascript" src="js/util/js/messageWindow.js"></script>
-<script type="text/javascript" src="js/sitejs/edituserinfo.js"></script>
-<script type="text/javascript" src="js/My97DatePicker/WdatePicker.js"></script>
 <link href="img/css/main.css" type="text/css" rel="stylesheet" />
 <link href="img/css/login.css" type="text/css" rel="stylesheet" />
 <link href="img/css/selectpanel.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="js\messagebox\jquery.msgbox.css" />
+<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="js/sitejs/edituserinfo.js"></script>
+<script type="text/javascript" src="js/My97DatePicker/WdatePicker.js"></script>
+<script src="js/messagebox/jquery.dragndrop.min.js"></script>
+<script src="js/messagebox/jquery.msgbox.js"></script>
+<script type="text/javascript" src="js/util/js/messageWindow.js"></script>
 <title>  </title>
 </head>
 <body>
