@@ -13,6 +13,9 @@
 	href="js/jqui/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
 <script src="js/jqui/js/jquery-ui-1.10.3.custom.min.js"></script>
 <script type="text/javascript" src="js/util/js/messageWindow.js"></script>
+<script src="js/messagebox/jquery.msgbox.js"></script>
+<script src="js/messagebox/jquery.dragndrop.min.js"></script>
+<link rel="stylesheet" href="js\messagebox\jquery.msgbox.css" />
 </head>
 <body>
 	<div class="news1">
@@ -54,7 +57,7 @@
 		<form class="mglForm" action="#" id="loginform" method="post">
 			<div class="label"> </div>
 			<div class="inputHolder" style="height: 9em;">
-				<input name="oldpassword" id="oldpassword" type="password">
+				<input name="oldpass" id="oldpass" type="password">
 			</div>
 			<div class="label">   </div>
 			<div class="inputHolder" style="height: 9em;">
@@ -163,7 +166,8 @@
 			data : {
 				// 				username : $("#username").val(),
 				pass : $("#password").val(),
-				oldpass : $("#oldpass").val()
+				oldpass : $("#oldpass").val(),
+				varifycode : $("#varifycode").val()
 			},
 			error : function() {// 请求失败处理函数
 				alert('请求失败');
@@ -171,7 +175,7 @@
 			success : function(data) { // 请求成功后处理函数。
 				if (data.mess == '1') {
 					MessageWindow.showMess("  ");
-					window.location.href = "tologin.do";
+					setTimeout(window.location.href = "tologin.do", 2000);
 				} else if (data.mess == '2') {
 
 				} else if (data.mess == '3') {
