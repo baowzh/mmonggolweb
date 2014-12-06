@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
+<link href="site/css/index.css" rel="stylesheet" type="text/css" />
 <link href="img/css/main.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 <link rel="stylesheet"
@@ -47,7 +48,41 @@
 			<a href="createsitepage.do"> </a>
 		</div>
 	</div>
-
+	<!-- 444 -->
+	<div class="content" id="astopwriting"
+		style="padding-left: 8px; display: none;">
+		<form class="mglForm" action="#" id="loginform" method="post">
+			<div class="label"> </div>
+			<div class="inputHolder" style="height: 9em;">
+				<input name="oldpassword" id="oldpassword" type="password">
+			</div>
+			<div class="label">   </div>
+			<div class="inputHolder" style="height: 9em;">
+				<input type="password" name="password" id="password" value="" />
+			</div>
+			<div class="label">
+				  <a href="javascript:replaceverifycode();"></a> :
+			</div>
+			<div class="label">
+				<a href="javascript:replaceverifycode();"> <img
+					src="verifyCodeServlet" id="varifyimg" width="18" height="100">
+				</img>
+				</a>
+			</div>
+			<div class="inputHolder" style="height: 9em;">
+				<input name="validcode" id="varifycode">
+			</div>
+			<div class="inputHolder" style="height: 9em;">
+				<div class="m1ln h100" style="text-align: center;">
+					<a href="javascript:modifypass();">  </a>
+				</div>
+			</div>
+			<input type="hidden" name="maillogin" id="maillogin"
+				value="<c:out value="${maillogin}" />">
+		</form>
+	</div>
+	<!-- 444 -->
+	<!-- 
 	<div style="display: none">
 		<div class="lcell" style="width: 140px; height: 430px;"
 			id="astopwriting">
@@ -94,24 +129,20 @@
 			</table>
 		</div>
 	</div>
+	 -->
 </body>
 </html>
 <script language="javascript">
 	function password() {
 		$("#astopwriting").dialog({
-			height : 450,
-			width : 200,
+			height : 290,
+			width : 270,
 			resizable : false,
 			modal : true
 		});
 	}
 	function modifypass() {
 		// 校验工作及修改都放后台了
-		var username = $("#username").val();
-		if (username == null || username == '') {
-			MessageWindow.showMess("     ");
-			return;
-		}
 		var oldpass = $("#oldpass").val();
 		if (oldpass == null || oldpass == '') {
 			MessageWindow.showMess("     ");
@@ -130,7 +161,7 @@
 			dataType : "json",
 			url : "modifyuserpass.do",// 请求的action路径
 			data : {
-// 				username : $("#username").val(),
+				// 				username : $("#username").val(),
 				pass : $("#password").val(),
 				oldpass : $("#oldpass").val()
 			},
@@ -148,5 +179,26 @@
 				}
 			}
 		});
-	}
+	};
+	/**
+	 * 更新验证码
+	 */
+	var replaceverifycode = function() {
+		var imgSrc = $("#varifyimg");
+		var src = imgSrc.attr("src");
+		imgSrc.attr("src", chgUrl(src));
+
+	};
+	// 时间戳
+	// 为了使每次生成图片不一致，即不让浏览器读缓存，所以需要加上时间戳
+	function chgUrl(url) {
+		var timestamp = (new Date()).valueOf();
+		url = url.substring(0, 17);
+		if ((url.indexOf("&") >= 0)) {
+			url = url + "¡Átamp=" + timestamp;
+		} else {
+			url = url + "?timestamp=" + timestamp;
+		}
+		return url;
+	};
 </script>

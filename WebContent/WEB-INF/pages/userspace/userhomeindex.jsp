@@ -366,13 +366,13 @@
 			type="hidden" name="userid" id="userid"
 			value="<c:out value="${user.userid}" />"></input>
 		<div class="lmainR ofh" style="text-align: center;">
-		<div class="wrp m0a ribbon"></div>
-<!-- 			<div class="tailCard"> -->
-<!-- 				<div class="msheet" style="height: 100px; width: 800px;"> -->
+			<div class="wrp m0a ribbon"></div>
+			<!-- 			<div class="tailCard"> -->
+			<!-- 				<div class="msheet" style="height: 100px; width: 800px;"> -->
 
-<%-- 					<%@ include file="../website/tail.jsp"%> --%>
-<!-- 				</div> -->
-<!-- 			</div> -->
+			<%-- 					<%@ include file="../website/tail.jsp"%> --%>
+			<!-- 				</div> -->
+			<!-- 			</div> -->
 			<div class="cbt"></div>
 		</div>
 	</form>
@@ -451,6 +451,37 @@
 					src="http://v3.jiathis.com/code/jiathis_slide.js" charset="utf-8"></script>
 			</div>
 		</div>
+	</div>
+	<div class="content" id="updpassdiv"
+		style="padding-left: 8px; display: none;">
+		<form class="mglForm" action="#" id="loginform" method="post">
+			<c:if test="${maillogin==0}">
+				<div class="label"> </div>
+				<div class="inputHolder" style="height: 9em;">
+					<input name="oldpassword" id="oldpassword" type="password">
+				</div>
+			</c:if>
+			<div class="label">   </div>
+			<div class="inputHolder" style="height: 9em;">
+				<input name="password" id="password" type="password">
+			</div>
+			<div class="label">
+				  <a href="javascript:replaceverifycode();"></a> :
+			</div>
+			<div class="label">
+				<img src="verifyCodeServlet" id="varifyimg" width="18" height="100">
+			</div>
+			<div class="inputHolder" style="height: 9em;">
+				<input name="validcode" id="varifycode">
+			</div>
+			<div class="inputHolder" style="height: 9em;">
+				<div class="m1ln h100" style="text-align: center;">
+					<a href="javascript:modifypass();">  </a>
+				</div>
+			</div>
+			<input type="hidden" name="maillogin" id="maillogin"
+				value="<c:out value="${maillogin}" />">
+		</form>
 	</div>
 	<!-- JiaThis Button END -->
 	<!-- UJian Button BEGIN -->

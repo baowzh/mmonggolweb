@@ -15,14 +15,21 @@ var dosubmit = function() {
 		MessageWindow.showMess("''      ");
 		return;
 	}
-	/*
-	 * var birthday = $("#birthday")[0]; if (birthday.value == null ||
-	 * birthday.value == '') { MessageWindow.showMess("' ' 
-	 *  "); return; }
-	 */
+
+	var birthday = $("#birthday").val();
+	if (birthday == null || birthday == '') {
+		MessageWindow.showMess("' '   ");
+		return;
+	}
+
 	var sex = $("#sex").val();
 	if (sex == null || sex == '') {
 		MessageWindow.showMess("''      ");
+		return;
+	}
+	var email = $('#email').val();
+	if (email == null || email == '') {
+		MessageWindow.showMess("'email'      ");
 		return;
 	}
 	/*

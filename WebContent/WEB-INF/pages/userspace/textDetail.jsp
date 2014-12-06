@@ -27,6 +27,7 @@
 <script src="js/jqui/js/jquery-ui-1.10.3.custom.min.js"></script>
 <script src="js/messagebox/jquery.msgbox.js"></script>
 <script src="js/messagebox/jquery.dragndrop.min.js"></script>
+<script type="text/javascript" src="ckeditor/ckeditor.js"></script>
 <link rel="stylesheet" href="js\messagebox\jquery.msgbox.css" />
 <style>
 .clear {
@@ -111,24 +112,26 @@
 										<a name="comment"></a>
 										<form action="addCommentOnResource.do" name="commentform"
 											id="commentform">
-
+                                            <!--  
 											<c:if test="${agentkind==0}">
-												<!-- IE浏览器 -->
 												<div style="display: block; z-index: 10">
 													<textarea name="commentdiv" id="commentdiv"
 														style="width: 210px; height: 400px; writing-mode: tb-lr;">								    
 								</textarea>
 												</div>
 											</c:if>
-
+-->
 											<textarea name="comment" id="comment" style="display: none">								    
 								</textarea>
-											<c:if test="${agentkind==1}">
+<%-- 											<c:if test="${agentkind==1}"> --%>
 												<!-- 谷歌浏览器 -->
-
+												<!--  
 												<div class="flt mVsheet commentEdit" contentEditable="true"
 													id="commentdiv" style="display: block"></div>
-											</c:if>
+													-->
+												<textarea id="editor1" name="commentdiv" class="ckeditor"
+													style="width: 210px; height: 100px;"></textarea>
+<%-- 											</c:if> --%>
 											<input type="hidden" name="agentkind" id="agentkind"
 												value="<c:out value="${agentkind}" />"> <input
 												type="hidden" name="userid" id="userid"> <input
@@ -139,22 +142,22 @@
 												<a href="JavaScript:void(0)" id="message_face"><img
 													src="img/pl_bq.png" /></a> <a
 													href="javascript:replaceverifycode();"><img
-													src="verifyCodeServlet" id="varifyimg" width="21"
-													height="100" /></a>&nbsp;&nbsp;
+													src="verifyCodeServlet" id="varifyimg" width="18"
+													height="90" /></a>&nbsp;&nbsp;
 												<c:if test="${agentkind==1}">
 													<!-- 谷歌浏览器 -->
 													<input type="text" name="validcode" id="validcode"
 														style="-webkit-writing-mode: vertical-lr; writing-mode: tb-lr; height: 15px; width: 60px; -webkit-transform: rotate(90deg); -webkit-transform-origin: 10px 10px;" />
+														
 												</c:if>
 												<c:if test="${agentkind==0}">
 													<!-- 谷歌浏览器 -->
 													<input type="text" name="validcode" id="validcode"
 														style="-webkit-writing-mode: vertical-lr; writing-mode: tb-lr; height: 60px; width: 18px;" />
 												</c:if>
-												&nbsp;&nbsp;
-												<a href="javascript:addcomment(1,0);" style="height: 80px;">
-													&nbsp;  </a>&nbsp; <a
-													href="javascript:addcomment(1,1);"> </a>												
+												&nbsp;&nbsp; <a href="javascript:addcomment(1,0);"
+													style="height: 80px;"> &nbsp;  </a>&nbsp; <a
+													href="javascript:addcomment(1,1);"> </a>
 											</div>
 										</form>
 									</div>
@@ -238,42 +241,6 @@
 							<div class="paginationArea">
 								<div class="pagination" id="docpagelist">
 									<c:out value="${pagingstr}" escapeXml="false" />
-									<!--  
-									<a class="first disabled" id="firsta"
-										href="javascript:openpage('1','<c:out value="${user.userid}" />',1,0,true);switchclass('first');">
-										<span id="pagefirst" class="spanstyle">&lt;&lt; </span>
-									</a> <a class="first disabled" id="previousa"
-										href="javascript:openpage('<c:out value="${previousindex}" />','<c:out value="${user.userid}" />',1,0,true);switchclass('pageprevious');">
-										<span id="pageprevious" class="spanstyle">&nbsp;&lt;&nbsp;
-									</span>
-									</a>
-									<c:forEach items="${docpageIndexs}" var="pagingIndex"
-										varStatus="status">
-										<a class="first disabled"
-											href="javascript:openpage('<c:out value="${pagingIndex.pageindex}" />','<c:out value="${user.userid}" />',0,true);switchclass('page<c:out value="${pagingIndex.pageindex}" />');">
-											<c:if test="${status.index==0}">
-												<span id="page<c:out value="${pagingIndex.pageindex}" />"
-													class="curspanstyle">&nbsp;<c:out
-														value="${pagingIndex.pageindex}" />&nbsp;
-												</span>
-											</c:if> <c:if test="${status.index!=0}">
-												<span id="page<c:out value="${pagingIndex.pageindex}" />"
-													class="spanstyle">&nbsp;<c:out
-														value="${pagingIndex.pageindex}" />&nbsp;
-												</span>
-											</c:if>
-										</a>
-									</c:forEach>
-									<a class="first disabled" id="nexta"
-										href="javascript:openpage('2','<c:out value="${user.userid}" />',1,0,true);switchclass('pagenext');">
-										<span id="pagenext" class="spanstyle">&nbsp;&gt;&nbsp;
-									</span>
-									</a> <a class="first disabled" id="lasta"
-										href="javascript:openpage('<c:out value="${pageCount}" />','<c:out value="${user.userid}" />',1,0,true);switchclass('pagelast');">
-										<span id="pagelast" class="spanstyle">&gt;&gt; </span>
-									</a>
-									
-									-->
 								</div>
 							</div>
 						</div>
@@ -286,11 +253,11 @@
 		</div>
 	</div>
 	<div class="lmainR ofh" style="text-align: center;">
-	<div class="wrp m0a ribbon"></div>
-<!-- 		<div class="tailCard"> -->
-<!-- 			<div class="msheet" style="height: 100px; width: 800px;"> -->
-<%-- 				<%@ include file="../website/tail.jsp"%></div> --%>
-<!-- 		</div> -->
+		<div class="wrp m0a ribbon"></div>
+		<!-- 		<div class="tailCard"> -->
+		<!-- 			<div class="msheet" style="height: 100px; width: 800px;"> -->
+		<%-- 				<%@ include file="../website/tail.jsp"%></div> --%>
+		<!-- 		</div> -->
 		<div class="cbt"></div>
 	</div>
 	<!-- 隐藏的div -->

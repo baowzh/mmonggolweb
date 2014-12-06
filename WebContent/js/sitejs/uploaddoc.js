@@ -22,7 +22,6 @@ $(document).ready(
 								+ data.treeNodes[i].channelid + "\">"
 								+ data.treeNodes[i].chnlname + "</option>";
 					}
-					// $('#docchannel').html(options);
 				}
 			});
 
@@ -39,14 +38,19 @@ $(document).ready(
 						opertype : $('#opertype').val()
 					},
 					error : function() {// 请求失败处理函数
-						alert('请求失败');
+						MessageWindow.showMess('请求失败');
 					},
 					success : function(data) { // 请求成功后处理函数。
 						$('#editor1').val(data.documentValue.htmlstr);
 						$('#doctitle').val(data.documentValue.doctitle);
 						$('#docabstract').val(data.documentValue.docabstract);
 						$('#userid').val(data.documentValue.userid);
-						$('#channel').val(data.documentValue.docchannelname);
+						$('#channel').text(data.documentValue.docchannelname);
+						$('#docchannel').val(data.documentValue.docchannel);
+						$('#selch').html(
+								'<a href=\"javascript:showselePanel(true);\">'
+										+ data.documentValue.docchannelname
+										+ '</a>');
 					}
 				});
 			}
@@ -58,9 +62,7 @@ $(document).ready(
 				top : 25,
 				left : -27
 			});
-			//
 			$(document).mousemove(function(event) {
-				// alert(event);
 				positionx = event.clientX;
 				positiony = event.clientY;
 			});
@@ -73,10 +75,6 @@ var insertimg = function() {
 	// 获取被选中的图片
 	var imgid = "";
 	imgid = $("[name=imgradio]:checked").attr("id");
-	/*
-	 * $("[name=imgradio]:checked").each( function(){ if(this.checked){
-	 * imgid=this.id; } } );
-	 */
 	var img = "<img src=\"getimg.do?imgid=" + imgid + "\"/><br>";
 	CKEDITOR.instances.editor1.insertHtml(img);
 	$("#selectimg").dialog("close");
@@ -91,7 +89,7 @@ var openimgwindow = function() {
 			dataType : "json",
 			url : "getalbumlist.do",
 			error : function() {// 请求失败处理函数
-				alert('请求失败');
+				MessageWindow.showMess('请求失败');
 			},
 			data : {
 				userid : $('#userid').val()
@@ -169,7 +167,7 @@ var insertvideo = function() {
 			"^http[s]?:\\/\\/([\\w-]+\\.)+[\\w-]+([\\w-./?%&=]*)?$");
 	url = $("#flashurl").val();
 	if (false == matchstr.test(url)) {
-		alert("        ");
+		MessageWindow.showMess("        ");
 		return;
 	} else {
 		var embed = "[[" + url + "]]";
@@ -183,8 +181,8 @@ var insertvideo = function() {
 var openlinkwindow = function() {
 	// 设置值
 	$("#addlink").dialog({
-		height : 370,
-		width : 210,
+		height : 380,
+		width : 260,
 		resizable : true,
 		model : false
 	});
@@ -196,14 +194,18 @@ var openlinkwindow = function() {
 var inseralink = function() {
 	var matchstr = new RegExp(
 			"^http[s]?:\\/\\/([\\w-]+\\.)+[\\w-]+([\\w-./?%&=]*)?$");
-	url = $("#linkurl").val();
-	if (false == matchstr.test(url)) {
-		alert("    ");
+	var url = $("#linkurl").val();
+	if (url == null||url=='') {
+		MessageWindow.showMess("   ");
 		return;
-	} else {
-		var embed = "[[" + url + "]]";
-		CKEDITOR.instances.editor1.insertHtml(embed);
 	}
+	var urldesc = $('#linkurldes').val();
+	if (urldesc == null || urldesc == '') {
+		MessageWindow.showMess("     ");
+		return;
+	}
+	var html = '<a href=\"' + url + '\">' + urldesc + '</a>';
+	CKEDITOR.instances.editor1.insertHtml(html);
 	$("#addlink").dialog("close");
 }
 /**
@@ -238,9 +240,7 @@ var changeCity = function(channelid, channelname) {
  * 隐藏相册对话框并显示图片列表
  */
 var openPhotoAlbum = function(imggroupid) {
-
 	$("#photoalbum").css("display", "none");
-	// $("#selectimg").dialog("close");
 	$
 			.ajax({
 				async : false,
@@ -253,7 +253,7 @@ var openPhotoAlbum = function(imggroupid) {
 					userid : $("#userid").val()
 				},
 				error : function() {// 请求失败处理函数
-					alert('请求失败');
+					MessageWindow.showMess('请求失败');
 				},
 				success : function(data) { // 请求成功后处理函数。
 					// 设置相册信息
@@ -277,12 +277,74 @@ var openPhotoAlbum = function(imggroupid) {
 						$("#selectimg").append($("#imgbox"));
 					}
 					// 设置值
-					/*
-					 * $("#selectimg").dialog({ height : 410, width : 800,
-					 * resizable : true, model : false });;
-					 */
 				}
 			});
 
 }
+
+/**
+ * 打开插入图片窗口
+ */
+var openaddimgwindow = function() {
+	// 设置值
+	$("#addimg").dialog({
+		height : 370,
+		width : 210,
+		resizable : true,
+		model : false
+	});
+	;
+}
+
+var openmp3window = function() {
+	// 设置值
+	$("#addmp3").dialog({
+		height : 370,
+		width : 210,
+		resizable : true,
+		model : false
+	});
+	;
+}
+/**
+ * 插入图片
+ */
+var addimg = function() {
+	// 获取被选中的图片
+	var imgid = $('#imgurl').val();
+	var img = '<img src=\"' + imgid + '\"/><br>';
+	CKEDITOR.instances.editor1.insertHtml(img);
+	$("#addimg").dialog("close");
+}
+/**
+ * 插入图片
+ */
+var insertmp3 = function() {
+	// 获取被选中的图片
+	var imgid = $('#mp3url').val();
+	var img = '<img src=\"' + imgid + '\"/>';
+	CKEDITOR.instances.editor1.insertHtml(img);
+	$("#addimg").dialog("close");
+}
+/**
+ * 更新验证码
+ */
+var replaceverifycode = function() {
+	var imgSrc = $("#varifyimg");
+	var src = imgSrc.attr("src");
+	imgSrc.attr("src", chgUrl(src));
+
+};
+// 时间戳
+// 为了使每次生成图片不一致，即不让浏览器读缓存，所以需要加上时间戳
+function chgUrl(url) {
+	var timestamp = (new Date()).valueOf();
+	url = url.substring(0, 17);
+	if ((url.indexOf("&") >= 0)) {
+		url = url + "¡Átamp=" + timestamp;
+	} else {
+		url = url + "?timestamp=" + timestamp;
+	}
+	return url;
+};
 //
