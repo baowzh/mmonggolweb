@@ -47,16 +47,18 @@
 								</div>
 							</td>
 							<td>
-								<div class="m1ln h100"> </div>
+								<div class="m1ln h100">  </div>
 							</td>
 							<td>
-								<div class="inputHolder">
-									<select name="status" id="status"
-										style="writing-mode: tb-lr; -webkit-writing-mode: vertical-lr;">
-										<option value="2"> </option>
-										<option value="1"> </option>
-										<option value="0" selected="true"></option>
-									</select>
+								<div class="inputHolder" style="background: #eee;">
+									<input type="text" name="strcrtime" id="strcrtime"
+										value="<c:out value="${queryDocForm.strcrtime}"/>"
+										style="height: 40px;" class="modTxtTime" readonly="readonly"
+										onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" /> - <input
+										type="text" name="endcrtime" id="endcrtime"
+										value="<c:out value="${queryDocForm.endcrtime}"/>"
+										style="height: 40px;" class="modTxtTime" readonly="readonly"
+										onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" />
 								</div>
 							</td>
 						</tr>
