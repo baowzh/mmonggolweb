@@ -115,8 +115,7 @@
 												<img
 												src="getsmheadimge.do?userid=<c:out value="${userValue.userid}"/>"
 												width="570" height="447" />
-											</a> <input type="checkbox" name="selectbox"
-												id="<c:out value="${userValue.userid}" />" />
+											</a> 
 										</div>
 										<div class="desc  " style="color: #000; height: 390px;">
 											<div class="m1ln" style="height: 390px;">

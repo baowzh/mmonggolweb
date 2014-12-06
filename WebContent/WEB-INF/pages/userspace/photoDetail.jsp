@@ -27,6 +27,7 @@
 <script src="js/messagebox/jquery.dragndrop.min.js"></script>
 <link rel="stylesheet" href="js\messagebox\jquery.msgbox.css" />
 <script src="js/sitejs/galleria-1.4.2.min.js"></script>
+<script type="text/javascript" src="ckeditor/ckeditor.js"></script>
 <style>
 .content {
 	color: #777;
@@ -135,24 +136,26 @@
 										<a name="comment"></a>
 										<form action="addCommentOnResource.do" name="commentform"
 											id="commentform">
-
+											<!--  
 											<c:if test="${agentkind==0}">
-												<!-- IE浏览器 -->
 												<div style="display: block; z-index: 10">
 													<textarea name="commentdiv" id="commentdiv"
 														style="width: 210px; height: 400px; writing-mode: tb-lr;">								    
-								</textarea>
+								                </textarea>
 												</div>
 											</c:if>
-
+                                           -->
 											<textarea name="comment" id="comment" style="display: none">								    
-								</textarea>
+							          	</textarea>
+											<textarea id="editor1" name="commentdiv" class="ckeditor"
+												style="width: 210px; height: 100px;"></textarea>
+											<!--  
 											<c:if test="${agentkind==1}">
-												<!-- 谷歌浏览器 -->
 
 												<div class="flt mVsheet commentEdit" contentEditable="true"
 													id="commentdiv" style="display: block"></div>
 											</c:if>
+											-->
 											<input type="hidden" name="agentkind" id="agentkind"
 												value="<c:out value="${agentkind}" />"> <input
 												type="hidden" name="userid" id="userid"
@@ -240,11 +243,11 @@
 		</div>
 	</div>
 	<div class="lmainR ofh" style="text-align: center;">
-	<div class="wrp m0a ribbon"></div>
-<!-- 		<div class="tailCard"> -->
-<%-- 			<div class="msheet" style="height: 100px; width: 800px;"><%@ include --%>
-<%-- 					file="../website/tail.jsp"%></div> --%>
-<!-- 		</div> -->
+		<div class="wrp m0a ribbon"></div>
+		<!-- 		<div class="tailCard"> -->
+		<%-- 			<div class="msheet" style="height: 100px; width: 800px;"><%@ include --%>
+		<%-- 					file="../website/tail.jsp"%></div> --%>
+		<!-- 		</div> -->
 		<div class="cbt"></div>
 	</div>
 	<div class="lcell cardlogin" style="display: none">

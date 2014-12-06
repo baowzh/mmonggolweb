@@ -22,12 +22,12 @@
 </head>
 <body>
 	<div class="wrp m0a logo">
-			<div class="naveFrame">
-				<%@ include file="head.jsp"%>
-			</div>
-			<div class="cbt"></div>
+		<div class="naveFrame">
+			<%@ include file="head.jsp"%>
 		</div>
-		<div class="wrp m0a ribbon"></div>
+		<div class="cbt"></div>
+	</div>
+	<div class="wrp m0a ribbon"></div>
 	<div class="lmainR ofh">
 		<form action="searchdoc.do" id="Form" method="post">
 			<div class="lmainR"
@@ -167,7 +167,9 @@
 										</td>
 										<td>
 											<div class="artList" style="height: 100px;">
-												<a><c:out value="${documentValue.docauthor}" /></a>
+												<a
+													href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />"><c:out
+														value="${documentValue.docauthor}" /></a>
 											</div>
 										</td>
 										<td>
@@ -240,12 +242,12 @@
 			</div>
 		</form>
 	</div>
-		<div class="wrp m0a ribbon"></div>
-<!-- 	<div class="lmainR ofh" style="text-align: center;"> -->
-<!-- 		<div class="tailCard"> -->
-<%-- 			<%@ include file="../website/tail.jsp"%> --%>
-<!-- 		</div> -->
-<!-- 		<div class="cbt"></div> -->
-<!-- 	</div> -->
+	<div class="wrp m0a ribbon"></div>
+	<!-- 	<div class="lmainR ofh" style="text-align: center;"> -->
+	<!-- 		<div class="tailCard"> -->
+	<%-- 			<%@ include file="../website/tail.jsp"%> --%>
+	<!-- 		</div> -->
+	<!-- 		<div class="cbt"></div> -->
+	<!-- 	</div> -->
 </body>
 </html>
