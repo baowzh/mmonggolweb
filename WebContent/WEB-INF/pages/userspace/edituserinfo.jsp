@@ -30,7 +30,7 @@
 						style="width: 478px; padding-left: 10px; padding-right: 10px;">
 						<form class="mglForm" action="edituserinfo.do" id="userinfoform"
 							method="post" enctype="multipart/form-data">
-							<div class="label">  <font color="#f00">*</font>:</div>
+							<div class="label">  <font color="#f00">*</font>:</div>
 							<div class="label"><font color="#f00">*</font>:</div>
 							<div class="label"> <font color="#f00">*</font></div>
 							<div class="label"> <font color="#f00">*</font> </div>
@@ -208,7 +208,7 @@
 
 							<tr>
 								<td>
-									<div class="m1ln h100">  :</div>
+									<div class="m1ln h100">  :</div>
 								</td>
 								<td>
 									<div class="mfl">

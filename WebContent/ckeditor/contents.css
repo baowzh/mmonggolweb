@@ -15,7 +15,7 @@ body {
 	font-family: "MenksoftQagan";
 	/* 	font-family: "Menksoft ת¯רצשÆרכשÄ ת¹רכשק"; */
 	/* 	font-size: 30px; */
-	height: 600px;
+	height: 500px;
 	/* Text color */
 	color: #333;
 	/* Remove the background color to make it transparent */
@@ -24,7 +24,7 @@ body {
 }
 
 .cke_editable {
-	font-size: 13px;
+	font-size: 15px;
 	line-height: 1.6em;
 }
 

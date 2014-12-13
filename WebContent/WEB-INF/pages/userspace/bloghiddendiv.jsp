@@ -90,7 +90,7 @@
 
 				<tr>
 					<td>
-						<div class="m1ln h100">  :</div>
+						<div class="m1ln h100">  :</div>
 					</td>
 					<td>
 						<div class="mfl">

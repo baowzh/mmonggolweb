@@ -42,6 +42,7 @@ import com.mongolia.website.model.QueryUserForm;
 import com.mongolia.website.model.RssItem;
 import com.mongolia.website.model.TopDocumentValue;
 import com.mongolia.website.model.UserValue;
+import com.mongolia.website.util.PageUtil;
 import com.mongolia.website.util.StaticConstants;
 
 @Controller
@@ -279,17 +280,17 @@ public class WebSiteVisiterAction {
 		try {
 			Map<String, Object> queryDocParams = new HashMap<String, Object>();
 			queryDocForm.setDoctitle(queryDocForm.getSearchtext());
-//			if (queryDocForm.getStatus() != null
-//					&& queryDocForm.getStatus().intValue() == 0) {
-//				queryDocParams.put("status", null);
-//			} else {
-				queryDocParams.put("status", StaticConstants.DOCSTATUS2);
-			//}
+			// if (queryDocForm.getStatus() != null
+			// && queryDocForm.getStatus().intValue() == 0) {
+			// queryDocParams.put("status", null);
+			// } else {
+			queryDocParams.put("status", StaticConstants.DOCSTATUS2);
+			// }
 			if (queryDocForm.getChannel() != null
 					&& queryDocForm.getChannel().equalsIgnoreCase("#")) {
 				queryDocParams.put("channelid", null);
 			} else {
-				
+
 				queryDocParams.put("channelid", queryDocForm.getChannel());
 			}
 			if (queryDocForm.getAuthorname() != null
@@ -437,5 +438,146 @@ public class WebSiteVisiterAction {
 		return new ResponseEntity<String>(returnstr, responseHeaders,
 				HttpStatus.OK);
 		// return new ModelAndView("rssView");
+	}
+
+	/**
+	 * 
+	 * @param request
+	 * @param map
+	 * @param queryDocForm
+	 * @return
+	 * @throws IOException
+	 */
+	@RequestMapping("/imgs.do")
+	public ModelAndView imgs(HttpServletRequest request, ModelMap map)
+			throws IOException {
+		try {
+			String pageindex = request.getParameter("pageindex");
+			PaingModel<DocumentValue> paingModel = new PaingModel<DocumentValue>();
+			paingModel.setDoctype(StaticConstants.DOCTYPE_IMG);
+			if (pageindex == null) {
+				paingModel.setPageindex(1);
+				pageindex = "1";
+			} else {
+				paingModel.setPageindex(Integer.parseInt(pageindex));
+			}
+			paingModel.setStartrow((paingModel.getPageindex() - 1) * 24);
+			paingModel.setEndrow(paingModel.getPagesize());
+			paingModel.setPagesize(24);
+			PaingModel<DocumentValue> pageModel = webSiteVisitorManager
+					.pagingquerydoc(paingModel);
+			map.put("imgList", pageModel.getModelList());
+			if (pageModel.getModelList().isEmpty()) {
+				map.put("isempty", 1);
+			} else {
+				map.put("isempty", 0);
+			}
+			String idAndIndexrel = "";
+			List<DocumentValue> docs = pageModel.getModelList();
+			for (int i = 0; i < docs.size(); i++) {
+				idAndIndexrel = idAndIndexrel + (i + 1) + ","
+						+ docs.get(i).getDocid() + "#";
+			}
+			List<PagingIndex> indexs = new ArrayList<PagingIndex>();
+			for (int i = 0; i < paingModel.getPagecount(); i++) {
+				PagingIndex pagingIndex = new PagingIndex();// 就显示首页，末页和当前页，当前页前面，后面
+				pagingIndex.setPageindex(i + 1);
+				if (Integer.parseInt(pageindex) == i + 1) {
+					pagingIndex.setCurrent(1);
+				}
+				if (i == 0) {
+					indexs.add(pagingIndex);
+					pagingIndex.setDoc(0);
+				} else if (i == paingModel.getPagecount() - 1) {
+					indexs.add(pagingIndex);
+					pagingIndex.setDoc(0);
+				} else if (i + 1 == paingModel.getPageindex()) {
+					indexs.add(pagingIndex);
+					pagingIndex.setCurrent(1);
+				} else if (i == paingModel.getPageindex()) {
+					indexs.add(pagingIndex);
+					if (i + 2 != paingModel.getPagecount() && i != 1) {
+						pagingIndex.setDoc(1);
+						pagingIndex.setFront(0);
+					}
+				} else if (i == paingModel.getPageindex() - 2) {
+					indexs.add(pagingIndex);
+					if (i != 1 && i + 1 != paingModel.getPagecount()
+							&& i + 1 != paingModel.getPageindex()) {
+						pagingIndex.setDoc(1);
+						pagingIndex.setFront(1);
+					}
+				}
+			}
+			map.put("pagingindexs", indexs);
+			map.put("imgcount", pageModel.getRowcount());
+			map.put("idAndIndexrel", idAndIndexrel);
+			String linkstr = PageUtil.getPagingImgLink(pageModel, 1);
+			map.put("linkstr", linkstr);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return new ModelAndView("website/photolist", map);
+	}
+
+	@RequestMapping("/videos.do")
+	public ModelAndView videos(HttpServletRequest request,
+			PaingModel<DocumentValue> paingModel, ModelMap map) {
+		try {
+			paingModel.setFlash(1);
+			paingModel.setPagesize(8);
+			paingModel.setStartrow((paingModel.getPageindex() - 1)
+					* paingModel.getPagesize());
+			paingModel.setEndrow(paingModel.getPageindex()
+					* paingModel.getPagesize());
+			PaingModel<DocumentValue> pamodel = webSiteVisitorManager
+					.pagingquerydoc(paingModel);
+			map.put("paingModel", pamodel);
+			// /
+			List<PagingIndex> indexs = new ArrayList<PagingIndex>();
+			for (int i = 0; i < pamodel.getPagecount(); i++) {
+				PagingIndex pagingIndex = new PagingIndex();// 就显示首页，末页和当前页，当前页前面，后面
+				pagingIndex.setPageindex(i + 1);
+				if (pamodel.getPageindex() == i + 1) {
+					pagingIndex.setCurrent(1);
+				}
+				if (i == 0) {
+					indexs.add(pagingIndex);
+					pagingIndex.setDoc(0);
+				} else if (i == pamodel.getPagecount() - 1) {
+					indexs.add(pagingIndex);
+					pagingIndex.setDoc(0);
+				} else if (i + 1 == pamodel.getPageindex()) {
+					indexs.add(pagingIndex);
+					pagingIndex.setCurrent(1);
+				} else if (i == pamodel.getPageindex()) {
+					indexs.add(pagingIndex);
+					if (i + 2 != pamodel.getPagecount() && i != 1) {
+						pagingIndex.setDoc(1);
+						pagingIndex.setFront(0);
+					}
+				} else if (i == pamodel.getPageindex() - 2) {
+					indexs.add(pagingIndex);
+					if (i != 1 && i + 1 != pamodel.getPagecount()
+							&& i + 1 != pamodel.getPageindex()) {
+						pagingIndex.setDoc(1);
+						pagingIndex.setFront(1);
+					}
+				}
+
+			}
+			map.put("pagingindexs", indexs);
+			// /
+			Map<String, Object> params = new HashMap<String, Object>();
+			params.put("channelid", paingModel.getDocchannel());
+			List<Channel> channels = channelManager.getChannelList(params);
+			if (channels != null && !channels.isEmpty()) {
+				Channel channel = channels.get(0);
+				map.put("channel", channel);
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}// doclist.html
+		return new ModelAndView("website/videos", map);
 	}
 }

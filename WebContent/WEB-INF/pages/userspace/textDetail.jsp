@@ -79,8 +79,9 @@
 											value="${documentValue.readcount}" default="0" /></span> <br />
 									  
 									<c:out value="${documentValue.docRelTimeStr}" />
-									<br /> <a href="#comment"> </a><span id="commentCount">
-										<c:out value="${documentValue.commentCount}" default="0" />
+									<br /> <a href="#comment"> </a><span
+										id="commentCount"> <c:out
+											value="${documentValue.commentCount}" default="0" />
 									</span> 
 								</div>
 								<!--    -->
@@ -107,31 +108,31 @@
 								<div class="clear"></div>
 								<nobr>
 									<div class="comment"
-										style="display: inline; width: 360px; height: 400px;"
+										style="display: inline; width: 360px; height: 500px;"
 										id="commentcontainer">
 										<a name="comment"></a>
 										<form action="addCommentOnResource.do" name="commentform"
 											id="commentform">
-                                            <!--  
+											<!-- 
 											<c:if test="${agentkind==0}">
 												<div style="display: block; z-index: 10">
 													<textarea name="commentdiv" id="commentdiv"
 														style="width: 210px; height: 400px; writing-mode: tb-lr;">								    
-								</textarea>
+								                 </textarea>
 												</div>
 											</c:if>
--->
+                                           -->
 											<textarea name="comment" id="comment" style="display: none">								    
 								</textarea>
-<%-- 											<c:if test="${agentkind==1}"> --%>
-												<!-- 谷歌浏览器 -->
-												<!--  
+											<%-- 											<c:if test="${agentkind==1}"> --%>
+											<!-- 谷歌浏览器 -->
+											<!--  
 												<div class="flt mVsheet commentEdit" contentEditable="true"
 													id="commentdiv" style="display: block"></div>
 													-->
-												<textarea id="editor1" name="commentdiv" class="ckeditor"
-													style="width: 210px; height: 100px;"></textarea>
-<%-- 											</c:if> --%>
+											<textarea id="editor1" name="commentdiv" class="ckeditor"
+												style="width: 80px; height: 100px;"></textarea>
+											<%-- 											</c:if> --%>
 											<input type="hidden" name="agentkind" id="agentkind"
 												value="<c:out value="${agentkind}" />"> <input
 												type="hidden" name="userid" id="userid"> <input
@@ -139,25 +140,31 @@
 											<input type="hidden" name="docid" id="docid"
 												value="<c:out value="${documentValue.docid}" />">
 											<div class="commoper" style="display: block;">
+												<div class="mnlist"
+													style="width: 50px; height: 210px; padding-left: 10px;">
+													<a href="javascript:addcomment(1,0);" style="height: 80px;">
+														&nbsp;  </a>&nbsp; <a
+														href="javascript:addcomment(1,1);"> </a>
+												</div>
 												<a href="JavaScript:void(0)" id="message_face"><img
 													src="img/pl_bq.png" /></a> <a
 													href="javascript:replaceverifycode();"><img
 													src="verifyCodeServlet" id="varifyimg" width="18"
 													height="90" /></a>&nbsp;&nbsp;
+
 												<c:if test="${agentkind==1}">
 													<!-- 谷歌浏览器 -->
 													<input type="text" name="validcode" id="validcode"
 														style="-webkit-writing-mode: vertical-lr; writing-mode: tb-lr; height: 15px; width: 60px; -webkit-transform: rotate(90deg); -webkit-transform-origin: 10px 10px;" />
-														
+
 												</c:if>
 												<c:if test="${agentkind==0}">
 													<!-- 谷歌浏览器 -->
 													<input type="text" name="validcode" id="validcode"
 														style="-webkit-writing-mode: vertical-lr; writing-mode: tb-lr; height: 60px; width: 18px;" />
 												</c:if>
-												&nbsp;&nbsp; <a href="javascript:addcomment(1,0);"
-													style="height: 80px;"> &nbsp;  </a>&nbsp; <a
-													href="javascript:addcomment(1,1);"> </a>
+												&nbsp;&nbsp;
+
 											</div>
 										</form>
 									</div>
@@ -167,8 +174,7 @@
 								<div class="clear"></div>
 								<!-- 加载留言区域 -->
 								<div id="commentlist" style="padding-left: 10px; z-index: 10;">
-									<div class="mnlist">   
-										</div>
+									<div class="mnlist">  </div>
 									<br>
 									<c:forEach items="${comments}" var="messageValue"
 										varStatus="status">
@@ -195,7 +201,7 @@
 														escapeXml="false" />
 												</c:if>
 												<c:if test="${messageValue.hidden==1}">
-												        
+												        
 												</c:if>
 
 											</p>

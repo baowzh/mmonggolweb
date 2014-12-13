@@ -56,7 +56,7 @@ var login = function() {
 								+ '</div>'
 								+ '<div class=\"m1ln\"><a href=\"'
 								+ homdurl
-								+ '\">   </a></div>'
+								+ '\"> </a></div>'
 								+ '<div class=\"m1ln\"><a href=\"'
 								+ 'javascript:logout();'
 								+ '\"> </a></div>'
@@ -75,8 +75,8 @@ var login = function() {
 						if (data.mess == '2') {
 							$("#loginform")
 									.html(
-											'<div style=\"writing-mode: tb-lr; -webkit-writing-mode: vertical-lr\"> <br>&nbsp;&nbsp; &nbsp;          '
-													+ '<br><a href=\"registe.do\">&nbsp;&nbsp; &nbsp&nbsp;&nbsp; &nbsp </a>   </div>');
+											'<div style=\"writing-mode: tb-lr; -webkit-writing-mode: vertical-lr\"> <br>&nbsp;&nbsp; &nbsp;      '
+													+ '<br><a href=\"registe.do\">&nbsp;&nbsp; &nbsp&nbsp;&nbsp; &nbsp </a>   </div>');
 						} else if (data.mess == '3') {
 
 							MessageWindow
@@ -163,7 +163,7 @@ $(document)
 											+ '</div>'
 											+ '<div class=\"m1ln\"><a href=\"'
 											+ homdurl
-											+ '\">   </a></div>'
+											+ '\"> </a></div>'
 											+ '<div class=\"m1ln\"><a href=\"'
 											+ 'javascript:logout();'
 											+ '\"> </a></div>'

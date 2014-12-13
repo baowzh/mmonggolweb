@@ -6,9 +6,9 @@ $(document).ready(function() {
 		top : 25,
 		left : -27
 	});
-	CKEDITOR.config.height=400;
-	CKEDITOR.config.width=300;
-	//alert('aa');
+	CKEDITOR.config.height = 400;
+	CKEDITOR.config.width = 300;
+	// alert('aa');
 });
 /**
  * 给文章增加留言
@@ -45,11 +45,19 @@ var addcomment = function(dtype, hidden) {
 		MessageWindow.showMess('     ');
 		return;
 	}
-	var commentdiv = CKEDITOR.instances.editor1.getData();
-	//var commentdiv = $("#commentdiv").html();
-	//var text = $('<div></div>').html('' + commentdiv).text();
-	//$("#comment").val(text)
-	//var comment = $("#comment").val();
+	var commentdiv = '';
+	var agentkind = $('#agentkind').val();
+	// if(agentkind=='1'){
+	commentdiv = CKEDITOR.instances.editor1.getData();
+	// }
+	// if(agentkind=='0'){
+	// commentdiv= $('#commentdiv').val();
+	// }
+
+	// var commentdiv = $("#commentdiv").html();
+	// var text = $('<div></div>').html('' + commentdiv).text();
+	// $("#comment").val(text)
+	// var comment = $("#comment").val();
 	if (commentdiv == null || commentdiv == '') {
 		MessageWindow.showMess("        ");
 		return;
@@ -65,8 +73,8 @@ var addcomment = function(dtype, hidden) {
 		},
 		data : {
 			docid : $("#docid").val(),
-			//comment : $("#comment").val(),
-			comment:commentdiv,
+			// comment : $("#comment").val(),
+			comment : commentdiv,
 			userid : $("#userid").val(),
 			doctype : dtype,
 			ishidden : hidden,
@@ -76,9 +84,13 @@ var addcomment = function(dtype, hidden) {
 			if (data.success == 1) {
 				MessageWindow.showMess('     ');
 				$("#comment").val('');
-				//$("#commentdiv").html('');
-				$('#editor1').val('');
-				//CKEDITOR.instances.editor1.body.innerText='';
+				// $("#commentdiv").html('');
+				if (agentkind == '0') {
+					$('#commentdiv').val('');
+				} else {
+					$('#editor1').val('');
+				}
+				// CKEDITOR.instances.editor1.body.innerText='';
 				loaddoccomment();
 				$("#userid").val('');
 				$("#validcode").val('')
@@ -158,7 +170,7 @@ var loaddoccomment = function() {
 					for (i in data.comments) {// the channel
 						// 给div popDetail添加子div元素
 						innerHTML = innerHTML
-								+ '<div class=\"postSheet\">'
+								+ '<div class=\"mnlist\">  </div><br><div class=\"postSheet\">'
 								+ '<div class=\"posterInf\">'
 								+ '<div class=\"avtThumb flt\"><img src=\"getsmheadimge.do?userid='
 								+ data.comments[i].messagesenderid
@@ -339,15 +351,11 @@ var addemotion = function(emotionname) {
 	var img = "<img src=\"img/faces/" + emotionname + ".gif\"/><br>";
 	CKEDITOR.instances.editor1.insertHtml(img);
 	/*
-	var agentkind = $("#agentkind").val();
-	if (agentkind == '1') {
-		$("#commentdiv").html(
-				$("#commentdiv").html()
-						+ $('<p>[' + emotionname + ']</p>').html());
-	} else {
-		$("#commentdiv")
-				.text($("#commentdiv").text() + '[' + emotionname + ']');
-	}*/
+	 * var agentkind = $("#agentkind").val(); if (agentkind == '1') {
+	 * $("#commentdiv").html( $("#commentdiv").html() + $('<p>[' + emotionname + ']</p>').html()); }
+	 * else { $("#commentdiv") .text($("#commentdiv").text() + '[' + emotionname +
+	 * ']'); }
+	 */
 
 };
 /**

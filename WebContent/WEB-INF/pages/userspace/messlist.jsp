@@ -61,7 +61,7 @@
 								  
 								</c:if>
 								<c:if test="${messageValue.messtype==4}">
-								  
+								 
 								</c:if>
 							</div>
 							<div class="m1ln" style="height: 350px; width: 100px;"

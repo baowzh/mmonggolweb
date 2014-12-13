@@ -104,7 +104,7 @@ body.alag {
 	column-fill: auto;
 	column-rule: dashed 2px #ccc;
 	column-gap: 40px;
-	-webkit-column-width: 400px;
+	-webkit-column-width: 500px;
 	/*-webkit-column-rule: dashed 2px #ccc;*/
 	-webkit-column-rule: 1px outset #ccc;
 	-webkit-column-gap: 40px;
@@ -385,7 +385,7 @@ body.alag {
 	-webkit-writing-mode: vertical-lr;
 	-webkit-text-orientation: sideways-right;
 	-ms-text-orientation: sideways-right;
-	height: 410px;
+	height: 495px;
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
@@ -667,3 +667,102 @@ body.alag {
 	text-decoration: none;
 }
 /*以下对联广告的css代码*/
+.item {
+	float: left;
+	padding: 0 0 0 20px;
+	_display: inline;
+	_margin-right: -3px;
+	-webkit-transition: padding .3s ease-in-out;
+	-moz-transition: padding .3s ease-in-out;
+	transition: padding .3s ease-in-out;
+	width: 210px;
+	height: 237px;
+}
+
+.v-item {
+	width: 173px;
+	height: 235px;
+	border: 1px solid #fff;
+}
+
+.video {
+	position: relative;
+	overflow: hidden;
+}
+
+.video a {
+	display: block;
+	height: 100%;
+}
+
+.video .vid-cover {
+	width: 100%;
+	height: 100%;
+}
+
+.video .vid-info, .video .gradient-bg, .video .play-video-icon {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+}
+
+.video span {
+	display: block;
+}
+
+.gradient-bg {
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(225, 225, 225, 0)),
+		to(rgba(0, 0, 0, .8)));
+	background-image: -moz-linear-gradient(top, rgba(225, 225, 225, 0),
+		rgba(0, 0, 0, .8));
+	filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0,
+		startColorstr='#00ffffff', endColorstr='#80000000');
+	-ms-filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0,
+		startColorstr='#00ffffff', endColorstr='#80000000');
+	height: 40px;
+	z-index: 0;
+}
+
+.video img {
+	-webkit-transition: all .05s ease-in;
+	-moz-transition: all .05s ease-in;
+	-ms-transition: all .05s ease-in;
+	transition: all .05s ease-in;
+	-webkit-perspective: 1000;
+	-webkit-backface-visibility: hidden;
+}
+
+.video .play-video-icon {
+	opacity: 0;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-top: -26px;
+	height: 52px;
+	width: 52px;
+	margin-left: -26px;
+	-webkit-transition: opacity .4s ease-in;
+	-moz-transition: opacity .4s ease-in;
+	-ms-transition: opacity .4s ease-in;
+	transition: opacity .4s ease-in;
+	bottom: auto;
+	background: url(../play.png) center center no-repeat scroll;
+}
+
+.play-video-icon {
+	opacity: 0;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-top: -26px;
+	height: 52px;
+	width: 52px;
+	margin-left: -26px;
+	-webkit-transition: opacity .4s ease-in;
+	-moz-transition: opacity .4s ease-in;
+	-ms-transition: opacity .4s ease-in;
+	transition: opacity .4s ease-in;
+	bottom: auto;
+	background: url(../play.png) center center no-repeat scroll;
+}

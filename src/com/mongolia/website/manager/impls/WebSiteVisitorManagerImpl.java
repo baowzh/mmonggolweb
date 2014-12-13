@@ -232,9 +232,22 @@ public class WebSiteVisitorManagerImpl extends BaseManagerImpl implements
 			List<UserValue> activeusers = this.webResourceDao
 					.getRecentActiveUsers(sysConfig.getActiveusercount());
 			indexPageContent.put("activeusers", activeusers);
+			// 获取6个视频文章
+			PaingModel<DocumentValue> paingModelVide0 = new PaingModel<DocumentValue>();
+			// paingModelVide0.setDocchannel(channel.getChannelid());
+			paingModelVide0.setPageindex(1);
+			paingModelVide0.setPageindex(StaticConstants.INDEX_DOC_ROWCOUNT);
+			paingModelVide0.setStartrow(0);
+			paingModelVide0.setEndrow(3);// fetchcount
+			paingModelVide0.setDocstatus(2);
+			paingModelVide0.setFlash(1);
+			List<DocumentValue> documents = this.webSiteVisitorDao
+					.pagingquerydoc(paingModelVide0);
+			indexPageContent.put("videos", documents);
 		}
 		List<TopDocumentValue> selecteddocs = this.getTopDocuments(
-				StaticConstants.TOP_TYPE4, null, sysConfig.getSelecteddoccount());
+				StaticConstants.TOP_TYPE4, null,
+				sysConfig.getSelecteddoccount());
 		indexPageContent.put("selecteddocs", selecteddocs);
 		return indexPageContent;
 	}

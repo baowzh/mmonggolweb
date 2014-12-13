@@ -79,6 +79,11 @@ body {
 	color: #C00;
 }
 
+.ttlStl2 {
+	background: url(../img/tasvlga_02.jpg) repeat-y;
+	color: #C00;
+}
+
 .listCardBody {
 	border: solid 1px #ccc;
 	border-left: none;
@@ -121,8 +126,8 @@ body {
 }
 
 .more a {
-/* 	color: blue; */
-    color:#fff;
+	/* 	color: blue; */
+	color: #fff;
 	text-decoration: none;
 }
 
@@ -156,8 +161,8 @@ body {
 }
 
 .thumb1 {
-		width: 176px;
-/* 	width: 201px; */
+	width: 176px;
+	/* 	width: 201px; */
 	height: 208px;
 	margin: 1px;
 	overflow: hidden;
@@ -468,4 +473,50 @@ body {
 
 .xldgurg .desc {
 	color: #c00
+}
+
+.videoBox {
+	background: white;
+	width: 680px;
+	float: left;
+	width: 950px;
+	margin-top: 0px;
+	padding: 0px;
+}
+
+.videoBox .video {
+	width: 155px;
+	height: 145px;
+	float: left;
+	padding-bottom: 5px;
+	overflow: hidden;
+	margin: 2px 5px;
+	writing-mode: tb-lr;
+	-webkit-writing-mode: vertical-lr;
+}
+
+.video a {
+	text-decoration: none;
+	/* color: #630; */
+	line-height: 100%;
+	color: #575a5b;
+}
+
+.videoBox .m1ln {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	height: 105px;
+}
+
+.m1ln {
+	writing-mode: tb-lr;
+	-webkit-writing-mode: vertical-lr;
+	-webkit-text-orientation: sideways-right;
+	-ms-text-orientation: sideways-right;
+	width: 20px;
+	overflow: hidden;
+	float: left;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }

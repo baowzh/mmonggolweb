@@ -2,7 +2,7 @@ var dosubmit = function() {
 	// 全部通过则保存用户信息
 	var bolgname = $("#bolgname").val();
 	if (bolgname == null || bolgname == '') {
-		MessageWindow.showMess("'  '      ");
+		MessageWindow.showMess("'  '      ");
 		return;
 	}
 	var firstname = $("#firstname").val();

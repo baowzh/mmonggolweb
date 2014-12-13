@@ -131,7 +131,8 @@ var openPhotoList = function(albumid) {
 	}
 	$("#imggroupid").val(albumid);
 	$("#alinkform").attr('action', 'getimglist.do');
-	$("#alinkform").submit();
+	//$("#alinkform").submit();
+	window.location.href="getimglist.do?userid="+userid+"&imggroupid="+albumid;
 };
 /**
  * 添加朋友
@@ -253,7 +254,7 @@ var receivemessage = function() {
 	 * data.receiveMess[i].sendtime + "<br><a href=\"javascript:readmessage('" +
 	 * data.receiveMess[i].messageid + "',1);\" style=\"color:#f00\">
 	 * </a>"; } else if (data.receiveMess[i].messtype == 4) { kindstr =
-	 * "   "; messstr = "   " +
+	 * "  "; messstr = "   " +
 	 * data.receiveMess[i].sendtime + '<br><a href=\"javascript:addfriends(\'' +
 	 * data.receiveMess[i].messagesenderid + '\',1,\'' +
 	 * data.receiveMess[i].messageid + '\')\" style=\"color:#f00;\"></a> 
@@ -337,10 +338,10 @@ var openaddfrienddl = function() {
 	islogin = checklogin();
 	if (!islogin) {
 		MessageWindow
-				.showMess('          ');
+				.showMess('         ');
 		return;
 	}
-	$("#addfriendmess").text('         ');
+	$("#addfriendmess").text('     ');
 	$("#addfrienddiv").dialog({// addfriendmess 13347126631
 		height : 470,
 		width : 270,
@@ -382,7 +383,7 @@ var sendaddfriendmess = function(visiteduserid) {
 						// alert('        
 						//   ');
 						MessageWindow
-								.showMess('                 ');
+								.showMess('            ');
 					}
 					$("#addfrienddiv").dialog("close");
 				}
@@ -417,7 +418,7 @@ var deletefriend = function() {
 				MessageWindow.showMess('   ');
 			} else if (data.mess == '02') {
 				// alert(' ');
-				MessageWindow.showMess('        ');
+				MessageWindow.showMess('       ');
 			}
 		}
 	});

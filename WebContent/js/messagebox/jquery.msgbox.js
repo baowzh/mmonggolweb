@@ -76,7 +76,7 @@
 		this.titleWrap = $('<div />').css({
 			'float' : 'left',
 			'width' : 18+ 'px'
-		}).html('<div class="mnlist" style="width:18px;">'+this.opts.title+"</div>").appendTo(this.headWrap).addClass(
+		}).html('<div class="mnlist" style="width:20px;">'+this.opts.title+"</div>").appendTo(this.headWrap).addClass(
 				'jMsgbox-titleWrap');
 		var _this = this;
 
@@ -516,7 +516,7 @@
 			switch (this.opts.type) {
 			case 'alert':
 
-				var closebutton = $('<div class="mnlist" style="width:12px;"><a href="#"></a></div>')
+				var closebutton = $('<div class="mnlist" style="width:20px;"><a href="#"></a></div>')
 						.click(function() {
 							_this.close();
 						});

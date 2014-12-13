@@ -67,8 +67,8 @@
 	<a href="pagingquery.do?docchannel=11111111111127"> </a>
 </div>
 <div class="mln navItem">
-	<a href="pagingquery.do?docchannel=11111111111129"> </a>
+	<a href="imgs.do"> </a>
 </div>
 <div class="mln navItem">
-	<a href="pagingquery.do?docchannel=11111111111135"></a>
+	<a href="videos.do"></a>
 </div>

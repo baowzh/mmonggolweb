@@ -42,7 +42,8 @@
 		DOCFILENAME ,
 		DOCSOURCENAME,
 		userid,
-		oldid
+		oldid,
+		flashurl
 		) values( #docid#,
 		#docchannel#,
 		#doctype#,
@@ -69,7 +70,8 @@
 		#docfilename#,
 		#docsourcename#,
 		#userid#,
-		#oldid#
+		#oldid#,
+		#flashurl#
 		)
 	</insert>
 	<select id="getUserDocList" parameterClass="java.util.Map"
@@ -146,13 +148,17 @@
 				doctype=#doctype#
 			</isNotNull>
 			<isNotNull prepend="and" property="top">
-				exists(select 1 from topdocument where
-				topdocument.docid=document.docid and topdocument.type=#top#
+				exists(select 1 from
+				topdocument where
+				topdocument.docid=document.docid and
+				topdocument.type=#top#
 				)
 			</isNotNull>
 			<isNotNull prepend="and" property="toptype">
-				exists(select 1 from topdocument where
-				topdocument.docid=document.docid and topdocument.type=#toptype#
+				exists(select 1 from
+				topdocument where
+				topdocument.docid=document.docid and
+				topdocument.type=#toptype#
 				)
 			</isNotNull>
 			<isNotNull prepend="and" property="authorname">
@@ -264,6 +270,9 @@
 				imggroup,img where imggroup.imggroupid=img.imggroupid and
 				img.imgid=document.docid and imggroup.imggroupid=#imggroupid# )
 			</isNotNull>
+			<isNotNull prepend="and" property="flash">
+				flashurl is not null
+			</isNotNull>
 
 		</dynamic>
 		ORDER BY document.DOCRELTIME desc LIMIT #startrow#, #endrow#
@@ -288,6 +297,9 @@
 				exists(select 1 from
 				imggroup,img where imggroup.imggroupid=img.imggroupid and
 				img.imgid=document.docid and imggroup.imggroupid=#imggroupid# )
+			</isNotNull>
+			<isNotNull prepend="and" property="flash">
+				flashurl is not null
 			</isNotNull>
 		</dynamic>
 	</select>

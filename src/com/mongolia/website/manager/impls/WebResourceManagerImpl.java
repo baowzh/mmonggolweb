@@ -158,6 +158,17 @@ public class WebResourceManagerImpl implements WebResourceManager {
 	public void doAdddoc(DocumentValue docValue) throws ManagerException {
 		// TODO Auto-generated method stub
 		try {
+			// 检测flash地址有flash地址
+			String docContent = new String(docValue.getDoccontent());
+			String matchStr = "\\[\\[http[s]?:\\/\\/([\\w-]+\\.)+[\\w-]+([\\w-./?%&=]*)?\\]\\]";
+			Pattern destStri = Pattern.compile(matchStr);// ^
+			Matcher mati = destStri.matcher(docContent);
+			while (mati.find()) {
+				String groupi = mati.group(0);
+				groupi = groupi.substring(2, groupi.length() - 2);
+				docValue.setFlashurl(groupi);
+				break;
+			}
 			//
 			byte[] content = docValue.getDoccontent();
 			if (content != null) {

@@ -13,7 +13,7 @@
 <link href="img/css/login.css" type="text/css" rel="stylesheet" />
 <link rel="stylesheet" href="js\messagebox\jquery.msgbox.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title> </title>
+<title> </title>
 </head>
 <body>
 	<div class="lmainR ofh" style="text-align: center; height: 64px;">

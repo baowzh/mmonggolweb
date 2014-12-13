@@ -9,8 +9,9 @@ var openPhotoAlbum = function(albumid) {
 	if (userid == null || userid == '') {
 		return;
 	}
-	$("#imggroupid").val(albumid);
-	$("#openalbumform").submit();
+	//$("#imggroupid").val(albumid);
+	//$("#openalbumform").submit();
+	window.location.href="getimglist.do?userid="+userid+"&imggroupid="+albumid;
 };
 var openaddphotoalbumdialog = function() {
 	$("#addphotoalbum").dialog({

@@ -129,7 +129,7 @@
 											<div class="m1ln" style="height: 390px;">
 												<span class="label1">  : </span>
 												<c:out value="${userValue.nowprovince}"
-													default="  " />
+													default="  " />
 											</div>
 											<div class="m1ln" style="height: 390px;">
 												<span class="label1">  :</span>
@@ -145,9 +145,9 @@
 							       </c:otherwise>
 												</c:choose>
 												<span class="label1">    :</span>
-												<c:out value="${userValue.age}" default="  " />
+												<c:out value="${userValue.age}" default="  " />
 												<span class="label1">   :</span>
-												<c:out value="${userValue.regdatestr}" default="  " />
+												<c:out value="${userValue.regdatestr}" default="  " />
 											</div>
 											<div class="m1ln" style="height: 390px;">
 												<span class="label1">   : </span>

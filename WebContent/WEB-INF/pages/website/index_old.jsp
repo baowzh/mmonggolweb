@@ -321,7 +321,7 @@
 					<div class="search-box4-1">
 						<h3 class="search-cat-title">
 							<div class="mglc">
-								<a href="#" class="m">  </a>
+								<a href="#" class="m"> </a>
 							</div>
 							<a href="#"> <span></span>
 							</a>

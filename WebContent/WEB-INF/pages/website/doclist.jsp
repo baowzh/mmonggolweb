@@ -21,17 +21,17 @@
 		<div class="wrp m0a ribbon"></div>
 		<div class="layer m0a">
 			<div class="card1"
-				style="height: 500px; width: 1000px; margin: 5px 0px;">
-				<div class="listCardTtl ttlStl1"
+				style="height: 520px; width: 1000px; margin: 5px 0px;">
+				<div class="listCardTtl ttlStl2"
 					style="height: 500px; text-align: center;">
 					<div class="ttl">
 						<c:out value="${channel.chnlname}" />
 					</div>
 				</div>
-				<div class="listCardBody" style="height: 500px;">
+				<div class="listCardBody" style="height: 520px;">
 					<c:forEach items="${paingModel.modelList}" var="documentValue"
 						varStatus="status">
-						<div class="nwsl1" style="height: 500px;">
+						<div class="nwsl1" style="height: 520px;">
 							<div class="title" style="height: 420px;">
 								<a
 									href="getuserdocdetail.do?docid=<c:out value="${documentValue.docid}"/>"

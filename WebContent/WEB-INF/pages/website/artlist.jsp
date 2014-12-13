@@ -36,7 +36,7 @@
 					<table style="padding-top: 2em;" valign="top">
 						<tr>
 							<td>
-								<div class="m1ln h100"> </div>
+								<div class="m1ln h100">  </div>
 							</td>
 							<td>
 								<div class="inputHolder">
@@ -73,32 +73,6 @@
 								</div>
 							</td>
 							<td>
-								<div class="m1ln h100">  </div>
-							</td>
-							<td>
-								<div class="inputHolder" style="background: #eee;">
-									<input type="text" name="strcrtime" id="strcrtime"
-										value="<c:out value="${queryDocForm.strcrtime}"/>"
-										style="height: 40px;" class="modTxtTime" readonly="readonly"
-										onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" /> - <input
-										type="text" name="endcrtime" id="endcrtime"
-										value="<c:out value="${queryDocForm.endcrtime}"/>"
-										style="height: 40px;" class="modTxtTime" readonly="readonly"
-										onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" />
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<div class="m1ln h100"> </div>
-							</td>
-							<td>
-								<div class="inputHolder">
-									<input type="text" name="doctitle" id="doctitle"
-										value="<c:out value="${queryDocForm.doctitle}"/>" />
-								</div>
-							</td>
-							<td>
 								<div class="m1ln h100">  </div>
 							</td>
 							<td>
@@ -112,6 +86,19 @@
 									</select>
 								</div>
 							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="m1ln h100"> </div>
+							</td>
+							<td>
+								<div class="inputHolder">
+									<input type="text" name="doctitle" id="doctitle"
+										value="<c:out value="${queryDocForm.doctitle}"/>" />
+								</div>
+							</td>
+							<!--  
+						    -->
 						</tr>
 						<tr>
 							<td></td>

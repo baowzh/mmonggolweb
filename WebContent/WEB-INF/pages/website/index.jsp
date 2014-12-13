@@ -90,10 +90,10 @@
 				<a href="pagingquery.do?docchannel=11111111111127"> </a>
 			</div>
 			<div class="mln navItem">
-				<a href="pagingquery.do?docchannel=11111111111129"> </a>
+				<a href="imgs.do"> </a>
 			</div>
 			<div class="mln navItem">
-				<a href="pagingquery.do?docchannel=11111111111135"></a>
+				<a href="videos.do"></a>
 			</div>
 		</div>
 	</div>
@@ -109,7 +109,7 @@
 			<div class="listCardTtl ttlStl1" style="height: 320px;">
 				<div class="ttl"> </div>
 				<div class="more">
-<!-- 					<a href="#"> </a> -->
+					<!-- 					<a href="#"> </a> -->
 				</div>
 			</div>
 			<div class="listCardBody" style="height: 330px;">
@@ -150,7 +150,7 @@
 						<!-- 						<div class="inputHolder"></div> -->
 						<div class="label" style="height: 300px; text-align: center;">
 							<a id="searchbloga" href="javascript:search('searchblog.do');">
-								 </a> &nbsp;&nbsp; <a id="searchdoca"
+								 </a> &nbsp;&nbsp; <a id="searchdoca"
 								href="javascript:search('searchdoc.do');">  </a>
 						</div>
 					</c:if>
@@ -164,7 +164,7 @@
 
 						<div class="label" style="height: 300px; text-align: center;">
 							<a id="searchbloga" href="javascript:search('searchblog.do');">
-								 </a> &nbsp;&nbsp; <a id="searchdoca"
+								 </a> &nbsp;&nbsp; <a id="searchdoca"
 								href="javascript:search('searchdoc.do');">  </a>
 						</div>
 					</c:if>
@@ -201,7 +201,7 @@
 								<input name="validcode" id="varifycode" value="">
 							</div>
 							<div class="mnlist" style="height: 150px; width: 30px;">
-								<a id="registlink" href="registe.do">
+								<a id="registlink" href="registe.do">
 									&nbsp;&nbsp;&nbsp;&nbsp;</a> <a href="javascript:login();">
 									 </a>
 							</div>
@@ -214,7 +214,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"> </div>
 				<div class="more">
-<!-- 					<a href="#"> </a> -->
+					<!-- 					<a href="#"> </a> -->
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -242,7 +242,7 @@
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"> </div>
 				<div class="more">
-<!-- 					<a href="#"> </a> -->
+					<!-- 					<a href="#"> </a> -->
 				</div>
 			</div>
 			<div class="listCardBody">
@@ -637,7 +637,7 @@
 	<div class="layer m0a">
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
-				<div class="ttl">  </div>
+				<div class="ttl">  </div>
 				<div class="more">
 					<a href="#"> </a>
 				</div>
@@ -788,9 +788,9 @@
 	<div class="layer m0a">
 		<div class="card5">
 			<div class="listCardTtl ttlStl1" style="height: 450px;">
-				<div class="ttl" style="height: 300px;"> </div>
+				<div class="ttl" style="height: 300px;"> </div>
 				<div class="more">
-					<a href="pagingquery.do?docchannel=11111111111129"> </a>
+					<a href="imgs.do"> </a>
 				</div>
 			</div>
 			<div class="listCardBody" style="height: 450px;">
@@ -1028,42 +1028,46 @@
 		</div>
 		<div class="cls"></div>
 	</div>
-	<!--  
+
 	<div class="layer m0a">
 		<div class="card5" style="height: 320px;">
 			<div class="listCardTtl ttlStl1">
 				<div class="ttl"></div>
 				<div class="more">
-					<a href="#"> </a>
+					<a href="videos.do"> </a>
 				</div>
 			</div>
-			<div class="listCardBody" style="background: #eee;">
-				<c:forEach items="${indexPageContent.topUsers}" var="userValue"
+			<div class="videoBox">
+				<c:forEach items="${indexPageContent.videos}" var="imgValue"
 					varStatus="status">
-					<div class=" avatar1">
-						<a
-							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />"
-							target="_blank"><img
-							src="getsmheadimge.do?userid=<c:out value="${userValue.userid}"/>"
-							title=""></a>
+					<div class="video" style="width: 303px; height: 320px;">
+							<a
+								href="getuserdocdetail.do?docid=<c:out value="${imgValue.docid}"/>">
+								<img
+								src="img/vido.jpg" style="width: 280px; height: 318px;" /></a>
+						<div class="m1ln" style="height: 318px;width:18px;padding-left:5px;">
+							<c:out value="${imgValue.doctitle}" />
+						</div>
+
 					</div>
+
 				</c:forEach>
 			</div>
 		</div>
 		<div class="cls"></div>
 	</div>
-	-->
+
 	<div class="layer m0a">
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
-				<div class="ttl"> </div>
+				<div class="ttl"></div>
 				<div class="more">
 					<a href="#"> </a>
 				</div>
 			</div>
 			<div class="listCardBody" style="background: #eee;">
-				<c:forEach items="${indexPageContent.recentDocComm}" var="documentValue"
-					varStatus="status">
+				<c:forEach items="${indexPageContent.recentDocComm}"
+					var="documentValue" varStatus="status">
 					<div class="nwsl1">
 						<div class="title">
 							<a
@@ -1116,8 +1120,8 @@
 				</div>
 			</div>
 			<div class="listCardBody">
-				<c:forEach items="${indexPageContent.newKnowledge}" var="documentValue"
-					varStatus="status">
+				<c:forEach items="${indexPageContent.newKnowledge}"
+					var="documentValue" varStatus="status">
 					<div class="nwsl1">
 						<div class="title">
 							<a

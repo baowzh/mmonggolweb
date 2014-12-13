@@ -35,17 +35,17 @@
 					<!--  <div class="m1ln">     </div>-->
 					<div class="m1ln">
 						 
-						<c:out value="${user.age}" default="  " />
+						<c:out value="${user.age}" default="  " />
 					</div>
 					<!--  <div class="m1ln">       </div>-->
 					<div class="m1ln">
 						  
-						<c:out value="${user.nowprovincename}" default="  " />
+						<c:out value="${user.nowprovincename}" default="  " />
 					</div>
-					<!--  <div class="m1ln">   2010-1-1</div>-->
+					<!--  <div class="m1ln">    2010-1-1</div>-->
 					<div class="m1ln">
-						 
-						<c:out value="${user.regdatestr}" default="  " />
+						  
+						<c:out value="${user.regdatestr}" default="  " />
 					</div>
 					<!-- <div class="m1ln">   1000</div> -->
 					<div class="m1ln">
@@ -63,7 +63,7 @@
 					<div class="m1ln">
 						<a
 							href="javascript:writemessage('<c:out value="${user.userid}" />');">
-							&nbsp;&nbsp;&nbsp;</a>
+							&nbsp;&nbsp;&nbsp;</a>
 						<c:if test="${self==1}">
 							<a href="javascript:receivemessage();">(<c:out
 									value="${messageCount}" />)
@@ -80,7 +80,7 @@
 						<c:if test="${self==1}">
 							<a href="doedituserinifo.do">   &nbsp;&nbsp;&nbsp;
 							</a>
-							<a href="javascript:showpassdialog();">   </a>
+							<a href="javascript:showpassdialog();">   </a>
 						</c:if>
 						<c:if test="${self==0}">
 							<a
@@ -93,9 +93,9 @@
 							<!--  
 							<a
 								href="javascript:addfriends('<c:out value="${user.userid}" />');">
-								 </a>
+								</a>
 								-->
-							<a href="javascript:openaddfrienddl();">  </a>
+							<a href="javascript:openaddfrienddl();"> </a>
 
 						</c:if>
 					</div>
@@ -108,7 +108,7 @@
 		<div class="frt blgNav blgNavC" style="width: 20px;">
 			<div class=" m1ln " style="padding-top: 8px;">
 				<a href="gouserindex.do?userid=<c:out value="${user.userid}" />">
-					<c:if test="${self==1}"> </c:if> <c:if test="${self==0}">  </c:if>
+					<c:if test="${self==1}"> </c:if> <c:if test="${self==0}">  </c:if>
 				</a> 
 
 				<!--							  <a href="#">  </a>   -->
@@ -125,7 +125,7 @@
 				<div class="i">
 					<div class="m0a" style="width: 40px;">
 						<div class=" msheet" style="padding-top: 10px;">
-							<a href="#"> <br />   :
+							<a href="#"> <br />  :
 							</a>
 						</div>
 					</div>

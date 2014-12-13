@@ -86,7 +86,8 @@
 											value="${documentValue.readcount}" default="0" /></span> <br />
 									   <span id="doctime"><c:out
 											value="${documentValue.docRelTimeStr}" /> </span> <br /> <a
-										href="#comment"> </a><span id="commentCount"> <c:out
+										href="#comment"> </a>
+										<span id="commentCount"> <c:out
 											value="${documentValue.commentCount}" default="0" />
 									</span> 
 								</div>
@@ -136,7 +137,7 @@
 										<a name="comment"></a>
 										<form action="addCommentOnResource.do" name="commentform"
 											id="commentform">
-											<!--  
+											<!-- 
 											<c:if test="${agentkind==0}">
 												<div style="display: block; z-index: 10">
 													<textarea name="commentdiv" id="commentdiv"
@@ -144,18 +145,16 @@
 								                </textarea>
 												</div>
 											</c:if>
-                                           -->
+                                            --> 
 											<textarea name="comment" id="comment" style="display: none">								    
 							          	</textarea>
+											 
+<%-- 											<c:if test="${agentkind==1}"> --%>
+
 											<textarea id="editor1" name="commentdiv" class="ckeditor"
 												style="width: 210px; height: 100px;"></textarea>
-											<!--  
-											<c:if test="${agentkind==1}">
-
-												<div class="flt mVsheet commentEdit" contentEditable="true"
-													id="commentdiv" style="display: block"></div>
-											</c:if>
-											-->
+<%-- 											</c:if> --%>
+											
 											<input type="hidden" name="agentkind" id="agentkind"
 												value="<c:out value="${agentkind}" />"> <input
 												type="hidden" name="userid" id="userid"

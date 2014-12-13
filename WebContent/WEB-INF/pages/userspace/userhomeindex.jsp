@@ -274,7 +274,8 @@
 									<div class="folder photoAlbumC">
 										<div style="width: 80px; margin: 4em 2em;">
 											<div class=" msheet">
-												<a href="#"> <br /><br /> <br /> 
+												<a href="#"> 
+												 <br /><br /> <br /> 
 													<br><br /></a>
 											</div>
 										</div>
@@ -384,7 +385,7 @@
 			<table border="0" style="margin: 1em auto;">
 				<tr>
 					<td height="100">
-						<div class="m1ln h100">  :</div>
+						<div class="m1ln h100">  :</div>
 					</td>
 					<td>
 						<div class="m1ln h100">:</div>

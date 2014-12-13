@@ -10,7 +10,8 @@ var photoDetail = function(imgid) {
 		return;
 	}
 	$("#imgid").val(imgid);
-	$("#openphotoform").submit();
+	//$("#openphotoform").submit();
+	window.location.href="getimginfo.do?userid="+userid+"&imgid="+imgid;
 };
 var addnewimg = function() {
 	$("#addimg").dialog({

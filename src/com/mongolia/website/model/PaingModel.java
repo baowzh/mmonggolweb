@@ -70,6 +70,7 @@ public class PaingModel<E> {
 	private List<E> modelList;
 	private String pagetype;
 	private Integer inindex;
+	private Integer flash;
 
 	public Integer getPagesize() {
 		return pagesize;
@@ -214,5 +215,15 @@ public class PaingModel<E> {
 	public void setInindex(Integer inindex) {
 		this.inindex = inindex;
 	}
+
+	public Integer getFlash() {
+		return flash;
+	}
+
+	public void setFlash(Integer flash) {
+		this.flash = flash;
+	}
+
+	
 
 }
