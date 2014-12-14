@@ -57,7 +57,7 @@
 										</div>
 									</div>
 								</c:if>
-								<div class="m1ln ttltxtblg ttltxtblgC">
+								<div class="m1ln ttltxtblg ttltxtblgC" style="font-size:16px;">
 
 									<c:if test="${currentchannel!=null}">
 										<c:out value="${currentchannel.chnlname}" />
@@ -134,7 +134,7 @@
 								<c:if test="${self==1}">
 									<div class="addNewArtcl"></div>
 								</c:if>
-								<div class="m1ln ttltxtblg ttltxtblgC">
+								<div class="m1ln ttltxtblg ttltxtblgC" style="font-size:16px;">
 
 									<c:if test="${currentchannel!=null}">
 										<c:out value="${currentchannel.chnlname}" />
@@ -222,7 +222,7 @@
 										</div>
 									</div>
 								</c:if>
-								<div class="m1ln ttltxtblg ttltxtblgC">
+								<div class="m1ln ttltxtblg ttltxtblgC" style="font-size:16px;">
 
 									<c:if test="${currentchannel!=null}">
 										<c:out value="${currentchannel.chnlname}" />

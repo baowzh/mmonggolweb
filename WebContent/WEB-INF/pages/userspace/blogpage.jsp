@@ -44,7 +44,7 @@
 					</div>
 					<!--  <div class="m1ln">    2010-1-1</div>-->
 					<div class="m1ln">
-						  
+						 
 						<c:out value="${user.regdatestr}" default="  " />
 					</div>
 					<!-- <div class="m1ln">   1000</div> -->
@@ -116,7 +116,7 @@
 
 				<a href="photoAlbumList.do?userid=<c:out value="${user.userid}" />"></a>
 				 <a href="friendlist.do?userid=<c:out value="${user.userid}" />"></a>
-				 <a href="index.html">  </a>
+				 <a href="#"> </a>
 			</div>
 		</div>
 		<div class=" flt"
