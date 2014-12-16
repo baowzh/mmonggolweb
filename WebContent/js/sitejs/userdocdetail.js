@@ -462,14 +462,19 @@ var test = function() {
 
 	//
 };
-var replaceverifycode = function() {
-	var imgSrc = $("#varifyimg");
+/*
+var replaceverifycode = function(id) {
+	var imgSrc='';
+	if(id!=null&&id!=undefined){
+		 imgSrc = $("#varifyimg"+id);
+	}else{
+		 imgSrc = $("#varifyimg");
+	}
 	var src = imgSrc.attr("src");
 	imgSrc.attr("src", changeurl(src));
 
 };
-// 时间戳
-// 为了使每次生成图片不一致，即不让浏览器读缓存，所以需要加上时间戳
+
 function changeurl(url) {
 	var timestamp = (new Date()).valueOf();
 	url = url.substring(0, 17);
@@ -480,6 +485,7 @@ function changeurl(url) {
 	}
 	return url;
 };
+*/
 function refreshdata(index) {
 	var obj1 = $('#imgsharecount' + index).val();
 	$("#imgtitle").text($("#imgtitle" + index).val());
@@ -553,7 +559,7 @@ var login = function() {
 	var queryurl = 'login.do';
 	var username = $("#username").val();
 	var password = $("#password").val();
-	var validcode = $("#validcode").val();
+	var validcode = $("#varifycode").val();
 	if (username == null || username == '') {
 		MessageWindow.showMess('    ');
 		return;

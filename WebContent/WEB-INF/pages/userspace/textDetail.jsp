@@ -43,7 +43,7 @@
 		</div>
 		<div class="cbt"></div>
 	</div>
-<!-- 	<div class="wrp m0a ribbon"></div> -->
+	<div class="wrp m0a ribbon"></div>
 	<div class="lmainR">
 		<div class="  lcell"
 			style="width: 990px; margin-top: 200px; overflow: visible;">

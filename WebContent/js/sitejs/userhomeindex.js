@@ -553,8 +553,13 @@ var modifypass = function() {
 /**
  * 更新验证码
  */
-var replaceverifycode = function() {
-	var imgSrc = $("#varifyimg");
+var replaceverifycode = function(id) {
+	var imgSrc='';
+	if(id!=null&&id!=undefined){
+		 imgSrc = $("#varifyimg"+id);
+	}else{
+		 imgSrc = $("#varifyimg");
+	}
 	var src = imgSrc.attr("src");
 	imgSrc.attr("src", chgUrl(src));
 

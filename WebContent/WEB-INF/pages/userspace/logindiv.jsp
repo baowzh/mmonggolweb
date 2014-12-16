@@ -17,7 +17,9 @@
 					style="-webkit-transform-origin: 10px 20px;" />
 			</div>
 			<div class="label" style="text-align: center;">
-				<img src="verifyCodeServlet" id="varifyimg" width="18" height="100">
+				<a href="javascript:replaceverifycode(1);"><img
+					src="verifyCodeServlet" id="varifyimg1" width="18" height="100"/>
+				</a>
 			</div>
 			<div class="inputHolder" style="width: 32px; height: 270px;">
 				<input type="text" name="varifycode" id="varifycode"
