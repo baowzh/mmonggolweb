@@ -192,8 +192,9 @@ body.alag {
 }
 
 .lmainR {
-	width: 990px;
+	/* 	width: 990px; */
 	margin: 0 auto;
+	width: 1000px;
 }
 
 .m0a {

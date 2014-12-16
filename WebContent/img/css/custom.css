@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 body {
-	background: #69F url(../custom/SMEI-Blog-Header.png) center 210px
+	background: #69F url(../custom/SMEI-Blog-Header.png) center 240px
 		no-repeat;
 }
 
@@ -38,8 +38,8 @@ body {
 }
 
 .blgNav a {
-/* 	color: #FF0; */
-color: #000;
+	/* 	color: #FF0; */
+	color: #000;
 }
 
 .blgNav a:hover {

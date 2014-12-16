@@ -231,7 +231,8 @@
 			</div>
 		</form>
 	</div>
-	<div class="wrp m0a ribbon"></div>
+<!-- 	<div class="wrp m0a ribbon"></div> -->
+<%@ include file="tail.jsp"%>
 	<!-- 	<div class="lmainR ofh" style="text-align: center;"> -->
 	<!-- 		<div class="tailCard"> -->
 	<%-- 			<%@ include file="../website/tail.jsp"%> --%>

@@ -12,6 +12,7 @@
 <link href="img/css/listpages.css" type="text/css" rel="stylesheet" />
 <link href="img/css/blog.css" type="text/css" rel="stylesheet" />
 <link href="img/css/custom.css" type="text/css" rel="stylesheet" />
+<link href="img/css/createDoc.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="js/sitejs/userdocdetail.js"></script>
 <script type="text/javascript" src="js/sitejs/userhomeindex.js"></script>
@@ -42,7 +43,7 @@
 		</div>
 		<div class="cbt"></div>
 	</div>
-	<div class="wrp m0a ribbon"></div>
+<!-- 	<div class="wrp m0a ribbon"></div> -->
 	<div class="lmainR">
 		<div class="  lcell"
 			style="width: 990px; margin-top: 200px; overflow: visible;">
@@ -85,9 +86,9 @@
 									</span> 
 								</div>
 								<!--    -->
-								<!-- 								<div id="doccontent"> -->
-								<c:out value="${documentValue.htmlstr}" escapeXml="false" />
-								<!-- 								</div> -->
+								<div id="doccontent">
+									<c:out value="${documentValue.htmlstr}" escapeXml="false" />
+								</div>
 								<!--    -->
 								<br>
 								<!--        -->
@@ -296,6 +297,7 @@
 			</div>
 		</div>
 	</div>
+	<%@ include file="logindiv.jsp"%>
 	<!-- JiaThis Button END -->
 	<!-- UJian Button BEGIN -->
 	<script type="text/javascript"

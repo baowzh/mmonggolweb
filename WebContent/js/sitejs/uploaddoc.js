@@ -182,7 +182,7 @@ var openlinkwindow = function() {
 	// 设置值
 	$("#addlink").dialog({
 		height : 380,
-		width : 260,
+		width : 310,
 		resizable : true,
 		model : false
 	});

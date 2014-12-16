@@ -14,31 +14,11 @@ $(document).ready(function() {
  * 给文章增加留言
  */
 var addcomment = function(dtype, hidden) {
-	//
-	var islogin = false;
-	$.ajax({
-		async : false,
-		cache : false,
-		type : 'POST',
-		dataType : "json",
-		url : 'checklogin.do',// 请求的action路径
-		error : function() {// 请求失败处理函数
-			MessageWindow.showMess('         ');
-		},
-		success : function(data) {
-			if (data.login == 'true') {
-				islogin = true;
-			} else {
-				islogin = false;
-			}
-		}
-	});
+	var islogin = checklogin();
 	if (islogin == false) {
-		MessageWindow
-				.showMess('         ');
+		openloginwin();
 		return;
 	}
-
 	//
 	var validcode = $("#validcode").val();
 	if (validcode == null || validcode == '') {
@@ -206,7 +186,11 @@ var loaddoccomment = function() {
  * 加载文章对应的留言信息
  */
 var sharedocument = function() {
-
+	var islogin = checklogin();
+	if (islogin == false) {
+		openloginwin();
+		return;
+	}
 	$.ajax({
 		async : true,
 		cache : false,
@@ -224,7 +208,7 @@ var sharedocument = function() {
 			if (data.success == '0') {
 				MessageWindow.showMess(data.message);
 			} else {
-				MessageWindow.showMess('  ');
+				MessageWindow.showMess('   ');
 				// 更新文章分享次数
 				$("#sharecount").html(data.documentValue.sharecount);
 			}
@@ -236,7 +220,11 @@ var sharedocument = function() {
  * 加载文章对应的留言信息
  */
 var markdocument = function() {
-
+	var islogin = checklogin();
+	if (islogin == false) {
+		openloginwin();
+		return;
+	}
 	$.ajax({
 		async : true,
 		cache : false,
@@ -254,7 +242,7 @@ var markdocument = function() {
 			if (data.success == '0') {
 				MessageWindow.showMess(data.message);
 			} else {
-				MessageWindow.showMess('   ');
+				MessageWindow.showMess('   ');
 				$("#markcount").html(data.documentValue.markcount);
 			}
 		}
@@ -530,4 +518,94 @@ var upload = function() {
 			}
 		}
 	});
-}
+};
+var checklogin = function() {
+	var islogin = false;
+	$.ajax({
+		async : false,
+		cache : false,
+		type : 'POST',
+		dataType : "json",
+		url : 'checklogin.do',// 请求的action路径
+		error : function() {// 请求失败处理函数
+			MessageWindow.showMess('         ');
+		},
+		success : function(data) {
+			if (data.login == 'true') {
+				islogin = true;
+			} else {
+				islogin = false;
+			}
+		}
+	});
+	return islogin;
+
+};
+var openloginwin = function() {
+	$("#logindiv").dialog({
+		height : 380,
+		width : 310,
+		resizable : true,
+		model : false
+	});
+};
+var login = function() {
+	var queryurl = 'login.do';
+	var username = $("#username").val();
+	var password = $("#password").val();
+	var validcode = $("#validcode").val();
+	if (username == null || username == '') {
+		MessageWindow.showMess('    ');
+		return;
+
+	}
+	if (password == null || password == '') {
+		MessageWindow.showMess('    ');
+		return;
+
+	}
+	if (validcode == null || validcode == '') {
+		MessageWindow.showMess('    ');
+		return;
+
+	}
+	$
+			.ajax({
+				async : false,
+				cache : false,
+				type : 'POST',
+				dataType : "json",
+				url : queryurl,// 请求的action路径
+				data : {
+					username : username,
+					password : password,
+					validcode : validcode
+				},
+				error : function() {// 请求失败处理函数
+					MessageWindow
+							.showMess('         ');
+				},
+				success : function(data) { // 请求成功后处理函数。
+					if (data.success == 'true') {
+						$("#logindiv").dialog("close");
+						MessageWindow.showMess('   ');
+					} else {
+						if (data.mess == '1') {
+							MessageWindow
+									.showMess('           ');
+						}
+						if (data.mess == '2') {
+						} else if (data.mess == '3') {
+							MessageWindow
+									.showMess('            ');
+
+						} else {
+							//
+						}
+
+					}
+
+				}
+			});
+
+};

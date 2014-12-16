@@ -96,7 +96,8 @@
 				value="<c:out value="${paingModel.pageindex}"/>">
 					<div class="cbt"></div>
 		</div>
-		<div class="wrp m0a ribbon"></div>
+		<!-- 		<div class="wrp m0a ribbon"></div> -->
+		<%@ include file="tail.jsp"%>
 	</form>
 </body>
 </html>

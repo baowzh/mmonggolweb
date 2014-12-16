@@ -1386,7 +1386,8 @@
 		</div>
 		<div class="cls"></div>
 	</div>
-	<div class="wrp m0a ribbon"></div>
+<!-- 	<div class="wrp m0a ribbon"></div> -->
+	<div class="wrp m0a pagetail"></div>
 </body>
 <script>
 	var pics1 = <c:out value="${indexPageContent.pics}" escapeXml="false" />;

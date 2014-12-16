@@ -12,6 +12,7 @@
 <link href="img/css/listpages.css" type="text/css" rel="stylesheet" />
 <link href="img/css/blog.css" type="text/css" rel="stylesheet" />
 <link href="img/css/custom.css" type="text/css" rel="stylesheet" />
+<!-- <link href="img/css/createDoc.css" type="text/css" rel="stylesheet" /> -->
 <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="js/sitejs/userhomeindex.js"></script>
 <script type="text/javascript" src="js/sitejs/userdocdetail.js"></script>
@@ -277,6 +278,7 @@
 	</div>
 	<!-- 隐藏的div -->
 	<%@ include file="bloghiddendiv.jsp"%>
+	<%@ include file="logindiv.jsp"%>
 	<!-- 隐藏的div -->
 </body>
 </html>
