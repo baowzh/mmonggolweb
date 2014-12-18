@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="js\messagebox\jquery.msgbox.css" />
 <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="js/sitejs/edituserinfo.js"></script>
+<script type="text/javascript" src="js/sitejs/changevalidcode.js"></script>
 <script type="text/javascript" src="js/My97DatePicker/WdatePicker.js"></script>
 <script src="js/messagebox/jquery.dragndrop.min.js"></script>
 <script src="js/messagebox/jquery.msgbox.js"></script>
@@ -23,18 +24,28 @@
 	</div>
 	<div class="lmainR  ">
 		<div class="loginSheet">
-<!-- 						<div class="iconContainer"></div> -->
+			<!-- 						<div class="iconContainer"></div> -->
 			<div class="border" style="padding-left: 10px;">
 				<div class="loginWindow" style="width: 478px;">
 					<div class="content"
 						style="width: 478px; padding-left: 10px; padding-right: 10px;">
 						<form class="mglForm" action="edituserinfo.do" id="userinfoform"
 							method="post" enctype="multipart/form-data">
-							<div class="label">  <font color="#f00">*</font>:</div>
-							<div class="label"><font color="#f00">*</font>:</div>
-							<div class="label"> <font color="#f00">*</font></div>
-							<div class="label"> <font color="#f00">*</font> </div>
-							<div class="label"> <font color="#f00">*</font></div>
+							<div class="label">
+								  <font color="#f00">*</font>:
+							</div>
+							<div class="label">
+								<font color="#f00">*</font>:
+							</div>
+							<div class="label">
+								 <font color="#f00">*</font>
+							</div>
+							<div class="label">
+								 <font color="#f00">*</font> 
+							</div>
+							<div class="label">
+								 <font color="#f00">*</font>
+							</div>
 							<div class="label"> </div>
 							<div class="label"> </div>
 							<div class="label">   </div>
@@ -42,8 +53,15 @@
 							<div class="label">  </div>
 							<div class="label"> </div>
 							<div class="label"> </div>
-							<div class="label"> (Email)<font color="#f00">*</font> </div>
-							<div class="label">  <font color="#f00">*</font></div>
+							<div class="label">
+								 (Email)<font color="#f00">*</font> 
+							</div>
+							<div class="label" style="width:40px;">
+																  <font color="#f00">*</font>
+								<a href="javascript:replaceverifycode();"><img src="verifyCodeServlet" id="varifyimg" width="21"/>
+								</a>
+								
+							</div>
 							<div class="label"> </div>
 
 							<div class="inputHolder">
@@ -169,8 +187,8 @@
 							</div>
 							<div class="inputHolder">
 								<div class="mnlist" style="height: 170px; text-indent: 0px;">
-									<img src="verifyCodeServlet" id="varifyimg" width="21"><input
-										type="text" name="varifycode" id="varifycode"></input>
+									<!-- 									<img src="verifyCodeServlet" id="varifyimg" width="21"> -->
+									<input type="text" name="varifycode" id="varifycode"></input>
 								</div>
 							</div>
 							<div class="inputHolder">
@@ -663,5 +681,9 @@
 <script>
 	var districtsdata = <c:out value="${districtsdata}" escapeXml="false" />;
 	//var professions = <c:out value="${professions}" escapeXml="false" />;
+	<c:if test="${success=='1'}">
+	MessageWindow
+			.showMess('    <br>       ');
+	</c:if>
 </script>
 </html>
