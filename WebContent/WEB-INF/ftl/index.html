@@ -6,7 +6,7 @@
 <link href="site/css/index.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="js/sitejs/index.js"></script>
-<script type="text/javascript" src="js/sitejs/regist.js"></script>
+<script type="text/javascript" src="js/sitejs/changevalidcode.js"></script>
 <script type="text/javascript" src="js/util/js/messageWindow.js"></script>
 <script type="text/javascript" src="js\tween.js"></script>
 <script type="text/javascript" src="imgnews.js"></script>
@@ -162,8 +162,8 @@
 								:
 							</div>
 							<div class="label" style="width: 27px;">
-								<img src="verifyCodeServlet" id="varifyimg" width="18"
-									height="100" />
+								<a href="javascript:replaceverifycode();"><img
+									src="verifyCodeServlet" id="varifyimg" width="18" height="100" /></a>
 							</div>
 							<div class="inputHolder">
 								<input name="username" id="username" value="" />
@@ -958,7 +958,7 @@
 	<div class="layer m0a">
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
-				<div class="ttl"></div>
+				<div class="ttl"></div>
 				<div class="more">
 					<a href="#"> </a>
 				</div>
@@ -1248,11 +1248,11 @@
 		</div>
 		<div class="cls"></div>
 	</div>
-<!-- 	<div class="wrp m0a ribbon"></div> -->
-        <div class="wrp m0a pagetail"></div>
+	<!-- 	<div class="wrp m0a ribbon"></div> -->
+	<div class="wrp m0a pagetail"></div>
 </body>
 <script>
-	var pics1 = ${indexPageContent.pics}/>;
+	var pics1 = ${indexPageContent.pics};
 	//$("#searchtext").css
 	if (/webkit/.test(navigator.userAgent.toLowerCase())) {
 		$("#searchtext").attr("style", "width:275px;height:15px;");

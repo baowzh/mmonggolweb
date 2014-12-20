@@ -20,35 +20,35 @@
 <body>
 	<div class="news1">
 		<a name="svrgal"></a>
-		<div class="ttl1 m1ln">
-			<a href="#">   </a>
+		<div class="ttl1 m1ln" style="height: 680px; color: #fff;">
+			<a href="#" style="color: #fff;">   </a>
 		</div>
 		<div class=mnlist>
-			<a href="articlelist.do">  </a>
+			<li><a href="articlelist.do">  </a></li>
 		</div>
 		<div class=mnlist>
-			<a href="pagingimglist.do">  </a>
+			<li><a href="pagingimglist.do">  </a></li>
 		</div>
 		<div class="mnlist">
-			<a href="userlist.do">   </a>
+			<li><a href="userlist.do">   </a></li>
 		</div>
 		<div class="mnlist">
-			<a href="commentlist.do"> </a>
+			<li><a href="commentlist.do"> </a></li>
 		</div>
 		<div class="mnlist">
-			<a href="getopinions.do"> </a>
+			<li><a href="getopinions.do"> </a></li>
 		</div>
 		<div class="mnlist">
-			<a href="javascript:password()">  </a>
+			<li><a href="javascript:password()">  </a></li>
 		</div>
 		<div class="mnlist">
-			<a href="advert.do">   </a>
+			<li><a href="advert.do">   </a></li>
 		</div>
 		<div class="mnlist">
-			<a href="votemanager.do"> </a>
+			<li><a href="votemanager.do"> </a></li>
 		</div>
 		<div class="mnlist">
-			<a href="createsitepage.do"> </a>
+			<li><a href="createsitepage.do"> </a></li>
 		</div>
 	</div>
 	<!-- 444 -->

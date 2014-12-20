@@ -76,6 +76,8 @@ public class UserValue implements UserDetails {
 	private String imguser;
 	private String oldid;
     private String headurl;
+    private String sexsel;
+    private String blogclasssel;
 	public String getLastip() {
 		return lastip;
 	}
@@ -647,5 +649,22 @@ public class UserValue implements UserDetails {
 	public void setHeadurl(String headurl) {
 		this.headurl = headurl;
 	}
+
+	public String getSexsel() {
+		return sexsel;
+	}
+
+	public void setSexsel(String sexsel) {
+		this.sexsel = sexsel;
+	}
+
+	public String getBlogclasssel() {
+		return blogclasssel;
+	}
+
+	public void setBlogclasssel(String blogclasssel) {
+		this.blogclasssel = blogclasssel;
+	}
+	
 
 }

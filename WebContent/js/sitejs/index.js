@@ -70,17 +70,17 @@ var login = function() {
 					} else {
 						if (data.mess == '1') {
 							MessageWindow
-									.showMess('           ');
+									.showMess('       ');
 						}
 						if (data.mess == '2') {
 							$("#loginform")
 									.html(
-											'<div style=\"writing-mode: tb-lr; -webkit-writing-mode: vertical-lr\"> <br>&nbsp;&nbsp; &nbsp;      '
-													+ '<br><a href=\"registe.do\">&nbsp;&nbsp; &nbsp&nbsp;&nbsp; &nbsp </a>   </div>');
+											'<div style=\"writing-mode: tb-lr; -webkit-writing-mode: vertical-lr;-webkit-text-orientation: sideways-right;\"> <br>&nbsp;&nbsp; &nbsp;     <br>     '
+													+ '<br><br><a href=\"registe.do\" style=\"text-decoration: none;color: #f00;\">&nbsp;&nbsp; &nbsp&nbsp;&nbsp; &nbsp </a>   </div>');
 						} else if (data.mess == '3') {
 
 							MessageWindow
-									.showMess('            ');
+									.showMess('       ');
 							$('#registlink').attr('href',
 									"javascript:getpass();")
 							$('#registlink').attr('style', 'font-size:10px;');
@@ -178,6 +178,12 @@ $(document)
 					// 显示顶部广告
 					// displaytoad();
 					// showsideadver();
+					// 设置搜索框的大小
+					if (iswebkit) {
+						$('#searchtext').addClass('webkitsearchtext');
+					} else {
+						$('#searchtext').addClass('iesearchtext');
+					}
 
 				}));
 /**

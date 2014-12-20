@@ -36,7 +36,7 @@
 	<div class="lmainR ofh">
 		<form action="articlelist.do" id="Form" method="post">
 			<div class="lmainR"
-				style="writing-mode: tb-lr; -webkit-writing-mode: vertical-lr;">
+				style="writing-mode: tb-lr; -webkit-writing-mode: vertical-lr;height:700px;">
 				<div style="height: 598px; border: solid 1px #eee;">
 					<table style="padding-top: 2em;" valign="top">
 						<tr>
@@ -133,8 +133,8 @@
 					</table>
 				</div>
 				<div class="  artlistcell"
-					style="width: 840px; height: 630px; overflow: scroll;">
-					<div class="artListcell acell1">
+					style="width: 840px; height: 700px; overflow: scroll;">
+					<div class="artListcell acell1" style="height: 750px;">
 						<div class="anwsls1">
 							<table>
 								<tr>
@@ -250,7 +250,7 @@
 							</c:forEach>
 
 							<span id="picbtn1"
-								style="cursor: pointer; border: 1px solid rgb(204, 204, 204); display: inline-block; color: rgb(0, 0, 0); background-color: rgb(238, 238, 238); line-height: 15px; width: 15px;">&nbsp;<a>&lt;</a>&nbsp;
+								style="cursor: pointer; border: 1px solid rgb(204, 204, 204); display: inline-block; color: rgb(0, 0, 0); background-color: rgb(238, 238, 238); line-height: 15px; width: 15px;">&nbsp;<a>&gt;</a>&nbsp;
 							</span> (
 							<c:out value="${doccount}" default="0" />
 							)
@@ -258,14 +258,15 @@
 					</div>
 				</div>
 
-				<div class="mnlist" style="text-align: center; height: 550px;">
+				<div class="mnlist" style="height: 700px;width:16px;">
 					<a href="javascript:checkdoc();"></a>&nbsp;&nbsp;<a
 						href="javascript:addselecteddoc();"></a>&nbsp;&nbsp;<a
 						href="javascript:delselecteddoc();"> </a>&nbsp;&nbsp;<a
 						href="javascript:addindexdoc();">  </a>&nbsp;&nbsp;<a
 						href="javascript:deletedoc();"> </a>&nbsp;&nbsp;<a
 						href="javascript:asTopWriting();">  
-						&nbsp;&nbsp;</a> <a href="sitemanagerindex.do"></a>
+						</a> &nbsp;&nbsp;
+						<a href="sitemanagerindex.do"></a>
 				</div>
 			</div>
 		</form>

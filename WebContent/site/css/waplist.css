@@ -1,0 +1,128 @@
+@font-face {
+	font-family: Mongol;
+	src: url(../../font/Mongol.woff) format("woff"),
+		url(../../font/Mongol.ttf) format("truetype");
+}
+
+* {
+	margin: 0px;
+	padding: 0px;
+	font-size: 1rem;
+}
+
+html {
+/* 	background-color: #3aace8; */
+}
+
+.wrap {
+	width: 100%;
+	height: 100%;
+	min-width: 320px;
+	/* 	height: 1346px; */
+}
+
+.header {
+	text-align: center;
+	background: #3aace8;
+	border-bottom: #50cff3 solid 2px;
+	height: 60px;
+}
+
+.footer {
+	background: #3aace8;
+	text-align: center;
+	border-top: #50cff3 solid 2px;
+	height: 38px;
+	padding: 5px;
+	padding-top: 18px
+}
+
+.fenye {
+	font-size: 1.8rem;
+	font-weight: bold;
+	color: #FFF;
+}
+
+.main {
+	width: 100%;
+	background-color: #fff;
+	height: 100%;
+	min-height: 350px;
+}
+
+.mon_div {
+	height: 100%;
+	overflow: hidden;
+	padding-top: 2px;
+}
+
+.montd {
+	-ms-transform-origin: right top;
+	-ms-transform: translate(-100%, 0px) rotate(270deg);
+	-moz-transform-origin: right top;
+	-moz-transform: translate(-100%, 0px) rotate(270deg);
+	-o-transform-orign: right top;
+	-o-transform: translate(-100%, 0px) rotate(270deg);
+	-webkit-transform-origin: right top;
+	-webkit-transform: translate(-100%, 0px) rotate(270deg);
+	/* 	width: 500px; */
+	width: 100%
+}
+
+.montd * {
+	direction: rtl;
+	font-family: Mongol;
+	letter-spacing: -0.02em;
+	unicode-bidi: bidi-override;
+	word-break: keep-all;
+}
+
+.mon_title {
+	font-family: "Mongol";
+	direction: rtl;
+	display: block;
+	unicode-bidi: bidi-override;
+	word-break: keep-all;
+	border-bottom: #3aace8 dashed 1px;
+	text-align: right;
+	height: 32px;
+	line-height: 32px;
+	overflow: hidden;
+}
+
+.mon_title a {
+	text-decoration: none;
+	color: #000;
+	letter-spacing: -0.025rem;
+	font-size: 1.2rem;
+	width: 1244px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+}
+
+.mon_title a:hover {
+	background-color: #aed9f1;
+}
+
+.dian {
+	font-size: 0.8rem;
+	letter-spacing: -0.025rem;
+}
+
+
+.paginationArea {
+	margin: 0 auto;
+	max-width: 30em;
+	text-align: center;
+}
+
+.spanstyle {
+	cursor: pointer;
+	border: 1px solid rgb(204, 204, 204);
+	display: inline-block;
+	color: rgb(0, 0, 0);
+	background-color: rgb(238, 238, 238);
+	line-height: 18px;
+	width: 30px;
+}

@@ -78,14 +78,14 @@
 							-->
 
 						<c:if test="${self==1}">
-							<a href="doedituserinifo.do">   &nbsp;&nbsp;&nbsp;
+							<a href="doedituserinifo.do">   &nbsp;&nbsp;&nbsp;
 							</a>
 							<a href="javascript:showpassdialog();">   </a>
 						</c:if>
 						<c:if test="${self==0}">
 							<a
 								href="javascript:showuserinfo('<c:out value="${user.userid}" />');">
-								  &nbsp;&nbsp;&nbsp; </a>
+								  &nbsp;&nbsp;&nbsp; </a>
 						</c:if>
 
 
@@ -108,7 +108,7 @@
 		<div class="frt blgNav blgNavC" style="width: 20px;">
 			<div class=" m1ln " style="padding-top: 8px;">
 				<a href="gouserindex.do?userid=<c:out value="${user.userid}" />">
-					<c:if test="${self==1}"> </c:if> <c:if test="${self==0}">  </c:if>
+					<c:if test="${self==1}"> </c:if> <c:if test="${self==0}">  </c:if>
 				</a> 
 
 				<!--							  <a href="#">  </a>   -->

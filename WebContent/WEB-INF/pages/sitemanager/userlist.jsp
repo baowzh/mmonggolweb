@@ -24,9 +24,6 @@
 <link rel="stylesheet" href="js\messagebox\jquery.msgbox.css" />
 </head>
 <body>
-	<!-- 	<div class="lmainR ofh" style="text-align: center; height: 70px;"> -->
-	<!-- 		<img src="img/logo.png" width="982" /> -->
-	<!-- 	</div> -->
 	<div class="wrp m0a logo">
 		<div class="naveFrame">
 			<%@ include file="../website/head.jsp"%>
@@ -49,36 +46,10 @@
 									href="javascript:showselpanel(true,'provinces')"> 
 									 </a> <input type="hidden" id="district" name="district" />
 								
-								<!-- 								<select id="district" name="district" -->
-								<!-- 									style="writing-mode: tb-lr; -webkit-writing-mode: vertical-lr; height: 70px"> -->
-								<!-- 									<option value="#"></option> -->
-								<!-- 								</select>  -->
-
 								<a id="hsienname" href="javascript:showselpanel(true,'hsiens')"></a>
 								<input type="hidden" id="qx" name="qx" />
-								<!--  
-								<select id="qx" name="qx"
-									style="writing-mode: tb-lr; -webkit-writing-mode: vertical-lr; height: 70px">
-									<option value="#"></option>
-								</select>
-								-->
-
-
 							</div>
 						</td>
-						<!--  
-						<td>
-							<div class="inputHolder" style="height: 160px">
-								<select id="district" name="district"
-									style="writing-mode: tb-lr; -webkit-writing-mode: vertical-lr; height: 70px">
-									<option value="#"></option>
-								</select> <select id="qx" name="qx"
-									style="writing-mode: tb-lr; -webkit-writing-mode: vertical-lr; height: 70px">
-									<option value="#"></option>
-								</select>
-							</div>
-						</td>
-						-->
 						<td>
 							<div class="m1ln h100"> </div>
 						</td>
@@ -147,8 +118,7 @@
 											</div>
 											<div class="m1ln" style="height: 390px;">
 												<span class="label1">  : </span>
-												<c:out value="${userValue.nowprovince}"
-													default="  " />
+												<c:out value="${userValue.nowprovince}" default="  " />
 											</div>
 											<div class="m1ln" style="height: 390px;">
 												<span class="label1">  :</span>
@@ -226,7 +196,7 @@
 										</c:if> </a>
 								</c:forEach>
 								<span id="picbtn1"
-									style="cursor: pointer; border: 1px solid rgb(204, 204, 204); display: inline-block; color: rgb(0, 0, 0); background-color: rgb(238, 238, 238); line-height: 15px; width: 15px;">&nbsp;<a>&lt;</a>&nbsp;
+									style="cursor: pointer; border: 1px solid rgb(204, 204, 204); display: inline-block; color: rgb(0, 0, 0); background-color: rgb(238, 238, 238); line-height: 15px; width: 15px;">&nbsp;<a>&gt;</a>&nbsp;
 								</span> (
 								<c:out value="${usercount}" default="0" />
 								)
@@ -237,7 +207,7 @@
 				</div>
 				<br>
 
-				<div class="mnlist" style="text-align: center;">
+				<div class="mnlist" style="text-align: center; height: 400px;">
 					<a href="javascript:stopuser()">  &nbsp;&nbsp;</a><a
 						href="javascript:reuseuser()">&nbsp;
 						&nbsp;&nbsp;&nbsp;</a><a href="javascript:deleteuser()">&nbsp;&nbsp;&nbsp;</a>

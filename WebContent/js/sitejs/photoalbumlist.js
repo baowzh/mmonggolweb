@@ -15,8 +15,8 @@ var openPhotoAlbum = function(albumid) {
 };
 var openaddphotoalbumdialog = function() {
 	$("#addphotoalbum").dialog({
-		height : 410,
-		width : 170,
+		height : 400,
+		width : 330,
 		resizable : false
 	});
 };

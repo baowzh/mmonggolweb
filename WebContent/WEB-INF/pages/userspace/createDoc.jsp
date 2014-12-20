@@ -14,8 +14,9 @@
 <link href="img/css/createDoc.css" type="text/css" rel="stylesheet" />
 <link href="img/css/selectpanel.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="ckeditor/ckeditor.js"></script>
-<script type="text/javascript" src="js/jqGrid/js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="js/sitejs/uploaddoc.js"></script>
+<script type="text/javascript" src="js/sitejs/changevalidcode.js"></script>
 <script type="text/javascript" src="js/util/js/messageWindow.js"></script>
 <link rel="stylesheet"
 	href="js/jqui/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />

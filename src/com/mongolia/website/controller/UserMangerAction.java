@@ -101,6 +101,7 @@ public class UserMangerAction {
 					return new ModelAndView("jsonView", map);// 管理员用户不让从此url登录
 				}
 				sessionUserValue.setLogindate(new Date());
+				request.getSession().removeAttribute("validateCode");
 				request.getSession().setAttribute("user", sessionUserValue);// 在线session
 				map.put("success", "true");
 				map.put("user", sessionUserValue);
@@ -240,7 +241,6 @@ public class UserMangerAction {
 				request.getSession().setAttribute("user", users.get(0));
 			}
 			map.put("success", "1");
-
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			map.put("error", ex.getMessage());
@@ -330,6 +330,15 @@ public class UserMangerAction {
 			UserValue sessionUser = (UserValue) request.getSession()
 					.getAttribute("user");// 在线session
 			userValue.setUserid(sessionUser.getUserid());
+			if (userValue.getSexsel() != null
+					&& !userValue.getSexsel().equalsIgnoreCase("")) {
+				userValue.setSex(Integer.parseInt(userValue.getSexsel()));
+			}
+			if (userValue.getBlogclasssel() != null
+					&& !userValue.getBlogclasssel().equalsIgnoreCase("")) {
+				userValue.setBlogclass(Integer.parseInt(userValue
+						.getBlogclasssel()));
+			}
 			// 获取头部图像
 			MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
 			MultiValueMap file = multipartRequest.getMultiFileMap();

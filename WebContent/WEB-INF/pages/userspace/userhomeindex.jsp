@@ -15,7 +15,9 @@
 <link href="img/css/custom.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="img/js/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="js/sitejs/userhomeindex.js"></script>
+<script type="text/javascript" src="js/sitejs/userlogin.js"></script>
 <script type="text/javascript" src="js/sitejs/photoalbumlist.js"></script>
+<script type="text/javascript" src="js/sitejs/changevalidcode.js"></script>
 <script type="text/javascript" src="img/css/mSheetAutoHeight.js"></script>
 <script type="text/javascript" src="js/util/js/messageWindow.js"></script>
 <link rel="stylesheet"
@@ -57,7 +59,7 @@
 										</div>
 									</div>
 								</c:if>
-								<div class="m1ln ttltxtblg ttltxtblgC" style="font-size:16px;">
+								<div class="m1ln ttltxtblg ttltxtblgC" style="font-size: 16px;">
 
 									<c:if test="${currentchannel!=null}">
 										<c:out value="${currentchannel.chnlname}" />
@@ -134,7 +136,7 @@
 								<c:if test="${self==1}">
 									<div class="addNewArtcl"></div>
 								</c:if>
-								<div class="m1ln ttltxtblg ttltxtblgC" style="font-size:16px;">
+								<div class="m1ln ttltxtblg ttltxtblgC" style="font-size: 16px;">
 
 									<c:if test="${currentchannel!=null}">
 										<c:out value="${currentchannel.chnlname}" />
@@ -222,7 +224,7 @@
 										</div>
 									</div>
 								</c:if>
-								<div class="m1ln ttltxtblg ttltxtblgC" style="font-size:16px;">
+								<div class="m1ln ttltxtblg ttltxtblgC" style="font-size: 16px;">
 
 									<c:if test="${currentchannel!=null}">
 										<c:out value="${currentchannel.chnlname}" />
@@ -274,9 +276,7 @@
 									<div class="folder photoAlbumC">
 										<div style="width: 80px; margin: 4em 2em;">
 											<div class=" msheet">
-												<a href="#"> 
-												 <br /><br /> <br /> 
-													<br><br /></a>
+												<a href="#">  <br /><br /> <br />  <br><br /></a>
 											</div>
 										</div>
 									</div>
@@ -377,49 +377,38 @@
 			<div class="cbt"></div>
 		</div>
 	</form>
-	<div style="display: none">
-		<div class="lcell" style="width: 140px; height: 340px;"
-			id="addphotoalbum">
-			<form action="addimggroup.do" id="addphotoalbumform" method="post"
-				enctype="multipart/form-data" />
-			<table border="0" style="margin: 1em auto;">
-				<tr>
-					<td height="100">
-						<div class="m1ln h100">  :</div>
-					</td>
-					<td>
-						<div class="m1ln h100">:</div>
-					</td>
-					<td>
-						<div class="m1ln h100">  :</div>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<div class="mfl">
-							<input type="text" name="imggroupname" id="imggroupname" /> <input
-								type="hidden" name="userid" id="userid"
-								value="<c:out value="${user.userid}" />"></input>
-						</div>
-					</td>
-					<td>
-						<div class="mfl">
-							<input type="text" name="comm" id="comm"></input>
-						</div>
-					</td>
-					<td>
-						<div class="mfl">
-							<input type="file" name="imgurl" id="imgurl"
-								style="height: 210px;"></input>
-						</div>
-					</td>
-					<td>
-						<div class="m1ln h100">
-							<a href="javascript:addphotoalbum();"></a>
-						</div>
-					</td>
-				</tr>
-			</table>
+	<div id="addphotoalbum"
+		style="width: 270px; height: 320px; display: none;">
+		<div class="content"
+			style="width: 270px; height: 300px; background: white; padding: 5px; border-radius: 5px;">
+			<form action="addimggroup.do" id="addphotoalbumform" class="mglForm"
+				method="post" enctype="multipart/form-data">
+				<div class="label" style="text-align: center;"> 
+					:</div>
+				<div class="inputHolder" style="width: 32px; height: 270px;">
+					<input type="text" name="imggroupname" id="imggroupname"
+						style="-webkit-transform-origin: 10px 20px;" /> <input
+						type="hidden" name="userid" id="userid"
+						value="<c:out value="${user.userid}" />"></input>
+				</div>
+
+				<div class="label" style="text-align: center;">:</div>
+				<div class="inputHolder" style="width: 32px; height: 270px;">
+					<input type="text" name="comm" id="comm"
+						style="-webkit-transform-origin: 10px 20px;" />
+				</div>
+				<div class="label" style="text-align: center;"> 
+					:</div>
+				<div class="inputHolder" style="width: 32px; height: 270px;">
+					<input type="file" name="imgurl" id="imgurl"
+						style="-webkit-transform-origin: 10px 20px;" />
+				</div>
+				<div class="mnlist" style="height: 270px;"></div>
+				<div class="mnlist"
+					style="width: 24px; height: 200px; text-align: center;">
+					<a href="javascript:addphotoalbum();"></a>
+
+				</div>
 			</form>
 		</div>
 	</div>
@@ -454,17 +443,19 @@
 		</div>
 	</div>
 	<div class="content" id="updpassdiv"
-		style="padding-left: 8px; display: none;">
+		style="padding-left: 8px; display: none; background: white; padding: 5px; border-radius: 5px;">
 		<form class="mglForm" action="#" id="loginform" method="post">
 			<c:if test="${maillogin==0}">
 				<div class="label"> </div>
-				<div class="inputHolder" style="height: 9em;">
-					<input name="oldpassword" id="oldpassword" type="password">
+				<div class="inputHolder" style="width: 32px; height: 270px;">
+					<input name="oldpassword" id="oldpassword" type="password"
+						style="-webkit-transform-origin: 10px 20px;">
 				</div>
 			</c:if>
 			<div class="label">   </div>
-			<div class="inputHolder" style="height: 9em;">
-				<input name="password" id="password" type="password">
+			<div class="inputHolder" style="width: 32px; height: 270px;">
+				<input name="password" id="password" type="password"
+					style="-webkit-transform-origin: 10px 20px;">
 			</div>
 			<div class="label">
 				  <a href="javascript:replaceverifycode();"></a> :
@@ -472,18 +463,18 @@
 			<div class="label">
 				<img src="verifyCodeServlet" id="varifyimg" width="18" height="100">
 			</div>
-			<div class="inputHolder" style="height: 9em;">
-				<input name="validcode" id="varifycode">
+			<div class="inputHolder" style="width: 32px; height: 270px;">
+				<input name="validcode" id="varifycode"
+					style="-webkit-transform-origin: 10px 20px;">
 			</div>
-			<div class="inputHolder" style="height: 9em;">
-				<div class="m1ln h100" style="text-align: center;">
+				<div class="mnlist" style="text-align: center;height:210px;">
 					<a href="javascript:modifypass();">  </a>
 				</div>
-			</div>
 			<input type="hidden" name="maillogin" id="maillogin"
 				value="<c:out value="${maillogin}" />">
 		</form>
 	</div>
+	<%@ include file="logindiv.jsp"%>
 	<!-- JiaThis Button END -->
 	<!-- UJian Button BEGIN -->
 	<script type="text/javascript"

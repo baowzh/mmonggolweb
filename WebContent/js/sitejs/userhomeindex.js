@@ -207,8 +207,9 @@ var writemessage = function() {
 	var islogin = false;
 	islogin = checklogin();
 	if (islogin == false) {
-		MessageWindow
-				.showMess('         ');
+		//MessageWindow
+				//.showMess('         ');
+		openloginwin();
 		return;
 	}
 	$("#messdiv").dialog({
@@ -337,8 +338,9 @@ var openaddfrienddl = function() {
 	var islogin = false;
 	islogin = checklogin();
 	if (!islogin) {
-		MessageWindow
-				.showMess('         ');
+		//MessageWindow
+				//.showMess('         ');
+		openloginwin();
 		return;
 	}
 	$("#addfriendmess").text('     ');
@@ -490,6 +492,8 @@ var showdiv = function(id1, id2, id3) {
 };
 var showpassdialog = function() {
 	$('#updpassdiv').dialog({// addfriendmess 13347126631
+		width:300,
+		height:350,
 		resizable : false,
 		modal : true
 	});
@@ -548,32 +552,5 @@ var modifypass = function() {
 					}
 				}
 			});
-};
-
-/**
- * 更新验证码
- */
-var replaceverifycode = function(id) {
-	var imgSrc='';
-	if(id!=null&&id!=undefined){
-		 imgSrc = $("#varifyimg"+id);
-	}else{
-		 imgSrc = $("#varifyimg");
-	}
-	var src = imgSrc.attr("src");
-	imgSrc.attr("src", chgUrl(src));
-
-};
-// 时间戳
-// 为了使每次生成图片不一致，即不让浏览器读缓存，所以需要加上时间戳
-function chgUrl(url) {
-	var timestamp = (new Date()).valueOf();
-	url = url.substring(0, 17);
-	if ((url.indexOf("&") >= 0)) {
-		url = url + "¡Átamp=" + timestamp;
-	} else {
-		url = url + "?timestamp=" + timestamp;
-	}
-	return url;
 };
 

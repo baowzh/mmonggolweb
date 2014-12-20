@@ -16,6 +16,8 @@
 <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="js/sitejs/userdocdetail.js"></script>
 <script type="text/javascript" src="js/sitejs/userhomeindex.js"></script>
+<script type="text/javascript" src="js/sitejs/userlogin.js"></script>
+<script type="text/javascript" src="js/sitejs/changevalidcode.js"></script>
 <script type="text/javascript"
 	src="js/sitejs/emotion/jquery.emoticons.js"></script>
 <link href="js/sitejs/emotion/emoticon.css" type="text/css"

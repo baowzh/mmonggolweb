@@ -12,7 +12,7 @@
 <link href="img/css/listpages.css" type="text/css" rel="stylesheet" />
 <link href="img/css/blog.css" type="text/css" rel="stylesheet" />
 <link href="img/css/custom.css" type="text/css" rel="stylesheet" />
-<script type="text/javascript" src="js/jqGrid/js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="js/util/js/messageWindow.js"></script>
 <script type="text/javascript" src="js/sitejs/photoalbumlist.js"></script>
 <script type="text/javascript" src="js/sitejs/userhomeindex.js"></script>
@@ -25,13 +25,13 @@
 </head>
 <body>
 	<form id="openalbumform" action="getimglist.do" method="post">
-			<div class="wrp m0a logo">
-		<div class="naveFrame">
-			<%@ include file="bloghead.jsp"%>
+		<div class="wrp m0a logo">
+			<div class="naveFrame">
+				<%@ include file="bloghead.jsp"%>
+			</div>
+			<div class="cbt"></div>
 		</div>
-		<div class="cbt"></div>
-	</div>
-	<div class="wrp m0a ribbon"></div>
+		<div class="wrp m0a ribbon"></div>
 		<div class="lmainR">
 			<div class="  lcell"
 				style="width: 990px; margin-top: 200px; overflow: visible;">
@@ -48,11 +48,12 @@
 									style="width: 660px; height: 900px; margin: 0px;">
 									<c:if test="${self==1}">
 										<div class="addNewAlbum">
-											<div class="m1ln borderOuter" style="height:110px;">
+											<div class="m1ln borderOuter" style="height: 110px;">
 												<a href="javascript:openaddphotoalbumdialog();">
-													   </a>
+													  </a>
 											</div>
-											<div class="m1ln borderOuter" style="height:80px;margin-top:5px;background: #eee url(img/delete.png) center top no-repeat;">
+											<div class="m1ln borderOuter"
+												style="height: 80px; margin-top: 5px; background: #eee url(img/delete.png) center top no-repeat;">
 												<a href="javascript:deletephotoalbum();"> </a>
 											</div>
 										</div>
@@ -89,16 +90,16 @@
 											</div>
 										</div>
 									</c:forEach>
-									
+
 									<div class="folder photoAlbumC">
 										<div style="width: 80px; margin: 4em 2em;">
-											<div class=" msheet" style="font-size:13px;">
-												<a href="#">    <br /><br />
+											<div class=" msheet" style="font-size: 14px;">
+												<a href="#"> <br> <br> <br /> <br />
 												</a>
 											</div>
 										</div>
 									</div>
-									
+
 								</div>
 
 								<input type="hidden" name="userid" id="userid"
@@ -115,61 +116,51 @@
 			</div>
 		</div>
 		<div class="lmainR ofh" style="text-align: center;">
-		<div class="wrp m0a ribbon"></div>
-<!-- 			<div class="tailCard"> -->
-<%-- 				<div class="msheet" style="height: 100px; width: 800px;"><%@ include --%>
-<%-- 						file="../website/tail.jsp"%></div> --%>
-<!-- 			</div> -->
+			<div class="wrp m0a ribbon"></div>
+			<!-- 			<div class="tailCard"> -->
+			<%-- 				<div class="msheet" style="height: 100px; width: 800px;"><%@ include --%>
+			<%-- 						file="../website/tail.jsp"%></div> --%>
+			<!-- 			</div> -->
 			<div class="cbt"></div>
 		</div>
 	</form>
-	<div style="display: none">
-		<div class="lcell" style="width: 140px; height: 340px;"
-			id="addphotoalbum">
-			<form action="addimggroup.do" id="addphotoalbumform" method="post"
-				enctype="multipart/form-data" />
-			<table border="0" style="margin: 1em auto;">
-				<tr>
-					<td height="100">
-						<div class="m1ln h100">  :</div>
-					</td>
-					<td>
-						<div class="m1ln h100">:</div>
-					</td>
-					<td>
-						<div class="m1ln h100">  :</div>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<div class="mfl">
-							<input type="text" name="imggroupname" id="imggroupname" /> </input> <input
-								type="hidden" name="userid" id="userid"
-								value="<c:out value="${user.userid}" />"></input>
-						</div>
-					</td>
-					<td>
-						<div class="mfl">
-							<input type="text" name="comm" id="comm"></input>
-						</div>
-					</td>
-					<td>
-						<div class="mfl">
-							<input type="file" name="imgurl" id="imgurl"
-								style="height: 210px;"></input>
-						</div> <input type="hidden" name="userid" id="userid"
-						value="<c:out value="${user.userid}" />">
-					</td>
-					<td>
-						<div class="m1ln h100">
-							<a href="javascript:addphotoalbum();"></a>
-						</div>
-					</td>
-				</tr>
-			</table>
+	<div id="addphotoalbum"
+		style="width: 270px; height: 320px; display: none;">
+		<div class="content" style="width: 270px; height: 300px;background: white;padding: 5px;border-radius: 5px;">
+			<form action="addimggroup.do" 
+				id="addphotoalbumform" class="mglForm" method="post"
+				enctype="multipart/form-data" >
+				<div class="label" style="text-align: center;"> 
+					:</div>
+				<div class="inputHolder" style="width: 32px; height: 270px;">
+					<input type="text" name="imggroupname" id="imggroupname"
+						style="-webkit-transform-origin: 10px 20px;" /> <input
+						type="hidden" name="userid" id="userid"
+						value="<c:out value="${user.userid}" />"></input>
+				</div>
+
+				<div class="label" style="text-align: center;">:</div>
+				<div class="inputHolder" style="width: 32px; height: 270px;">
+					<input type="text" name="comm" id="comm"
+						style="-webkit-transform-origin: 10px 20px;" />
+				</div>
+				<div class="label" style="text-align: center;"> 
+					:</div>
+				<div class="inputHolder" style="width: 32px; height: 270px;">
+					<input type="file" name="imgurl" id="imgurl"
+						style="-webkit-transform-origin: 10px 20px;" />
+				</div>
+				<div class="mnlist" style="height: 270px;"></div>
+				<div class="mnlist"
+					style="width: 24px; height: 200px; text-align: center;">
+					<a href="javascript:addphotoalbum();"></a>
+
+				</div>
 			</form>
 		</div>
 	</div>
+
+
 	<!-- 隐藏的div -->
 	<%@ include file="bloghiddendiv.jsp"%>
 	<!-- 隐藏的div -->

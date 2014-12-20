@@ -13,7 +13,7 @@ body {
 }
 
 .navItem {
-	color:#fff;
+	color: #fff;
 	width: 24px;
 	line-height: 25px;
 	height: 105px;
@@ -31,8 +31,8 @@ body {
 }
 
 .mln a {
-/* 	color: #666; */
-    color:#fff;
+	/* 	color: #666; */
+	color: #fff;
 	text-decoration: none;
 }
 
@@ -145,7 +145,7 @@ body {
 	height: 310px;
 	padding-top: 10px;
 	background: url(../img/qig_1_v.png) center top no-repeat;
-/* 	background: url(../img/qig_1_v.jpg) center top no-repeat; */
+	/* 	background: url(../img/qig_1_v.jpg) center top no-repeat; */
 }
 
 .listItem a {
@@ -523,8 +523,21 @@ body {
 	text-overflow: ellipsis;
 	white-space: nowrap;
 }
+
 .pagetail {
 	background: url(../img/tail.jpg);
 	height: 200px;
 	width: 1000px;
+}
+
+.webkitsearchtext {
+	width: 290px;
+	height: 21px;
+	-webkit-transform-origin: 15px 18px;
+}
+
+.iesearchtext {
+	height: 290px;
+	width: 21px;
+}
 }

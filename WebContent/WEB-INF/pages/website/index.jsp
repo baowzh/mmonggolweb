@@ -9,7 +9,7 @@
 <link href="site/css/index.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="js/sitejs/index.js"></script>
-<script type="text/javascript" src="js/sitejs/regist.js"></script>
+<script type="text/javascript" src="js/sitejs/changevalidcode.js"></script>
 <script type="text/javascript" src="js/util/js/messageWindow.js"></script>
 <script type="text/javascript" src="js\tween.js"></script>
 <script type="text/javascript" src="js/sitejs/imgnews.js"></script>
@@ -145,7 +145,7 @@
 						<div class="inputHolder"
 							style="height: 300px; width: 40px; padding-left: 5px;">
 							<input type="text" name="searchtext" id="searchtext"
-								style="width: 290px; height: 21px; -webkit-transform-origin: 15px 18px;" />
+								class="webkitsearchtext" />
 						</div>
 						<!-- 						<div class="inputHolder"></div> -->
 						<div class="label" style="height: 300px; text-align: center;">
@@ -158,7 +158,7 @@
 						<div class="inputHolder"
 							style="height: 300px; width: 40px; padding-left: 5px;">
 							<input type="text" name="searchtext" id="searchtext"
-								style="height: 290px; width: 21px;" />
+								class="iesearchtext" />
 						</div>
 						<div class="inputHolder" style="width: 10px;"></div>
 
@@ -188,8 +188,9 @@
 								:
 							</div>
 							<div class="label" style="width: 27px;">
-								<img src="verifyCodeServlet" id="varifyimg" width="18"
-									height="100">
+								<a href="javascript:replaceverifycode();"><img
+									src="verifyCodeServlet" id="varifyimg" width="18" height="100" />
+								</a>
 							</div>
 							<div class="inputHolder">
 								<input name="username" id="username" value="">
@@ -1041,11 +1042,12 @@
 				<c:forEach items="${indexPageContent.videos}" var="imgValue"
 					varStatus="status">
 					<div class="video" style="width: 303px; height: 320px;">
-							<a
-								href="getuserdocdetail.do?docid=<c:out value="${imgValue.docid}"/>">
-								<img
-								src="img/vido.jpg" style="width: 280px; height: 318px;" /></a>
-						<div class="m1ln" style="height: 318px;width:18px;padding-left:5px;">
+						<a
+							href="getuserdocdetail.do?docid=<c:out value="${imgValue.docid}"/>">
+							<img src="img/vido.jpg" style="width: 280px; height: 318px;" />
+						</a>
+						<div class="m1ln"
+							style="height: 318px; width: 18px; padding-left: 5px;">
 							<c:out value="${imgValue.doctitle}" />
 						</div>
 
@@ -1060,25 +1062,25 @@
 	<div class="layer m0a">
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
-				<div class="ttl"></div>
+				<div class="ttl"></div>
 				<div class="more">
 					<a href="#"> </a>
 				</div>
 			</div>
 			<div class="listCardBody" style="background: #eee;">
-				<c:forEach items="${indexPageContent.recentDocComm}"
+				<c:forEach items="${indexPageContent.culture}"
 					var="documentValue" varStatus="status">
 					<div class="nwsl1">
 						<div class="title">
 							<a
-								href="getuserdocdetail.do?docid=<c:out value="${documentValue.messageid}"/>"
+								href="getuserdocdetail.do?docid=<c:out value="${documentValue.docid}"/>"
 								target="_blank" class="tit_text_overflow"><c:out
-									value="${documentValue.contenthtml}" escapeXml="false" /></a>
+									value="${documentValue.doctitle}" escapeXml="false" /></a>
 						</div>
 						<div class="author">
 							<a
 								href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
-								<c:out value="${documentValue.artname}" />
+								<c:out value="${documentValue.docauthor}" />
 							</a>
 						</div>
 					</div>
@@ -1386,7 +1388,7 @@
 		</div>
 		<div class="cls"></div>
 	</div>
-<!-- 	<div class="wrp m0a ribbon"></div> -->
+	<!-- 	<div class="wrp m0a ribbon"></div> -->
 	<div class="wrp m0a pagetail"></div>
 </body>
 <script>

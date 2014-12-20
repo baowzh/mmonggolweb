@@ -597,10 +597,10 @@ public class BlogManagerAction {
 						byte reader[] = new byte[length];
 						inputStrram.read(reader);
 						inputStrram.close();
-						//imgGrpupValue.setFaceimg(reader);
+						imgGrpupValue.setFaceimg(reader);
 						imgGrpupValue.setImggroupid(UUIDMaker.getUUID());
 						imgGrpupValue.setFaceurl("/html/photoalbum/" + imgname);
-						// imgValue.setImgcontent(reader);
+					    imgValue.setImgcontent(reader);
 					}
 				} catch (Exception ex) {
 					return new ModelAndView("sitemanager/error", map);
@@ -1076,6 +1076,7 @@ public class BlogManagerAction {
 						messageSenderid, messageSenderName,
 						StaticConstants.MESS_TYPE_COMM, ishidden);
 			}
+			request.getSession().removeAttribute("validateCode");
 			map.put("success", "1");
 		} catch (Exception ex) {
 			ex.printStackTrace();

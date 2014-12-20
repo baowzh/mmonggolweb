@@ -44,21 +44,8 @@
 									href="javascript:showselpanel(true,'provinces')"> 
 									 </a> <input type="hidden" id="district" name="district"
 									value="" /> 
-								<!-- 								<select id="district" name="district" -->
-								<!-- 									style="writing-mode: tb-lr; -webkit-writing-mode: vertical-lr; height: 70px"> -->
-								<!-- 									<option value="#"></option> -->
-								<!-- 								</select>  -->
-
 								<a id="hsienname" href="javascript:showselpanel(true,'hsiens')"></a>
 								<input type="hidden" id="qx" name="qx" value="" />
-								<!--  
-								<select id="qx" name="qx"
-									style="writing-mode: tb-lr; -webkit-writing-mode: vertical-lr; height: 70px">
-									<option value="#"></option>
-								</select>
-								-->
-
-
 							</div>
 						</td>
 						<td>
@@ -104,7 +91,7 @@
 					<div class="lcell " style="width: 870px; height: 600px;">
 						<div class=" " style="height: 600px;">
 							<div class="ttl1 m1ln">
-								<a href="#">blogs</a>
+								<a href="#" style="color:#fff;"> </a>
 							</div>
 							<div style="width: 820px; margin: 0px; height: 500px" class="ofh">
 								<c:forEach items="${users}" var="userValue" varStatus="status">
@@ -211,15 +198,6 @@
 		</form>
 	</div>
 	<%@ include file="tail.jsp"%>
-<!-- 	<div class="wrp m0a ribbon"></div> -->
-	<!--  
-	<div class="lmainR ofh" style="text-align: center;">
-		<div class="tailCard">
-<%-- 			<%@ include file="../website/tail.jsp"%> --%>
-		</div>
-		<div class="cbt"></div>
-	</div>
-	-->
 	<!-- 选择住地（省）-->
 	<div class="channelpanel" id="provinces" style="display: none">
 		<div class="paneltitle">

@@ -1,5 +1,6 @@
 package com.mongolia.website.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -27,9 +28,11 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.mongolia.website.manager.ManagerException;
 import com.mongolia.website.manager.impls.SysConfig;
 import com.mongolia.website.manager.interfaces.ChannelManager;
 import com.mongolia.website.manager.interfaces.UserManager;
+import com.mongolia.website.manager.interfaces.WebResourceManager;
 import com.mongolia.website.manager.interfaces.WebSiteManager;
 import com.mongolia.website.manager.interfaces.WebSiteVisitorManager;
 import com.mongolia.website.model.Channel;
@@ -54,6 +57,8 @@ public class WebSiteVisiterAction {
 	@Autowired
 	private WebSiteManager webSiteManager;
 	@Autowired
+	private WebResourceManager webResourceManager;
+	@Autowired
 	UserManager userManager;
 	@Resource(name = "configInfo")
 	private SysConfig sysConfig;
@@ -71,21 +76,29 @@ public class WebSiteVisiterAction {
 			HttpServletResponse response, ModelMap map) {
 		Map<String, Object> indexPageContent = new HashMap<String, Object>();
 		try {
+			if (this.isphoneagent(request)) {
+				return new ModelAndView("redirect:phoneindex.do");
+			}
 			String path = request.getSession().getServletContext()
 					.getRealPath("/");
+			File file = new File(path, "index.html");
+			if (file.exists()) {// 如果pc客户端则且存在静态页面直接返回静态页面
+				return new ModelAndView("redirect:index.html");
+			}
 			indexPageContent = this.webSiteVisitorManager.getIndexContent(path);
+
+			map.put("indexPageContent", indexPageContent);
+			Integer agentkind = 0;
+			String user_agent_kind = request.getHeader("user-agent");
+			if (user_agent_kind.indexOf("Chrome") > 0) {
+				agentkind = 1;
+			} else {
+				agentkind = 0;
+			}
+			map.put("agentkind", agentkind);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-		map.put("indexPageContent", indexPageContent);
-		Integer agentkind = 0;
-		String user_agent_kind = request.getHeader("user-agent");
-		if (user_agent_kind.indexOf("Chrome") > 0) {
-			agentkind = 1;
-		} else {
-			agentkind = 0;
-		}
-		map.put("agentkind", agentkind);
 		return new ModelAndView("website/index", map);
 	}
 
@@ -108,7 +121,6 @@ public class WebSiteVisiterAction {
 			PaingModel<DocumentValue> pamodel = webSiteVisitorManager
 					.pagingquerydoc(paingModel);
 			map.put("paingModel", pamodel);
-			// /
 			List<PagingIndex> indexs = new ArrayList<PagingIndex>();
 			for (int i = 0; i < pamodel.getPagecount(); i++) {
 				PagingIndex pagingIndex = new PagingIndex();// 就显示首页，末页和当前页，当前页前面，后面
@@ -142,7 +154,6 @@ public class WebSiteVisiterAction {
 
 			}
 			map.put("pagingindexs", indexs);
-			// /
 			Map<String, Object> params = new HashMap<String, Object>();
 			params.put("channelid", paingModel.getDocchannel());
 			List<Channel> channels = channelManager.getChannelList(params);
@@ -580,4 +591,79 @@ public class WebSiteVisiterAction {
 		}// doclist.html
 		return new ModelAndView("website/videos", map);
 	}
+
+	/**
+	 * 
+	 * @param request
+	 * @return
+	 */
+	private boolean isphoneagent(HttpServletRequest request) {
+		// Enumeration<String> headers = request.getHeaderNames();
+		String user_agent = request.getHeader("user-agent");
+		if (user_agent.indexOf("Mobile") > 0) {
+			return true;
+		}
+		return false;
+	}
+
+	@RequestMapping("/phoneindex.do")
+	public ModelAndView phoneindex(HttpServletRequest request,
+			PaingModel<DocumentValue> paingModel, ModelMap map) {
+		try {
+			List<TopDocumentValue> selecteddocs = this.webSiteVisitorManager
+					.getTopDocuments(StaticConstants.TOP_TYPE4, null, 12);
+			map.put("selecteddocs", selecteddocs);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return new ModelAndView("wap/index", map);
+	}
+
+	@RequestMapping("/phonelist.do")
+	public ModelAndView phonelist(HttpServletRequest request,
+			PaingModel<DocumentValue> paingModel, ModelMap map) {
+		try {
+			paingModel.setPagesize(12);
+			paingModel.setStartrow(1 * paingModel.getPagesize());
+			paingModel.setEndrow(12);
+			PaingModel<DocumentValue> pamodel = webSiteVisitorManager
+					.pagingquerydoc(paingModel);
+			String pagingstr = PageUtil.getPagingLink(pamodel, 1);
+			map.put("pagingstr", pagingstr);
+			map.put("selecteddocs", pamodel.getModelList());
+			map.put("docchannel", paingModel.getDocchannel());
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return new ModelAndView("wap/list", map);
+	}
+
+	@RequestMapping("/phonedetail.do")
+	public ModelAndView phonedetail(HttpServletRequest request,
+			PaingModel<DocumentValue> paingModel, ModelMap map) {
+		String docid = request.getParameter("docid");
+		try {
+			DocumentValue documentValue = this.webResourceManager
+					.readUserDDocument(docid, null);
+			// String matchStr =
+			// "<img\\s+(?:[^>]*)src\\s*=\\s*([^>]+)(with\\s*=\\s*[0-9]+)*(height\\s*=\\s*[0-9]+)*/>";
+			// Pattern destStri = Pattern.compile(matchStr);// ^
+			// Matcher mati = destStri.matcher(documentValue.getHtmlstr());
+			// StringBuffer bufferi = new StringBuffer();
+			// while (mati.find()) {
+			// String groupi = mati.group(0);
+			// groupi = "<div class=\"conimg\">" + groupi + "</div>";
+			// mati.appendReplacement(bufferi, groupi);
+			// }
+			// mati.appendTail(bufferi);
+			// String docContent = bufferi.toString();
+			// documentValue.setHtmlstr(docContent);
+			map.put("documentValue", documentValue);
+		} catch (ManagerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return new ModelAndView("wap/detail", map);
+	}
+
 }

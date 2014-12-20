@@ -72,7 +72,7 @@ public class UserManagerImpl implements UserManager {
 	public boolean doLogin(UserValue userValue) throws Exception {
 		// TODO Auto-generated method stub
 		Map<String, Object> params = new HashMap<String, Object>();
-		params.put("username", userValue.getUsername());
+		params.put("username", userValue.getUsername().trim());
 		List<UserValue> users = this.userManagerDao.getUser(params);
 		if (users == null || users.isEmpty()) {
 			throw new Exception("2");

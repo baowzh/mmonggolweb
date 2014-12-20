@@ -422,9 +422,10 @@ body.alag {
 
 .ttl1 {
 	width: 30px;
-	height: 340px;
+	height: 600px;
 	padding-top: 0px;
-	background: url(../buttonbg.png) no-repeat center center;
+/* 	background: url(../buttonbg.png) no-repeat center center; */
+    background :#3aace8;
 	color: white;
 	line-height: 30px;
 	float: left;

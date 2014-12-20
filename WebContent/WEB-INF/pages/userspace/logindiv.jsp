@@ -13,7 +13,7 @@
 			</div>
 			<div class="label" style="text-align: center;">  </div>
 			<div class="inputHolder" style="width: 32px; height: 270px;">
-				<input type="password" name="password" id="password"
+				<input type="password" name="password" id="password1"
 					style="-webkit-transform-origin: 10px 20px;" />
 			</div>
 			<div class="label" style="text-align: center;">
@@ -22,7 +22,7 @@
 				</a>
 			</div>
 			<div class="inputHolder" style="width: 32px; height: 270px;">
-				<input type="text" name="varifycode" id="varifycode"
+				<input type="text" name="varifycode" id="varifycode1"
 					style="-webkit-transform-origin: 10px 20px;" />
 			</div>
 			<div class="mnlist" style="height: 270px;"></div>

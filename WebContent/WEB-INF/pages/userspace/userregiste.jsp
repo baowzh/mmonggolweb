@@ -4,14 +4,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<script type="text/javascript" src="js/jqGrid/js/jquery-1.9.1.js"></script>
-<script type="text/javascript" src="js/sitejs/regist.js"></script>
-<script type="text/javascript" src="js/util/js/messageWindow.js"></script>
 <link href="img/css/main.css" type="text/css" rel="stylesheet" />
-<script src="js/messagebox/jquery.msgbox.js"></script>
-<script src="js/messagebox/jquery.dragndrop.min.js"></script>
 <link href="img/css/login.css" type="text/css" rel="stylesheet" />
 <link rel="stylesheet" href="js\messagebox\jquery.msgbox.css" />
+<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="js/sitejs/regist.js"></script>
+<script type="text/javascript" src="js/sitejs/changevalidcode.js"></script>
+<script type="text/javascript" src="js/util/js/messageWindow.js"></script>
+<script src="js/messagebox/jquery.msgbox.js"></script>
+<script src="js/messagebox/jquery.dragndrop.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title> </title>
 </head>
