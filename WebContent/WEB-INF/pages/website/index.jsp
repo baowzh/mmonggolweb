@@ -106,11 +106,11 @@
 			</div>
 		</div>
 		<div class="card1" style="height: 340px; width: 430px;">
-			<div class="listCardTtl ttlStl1" style="height: 320px;">
-				<div class="ttl"> </div>
-				<div class="more">
-					<!-- 					<a href="#"> </a> -->
-				</div>
+			<div class="listCardTtl ttlStl1" style="height: 340px;">
+				<div class="top"></div>
+				<div class="ttl" style="height: 160px;"> </div>
+				<div class="more"></div>
+				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody" style="height: 330px;">
 				<c:forEach items="${indexPageContent.selecteddocs}"
@@ -134,9 +134,11 @@
 			</div>
 		</div>
 		<div class="card2" style="height: 340px; width: 170px;">
-			<div class="listCardTtl ttlStl1" style="height: 320px;">
-				<div class="ttl"></div>
+			<div class="listCardTtl ttlStl1" style="height: 340px;">
+				<div class="top"></div>
+				<div class="ttl" style="height: 160px;"></div>
 				<div class="more"></div>
+				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody" style="height: 320px; padding-top: 30px;">
 				<form id="searchform" class="mglForm" method="post">
@@ -213,10 +215,9 @@
 		</div>
 		<div class="card1">
 			<div class="listCardTtl ttlStl1">
-				<div class="ttl"> </div>
-				<div class="more">
-					<!-- 					<a href="#"> </a> -->
-				</div>
+				<div class="top"></div>
+				<div class="ttl" style="height: 230px;"> </div>
+				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody">
 				<c:forEach items="${indexPageContent.recentDocs}"
@@ -241,10 +242,9 @@
 		</div>
 		<div class="card1">
 			<div class="listCardTtl ttlStl1">
-				<div class="ttl"> </div>
-				<div class="more">
-					<!-- 					<a href="#"> </a> -->
-				</div>
+				<div class="top"></div>
+				<div class="ttl" style="height: 230px;"> </div>
+				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody">
 				<c:forEach items="${indexPageContent.hotdocs}" var="documentValue"
@@ -274,10 +274,9 @@
 	<div class="layer m0a">
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
-				<div class="ttl"></div>
-				<div class="more">
-					<!-- 					<a href="#"> </a> -->
-				</div>
+				<div class="top"></div>
+				<div class="ttl" style="height: 230px;"></div>
+				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody" style="background: #eee;">
 				<div class=" avatar1">
@@ -334,10 +333,12 @@
 		</div>
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
+				<div class="top"></div>
 				<div class="ttl"> </div>
 				<div class="more">
 					<a href="pagingquery.do?docchannel=11111111111110"> </a>
 				</div>
+				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody">
 				<c:forEach items="${indexPageContent.newsarts}" var="documentValue"
@@ -364,10 +365,12 @@
 		</div>
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
+				<div class="top"></div>
 				<div class="ttl"> </div>
 				<div class="more">
 					<a href="pagingquery.do?docchannel=11111111111112"> </a>
 				</div>
+				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody">
 				<c:forEach items="${indexPageContent.historyarts}"
@@ -397,10 +400,9 @@
 	<div class="layer m0a">
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
-				<div class="ttl"></div>
-				<!-- 				<div class="more"> -->
-				<!-- 					<a href="#"> </a> -->
-				<!-- 				</div> -->
+				<div class="top"></div>
+				<div class="ttl" style="height: 230px;"></div>
+				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody">
 				<div class=" avatar1">
@@ -455,10 +457,12 @@
 		</div>
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
+				<div class="top"></div>
 				<div class="ttl">  </div>
 				<div class="more">
 					<a href="pagingquery.do?docchannel=32222233312227"> </a>
 				</div>
+				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody">
 				<c:forEach items="${indexPageContent.bookarts}" var="documentValue"
@@ -484,10 +488,12 @@
 		</div>
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
+				<div class="top"></div>
 				<div class="ttl"> </div>
 				<div class="more">
 					<a href="pagingquery.do?docchannel=11111111111113"> </a>
 				</div>
+				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody">
 				<c:forEach items="${indexPageContent.beliefarts}"
@@ -517,10 +523,9 @@
 	<div class="layer m0a">
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
-				<div class="ttl"></div>
-				<!-- 				<div class="more"> -->
-				<!-- 					<a href="#"> </a> -->
-				<!-- 				</div> -->
+				<div class="top"></div>
+				<div class="ttl" style="height: 230px;"></div>
+				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody">
 				<div class=" avatar1">
@@ -575,10 +580,12 @@
 		</div>
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
+				<div class="top"></div>
 				<div class="ttl">  </div>
 				<div class="more">
 					<a href="pagingquery.do?docchannel=11111111111113"> </a>
 				</div>
+				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody">
 				<c:forEach items="${indexPageContent.finance}" var="documentValue"
@@ -605,10 +612,12 @@
 		</div>
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
+				<div class="top"></div>
 				<div class="ttl"> </div>
 				<div class="more">
 					<a href="pagingquery.do?docchannel=11111111111114"> </a>
 				</div>
+				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody">
 				<c:forEach items="${indexPageContent.nature}" var="documentValue"
@@ -638,62 +647,14 @@
 	<div class="layer m0a">
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
+				<div class="top"></div>
 				<div class="ttl">  </div>
 				<div class="more">
 					<a href="#"> </a>
 				</div>
+				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody" style="background: #eee;">
-				<!--  
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-           -->
 				<c:forEach items="${indexPageContent.newUsers}" var="userValue"
 					varStatus="status">
 					<div class="xldgurg" style="height: 70px; width: 80px;">
@@ -716,10 +677,12 @@
 		</div>
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
+				<div class="top"></div>
 				<div class="ttl"> </div>
 				<div class="more">
 					<a href="pagingquery.do?docchannel=11111111111115"> </a>
 				</div>
+				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody">
 				<c:forEach items="${indexPageContent.literature}"
@@ -746,10 +709,12 @@
 		</div>
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
+				<div class="top"></div>
 				<div class="ttl"> </div>
 				<div class="more">
 					<a href="pagingquery.do?docchannel=11111111111132"> </a>
 				</div>
+				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody">
 				<c:forEach items="${indexPageContent.health}" var="documentValue"
@@ -774,25 +739,17 @@
 
 			</div>
 		</div>
-		<!--  
-		<div class="card4">
-			<div class="listCardTtl ttlStl1">
-				<div class="ttl">   </div>
-				<div class="more">
-					<a href="#"> </a>
-				</div>
-			</div>
-			<div class="listCardBody">asdf</div>
-		</div>
-		-->
+
 	</div>
 	<div class="layer m0a">
 		<div class="card5">
 			<div class="listCardTtl ttlStl1" style="height: 450px;">
-				<div class="ttl" style="height: 300px;"> </div>
-				<div class="more">
+				<div class="top"></div>
+				<div class="ttl" style="height: 231px;"> </div>
+				<div class="more" style="height: 110px;">
 					<a href="imgs.do"> </a>
 				</div>
+				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody" style="height: 450px;">
 				<c:forEach items="${indexPageContent.imgs}" var="imgValue"
@@ -813,62 +770,14 @@
 	<div class="layer m0a">
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
+				<div class="top"></div>
 				<div class="ttl">  :</div>
 				<div class="more">
 					<a href="searchblog.do"> </a>
 				</div>
+				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody" style="background: #eee;">
-				<!--  -
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-              -->
 				<c:forEach items="${indexPageContent.topUsers}" var="userValue"
 					varStatus="status">
 					<div class="xldgurg" style="height: 70px; width: 80px;">
@@ -891,10 +800,13 @@
 		</div>
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
+				<div class="top"></div>
 				<div class="ttl">:</div>
 				<div class="more">
 					<a href="pagingquery.do?docchannel=11111111111118"> </a>
 				</div>
+				<div class="ctail"></div>
+
 			</div>
 			<div class="listCardBody">
 				<c:forEach items="${indexPageContent.sport}" var="documentValue"
@@ -918,10 +830,12 @@
 		</div>
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
+				<div class="top"></div>
 				<div class="ttl"> </div>
 				<div class="more">
 					<a href="pagingquery.do?docchannel=11111111111122"> </a>
 				</div>
+				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody">
 				<c:forEach items="${indexPageContent.technicarts}"
@@ -948,10 +862,12 @@
 	<div class="layer m0a">
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
+				<div class="top"></div>
 				<div class="ttl"> </div>
 				<div class="more">
 					<a href="searchblog.do"> </a>
 				</div>
+				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody" style="background: #eee;">
 				<c:forEach items="${indexPageContent.topUsers}" var="userValue"
@@ -975,10 +891,12 @@
 		</div>
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
+				<div class="top"></div>
 				<div class="ttl"> </div>
 				<div class="more">
 					<a href="pagingquery.do?docchannel=32222233312226"> </a>
 				</div>
+				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody">
 				<c:forEach items="${indexPageContent.discussarts}"
@@ -1002,10 +920,12 @@
 		</div>
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
+				<div class="top"></div>
 				<div class="ttl"> </div>
 				<div class="more">
 					<a href="pagingquery.do?docchannel=11111111111119"> </a>
 				</div>
+				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody">
 				<c:forEach items="${indexPageContent.culture}" var="documentValue"
@@ -1033,10 +953,12 @@
 	<div class="layer m0a">
 		<div class="card5" style="height: 320px;">
 			<div class="listCardTtl ttlStl1">
-				<div class="ttl"></div>
-				<div class="more">
+				<div class="top"></div>
+				<div class="ttl" ></div>
+				<div class="more" >
 					<a href="videos.do"> </a>
 				</div>
+				<div class="ctail"></div>
 			</div>
 			<div class="videoBox">
 				<c:forEach items="${indexPageContent.videos}" var="imgValue"
@@ -1062,14 +984,16 @@
 	<div class="layer m0a">
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
+				<div class="top"></div>
 				<div class="ttl"></div>
 				<div class="more">
 					<a href="#"> </a>
 				</div>
+				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody" style="background: #eee;">
-				<c:forEach items="${indexPageContent.culture}"
-					var="documentValue" varStatus="status">
+				<c:forEach items="${indexPageContent.culture}" var="documentValue"
+					varStatus="status">
 					<div class="nwsl1">
 						<div class="title">
 							<a
@@ -1089,10 +1013,12 @@
 		</div>
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
+				<div class="top"></div>
 				<div class="ttl"> </div>
 				<div class="more">
 					<a href="#"> </a>
 				</div>
+				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody">
 				<c:forEach items="${indexPageContent.Anecdotes}" var="documentValue"
@@ -1116,10 +1042,12 @@
 		</div>
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
+				<div class="top"></div>
 				<div class="ttl"> </div>
 				<div class="more">
 					<a href="pagingquery.do?docchannel=11111111111121"> </a>
 				</div>
+				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody">
 				<c:forEach items="${indexPageContent.newKnowledge}"
@@ -1146,10 +1074,12 @@
 	<div class="layer m0a">
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
+				<div class="top"></div>
 				<div class="ttl">     </div>
 				<div class="more">
 					<a href="searchblog.do"> </a>
 				</div>
+				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody" style="background: #eee;">
 				<c:forEach items="${indexPageContent.recentLoginUsers}"
@@ -1173,10 +1103,12 @@
 		</div>
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
+				<div class="top"></div>
 				<div class="ttl"> </div>
 				<div class="more">
 					<a href="pagingquery.do?docchannel=32222233312222"> </a>
 				</div>
+				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody">
 				<c:forEach items="${indexPageContent.lawarts}" var="documentValue"
@@ -1200,10 +1132,12 @@
 		</div>
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
+				<div class="top"></div>
 				<div class="ttl"> </div>
 				<div class="more">
 					<a href="pagingquery.do?docchannel=32222233312224"> </a>
 				</div>
+				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody">
 				<c:forEach items="${indexPageContent.socialarts}"
@@ -1230,10 +1164,12 @@
 	<div class="layer m0a">
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
+				<div class="top"></div>
 				<div class="ttl">    </div>
 				<div class="more">
 					<a href="#"> </a>
 				</div>
+				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody" style="background: #eee;">
 				<c:forEach items="${indexPageContent.activeusers}" var="userValue"
@@ -1257,10 +1193,12 @@
 		</div>
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
+				<div class="top"></div>
 				<div class="ttl"> </div>
 				<div class="more">
 					<a href="pagingquery.do?docchannel=32222233332224"> </a>
 				</div>
+				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody">
 				<c:forEach items="${indexPageContent.monggoldiscuss}"
@@ -1284,10 +1222,12 @@
 		</div>
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
+				<div class="top"></div>
 				<div class="ttl"> </div>
 				<div class="more">
 					<a href="pagingquery.do?docchannel=11111111111128"> </a>
 				</div>
+				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody">
 				<c:forEach items="${indexPageContent.monggolian}"
@@ -1314,10 +1254,12 @@
 	<div class="layer m0a">
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
+				<div class="top"></div>
 				<div class="ttl">    </div>
 				<div class="more">
 					<a href="#"> </a>
 				</div>
+				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody" style="background: #eee;">
 				<c:forEach items="${indexPageContent.topUsers}" var="userValue"
@@ -1334,10 +1276,12 @@
 		</div>
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
+				<div class="top"></div>
 				<div class="ttl"> </div>
 				<div class="more">
 					<a href="pagingquery.do?docchannel=11111111111125"> </a>
 				</div>
+				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody">
 				<c:forEach items="${indexPageContent.musicarts}" var="documentValue"
@@ -1361,10 +1305,12 @@
 		</div>
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
+				<div class="top"></div>
 				<div class="ttl"> </div>
 				<div class="more">
 					<a href="pagingquery.do?docchannel=11111111111127"> </a>
 				</div>
+				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody">
 				<c:forEach items="${indexPageContent.humorous}" var="documentValue"

@@ -199,7 +199,7 @@
 	</div>
 	<%@ include file="tail.jsp"%>
 	<!-- 选择住地（省）-->
-	<div class="channelpanel" id="provinces" style="display: none">
+	<div class="channelpanel" id="provinces" style="display: none;font-size:15px;">
 		<div class="paneltitle">
 			<a href="javascript:showselpanel(false,'provinces');"
 				style="cursor: pointer"> <img src="img/gbchange.png" width="15"
@@ -208,7 +208,7 @@
 		<div class="channellist">
 			<c:forEach items="${districts}" var="districtValue"
 				varStatus="status">
-				<div class="mnlist" style="text-indent: 0px; height: 98px;">
+				<div class="mnlist" style="text-indent: 0px; height: 98px;width:24px;">
 					<a
 						onclick="javascript:changeSel('<c:out value="${districtValue.districtcode}"/>','<c:out value="${districtValue.districtname}"/>','district','provincename','provinces');loadChildDistrict('district',1);"
 						style="cursor: pointer" class=""><c:out
@@ -220,7 +220,7 @@
 		</div>
 	</div>
 	<!-- 选择住地（旗县）-->
-	<div class="channelpanel" id="hsiens" style="display: none">
+	<div class="channelpanel" id="hsiens" style="display: none;font-size:15px;">
 		<div class="paneltitle">
 			<a href="javascript:showselpanel(false,'hsiens');"
 				style="cursor: pointer"> <img src="img/gbchange.png" width="15"

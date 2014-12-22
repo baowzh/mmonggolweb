@@ -3,7 +3,7 @@
 }
 
 .jMsgbox-mainWrap {
-	border: #a61c1c 1px solid;
+	border: #1C67A6 1px solid;
 	background-color: #fff;
 	overflow: hidden;
 	vertical-align: top;
@@ -12,11 +12,11 @@
 }
 
 .jMsgbox-mainWrap input[type=text] {
-	border: 1px solid #3c99f7;
+	border: 1px solid #1C67A6;
 }
 
 .jMsgbox-mainWrap input[type=button] {
-	border: 1px solid #a61c1c;
+	border: 1px solid #1C67A6;
 	background-color: #a61c1c;
 	color: #fff;
 	font-weight: bold;
@@ -28,7 +28,8 @@
 
 .jMsgbox-headWrap {
 	border: 1px solid #fff;;
-	background-color: #a61c1c;;
+/* 	background-color: #a61c1c; */
+	background-color: #1C67A6;
 	color: #fff;
 	padding: 3px;
 }
