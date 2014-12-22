@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
+﻿<%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -105,14 +105,14 @@
 					style="width: 375px; height: 330px;"></div>
 			</div>
 		</div>
-		<div class="card1" style="height: 340px; width: 430px;">
+		<div class="card1" style="height: 340px; width: 440px;">
 			<div class="listCardTtl ttlStl1" style="height: 340px;">
 				<div class="top"></div>
-				<div class="ttl" style="height: 160px;"> </div>
+				<div class="ttl" style="height: 146px;"> </div>
 				<div class="more"></div>
 				<div class="ctail"></div>
 			</div>
-			<div class="listCardBody" style="height: 330px;">
+			<div class="listCardBody" style="height:340px;">
 				<c:forEach items="${indexPageContent.selecteddocs}"
 					var="documentValue" varStatus="status">
 					<div class="nwsl1">
@@ -133,10 +133,10 @@
 				</c:forEach>
 			</div>
 		</div>
-		<div class="card2" style="height: 340px; width: 170px;">
+		<div class="card2" style="height: 340px; width: 180px;">
 			<div class="listCardTtl ttlStl1" style="height: 340px;">
 				<div class="top"></div>
-				<div class="ttl" style="height: 160px;"></div>
+				<div class="ttl" style="height: 146px;"></div>
 				<div class="more"></div>
 				<div class="ctail"></div>
 			</div>
@@ -213,10 +213,10 @@
 				</div>
 			</div>
 		</div>
-		<div class="card1">
+		<div class="card1" style="margin: 2px 0px"> 
 			<div class="listCardTtl ttlStl1">
 				<div class="top"></div>
-				<div class="ttl" style="height: 230px;"> </div>
+				<div class="ttl" style="height: 216px;"> </div>
 				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody">
@@ -240,10 +240,10 @@
 				</c:forEach>
 			</div>
 		</div>
-		<div class="card1">
+		<div class="card1" style="margin: 2px 0px">
 			<div class="listCardTtl ttlStl1">
 				<div class="top"></div>
-				<div class="ttl" style="height: 230px;"> </div>
+				<div class="ttl" style="height: 216px;"> </div>
 				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody">
@@ -275,7 +275,7 @@
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
 				<div class="top"></div>
-				<div class="ttl" style="height: 230px;"></div>
+				<div class="ttl" style="height: 216px;"></div>
 				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody" style="background: #eee;">
@@ -401,7 +401,7 @@
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
 				<div class="top"></div>
-				<div class="ttl" style="height: 230px;"></div>
+				<div class="ttl" style="height: 216px;"></div>
 				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody">
@@ -524,7 +524,7 @@
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
 				<div class="top"></div>
-				<div class="ttl" style="height: 230px;"></div>
+				<div class="ttl" style="height: 216px;"></div>
 				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody">
@@ -742,10 +742,10 @@
 
 	</div>
 	<div class="layer m0a">
-		<div class="card5">
+		<div class="card5" >
 			<div class="listCardTtl ttlStl1" style="height: 450px;">
 				<div class="top"></div>
-				<div class="ttl" style="height: 231px;"> </div>
+				<div class="ttl" style="height: 217px;"> </div>
 				<div class="more" style="height: 110px;">
 					<a href="imgs.do"> </a>
 				</div>

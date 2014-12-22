@@ -38,7 +38,7 @@
 		<div class="wrp m0a ribbon"></div>
 		<div class="lmainR">
 			<div class="  lcell"
-				style="width: 990px; margin-top: 200px; overflow: visible;">
+				style="width: 1000px; margin-top: 196px; overflow: visible;">
 				<div class=" blogbody blogbodyC">
 					<!--   通过引用页面代替-->
 					<div class="blgL blgLC" id="blgL">

@@ -8,8 +8,8 @@
 <title></title>
 <link href="site/css/main.css" rel="stylesheet" type="text/css" />
 <link href="site/css/index.css" rel="stylesheet" type="text/css" />
-<link href="img/css/main.css" type="text/css" rel="stylesheet" />
-<link href="img/css/huh.css" type="text/css" rel="stylesheet" />
+<!-- <link href="img/css/main.css" type="text/css" rel="stylesheet" /> -->
+<!-- <link href="img/css/huh.css" type="text/css" rel="stylesheet" /> -->
 <link href="img/css/doccheck.css" type="text/css" rel="stylesheet" />
 <link href="img/css/listpages.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="js/jqGrid/js/jquery-1.9.1.js"></script>

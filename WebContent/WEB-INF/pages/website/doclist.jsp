@@ -21,10 +21,10 @@
 		<div class="wrp m0a ribbon"></div>
 		<div class="layer m0a">
 			<div class="card1"
-				style="height: 520px; width: 1000px; margin: 5px 0px;">
+				style="height: 520px; width: 1000px; margin: 0px 0px;">
 				<div class="listCardTtl ttlStl1" style="height: 520px;">
 					<div class="top"></div>
-					<div class="ttl" style="height: 430px;">
+					<div class="ttl" style="height: 416px;">
 						<c:out value="${channel.chnlname}" />
 					</div>
 					<div class="ctail"></div>
