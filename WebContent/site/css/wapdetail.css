@@ -1,7 +1,7 @@
 @font-face {
 	font-family: Mongol;
-	src: url(../../font/Mongol.woff) format("woff"), url(../../font/Mongol.ttf)
-		format("truetype");
+	src: url(../../font/Mongol.woff) format("woff"),
+		url(../../font/Mongol.ttf) format("truetype");
 }
 
 * {
@@ -11,7 +11,8 @@
 }
 
 html {
-/* 	background-color: #3aace8; */
+	/* 	background-color: #3aace8; */
+	
 }
 
 .wrap {
@@ -31,9 +32,8 @@ html {
 .main {
 	width: 100%;
 	background-color: #fff;
-/* 	height: 1284px; */
-    height:100%
-	min-height: 350px;
+	/* 	height: 1284px; */
+	height: 100% min-height: 350px;
 	overflow-x: scroll;
 	overflow-y: hidden;
 }
@@ -66,7 +66,6 @@ html {
 	width: 100%;
 }
 
-
 .con * {
 	margin-top: 5px;
 	text-indent: 1.2rem;
@@ -96,6 +95,33 @@ html {
 	-webkit-transform: translate(100%, 0%) rotate(90deg);
 }
 
+.con p {
+	margin-top: 10px;
+}
+
+/* .con img { */
+/* 	-ms-transform-origin: left top; */
+/* 	-ms-transform: translate(100%, 0%) rotate(90deg); */
+/* 	-moz-transform-origin: left top; */
+/* 	-moz-transform: translate(100%, 0%) rotate(90deg); */
+/* 	-o-transform-orign: left top; */
+/* 	-o-transform: translate(100%, 0%) rotate(90deg); */
+/* 	-webkit-transform-origin: left top; */
+/* 	-webkit-transform: translate(100%, 0%) rotate(90deg); */
+/* } */
+
+.rotateimg {
+	-ms-transform-origin: left top;
+	-ms-transform: translate(100%, 0%) rotate(90deg);
+	-moz-transform-origin: left top;
+	-moz-transform: translate(100%, 0%) rotate(90deg);
+	-o-transform-orign: left top;
+	-o-transform: translate(100%, 0%) rotate(90deg);
+	-webkit-transform-origin: left top;
+	-webkit-transform: translate(100%, 0%) rotate(90deg);
+	 margin-left: 300px;
+}
+
 .conimg p {
 	margin-top: 10px;
 }
@@ -103,7 +129,7 @@ html {
 .footer {
 	font-size: 1.5rem;
 	margin-top: 24px;
-/* 	background: url(mobile-css/bg.jpg); */
+	/* 	background: url(mobile-css/bg.jpg); */
 	-moz-box-shadow: 3px 3px 15px #000;
 	-webkit-box-shadow: 3px 3px 15px #000;
 	box-shadow: 3px 3px 15px #000;

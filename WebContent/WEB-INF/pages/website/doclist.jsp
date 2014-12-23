@@ -24,7 +24,7 @@
 				style="height: 520px; width: 1000px; margin: 0px 0px;">
 				<div class="listCardTtl ttlStl1" style="height: 520px;">
 					<div class="top"></div>
-					<div class="ttl" style="height: 416px;">
+					<div class="ttl" style="height: 411px;">
 						<c:out value="${channel.chnlname}" />
 					</div>
 					<div class="ctail"></div>

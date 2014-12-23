@@ -216,7 +216,7 @@
 		<div class="card1" style="margin: 2px 0px"> 
 			<div class="listCardTtl ttlStl1">
 				<div class="top"></div>
-				<div class="ttl" style="height: 216px;"> </div>
+				<div class="ttl" style="height: 211px;"> </div>
 				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody">
@@ -243,7 +243,7 @@
 		<div class="card1" style="margin: 2px 0px">
 			<div class="listCardTtl ttlStl1">
 				<div class="top"></div>
-				<div class="ttl" style="height: 216px;"> </div>
+				<div class="ttl" style="height: 211px;"> </div>
 				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody">
@@ -275,7 +275,7 @@
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
 				<div class="top"></div>
-				<div class="ttl" style="height: 216px;"></div>
+				<div class="ttl" style="height: 211px;"></div>
 				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody" style="background: #eee;">
@@ -401,7 +401,7 @@
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
 				<div class="top"></div>
-				<div class="ttl" style="height: 216px;"></div>
+				<div class="ttl" style="height: 211px;"></div>
 				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody">
@@ -524,7 +524,7 @@
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
 				<div class="top"></div>
-				<div class="ttl" style="height: 216px;"></div>
+				<div class="ttl" style="height: 211px;"></div>
 				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody">

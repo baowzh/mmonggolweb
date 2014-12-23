@@ -3,8 +3,10 @@
  */
 var q = function() {
 	setTimeout(scrollTo, 0, 0, 0);
-	var availWidth = parseInt(window.screen.availWidth);
-	var availHeight = parseInt(window.screen.availHeight);
+	var availHeight=$(window).height();
+	var availWidth=$(window).width();
+	//var availWidth = parseInt(window.screen.availWidth);
+	//var availHeight = parseInt(window.screen.availHeight);
 	$('#wrap').css('height', availHeight);
 	$('#wrap').css('width', availWidth);
 	$('#main').css('height', 400);

@@ -93,7 +93,7 @@ body {
 .ctail {
 	background: url(../img/ctail.jpg) repeat-y;
 	width:36px;
-	height:24px;
+	height:29px;
 	color: #C00;
 }
 
@@ -136,7 +136,7 @@ body {
 	-webkit-text-orientation: sideways-right;
 	line-height: 32px;
 	width: 36px;
-	height: 70px;
+	height: 65px;
 	text-align: right;
 	padding-bottom: 1em;
 	-moz-writing-mode: vertical-lr;
