@@ -70,7 +70,7 @@
 								<input type="hidden" id="hiddensharecount"
 									value="<c:out value="${documentValue.sharecount}" />">
 								<div class="shareBookmark">
-									 
+									 
 									<c:out value="${documentValue.docchannelname}" />
 									<br> <a href="javascript:sharedocument()"> </a>
 									<span id="sharecount"><c:out

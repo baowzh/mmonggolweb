@@ -23,12 +23,13 @@
 		</form>
 	</div>
 </div>
-<div id="addfrienddiv" style="display: none">
+<div id="addfrienddiv" style="display: none; background-color: #fff;">
 	<div class="comment">
 		<form action="addfriend.do" name="addfriendform" id="addfriendform">
 			<div class="flt mVsheet commentEdit" contentEditable="true"
 				id="addfriendmess" style="height: 300px; width: 170px !important"></div>
-			<div class="mnlist">
+			<div class="mnlist" style="text-align: center;"></div>
+			<div class="mnlist" style="text-align: center;">
 				<a
 					href="javascript:sendaddfriendmess('<c:out value="${user.userid}" />');">
 				</a>

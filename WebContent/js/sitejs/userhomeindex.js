@@ -345,9 +345,9 @@ var openaddfrienddl = function() {
 	}
 	$("#addfriendmess").text('     ');
 	$("#addfrienddiv").dialog({// addfriendmess 13347126631
-		height : 470,
-		width : 270,
-		resizable : true,
+		height : 490,
+		width : 300,
+		resizable : false,
 		modal : true
 
 	});
@@ -361,7 +361,7 @@ var openaddfrienddl = function() {
 var sendaddfriendmess = function(visiteduserid) {
 	// addfrienddiv
 	var mess = $("#addfriendmess").text();
-	alert(mess);
+	//alert(mess);
 	$
 			.ajax({
 				async : false,

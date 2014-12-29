@@ -148,7 +148,7 @@
 										<div class="artList"></div>
 									</th>
 									<th>
-										<div class="artList"> </div>
+										<div class="artList"> </div>
 									</th>
 									<th>
 										<div class="artList"></div>

@@ -242,6 +242,7 @@ public class WebSiteVisitorManagerImpl extends BaseManagerImpl implements
 			paingModelVide0.setEndrow(3);// fetchcount
 			paingModelVide0.setDocstatus(2);
 			paingModelVide0.setFlash(1);
+			paingModelVide0.setInindex(1);
 			List<DocumentValue> documents = this.webSiteVisitorDao
 					.pagingquerydoc(paingModelVide0);
 			indexPageContent.put("videos", documents);

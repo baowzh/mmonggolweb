@@ -61,8 +61,8 @@
 									<div class="folder photoAlbumC">
 										<div style="width: 80px; margin: 4em 2em;">
 											<div class=" msheet">
-												<a href="#"> <br /> <br /> <br />
-													<br />  <br />
+												<a href="#">
+												 <br /><br /> <br />  <br>
 												</a>
 											</div>
 										</div>
@@ -91,14 +91,14 @@
 										</div>
 									</c:forEach>
 
-									<div class="folder photoAlbumC">
-										<div style="width: 80px; margin: 4em 2em;">
-											<div class=" msheet" style="font-size: 14px;">
-												<a href="#"> <br> <br> <br /> <br />
-												</a>
-											</div>
-										</div>
-									</div>
+<!-- 									<div class="folder photoAlbumC"> -->
+<!-- 										<div style="width: 80px; margin: 4em 2em;"> -->
+<!-- 											<div class=" msheet" style="font-size: 14px;"> -->
+<!-- 												<a href="#"> <br> <br> <br /> <br /> -->
+<!-- 												</a> -->
+<!-- 											</div> -->
+<!-- 										</div> -->
+<!-- 									</div> -->
 
 								</div>
 

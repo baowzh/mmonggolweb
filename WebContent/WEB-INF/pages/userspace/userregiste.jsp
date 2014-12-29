@@ -29,7 +29,7 @@
 						<form class="mglForm" action="doregiste.do" id="userinfoform"
 							method="post">
 							<div class="label">  </div>
-							<div class="label">  :</div>
+							<div class="label">:</div>
 							<div class="label">  </div>
 							<div class="label">
 								  <a href="javascript:replaceverifycode();"></a>
@@ -59,7 +59,7 @@
 							</div>
 							<div class="mnlist">
 								<a href="javascript:doregist();"></a> &nbsp;&nbsp;<a
-									href="index.html"></a>
+									href="index.do"></a>
 							</div>
 						</form>
 					</div>

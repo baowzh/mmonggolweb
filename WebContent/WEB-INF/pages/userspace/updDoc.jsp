@@ -65,7 +65,7 @@
 					<div class="flt"
 						style="width: 90px; height: 600px; background: #def">
 						<div class="label">  </div>
-						<div class="label">   :</div>
+						<div class="label">   :</div>
 						<div class="label">   :</div>
 						<c:if test="${agentkind==1}">
 							<div class="inputHolder">
@@ -87,7 +87,7 @@
 								style="writing-mode: tb-rl; -webkit-writing-mode: vertical-lr">
 								<option>option 1</option>
 								<option>option 1</option>
-								<option>  </option>
+								<option>  </option>
 							</select>
 						</div>
 						<c:if test="${agentkind==1}">
@@ -182,7 +182,7 @@
 			return;
 		}
 		if (docchannel == null || docchannel == '') {
-			MessageWindow.showMess('         ');
+			MessageWindow.showMess('         ');
 			return;
 		}
 		var editor1 = CKEDITOR.instances.editor1.getData();

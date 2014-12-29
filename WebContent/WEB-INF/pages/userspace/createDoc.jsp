@@ -74,7 +74,7 @@
 					<div class="flt"
 						style="width: 90px; height: 520px; background: #def; border-radius: 5px; border: solid 1px #def; padding-top: 1px;">
 						<div class="label">  </div>
-						<div class="label">   :</div>
+						<div class="label">   :</div>
 						<div class="label">   :</div>
 						<c:if test="${agentkind==1}">
 							<div class="inputHolder">
@@ -94,7 +94,7 @@
 							type="hidden" name="userid" id="userid" value="" />
 						<!-- 						<div class="inputHolder"> -->
 						<div class=selectchannel>
-							<div id="channel" class="channel"></div>
+							<div id="channel" class="channel"></div>
 							<div class="selch">
 								<a href="javascript:showselePanel(true);"></a>
 							</div>
@@ -220,7 +220,7 @@
 			return;
 		}
 		if (docchannel == null || docchannel == '') {
-			MessageWindow.showMess('     ');
+			MessageWindow.showMess('     ');
 			return;
 		}
 		var editor1 = CKEDITOR.instances.editor1.getData();

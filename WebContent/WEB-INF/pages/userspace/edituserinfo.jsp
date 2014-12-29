@@ -221,7 +221,7 @@
 							</div>
 							<div class="mnlist">
 								<a href="javascript:dosubmit();"> </a> &nbsp;&nbsp;<a
-									href="index.html"></a>
+									href="index.do"></a>
 							</div>
 
 						</form>

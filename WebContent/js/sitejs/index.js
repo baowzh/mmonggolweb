@@ -271,7 +271,7 @@ var getpass = function() {
 			MessageWindow.showMess('    ');
 		},
 		success : function(data) { // 请求成功后处理函数。
-			// window.location.href = 'index.html';
+			// window.location.href = 'index.do';
 			if (data.mess == 1) {
 				MessageWindow.showMess('    email:'
 						+ data.mailaddress + '   ');

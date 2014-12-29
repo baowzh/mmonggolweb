@@ -197,8 +197,8 @@ var showuserinfo = function(userid) {
 var openaddfrienddl = function() {
 	$("#addfriendmess").val('          ');
 	$("#addfrienddiv").dialog({// addfriendmess 13347126631
-		height : 480,
-		width : 190,
+		height : 490,
+		width : 300,
 		resizable : false,
 		modal : true
 

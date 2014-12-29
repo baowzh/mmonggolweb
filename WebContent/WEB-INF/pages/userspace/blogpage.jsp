@@ -114,7 +114,7 @@
 				<!--							  <a href="#">  </a>   -->
 				<!--							  <a href="#">   </a>   -->
 
-				<a href="photoAlbumList.do?userid=<c:out value="${user.userid}" />"></a>
+				<a href="photoAlbumList.do?userid=<c:out value="${user.userid}" />"></a>
 				 <a href="friendlist.do?userid=<c:out value="${user.userid}" />"></a>
 				 <a href="#"> </a>
 			</div>
