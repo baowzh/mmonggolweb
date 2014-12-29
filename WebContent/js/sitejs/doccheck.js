@@ -275,3 +275,36 @@ var addindexdoc = function() {
 		MessageWindow.showMess("    ");
 	}
 };
+var addindeximg = function() {
+	var boxes = $("input[name='docnamecheckbox']");
+	var ids = "";
+	boxes.each(function() {
+		if (this.checked) {
+			ids = ids + $(this).attr("id") + ',';
+		}
+	});
+	if (ids != "") {
+		$.ajax({
+			async : false,
+			cache : false,
+			type : 'POST',
+			dataType : "json",
+			url : "addSelectedDocs.do",// 请求的action路径
+			error : function() {// 请求失败处理函数
+				alert('请求失败');
+			},
+			data : {
+				docids : ids,
+				type : 6
+			},
+			success : function(data) { // 请求成功后处理函数。
+				if (data.success == '1') {
+					MessageWindow.showMess("   ");
+
+				}
+			}
+		});
+	} else {
+		MessageWindow.showMess("    ");
+	}
+};

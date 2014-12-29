@@ -722,7 +722,7 @@ public class BlogManagerAction {
 						byte reader[] = new byte[length];
 						inputStrram.read(reader);
 						inputStrram.close();
-						// imgValue.setImgcontent(reader);
+					    imgValue.setImgcontent(reader);
 					}
 
 				} catch (Exception ex) {

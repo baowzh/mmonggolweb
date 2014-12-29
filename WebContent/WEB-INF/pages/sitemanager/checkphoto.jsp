@@ -89,11 +89,14 @@
 					href="javascript:checkdoc();"><img src="img/auditimg.png" /></a></span> <span
 					class="spanstyle"><a href="javascript:deletedoc();"><img
 						src="img/deleteimg.png" /></a></span> <span class="spanstyle"><a
-					href="sitemanagerindex.do"><img src="img/goindex.png" /></a></span>
+					href="sitemanagerindex.do"><img src="img/goindex.png" /></a></span> <span
+					class="spanstyle"><a href="javascript:addindeximg();"><img
+						src="img/goindex.png" /></a></span>
+
 			</div>
-			<div class=" pagenav">
-				<c:out value="${linkstr}" escapeXml="false" />
-			</div>
+			<!-- 			<div class=" pagenav"> -->
+			<%-- 				<c:out value="${linkstr}" escapeXml="false" /> --%>
+			<!-- 			</div> -->
 		</div>
 		<!-- 		<div class="lmainR ofh" style="text-align: center;"> -->
 		<%-- 			<%@ include file="../website/tail.jsp"%>			 --%>

@@ -261,7 +261,7 @@
 							<!-- 收藏作品列表 -->
 
 							<div class="flt glryBox">
-								<div class="m0a" style="width: 660px; margin: 0px;">
+								<div class="m0a" style="width: 690px; margin: 0px;">
 									<c:if test="${self==1}">
 										<div class="addNewAlbum">
 											<div class="m1ln borderOuter"

@@ -43,7 +43,7 @@
 							<div class="flt glryBox">
 								<c:if test="${self==1}">
 									<div class="m0a"
-										style="width: 650px; height: 945px; margin: 0px;">
+										style="width: 690px; height: 945px; margin: 0px;">
 								</c:if>
 								<c:if test="${self==0}">
 									<div class="m0a"
@@ -60,7 +60,7 @@
 								<c:forEach items="${imgList}" var="imgValue" varStatus="status">
 									<c:if test="${self==1}">
 										<div class="displayfolder"
-											style="width: 150px; margin: 2px; 2 px; 2 px; 2 px; overflow: visible; padding-bottom: 2px;">
+											style="width: 164px; margin: 2px; 2 px; 2 px; 2 px; overflow: visible; padding-bottom: 2px;">
 											<a
 												href="javaScript:photoDetail('<c:out value="${imgValue.docid}" />')"><img
 												class="displayimg" style="width: 150px;"

@@ -169,6 +169,7 @@ public class WebSiteVisitorManagerImpl extends BaseManagerImpl implements
 		paingModel.setStartrow(0);
 		paingModel.setEndrow(10);
 		paingModel.setDocstatus(2);
+		paingModel.setInindex(1);
 		List<DocumentValue> images = this.webSiteVisitorDao
 				.pagingquerydoc(paingModel);
 		// 根据docid 获取img信息
