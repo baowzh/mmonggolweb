@@ -45,7 +45,7 @@
 							src="getimg.do?imgid=<c:out value="${imgValue.docid}" />"></a>
 						<c:if test="${imgValue.docstatus==2}">
 							已审核<input type="checkbox" name="docnamecheckbox"
-								id="<c:out value="${imgValue.docid}" />" >
+								id="<c:out value="${imgValue.docid}" />">
 						</c:if>
 						<c:if test="${imgValue.docstatus==1}">
 							未审核<input type="checkbox" name="docnamecheckbox"
@@ -89,19 +89,13 @@
 					href="javascript:checkdoc();"><img src="img/auditimg.png" /></a></span> <span
 					class="spanstyle"><a href="javascript:deletedoc();"><img
 						src="img/deleteimg.png" /></a></span> <span class="spanstyle"><a
-					href="sitemanagerindex.do"><img src="img/goindex.png" /></a></span> <span
-					class="spanstyle"><a href="javascript:addindexdoc();"><img
-						src="img/seltoindex.png" /></a></span>
+					href="javascript:addindexdoc();"><img src="img/seltoindex.png" /></a></span>
+				<span class="spanstyle"><a href="sitemanagerindex.do"><img
+						src="img/goindex.png" /></a></span>
 
 			</div>
-			<!-- 			<div class=" pagenav"> -->
-			<%-- 				<c:out value="${linkstr}" escapeXml="false" /> --%>
-			<!-- 			</div> -->
 		</div>
-		<!-- 		<div class="lmainR ofh" style="text-align: center;"> -->
-		<%-- 			<%@ include file="../website/tail.jsp"%>			 --%>
-		<!-- 			<div class="cbt"></div> -->
-		<!-- 		</div> -->
+
 		<div class="wrp m0a ribbon"></div
 	</form>
 </body>
