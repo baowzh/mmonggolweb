@@ -44,11 +44,11 @@
 							class="displayimg" style="width: 152px; height: 148px;"
 							src="getimg.do?imgid=<c:out value="${imgValue.docid}" />"></a>
 						<c:if test="${imgValue.docstatus==2}">
-							<input type="checkbox" name="docnamecheckbox"
-								id="<c:out value="${imgValue.docid}" />" checked="checked">
+							已审核<input type="checkbox" name="docnamecheckbox"
+								id="<c:out value="${imgValue.docid}" />" >
 						</c:if>
 						<c:if test="${imgValue.docstatus==1}">
-							<input type="checkbox" name="docnamecheckbox"
+							未审核<input type="checkbox" name="docnamecheckbox"
 								id="<c:out value="${imgValue.docid}" />">
 						</c:if>
 
@@ -90,8 +90,8 @@
 					class="spanstyle"><a href="javascript:deletedoc();"><img
 						src="img/deleteimg.png" /></a></span> <span class="spanstyle"><a
 					href="sitemanagerindex.do"><img src="img/goindex.png" /></a></span> <span
-					class="spanstyle"><a href="javascript:addindeximg();"><img
-						src="img/goindex.png" /></a></span>
+					class="spanstyle"><a href="javascript:addindexdoc();"><img
+						src="img/seltoindex.png" /></a></span>
 
 			</div>
 			<!-- 			<div class=" pagenav"> -->

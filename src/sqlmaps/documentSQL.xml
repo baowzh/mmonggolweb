@@ -827,4 +827,33 @@
 		delete from topdocument
 		where topdocument.docid in ($docids$)
 	</delete>
+	<select id="pagingqueryseldoc" parameterClass="com.mongolia.website.model.PaingModel"
+		resultClass="DocumentValue">
+		SELECT document.*,IFNULL(document.readcount,0) as ireadcount FROM
+		document,topdocument where document.docid=topdocument.docid  and topdocument.type=5
+		<dynamic prepend="and">
+			<isNotNull prepend="and" property="docchannel">
+				document.docchannel=#docchannel#
+			</isNotNull>
+			<isNotNull prepend="and" property="doctype">
+				document.doctype=#doctype#
+			</isNotNull>
+			<isNotNull prepend="and" property="docstatus">
+				document.docstatus=#docstatus#
+			</isNotNull>
+			<isNotNull prepend="and" property="userid">
+				document.userid=#userid#
+			</isNotNull>
+			<isNotNull prepend="and" property="imggroupid">
+				exists(select 1 from
+				imggroup,img where imggroup.imggroupid=img.imggroupid and
+				img.imgid=document.docid and imggroup.imggroupid=#imggroupid# )
+			</isNotNull>
+			<isNotNull prepend="and" property="flash">
+				flashurl is not null
+			</isNotNull>
+
+		</dynamic>
+		ORDER BY topdocument.startdate desc LIMIT #startrow#, #endrow#
+	</select>
 </sqlMap>

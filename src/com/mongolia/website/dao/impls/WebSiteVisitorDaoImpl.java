@@ -1,5 +1,6 @@
 package com.mongolia.website.dao.impls;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Date;
@@ -45,8 +46,17 @@ public class WebSiteVisitorDaoImpl extends BaseDaoiBatis implements
 	@Override
 	public List<DocumentValue> pagingquerydoc(PaingModel paingModel)
 			throws Exception {
-		List<DocumentValue> docs = this.getSqlMapClientTemplate().queryForList(
-				"pagingquerydoc", paingModel);
+		List<DocumentValue> docs = new ArrayList<DocumentValue>();
+		if (paingModel.getInindex() != null
+				&& paingModel.getInindex().intValue() == 1) {
+			docs = this.getSqlMapClientTemplate().queryForList(
+					"pagingqueryseldoc", paingModel);
+
+		} else {
+			docs = this.getSqlMapClientTemplate().queryForList(
+					"pagingquerydoc", paingModel);
+
+		}
 		DocumentValue docarray[] = new DocumentValue[docs.size()];
 		docs.toArray(docarray);
 		Arrays.sort(docarray, new Comparator<DocumentValue>() {
@@ -60,7 +70,6 @@ public class WebSiteVisitorDaoImpl extends BaseDaoiBatis implements
 		});
 
 		return Arrays.asList(docarray);
-		// return docs;
 	}
 
 	@Override
@@ -71,8 +80,8 @@ public class WebSiteVisitorDaoImpl extends BaseDaoiBatis implements
 	}
 
 	@Override
-	public List<UserValue> getTopUsers(Date startDate, Date endDate,Integer fetchcount)
-			throws Exception {
+	public List<UserValue> getTopUsers(Date startDate, Date endDate,
+			Integer fetchcount) throws Exception {
 		// TODO Auto-generated method stub
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("startDate", startDate);

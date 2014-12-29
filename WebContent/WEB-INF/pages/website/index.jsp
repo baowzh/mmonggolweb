@@ -758,7 +758,7 @@
 						<a
 							href="getimginfo.do?imgid=<c:out value="${imgValue.imgid}"/>&userid=<c:out value="${imgValue.userid}"/>"
 							target="_blank"><img
-							src="getimg.do?imgid=<c:out value="${imgValue.imgid}"/>" title=""></a>
+							src="getimg.do?imgid=<c:out value="${imgValue.imgid}"/>" title="" style="width:178px;height:208px;"></a>
 					</div>
 				</c:forEach>
 			</div>
