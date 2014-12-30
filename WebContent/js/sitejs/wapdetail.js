@@ -2,6 +2,7 @@ var q = function() {
 	setTimeout(scrollTo, 0, 0, 0);
 	var availHeight=$(window).height();
 	var availWidth=$(window).width();
+	$('.header').css('background-size', '' + availWidth + 'px 90px')
 	$('#wrap').css('height', availHeight);
 	$('#main').css('height', availHeight - 20);
 	$('#condiv').css('width', availHeight - 100);

@@ -18,26 +18,25 @@
 <script type="text/javascript" src="js/sitejs/waplist.js"></script>
 </head>
 <body onload="q();">
+	<div class="header">
+		<table width="100%" border="0" height="100%" cellspacing="0"
+			cellpadding="0">
+			<tr>
+				<td align="center" valign="middle"><a
+					href="javascript:window.open('s_index.asp','_self','');"> <!-- 						<img -->
+						<!-- 							src="mobile-css/a11.png" border="0" /> -->
+				</a></td>
+				<td align="center" valign="middle">
+					<!-- 					<img --> <!-- 						src="mobile-css/title1.png" /> -->
+				</td>
+				<td align="center" valign="middle"><a
+					href="javascript:history.go(-1)"> <!-- 						<img src="mobile-css/a2.png" -->
+						<!-- 							border="0" /> -->
+				</a></td>
+			</tr>
+		</table>
+	</div>
 	<div class="wrap" id="wrap">
-
-		<div class="header">
-			<table width="100%" border="0" height="100%" cellspacing="0"
-				cellpadding="0">
-				<tr>
-					<td align="center" valign="middle"><a
-						href="javascript:window.open('s_index.asp','_self','');"> <!-- 						<img -->
-							<!-- 							src="mobile-css/a11.png" border="0" /> -->
-					</a></td>
-					<td align="center" valign="middle">
-						<!-- 					<img --> <!-- 						src="mobile-css/title1.png" /> -->
-					</td>
-					<td align="center" valign="middle"><a
-						href="javascript:history.go(-1)"> <!-- 						<img src="mobile-css/a2.png" -->
-							<!-- 							border="0" /> -->
-					</a></td>
-				</tr>
-			</table>
-		</div>
 		<div class="main" id="main">
 			<div class="mon_div">
 				<ul class="montd" id="montdlist">

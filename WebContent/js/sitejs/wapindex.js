@@ -3,11 +3,10 @@
  */
 var q = function() {
 	setTimeout(scrollTo, 0, 0, 0);
-	var availHeight=$(window).height();
-	var availWidth=$(window).width();
-	//var availWidth = parseInt(window.screen.availWidth);
-	//var availHeight = parseInt(window.screen.availHeight);
-	$('#wrap').css('height', availHeight);
+	var availHeight = $(window).height();
+	var availWidth = $(window).width();
+	$('.header').css('background-size', '' + availWidth + 'px 90px')
+	$('#wrap').css('height', availHeight-90);
 	$('#wrap').css('width', availWidth);
 	$('#main').css('height', 400);
 	$('#main').css('width', availWidth);

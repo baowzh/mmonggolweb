@@ -27,6 +27,7 @@ html {
 	background: #3aace8;
 	border-bottom: #50cff3 solid 2px;
 	height: 90px;
+	background: url("../img/phonehead.jpg")
 }
 
 .logo {
@@ -37,7 +38,7 @@ html {
 	background: #3aace8;
 	text-align: center;
 	border-top: #50cff3 solid 2px;
-	height: 28px;
+	height: 40px;
 	font-size: 1rem;
 }
 
