@@ -25,12 +25,12 @@
 <body>
 	<form id="openphotoform" action="getimginfo.do" method="post">
 		<div class="wrp m0a logo">
-		<div class="naveFrame">
-			<%@ include file="bloghead.jsp"%>
+			<div class="naveFrame">
+				<%@ include file="bloghead.jsp"%>
+			</div>
+			<div class="cbt"></div>
 		</div>
-		<div class="cbt"></div>
-	</div>
-	<div class="wrp m0a ribbon"></div>
+		<div class="wrp m0a ribbon"></div>
 		<div class="lmainR">
 			<div class="  lcell"
 				style="width: 990px; margin-top: 196px; overflow: visible;">
@@ -79,37 +79,7 @@
 								</c:forEach>
 							</div>
 							<div class=" pagenav">
-
 								<c:out value="${pagingimgStr}" escapeXml="false" />
-								<!--  
-								<c:forEach items="${pagingindexs}" var="pagingindex"
-									varStatus="status">
-									<a
-										href="getimglist.do?userid=<c:out value="${user.userid}" />&imggroupid=<c:out value="${imggroupid}" />&pageindex=<c:out value="${pagingindex.pageindex}" />">
-										<c:if test="${pagingindex.doc==1}">
-											<c:if test="${pagingindex.front==1}">									 
-									              ..									 
-									            </c:if>
-										</c:if> <c:if test="${pagingindex.current==1}">
-											<span id="picbtn1" class="curspanstyle"> &nbsp;<c:out
-													value="${pagingindex.pageindex}" default="" />&nbsp;
-											</span>
-										</c:if> <c:if test="${pagingindex.current==0}">
-											<span id="picbtn1" class="spanstyle"> &nbsp;<c:out
-													value="${pagingindex.pageindex}" default="" />&nbsp;
-											</span>
-										</c:if> <c:if test="${pagingindex.doc==1}">
-											<c:if test="${pagingindex.front==0}">									 
-								             	 ..									 
-									            </c:if>
-
-										</c:if>
-									</a>
-
-								</c:forEach>
-								-->
-								<%-- 								( <a class="photo-page-nav"><c:out value="${imgcount}" --%>
-								<%-- 										default="0" /></a> ) --%>
 								<input type="hidden" name="userid" id="userid"
 									value="<c:out value="${user.userid}" />" /> <input
 									type="hidden" name="imggroupid" id="imggroupid"
@@ -130,12 +100,7 @@
 		</div>
 		</div>
 		<div class="lmainR ofh" style="text-align: center;">
-		<div class="wrp m0a ribbon"></div>
-<!-- 			<div class="tailCard"> -->
-<%-- 				<div class="msheet" style="height: 100px; width: 800px;"><%@ include --%>
-<%-- 						file="../website/tail.jsp"%></div> --%>
-<!-- 			</div> -->
-			<div class="cbt"></div>
+			<%@ include file="../website/tail.jsp"%>
 		</div>
 	</form>
 	<div style="display: none">
@@ -197,6 +162,6 @@
 	<!-- 隐藏的div -->
 	<%@ include file="bloghiddendiv.jsp"%>
 	<!-- 隐藏的div -->
-<!-- 	<div class="wrp m0a ribbon"></div> -->
+	<!-- 	<div class="wrp m0a ribbon"></div> -->
 </body>
 </html>

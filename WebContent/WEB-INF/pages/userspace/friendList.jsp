@@ -88,25 +88,6 @@
 							</div>
 							<div class=" pagenav">
 								<c:out value="${pagestr}" escapeXml="false" />
-								<!--  
-								<c:forEach items="${pageindexs}" var="index" varStatus="status">
-									<a
-										href="getimglist.do?userid=<c:out value="${user.userid}" />&imggroupid=<c:out value="${imggroupid}" />&pageindex=<c:out value="${index}" />">
-
-										<c:if test="${status.index==0}">
-											<span id="page<c:out value="${pagingIndex.pageindex}" />"
-												class="curspanstyle">&nbsp;<c:out
-													value="${index}" />&nbsp;
-											</span>
-										</c:if> <c:if test="${status.index!=0}">
-											<span id="page<c:out value="${index}" />"
-												class="spanstyle">&nbsp;<c:out
-													value="${pagingIndex.pageindex}" />&nbsp;
-											</span>
-										</c:if>
-									</a>
-								</c:forEach>
-								-->
 								<input type="hidden" name="userid" id="userid"
 									value="<c:out value="${user.userid}" />" />
 							</div>
@@ -119,14 +100,8 @@
 			</div>
 		</div>
 		<div class="lmainR ofh" style="text-align: center;">
-		<div class="wrp m0a ribbon"></div>
-<!-- 			<div class="tailCard"> -->
-<%-- 				<div class="msheet" style="height: 100px; width: 800px;"><%@ include --%>
-<%-- 						file="../website/tail.jsp"%></div> --%>
-<!-- 			</div> -->
-			<div class="cbt"></div>
+			<%@ include file="../website/tail.jsp"%>
 		</div>
 		<%@ include file="bloghiddendiv.jsp"%>
-		
 </body>
 </html>

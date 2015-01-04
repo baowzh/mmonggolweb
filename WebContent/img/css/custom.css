@@ -18,7 +18,8 @@ body {
 }
 
 .blogbodyC {
-	background: #FC9 url(../custom/beijing1.png;);
+/* 	background: #FC9 url(../custom/beijing1.png;); */
+background:#fff;
 }
 
 .name {

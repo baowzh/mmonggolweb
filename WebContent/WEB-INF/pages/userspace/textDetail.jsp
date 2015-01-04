@@ -54,9 +54,9 @@
 					<%@ include file="blogpage.jsp"%>
 				</div>
 				<div class="blgmain bglMainC" id="blgMain">
-					<div style="width: 690px; margin: 0px 10px 10px 10px;">
+					<div style="width: 690px; margin: 0px 10px 10px 0px;">
 
-						<div class="recentAcvtyBox contentArea">
+						<div class="recentAcvtyBox contentArea" style="width:720px;">
 							<div class="mVsheet " id="vs">
 								<div class="ScrollToView">
 									<div></div>
@@ -227,7 +227,7 @@
 							<!-- 调整位置 -->
 
 						</div>
-						<div class="flt txtBlogList">
+						<div class="flt txtBlogList" style="width:720px;margin-top:1px;">
 							<!-- 进度条 -->
 							<div class="loadingbox" style="display: none;"></div>
 							<!--  进度条-->
@@ -253,7 +253,7 @@
 								</div>
 							</div>
 						</div>
-						<div style="height: 10px; width: 100%; float: left"></div>
+<!-- 						<div style="height: 10px; width: 100%; float: left"></div> -->
 						<div class="cbt"></div>
 					</div>
 				</div>
@@ -262,12 +262,7 @@
 		</div>
 	</div>
 	<div class="lmainR ofh" style="text-align: center;">
-		<div class="wrp m0a ribbon"></div>
-		<!-- 		<div class="tailCard"> -->
-		<!-- 			<div class="msheet" style="height: 100px; width: 800px;"> -->
-		<%-- 				<%@ include file="../website/tail.jsp"%></div> --%>
-		<!-- 		</div> -->
-		<div class="cbt"></div>
+		<%@ include file="../website/tail.jsp"%>
 	</div>
 	<!-- 隐藏的div -->
 	<%@ include file="bloghiddendiv.jsp"%>

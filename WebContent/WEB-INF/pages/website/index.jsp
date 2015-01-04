@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>首页</title>
+<title> </title>
 <link href="site/css/main.css" rel="stylesheet" type="text/css" />
 <link href="site/css/index.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
@@ -112,7 +112,7 @@
 				<div class="more"></div>
 				<div class="ctail"></div>
 			</div>
-			<div class="listCardBody" style="height:340px;">
+			<div class="listCardBody" style="height: 340px;">
 				<c:forEach items="${indexPageContent.selecteddocs}"
 					var="documentValue" varStatus="status">
 					<div class="nwsl1">
@@ -213,7 +213,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="card1" style="margin: 2px 0px"> 
+		<div class="card1" style="margin: 2px 0px">
 			<div class="listCardTtl ttlStl1">
 				<div class="top"></div>
 				<div class="ttl" style="height: 211px;"> </div>
@@ -278,57 +278,59 @@
 				<div class="ttl" style="height: 211px;"></div>
 				<div class="ctail"></div>
 			</div>
-			<div class="listCardBody" style="background: #eee;">
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
+			<div class="listCardBody sheet" style="width: 290px; float: left;">
+				<div class="nrglgq">
+					<div class="tx">
+						<a href="#"> <img
+							src="getsmheadimge.do?userid=DFED340A56D311E482CDC5C98E32019F" />
+						</a>
+					</div>
+					<div class="m1ln"
+						style="float: left; word-break: break-all; width: 42px; line-height: 15px; font-size: 17px;">
+						  <br />  
+					</div>
 				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
+				<div class="nrglgq">
+					<div class="tx">
+						<a href="#"> <img src="img/vip.jpg" />
+						</a>
+					</div>
+					<div class="m1ln"
+						style="float: left; word-break: break-all; width: 40px; line-height: 15px; font-size: 17px;">
+						  <br /> 
+					</div>
 				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
+				<div class="nrglgq">
+					<div class="tx">
+						<a href="#"> <img
+							src="getsmheadimge.do?userid=B520DB06872011E4AC8DA373F64F00AB" />
+						</a>
+					</div>
+					<div class="m1ln"
+						style="float: left; word-break: break-all; width: 40px; line-height: 15px; font-size: 17px;">
+						  <br /> 
+					</div>
 				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
+				<div class="nrglgq">
+					<div class="tx">
+						<a href="#"> <img
+							src="getheadimge.do?userid=54863CDD8C1611E49E969B2F8109C083" />
+						</a>
+					</div>
+					<div class="m1ln"
+						style="float: left; word-break: break-all; width: 40px; line-height: 15px; font-size: 17px;">
+						  <br /> 
+					</div>
 				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
+				<div class="cleanr"></div>
+				<div class="nrglgq"
+					style="height: 90px; padding-top: 15px; font-size: 17px;">
+					<a class="vdrtgalSuld">     
+						</a> <a href="#"> </a><br /> <a href="#"></a> <br />
+					<a href="#">  </a> <br /> <a href="#">  </a> <br />
+					<a href="#"></a> <br /> <a href="#"> </a> <br />
+					<a href="#">  </a><br /> <a href="#"></a>
 				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-
-
 			</div>
 		</div>
 		<div class="card3">
@@ -405,53 +407,17 @@
 				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody">
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
+				<div class="nrglgq"
+					style="width: 295; height: 326px; line-height: 22px; padding-left: 8px;">
+					      <br />     
+					    <br />     
+					     <br />      
+					<br />      <br /> 
+					         <br />
+					    <br />    
+					 <br />          <br />
+					      <br />      
+					   
 				</div>
 			</div>
 		</div>
@@ -524,59 +490,10 @@
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
 				<div class="top"></div>
-				<div class="ttl" style="height: 211px;"></div>
+				<div class="ttl" style="height: 211px;"> </div>
 				<div class="ctail"></div>
 			</div>
-			<div class="listCardBody">
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-				<div class=" avatar1">
-					<img src="img/vip.jpg" width="63" />
-				</div>
-			</div>
+			<div class="listCardBody"></div>
 		</div>
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
@@ -742,7 +659,7 @@
 
 	</div>
 	<div class="layer m0a">
-		<div class="card5" >
+		<div class="card5">
 			<div class="listCardTtl ttlStl1" style="height: 450px;">
 				<div class="top"></div>
 				<div class="ttl" style="height: 217px;"> </div>
@@ -758,7 +675,8 @@
 						<a
 							href="getimginfo.do?imgid=<c:out value="${imgValue.imgid}"/>&userid=<c:out value="${imgValue.userid}"/>"
 							target="_blank"><img
-							src="getimg.do?imgid=<c:out value="${imgValue.imgid}"/>" title="" style="width:178px;height:208px;"></a>
+							src="getimg.do?imgid=<c:out value="${imgValue.imgid}"/>" title=""
+							style="width: 178px; height: 208px;"></a>
 					</div>
 				</c:forEach>
 			</div>
@@ -771,7 +689,7 @@
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
 				<div class="top"></div>
-				<div class="ttl">  :</div>
+				<div class="ttl">  </div>
 				<div class="more">
 					<a href="searchblog.do"> </a>
 				</div>
@@ -801,7 +719,7 @@
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
 				<div class="top"></div>
-				<div class="ttl">:</div>
+				<div class="ttl"></div>
 				<div class="more">
 					<a href="pagingquery.do?docchannel=11111111111118"> </a>
 				</div>
@@ -954,8 +872,8 @@
 		<div class="card5" style="height: 320px;">
 			<div class="listCardTtl ttlStl1">
 				<div class="top"></div>
-				<div class="ttl" ></div>
-				<div class="more" >
+				<div class="ttl"></div>
+				<div class="more">
 					<a href="videos.do"> </a>
 				</div>
 				<div class="ctail"></div>
@@ -1332,10 +1250,187 @@
 				</c:forEach>
 			</div>
 		</div>
+		<div class="layer m0a">
+			<div class="card3" style="width: 333px; height: 400px;">
+				<div class="listCardTtl ttlStl1" style="height: 400px;">
+					<div class="top"></div>
+					<div class="ttl" style="height: 210px;"></div>
+					<div class="more">
+						<a href="#"> </a>
+					</div>
+					<div class="ctail"></div>
+				</div>
+				<div class="listCardBody" style="width: 290px; height: 400px;">
+					<div class="nwsl1" style="height: 400px;">
+						<div class="title" style="height: 400px;">  
+							       </div>
+					</div>
+					<div class="nwsl1" style="height: 400px;">
+						<div class="title" style="height: 400px;">  
+							         </div>
+					</div>
+					<div class="nwsl1" style="height: 400px;">
+						<div class="title" style="height: 400px;">  
+							       </div>
+					</div>
+					<div class="nwsl1" style="height: 400px;">
+						<div class="title" style="height: 400px;"> 
+							       </div>
+					</div>
+					<div class="nwsl1" style="height: 400px;">
+						<div class="title" style="height: 400px;"> 
+							       </div>
+					</div>
+					<div class="nwsl1" style="height: 400px;">
+						<div class="title" style="height: 400px;">  
+							   </div>
+					</div>
+					<div class="nwsl1" style="height: 400px;">
+						<div class="title" style="height: 400px;">  
+							         </div>
+					</div>
+					<div class="nwsl1" style="height: 400px;">
+						<div class="title" style="height: 400px;">  
+							    </div>
+					</div>
+
+				</div>
+			</div>
+			<div class="card3" style="width: 667px; height: 400px;">
+				<div class="listCardTtl ttlStl1" style="height: 400px;">
+					<div class="top"></div>
+					<div class="ttl" style="height: 210px;"></div>
+					<div class="more">
+						<a href="#"> </a>
+					</div>
+					<div class="ctail"></div>
+				</div>
+				<div class="nrglgq"
+					style="width: 295; height: 310px; line-height: 23px; padding-left: 2px;">
+					<div class="nwsl1">
+						<div class="title">
+							<a href="#" target="_blank" class="tit_text_overflow">
+								   </a>
+						</div>
+
+					</div>
+					<div class="nwsl1">
+						<div class="title">
+							<a href="#" target="_blank" class="tit_text_overflow">
+								     </a>
+						</div>
+
+					</div>
+					<div class="nwsl1">
+						<div class="title">
+							<a href="#" target="_blank" class="tit_text_overflow">
+								   </a>
+						</div>
+
+					</div>
+					<div class="nwsl1">
+						<div class="title">
+							<a href="#" target="_blank" class="tit_text_overflow">
+								    </a>
+						</div>
+					</div>
+					<div class="nwsl1">
+						<div class="title">
+							<a href="#" target="_blank" class="tit_text_overflow">
+								  </a>
+						</div>
+					</div>
+					<div class="nwsl1">
+						<div class="title">
+							<a href="#" target="_blank" class="tit_text_overflow">
+								   </a>
+						</div>
+					</div>
+					<div class="nwsl1">
+						<div class="title">
+							<a href="#" target="_blank" class="tit_text_overflow">
+								   </a>
+						</div>
+					</div>
+					<div class="nwsl1">
+						<div class="title">
+							<a href="#" target="_blank" class="tit_text_overflow">
+								   </a>
+						</div>
+					</div>
+					<div class="nwsl1">
+						<div class="title">
+							<a href="#" target="_blank" class="tit_text_overflow">
+								    </a>
+						</div>
+					</div>
+					<div class="nwsl1">
+						<div class="title">
+							<a href="#" target="_blank" class="tit_text_overflow">
+								       </a>
+						</div>
+					</div>
+					<div class="nwsl1">
+						<div class="title">
+							<a href="#" target="_blank" class="tit_text_overflow">
+								       </a>
+						</div>
+					</div>
+					<div class="nwsl1">
+						<div class="title">
+							<a href="#" target="_blank" class="tit_text_overflow">
+								  </a>
+						</div>
+					</div>
+					<div class="nwsl1">
+						<div class="title">
+							<a href="#" target="_blank" class="tit_text_overflow">
+								   </a>
+						</div>
+					</div>
+					<div class="nwsl1">
+						<div class="title">
+							<a href="#" target="_blank" class="tit_text_overflow">
+								  </a>
+						</div>
+					</div>
+					<div class="nwsl1">
+						<div class="title">
+							<a href="#" target="_blank" class="tit_text_overflow">
+								    </a>
+						</div>
+					</div>
+					<div class="nwsl1">
+						<div class="title">
+							<a href="#" target="_blank" class="tit_text_overflow">
+								   </a>
+						</div>
+					</div>
+					<div class="nwsl1">
+						<div class="title">
+							<a href="#" target="_blank" class="tit_text_overflow"> 
+								 </a>
+						</div>
+					</div>
+					<div class="nwsl1">
+						<div class="title">
+							<a href="#" target="_blank" class="tit_text_overflow"> 
+								 </a>
+						</div>
+					</div>
+					<div class="nwsl1">
+						<div class="title">
+							<a href="#" target="_blank" class="tit_text_overflow"> 
+								 </a>
+						</div>
+					</div>
+					         13684719585
+				</div>
+			</div>
+		</div>
 		<div class="cls"></div>
 	</div>
-	<!-- 	<div class="wrp m0a ribbon"></div> -->
-	<div class="wrp m0a pagetail"></div>
+	<%@ include file="tail.jsp"%>
 </body>
 <script>
 	var pics1 = <c:out value="${indexPageContent.pics}" escapeXml="false" />;

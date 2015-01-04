@@ -8,7 +8,7 @@
 <title></title>
 <link href="site/css/main.css" rel="stylesheet" type="text/css" />
 <link href="site/css/index.css" rel="stylesheet" type="text/css" />
-<!-- <link href="img/css/main.css" type="text/css" rel="stylesheet" /> -->
+<link href="img/css/main.css" type="text/css" rel="stylesheet" />
 <!-- <link href="img/css/huh.css" type="text/css" rel="stylesheet" /> -->
 <link href="img/css/doccheck.css" type="text/css" rel="stylesheet" />
 <link href="img/css/listpages.css" type="text/css" rel="stylesheet" />
@@ -36,7 +36,7 @@
 					<table style="padding-top: 2em;" valign="top">
 						<tr>
 							<td>
-								<div class="m1ln h100">  </div>
+								<div class="m1ln h100"> </div>
 							</td>
 							<td>
 								<div class="inputHolder">
@@ -117,7 +117,7 @@
 					</table>
 				</div>
 				<div class="  artlistcell"
-					style="width: 840px; height: 598px; overflow: scroll;">
+					style="width: 870px; height: 598px; overflow: scroll;">
 					<div class="artListcell acell1">
 						<div class="anwsls1">
 							<table>
@@ -231,13 +231,6 @@
 			</div>
 		</form>
 	</div>
-<!-- 	<div class="wrp m0a ribbon"></div> -->
-<%@ include file="tail.jsp"%>
-	<!-- 	<div class="lmainR ofh" style="text-align: center;"> -->
-	<!-- 		<div class="tailCard"> -->
-	<%-- 			<%@ include file="../website/tail.jsp"%> --%>
-	<!-- 		</div> -->
-	<!-- 		<div class="cbt"></div> -->
-	<!-- 	</div> -->
+	<%@ include file="tail.jsp"%>
 </body>
 </html>
