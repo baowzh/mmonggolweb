@@ -154,5 +154,12 @@ public interface WebSiteManagerDao extends BaseDao {
 	 * @throws Exception
 	 */
 	public void deleteTopDocument(String docids) throws Exception;
+    /**
+     * 
+     * @param docid
+     * @param imgpath
+     * @throws Exception
+     */
+	public void setVideoface(String docid, String imgpath) throws Exception;
 
 }

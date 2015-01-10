@@ -43,8 +43,10 @@ import com.mongolia.website.model.QueryOpinionFrom;
 import com.mongolia.website.model.QueryUserForm;
 import com.mongolia.website.model.TopDocumentValue;
 import com.mongolia.website.model.UserValue;
+import com.mongolia.website.util.ImgeUtil;
 import com.mongolia.website.util.PageUtil;
 import com.mongolia.website.util.StaticConstants;
+import com.mongolia.website.util.UUIDMaker;
 
 /**
  * 网站管理
@@ -383,6 +385,40 @@ public class WebSiteManagerAction {
 				}
 			}
 			this.webSiteManager.doCreateTopDocument(topDocumentValue);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			return new ModelAndView("error", map);
+		}
+		return new ModelAndView("forward:articlelist.do", map);
+	}
+
+	@RequestMapping("/setvideoface.do")
+	public ModelAndView setvideoface(HttpServletRequest request,
+			TopDocumentValue topDocumentValue, ModelMap map) {
+		UserValue uservalue = (UserValue) request.getSession().getAttribute(
+				"user");
+		String imgname = "";
+		try {
+			String path = request.getSession().getServletContext()
+					.getRealPath("/html/img");
+			MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
+			MultiValueMap file = multipartRequest.getMultiFileMap();
+			Set<String> set = file.keySet();
+			Iterator iterator = set.iterator();
+			while (iterator.hasNext()) {
+				String name = (String) iterator.next();
+				List files = (List) file.get(name);
+				for (int i = 0; i < files.size(); i++) {
+					CommonsMultipartFile commonsMultipartFile = (CommonsMultipartFile) files
+							.get(i);
+					String OriginalFilename = commonsMultipartFile
+							.getOriginalFilename();
+					imgname = UUIDMaker.getUUID() + OriginalFilename;
+					ImgeUtil.CompressPic(commonsMultipartFile.getBytes(), path,
+							imgname);
+				}
+			}
+			this.webSiteManager.setVideoface(topDocumentValue.getVideoid(), "html/img/" + imgname);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			return new ModelAndView("error", map);

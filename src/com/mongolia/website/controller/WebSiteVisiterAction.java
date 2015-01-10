@@ -38,6 +38,7 @@ import com.mongolia.website.manager.interfaces.WebSiteVisitorManager;
 import com.mongolia.website.model.Channel;
 import com.mongolia.website.model.DistrictValue;
 import com.mongolia.website.model.DocumentValue;
+import com.mongolia.website.model.FriendValue;
 import com.mongolia.website.model.PagingIndex;
 import com.mongolia.website.model.PaingModel;
 import com.mongolia.website.model.QueryDocForm;
@@ -664,6 +665,25 @@ public class WebSiteVisiterAction {
 			e.printStackTrace();
 		}
 		return new ModelAndView("wap/detail", map);
+	}
+
+	@RequestMapping("/professionlist.do")
+	public ModelAndView professionlist(HttpServletRequest request,
+			QueryUserForm queryUserForm, ModelMap map) {
+		try {
+			if (queryUserForm.getPageindex() == null) {
+				queryUserForm.setPageindex(1);
+			}
+			queryUserForm.setUsername(queryUserForm.getSearchtext());
+			queryUserForm.setPagesize(120);
+			PaingModel<UserValue> paingUser = this.webSiteManager
+					.getUsers(queryUserForm);
+			map.put("users", paingUser.getModelList());
+			map.put("usercount", paingUser.getRowcount());
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return new ModelAndView("website/professionlist", map);
 	}
 
 }

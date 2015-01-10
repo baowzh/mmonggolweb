@@ -490,10 +490,29 @@
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
 				<div class="top"></div>
-				<div class="ttl" style="height: 211px;"> </div>
+				<div class="ttl"> </div>
+				<div class="more">
+					<a href="searchblog.do"> </a>
+				</div>
 				<div class="ctail"></div>
 			</div>
-			<div class="listCardBody"></div>
+			<c:forEach items="${indexPageContent.topUsers}" var="userValue"
+				varStatus="status">
+				<div class="xldgurg" style="height: 70px; width: 80px;">
+					<div class="avtr" style="width: 65px; float: left;">
+						<a
+							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />"><img
+							src="getsmheadimge.do?userid=<c:out value="${userValue.userid}" />"
+							style="width: 47px;" /></a>
+					</div>
+					<div class="m1ln" style="float: left;">
+						<a
+							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
+							&nbsp;<c:out value="${userValue.artname}" />
+						</a>
+					</div>
+				</div>
+			</c:forEach>
 		</div>
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
@@ -571,7 +590,7 @@
 				</div>
 				<div class="ctail"></div>
 			</div>
-			<div class="listCardBody" style="background: #eee;">
+			<div class="listCardBody">
 				<c:forEach items="${indexPageContent.newUsers}" var="userValue"
 					varStatus="status">
 					<div class="xldgurg" style="height: 70px; width: 80px;">
@@ -781,26 +800,23 @@
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
 				<div class="top"></div>
-				<div class="ttl"> </div>
+				<div class="ttl"> </div>
 				<div class="more">
-					<a href="searchblog.do"> </a>
+					<a href="#"></a>
 				</div>
 				<div class="ctail"></div>
 			</div>
-			<div class="listCardBody" style="background: #eee;">
-				<c:forEach items="${indexPageContent.topUsers}" var="userValue"
-					varStatus="status">
-					<div class="xldgurg" style="height: 70px; width: 80px;">
-						<div class="avtr" style="width: 65px; float: left;">
+			<div class="listCardBody"
+				style="background: #fff; padding-top: 2px; padding-left: 4px;">
+				<c:forEach items="${indexPageContent.professionValues}"
+					var="professionValue" varStatus="status">
+					<div class="nwsl1" style="height: 106px; width: 36px;">
+						<div class="nav2">
 							<a
-								href="gouserindex.do?userid=<c:out value="${userValue.userid}" />"><img
-								src="getsmheadimge.do?userid=<c:out value="${userValue.userid}" />"
-								style="width: 47px;" /></a>
-						</div>
-						<div class="m1ln" style="float: left;">
-							<a
-								href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-								&nbsp;<c:out value="${userValue.artname}" />
+								href="professionlist.do?pageindex=1&professioncode=<c:out value="${professionValue.professioncode}" />"
+								target="_blank" class="tit_text_overflow"> <c:out
+									value="${professionValue.professionname}" />
+
 							</a>
 						</div>
 					</div>
@@ -882,10 +898,23 @@
 				<c:forEach items="${indexPageContent.videos}" var="imgValue"
 					varStatus="status">
 					<div class="video" style="width: 303px; height: 320px;">
+					     <c:if test="${imgValue.facepath!=null}">
+							<a
+								href="getuserdocdetail.do?docid=<c:out value="${imgValue.docid}"/>"><img
+								src="<c:out value="${imgValue.facepath}"/>"
+								style="width: 280px; height: 318px;" /></a>
+						</c:if>
+						<c:if test="${imgValue.facepath==null}">
+							<a
+								href="getuserdocdetail.do?docid=<c:out value="${imgValue.docid}"/>"><img
+								src="img/vido.jpg" style="width: 280px; height: 318px;" /></a>
+						</c:if>
+						<!-- 
 						<a
 							href="getuserdocdetail.do?docid=<c:out value="${imgValue.docid}"/>">
 							<img src="img/vido.jpg" style="width: 280px; height: 318px;" />
 						</a>
+						 -->
 						<div class="m1ln"
 							style="height: 318px; width: 18px; padding-left: 5px;">
 							<c:out value="${imgValue.doctitle}" />

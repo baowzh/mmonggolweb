@@ -557,7 +557,22 @@ public class WebResourceManagerImpl implements WebResourceManager {
 					}
 					mati.appendTail(bufferi);
 					docContent = bufferi.toString();
-					//
+					// 替换MP3地址
+					matchStr = "\\{\\[[^\\)]+\\]\\}";
+					destStri = Pattern.compile(matchStr);// ^
+					mati = destStri.matcher(docContent);
+					bufferi = new StringBuffer();
+					while (mati.find()) {
+						String groupi = mati.group(0);
+						groupi = groupi.substring(2, groupi.length() - 2);
+						String embed = "<br><embed pluginspage=\"http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash\" type=\"video/x-ms-wmv\"  src=\""
+								+ groupi
+								+ "\" controls=\"smallconsole\" loop=\"false\" autostart=\"true\" quality=\"high\" width=\"430\" height=\"400\" ></embed>"
+								+ "";
+						mati.appendReplacement(bufferi, embed);
+					}
+					mati.appendTail(bufferi);
+					docContent = bufferi.toString();
 					documentValue.setHtmlstr(docContent);
 				}
 				// 添加读者次数

@@ -42,10 +42,10 @@
 						<!--  -->
 					</div>
 					<div class="blgmain bglMainC" id="blgMain">
-						<div style="width: 690px; margin: 0px 10px 10px 10px;">
+						<div style="width: 692px; margin: 0px 10px 10px 10px;">
 							<div class="flt glryBox">
 								<div class="m0a"
-									style="width: 660px; height: 900px; margin: 0px;">
+									style="width: 692px; height: 900px; margin: 0px;">
 									<c:if test="${self==1}">
 										<div class="addNewAlbum">
 											<div class="m1ln borderOuter" style="height: 110px;">

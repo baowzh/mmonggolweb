@@ -657,14 +657,13 @@ body {
 
 .vdrtgalSuld {
 	/* 	background: #3aace8; */
-/* 	background: #ddd; */
+	/* 	background: #ddd; */
 	display: block;
 	border: none;
-/* 	border-radius: 3px; */
-/* 	margin:2px; */
-/* 	color: white; */
+	/* 	border-radius: 3px; */
+	/* 	margin:2px; */
+	/* 	color: white; */
 	/* 	width:15px; */
-	
 }
 
 .sheet {
@@ -687,9 +686,10 @@ body {
 	width: 135px;
 	float: left;
 }
-.nrglgq a{
-text-decoration: none;
-	color: #666;	
+
+.nrglgq a {
+	text-decoration: none;
+	color: #666;
 }
 
 .tx {
@@ -704,4 +704,36 @@ text-decoration: none;
 	width: 85px;
 	height: 100px;
 }
+
+.nav2 {
+	white-space: nowrap;
+	writing-mode: tb-lr;
+	-webkit-writing-mode: vertical-lr;
+	-webkit-text-orientation: sideways-right;
+	-ms-text-orientation: sideways-right;
+	text-overflow: ellipsis;
+	line-height: 20px;
+	height: 100px;
+	overflow: hidden;
+	width: 28px;
+	height: 100px;
+	float: left;
+	text-align: center;
+ 	background: #128abf; 
+    /*background: -webkit-gradient(linear, left top, left bottom, from(#128abf), to(#123759)) ;*/
+	border-radius: 3px;
+	padding :2px;
+}
+.nav2 a{
+	text-decoration: none;
+	color: #fff;
+}
+.listblog {
+	border: solid 1px #ccc;
+	border-left: none;
+	padding-top: 4px;
+	overflow: hidden;
+	border-radius: 0px 5px 5px 0px;
+	background-image: url(../../img/arv_ag.jpg);
+	min-height:600px;
 }

@@ -600,7 +600,7 @@ public class BlogManagerAction {
 						imgGrpupValue.setFaceimg(reader);
 						imgGrpupValue.setImggroupid(UUIDMaker.getUUID());
 						imgGrpupValue.setFaceurl("/html/photoalbum/" + imgname);
-					    imgValue.setImgcontent(reader);
+						imgValue.setImgcontent(reader);
 					}
 				} catch (Exception ex) {
 					return new ModelAndView("sitemanager/error", map);
@@ -722,7 +722,7 @@ public class BlogManagerAction {
 						byte reader[] = new byte[length];
 						inputStrram.read(reader);
 						inputStrram.close();
-					    imgValue.setImgcontent(reader);
+						imgValue.setImgcontent(reader);
 					}
 
 				} catch (Exception ex) {
@@ -2241,6 +2241,46 @@ public class BlogManagerAction {
 			ex.printStackTrace();
 		}
 		return new ModelAndView("jsonView", map);
+	}
+
+	@RequestMapping("/toinderrtimg.do")
+	public ModelAndView toinderrtimg(HttpServletRequest request,
+			HttpServletResponse response, ModelMap map) {
+		return new ModelAndView("userspace/insertimg");
+	}
+
+	@RequestMapping("/inderrtimg.do")
+	public ModelAndView inderrtimg(HttpServletRequest request,
+			HttpServletResponse response, ModelMap map) {
+		String imgname = "";
+		try {
+			request.setCharacterEncoding("utf-8"); // 设置编码
+			// 获取文件需要上传到的路径
+			String path = request.getSession().getServletContext()
+					.getRealPath("/html/img");
+			MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
+			MultiValueMap file = multipartRequest.getMultiFileMap();
+			Set<String> set = file.keySet();
+			Iterator iterator = set.iterator();
+			while (iterator.hasNext()) {
+				String name = (String) iterator.next();
+				List files = (List) file.get(name);
+				for (int i = 0; i < files.size(); i++) {
+					CommonsMultipartFile commonsMultipartFile = (CommonsMultipartFile) files
+							.get(i);
+					String OriginalFilename = commonsMultipartFile
+							.getOriginalFilename();
+					imgname = UUIDMaker.getUUID() + OriginalFilename;
+					ImgeUtil.CompressPic(commonsMultipartFile.getBytes(), path,
+							imgname);
+				}
+			}
+			//
+			map.put("picurl", "html/img/" + imgname);
+		} catch (Exception ex) {
+			return new ModelAndView("sitemanager/error", map);
+		}
+		return new ModelAndView("userspace/insertimg", map);
 	}
 
 }

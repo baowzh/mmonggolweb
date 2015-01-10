@@ -435,10 +435,28 @@
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
 				<div class="top"></div>
-				<div class="ttl" style="height: 211px;"> </div>
+				<div class="ttl"> </div>
+				<div class="more">
+					<a href="searchblog.do"> </a>
+				</div>
 				<div class="ctail"></div>
 			</div>
-			<div class="listCardBody"></div>
+			<div class="listCardBody" style="background: #eee;">
+				<#if indexPageContent.topUsers??> <#list indexPageContent.topUsers
+				as userValue>
+				<div class="xldgurg" style="height: 70px; width: 80px;">
+					<div class="avtr" style="width: 65px; float: left;">
+						<a href="gouserindex.do?userid=${userValue.userid}"><img
+							src="getsmheadimge.do?userid=${userValue.userid}"
+							style="width: 47px;" /></a>
+					</div>
+					<div class="m1ln" style="float: left;">
+						<a href="gouserindex.do?userid=${userValue.userid}"> &nbsp;
+							${userValue.artname} </a>
+					</div>
+				</div>
+				</#list></#if>
+			</div>
 		</div>
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
@@ -694,26 +712,26 @@
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
 				<div class="top"></div>
-				<div class="ttl"> </div>
+				<div class="ttl"> </div>
 				<div class="more">
-					<a href="searchblog.do"> </a>
+					<a href="#"></a>
 				</div>
 				<div class="ctail"></div>
 			</div>
-			<div class="listCardBody" style="background: #eee;">
-				<#if indexPageContent.topUsers??> <#list indexPageContent.topUsers
-				as userValue>
-				<div class="xldgurg" style="height: 70px; width: 80px;">
-					<div class="avtr" style="width: 65px; float: left;">
-						<a href="gouserindex.do?userid=${userValue.userid}"><img
-							src="getsmheadimge.do?userid=${userValue.userid}"
-							style="width: 47px;" /></a>
+			
+			<div class="listCardBody"
+				style="background: #fff; padding-top: 2px; padding-left: 4px;">
+				<#if indexPageContent.professionValues??> <#list indexPageContent.professionValues
+				as professionValue>
+					<div class="nwsl1" style="height: 106px; width: 36px;">
+						<div class="nav2">
+							<a
+								href="professionlist.do?pageindex=1&professioncode=${professionValue.professioncode}"
+								target="_blank" class="tit_text_overflow">${professionValue.professionname}
+
+							</a>
+						</div>
 					</div>
-					<div class="m1ln" style="float: left;">
-						<a href="gouserindex.do?userid=${userValue.userid}"> &nbsp;
-							${userValue.artname} </a>
-					</div>
-				</div>
 				</#list></#if>
 			</div>
 		</div>
@@ -785,8 +803,17 @@
 				<#if indexPageContent.videos??> <#list indexPageContent.videos as
 				imgValue>
 				<div class="video" style="width: 303px; height: 320px;">
-					<a href="getuserdocdetail.do?docid=${imgValue.docid}"> <img
-						src="img/vido.jpg" style="width: 280px; height: 318px;" /></a>
+					<#if imgValue.facepath??>
+					<a
+								href="getuserdocdetail.do?docid=${imgValue.docid}"><img
+								src="${imgValue.facepath}"
+								style="width: 280px; height: 318px;" /></a>
+					 <#else>
+					 <a href="getuserdocdetail.do?docid=${imgValue.docid}"> <img
+						src="img/vido.jpg" style="width: 280px; height: 318px;" />
+						</a>
+					</#if>
+						
 					<div class="m1ln"
 						style="height: 318px; width: 18px; padding-left: 5px;">
 						${imgValue.doctitle}</div>

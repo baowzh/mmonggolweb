@@ -19,6 +19,7 @@ import com.mongolia.website.dao.interfaces.ChannelManagerDao;
 import com.mongolia.website.dao.interfaces.WebPageManagerDao;
 import com.mongolia.website.dao.interfaces.WebResourceDao;
 import com.mongolia.website.dao.interfaces.WebSiteVisitorDao;
+import com.mongolia.website.manager.interfaces.UserManager;
 import com.mongolia.website.manager.interfaces.WebSiteVisitorManager;
 import com.mongolia.website.model.DocumentValue;
 import com.mongolia.website.model.ImgNew;
@@ -26,6 +27,7 @@ import com.mongolia.website.model.ImgValue;
 import com.mongolia.website.model.MessageValue;
 import com.mongolia.website.model.PageChannelRelationValue;
 import com.mongolia.website.model.PaingModel;
+import com.mongolia.website.model.ProfessionValue;
 import com.mongolia.website.model.ProgramItem;
 import com.mongolia.website.model.ProgramValue;
 import com.mongolia.website.model.TopDocumentValue;
@@ -44,6 +46,8 @@ public class WebSiteVisitorManagerImpl extends BaseManagerImpl implements
 	private WebResourceDao webResourceDao;
 	@Autowired
 	private WebPageManagerDao webPageManagerDao;
+	@Autowired
+	private UserManager userManager;
 	@Autowired
 	private SysConfig sysConfig;
 
@@ -251,6 +255,9 @@ public class WebSiteVisitorManagerImpl extends BaseManagerImpl implements
 				StaticConstants.TOP_TYPE4, null,
 				sysConfig.getSelecteddoccount());
 		indexPageContent.put("selecteddocs", selecteddocs);
+		List<ProfessionValue> professionValues = userManager
+				.getProfessionValues(null, null);
+		indexPageContent.put("professionValues", professionValues);
 		return indexPageContent;
 	}
 

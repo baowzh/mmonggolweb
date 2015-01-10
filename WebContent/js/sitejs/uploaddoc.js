@@ -195,7 +195,7 @@ var inseralink = function() {
 	var matchstr = new RegExp(
 			"^http[s]?:\\/\\/([\\w-]+\\.)+[\\w-]+([\\w-./?%&=]*)?$");
 	var url = $("#linkurl").val();
-	if (url == null||url=='') {
+	if (url == null || url == '') {
 		MessageWindow.showMess("   ");
 		return;
 	}
@@ -319,11 +319,27 @@ var addimg = function() {
 /**
  * 插入图片
  */
+var insertlocalimg = function(imgpath) {
+	// 获取被选中的图片
+	// var imgid = $('#imgurl').val();
+	var img = '<img src=\"' + imgpath + '\"/><br>';
+	CKEDITOR.instances.editor1.insertHtml(img);
+	// $("#addimg").dialog("close");
+}
+/**
+ * 插入图片
+ */
 var insertmp3 = function() {
 	// 获取被选中的图片
-	var imgid = $('#mp3url').val();
-	var img = '<img src=\"' + imgid + '\"/>';
-	CKEDITOR.instances.editor1.insertHtml(img);
-	$("#addimg").dialog("close");
+	var matchstr = new RegExp(
+			"^http[s]?:\\/\\/([\\w-]+\\.)+[\\w-]+([\\w-./?%&=]*)?$");
+	url = $("#mp3url").val();
+	if (false == matchstr.test(url)) {
+		MessageWindow.showMess("MP3    ");
+		return;
+	} else {
+		var embed = "{[" + url + "]}";
+		CKEDITOR.instances.editor1.insertHtml(embed);
+		$("#addmp3").dialog("close");
+	}
 }
-

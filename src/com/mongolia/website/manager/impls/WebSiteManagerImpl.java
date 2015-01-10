@@ -326,6 +326,11 @@ public class WebSiteManagerImpl implements WebSiteManager {
 				&& queryUserForm.getEndregtime().equalsIgnoreCase("")) {
 			queryparams.put("endregtime", null);
 		}
+		if (queryUserForm.getProfessioncode() != null
+				&& !queryUserForm.getProfessioncode().equalsIgnoreCase("")) {
+			queryparams
+					.put("professioncode", queryUserForm.getProfessioncode());
+		}
 		queryparams.put("userkind", StaticConstants.USER_KIND1);
 		// 计算
 		if (queryUserForm.getPageindex() == null
@@ -420,6 +425,13 @@ public class WebSiteManagerImpl implements WebSiteManager {
 			docids = docids.substring(0, docids.length() - 1);
 		}
 		this.WebSiteManagerDao.deleteTopDocument(docids);
+	}
+
+	@Override
+	public void setVideoface(String docid, String imgpath) throws Exception {
+		// TODO Auto-generated method stub
+		this.WebSiteManagerDao.setVideoface(docid, imgpath);
+
 	}
 
 }

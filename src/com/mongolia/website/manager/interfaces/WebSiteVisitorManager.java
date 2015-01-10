@@ -43,5 +43,6 @@ public interface WebSiteVisitorManager extends BaseManager {
 	public List<TopDocumentValue> getTopDocuments(Integer type,String docid,Integer limit)throws Exception;
 	
 	
+	
 
 }

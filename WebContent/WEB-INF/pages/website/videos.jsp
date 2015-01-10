@@ -39,9 +39,17 @@
 				<c:forEach items="${paingModel.modelList}" var="imgValue"
 					varStatus="status">
 					<div class="folder" style="width: 240px; height: 250px;">
-						<a
-							href="getuserdocdetail.do?docid=<c:out value="${imgValue.docid}"/>"><img
-							src="img/vido.jpg" style="width: 201px; height: 250px;" /></a>
+						<c:if test="${imgValue.facepath!=null}">
+							<a
+								href="getuserdocdetail.do?docid=<c:out value="${imgValue.docid}"/>"><img
+								src="<c:out value="${imgValue.facepath}"/>"
+								style="width: 201px; height: 250px;" /></a>
+						</c:if>
+						<c:if test="${imgValue.facepath==null}">
+							<a
+								href="getuserdocdetail.do?docid=<c:out value="${imgValue.docid}"/>"><img
+								src="img/vido.jpg" style="width: 201px; height: 250px;" /></a>
+						</c:if>
 						<div class="m1ln" style="height: 250px;">
 							<c:out value="${imgValue.doctitle}" />
 						</div>

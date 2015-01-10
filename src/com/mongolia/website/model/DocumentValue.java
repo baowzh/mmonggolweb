@@ -77,6 +77,7 @@ public class DocumentValue {
 	private String compiler;
 	private String oldid;
 	private String flashurl;
+	private String facepath;
 	private SimpleDateFormat formater = new SimpleDateFormat("yyyy-MM-dd");
 
 	public String getDocid() {
@@ -671,5 +672,14 @@ public class DocumentValue {
 	public void setFlashurl(String flashurl) {
 		this.flashurl = flashurl;
 	}
+
+	public String getFacepath() {
+		return facepath;
+	}
+
+	public void setFacepath(String facepath) {
+		this.facepath = facepath;
+	}
+	
 
 }

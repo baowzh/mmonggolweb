@@ -856,4 +856,10 @@
 		</dynamic>
 		ORDER BY topdocument.startdate desc LIMIT #startrow#, #endrow#
 	</select>
+	<update id="setvideoface" parameterClass="java.util.Map">
+		update document set
+		document.facepath=#facepath#  where
+		docid=#docid#
+	</update>
+	
 </sqlMap>

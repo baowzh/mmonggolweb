@@ -41,6 +41,7 @@ public class TopDocumentValue {
 	private String title;
 	private String docauthor;
 	private String userid;
+	private String videoid;
 
 	public String getDocid() {
 		return docid;
@@ -128,6 +129,14 @@ public class TopDocumentValue {
 
 	public void setUserid(String userid) {
 		this.userid = userid;
+	}
+
+	public String getVideoid() {
+		return videoid;
+	}
+
+	public void setVideoid(String videoid) {
+		this.videoid = videoid;
 	}
 
 }

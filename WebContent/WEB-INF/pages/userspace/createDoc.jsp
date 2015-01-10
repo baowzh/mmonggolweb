@@ -122,20 +122,26 @@
 						<div>
 							<div class="mnlist"
 								style="padding-left: 10px; width: 40px; height: 570px;">
-								<a href="javascript:openimgwindow();"> &nbsp;</a> <a
-									href="javascript:openaddimgwindow();"> &nbsp;</a> <a
-									href="JavaScript:void(0)" id="message_face"> <img
+								<!--  
+								 <a href="javascript:openimgwindow();"> &nbsp;</a>
+								 -->
+<!-- 								  <a -->
+<!-- 									href="javascript:openaddimgwindow();"> &nbsp;</a> -->
+								
+								<iframe name="ad" src="toinderrtimg.do" width="25" height="340"
+									frameborder=0 allowtransparency="true" scrolling=no></iframe>
+								<a href="JavaScript:void(0)" id="message_face"> <img
 									src="img/pl_bq.png" />
 								</a> &nbsp; <a href="javascript:openvideowindow();">
-									&nbsp;</a> <a href="javascript:openlinkwindow();">
-									&nbsp;</a> <a href="javascript:openmp3window();">MP3
-									</a>
+									&nbsp;</a>
 							</div>
 						</div>
 						<div>
 							<div class="mnlist"
 								style="width: 24px; height: 400px; text-align: center;">
-								<a href="javascript:checkAndSubmit();"></a>&nbsp;&nbsp;
+								<a href="javascript:openlinkwindow();"> &nbsp;</a>
+								<a href="javascript:openmp3window();">MP3 </a>&nbsp;&nbsp; <a
+									href="javascript:checkAndSubmit();"></a>&nbsp;&nbsp;
 								<a href="javascript:openemfacewindow">&nbsp;&nbsp; </a>
 
 							</div>

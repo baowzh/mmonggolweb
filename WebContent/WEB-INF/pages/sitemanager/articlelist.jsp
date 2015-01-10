@@ -36,7 +36,7 @@
 	<div class="lmainR ofh">
 		<form action="articlelist.do" id="Form" method="post">
 			<div class="lmainR"
-				style="writing-mode: tb-lr; -webkit-writing-mode: vertical-lr;height:700px;">
+				style="writing-mode: tb-lr; -webkit-writing-mode: vertical-lr; height: 700px;">
 				<div style="height: 598px; border: solid 1px #eee;">
 					<table style="padding-top: 2em;" valign="top">
 						<tr>
@@ -258,15 +258,15 @@
 					</div>
 				</div>
 
-				<div class="mnlist" style="height: 700px;width:16px;">
+				<div class="mnlist" style="height: 700px; width: 16px;">
 					<a href="javascript:checkdoc();"></a>&nbsp;&nbsp;<a
-						href="javascript:addselecteddoc();"></a>&nbsp;&nbsp;<a
+						style="height: 50px;" href="javascript:addselecteddoc();"></a>&nbsp;&nbsp;<a
 						href="javascript:delselecteddoc();"> </a>&nbsp;&nbsp;<a
 						href="javascript:addindexdoc();">  </a>&nbsp;&nbsp;<a
 						href="javascript:deletedoc();"> </a>&nbsp;&nbsp;<a
-						href="javascript:asTopWriting();">  
-						</a> &nbsp;&nbsp;
-						<a href="sitemanagerindex.do"></a>
+						href="javascript:asTopWriting();">   </a>&nbsp;&nbsp;
+					<a href="javascript:opensetvideofacediv();">   </a>
+					&nbsp;&nbsp; <a href="sitemanagerindex.do"></a>
 				</div>
 			</div>
 		</form>
@@ -330,10 +330,47 @@
 			</form>
 		</div>
 	</div>
-<!-- 	<div class="lmainR ofh" style="text-align: center;">	 -->
-<%-- 		<%@ include file="../website/tail.jsp"%> --%>
-<!-- 		<div class="cbt"></div> -->
-<!-- 	</div> -->
-<div class="wrp m0a ribbon"></div>
+	<div class="lcell" style="width: 60px; height: 340px;display:none;"
+		id="setvideofacediv">
+		<form action="setvideoface.do" id="setvideofaceform" method="post"
+			enctype="multipart/form-data" />
+		<table border="0" style="margin: 1em auto;">
+			<tr>
+				<td height="100">
+					<div class="m1ln h100" style="height: 110px;">video 
+						 </div>
+				</td>
+				<td>
+					<div class="m1ln h100">video  :</div>
+				</td>
+
+			</tr>
+			<tr>
+				<td>
+					<div class="mfl">
+						<input type="text" name="videotitle" id="videotitle" /> <input
+							type="hidden" name="videoid" id="videoid" />
+					</div>
+				</td>
+				<td>
+					<div class="mfl">
+						<input type="file" name="videoimg" id="videoimg"
+							style="height: 210px;"></input>
+					</div>
+				</td>
+				<td>
+					<div class="m1ln h100">
+						<a href="javascript:setvideoimgface();"></a>
+					</div>
+				</td>
+			</tr>
+		</table>
+		</form>
+	</div>
+	<!-- 	<div class="lmainR ofh" style="text-align: center;">	 -->
+	<%-- 		<%@ include file="../website/tail.jsp"%> --%>
+	<!-- 		<div class="cbt"></div> -->
+	<!-- 	</div> -->
+	<div class="wrp m0a ribbon"></div>
 </body>
 </html>

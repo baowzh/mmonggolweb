@@ -516,6 +516,9 @@
 			<isNotNull prepend="and" property="userkind">
 				userkind=#userkind#
 			</isNotNull>
+			<isNotNull prepend="and" property="professioncode">
+				professioncode=#professioncode#
+			</isNotNull>
 		</dynamic>
 		order by regdate desc LIMIT #startindex#, #fetchcount#
 	</select>
@@ -546,6 +549,9 @@
 			</isNotNull>
 			<isNotNull prepend="and" property="userkind">
 				userkind=#userkind#
+			</isNotNull>
+			<isNotNull prepend="and" property="professioncode">
+				professioncode=#professioncode#
 			</isNotNull>
 		</dynamic>
 		order by regdate desc
