@@ -27,34 +27,8 @@ $(document).ready(
 
 			// 如果是修改
 			if ($('#opertype').val() == 2 || $('#opertype').val() == 3) {
-				$.ajax({
-					async : false,
-					cache : false,
-					type : 'POST',
-					dataType : "json",
-					url : "getdoc.do",// 请求的action路径
-					data : {
-						docid : $('#docid').val(),
-						opertype : $('#opertype').val()
-					},
-					error : function() {// 请求失败处理函数
-						MessageWindow.showMess('请求失败');
-					},
-					success : function(data) { // 请求成功后处理函数。
-						$('#editor1').val(data.documentValue.htmlstr);
-						$('#doctitle').val(data.documentValue.doctitle);
-						$('#docabstract').val(data.documentValue.docabstract);
-						$('#userid').val(data.documentValue.userid);
-						$('#channel').text(data.documentValue.docchannelname);
-						$('#docchannel').val(data.documentValue.docchannel);
-						$('#selch').html(
-								'<a href=\"javascript:showselePanel(true);\">'
-										+ data.documentValue.docchannelname
-										+ '</a>');
-					}
-				});
+				setTimeout('inithtml();', 1000);
 			}
-
 			//
 			$("#message_face").jqfaceedit({
 				txtAreaObj : $("#editor1"),
@@ -68,6 +42,35 @@ $(document).ready(
 			});
 
 		});
+var inithtml = function() {
+	$.ajax({
+		async : false,
+		cache : false,
+		type : 'POST',
+		dataType : "json",
+		url : "getdoc.do",// 请求的action路径
+		data : {
+			docid : $('#docid').val(),
+			opertype : $('#opertype').val()
+		},
+		error : function() {// 请求失败处理函数
+			MessageWindow.showMess('请求失败');
+		},
+		success : function(data) { // 请求成功后处理函数。
+			//$('#editor1').val(data.documentValue.htmlstr);
+			CKEDITOR.instances.editor1.insertHtml( data.documentValue.htmlstr );
+			$('#doctitle').val(data.documentValue.doctitle);
+			$('#docabstract').val(data.documentValue.docabstract);
+			$('#userid').val(data.documentValue.userid);
+			$('#channel').text(data.documentValue.docchannelname);
+			$('#docchannel').val(data.documentValue.docchannel);
+			$('#selch').html(
+					'<a href=\"javascript:showselePanel(true);\">'
+							+ data.documentValue.docchannelname + '</a>');
+		}
+	});
+
+};
 /**
  * 插入图片
  */
@@ -166,13 +169,15 @@ var insertvideo = function() {
 	var matchstr = new RegExp(
 			"^http[s]?:\\/\\/([\\w-]+\\.)+[\\w-]+([\\w-./?%&=]*)?$");
 	url = $("#flashurl").val();
-	if (false == matchstr.test(url)) {
-		MessageWindow.showMess("        ");
-		return;
-	} else {
-		var embed = "[[" + url + "]]";
-		CKEDITOR.instances.editor1.insertHtml(embed);
-	}
+	/*
+	 * if (false == matchstr.test(url)) { MessageWindow.showMess("
+	 *     "); return; } else { var embed = "[[" + url +
+	 * "]]";
+	 */
+	var element = CKEDITOR.dom.element.createFromHtml(url);
+	CKEDITOR.instances.editor1.insertElement(element);
+	// CKEDITOR.instances.editor1.insertHtml(embed);
+	// }
 	$("#addflash").dialog("close");
 }
 /**
