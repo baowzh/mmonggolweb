@@ -17,10 +17,10 @@ public class MessageValue {
 	private String artname;
 	private Integer received;
 	private Integer messtype;
-	private Integer hidden;
+	private Integer hidden=1;
 	private Integer status;
 	private String oldid;
-
+    private Integer showdel=0;
 	public String getMessageid() {
 		return messageid;
 	}
@@ -156,5 +156,14 @@ public class MessageValue {
 	public void setOldid(String oldid) {
 		this.oldid = oldid;
 	}
+
+	public Integer getShowdel() {
+		return showdel;
+	}
+
+	public void setShowdel(Integer showdel) {
+		this.showdel = showdel;
+	}
+	
 
 }

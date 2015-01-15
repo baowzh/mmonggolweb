@@ -2098,6 +2098,16 @@ public class BlogManagerAction {
 				}
 
 			}
+			// 设置是否显示删除按钮
+			if (sessionUser != null
+					&& (messageValue.getMessagesenderid().equalsIgnoreCase(
+							sessionUser.getUserid()) || messageValue
+							.getUserid().equalsIgnoreCase(
+									sessionUser.getUserid()))) {
+				messageValue.setShowdel(1);
+				messageValue.setHidden(0);
+			}
+
 		}
 
 	}

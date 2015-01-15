@@ -208,7 +208,7 @@
 												</c:if>
 
 											</p>
-											<c:if test="${self==1}">
+											<c:if test="${messageValue.showdel==1}">
 												<p>
 													<a
 														href="javascript:delcomment('<c:out value="${messageValue.messageid}" />');"></a><a

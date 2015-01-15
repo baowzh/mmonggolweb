@@ -7,6 +7,8 @@
 <title> </title>
 <link href="site/css/main.css" rel="stylesheet" type="text/css" />
 <link href="site/css/index.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="js\messagebox\jquery.msgbox.css" />
+<link rel="stylesheet" href="site/css/scroll.css" />
 <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="js/sitejs/index.js"></script>
 <script type="text/javascript" src="js/sitejs/changevalidcode.js"></script>
@@ -15,7 +17,12 @@
 <script type="text/javascript" src="js/sitejs/imgnews.js"></script>
 <script src="js/messagebox/jquery.msgbox.js"></script>
 <script src="js/messagebox/jquery.dragndrop.min.js"></script>
-<link rel="stylesheet" href="js\messagebox\jquery.msgbox.css" />
+<script type="text/javascript" src="js/scroll/utilities.js"></script>
+<script type="text/javascript" src="js/scroll/sodon-min.js"></script>
+<script type="text/javascript" src="js/scroll/JQScrollView.js"></script>
+<script type="text/javascript" src="js/scroll/scrollview-min.js"></script>
+<script type="text/javascript" src="js/scroll/scrollview-min.js"></script>
+<script type="text/javascript" src="js/scroll/jquery.totemticker.min.js"></script>
 <link href="icons/favicon.ico" type="image/x-icon" rel="ico">
 	<link href="icons/favicon.ico" type="image/x-icon" rel="shortcut icon">
 </head>
@@ -687,7 +694,7 @@
 				</div>
 				<div class="ctail"></div>
 			</div>
-			<div class="listCardBody" style="height: 450px;">
+			<div class="listImgBox" style="height: 450px;">
 				<c:forEach items="${indexPageContent.imgs}" var="imgValue"
 					varStatus="status">
 					<div class="thumb1">
@@ -714,7 +721,7 @@
 				</div>
 				<div class="ctail"></div>
 			</div>
-			<div class="listCardBody" style="background: #eee;">
+			<div class="listCardBody" style="background: #fff;">
 				<c:forEach items="${indexPageContent.topUsers}" var="userValue"
 					varStatus="status">
 					<div class="xldgurg" style="height: 70px; width: 80px;">
@@ -886,6 +893,7 @@
 
 	<div class="layer m0a">
 		<div class="card5" style="height: 320px;">
+			<!-- 
 			<div class="listCardTtl ttlStl1">
 				<div class="top"></div>
 				<div class="ttl"></div>
@@ -894,11 +902,12 @@
 				</div>
 				<div class="ctail"></div>
 			</div>
-			<div class="videoBox">
+			 -->
+			<div class="videoBox" id="videoBox">
 				<c:forEach items="${indexPageContent.videos}" var="imgValue"
 					varStatus="status">
 					<div class="video" style="width: 303px; height: 320px;">
-					     <c:if test="${imgValue.facepath!=null}">
+						<c:if test="${imgValue.facepath!=null}">
 							<a
 								href="getuserdocdetail.do?docid=<c:out value="${imgValue.docid}"/>"><img
 								src="<c:out value="${imgValue.facepath}"/>"
@@ -938,7 +947,7 @@
 				</div>
 				<div class="ctail"></div>
 			</div>
-			<div class="listCardBody" style="background: #eee;">
+			<div class="listCardBody" style="background: #fff;">
 				<c:forEach items="${indexPageContent.culture}" var="documentValue"
 					varStatus="status">
 					<div class="nwsl1">
@@ -1028,7 +1037,7 @@
 				</div>
 				<div class="ctail"></div>
 			</div>
-			<div class="listCardBody" style="background: #eee;">
+			<div class="listCardBody" style="background: #fff;">
 				<c:forEach items="${indexPageContent.recentLoginUsers}"
 					var="userValue" varStatus="status">
 					<div class="xldgurg" style="height: 70px; width: 80px;">
@@ -1118,7 +1127,7 @@
 				</div>
 				<div class="ctail"></div>
 			</div>
-			<div class="listCardBody" style="background: #eee;">
+			<div class="listCardBody" style="background: #fff;">
 				<c:forEach items="${indexPageContent.activeusers}" var="userValue"
 					varStatus="status">
 					<div class="xldgurg" style="height: 70px; width: 80px;">
@@ -1202,23 +1211,76 @@
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
 				<div class="top"></div>
-				<div class="ttl">    </div>
-				<div class="more">
-					<a href="#"> </a>
-				</div>
+				<div class="ttl" style="height:210px;">    </div>
 				<div class="ctail"></div>
 			</div>
-			<div class="listCardBody" style="background: #eee;">
-				<c:forEach items="${indexPageContent.topUsers}" var="userValue"
-					varStatus="status">
-					<div class=" avatar1">
-						<a
-							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />"
-							target="_blank"><img
-							src="getsmheadimge.do?userid=<c:out value="${userValue.userid}"/>"
-							title=""></a>
+			<div id="ticker-next" class="ticker-btn prev">
+				<span class="glyphicon glyphicon-chevron-up"></span>
+			</div>
+			<ul id="vertical-ticker">
+				<li>
+					<div class="xldgurg"
+						style="width: 290px; height: 270px; margin: 0px; border: none;">
+						<div class=" avatar">
+							<a
+								href="gouserindex.do?userid=<c:out value="${userValue.userid}" />"
+								target="_blank"><img src="img/book1.jpg" title=""
+								style="width: 220px; height: 270px;"></a>
+
+						</div>
+						<div class="m1ln"
+							style="float: left; padding-left: 15px; width: 60px;">
+							<a href="gouserindex.do?userid=8F995C07E46C11E3BB214D96A0031390">
+								&nbsp;   :   <br> &nbsp;
+									:100  <br> &nbsp;
+									  : 
+							</a>
+						</div>
 					</div>
-				</c:forEach>
+				</li>
+				<li>
+					<div class="xldgurg"
+						style="width: 290px; height: 270px; margin: 0px; border: none;">
+						<div class=" avatar">
+							<a
+								href="gouserindex.do?userid=<c:out value="${userValue.userid}" />"
+								target="_blank"><img src="img/book2.jpg" title=""
+								style="width: 220px; height: 270px;"></a>
+
+						</div>
+						<div class="m1ln"
+							style="float: left; padding-left: 15px; width: 60px;">
+							<a href="gouserindex.do?userid=8F995C07E46C11E3BB214D96A0031390">
+								&nbsp;   :     <br> &nbsp;
+									:100  <br> &nbsp;
+									  : 
+							</a>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="xldgurg"
+						style="width: 290px; height: 270px; margin: 0px; border: none;">
+						<div class=" avatar">
+							<a
+								href="gouserindex.do?userid=<c:out value="${userValue.userid}" />"
+								target="_blank"><img src="img/book3.jpg" title=""
+								style="width: 220px; height: 270px;"></a>
+
+						</div>
+						<div class="m1ln"
+							style="float: left; padding-left: 15px; width: 60px;">
+							<a href="gouserindex.do?userid=8F995C07E46C11E3BB214D96A0031390">
+								&nbsp;   :    <br> &nbsp;
+									:100  <br> &nbsp;
+									  : 
+							</a>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<div id="ticker-previous" class="ticker-btn prev">
+				<span class="glyphicon glyphicon-chevron-up"></span>
 			</div>
 		</div>
 		<div class="card3">
@@ -1470,5 +1532,25 @@
 	if (/msie/.test(navigator.userAgent.toLowerCase())) {
 		$("#searchtext").attr("style", "width:18px;height:275px;");
 	}
+	SODON.example.scrollViewHome = new SODON.widget.ScrollView("videoBox", {
+		nextButton : "home-scroll-next",
+		prevButton : "home-scroll-prev",
+		direction : "horizontal",
+		screenSize : 3,
+		itemWidth : 302,
+		itemHeight : 328,
+		itemSpace : 30,
+		waitTime : 3000, // Huleeh hugatsaa /by milli sec/
+		speed : 1, // Hudulguunii hurd /by sec/
+		auto : true,
+		repeat : "repeat-back"
+	});
+	$('#vertical-ticker').totemticker({
+		row_height : '100px',
+		next : '#ticker-next',
+		previous : '#ticker-previous',
+		stop : '#stop',
+		start : '#start'
+	});
 </script>
 </html>

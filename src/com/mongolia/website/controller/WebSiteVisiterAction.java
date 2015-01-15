@@ -38,7 +38,6 @@ import com.mongolia.website.manager.interfaces.WebSiteVisitorManager;
 import com.mongolia.website.model.Channel;
 import com.mongolia.website.model.DistrictValue;
 import com.mongolia.website.model.DocumentValue;
-import com.mongolia.website.model.FriendValue;
 import com.mongolia.website.model.PagingIndex;
 import com.mongolia.website.model.PaingModel;
 import com.mongolia.website.model.QueryDocForm;

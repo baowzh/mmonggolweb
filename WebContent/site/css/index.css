@@ -110,7 +110,7 @@ body {
 	padding-top: 4px;
 	overflow: hidden;
 	border-radius: 0px 5px 5px 0px;
-	background-image: url(../../img/arv_ag.jpg)
+/* 	background-image: url(../../img/arv_ag.jpg) */
 }
 
 .ttl {
@@ -504,6 +504,7 @@ body {
 	width: 950px;
 	margin-top: 0px;
 	padding: 0px;
+	overflow: hidden;
 }
 
 .videoBox .video {
@@ -569,7 +570,7 @@ body {
 	border-top: 1px solid #ccc;
 	background: #fff;
 	/* 	background: url(../img/tail.jpg); */
-	background-image: url(../../img/arv_ag.jpg)
+/* 	background-image: url(../../img/arv_ag.jpg) */
 }
 
 .footer-sec {
@@ -736,4 +737,13 @@ body {
 	border-radius: 0px 5px 5px 0px;
 	background-image: url(../../img/arv_ag.jpg);
 	min-height:600px;
+}
+.listImgBox {
+	border: solid 1px #ccc;
+	border-left: none;
+	height: 320px;
+	padding-top: 4px;
+	overflow: hidden;
+	border-radius: 0px 5px 5px 0px;
+	background-image: url(../../img/arv_ag.jpg)
 }

@@ -184,6 +184,12 @@ $(document)
 					} else {
 						$('#searchtext').addClass('iesearchtext');
 					}
+					// 设置视频为滚动区域
+					/*
+					$('#videoBox').slimScroll({
+         			    width: '950px',
+					    height: '329px'
+					});*/
 
 				}));
 /**
