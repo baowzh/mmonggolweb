@@ -11,6 +11,7 @@ import java.util.Map;
 import org.springframework.stereotype.Repository;
 
 import com.mongolia.website.dao.interfaces.WebSiteVisitorDao;
+import com.mongolia.website.model.BookStoreValue;
 import com.mongolia.website.model.DocumentValue;
 import com.mongolia.website.model.PaingModel;
 import com.mongolia.website.model.ProgramItem;
@@ -124,6 +125,16 @@ public class WebSiteVisitorDaoImpl extends BaseDaoiBatis implements
 		List<UserValue> users = this.getSqlMapClientTemplate().queryForList(
 				"getRecentLoginUsers", params);
 		return users;
+	}
+
+	@Override
+	public List<BookStoreValue> getSeltectedBooks(Integer dispalycount)
+			throws Exception {
+		// TODO Auto-generated method stub
+		Map<String, Object> queryparams = new HashMap<String, Object>();
+		queryparams.put("selcount", dispalycount);
+		return this.getSqlMapClientTemplate().queryForList("querySeltedBooks",
+				queryparams);
 	}
 
 }

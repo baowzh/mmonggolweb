@@ -96,9 +96,9 @@ var receivemessage = function() {
 						+ data.receiveMess[i].messagesenderid
 						+ ' \"> '
 						+ ' <img '
-						+ ' src=\"getsmheadimge.do?userid='
+						+ ' src=\"html/userhead/'
 						+ data.receiveMess[i].messagesenderid
-						+ '\"'
+						+ '.jpg\"'
 						+ ' width=\"570\" height=\"447\" />'
 						+ ' </a> <input type=\"checkbox\" name=\"selectbox\"'
 						+ ' id=\"'
@@ -129,10 +129,10 @@ var receivemessage = function() {
 						+ data.sendMess[i].userid
 						+ ' \"> '
 						+ ' <img '
-						+ ' src=\"getsmheadimge.do?userid='
+						+ ' src=\"html/userhead/'
 						+ data.sendMess[i].userid
-						+ '\"'
-						+ ' width=\"570\" height=\"447\" />'
+						+ '.jpg\"'
+						+ '  width=\"570\" height=\"447\" />'
 						+ ' </a> <input type=\"checkbox\" name=\"selectbox\"'
 						+ ' id=\"'
 						+ data.sendMess[i].userid

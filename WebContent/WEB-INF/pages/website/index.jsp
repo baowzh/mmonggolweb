@@ -289,7 +289,7 @@
 				<div class="nrglgq">
 					<div class="tx">
 						<a href="#"> <img
-							src="getsmheadimge.do?userid=DFED340A56D311E482CDC5C98E32019F" />
+							src="html/userhead/sorqin_20121113161432591.jpg" />
 						</a>
 					</div>
 					<div class="m1ln"
@@ -299,7 +299,7 @@
 				</div>
 				<div class="nrglgq">
 					<div class="tx">
-						<a href="#"> <img src="img/vip.jpg" />
+						<a href="#"> <img src="html/userhead/nv.jpg" />
 						</a>
 					</div>
 					<div class="m1ln"
@@ -310,7 +310,7 @@
 				<div class="nrglgq">
 					<div class="tx">
 						<a href="#"> <img
-							src="getsmheadimge.do?userid=B520DB06872011E4AC8DA373F64F00AB" />
+							src="html/userhead/nv.jpg" />
 						</a>
 					</div>
 					<div class="m1ln"
@@ -321,7 +321,7 @@
 				<div class="nrglgq">
 					<div class="tx">
 						<a href="#"> <img
-							src="getheadimge.do?userid=54863CDD8C1611E49E969B2F8109C083" />
+							src="html/userhead/nv.jpg" />
 						</a>
 					</div>
 					<div class="m1ln"
@@ -509,7 +509,7 @@
 					<div class="avtr" style="width: 65px; float: left;">
 						<a
 							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />"><img
-							src="getsmheadimge.do?userid=<c:out value="${userValue.userid}" />"
+							src="html/userhead/<c:out value="${userValue.headurl}" />"
 							style="width: 47px;" /></a>
 					</div>
 					<div class="m1ln" style="float: left;">
@@ -604,7 +604,7 @@
 						<div class="avtr" style="width: 65px; float: left;">
 							<a
 								href="gouserindex.do?userid=<c:out value="${userValue.userid}" />"><img
-								src="getsmheadimge.do?userid=<c:out value="${userValue.userid}" />"
+								src="html/userhead/<c:out value="${userValue.headurl}" />"
 								style="width: 47px;" /></a>
 						</div>
 						<div class="m1ln" style="float: left;">
@@ -701,7 +701,7 @@
 						<a
 							href="getimginfo.do?imgid=<c:out value="${imgValue.imgid}"/>&userid=<c:out value="${imgValue.userid}"/>"
 							target="_blank"><img
-							src="getimg.do?imgid=<c:out value="${imgValue.imgid}"/>" title=""
+							src="html/img/<c:out value="${imgValue.imgurl}"/>" title=""
 							style="width: 178px; height: 208px;"></a>
 					</div>
 				</c:forEach>
@@ -728,7 +728,7 @@
 						<div class="avtr" style="width: 65px; float: left;">
 							<a
 								href="gouserindex.do?userid=<c:out value="${userValue.userid}" />"><img
-								src="getsmheadimge.do?userid=<c:out value="${userValue.userid}" />"
+								src="html/userhead/<c:out value="${userValue.headurl}" />"
 								style="width: 47px;" /></a>
 						</div>
 						<div class="m1ln" style="float: left;">
@@ -1044,7 +1044,7 @@
 						<div class="avtr" style="width: 65px; float: left;">
 							<a
 								href="gouserindex.do?userid=<c:out value="${userValue.userid}" />"><img
-								src="getsmheadimge.do?userid=<c:out value="${userValue.userid}" />"
+								src="html/userhead/<c:out value="${userValue.headurl}" />"
 								style="width: 47px;" /></a>
 						</div>
 						<div class="m1ln" style="float: left;">
@@ -1134,7 +1134,7 @@
 						<div class="avtr" style="width: 65px; float: left;">
 							<a
 								href="gouserindex.do?userid=<c:out value="${userValue.userid}" />"><img
-								src="getsmheadimge.do?userid=<c:out value="${userValue.userid}" />"
+								src="html/userhead/<c:out value="${userValue.headurl}" />"
 								style="width: 47px;" /></a>
 						</div>
 						<div class="m1ln" style="float: left;">
@@ -1218,66 +1218,29 @@
 				<span class="glyphicon glyphicon-chevron-up"></span>
 			</div>
 			<ul id="vertical-ticker">
+			<c:forEach items="${indexPageContent.selBooks}"
+					var="bookStoreValue" varStatus="status">
 				<li>
 					<div class="xldgurg"
 						style="width: 290px; height: 270px; margin: 0px; border: none;">
 						<div class=" avatar">
 							<a
-								href="gouserindex.do?userid=<c:out value="${userValue.userid}" />"
-								target="_blank"><img src="img/book1.jpg" title=""
+								href="<c:out value="${bookStoreValue.booklink}" />"
+								target="_blank"><img src="html/img/<c:out value="${bookStoreValue.bookimg}" />" title=""
 								style="width: 220px; height: 270px;"></a>
 
 						</div>
 						<div class="m1ln"
 							style="float: left; padding-left: 15px; width: 60px;">
 							<a href="gouserindex.do?userid=8F995C07E46C11E3BB214D96A0031390">
-								&nbsp;   :   <br> &nbsp;
-									:100  <br> &nbsp;
-									  : 
+								&nbsp;   : <c:out value="${bookStoreValue.bookname}" /> <br> &nbsp;
+									:<c:out value="${bookStoreValue.bookprice}" />  <br> &nbsp;
+									  : <c:out value="${bookStoreValue.bookauthor}" /> 
 							</a>
 						</div>
 					</div>
 				</li>
-				<li>
-					<div class="xldgurg"
-						style="width: 290px; height: 270px; margin: 0px; border: none;">
-						<div class=" avatar">
-							<a
-								href="gouserindex.do?userid=<c:out value="${userValue.userid}" />"
-								target="_blank"><img src="img/book2.jpg" title=""
-								style="width: 220px; height: 270px;"></a>
-
-						</div>
-						<div class="m1ln"
-							style="float: left; padding-left: 15px; width: 60px;">
-							<a href="gouserindex.do?userid=8F995C07E46C11E3BB214D96A0031390">
-								&nbsp;   :     <br> &nbsp;
-									:100  <br> &nbsp;
-									  : 
-							</a>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="xldgurg"
-						style="width: 290px; height: 270px; margin: 0px; border: none;">
-						<div class=" avatar">
-							<a
-								href="gouserindex.do?userid=<c:out value="${userValue.userid}" />"
-								target="_blank"><img src="img/book3.jpg" title=""
-								style="width: 220px; height: 270px;"></a>
-
-						</div>
-						<div class="m1ln"
-							style="float: left; padding-left: 15px; width: 60px;">
-							<a href="gouserindex.do?userid=8F995C07E46C11E3BB214D96A0031390">
-								&nbsp;   :    <br> &nbsp;
-									:100  <br> &nbsp;
-									  : 
-							</a>
-						</div>
-					</div>
-				</li>
+				</c:forEach>
 			</ul>
 			<div id="ticker-previous" class="ticker-btn prev">
 				<span class="glyphicon glyphicon-chevron-up"></span>

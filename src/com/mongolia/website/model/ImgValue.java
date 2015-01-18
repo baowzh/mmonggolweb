@@ -16,6 +16,7 @@ public class ImgValue {
 	private Integer width;
 	private Integer height;
 	private byte[] imgcontent;
+	private byte[] img;
 	private Date crtime;
 	private String crtimestr;
 	private Integer sharecount = new Integer(0);
@@ -182,6 +183,14 @@ public class ImgValue {
 
 	public void setOldid(String oldid) {
 		this.oldid = oldid;
+	}
+
+	public byte[] getImg() {
+		return img;
+	}
+
+	public void setImg(byte[] img) {
+		this.img = img;
 	}
 
 }

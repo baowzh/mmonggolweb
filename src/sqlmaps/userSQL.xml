@@ -57,7 +57,8 @@
 		(select professionname from profession where
 		profession.professioncode=user.professioncode ) as professionname,
 		blogclass,
-		oldid
+		oldid,
+		headurl
 		from
 		user
 		<dynamic prepend="where">
@@ -248,6 +249,9 @@
 			</isNotNull>
 			<isNotNull prepend="," property="blogclass">
 				blogclass=#blogclass#
+			</isNotNull>
+			<isNotNull prepend="," property="headurl">
+				headurl=#headurl#
 			</isNotNull>
 		</dynamic>
 		where userid=#userid#
@@ -488,7 +492,8 @@
 		hsien,
 		nowhsien,
 		professioncode,
-		blogclass
+		blogclass,
+		headurl
 		from
 		user
 		<dynamic prepend="where">

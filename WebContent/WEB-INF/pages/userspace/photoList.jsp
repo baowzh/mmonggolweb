@@ -54,26 +54,32 @@
 										<div class="m1ln borderOuter" style="height: 110px;">
 											<a href="javascript:addnewimg();"> </a>
 										</div>
+										<div class="m1ln borderOuter"
+											style="height: 80px; margin-top: 5px; background: #eee url(img/delete.png) center top no-repeat;">
+											<a href="javascript:deleteimg();"> </a>
+										</div>
 
 									</div>
 								</c:if>
 								<c:forEach items="${imgList}" var="imgValue" varStatus="status">
 									<c:if test="${self==1}">
 										<div class="displayfolder"
-											style="width: 164px; margin: 2px; 2 px; 2 px; 2 px; overflow: visible; padding-bottom: 2px;">
+											style="width: 164px; height: 190px; margin: 2px; 2 px; 2 px; 2 px; overflow: visible; padding-bottom: 2px;">
 											<a
 												href="javaScript:photoDetail('<c:out value="${imgValue.docid}" />')"><img
-												class="displayimg" style="width: 150px;"
-												src="getimg.do?imgid=<c:out value="${imgValue.docid}" />"></a>
+												class="displayimg" style="width: 160px; height: 170px;"
+												src="html/img/<c:out value="${imgValue.docid}" />.jpg"></a>
+											<input type="checkbox" name="selectedimg"
+												id="<c:out value="${imgValue.docid}"/>">
 										</div>
 									</c:if>
 									<c:if test="${self==0}">
 										<div class="displayfolder"
-											style="width: 163px; margin: 2px; 2 px; 2 px; 2 px; overflow: visible; padding-bottom: 2px;">
+											style="width: 163px;height: 190px; margin: 2px; 2 px; 2 px; 2 px; overflow: visible; padding-bottom: 2px;">
 											<a
 												href="javaScript:photoDetail('<c:out value="${imgValue.docid}" />')"><img
-												class="displayimg" style="width: 163px;"
-												src="getimg.do?imgid=<c:out value="${imgValue.docid}" />"></a>
+												class="displayimg" style="width: 163px;height:100%;"
+												src="html/img/<c:out value="${imgValue.docid}" />.jpg"></a>
 										</div>
 									</c:if>
 								</c:forEach>

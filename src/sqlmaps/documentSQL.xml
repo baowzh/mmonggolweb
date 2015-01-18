@@ -861,5 +861,4 @@
 		document.facepath=#facepath#  where
 		docid=#docid#
 	</update>
-	
 </sqlMap>

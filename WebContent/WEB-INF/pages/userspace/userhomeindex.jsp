@@ -286,8 +286,16 @@
 										<div class="folder">
 											<a
 												href="javascript:openPhotoList('<c:out value="${imgGrpupValue.imggroupid}"/>')">
-												<img width="600" height="400"
-												src="getphotoalbumface.do?albumid=<c:out value="${imgGrpupValue.imggroupid}"/>"></img>
+												<c:if test="${imgGrpupValue.faceurl!=null}">
+												<img
+												width="600" height="400"
+												src="html/photoalbum/<c:out value="${imgGrpupValue.faceurl}"/>">
+												</c:if>
+												<c:if test="${imgGrpupValue.faceurl==null}">
+												<img
+												width="600" height="400"
+												src="html/photoalbum/imgface.jpg">
+												</c:if>
 											</a>
 											<div class="m1ln" style="text-align: center;">
 												<a title="<c:out value="${imgGrpupValue.imggroupname}"/>"
@@ -313,7 +321,7 @@
 											<div class="flt">
 												<div class="avatar" style="width: 75px; height: 75px">
 													<img
-														src="getsmheadimge.do?userid=<c:out value="${friendNews.userid}" />"
+														src="html/userhead/<c:out value="${friendNews.headurl}" />"
 														style="width: 75px; height: 75px" />
 												</div>
 												<a

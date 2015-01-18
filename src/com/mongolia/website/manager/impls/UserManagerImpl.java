@@ -56,6 +56,17 @@ public class UserManagerImpl implements UserManager {
 	@Override
 	public void doUpdateUser(UserValue userValue) throws Exception {
 		// TODO Auto-generated method stub
+		if (userValue.getHeadurl() == null) {
+			if (userValue.getSex() != null
+					|| userValue.getSex().intValue() == 1) {
+				userValue.setHeadurl("nan.jpg");
+			} else if (userValue.getSex() != null
+					|| userValue.getSex().intValue() == 0) {
+				userValue.setHeadurl("nv.jpg");
+			} else {
+				userValue.setHeadurl("nan.jpg");
+			}
+		}
 		userManagerDao.updateUser(userValue);
 	}
 

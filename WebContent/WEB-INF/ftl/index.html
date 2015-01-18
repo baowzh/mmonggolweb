@@ -256,7 +256,7 @@
 				<div class="nrglgq">
 					<div class="tx">
 						<a href="#"> <img
-							src="getsmheadimge.do?userid=DFED340A56D311E482CDC5C98E32019F" />
+							src="html/userhead/sorqin_20121113161432591.jpg" />
 						</a>
 					</div>
 					<div class="m1ln"
@@ -266,7 +266,7 @@
 				</div>
 				<div class="nrglgq">
 					<div class="tx">
-						<a href="#"> <img src="img/vip.jpg" />
+						<a href="#"> <img src="html/userhead/nv.jpg" />
 						</a>
 					</div>
 					<div class="m1ln"
@@ -277,7 +277,7 @@
 				<div class="nrglgq">
 					<div class="tx">
 						<a href="#"> <img
-							src="getsmheadimge.do?userid=B520DB06872011E4AC8DA373F64F00AB" />
+							src="html/userhead/nv.jpg" />
 						</a>
 					</div>
 					<div class="m1ln"
@@ -288,7 +288,7 @@
 				<div class="nrglgq">
 					<div class="tx">
 						<a href="#"> <img
-							src="getheadimge.do?userid=54863CDD8C1611E49E969B2F8109C083" />
+							src="html/userhead/nv.jpg" />
 						</a>
 					</div>
 					<div class="m1ln"
@@ -453,7 +453,7 @@
 				<div class="xldgurg" style="height: 70px; width: 80px;">
 					<div class="avtr" style="width: 65px; float: left;">
 						<a href="gouserindex.do?userid=${userValue.userid}"><img
-							src="getsmheadimge.do?userid=${userValue.userid}"
+							src="html/userhead/${userValue.headurl}"
 							style="width: 47px;" /></a>
 					</div>
 					<div class="m1ln" style="float: left;">
@@ -540,7 +540,7 @@
 				<div class="xldgurg" style="height: 70px; width: 80px;">
 					<div class="avtr" style="width: 65px; float: left;">
 						<a href="gouserindex.do?userid=${userValue.userid}"><img
-							src="getsmheadimge.do?userid=${userValue.userid}"
+							src="html/userhead/${userValue.headurl}"
 							style="width: 47px;" /></a>
 					</div>
 					<div class="m1ln" style="float: left;">
@@ -623,7 +623,7 @@
 				<div class="thumb1">
 					<a
 						href="getimginfo.do?imgid=${imgValue.imgid}&userid=${imgValue.userid}"
-						target="_blank"><img src="getimg.do?imgid=${imgValue.imgid}"
+						target="_blank"><img src="html/img/${imgValue.imgurl}"
 						title="" style="width: 178px; height: 208px;" /></a>
 				</div>
 				</#list></#if>
@@ -649,7 +649,7 @@
 				<div class="xldgurg" style="height: 70px; width: 80px;">
 					<div class="avtr" style="width: 65px; float: left;">
 						<a href="gouserindex.do?userid=${userValue.userid}"><img
-							src="getsmheadimge.do?userid=${userValue.userid}"
+							src="html/userhead/${userValue.headurl}"
 							style="width: 47px;" /></a>
 					</div>
 					<div class="m1ln" style="float: left;">
@@ -928,9 +928,11 @@
 				indexPageContent.recentLoginUsers as userValue>
 				<div class="xldgurg" style="height: 70px; width: 80px;">
 					<div class="avtr" style="width: 65px; float: left;">
-						<a href="gouserindex.do?userid=${userValue.userid}"><img
-							src="getsmheadimge.do?userid=${userValue.userid}"
-							style="width: 47px;" /></a>
+						<a href="gouserindex.do?userid=${userValue.userid}">
+						<img
+							src="html/userhead/${userValue.headurl}"
+							style="width: 47px;" />
+						</a>
 					</div>
 					<div class="m1ln" style="float: left;">
 						<a href="gouserindex.do?userid=${userValue.userid}"> &nbsp;
@@ -1009,9 +1011,11 @@
 				indexPageContent.activeusers as userValue>
 				<div class="xldgurg" style="height: 70px; width: 80px;">
 					<div class="avtr" style="width: 65px; float: left;">
-						<a href="gouserindex.do?userid=${userValue.userid}"><img
-							src="getsmheadimge.do?userid=${userValue.userid}"
-							style="width: 47px;" /></a>
+						<a href="gouserindex.do?userid=${userValue.userid}">
+						<img
+							src="html/userhead/${userValue.headurl}"
+							style="width: 47px;" />
+							</a>
 					</div>
 					<div class="m1ln" style="float: left;">
 						<a href="gouserindex.do?userid=${userValue.userid}"> &nbsp;

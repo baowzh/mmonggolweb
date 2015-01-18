@@ -78,6 +78,7 @@ public class DocumentValue {
 	private String oldid;
 	private String flashurl;
 	private String facepath;
+	private String imgurl;
 	private SimpleDateFormat formater = new SimpleDateFormat("yyyy-MM-dd");
 
 	public String getDocid() {
@@ -680,6 +681,12 @@ public class DocumentValue {
 	public void setFacepath(String facepath) {
 		this.facepath = facepath;
 	}
-	
 
+	public String getImgurl() {
+		return this.docid+".jpg";
+	}
+
+	public void setImgurl(String imgurl) {
+		this.imgurl = imgurl;
+	}
 }

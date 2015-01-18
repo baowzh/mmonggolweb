@@ -46,7 +46,7 @@
 							<a
 								href="gouserindex.do?userid=<c:out value="${messageValue.messagesenderid}" />">
 								<img
-								src="getsmheadimge.do?userid=<c:out value="${messageValue.messagesenderid}"/>"
+								src="html/userhead/<c:out value="${messageValue.messagesenderurl}"/>"
 								width="570" height="447" />
 							</a> <input type="checkbox" name="selectbox"
 								id="<c:out value="${messageValue.userid}" />" />
@@ -115,7 +115,7 @@
 							<a
 								href="gouserindex.do?userid=<c:out value="${messageValue.userid}" />">
 								<img
-								src="getsmheadimge.do?userid=<c:out value="${messageValue.userid}"/>"
+								src="html/userhead/<c:out value="${messageValue.userurl}"/>"
 								width="570" height="447" />
 							</a> <input type="checkbox" name="selectbox"
 								id="<c:out value="${messageValue.userid}" />" />

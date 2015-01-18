@@ -62,7 +62,7 @@
 										<div class="i">
 											<a
 												href="gouserindex.do?userid=<c:out value="${friendValue.friendid}" />"><img
-												src="getsmheadimge.do?userid=<c:out value="${friendValue.friendid}" />" /></a>
+												src="html/userhead/<c:out value="${friendValue.headurl}" />" /></a>
 
 											<div class="frt" style="width: 20px;">
 												<div class="m1ln">

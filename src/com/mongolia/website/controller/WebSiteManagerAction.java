@@ -1,5 +1,8 @@
 ﻿package com.mongolia.website.controller;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -8,29 +11,36 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import net.sf.json.JSONObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
+import org.springframework.web.multipart.support.ByteArrayMultipartFileEditor;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mongolia.website.controller.ckeditor.SamplePostData;
 import com.mongolia.website.controller.freemarker.CustomFreeMarkerConfigurer;
+import com.mongolia.website.manager.interfaces.BookStoreManager;
 import com.mongolia.website.manager.interfaces.UserManager;
 import com.mongolia.website.manager.interfaces.WebResourceManager;
 import com.mongolia.website.manager.interfaces.WebSiteManager;
 import com.mongolia.website.manager.interfaces.WebSiteVisitorManager;
+import com.mongolia.website.model.BookStoreValue;
 import com.mongolia.website.model.DistrictValue;
 import com.mongolia.website.model.DocumentValue;
 import com.mongolia.website.model.MenuValue;
@@ -63,6 +73,8 @@ public class WebSiteManagerAction {
 	private WebSiteVisitorManager webSiteVisitorManager;
 	@Autowired
 	private WebResourceManager webResourceManager;
+	@Autowired
+	private BookStoreManager bookStoreManagerImpl;
 
 	/**
 	 * 打开后台管理功能
@@ -369,20 +381,14 @@ public class WebSiteManagerAction {
 		UserValue uservalue = (UserValue) request.getSession().getAttribute(
 				"user");
 		try {
-			//
-			MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
-			MultiValueMap file = multipartRequest.getMultiFileMap();
-			Set<String> set = file.keySet();
-			Iterator iterator = set.iterator();
-			while (iterator.hasNext()) {
-				String name = (String) iterator.next();
-				List<CommonsMultipartFile> files = (List<CommonsMultipartFile>) file
-						.get(name);
-				for (int i = 0; i < files.size(); i++) {
-					CommonsMultipartFile commonsMultipartFile = (CommonsMultipartFile) files
-							.get(i);
-					topDocumentValue.setDocimg(commonsMultipartFile.getBytes());
-				}
+			String path = request.getSession().getServletContext()
+					.getRealPath("/html/img");
+			String imgname = "altan_"+UUIDMaker.getUUID() + ".jpg";
+			if (topDocumentValue.getPlayimg() != null
+					&& topDocumentValue.getPlayimg().length != 0) {
+				ImgeUtil.CompressPic(topDocumentValue.getPlayimg(), path,
+						imgname);
+				topDocumentValue.setDocimg(imgname);
 			}
 			this.webSiteManager.doCreateTopDocument(topDocumentValue);
 		} catch (Exception ex) {
@@ -418,7 +424,8 @@ public class WebSiteManagerAction {
 							imgname);
 				}
 			}
-			this.webSiteManager.setVideoface(topDocumentValue.getVideoid(), "html/img/" + imgname);
+			this.webSiteManager.setVideoface(topDocumentValue.getVideoid(),
+					"html/img/" + imgname);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			return new ModelAndView("error", map);
@@ -767,14 +774,18 @@ public class WebSiteManagerAction {
 		return new ModelAndView("sitemanager/commentlist", map);
 	}
 
-	// @RequestMapping("/synuserdata.do")
+	@RequestMapping("/synuserdata.do")
 	public ModelAndView synuserdata(HttpServletRequest request, ModelMap map,
 			QueryDocForm queryDocForm) {
 		try {
-			// this.webResourceManager.synOldUser();
-			// this.webResourceManager.synOldDoc();
+			String path = request.getSession().getServletContext()
+					.getRealPath("/html/userhead");
+			this.webResourceManager.synOldUser(path);
+			this.webResourceManager.synOldDoc();
 			// this.webResourceManager.synOldMess();
-			this.webResourceManager.synOldImg();
+			path = request.getSession().getServletContext()
+					.getRealPath("/html/img");
+			this.webResourceManager.synOldImg(path);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -812,6 +823,83 @@ public class WebSiteManagerAction {
 			return new ModelAndView("error", map);
 		}
 		return new ModelAndView("jsonView", map);
+	}
+
+	@RequestMapping("/booklist.do")
+	public ModelAndView querybooks(HttpServletRequest request, ModelMap map) {
+		try {
+			List<BookStoreValue> books = this.bookStoreManagerImpl
+					.queryBookStoreValues(new HashMap<String, Object>());
+			map.put("books", books);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return new ModelAndView("sitemanager/booklist", map);
+	}
+
+	@RequestMapping("/addbook.do")
+	public ModelAndView addbook(HttpServletRequest request,
+			BookStoreValue bookStoreValue, ModelMap map) {
+		try {
+			String path = request.getSession().getServletContext()
+					.getRealPath("/html/img");
+			String imgid = UUIDMaker.getUUID();
+			String imgname = imgid + ".jpg";
+			File imgfile = new File(path, imgname);
+			FileOutputStream outStream = new FileOutputStream(imgfile);
+			outStream.write(bookStoreValue.getBookimgcon());
+			outStream.close();
+			bookStoreValue.setBookid(imgid);
+			bookStoreValue.setBookimg(imgname);
+			this.bookStoreManagerImpl.addBookStore(bookStoreValue);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			return new ModelAndView("error", map);
+		}
+		return new ModelAndView("redirect:booklist.do", map);
+	}
+
+	@RequestMapping("/delbooks.do")
+	public ModelAndView delbooks(HttpServletRequest request,
+			HttpServletResponse response, ModelMap map) {
+		String bookids = request.getParameter("bookids");
+		// String ids[] = bookids.split(",");
+		try {
+			this.bookStoreManagerImpl.deletebook(bookids);
+			map.put("success", 1);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			map.put("success", 0);
+			return new ModelAndView("error", map);
+		}
+		return new ModelAndView("jsonView", map);
+	}
+
+	@RequestMapping("/selectedBook.do")
+	public ModelAndView selectedBook(HttpServletRequest request,
+			HttpServletResponse response, ModelMap map) {
+		String docids = request.getParameter("bookids");
+		String ids[] = docids.split(",");
+		try {
+			this.webSiteManager.addSelectedDocs(ids, ""
+					+ StaticConstants.TOP_TYPE8);
+			map.put("success", 1);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			map.put("success", 0);
+			return new ModelAndView("error", map);
+		}
+		return new ModelAndView("jsonView", map);
+	}
+
+	@InitBinder
+	protected void initBinder(WebDataBinder binder) throws ServletException {
+		binder.registerCustomEditor(byte[].class,
+				new ByteArrayMultipartFileEditor());
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		dateFormat.setLenient(false);
+		binder.registerCustomEditor(Date.class, new CustomDateEditor(
+				dateFormat, false));
 	}
 
 }

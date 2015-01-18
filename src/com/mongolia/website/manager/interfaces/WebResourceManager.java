@@ -116,7 +116,7 @@ public interface WebResourceManager {
 	 * @param imgId
 	 * @throws ManagerException
 	 */
-	public void doDeleteImg(String imgId) throws ManagerException;
+	public void doDeleteImg(String imgId,String userid) throws ManagerException;
 
 	/**
 	 * 获取工具栏
@@ -159,8 +159,8 @@ public interface WebResourceManager {
 	 * @throws ManagerException
 	 */
 	public Map<String, Object> getBlogInfo(UserValue blogUser,
-			UserValue sessionUser, Integer self, String docchannel,Integer pageindex)
-			throws ManagerException;
+			UserValue sessionUser, Integer self, String docchannel,
+			Integer pageindex) throws ManagerException;
 
 	/**
 	 * 
@@ -302,7 +302,8 @@ public interface WebResourceManager {
 	 * @return
 	 * @throws ManagerException
 	 */
-	PaingModel<FriendValue> pagingQueryFriends(PaingModel<FriendValue> pagingModel) throws ManagerException;
+	PaingModel<FriendValue> pagingQueryFriends(
+			PaingModel<FriendValue> pagingModel) throws ManagerException;
 
 	/**
 	 * 
@@ -432,8 +433,9 @@ public interface WebResourceManager {
 	 * @return
 	 * @throws Exception
 	 */
-	public PaingModel<DocumentValue> pagingQuerySharedDocs(Map<String, Object> params,
-			int doctype, int pageindex, int pagesize) throws Exception;
+	public PaingModel<DocumentValue> pagingQuerySharedDocs(
+			Map<String, Object> params, int doctype, int pageindex, int pagesize)
+			throws Exception;
 
 	/**
 	 * 
@@ -450,12 +452,12 @@ public interface WebResourceManager {
 			Map<String, Object> queryDocForm, Integer rowCount,
 			Integer pageindex) throws Exception;
 
-	public void synOldUser() throws Exception;
+	public void synOldUser(String headimgpath) throws Exception;
 
 	public void synOldDoc() throws Exception;
 
 	public void synOldMess() throws Exception;
 
-	public void synOldImg() throws Exception;
+	public void synOldImg(String imgpath) throws Exception;
 
 }

@@ -92,6 +92,10 @@ public class StaticConstants {
 	public static Integer TOP_TYPE4 = 4;
 
 	public static Integer TOP_TYPE5 = 5;
+	/**
+	 * 书店书籍封面
+	 */
+	public static Integer TOP_TYPE8 = 8;
 
 	public static Integer IMG_NEWS_FETCHNUM = 7;
 	/**

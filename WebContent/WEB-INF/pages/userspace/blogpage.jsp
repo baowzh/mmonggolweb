@@ -11,7 +11,7 @@
 						<c:out value="${user.artname}" />
 					</div>
 					<div class="avatar">
-						<img src="getheadimge.do?userid=<c:out value="${user.userid}" />"
+						<img src="html/userhead/<c:out value="${user.headurl}" />"
 							width="334" height="446" />
 					</div>
 				</div>
@@ -136,7 +136,7 @@
 					<div class="i">
 						<a
 							href="gouserindex.do?userid=<c:out value="${friendValue.friendid}" />"><img
-							src="getsmheadimge.do?userid=<c:out value="${friendValue.friendid}" />"
+							src="html/userhead/<c:out value="${friendValue.headurl}" />"
 							width="334" height="446" /></a>
 						<div class="frt" style="width: 20px;">
 							<div class="m1ln">
@@ -167,7 +167,7 @@
 				<div class=" friendL">
 					<div class="i">
 						<img
-							src="getsmheadimge.do?userid=<c:out value="${visitorValue.visitorid}" />"
+							src="html/userhead/<c:out value="${visitorValue.headurl}" />"
 							width="334" height="446" />
 						<div class="frt" style="width: 20px;">
 							<div class="m1ln">

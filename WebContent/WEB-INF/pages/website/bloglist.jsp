@@ -100,7 +100,7 @@
 											<a
 												href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
 												<img
-												src="getsmheadimge.do?userid=<c:out value="${userValue.userid}"/>"
+												src="html/userhead/<c:out value="${userValue.headurl}"/>"
 												width="570" height="447" />
 											</a> 
 										</div>

@@ -31,6 +31,8 @@ public class SysConfig {
 	private Integer online;
 	@Value("${siteaddress}")
 	private String siteaddress;
+	@Value("${selbookcount}")
+	private Integer selbookcount;
 
 	public String getSitename() {
 		return sitename;
@@ -126,6 +128,14 @@ public class SysConfig {
 
 	public void setSiteaddress(String siteaddress) {
 		this.siteaddress = siteaddress;
+	}
+
+	public Integer getSelbookcount() {
+		return selbookcount;
+	}
+
+	public void setSelbookcount(Integer selbookcount) {
+		this.selbookcount = selbookcount;
 	}
 
 }

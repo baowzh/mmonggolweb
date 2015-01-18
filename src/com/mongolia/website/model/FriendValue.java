@@ -7,7 +7,7 @@ public class FriendValue {
 	private String friendimgurl;
 	private String userid;
 	private String headimgsm;
-
+    private String headurl;
 	public String getFriendid() {
 		return friendid;
 	}
@@ -54,6 +54,14 @@ public class FriendValue {
 
 	public void setHeadimgsm(String headimgsm) {
 		this.headimgsm = headimgsm;
+	}
+
+	public String getHeadurl() {
+		return friendid+".jpg";
+	}
+
+	public void setHeadurl(String headurl) {
+		this.headurl = headurl;
 	}
 	
 

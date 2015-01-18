@@ -42,7 +42,7 @@
 						<a
 							href="javaScript:photoDetail('<c:out value="${imgValue.docid}" />')"><img
 							class="displayimg" style="width: 152px; height: 148px;"
-							src="getimg.do?imgid=<c:out value="${imgValue.docid}" />"></a>
+							src="html/img/<c:out value="${imgValue.imgurl}" />"></a>
 						<c:if test="${imgValue.docstatus==2}">
 							已审核<input type="checkbox" name="docnamecheckbox"
 								id="<c:out value="${imgValue.docid}" />">

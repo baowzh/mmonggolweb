@@ -123,7 +123,7 @@
 											<div class="posterInf">
 												<div class="avtThumb flt">
 													<img
-														src="getsmheadimge.do?userid=<c:out value="${messageValue.messagesenderid}" />"
+														src="html/userhead/<c:out value="${messageValue.headurl}" />"
 														width="300" height="400" />
 												</div>
 												<div class="inf flt">

@@ -21,6 +21,7 @@ import com.mongolia.website.dao.interfaces.WebResourceDao;
 import com.mongolia.website.dao.interfaces.WebSiteVisitorDao;
 import com.mongolia.website.manager.interfaces.UserManager;
 import com.mongolia.website.manager.interfaces.WebSiteVisitorManager;
+import com.mongolia.website.model.BookStoreValue;
 import com.mongolia.website.model.DocumentValue;
 import com.mongolia.website.model.ImgNew;
 import com.mongolia.website.model.ImgValue;
@@ -197,18 +198,9 @@ public class WebSiteVisitorManagerImpl extends BaseManagerImpl implements
 			ImgNew imgNew = new ImgNew();
 			imgNew.setLink("getuserdocdetail.do?docid="
 					+ topDocumentValue.getDocid() + "");
-			imgNew.setUrl("html/img/" + topDocumentValue.getDocid() + ".jpg");
+			imgNew.setUrl("html/img/" + topDocumentValue.getDocimg());
 			imgNew.setTime(5000);
 			imgNew.setTitle(topDocumentValue.getTitle());
-
-			if (topDocumentValue.getDocimg() != null) {
-				File imgFilei = new File(imgFile, topDocumentValue.getDocid()
-						+ ".jpg");
-				FileOutputStream stream = new FileOutputStream(imgFilei);
-				stream.write(topDocumentValue.getDocimg());
-				stream.close();
-			}
-			topDocumentValue.setDocimg(null);
 			imgNews.add(imgNew);
 		}
 
@@ -258,6 +250,10 @@ public class WebSiteVisitorManagerImpl extends BaseManagerImpl implements
 		List<ProfessionValue> professionValues = userManager
 				.getProfessionValues(null, null);
 		indexPageContent.put("professionValues", professionValues);
+		// 最近8本书
+		List<BookStoreValue> selBooks = this.webSiteVisitorDao
+				.getSeltectedBooks(this.sysConfig.getSelbookcount());
+		indexPageContent.put("selBooks", selBooks);
 		return indexPageContent;
 	}
 

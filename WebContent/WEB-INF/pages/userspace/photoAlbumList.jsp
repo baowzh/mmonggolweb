@@ -72,9 +72,18 @@
 										varStatus="status">
 										<div class="folder">
 											<a
-												href="javascript:openPhotoAlbum('<c:out value="${imgGrpupValue.imggroupid}"/>')"><img
+												href="javascript:openPhotoAlbum('<c:out value="${imgGrpupValue.imggroupid}"/>')">
+												<c:if test="${imgGrpupValue.faceurl!=null}">
+												<img
 												width="600" height="400"
-												src="getphotoalbumface.do?albumid=<c:out value="${imgGrpupValue.imggroupid}"/>"></a>
+												src="html/photoalbum/<c:out value="${imgGrpupValue.faceurl}"/>">
+												</c:if>
+												<c:if test="${imgGrpupValue.faceurl==null}">
+												<img
+												width="600" height="400"
+												src="html/photoalbum/imgface.jpg">
+												</c:if>
+												</a>
 											<div class="m1ln">
 												<a title="<c:out value="${imgGrpupValue.imggroupname}"/>"
 													href="javascript:openPhotoAlbum('<c:out value="${imgGrpupValue.imggroupid}"/>')"><c:out

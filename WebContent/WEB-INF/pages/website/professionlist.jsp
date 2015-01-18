@@ -24,7 +24,7 @@
 					<div class="avtr" style="width: 80px; height: 110px; float: left;">
 						<a
 							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />"><img
-							src="getsmheadimge.do?userid=<c:out value="${userValue.userid}" />"
+							src="html/userhead/<c:out value="${userValue.headurl}" />"
 							style="width: 65px; height: 90px;" /></a>
 					</div>
 					<div class="m1ln" style="float: left;">

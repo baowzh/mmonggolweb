@@ -182,31 +182,6 @@ public class WebSiteVisiterAction {
 		return new ModelAndView("jsonView");
 	}
 
-	@RequestMapping("/getimgnewsimg.do")
-	public ResponseEntity<byte[]> getnewimg(HttpServletRequest request,
-			HttpServletResponse response) throws IOException {
-		String docid = request.getParameter("docid");
-		Map<String, Object> params = new HashMap<String, Object>();
-		params.put("docid", docid);
-		List<TopDocumentValue> topDdocumentValues = new ArrayList<TopDocumentValue>();
-		try {
-			topDdocumentValues = this.webSiteVisitorManager.getTopDocuments(
-					StaticConstants.TOP_TYPE1, null, 7);
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}
-		TopDocumentValue topDocumentValue = topDdocumentValues.get(0);
-
-		HttpHeaders responseHeaders = new HttpHeaders();
-		responseHeaders.setContentType(MediaType.IMAGE_JPEG);
-		responseHeaders.setContentLength(topDocumentValue.getDocimg().length);
-		responseHeaders
-				.setCacheControl("no-store, no-cache, must-revalidate, post-check=0, pre-check=0");
-		responseHeaders.setPragma("no-cache");
-		return new ResponseEntity<byte[]>(topDocumentValue.getDocimg(),
-				responseHeaders, HttpStatus.OK);
-	}
-
 	@RequestMapping("/pagingquerydoc.do")
 	public ModelAndView pagingQueryDoc(HttpServletRequest request,
 			ModelMap map, PaingModel<DocumentValue> paingmodel)

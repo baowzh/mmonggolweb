@@ -185,7 +185,7 @@
 											<div class="posterInf" style="z-index: 10">
 												<div class="avtThumb flt" style="z-index: 10">
 													<img
-														src="getsmheadimge.do?userid=<c:out value="${messageValue.messagesenderid}" />"
+														src="html/userhead/<c:out value="${messageValue.messagesenderurl}" />"
 														width="300" height="400" />
 												</div>
 												<div class="inf flt" style="z-index: 10">

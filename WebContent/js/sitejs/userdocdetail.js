@@ -152,9 +152,9 @@ var loaddoccomment = function() {
 						innerHTML = innerHTML
 								+ '<div class=\"mnlist\">  </div><br><div class=\"postSheet\">'
 								+ '<div class=\"posterInf\">'
-								+ '<div class=\"avtThumb flt\"><img src=\"getsmheadimge.do?userid='
+								+ '<div class=\"avtThumb flt\"><img src=\"html/userhead/'
 								+ data.comments[i].messagesenderid
-								+ '\" width=\"300\" height=\"400\" /></div>'
+								+ '.jpg \" width=\"300\" height=\"400\" /></div>'
 								+ '<div class=\"inf flt\">'
 								+ '<div class=\"row\"> <a href=\"gouserindex.do?userid='
 								+ data.comments[i].messagesenderid + '\">'

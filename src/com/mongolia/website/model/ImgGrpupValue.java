@@ -20,6 +20,7 @@ public class ImgGrpupValue {
 	private String createdtimestr;
 	private String oldid;
 	private String faceurl;
+	private byte[] imgurl;
 
 	public String getImggroupid() {
 		return imggroupid;
@@ -102,6 +103,14 @@ public class ImgGrpupValue {
 
 	public void setFaceurl(String faceurl) {
 		this.faceurl = faceurl;
+	}
+
+	public byte[] getImgurl() {
+		return imgurl;
+	}
+
+	public void setImgurl(byte[] imgurl) {
+		this.imgurl = imgurl;
 	}
 
 }

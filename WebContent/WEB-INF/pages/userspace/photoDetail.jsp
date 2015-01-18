@@ -98,9 +98,9 @@
 									<div id="galleria" style="width: 500px; height: 410px;">
 
 										<c:forEach items="${imgs}" var="imgValue" varStatus="status">
-											<a href="getimg.do?imgid=<c:out value="${imgValue.imgid}"/>">
+											<a href="html/img/<c:out value="${imgValue.imgid}"/>.jpg">
 												<img
-												src="getimg.do?imgid=<c:out value="${imgValue.imgid}"/>" />
+												src="html/img/<c:out value="${imgValue.imgid}"/>.jpg" />
 											</a>
 										</c:forEach>
 										<input type="hidden" name="imgsharecount" id="imgsharecount"
@@ -202,7 +202,7 @@
 											<div class="posterInf">
 												<div class="avtThumb flt">
 													<img
-														src="getsmheadimge.do?userid=<c:out value="${messageValue.messagesenderid}" />"
+														src="html/userhead/<c:out value="${messageValue.messagesenderurl}" />"
 														width="300" height="400" />
 												</div>
 												<div class="inf flt">

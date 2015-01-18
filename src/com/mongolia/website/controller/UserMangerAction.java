@@ -3,32 +3,33 @@ package com.mongolia.website.controller;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import net.sf.json.JSONObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
+import org.springframework.web.multipart.support.ByteArrayMultipartFileEditor;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mongolia.website.manager.interfaces.UserManager;
@@ -38,7 +39,6 @@ import com.mongolia.website.model.ProfessionValue;
 import com.mongolia.website.model.UserValue;
 import com.mongolia.website.util.ImgeUtil;
 import com.mongolia.website.util.StaticConstants;
-import com.mongolia.website.util.UUIDMaker;
 
 @Controller
 public class UserMangerAction {
@@ -340,55 +340,15 @@ public class UserMangerAction {
 						.getBlogclasssel()));
 			}
 			// 获取头部图像
-			MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
-			MultiValueMap file = multipartRequest.getMultiFileMap();
 			String path = request.getSession().getServletContext()
 					.getRealPath("/html/userhead");
-			Set<String> set = file.keySet();
-			Iterator iterator = set.iterator();
-			while (iterator.hasNext()) {
-				String name = (String) iterator.next();
-				List files = (List) file.get(name);
-				String imgname = "";
-				String imgnamesm = "";
-
-				for (int i = 0; i < files.size(); i++) {
-					CommonsMultipartFile commonsMultipartFile = (CommonsMultipartFile) files
-							.get(i);
-					String OriginalFilename = commonsMultipartFile
-							.getOriginalFilename();
-					if (OriginalFilename == null
-							|| OriginalFilename.equalsIgnoreCase("")) {
-						continue;
-					}
-					OriginalFilename = OriginalFilename.split("\\.")[1];
-					imgname = UUIDMaker.getUUID() + "." + OriginalFilename;
-					imgnamesm = UUIDMaker.getUUID() + "." + OriginalFilename;
-					ImgeUtil.CompressPic(commonsMultipartFile.getBytes(), path,
-							imgname);
-					ImgeUtil.CompressPic(commonsMultipartFile.getBytes(), path,
-							imgnamesm, StaticConstants.IMGWIDTHSM,
-							StaticConstants.IMGHEIGHTSM);
-					//
-					File headimgFile = new File(path, imgname);
-					FileInputStream stream = new FileInputStream(headimgFile);
-					int length = stream.available();
-					byte reader1[] = new byte[length];
-					stream.read(reader1);
-					stream.close();
-					File headimgFilesm = new File(path, imgname);
-					FileInputStream streamsm = new FileInputStream(
-							headimgFilesm);
-					length = streamsm.available();
-					byte reader2[] = new byte[length];
-					streamsm.read(reader2);
-					streamsm.close();
-					userValue.setHeadimg(reader1);
-					userValue.setHeadimgsm(reader2);
-					userValue.setHeadurl("/html/userhead/" + imgname);
-				}
+			String imgnamesm = "";
+			imgnamesm = userValue.getUserid() + ".jpg";
+			if (userValue.getImg() != null&&userValue.getImg().length!=0) {
+				ImgeUtil.CompressPic(userValue.getImg(), path, imgnamesm,
+						StaticConstants.IMGWIDTHSM, StaticConstants.IMGHEIGHTSM);
+				userValue.setHeadurl(imgnamesm);
 			}
-			//
 			userManager.doUpdateUser(userValue);
 			List<UserValue> sessions = this.userManager.getUsers(
 					userValue.getUserid(), null);
@@ -402,71 +362,6 @@ public class UserMangerAction {
 		}
 		return new ModelAndView("redirect:gouserindex.do", map);
 
-	}
-
-	@RequestMapping("/userheadimgedit.do")
-	public ModelAndView editUserHeadImg(HttpServletRequest request, ModelMap map) {
-		//
-		try {
-			MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
-			MultiValueMap file = multipartRequest.getMultiFileMap();
-			String path = request.getSession().getServletContext()
-					.getRealPath("/html/img");
-			Set<String> set = file.keySet();
-			Iterator iterator = set.iterator();
-			while (iterator.hasNext()) {
-				String name = (String) iterator.next();
-				List files = (List) file.get(name);
-				String imgname = "";
-				String imgnamesm = "";
-				UserValue sessionUser = (UserValue) request.getSession()
-						.getAttribute("user");// 在线session
-				try {
-					for (int i = 0; i < files.size(); i++) {
-						CommonsMultipartFile commonsMultipartFile = (CommonsMultipartFile) files
-								.get(i);
-						String OriginalFilename = commonsMultipartFile
-								.getOriginalFilename();
-						OriginalFilename = OriginalFilename.split("\\.")[1];
-						imgname = UUIDMaker.getUUID() + "." + OriginalFilename;
-						imgnamesm = UUIDMaker.getUUID() + "."
-								+ OriginalFilename;
-						ImgeUtil.CompressPic(commonsMultipartFile.getBytes(),
-								path, imgname);
-						ImgeUtil.CompressPic(commonsMultipartFile.getBytes(),
-								path, imgnamesm, StaticConstants.IMGWIDTHSM,
-								StaticConstants.IMGHEIGHTSM);
-						//
-						File headimgFile = new File(path, imgname);
-						FileInputStream stream = new FileInputStream(
-								headimgFile);
-						int length = stream.available();
-						byte reader1[] = new byte[length];
-						stream.read(reader1);
-						stream.close();
-						File headimgFilesm = new File(path, imgname);
-						FileInputStream streamsm = new FileInputStream(
-								headimgFilesm);
-						length = streamsm.available();
-						byte reader2[] = new byte[length];
-						streamsm.read(reader2);
-						streamsm.close();
-						sessionUser.setHeadimg(reader1);
-						sessionUser.setHeadimgsm(reader2);
-					}
-					// 修改用户头像
-					userManager.doUpdateUser(sessionUser);
-					// imgValue.setImgurl("img/" + imgname);
-				} catch (Exception ex) {
-					ex.printStackTrace();
-					return new ModelAndView("sitemanager/error", map);
-				}
-			}
-
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}
-		return new ModelAndView("userspace/userheadimgedit", map);
 	}
 
 	/**
@@ -851,6 +746,16 @@ public class UserMangerAction {
 			}
 		}
 
+	}
+
+	@InitBinder
+	protected void initBinder(WebDataBinder binder) throws ServletException {
+		binder.registerCustomEditor(byte[].class,
+				new ByteArrayMultipartFileEditor());
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		dateFormat.setLenient(false);
+		binder.registerCustomEditor(Date.class, new CustomDateEditor(
+				dateFormat, false));
 	}
 
 }

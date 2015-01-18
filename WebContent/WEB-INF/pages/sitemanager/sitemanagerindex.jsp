@@ -45,7 +45,13 @@
 			<li><a href="advert.do">   </a></li>
 		</div>
 		<div class="mnlist">
+			<li><a href="advert.do">   </a></li>
+		</div>
+		<div class="mnlist">
 			<li><a href="votemanager.do"> </a></li>
+		</div>
+		<div class="mnlist">
+			<li><a href="booklist.do"> </a></li>
 		</div>
 		<div class="mnlist">
 			<li><a href="createsitepage.do"> </a></li>

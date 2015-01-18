@@ -21,6 +21,9 @@ public class MessageValue {
 	private Integer status;
 	private String oldid;
     private Integer showdel=0;
+    private String messagesenderurl;
+    private String userurl;
+    private String headurl;
 	public String getMessageid() {
 		return messageid;
 	}
@@ -164,6 +167,31 @@ public class MessageValue {
 	public void setShowdel(Integer showdel) {
 		this.showdel = showdel;
 	}
+
+	public String getHeadurl() {
+		return headurl;
+	}
+
+	public void setHeadurl(String headurl) {
+		this.headurl = headurl;
+	}
+
+	public String getMessagesenderurl() {
+		return this.getMessagesenderid()+".jpg";
+	}
+
+	public void setMessagesenderurl(String messagesenderurl) {
+		this.messagesenderurl = messagesenderurl;
+	}
+
+	public String getUserurl() {
+		return this.userid+".jpg";
+	}
+
+	public void setUserurl(String userurl) {
+		this.userurl = userurl;
+	}
+	
 	
 
 }

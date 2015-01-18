@@ -4,8 +4,10 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
@@ -98,9 +100,9 @@ public class WebResourceManagerImpl implements WebResourceManager {
 			documentValue.setDoctitle(imgValue.getImgdesc());
 			this.webResourceDao.adddoc(documentValue);
 			//
-			byte[] imgcontent = imgValue.getImgcontent();
-			byte[] newcontent = this.gzipdoccontent(imgcontent);
-			imgValue.setImgcontent(newcontent);
+			// byte[] imgcontent = imgValue.getImgcontent();
+			// byte[] newcontent = this.gzipdoccontent(imgcontent);
+			// imgValue.setImgcontent(newcontent);
 			webResourceDao.addImg(imgValue);
 			// 如果是封面修改相册封面
 			if (imgValue.getCover() == 1) {
@@ -110,7 +112,7 @@ public class WebResourceManagerImpl implements WebResourceManager {
 						.getImgGroupList(queryparams);
 				if (groups != null && !groups.isEmpty()) {
 					ImgGrpupValue imgGrpupValue = groups.get(0);
-					imgGrpupValue.setFaceimg(imgcontent);
+					// imgGrpupValue.setFaceimg(imgcontent);
 					this.webResourceDao.updIImgGroup(imgGrpupValue);
 				}
 			}
@@ -236,10 +238,14 @@ public class WebResourceManagerImpl implements WebResourceManager {
 	}
 
 	@Override
-	public void doDeleteImg(String imgId) throws ManagerException {
+	public void doDeleteImg(String imgId,String userid) throws ManagerException {
 		// TODO Auto-generated method stub
 		try {
-			webResourceDao.deleteImg(imgId);
+			String ids[] = imgId.split(",");
+			for (String id : ids) {
+				webResourceDao.deleteImg(id);
+				this.webResourceDao.deleteDoc(userid, id);
+			}
 		} catch (Exception ex) {
 			throw new ManagerException(ex.getMessage());
 		}
@@ -1597,7 +1603,7 @@ public class WebResourceManagerImpl implements WebResourceManager {
 	}
 
 	@Override
-	public void synOldUser() throws Exception {
+	public void synOldUser(String headimgpath) throws Exception {
 		// TODO Auto-generated method stub
 		List<UserValue> users = this.webResourceDao.getOldUsers();
 		for (UserValue userValuei : users) {
@@ -1619,8 +1625,14 @@ public class WebResourceManagerImpl implements WebResourceManager {
 				}
 				byte img[] = ooutStream.toByteArray();
 				ooutStream.close();
-				userValuei.setHeadimg(img);
-				userValuei.setHeadimgsm(img);
+				File file = new File(headimgpath, userValuei.getUserid()
+						+ ".jpg");
+				OutputStream outstream = new FileOutputStream(file);
+				outstream.write(img);
+				outstream.close();
+				userValuei.setHeadurl(userValuei.getUserid() + ".jpg");
+				// userValuei.setHeadimg(img);
+				// userValuei.setHeadimgsm(img);
 				iniputStream.close();
 				userManager.doCreateUser(userValuei);
 			} catch (Exception ex) {
@@ -1710,7 +1722,7 @@ public class WebResourceManagerImpl implements WebResourceManager {
 	}
 
 	@Override
-	public void synOldImg() throws Exception {
+	public void synOldImg(String path) throws Exception {
 		// TODO Auto-generated method stub
 		// 先创建图片相册
 		File file = new File("c:\\aa.bmp");
@@ -1745,11 +1757,17 @@ public class WebResourceManagerImpl implements WebResourceManager {
 				while ((length = iniputStream.read(reader)) != -1) {
 					ooutStream.write(reader, 0, length);
 				}
-				imgValuei.setImgcontent(ooutStream.toByteArray());
+				File imgFile = new File(path, imgValuei.getImgurl());
+				OutputStream outStream = new FileOutputStream(imgFile);
+				outStream.write(ooutStream.toByteArray());
+				outStream.close();
+				// imgValuei.setImgcontent(ooutStream.toByteArray());
 				iniputStream.close();
-				imgValuei.setImgid(imgValuei.getImgurl());
+				String imgid=imgValuei.getImgurl().split("\\.")[0];
+				imgValuei.setImgid(imgid);
 				imgValuei.setImgname(imgValuei.getImgid());
 				imgValuei.setImgdesc("tongbu");
+				imgValuei.setImgurl(imgValuei.getImgurl());
 				imgValuei.setWidth(200);
 				imgValuei.setHeight(210);
 				this.doAddImg(imgValuei);

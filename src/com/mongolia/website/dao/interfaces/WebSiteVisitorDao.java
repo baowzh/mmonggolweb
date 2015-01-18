@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import com.mongolia.website.model.BookStoreValue;
 import com.mongolia.website.model.DocumentValue;
 import com.mongolia.website.model.PaingModel;
 import com.mongolia.website.model.ProgramItem;
@@ -99,5 +100,12 @@ public interface WebSiteVisitorDao extends BaseDao {
 	 */
 	public List<UserValue> getRecentLoginUsers(Integer dispalycount)
 			throws Exception;
+	/**
+	 * 被选送的书籍个数
+	 * @param dispalycount
+	 * @return
+	 * @throws Exception
+	 */
+	public List<BookStoreValue> getSeltectedBooks(Integer dispalycount)throws Exception;
 
 }

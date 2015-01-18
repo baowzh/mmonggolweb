@@ -78,6 +78,7 @@ public class UserValue implements UserDetails {
     private String headurl;
     private String sexsel;
     private String blogclasssel;
+    private byte[] img;
 	public String getLastip() {
 		return lastip;
 	}
@@ -665,6 +666,13 @@ public class UserValue implements UserDetails {
 	public void setBlogclasssel(String blogclasssel) {
 		this.blogclasssel = blogclasssel;
 	}
-	
 
+	public byte[] getImg() {
+		return img;
+	}
+
+	public void setImg(byte[] img) {
+		this.img = img;
+	}
+	
 }

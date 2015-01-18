@@ -41,15 +41,14 @@ var login = function() {
 					// 修改用户登录界面信息
 					// 显示用户名称
 					// 显示进入博客等连接
-					var imgurl = 'getsmheadimge.do';
+					var imgurl = 'html/userhead/';
 					var homdurl = 'gouserindex.do';
 					if (data.success == 'true') {
 						var innerHTML = '<div class=\"loin\" style=\"padding-left:10px;\">'
 								+ '<div class=\"avtr\"><img src=\"'
 								+ imgurl
-								+ '?userid='
 								+ data.userinfo.userid
-								+ '\"  style=\"width:80px;\" /></div>'
+								+ '.jpg\"  style=\"width:80px;\" /></div>'
 								+ '<div class=\"desc  \" style=\"width:120px\">'
 								+ '<div class=\"m1ln\">   '
 								+ data.userinfo.artname
@@ -128,7 +127,7 @@ $(document)
 					var validcode = $("input[name='validcode']").val();
 					var checkurl = 'checklogin.do';
 					var homdurl = 'gouserindex.do';
-					var imgurl = 'getsmheadimge.do';
+					var imgurl = 'html/userhead/';
 
 					$
 							.ajax({
@@ -154,9 +153,8 @@ $(document)
 									var innerHTML = '<div class=\"loin\" style=\"padding-left:10px;\">'
 											+ '<div class=\"avtr\"><img src=\"'
 											+ imgurl
-											+ '?userid='
 											+ data.userinfo.userid
-											+ '\"  style=\"width:80px;\" /></div>'
+											+ '.jpg \"  style=\"width:80px;\" /></div>'
 											+ '<div class=\"desc  \" style=\"width:120px\">'
 											+ '<div class=\"m1ln\">  '
 											+ data.userinfo.artname

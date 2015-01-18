@@ -14,13 +14,12 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -34,16 +33,17 @@ import org.jfree.chart.labels.StandardPieToolTipGenerator;
 import org.jfree.chart.plot.PiePlot;
 import org.jfree.data.general.DefaultPieDataset;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
+import org.springframework.web.multipart.support.ByteArrayMultipartFileEditor;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mongolia.website.controller.ckeditor.SamplePostData;
@@ -53,6 +53,7 @@ import com.mongolia.website.manager.interfaces.UserManager;
 import com.mongolia.website.manager.interfaces.WebResourceManager;
 import com.mongolia.website.manager.interfaces.WebSiteManager;
 import com.mongolia.website.manager.interfaces.WebSiteVisitorManager;
+import com.mongolia.website.model.BookStoreValue;
 import com.mongolia.website.model.Channel;
 import com.mongolia.website.model.DocumentValue;
 import com.mongolia.website.model.FriendValue;
@@ -345,30 +346,16 @@ public class BlogManagerAction {
 	 */
 	@RequestMapping("/imgupload.do")
 	public ModelAndView fileupload(HttpServletRequest request,
-			HttpServletResponse response, ModelMap map) {
+			ImgValue imgValue, ModelMap map) {
 		String imgname = "";
 		try {
 			request.setCharacterEncoding("utf-8"); // 设置编码
 			// 获取文件需要上传到的路径
 			String path = request.getSession().getServletContext()
 					.getRealPath("html/img");
-			MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
-			MultiValueMap file = multipartRequest.getMultiFileMap();
-			Set<String> set = file.keySet();
-			Iterator iterator = set.iterator();
-			while (iterator.hasNext()) {
-				String name = (String) iterator.next();
-				List files = (List) file.get(name);
-
-				for (int i = 0; i < files.size(); i++) {
-					CommonsMultipartFile commonsMultipartFile = (CommonsMultipartFile) files
-							.get(i);
-					String OriginalFilename = commonsMultipartFile
-							.getOriginalFilename();
-					imgname = UUIDMaker.getUUID() + OriginalFilename;
-					ImgeUtil.CompressPic(commonsMultipartFile.getBytes(), path,
-							imgname);
-				}
+			imgname = UUIDMaker.getUUID() + ".jpg";
+			if(imgValue.getImg()!=null&&imgValue.getImg().length!=0){
+				ImgeUtil.CompressPic(imgValue.getImg(), path, imgname);	
 			}
 			//
 		} catch (Exception ex) {
@@ -554,65 +541,33 @@ public class BlogManagerAction {
 	 * @return
 	 */
 	@RequestMapping("/addimggroup.do")
-	public ModelAndView addImgGroup(HttpServletRequest request,
-			HttpServletResponse response, ModelMap map,
+	public ModelAndView addImgGroup(HttpServletRequest request, ModelMap map,
 			ImgGrpupValue imgGrpupValue) {
 		try {
 			UserValue sessionUser = (UserValue) request.getSession()
 					.getAttribute("user");// 在线session
-			MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
-			MultiValueMap file = multipartRequest.getMultiFileMap();
 			String path = request.getSession().getServletContext()
 					.getRealPath("/html/img");
 			String path1 = request.getSession().getServletContext()
 					.getRealPath("/html/photoalbum");
-			Set<String> set = file.keySet();
-			Iterator<String> iterator = set.iterator();
 			ImgValue tempImgValue = new ImgValue();
 			ImgValue imgValue = new ImgValue();
-			while (iterator.hasNext()) {
-				String name = (String) iterator.next();
-				List files = (List) file.get(name);
-				String imgname = "";
-				try {
-					for (int i = 0; i < files.size(); i++) {
-						CommonsMultipartFile commonsMultipartFile = (CommonsMultipartFile) files
-								.get(i);
-						String OriginalFilename = commonsMultipartFile
-								.getOriginalFilename();
-						imgname = UUIDMaker.getUUID() + OriginalFilename;
-						//
-						tempImgValue = ImgeUtil.CompressPic(
-								commonsMultipartFile.getBytes(), path, imgname);
-						ImgeUtil.CompressPic(commonsMultipartFile.getBytes(),
-								path1, imgname);
-						imgValue.setImgurl("/html/img/" + imgname);
-						//
-						ImgeUtil.CompressPic(commonsMultipartFile.getBytes(),
-								path, imgname);
-						File imgFile = new File(path, imgname);
-						FileInputStream inputStrram = new FileInputStream(
-								imgFile);
-						int length = inputStrram.available();
-						byte reader[] = new byte[length];
-						inputStrram.read(reader);
-						inputStrram.close();
-						imgGrpupValue.setFaceimg(reader);
-						imgGrpupValue.setImggroupid(UUIDMaker.getUUID());
-						imgGrpupValue.setFaceurl("/html/photoalbum/" + imgname);
-						imgValue.setImgcontent(reader);
-					}
-				} catch (Exception ex) {
-					return new ModelAndView("sitemanager/error", map);
-				}
+			String imgname = "";
+			imgname = UUIDMaker.getUUID() + ".jpg";
+			if (imgGrpupValue.getImgurl()!=null&&imgGrpupValue.getImgurl().length!=0){
+				tempImgValue = ImgeUtil.CompressPic(imgGrpupValue.getImgurl(),
+						path, imgname);
+				ImgeUtil.CompressPic(imgGrpupValue.getImgurl(), path1, imgname);
+				imgValue.setImgurl(imgname);		
+				ImgeUtil.CompressPic(imgGrpupValue.getImgurl(), path, imgname);
 			}
-
+			imgGrpupValue.setImggroupid(UUIDMaker.getUUID());
+			imgGrpupValue.setFaceurl(imgname);
 			imgGrpupValue.setUserid(sessionUser.getUserid());
 			imgGrpupValue.setImggroupkind("1");
 			imgGrpupValue.setCreatedtime(new Date());
 			this.webResourceManager.doAddIImgGroup(imgGrpupValue);
 			// 同时新增一个图片
-			// //
 			imgValue.setImggroupid(imgGrpupValue.getImggroupid());
 			imgValue.setImgid(UUIDMaker.getTimeBasedUUID());
 			imgValue.setImgname(imgGrpupValue.getImggroupname());
@@ -636,41 +591,15 @@ public class BlogManagerAction {
 	 * @return
 	 */
 	@RequestMapping("/updimggroup.do")
-	public ModelAndView updImgGroup(HttpServletRequest request,
-			HttpServletResponse response, ModelMap map,
+	public ModelAndView updImgGroup(HttpServletRequest request, ModelMap map,
 			ImgGrpupValue imgGrpupValue) {
 		try {
-			MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
-			MultiValueMap file = multipartRequest.getMultiFileMap();
 			String path = request.getSession().getServletContext()
-					.getRealPath("/html/img");
-			Set<String> set = file.keySet();
-			Iterator iterator = set.iterator();
-			while (iterator.hasNext()) {
-				String name = (String) iterator.next();
-				List files = (List) file.get(name);
-				String imgname = "";
-				try {
-					for (int i = 0; i < files.size(); i++) {
-						CommonsMultipartFile commonsMultipartFile = (CommonsMultipartFile) files
-								.get(i);
-						String OriginalFilename = commonsMultipartFile
-								.getOriginalFilename();
-						imgname = UUIDMaker.getUUID() + OriginalFilename;
-						ImgeUtil.CompressPic(commonsMultipartFile.getBytes(),
-								path, imgname);
-						File imgFile = new File(path, imgname);
-						FileInputStream inputStrram = new FileInputStream(
-								imgFile);
-						int length = inputStrram.available();
-						byte reader[] = new byte[length];
-						inputStrram.read(reader);
-						inputStrram.close();
-						imgGrpupValue.setFaceimg(reader);
-					}
-				} catch (Exception ex) {
-					return new ModelAndView("sitemanager/error", map);
-				}
+					.getRealPath("/html/photoalbum");
+			String imgname = "";
+			imgname = UUIDMaker.getUUID() + ".jpg";
+			if(imgGrpupValue.getImgurl()!=null&&imgGrpupValue.getImgurl()!=null){
+				ImgeUtil.CompressPic(imgGrpupValue.getImgurl(), path, imgname);	
 			}
 			this.webResourceManager.doUpdIImgGroup(imgGrpupValue);
 		} catch (Exception ex) {
@@ -692,53 +621,42 @@ public class BlogManagerAction {
 	public ModelAndView addImg(HttpServletRequest request, ImgValue imgValue,
 			ModelMap map) {
 		try {
-			MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
-			MultiValueMap file = multipartRequest.getMultiFileMap();
 			String path = request.getSession().getServletContext()
 					.getRealPath("/html/img");
-			Set<String> set = file.keySet();
-			Iterator<String> iterator = set.iterator();
-			ImgValue tempImgValue = null;
-			while (iterator.hasNext()) {
-				String name = (String) iterator.next();
-				List files = (List) file.get(name);
-				String imgname = "";
-				try {
-					for (int i = 0; i < files.size(); i++) {
-						CommonsMultipartFile commonsMultipartFile = (CommonsMultipartFile) files
-								.get(i);
-						String OriginalFilename = commonsMultipartFile
-								.getOriginalFilename();
-						OriginalFilename = OriginalFilename.split("\\.")[1];
-						imgname = UUIDMaker.getUUID() + "." + OriginalFilename;
-						tempImgValue = ImgeUtil.CompressPic(
-								commonsMultipartFile.getBytes(), path, imgname);
-						imgValue.setImgurl("/html/img/" + imgname);
-						// 读取这个文件并把内容写入数据库这样避免数据丢失
-						File imgFile = new File(path, imgname);
-						FileInputStream inputStrram = new FileInputStream(
-								imgFile);
-						int length = inputStrram.available();
-						byte reader[] = new byte[length];
-						inputStrram.read(reader);
-						inputStrram.close();
-						imgValue.setImgcontent(reader);
-					}
-
-				} catch (Exception ex) {
-					return new ModelAndView("sitemanager/error", map);
-				}
+			String imgid = UUIDMaker.getUUID();
+			String imgname = imgid + ".jpg";
+			if(imgValue.getImg()!=null&&imgValue.getImg().length!=0){
+				ImgValue tempImgValue = ImgeUtil.CompressPic(imgValue.getImg(),
+						path, imgname);
+				imgValue.setImgurl(imgname);	
+				imgValue.setImgid(imgid);
+				imgValue.setImgname(imgValue.getImgid());
+				imgValue.setImgdesc(imgValue.getImgcomm());
+				imgValue.setWidth(tempImgValue.getWidth());
+				imgValue.setHeight(tempImgValue.getHeight());
+				this.webResourceManager.doAddImg(imgValue);
 			}
-			imgValue.setImgid(UUIDMaker.getTimeBasedUUID());
-			imgValue.setImgname(imgValue.getImgid());
-			imgValue.setImgdesc(imgValue.getImgcomm());
-			imgValue.setWidth(tempImgValue.getWidth());
-			imgValue.setHeight(tempImgValue.getHeight());
-			this.webResourceManager.doAddImg(imgValue);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
 		return new ModelAndView("forward:getimglist.do");
+	}
+
+	@RequestMapping("/deleteimgs.do")
+	public ModelAndView deleteimgs(HttpServletRequest request, ModelMap map) {
+		String imgids = request.getParameter("imgids");
+		try {
+			UserValue sessionUser = (UserValue) request.getSession()
+					.getAttribute("user");// 在线session
+			this.webResourceManager
+					.doDeleteImg(imgids, sessionUser.getUserid());
+			map.put("success", 1);
+		} catch (ManagerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			map.put("success", 0);
+		}
+		return new ModelAndView("jsonView", map);
 	}
 
 	/**
@@ -1000,7 +918,6 @@ public class BlogManagerAction {
 			//
 			UserValue sessionUser = (UserValue) request.getSession()
 					.getAttribute("user");
-			UserValue user = null;
 			String userid = request.getParameter("userid");
 			Map<String, Object> params = new HashMap<String, Object>();
 			if (userid == null) {
@@ -2261,36 +2178,33 @@ public class BlogManagerAction {
 
 	@RequestMapping("/inderrtimg.do")
 	public ModelAndView inderrtimg(HttpServletRequest request,
-			HttpServletResponse response, ModelMap map) {
+			BookStoreValue bookStoreValue, ModelMap map) {
 		String imgname = "";
 		try {
 			request.setCharacterEncoding("utf-8"); // 设置编码
 			// 获取文件需要上传到的路径
 			String path = request.getSession().getServletContext()
 					.getRealPath("/html/img");
-			MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
-			MultiValueMap file = multipartRequest.getMultiFileMap();
-			Set<String> set = file.keySet();
-			Iterator iterator = set.iterator();
-			while (iterator.hasNext()) {
-				String name = (String) iterator.next();
-				List files = (List) file.get(name);
-				for (int i = 0; i < files.size(); i++) {
-					CommonsMultipartFile commonsMultipartFile = (CommonsMultipartFile) files
-							.get(i);
-					String OriginalFilename = commonsMultipartFile
-							.getOriginalFilename();
-					imgname = UUIDMaker.getUUID() + OriginalFilename;
-					ImgeUtil.CompressPic(commonsMultipartFile.getBytes(), path,
-							imgname);
-				}
+			imgname = UUIDMaker.getUUID() + ".jpg";
+			if(bookStoreValue.getImgurl()!=null&&bookStoreValue.getImgurl().length!=0){
+				ImgeUtil.CompressPic(bookStoreValue.getImgurl(), path, imgname);
+				map.put("picurl", "html/img/" + imgname);		
 			}
-			//
-			map.put("picurl", "html/img/" + imgname);
+		
 		} catch (Exception ex) {
 			return new ModelAndView("sitemanager/error", map);
 		}
 		return new ModelAndView("userspace/insertimg", map);
+	}
+
+	@InitBinder
+	protected void initBinder(WebDataBinder binder) throws ServletException {
+		binder.registerCustomEditor(byte[].class,
+				new ByteArrayMultipartFileEditor());
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		dateFormat.setLenient(false);
+		binder.registerCustomEditor(Date.class, new CustomDateEditor(
+				dateFormat, false));
 	}
 
 }
