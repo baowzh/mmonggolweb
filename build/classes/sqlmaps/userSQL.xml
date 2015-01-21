@@ -277,7 +277,7 @@
 	</delete>
 	<select id="getFriendList" parameterClass="java.util.Map"
 		resultClass="FriendValue">
-		select friend.* from friend ,user where friend.friendid=user.userid
+		select friend.* ,user.headurl as headurl from friend ,user where friend.friendid=user.userid
 		<dynamic prepend="and">
 			<isNotNull prepend="and" property="userid">
 				friend.userid=#userid#
@@ -292,7 +292,7 @@
 	</select>
 	<select id="getVisitorList" parameterClass="java.util.Map"
 		resultClass="VisitorValue">
-		select DISTINCT visitorid,visitorname,visitorimg,visitorimgurl from
+		select DISTINCT visitorid,visitorname,visitorimg,visitorimgurl,user.headurl as headurl from
 		visitor,user where visitor.visitorid=user.userid
 		<dynamic prepend="and">
 			<isNotNull prepend="and" property="userid">

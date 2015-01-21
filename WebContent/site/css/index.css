@@ -5,6 +5,8 @@ body {
 	font-family: "MenksoftQagan";
 	font-size: 17px;
 	line-height: 100%;
+	background-color:#f2967b/* 
+		background-color:#ed6942 */
 }
 
 .logo {
@@ -39,20 +41,23 @@ body {
 
 .naveFrame {
 	position: relative;
-	left: 13em;
-	top: 3em;
+	left: 14em;
+	top: 3.5em;
 }
 
 .ribbon {
-	background: url(../img/vgalja.jpg);
+/* 	background: url(../img/vgalja.jpg); */
 	height: 24px;
 	width: 1000px;
+	background-color:#014886;
 }
 
 .layer {
 	width: 1000px;
-	background: #f8f8f8;
+/* 	background: #f8f8f8; */
 	margin: 0px auto;
+	padding-top:3px;
+	background:#fff;
 }
 
 .listCard {
@@ -68,11 +73,11 @@ body {
 
 .listCardTtl {
 	float: left;
-	border: solid 1px #ccc;
+/* 	border: solid 1px #ccc; */
 	height: 320px;
 	/* 	padding: 9px 0; */
 	line-height: 32px;
-	width: 36px;
+	width: 40px;
 	border-radius: 5px 0px 0px 5px;
 	overflow: hidden;
 }
@@ -87,8 +92,8 @@ body {
 .top {
 	background: url(../img/top.jpg) repeat-y;
 	color: #C00;
-	width: 36px;
-	height: 69px;
+	width: 40px;
+	height: 118px;
 }
 
 .ctail {
@@ -104,17 +109,18 @@ body {
 }
 
 .listCardBody {
-	border: solid 1px #ccc;
+	border: solid 1px #014886;
 	border-left: none;
-	height: 320px;
+	height: 314px;
 	padding-top: 4px;
 	overflow: hidden;
 	border-radius: 0px 5px 5px 0px;
+/* 	border-color:#014886; */
 /* 	background-image: url(../../img/arv_ag.jpg) */
 }
 
 .ttl {
-	padding-top: 14px;
+/* 	padding-top: 14px; */
 	writing-mode: tb-lr;
 	-webkit-writing-mode: vertical-lr;
 	-moz-writing-mode: vertical-lr;
@@ -122,8 +128,8 @@ body {
 	-o-writing-mode: vertical-lr;
 	-webkit-text-orientation: sideways-right;
 	line-height: 32px;
-	width: 36px;
-	height: 126px;
+	width: 40px;
+	height: 124px;
 	background: url(../img/middel.jpg) repeat-y;
 }
 
@@ -135,7 +141,7 @@ body {
 	-o-writing-mode: vertical-lr;
 	-webkit-text-orientation: sideways-right;
 	line-height: 32px;
-	width: 36px;
+	width: 40px;
 	height: 65px;
 	text-align: right;
 	padding-bottom: 1em;
@@ -223,7 +229,7 @@ body {
 	width: 333px;
 	height: 320px;
 	float: left;
-	margin: 4px 0px;
+	margin: 1px 0px;
 	background: #fff;
 	overflow: hidden;
 }
@@ -308,6 +314,7 @@ body {
 	text-overflow: ellipsis;
 	line-height: 20px;
 	height: 70px;
+	
 }
 
 .author a {
@@ -332,8 +339,9 @@ body {
 }
 
 .mnlist a {
-	color: #666;
+/* 	color: #666; */
 	text-decoration: none;
+	color:#014886;
 }
 
 .content {
@@ -363,6 +371,7 @@ body {
 	text-align: left;
 	float: left;
 	height: 7em;
+	color:#014886;
 }
 
 .mglForm .label a {
@@ -383,6 +392,8 @@ body {
 	-webkit-transform-origin: 10px 14px;
 	writing-mode: tb-lr;
 	font-family: "MenksoftQagan";
+	background-color:#00A1E9;
+	color:#fff;
 }
 
 .lcell {
@@ -580,8 +591,10 @@ body {
 	-ms-text-orientation: sideways-right;
 	width: 189px;
 	height: 160px;
-	border-right: 1px solid #ccc;
-	border-bottom: 1px solid #ccc;
+/* 	border-right: 1px solid #ccc; */
+/* 	border-bottom: 1px solid #ccc; */
+	border-right: 1px solid #014886;
+	border-bottom: 1px solid #014886;
 	float: left;
 	overflow: hidden;
 }
@@ -686,6 +699,7 @@ body {
 	height: 100px;
 	width: 135px;
 	float: left;
+
 }
 
 .nrglgq a {
@@ -739,15 +753,26 @@ body {
 	min-height:600px;
 }
 .listImgBox {
-	border: solid 1px #ccc;
+	border: solid 1px #014886;
 	border-left: none;
 	height: 320px;
 	padding-top: 4px;
 	overflow: hidden;
 	border-radius: 0px 5px 5px 0px;
-	background-image: url(../../img/arv_ag.jpg)
+/* 	background-image: url(../../img/arv_ag.jpg) */
 }
 .operbon {
 	height: 24px;
 	width: 1000px;
+}
+.elsehu {
+	line-height: 20px;
+	height: 310px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	float: left;
+/* 	background: url(../img/qig_1_v.png) center top no-repeat; */
+	text-indent: 12px;
+	width: 20px;
 }

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<div class="flt" style="width: 250px;">
+<div class="flt" style="width: 250px;border: solid 1px #014886;">
 	<div class="flt" style="width: 250px;">
 		<div class="flt"
 			style="position: relative; top: -190px; padding: 8px;" id="nameCard">
@@ -120,7 +120,7 @@
 			</div>
 		</div>
 		<div class=" flt"
-			style="width: 225px; margin: 0px 8px 8px 8px; padding: 5px; background: white;">
+			style="width: 225px; margin: 0px 8px 8px 8px; padding: 5px; background: white;border: solid 1px #014886;">
 			<div class="friendL">
 				<div class="i">
 					<div class="m0a" style="width: 40px;">
@@ -151,7 +151,7 @@
 			</c:forEach>
 		</div>
 		<div class=" flt"
-			style="width: 225px; margin: 0px 8px 8px 8px; padding: 5px; background: white;">
+			style="width: 225px; margin: 0px 8px 8px 8px; padding: 5px; background: white;border: solid 1px #014886;">
 			<div class="friendL">
 				<div class="i">
 					<div class="m0a" style="width: 40px;">

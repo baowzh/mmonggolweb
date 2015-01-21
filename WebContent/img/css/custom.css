@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 body {
-	background: #69F url(../custom/SMEI-Blog-Header.png) center 254px
+	background: #ed6942 url(../custom/SMEI-Blog-Header.png) center 254px
 		no-repeat;
 }
 
@@ -31,11 +31,11 @@ background:#fff;
 }
 
 .bglMainC {
-	background: #66F url(../custom/beijing2.png);
+/* 	background: #66F url(../custom/beijing2.png); */
 }
 
 .blgLC {
-	background: #66F url(../custom/beijing2.png);
+/* 	background: #66F url(../custom/beijing2.png); */
 }
 
 .blgNav a {

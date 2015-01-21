@@ -105,7 +105,7 @@
 		</div>
 	</div>
 	<div class="wrp m0a ribbon"></div>
-	<div class="layer m0a">
+	<div class="layer m0a" style="padding-top:0px;">
 		<div class="card1" style="height: 340px; width: 380px;">
 			<div style="width: 380px; height: 330px; padding: 5px;">
 				<div class="sldrFrm" id="picplayer"
@@ -119,7 +119,7 @@
 				<div class="more"></div>
 				<div class="ctail"></div>
 			</div>
-			<div class="listCardBody" style="height: 340px;">
+			<div class="listCardBody" style="height: 334px;padding-left:5px;">
 				<c:forEach items="${indexPageContent.selecteddocs}"
 					var="documentValue" varStatus="status">
 					<div class="nwsl1">
@@ -140,14 +140,14 @@
 				</c:forEach>
 			</div>
 		</div>
-		<div class="card2" style="height: 340px; width: 180px;">
+		<div class="card2" style="height: 340px; width: 180px;margin:0px 0px;">
 			<div class="listCardTtl ttlStl1" style="height: 340px;">
 				<div class="top"></div>
 				<div class="ttl" style="height: 146px;"></div>
 				<div class="more"></div>
 				<div class="ctail"></div>
 			</div>
-			<div class="listCardBody" style="height: 320px; padding-top: 30px;">
+			<div class="listCardBody" style="height: 308px; padding-top: 30px;background-color:#ffbd49;">
 				<form id="searchform" class="mglForm" method="post">
 					<div class="inputHolder"></div>
 					<c:if test="${agentkind==1}">
@@ -183,7 +183,7 @@
 		<div class="cls"></div>
 	</div>
 	<div class="layer m0a">
-		<div class="card2" style="background-image: url(img/arv_ag.jpg)">
+		<div class="card2" style="background-color:#ffbd49;">
 			<div class="  lcell" style="width: 150px; height: 320px;">
 				<div class="lcell cardlogin" id="logindiv"
 					style="height: 290px; padding-left: 20px; padding-top: 10px;">
@@ -688,13 +688,13 @@
 		<div class="card5">
 			<div class="listCardTtl ttlStl1" style="height: 450px;">
 				<div class="top"></div>
-				<div class="ttl" style="height: 217px;"> </div>
-				<div class="more" style="height: 110px;">
+				<div class="ttl" style="height: 200px;"> </div>
+				<div class="more" style="height: 115px;">
 					<a href="imgs.do"> </a>
 				</div>
 				<div class="ctail"></div>
 			</div>
-			<div class="listImgBox" style="height: 450px;">
+			<div class="listImgBox" style="height: 444px;">
 				<c:forEach items="${indexPageContent.imgs}" var="imgValue"
 					varStatus="status">
 					<div class="thumb1">
@@ -707,9 +707,7 @@
 				</c:forEach>
 			</div>
 		</div>
-
-
-		<div class="cls"></div>
+<!-- 		<div class="cls"></div> -->
 	</div>
 	<div class="layer m0a">
 		<div class="card3">
@@ -1314,7 +1312,7 @@
 					</div>
 					<div class="ctail"></div>
 				</div>
-				<div class="listCardBody" style="width: 290px; height: 400px;">
+				<div class="listCardBody" style="width: 290px; height: 393px;">
 					<div class="nwsl1" style="height: 400px;">
 						<div class="title" style="height: 400px;">  
 							       </div>
@@ -1360,7 +1358,7 @@
 					<div class="ctail"></div>
 				</div>
 				<div class="nrglgq"
-					style="width: 295; height: 310px; line-height: 23px; padding-left: 2px;">
+					style="width: 620px; height: 390px; line-height: 23px;padding-top:4px;	border: solid 1px #014886;border-left: none;">
 					<div class="nwsl1">
 						<div class="title">
 							<a href="#" target="_blank" class="tit_text_overflow">
@@ -1478,7 +1476,11 @@
 								 </a>
 						</div>
 					</div>
+					<div class="elsehu">
+						<div class="author">
 					         13684719585
+					</div>
+					</div>
 				</div>
 			</div>
 		</div>

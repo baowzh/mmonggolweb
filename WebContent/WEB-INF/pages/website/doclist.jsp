@@ -19,7 +19,7 @@
 			<div class="cbt"></div>
 		</div>
 		<div class="wrp m0a ribbon"></div>
-		<div class="layer m0a">
+		<div class="layer m0a" style="padding-top:0px;">
 			<div class="card1"
 				style="height: 520px; width: 1000px; margin: 0px 0px;">
 				<div class="listCardTtl ttlStl1" style="height: 520px;">

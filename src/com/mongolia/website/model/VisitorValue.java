@@ -14,7 +14,8 @@ public class VisitorValue {
 	private String headimgsm;
 	private Integer visitortype;
 	private String visitdatestr;
-    private String headurl;
+	private String headurl;
+
 	public String getVisitorid() {
 		return visitorid;
 	}
@@ -104,12 +105,11 @@ public class VisitorValue {
 	}
 
 	public String getHeadurl() {
-		return this.visitorid+".jpg";
+		return headurl;
 	}
 
 	public void setHeadurl(String headurl) {
 		this.headurl = headurl;
 	}
-	
 
 }
