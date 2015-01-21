@@ -185,7 +185,7 @@ $(document)
 					// 设置视频为滚动区域
 					/*
 					$('#videoBox').slimScroll({
-         			    width: '950px',
+					    width: '950px',
 					    height: '329px'
 					});*/
 
@@ -215,8 +215,7 @@ var search = function(action) {
 		MessageWindow.showMess('      ');
 		return;
 	}
-	$("#searchform").attr("action", action);
-	$("#searchform").submit();
+	window.location.href = action + '?searchtext=' + searchtext;
 };
 /**
  * 播放顶部广告

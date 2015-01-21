@@ -141,6 +141,7 @@
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	float: left;
+	background: url(../img/qig_1_v.png) center top no-repeat;
 	/*text-align:center;*/
 	/*background: url(../icon.png) no-repeat center 0px;*/
 }

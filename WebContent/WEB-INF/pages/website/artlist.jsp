@@ -29,7 +29,7 @@
 	</div>
 	<div class="wrp m0a ribbon"></div>
 	<div class="lmainR ofh">
-		<form action="searchdoc.do" id="Form" method="post">
+		<form action="searchdoc.do" id="Form" method="get">
 			<div class="lmainR"
 				style="writing-mode: tb-lr; -webkit-writing-mode: vertical-lr;">
 				<div style="height: 598px; border: solid 1px #eee;">
@@ -41,7 +41,7 @@
 							<td>
 								<div class="inputHolder">
 									<select id="channel" name="channel"
-										style="writing-mode: tb-lr; -webkit-writing-mode: vertical-lr;">
+										style="writing-mode: tb-lr; -webkit-writing-mode: vertical-lr;background:#fff;color:#000;">
 										<option value="#"> </option>
 									</select>
 								</div>
@@ -53,11 +53,11 @@
 								<div class="inputHolder" style="background: #eee;">
 									<input type="text" name="strcrtime" id="strcrtime"
 										value="<c:out value="${queryDocForm.strcrtime}"/>"
-										style="height: 40px;" class="modTxtTime" readonly="readonly"
+										style="height: 40px;background:#fff;color:#000;" class="modTxtTime" readonly="readonly"
 										onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" /> - <input
 										type="text" name="endcrtime" id="endcrtime"
 										value="<c:out value="${queryDocForm.endcrtime}"/>"
-										style="height: 40px;" class="modTxtTime" readonly="readonly"
+										style="height: 40px;background:#fff;color:#000;" class="modTxtTime" readonly="readonly"
 										onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" />
 								</div>
 							</td>
@@ -68,7 +68,7 @@
 							</td>
 							<td style="background: #eee;">
 								<div class="inputHolder">
-									<input type="text" name="authorname" id="authorname"
+									<input type="text" style="background:#fff;color:#000;" name="authorname" id="authorname"
 										value="<c:out value="${queryDocForm.authorname}"/>" />
 								</div>
 							</td>
@@ -78,7 +78,7 @@
 							<td>
 								<div class="inputHolder">
 									<select name="top" id="top"
-										style="writing-mode: tb-lr; -webkit-writing-mode: vertical-lr;">
+										style="writing-mode: tb-lr; -webkit-writing-mode: vertical-lr;background:#fff;color:#000;">
 										<option value="3">  </option>
 										<option value="2">  </option>
 										<option value="1">  </option>
@@ -93,7 +93,7 @@
 							</td>
 							<td>
 								<div class="inputHolder">
-									<input type="text" name="doctitle" id="doctitle"
+									<input type="text" name="doctitle" id="doctitle" style="background:#fff;color:#000;"
 										value="<c:out value="${queryDocForm.doctitle}"/>" />
 								</div>
 							</td>

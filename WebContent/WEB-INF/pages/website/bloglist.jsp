@@ -9,7 +9,7 @@
 <link href="site/css/main.css" rel="stylesheet" type="text/css" />
 <link href="site/css/index.css" rel="stylesheet" type="text/css" />
 <link href="img/css/main.css" type="text/css" rel="stylesheet" />
-<link href="img/css/huh.css" type="text/css" rel="stylesheet" />
+<!-- <link href="img/css/huh.css" type="text/css" rel="stylesheet" /> -->
 <link href="img/css/doccheck.css" type="text/css" rel="stylesheet" />
 <link href="img/css/listpages.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="js/jqGrid/js/jquery-1.9.1.js"></script>
@@ -53,7 +53,7 @@
 						</td>
 						<td>
 							<div class="inputHolder">
-								<input type="text" name="username" id="username" />
+								<input type="text" name="username" id="username" style="background-color:#fff;color:#000;" />
 							</div>
 						</td>
 					</tr>
@@ -64,10 +64,10 @@
 						<td>
 							<div class="inputHolder">
 								<input type="text" name="strregtime" id="strregtime"
-									style="height: 40px;" class="modTxtTime" readonly="readonly"
+									style="height: 40px;background-color:#fff;color:#000;" class="modTxtTime" readonly="readonly"
 									onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" /> - <input
 									type="text" name="endregtime" id="endregtime"
-									style="height: 40px;" class="modTxtTime" readonly="readonly"
+									style="height: 40px;background-color:#fff;color:#000;" class="modTxtTime" readonly="readonly"
 									onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" />
 							</div>
 						</td>
@@ -90,7 +90,7 @@
 				<div class="  lcell" style="width: 870px;">
 					<div class="lcell " style="width: 870px; height: 600px;">
 						<div class=" " style="height: 600px;">
-							<div class="ttl1 m1ln">
+							<div class="ttl1 m1ln" style="background:#014886;">
 								<a href="#" style="color:#fff;"> </a>
 							</div>
 							<div style="width: 820px; margin: 0px; height: 500px" class="ofh">

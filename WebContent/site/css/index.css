@@ -5,7 +5,7 @@ body {
 	font-family: "MenksoftQagan";
 	font-size: 17px;
 	line-height: 100%;
-	background-color:#f2967b/* 
+	background-color:#f2967b;/* 
 		background-color:#ed6942 */
 }
 
@@ -21,7 +21,7 @@ body {
 	height: 105px;
 	overflow: hidden;
 	float: left;
-	font-size: 20px;
+	font-size: 19px;
 }
 
 .mln {
@@ -41,7 +41,7 @@ body {
 
 .naveFrame {
 	position: relative;
-	left: 14em;
+	left: 13em;
 	top: 3.5em;
 }
 
@@ -78,7 +78,8 @@ body {
 	/* 	padding: 9px 0; */
 	line-height: 32px;
 	width: 40px;
-	border-radius: 5px 0px 0px 5px;
+/* 	border-radius: 5px 0px 0px 5px; */
+	border-radius: 0px 0px 0px 5px; 
 	overflow: hidden;
 }
 
@@ -114,7 +115,7 @@ body {
 	height: 314px;
 	padding-top: 4px;
 	overflow: hidden;
-	border-radius: 0px 5px 5px 0px;
+/* 	border-radius: 0px 5px 5px 0px; */
 /* 	border-color:#014886; */
 /* 	background-image: url(../../img/arv_ag.jpg) */
 }
