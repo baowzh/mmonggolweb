@@ -678,6 +678,7 @@ public class WebSiteVisiterAction {
 		queryUserForm.setPagesize(12);
 		PaingModel<UserValue> paingUser = this.webSiteManager
 				.getUsers(queryUserForm);
+		paingUser.setPageindex(queryUserForm.getPageindex());
 		map.put("users", paingUser.getModelList());
 		map.put("usercount", paingUser.getRowcount());
 		map.put("queryform", queryUserForm);
