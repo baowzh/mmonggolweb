@@ -21,33 +21,21 @@
 <body onload="q();">
 	<div class="wrap" id="wrap">
 		<div class="header">
-			<!--  
-			<table width="100%" border="0" height="100%" cellspacing="0"
-				cellpadding="0">
-				<tr>
-					<td align="center" valign="middle"><a
-						href="javascript:window.open('s_index.asp','_self','');"> </a></td>
-					<td align="center" valign="middle"></td>
-					<td align="center" valign="middle"><a
-						href="javascript:history.go(-1)"> </a></td>
-				</tr>
-			</table>
-			-->
 			<div style="width: 240px; height: 90px; float: left;">
 				<img src="site/img/phonehead.jpg"
 					style="width: 104px; height: 90px;">
 			</div>
 			<div class="moldiv" style="float: right;">
 				<div class="navitem">
-					<a href="phoneindex.do" style="font-size:18px;"></a>
+					<a href="phoneindex.do" style="font-size: 18px;"> </a>
 				</div>
 				<div class="emptyItem"></div>
 				<div class="navitem">
-					<a style="font-size:18px;"> </a>
+					<a href="phonechannel.do" style="font-size: 18px;"> </a>
 				</div>
 				<div class="emptyItem"></div>
 				<div class="navitem">
-					<a style="font-size:18px;"> </a>
+					<a style="font-size: 18px;"> </a>
 				</div>
 			</div>
 		</div>
@@ -59,16 +47,14 @@
 					</h1>
 				</div>
 				<div class="con">
-					<h2> &nbsp;&nbsp;**** &nbsp;&nbsp;&nbsp;
-						  &nbsp;2014-12-19&nbsp;16 17</h2>
+					<h2> &nbsp;<c:out value="${documentValue.docauthor}" /> **** &nbsp;&nbsp;&nbsp;
+						  &nbsp;<c:out value="${documentValue.docRelTimeStr}" /></h2> 
 				</div>
 				<div class="content">
 					<div class='con'>
 						<c:out value="${documentValue.htmlstr}" escapeXml="false" />
 					</div>
-					<div class='conimg' style='height: 868px;'>
-						<!-- 						<img src='uploadfile/jpg/2014-10/2014101616172345.jpg' width='858'> -->
-					</div>
+					<div class='conimg' style='height: 868px;'></div>
 				</div>
 				<div class="con footer">
 					<h1></h1>

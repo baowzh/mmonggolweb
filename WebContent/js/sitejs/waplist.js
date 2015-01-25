@@ -1,11 +1,8 @@
-/**
- * 
- */
+
 var q = function() {
 	setTimeout(scrollTo, 0, 0, 0);
 	var availHeight=$(window).height();
 	var availWidth=$(window).width();
-//	$('.header').css('background-size', '' + availWidth + 'px 90px')
 	$('.header').css({width:availWidth});
 	$('#wrap').css('height', availHeight-90);
 	$('#wrap').css('width', 384);
@@ -13,6 +10,8 @@ var q = function() {
 	$('#main').css('width', 384);
 	$('#montdlist').css('width', availHeight - 92);
 };
+
+/*
 /**
  * 
  */

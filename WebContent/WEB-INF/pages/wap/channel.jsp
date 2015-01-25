@@ -26,17 +26,17 @@
 </head>
 <body onload="q();">
 	<div class="wrap header">
-		<div style="float: left;width:240px;">
+		<div style="float: left; width: 240px;">
 			<img src="site/img/phonehead.jpg" style="height: 90px; width: 104px;">
 		</div>
 		<div class="mln"
-			style="height: 80px; font-size: 18px; float: right; color: #fff;">
-			<a href="phoneindex.do"></a>
-		</div>
-		<div class="emptyItem" style="height:70px;float: right;"></div>
-		<div class="mln"
 			style="height: 80px; width: 30px; font-size: 18px; float: right; color: #fff;">
 			</div>
+		<div class="emptyItem" style="height: 70px; float: right;"></div>
+		<div class="mln"
+			style="height: 80px; font-size: 18px; float: right; color: #fff;">
+			<a href="phoneindex.do"> </a>
+		</div>
 	</div>
 	<div class="wrap content" style="height: 140px;">
 		<div class="emptyItem"></div>
@@ -183,8 +183,7 @@
 	<div class="wrap content"
 		style="height: 3px; text-align: center; background: #fff; color: #fff;"></div>
 	<div class="wrap content"
-		style="height: 30px; text-align: center; background: #d29130; color: #fff; padding-top: 3px;">
-		版权所有 © 2014-2015 
-		</div>
+		style="height: 30px; text-align: center; background: #d29130; color: #fff; padding-top: 3px; positon: fixed:bottom:0px; font-size: 13px;">
+		版权所有 © 2014-2015</div>
 </body>
 </html>
