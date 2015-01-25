@@ -586,10 +586,10 @@ public class WebSiteVisiterAction {
 			PaingModel<DocumentValue> paingModel, ModelMap map) {
 		try {
 			List<TopDocumentValue> selecteddocs = this.webSiteVisitorManager
-					.getTopDocuments(StaticConstants.TOP_TYPE4, null, 15);
+					.getTopDocuments(StaticConstants.TOP_TYPE4, null, 14);
 			map.put("selecteddocs", selecteddocs);
 			List<DocumentValue> recentdocs = this.webSiteVisitorManager
-					.getRecentDocs(15);
+					.getRecentDocs(14);
 			map.put("recentdocs", recentdocs);
 		} catch (Exception ex) {
 			ex.printStackTrace();
