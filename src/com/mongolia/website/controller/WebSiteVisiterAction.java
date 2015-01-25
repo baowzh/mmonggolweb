@@ -668,4 +668,22 @@ public class WebSiteVisiterAction {
 		return new ModelAndView("wap/channel");
 	}
 
+	@RequestMapping("/phonebloglist.do")
+	public ModelAndView phonebloglist(HttpServletRequest request,
+			QueryUserForm queryUserForm, ModelMap map) throws Exception {
+		if (queryUserForm.getPageindex() == null) {
+			queryUserForm.setPageindex(1);
+		}
+		queryUserForm.setUsername(queryUserForm.getSearchtext());
+		queryUserForm.setPagesize(12);
+		PaingModel<UserValue> paingUser = this.webSiteManager
+				.getUsers(queryUserForm);
+		map.put("users", paingUser.getModelList());
+		map.put("usercount", paingUser.getRowcount());
+		map.put("queryform", queryUserForm);
+		String pagestr = PageUtil.getPagingUserLink(paingUser, 1);
+		map.put("pagestr", pagestr);
+		return new ModelAndView("wap/selblogs");
+	}
+
 }

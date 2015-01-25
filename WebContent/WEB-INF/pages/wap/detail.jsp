@@ -35,7 +35,7 @@
 				</div>
 				<div class="emptyItem"></div>
 				<div class="navitem">
-					<a style="font-size: 18px;"> </a>
+					<a href="phonebloglist.do" style="font-size: 18px;"> </a>
 				</div>
 			</div>
 		</div>

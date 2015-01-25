@@ -31,7 +31,7 @@
 		</div>
 		<div class="mln"
 			style="height: 90px; width: 30px; font-size: 18px; float: right; color: #fff; padding-top: 0px;">
-			</div>
+			<a href="phonebloglist.do"></a></div>
 		<div class="emptyItem" style="height: 70px; float: right;"></div>
 		<div class="mln"
 			style="height: 90px; font-size: 18px; float: right; color: #fff; padding-top: 0px;">
@@ -77,7 +77,7 @@
 					</div>
 					<div class="author">
 						<a
-							href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
+							href="#">
 							<c:out value="${documentValue.docauthor}" />
 						</a>
 					</div>
