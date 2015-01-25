@@ -33,21 +33,21 @@
 				</tr>
 			</table>
 			-->
-			<div style="width: 230px; height: 88px; float: left;">
+			<div style="width: 240px; height: 90px; float: left;">
 				<img src="site/img/phonehead.jpg"
-					style="width: 230px; height: 88px;">
+					style="width: 104px; height: 90px;">
 			</div>
 			<div class="moldiv" style="float: right;">
 				<div class="navitem">
-					<a href="phoneindex.do"></a>
+					<a href="phoneindex.do" style="font-size:18px;"></a>
 				</div>
 				<div class="emptyItem"></div>
 				<div class="navitem">
-					<a> </a>
+					<a style="font-size:18px;"> </a>
 				</div>
 				<div class="emptyItem"></div>
 				<div class="navitem">
-					<a> </a>
+					<a style="font-size:18px;"> </a>
 				</div>
 			</div>
 		</div>

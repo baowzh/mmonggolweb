@@ -19,8 +19,8 @@
 </head>
 <body onload="q();">
 	<div class="header">
-		<div style="width: 230px; height: 88px; float: left;">
-			<img src="site/img/phonehead.jpg" style="width: 230px; height: 88px;">
+		<div style="width: 230px; height: 90px; float: left;">
+			<img src="site/img/phonehead.jpg" style="width: 104px; height: 90px;">
 		</div>
 		<div class="moldiv" style="float: right;">
 			<div class="navitem">

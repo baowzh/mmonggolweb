@@ -24,10 +24,10 @@ html {
 
 .header {
 	text-align: center;
-	background: #3aace8;
-	border-bottom: #50cff3 solid 2px;
+	background: #d29130;
+/* 	border-bottom: #50cff3 solid 2px; */
 	height: 90px;
-	background:url("../img/phonehead.jpg")
+/* 	background:url("../img/phonehead.jpg") */
 }
 
 .main {
