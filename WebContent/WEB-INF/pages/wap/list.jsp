@@ -12,7 +12,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <meta name="format-detection" content="telephone=no" />
 <meta name="format-detection" content="email=no" />
-<title>文章列表</title>
+<title>altanhurd</title>
 <link href="site/css/waplist.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="js/sitejs/waplist.js"></script>

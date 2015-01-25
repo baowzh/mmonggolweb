@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <meta name="format-detection" content="telephone=no" />
 <meta name="format-detection" content="email=no" />
-<title>文章阅读</title>
+<title>altanhurd</title>
 <link href="site/css/wapindex.css" rel="stylesheet" type="text/css" />
 <link href="site/css/slider.css" rel="stylesheet" type="text/css" />
 <link href="site/css/slider.default.css" rel="stylesheet"
