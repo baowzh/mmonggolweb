@@ -586,8 +586,11 @@ public class WebSiteVisiterAction {
 			PaingModel<DocumentValue> paingModel, ModelMap map) {
 		try {
 			List<TopDocumentValue> selecteddocs = this.webSiteVisitorManager
-					.getTopDocuments(StaticConstants.TOP_TYPE4, null, 12);
+					.getTopDocuments(StaticConstants.TOP_TYPE4, null, 15);
 			map.put("selecteddocs", selecteddocs);
+			List<DocumentValue> recentdocs = this.webSiteVisitorManager
+					.getRecentDocs(15);
+			map.put("recentdocs", recentdocs);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -658,6 +661,11 @@ public class WebSiteVisiterAction {
 			ex.printStackTrace();
 		}
 		return new ModelAndView("website/professionlist", map);
+	}
+
+	@RequestMapping("/phonechannel.do")
+	public ModelAndView phonechannel(HttpServletRequest request, ModelMap map) {
+		return new ModelAndView("wap/channel");
 	}
 
 }

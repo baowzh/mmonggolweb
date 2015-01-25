@@ -1,7 +1,6 @@
 package com.mongolia.website.manager.impls;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -327,4 +326,11 @@ public class WebSiteVisitorManagerImpl extends BaseManagerImpl implements
 		toSortUsers = Arrays.asList(sortuser);
 		return toSortUsers;
 	}
+
+	@Override
+	public List<DocumentValue> getRecentDocs(Integer count) throws Exception {
+		// TODO Auto-generated method stub
+		return this.webResourceDao.getRecentDocs(count);
+	}
+	
 }

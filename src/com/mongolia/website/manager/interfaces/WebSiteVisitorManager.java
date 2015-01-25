@@ -8,13 +8,15 @@ import com.mongolia.website.model.PaingModel;
 import com.mongolia.website.model.ProgramItem;
 import com.mongolia.website.model.ProgramValue;
 import com.mongolia.website.model.TopDocumentValue;
+
 /**
  * 内容浏览
+ * 
  * @author Administrator
  *
  */
 public interface WebSiteVisitorManager extends BaseManager {
-	
+
 	public List<ProgramValue> getProgramList() throws Exception;
 
 	public List<ProgramItem> getProgramItemList(Map<String, Object> params)
@@ -22,27 +24,41 @@ public interface WebSiteVisitorManager extends BaseManager {
 
 	public ProgramItem getItemContent(Map<String, Object> params)
 			throws Exception;
+
 	/**
 	 * 分页显示文档列表
+	 * 
 	 * @param paingModel
 	 * @return
 	 * @throws Exception
 	 */
-	public PaingModel<DocumentValue> pagingquerydoc(PaingModel<DocumentValue> paingModel)throws Exception;
+	public PaingModel<DocumentValue> pagingquerydoc(
+			PaingModel<DocumentValue> paingModel) throws Exception;
+
 	/**
 	 * index
+	 * 
 	 * @return
 	 * @throws Exception
 	 */
-	public Map<String,Object> getIndexContent(String htmlpath)throws Exception;
+	public Map<String, Object> getIndexContent(String htmlpath)
+			throws Exception;
+
 	/**
 	 * 获取topdocument
+	 * 
 	 * @return
 	 * @throws Exception
 	 */
-	public List<TopDocumentValue> getTopDocuments(Integer type,String docid,Integer limit)throws Exception;
-	
-	
-	
+	public List<TopDocumentValue> getTopDocuments(Integer type, String docid,
+			Integer limit) throws Exception;
+
+	/**
+	 * 
+	 * @param count
+	 * @return
+	 * @throws Exception
+	 */
+	public List<DocumentValue> getRecentDocs(Integer count) throws Exception;
 
 }

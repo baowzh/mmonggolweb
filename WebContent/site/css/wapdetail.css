@@ -148,3 +148,35 @@ html {
 .content {
 	overflow: hidden;
 }
+.moldiv{
+	-webkit-transform-origin: right top;
+	-webkit-transform: translate(-100%, 0px) rotate(270deg);
+	height:80px;
+	width:90px;
+}
+
+.navitem {
+	font-family: "Mongol";
+	direction: rtl;
+	display: block;
+	unicode-bidi: bidi-override;
+	word-break: keep-all;
+	overflow: hidden;
+	border-radius: 5px;
+	border-color: #014886;
+	background-color: #c90;
+	width: 90px;;
+	height: 20px;
+	padding-top:5px;
+}
+.navitem a{
+	color:#fff;
+	text-decoration: none;
+}
+.emptyItem {
+	color: #fff;
+	width: 8px;
+	height: 3px;
+	font-size: 19px;
+	display: block;
+}

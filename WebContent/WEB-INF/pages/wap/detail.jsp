@@ -21,22 +21,35 @@
 <body onload="q();">
 	<div class="wrap" id="wrap">
 		<div class="header">
+			<!--  
 			<table width="100%" border="0" height="100%" cellspacing="0"
 				cellpadding="0">
 				<tr>
 					<td align="center" valign="middle"><a
-						href="javascript:window.open('s_index.asp','_self','');"> <!-- 						<img -->
-							<!-- 							src="mobile-css/a11.png" border="0" /> -->
-					</a></td>
-					<td align="center" valign="middle">
-						<!-- 					<img --> <!-- 						src="mobile-css/title1.png" /> -->
-					</td>
+						href="javascript:window.open('s_index.asp','_self','');"> </a></td>
+					<td align="center" valign="middle"></td>
 					<td align="center" valign="middle"><a
-						href="javascript:history.go(-1)"> <!-- 						<img src="mobile-css/a2.png" -->
-							<!-- 							border="0" /> -->
-					</a></td>
+						href="javascript:history.go(-1)"> </a></td>
 				</tr>
 			</table>
+			-->
+			<div style="width: 230px; height: 88px; float: left;">
+				<img src="site/img/phonehead.jpg"
+					style="width: 230px; height: 88px;">
+			</div>
+			<div class="moldiv" style="float: right;">
+				<div class="navitem">
+					<a href="phoneindex.do"></a>
+				</div>
+				<div class="emptyItem"></div>
+				<div class="navitem">
+					<a> </a>
+				</div>
+				<div class="emptyItem"></div>
+				<div class="navitem">
+					<a> </a>
+				</div>
+			</div>
 		</div>
 		<div class="main" id="main">
 			<div class="condiv" id="condiv">

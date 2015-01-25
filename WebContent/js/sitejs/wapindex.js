@@ -5,11 +5,12 @@ var q = function() {
 	setTimeout(scrollTo, 0, 0, 0);
 	var availHeight = $(window).height();
 	var availWidth = $(window).width();
-	$('.header').css('background-size', '' + availWidth + 'px 90px')
-	$('#wrap').css('height', availHeight-90);
-	$('#wrap').css('width', availWidth);
-	$('#main').css('height', 400);
-	$('#main').css('width', availWidth);
+	$('.wrap').css('width', availWidth);
+	$('.listCardBody').css('width', availWidth-36);
+	$('#slider').css({height:availHeight*0.3});
+	$('#slider').slider({loop:true});
+	//$('.footer').css({'width':availWidth});
+
 };
 /**
  * 
