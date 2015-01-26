@@ -33,6 +33,8 @@ public class SysConfig {
 	private String siteaddress;
 	@Value("${selbookcount}")
 	private Integer selbookcount;
+	@Value("${checkpassurl}")
+	private String checkpassurl;
 
 	public String getSitename() {
 		return sitename;
@@ -136,6 +138,14 @@ public class SysConfig {
 
 	public void setSelbookcount(Integer selbookcount) {
 		this.selbookcount = selbookcount;
+	}
+
+	public String getCheckpassurl() {
+		return checkpassurl;
+	}
+
+	public void setCheckpassurl(String checkpassurl) {
+		this.checkpassurl = checkpassurl;
 	}
 
 }

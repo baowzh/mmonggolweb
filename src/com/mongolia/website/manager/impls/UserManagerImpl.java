@@ -17,6 +17,7 @@ import javax.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -50,6 +51,10 @@ public class UserManagerImpl implements UserManager {
 		userValue.setUserid(UUIDMaker.getUUID());
 		userValue.setUserkind(StaticConstants.USER_KIND1);
 		userValue.setRegdate(new Date());
+		Md5PasswordEncoder md5 = new Md5PasswordEncoder();
+		String pass = md5.encodePassword(userValue.getPassword(),
+				StaticConstants.encrypekey);
+		userValue.setPassword(pass);
 		userManagerDao.createUser(userValue);
 	}
 
@@ -92,7 +97,7 @@ public class UserManagerImpl implements UserManager {
 		//
 		if (sysConfig.getOnline().intValue() == 1
 				&& sysUserValue.getOldid() != null) {
-			String urlstr = "http://www.altanhurd.com/asp/pas.asp?pas="
+			String urlstr = sysConfig.getCheckpassurl() + "/pas.asp?pas="
 					+ userValue.getPassword();
 			URL url = new URL(urlstr);
 			URLConnection rulConnection = url.openConnection();
@@ -106,14 +111,20 @@ public class UserManagerImpl implements UserManager {
 				ooutStream.write(reader, 0, length);
 			}
 			String encripedPass = ooutStream.toString();
-			userValue.setPassword(encripedPass);
+			userValue.setEncripedPass(encripedPass);
 			ooutStream.close();
 			iniputStream.close();
+		} else {
+			Md5PasswordEncoder md5 = new Md5PasswordEncoder();
+			String pass = md5.encodePassword(userValue.getPassword(),
+					StaticConstants.encrypekey);
+			userValue.setEncripedPass(pass);
 		}
 		//
+
 		if (userValue.getUsername()
 				.equalsIgnoreCase(sysUserValue.getUsername())) {
-			if (userValue.getPassword().equalsIgnoreCase(
+			if (userValue.getEncripedPass().equalsIgnoreCase(
 					sysUserValue.getPassword())) {
 				//
 				sysUserValue.setLogindate(new Date());
@@ -210,16 +221,43 @@ public class UserManagerImpl implements UserManager {
 	public void doModifyPass(String userid, String pass, String oldpass,
 			Integer maillogin) throws Exception {
 		// TODO Auto-generated method stub
+		Md5PasswordEncoder md5 = new Md5PasswordEncoder();
 		List<UserValue> users = this.getUsers(userid, null);
 		if (users == null || users.isEmpty()) {
 			throw new ManagerException("用户不存在");
 		} else {
+			UserValue sysUserValue = users.get(0);
+			String encripedPass = "";
 			if (maillogin.intValue() == 0) {
-				UserValue userValue = users.get(0);
-				if (!oldpass.equalsIgnoreCase(userValue.getPassword())) {
+				//
+				if (sysConfig.getOnline().intValue() == 1
+						&& sysUserValue.getOldid() != null) {
+					String urlstr = sysConfig.getCheckpassurl()
+							+ "/pas.asp?pas=" + oldpass;
+					URL url = new URL(urlstr);
+					URLConnection rulConnection = url.openConnection();
+					HttpURLConnection httpUrlConnection = (HttpURLConnection) rulConnection;
+					httpUrlConnection.connect();
+					InputStream iniputStream = httpUrlConnection
+							.getInputStream();
+					byte reader[] = new byte[1024];
+					int length = 0;
+					ByteArrayOutputStream ooutStream = new ByteArrayOutputStream();
+					while ((length = iniputStream.read(reader)) != -1) {
+						ooutStream.write(reader, 0, length);
+					}
+					encripedPass = ooutStream.toString();
+					ooutStream.close();
+					iniputStream.close();
+				} else {
+					encripedPass = md5.encodePassword(oldpass,
+							StaticConstants.encrypekey);
+				}
+				if (!encripedPass.equalsIgnoreCase(sysUserValue.getPassword())) {
 					throw new ManagerException("2");
 				}
 			}
+			pass = md5.encodePassword(pass, StaticConstants.encrypekey);
 			this.userManagerDao.modifyUserPass(userid, pass);
 		}
 	}
@@ -270,7 +308,8 @@ public class UserManagerImpl implements UserManager {
 		prop.put("mail.smtp.auth", "true"); // 将这个参数设为true，让服务器进行认证,认证用户名和密码是否正确
 		prop.put("mail.smtp.timeout", "25000");
 		mailSender.setJavaMailProperties(prop);
-		MimeMessageHelper messageHelper = new MimeMessageHelper(mailMessage,true,"utf-8");
+		MimeMessageHelper messageHelper = new MimeMessageHelper(mailMessage,
+				true, "utf-8");
 		messageHelper.setTo(userValue.getEmail());
 		messageHelper.setSubject(this.sysConfig.getSitename() + "找回密码提示");
 		String uuid = UUIDMaker.getUUID();

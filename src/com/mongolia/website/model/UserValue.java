@@ -30,6 +30,7 @@ public class UserValue implements UserDetails {
 	private Integer retnum;
 	private Integer weeke;
 	private Integer maillogin = 0;
+	private String encripedPass;
 	/**
 	 * 用户头像
 	 */
@@ -674,5 +675,14 @@ public class UserValue implements UserDetails {
 	public void setImg(byte[] img) {
 		this.img = img;
 	}
+
+	public String getEncripedPass() {
+		return encripedPass;
+	}
+
+	public void setEncripedPass(String encripedPass) {
+		this.encripedPass = encripedPass;
+	}
+	
 	
 }

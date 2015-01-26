@@ -138,4 +138,5 @@ public class StaticConstants {
 	public static String SEL_TYPE91 = "91";
 	public static String SEL_TYPE92 = "92";
 	public static String SEL_TYPE93 = "93";
+	public static String encrypekey="hurd1@#";
 }
