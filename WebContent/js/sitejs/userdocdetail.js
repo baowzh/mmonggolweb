@@ -7,7 +7,7 @@ $(document).ready(function() {
 		left : -27
 	});
 	CKEDITOR.config.height = 400;
-	CKEDITOR.config.width = 300;
+	//CKEDITOR.config.width = 300;
 	// alert('aa');
 });
 /**

@@ -26,7 +26,6 @@ var openpage = function(index, currentuserid, type, pagetype, neebarlocation) {
 					if (neebarlocation) {
 						var sheetheight = $(".mVsheet").css("height");
 						if (sheetheight == undefined) {
-							// return;
 						} else {
 							var pxindex = sheetheight.indexOf('px');
 							sheetheight = sheetheight.substring(0, pxindex);

@@ -5,7 +5,7 @@ body {
 	font-family: "MenksoftQagan";
 	font-size: 17px;
 	line-height: 100%;
-	background-color:#f2967b;/* 
+	background-color: #f2967b; /* 
 		background-color:#ed6942 */
 }
 
@@ -46,18 +46,18 @@ body {
 }
 
 .ribbon {
-/* 	background: url(../img/vgalja.jpg); */
+	/* 	background: url(../img/vgalja.jpg); */
 	height: 24px;
 	width: 1000px;
-	background-color:#014886;
+	background-color: #014886;
 }
 
 .layer {
 	width: 1000px;
-/* 	background: #f8f8f8; */
+	/* 	background: #f8f8f8; */
 	margin: 0px auto;
-	padding-top:3px;
-	background:#fff;
+	padding-top: 3px;
+	background: #fff;
 }
 
 .listCard {
@@ -73,13 +73,13 @@ body {
 
 .listCardTtl {
 	float: left;
-/* 	border: solid 1px #ccc; */
+	/* 	border: solid 1px #ccc; */
 	height: 320px;
 	/* 	padding: 9px 0; */
 	line-height: 32px;
 	width: 40px;
-/* 	border-radius: 5px 0px 0px 5px; */
-	border-radius: 0px 0px 0px 5px; 
+	/* 	border-radius: 5px 0px 0px 5px; */
+	border-radius: 0px 0px 0px 5px;
 	overflow: hidden;
 }
 
@@ -115,13 +115,13 @@ body {
 	height: 314px;
 	padding-top: 4px;
 	overflow: hidden;
-/* 	border-radius: 0px 5px 5px 0px; */
-/* 	border-color:#014886; */
-/* 	background-image: url(../../img/arv_ag.jpg) */
+	/* 	border-radius: 0px 5px 5px 0px; */
+	/* 	border-color:#014886; */
+	/* 	background-image: url(../../img/arv_ag.jpg) */
 }
 
 .ttl {
-/* 	padding-top: 14px; */
+	/* 	padding-top: 14px; */
 	writing-mode: tb-lr;
 	-webkit-writing-mode: vertical-lr;
 	-moz-writing-mode: vertical-lr;
@@ -315,7 +315,6 @@ body {
 	text-overflow: ellipsis;
 	line-height: 20px;
 	height: 70px;
-	
 }
 
 .author a {
@@ -340,9 +339,9 @@ body {
 }
 
 .mnlist a {
-/* 	color: #666; */
+	/* 	color: #666; */
 	text-decoration: none;
-	color:#014886;
+	color: #014886;
 }
 
 .content {
@@ -372,7 +371,7 @@ body {
 	text-align: left;
 	float: left;
 	height: 7em;
-	color:#014886;
+	color: #014886;
 }
 
 .mglForm .label a {
@@ -393,8 +392,8 @@ body {
 	-webkit-transform-origin: 10px 14px;
 	writing-mode: tb-lr;
 	font-family: "MenksoftQagan";
-	background-color:#00A1E9;
-	color:#fff;
+	background-color: #00A1E9;
+	color: #fff;
 }
 
 .lcell {
@@ -582,7 +581,7 @@ body {
 	border-top: 1px solid #ccc;
 	background: #fff;
 	/* 	background: url(../img/tail.jpg); */
-/* 	background-image: url(../../img/arv_ag.jpg) */
+	/* 	background-image: url(../../img/arv_ag.jpg) */
 }
 
 .footer-sec {
@@ -592,8 +591,8 @@ body {
 	-ms-text-orientation: sideways-right;
 	width: 189px;
 	height: 160px;
-/* 	border-right: 1px solid #ccc; */
-/* 	border-bottom: 1px solid #ccc; */
+	/* 	border-right: 1px solid #ccc; */
+	/* 	border-bottom: 1px solid #ccc; */
 	border-right: 1px solid #014886;
 	border-bottom: 1px solid #014886;
 	float: left;
@@ -700,7 +699,6 @@ body {
 	height: 100px;
 	width: 135px;
 	float: left;
-
 }
 
 .nrglgq a {
@@ -735,15 +733,17 @@ body {
 	height: 100px;
 	float: left;
 	text-align: center;
- 	background: #128abf; 
-    /*background: -webkit-gradient(linear, left top, left bottom, from(#128abf), to(#123759)) ;*/
+	background: #128abf;
+	/*background: -webkit-gradient(linear, left top, left bottom, from(#128abf), to(#123759)) ;*/
 	border-radius: 3px;
-	padding :2px;
+	padding: 2px;
 }
-.nav2 a{
+
+.nav2 a {
 	text-decoration: none;
 	color: #fff;
 }
+
 .listblog {
 	border: solid 1px #ccc;
 	border-left: none;
@@ -751,8 +751,9 @@ body {
 	overflow: hidden;
 	border-radius: 0px 5px 5px 0px;
 	background-image: url(../../img/arv_ag.jpg);
-	min-height:600px;
+	min-height: 600px;
 }
+
 .listImgBox {
 	border: solid 1px #014886;
 	border-left: none;
@@ -760,12 +761,14 @@ body {
 	padding-top: 4px;
 	overflow: hidden;
 	border-radius: 0px 5px 5px 0px;
-/* 	background-image: url(../../img/arv_ag.jpg) */
+	/* 	background-image: url(../../img/arv_ag.jpg) */
 }
+
 .operbon {
 	height: 24px;
 	width: 1000px;
 }
+
 .elsehu {
 	line-height: 20px;
 	height: 310px;
@@ -773,7 +776,14 @@ body {
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	float: left;
-/* 	background: url(../img/qig_1_v.png) center top no-repeat; */
+	/* 	background: url(../img/qig_1_v.png) center top no-repeat; */
 	text-indent: 12px;
 	width: 20px;
+}
+
+.readerl {
+	width: 100%;
+	float: left;
+	overflow: hidden;
+	height: 560px;
 }
