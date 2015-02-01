@@ -7,7 +7,7 @@ var q = function() {
 	var availWidth = $(window).width();
 	$('.wrap').css('width', availWidth);
 	$('.listCardBody').css('width', availWidth-36);
-	$('#slider').css({height:availHeight*0.3});
+	$('#slider').css({height:availHeight*0.4});
 	$('#slider').slider({loop:true});
 	//$('.footer').css({'width':availWidth});
 

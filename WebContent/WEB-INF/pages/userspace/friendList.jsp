@@ -99,6 +99,7 @@
 				<div class="cbt"></div>
 			</div>
 		</div>
+		</div>
 		<div class="lmainR ofh" style="text-align: center;">
 			<%@ include file="../website/tail.jsp"%>
 		</div>

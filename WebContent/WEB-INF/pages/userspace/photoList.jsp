@@ -75,10 +75,10 @@
 									</c:if>
 									<c:if test="${self==0}">
 										<div class="displayfolder"
-											style="width: 163px;height: 190px; margin: 2px; 2 px; 2 px; 2 px; overflow: visible; padding-bottom: 2px;">
+											style="width: 163px; height: 190px; margin: 2px; 2 px; 2 px; 2 px; overflow: visible; padding-bottom: 2px;">
 											<a
 												href="javaScript:photoDetail('<c:out value="${imgValue.docid}" />')"><img
-												class="displayimg" style="width: 163px;height:100%;"
+												class="displayimg" style="width: 163px; height: 100%;"
 												src="html/img/<c:out value="${imgValue.docid}" />.jpg"></a>
 										</div>
 									</c:if>
@@ -109,59 +109,38 @@
 			<%@ include file="../website/tail.jsp"%>
 		</div>
 	</form>
-	<div style="display: none">
-		<div class="lcell" style="width: 140px; height: 340px;" id="addimg">
-			<form action="addimg.do" id="addimgform" method="post"
+	<div style="display: none" id="addimg" style="width:270px;height:300px;">
+		<div class="content"
+			style="width: 280px; height: 310px; background: white; padding: 5px; border-radius: 5px;">
+			<form action="addimg.do" id="addimgform" method="post" class="mglForm"
 				enctype="multipart/form-data" />
-			<table border="0" style="margin: 1em auto;">
-				<tr>
-					<td height="100">
-						<div class="m1ln h100">  :</div>
-					</td>
-					<td>
-						<div class="m1ln h100">:</div>
-					</td>
-					<td>
-						<div class="m1ln h100">  :</div>
-					</td>
-					<td>
-						<div class="m1ln h100">:</div>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<div class="mfl">
-							<input type="text" name="albumname" id="albumname"
-								readonly="true"
-								value="<c:out value="${albumValue.imggroupname}" />" /> <input
-								type="hidden" name="imggroupid" id="imggroupid"
-								value="<c:out value="${albumValue.imggroupid}" />"></input> <input
-								type="hidden" name="userid" id="userid"
-								value="<c:out value="${user.userid}" />"></input>
-						</div>
-					</td>
-					<td>
-						<div class="mfl">
-							<input type="text" name="imgcomm" id="imgcomm"></input>
-						</div>
-					</td>
-					<td>
-						<div class="mfl">
-							<input type="radio" name="cover" id="cover"></input>
-						</div>
-					</td>
-					<td>
-						<div class="mfl">
-							<input type="file" name="img" id="img" style="height: 210px;"></input>
-						</div>
-					</td>
-					<td>
-						<div class="m1ln h100">
-							<a href="javascript:uploadimg();"></a>
-						</div>
-					</td>
-				</tr>
-			</table>
+			<div class="label" style="text-align: center;">  :</div>
+			<div class="inputHolder" style="width: 32px; height: 270px;">
+				<input type="text" name="albumname" id="albumname" readonly="true"
+					value="<c:out value="${albumValue.imggroupname}" />" />
+			</div>
+
+			<div class="label" style="text-align: center;">:</div>
+			<div class="inputHolder" style="width: 32px; height: 270px;">
+				<input type="text" name="imgcomm" id="imgcomm"></input>
+			</div>
+
+			<div class="label" style="text-align: center;"> 
+				:</div>
+			<div class="inputHolder" style="width: 32px; height: 270px;">
+				<input type="radio" name="cover" id="cover"></input>
+			</div>
+			<div class="label" style="text-align: center;">:</div>
+			<div class="inputHolder" style="width: 32px; height: 270px;">
+				<input type="file" name="img" id="img" style="height: 210px;"></input>
+			</div>
+			<input type="hidden" name="imggroupid" id="imggroupid"
+				value="<c:out value="${albumValue.imggroupid}" />"></input> <input
+				type="hidden" name="userid" id="userid"
+				value="<c:out value="${user.userid}" />"></input>
+			<div class="label" style="text-align: center;">
+				<a href="javascript:uploadimg();"></a>
+			</div>
 			</form>
 		</div>
 	</div>

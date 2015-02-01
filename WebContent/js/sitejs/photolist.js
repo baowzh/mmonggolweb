@@ -15,9 +15,9 @@ var photoDetail = function(imgid) {
 };
 var addnewimg = function() {
 	$("#addimg").dialog({
-		height : 410,
-		width : 230,
-		resizable : false
+		height : 390,
+		width : 360,
+		resizable : true
 	});
 }
 var uploadimg = function() {
