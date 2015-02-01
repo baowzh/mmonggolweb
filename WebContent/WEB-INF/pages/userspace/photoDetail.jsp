@@ -6,31 +6,29 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title> </title>
-<link href="site/css/main.css" rel="stylesheet" type="text/css" />
 <link href="site/css/index.css" rel="stylesheet" type="text/css" />
-<link href="img/css/main.css" type="text/css" rel="stylesheet" />
-<link href="img/css/listpages.css" type="text/css" rel="stylesheet" />
-<link href="img/css/blog.css" type="text/css" rel="stylesheet" />
-<link href="img/css/custom.css" type="text/css" rel="stylesheet" />
+<link href="site/css/main.css" rel="stylesheet" type="text/css" />
+<link href="img/css/main.css" rel="stylesheet" type="text/css" />
+<link href="img/css/blog.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="js\messagebox\jquery.msgbox.css" />
 <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="js/sitejs/userhomeindex.js"></script>
+<script type="text/javascript" src="js/sitejs/viewdoc.js"></script>
 <script type="text/javascript" src="js/sitejs/userdocdetail.js"></script>
+<script type="text/javascript" src="js/sitejs/userhomeindex.js"></script>
 <script type="text/javascript" src="js/sitejs/userlogin.js"></script>
 <script type="text/javascript" src="js/sitejs/changevalidcode.js"></script>
-<script type="text/javascript" src="js/util/js/messageWindow.js"></script>
 <script type="text/javascript"
 	src="js/sitejs/emotion/jquery.emoticons.js"></script>
 <link href="js/sitejs/emotion/emoticon.css" type="text/css"
 	rel="stylesheet" />
+<script type="text/javascript" src="js/util/js/messageWindow.js"></script>
 <link rel="stylesheet"
 	href="js/jqui/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
 <script src="js/jqui/js/jquery-ui-1.10.3.custom.min.js"></script>
 <script src="js/messagebox/jquery.msgbox.js"></script>
 <script src="js/messagebox/jquery.dragndrop.min.js"></script>
-<link rel="stylesheet" href="js\messagebox\jquery.msgbox.css" />
-<script src="js/sitejs/galleria-1.4.2.min.js"></script>
 <script type="text/javascript" src="ckeditor/ckeditor.js"></script>
-<script type="text/javascript" src="js/sitejs/viewdoc.js"></script>
+<script src="js/sitejs/galleria-1.4.2.min.js"></script>
 <style>
 .content {
 	color: #777;
@@ -38,24 +36,29 @@
 	width: 510px;
 	margin: 0px auto;
 }
+
+.clear {
+	clear: both
+}
 </style>
 </head>
-<body style="background-color: #fff;">
+<body style="background-color: #fff; scroll: none;">
 	<div id="viewhead" class="viewhead"
 		style="height: 30px; background-color: #f2967b"></div>
-	<div id="condiv" style="overflow: scroll;display:table-cell;">
+	<div id="condiv">
 		<div class="mln"
-			style="float: left; width: 240px; background-color: #f2967b; height: 100%;">
-			<a> &nbsp;</a> <a>  &nbsp; </a> <a> 
-				 &nbsp;</a> <a> </a>
+			style="float: left; width: 40px; background-color: #f2967b; height: 100%; padding-left: 10px;">
+			<a href="tologin.do"> &nbsp;</a> <a href="index.do">
+				&nbsp; </a> <a
+				href="gouserindex.do?userid=<c:out value="${user.userid}" />">
+				  &nbsp;</a> <a a="registe.do"> </a>
 		</div>
-		<!--  -->
-		<div class="flt"
-			style="position: relative; top: 0px; padding: 0px; height: 100%;"
+		<div class="flt" style="top: 0px; padding: 0px; height: 100%;"
 			id="nameCard">
-			<div class=" flt nameCard nameCardC">
+			<div class=" flt nameCard nameCardC"
+				style="border: 0px; background: #f2967b; height: 100%;">
 				<div class="flt">
-					<div class="m1ln name">
+					<div class="m1ln name" style="padding-top: 10px;">
 						<c:out value="${user.artname}" />
 					</div>
 					<div class="avatar">
@@ -104,107 +107,100 @@
 						    
 						<c:out value="${user.logindatestr}" default="" />
 					</div>
-					<div class="frt" style="width: 0px; height: 0px;">
-						<div class="pin"></div>
-					</div>
 				</div>
 			</div>
 		</div>
 		<!--  -->
-		<div class="mln" style="float: left; padding-top: 60px; height: 100%;">
-			<h1 id="doctitle" style="line-height: 120%; margin: 20px;">
+		<div class="mln" style="float: left; padding-top: 30px; height: 95%;">
+			<h1 id="doctitle" style="line-height: 100%; margin: 20px;">
 				<c:out value="${documentValue.doctitle}" />
 			</h1>
 		</div>
-		<div class="msheet shareBookmark"
-			style="float: left; position: fixed top:230px; height: 100%;">
-			 
-			<c:out value="${documentValue.docchannelname}" />
-			<br> <a href="javascript:sharedocument()"> </a> <span
-				id="sharecount"><c:out value="${documentValue.sharecount}"
-					default="0" /></span>   <a href="javascript:markdocument()">
-				 </a> <span id="markcount"><c:out
-					value="${documentValue.markcount}" default="0" /></span>  <br />
-			  <span id="readcount"><c:out
-					value="${documentValue.readcount}" default="0" /></span> <br />
-			  
-			<c:out value="${documentValue.docRelTimeStr}" />
-			<br /> <a href="#comment"> </a><span id="commentCount">
-				<c:out value="${documentValue.commentCount}" default="0" />
-			</span> 
-		</div>
-		<div class="content"
-			style="-webkit-writing-mode: horizontal-tb; writing-mode: lr-tb;">
-			<div id="galleria" style="width: 500px; height: 410px;">
-
-				<c:forEach items="${imgs}" var="imgValue" varStatus="status">
-					<a href="html/img/<c:out value="${imgValue.imgid}"/>.jpg"> <img
-						src="html/img/<c:out value="${imgValue.imgid}"/>.jpg" />
-					</a>
-				</c:forEach>
-				<input type="hidden" name="imgsharecount" id="imgsharecount"
-					value="11" />
+		<div class="msheet shareBookmark" style="float: left; height: 400px;">
+			<div style="margin: 0px 20px 20px 20px;">
+				 
+				<c:out value="${documentValue.docchannelname}" />
+				<br> <a href="javascript:sharedocument()"> </a> <span
+					id="sharecount"><c:out value="${documentValue.sharecount}"
+						default="0" /></span>   <a href="javascript:markdocument()">
+					 </a> <span id="markcount"><c:out
+						value="${documentValue.markcount}" default="0" /></span>  <br />
+				  <span id="readcount"><c:out
+						value="${documentValue.readcount}" default="0" /></span> <br />
+				  
+				<c:out value="${documentValue.docRelTimeStr}" />
+				<br /> <a href="#comment"> </a><span id="commentCount">
+					<c:out value="${documentValue.commentCount}" default="0" />
+				</span> 
 			</div>
 		</div>
-		<c:forEach items="${imgs}" var="imgValue" varStatus="status">
+		<div class="msheet" style="padding: 10px; float: left; height: 95%;">
+			<div class="content"
+				style="-webkit-writing-mode: horizontal-tb; writing-mode: lr-tb;">
+				<div id="galleria" style="width: 500px; height: 410px;">
 
-			<input type="hidden" name="imgtitle" id="imgtitle"
-				value="<c:out value="${imgValue.imgdesc}"/>">
-			<input type="hidden" name="imgsharecount"
-				id="imgsharecount<c:out value="${status.index}"/>"
-				value="<c:out value="${imgValue.sharecount}"/>">
-			<input type="hidden" name="imgmarkcount"
-				id="imgmarkcount<c:out value="${status.index}"/>"
-				value="<c:out value="${imgValue.markcount}"/>">
-			<input type="hidden" name="imgreadcount"
-				id="imgreadcount<c:out value="${status.index}"/>"
-				value="<c:out value="${imgValue.readcount}"/>">
-			<input type="hidden" name="imgcommentCount"
-				id="imgcommentCount<c:out value="${status.index}"/>"
-				value="<c:out value="${imgValue.commcount}"/>">
-			<input type="hidden" name="cimgid"
-				id="cimgid<c:out value="${status.index}"/>"
-				value="<c:out value="${imgValue.imgid}"/>">
-			<input type="hidden" name="crtime"
-				id="crtime<c:out value="${status.index}"/>"
-				value="<c:out value="${imgValue.crtimestr}"/>">
-		</c:forEach>
-		<div class="msheet shareBookmark"
-			style="float: left; position: fixed top:230px; height: 100%;">
-
-			<br> <a href="javascript:sharedocument()"> </a> <span
-				id="sharecount"><c:out value="${documentValue.sharecount}"
-					default="0" /></span>   <a href="javascript:markdocument()">
-				 </a> <span id="markcount"><c:out
-					value="${documentValue.markcount}" default="0" /></span>  <br />
-			  <span id="readcount"><c:out
-					value="${documentValue.readcount}" default="0" /></span> <br />
-			  
-			<c:out value="${documentValue.docRelTimeStr}" />
-			<br /> <a href="#comment"> </a><span id="commentCount">
-				<c:out value="${documentValue.commentCount}" default="0" />
-			</span> 
-		</div>
-		<div class=" flt"
-			style="width: 225px; margin: 0px 8px 8px 8px; padding: 5px; background: white; border: solid 1px #014886;">
-			<div class="friendL">
-				<div class="i">
-					<div class="m0a" style="width: 40px;">
-						<div class=" msheet" style="padding-top: 10px;">
-							<a href="#"> <br />  :
-							</a>
-						</div>
-					</div>
+					<c:forEach items="${imgs}" var="imgValue" varStatus="status">
+						<a href="html/img/<c:out value="${imgValue.imgid}"/>.jpg"> <img
+							src="html/img/<c:out value="${imgValue.imgid}"/>.jpg" />
+						</a>
+					</c:forEach>
+					<input type="hidden" name="imgsharecount" id="imgsharecount"
+						value="11" />
 				</div>
 			</div>
-			<!-- visitors -->
-			<c:forEach items="${visitors}" var="visitorValue" varStatus="status">
-				<div class=" friendL">
-					<div class="i">
+			<c:forEach items="${imgs}" var="imgValue" varStatus="status">
+
+				<input type="hidden" name="imgtitle" id="imgtitle"
+					value="<c:out value="${imgValue.imgdesc}"/>">
+				<input type="hidden" name="imgsharecount"
+					id="imgsharecount<c:out value="${status.index}"/>"
+					value="<c:out value="${imgValue.sharecount}"/>">
+				<input type="hidden" name="imgmarkcount"
+					id="imgmarkcount<c:out value="${status.index}"/>"
+					value="<c:out value="${imgValue.markcount}"/>">
+				<input type="hidden" name="imgreadcount"
+					id="imgreadcount<c:out value="${status.index}"/>"
+					value="<c:out value="${imgValue.readcount}"/>">
+				<input type="hidden" name="imgcommentCount"
+					id="imgcommentCount<c:out value="${status.index}"/>"
+					value="<c:out value="${imgValue.commcount}"/>">
+				<input type="hidden" name="cimgid"
+					id="cimgid<c:out value="${status.index}"/>"
+					value="<c:out value="${imgValue.imgid}"/>">
+				<input type="hidden" name="crtime"
+					id="crtime<c:out value="${status.index}"/>"
+					value="<c:out value="${imgValue.crtimestr}"/>">
+			</c:forEach>
+		</div>
+		<div class="msheet shareBookmark" style="float: left; height: 400px;">
+			<div style="margin: 0px 20px 20px 20px;">
+				<a href="javascript:sharedocument()"> </a> <span
+					id="sharecount"><c:out value="${documentValue.sharecount}"
+						default="0" /></span>   <a href="javascript:markdocument()">
+					 </a> <span id="markcount"><c:out
+						value="${documentValue.markcount}" default="0" /></span>  <br />
+				  <span id="readcount"><c:out
+						value="${documentValue.readcount}" default="0" /></span> <br />
+				  
+				<c:out value="${documentValue.docRelTimeStr}" />
+				<br /> <a href="#comment"> </a><span id="commentCount">
+					<c:out value="${documentValue.commentCount}" default="0" />
+				</span> 
+			</div>
+		</div>
+		<div class="mnlist"
+			style="background-color: #014886;; width: 30px; color: #fff; padding-left: 10px; height: 100%;"></div>
+
+		<div class=" flt"
+			style="float: left; width: 240px; height: 98%; margin: 0px 8px 8px 8px; padding: 5px; background: white; border: solid 1px #014886;">
+
+			<div class="readerl">
+				<c:forEach items="${visitors}" var="visitorValue" varStatus="status">
+					<div class="i" style="float: left;">
 						<img src="html/userhead/<c:out value="${visitorValue.headurl}" />"
-							width="334" height="446" />
+							width="60" height="70" />
 						<div class="frt" style="width: 20px;">
-							<div class="m1ln">
+							<div class="m1ln" style="padding-top: 8px;">
 								<a
 									href="gouserindex.do?userid=<c:out value="${visitorValue.visitorid}" />">
 									<c:out value="${visitorValue.visitorname}" />
@@ -216,18 +212,19 @@
 									value="${visitorValue.visitdatestr}" /></font>
 						</div>
 					</div>
-				</div>
-			</c:forEach>
+				</c:forEach>
+			</div>
+
 		</div>
 
 		<div class="mnlist"
-			style="background-color: #014886;; width: 30px; color: #fff; padding-top: 200px; padding-left: 10px; height: 80%;">
+			style="background-color: #014886;; width: 30px; color: #fff; padding-left: 10px; height: 100%;">
 			 </div>
-		<div class="msheet"
+		<div class="msheet" id="commentlist"
 			style="float: left; overflow: auto;; padding-top: 10px; height: 100%;">
 			<c:forEach items="${comments}" var="messageValue" varStatus="status">
-				<div class="postSheet" style="float: left; height: 560px;">
-					<div class="posterInf" style="float: left; height: 560px;">
+				<div class="postSheet" style="float: left; height: 540px;">
+					<div class="posterInf" style="float: left; height: 540px;">
 						<div class="avtThumb flt">
 							<img
 								src="html/userhead/<c:out value="${messageValue.messagesenderurl}" />"
@@ -311,36 +308,17 @@
 					</div>
 				</div>
 			</form>
-		</nobr>
-		<div class="flt txtBlogList" style="width: 720px; margin-top: 10px;">
-			<!-- 进度条 -->
-			<div class="loadingbox" style="display: none;"></div>
-			<!--  进度条-->
-			<div class="artclList" id="artclList">
-				<c:forEach items="${docList}" var="documentValue" varStatus="status">
-					<div class="m1ln">
-						<a><img src="img/dot.gif"></a>
-						<!-- <a
-											href="javascript:readdoc('<c:out value="${documentValue.docid}" />');"><c:out
-												value="${documentValue.doctitle}" escapeXml="false" /> </a>-->
-
-						<a
-							href="getuserdocdetail.do?docid=<c:out value="${documentValue.docid}" />&pageindex=1"><c:out
-								value="${documentValue.doctitle}" escapeXml="false" /> </a>
-
-					</div>
-				</c:forEach>
-			</div>
-			<div class="paginationArea">
-				<div class="pagination" id="docpagelist">
-					<c:out value="${pagingstr}" escapeXml="false" />
-				</div>
-			</div>
-		</div>
+		</nobr>	
 	</div>
 	<div id="viewhead" class="viewhead"
 		style="height: 30px; background-color: #f2967b"></div>
 	<%@ include file="bloghiddendiv.jsp"%>
 	<%@ include file="logindiv.jsp"%>
 </body>
+<script>
+	// Load the classic theme
+	Galleria.loadTheme('js/sitejs/galleria.classic.js');
+	// Initialize Galleria
+	Galleria.run('#galleria');
+</script>
 </html>

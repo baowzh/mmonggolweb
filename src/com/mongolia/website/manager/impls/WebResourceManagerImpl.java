@@ -54,6 +54,7 @@ import com.mongolia.website.model.VoteDetailValue;
 import com.mongolia.website.model.VoteResultDetailValue;
 import com.mongolia.website.model.VoteResultValue;
 import com.mongolia.website.model.VoteValue;
+import com.mongolia.website.util.ImgeUtil;
 import com.mongolia.website.util.PageUtil;
 import com.mongolia.website.util.StaticConstants;
 import com.mongolia.website.util.UUIDMaker;
@@ -86,7 +87,7 @@ public class WebResourceManagerImpl implements WebResourceManager {
 	}
 
 	@Override
-	public void doAddImg(ImgValue imgValue) throws ManagerException {
+	public void doAddImg(ImgValue imgValue,String facepath) throws ManagerException {
 		// TODO Auto-generated method stub
 		try {
 			DocumentValue documentValue = new DocumentValue();
@@ -112,6 +113,10 @@ public class WebResourceManagerImpl implements WebResourceManager {
 						.getImgGroupList(queryparams);
 				if (groups != null && !groups.isEmpty()) {
 					ImgGrpupValue imgGrpupValue = groups.get(0);
+					String imgname = UUIDMaker.getUUID() + ".jpg";
+					imgGrpupValue.setFaceurl(imgname);
+					ImgValue tempImgValue = ImgeUtil.CompressPic(imgValue.getImg(),
+							facepath, imgname);
 					// imgGrpupValue.setFaceimg(imgcontent);
 					this.webResourceDao.updIImgGroup(imgGrpupValue);
 				}
@@ -1770,7 +1775,7 @@ public class WebResourceManagerImpl implements WebResourceManager {
 				imgValuei.setImgurl(imgValuei.getImgurl());
 				imgValuei.setWidth(200);
 				imgValuei.setHeight(210);
-				this.doAddImg(imgValuei);
+				this.doAddImg(imgValuei,null);
 			} catch (Exception ex) {
 				ex.printStackTrace();
 				continue;

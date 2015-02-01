@@ -71,9 +71,9 @@
 										<a
 											onMouseOver="javascript:showdiv('sharedoclistidv','doclistidv','mklistidv');">&nbsp;
 											&nbsp; </a>
-										<a
-											onMouseOver="javascript:showdiv('mklistidv','sharedoclistidv','doclistidv');">
-											&nbsp; &nbsp; </a>
+<!-- 										<a -->
+<!-- 											onMouseOver="javascript:showdiv('mklistidv','sharedoclistidv','doclistidv');"> -->
+<!-- 											&nbsp; &nbsp; </a> -->
 									</c:if>
 
 								</div>
@@ -148,9 +148,9 @@
 										<a
 											onMouseOver="javascript:showdiv('sharedoclistidv','doclistidv','mklistidv');">&nbsp;
 											&nbsp; </a>
-										<a
-											onMouseOver="javascript:showdiv('mklistidv','sharedoclistidv','doclistidv');">
-											&nbsp; &nbsp; </a>
+<!-- 										<a -->
+<!-- 											onMouseOver="javascript:showdiv('mklistidv','sharedoclistidv','doclistidv');"> -->
+<!-- 											&nbsp; &nbsp; </a> -->
 									</c:if>
 
 								</div>
@@ -236,9 +236,9 @@
 										<a
 											onMouseOver="javascript:showdiv('sharedoclistidv','doclistidv','mklistidv');">&nbsp;
 											&nbsp; </a>
-										<a
-											onMouseOver="javascript:showdiv('mklistidv','sharedoclistidv','doclistidv');">
-											&nbsp; &nbsp; </a>
+<!-- 										<a -->
+<!-- 											onMouseOver="javascript:showdiv('mklistidv','sharedoclistidv','doclistidv');"> -->
+<!-- 											&nbsp; &nbsp; </a> -->
 									</c:if>
 
 								</div>

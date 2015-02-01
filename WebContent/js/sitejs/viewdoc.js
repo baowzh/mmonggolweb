@@ -1,5 +1,7 @@
 $(window).on("load", function(e) {
-
+	setpagewidth();
+})
+var setpagewidth = function() {
 	var height = $(window).height();
 	var width = $('#condiv')[0].scrollWidth;
 	var sheetwidth = 0;
@@ -19,8 +21,7 @@ $(window).on("load", function(e) {
 	// $(document).width(width1);
 	//$('.readerl').css({height : height - 60});
 	$('#condiv').css({
-		height : height - 60
-		,
+		height : height - 60,
 		width : width1
 	});
 	width = $('#condiv')[0].scrollWidth;
@@ -28,4 +29,4 @@ $(window).on("load", function(e) {
 		width : width
 	});
 
-})
+}

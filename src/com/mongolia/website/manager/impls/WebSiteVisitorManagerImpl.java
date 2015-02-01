@@ -188,21 +188,36 @@ public class WebSiteVisitorManagerImpl extends BaseManagerImpl implements
 		//
 		List<TopDocumentValue> tops = this.getTopDocuments(
 				StaticConstants.TOP_TYPE1, null, 7);
+		TopDocumentValue[] seldocs = new TopDocumentValue[tops.size()];
+		Arrays.sort(tops.toArray(seldocs), new Comparator<TopDocumentValue>() {
+
+			@Override
+			public int compare(TopDocumentValue o1, TopDocumentValue o2) {
+				// TODO Auto-generated method stub
+				if (o1.getPlayindex() != null && o2.getPlayindex() != null) {
+					return o1.getPlayindex() - o2.getPlayindex();
+				} else {
+					return 0;
+				}
+			}
+
+		});
 		File htmimgFile = new File(htmlpath, "html");
 		File imgFile = new File(htmimgFile, "img");
 		htmimgFile.mkdir();
 		imgFile.mkdir();
 		List<ImgNew> imgNews = new ArrayList<ImgNew>();
+		tops=Arrays.asList(seldocs);
 		for (TopDocumentValue topDocumentValue : tops) {
 			ImgNew imgNew = new ImgNew();
 			imgNew.setLink("getuserdocdetail.do?docid="
 					+ topDocumentValue.getDocid() + "");
 			imgNew.setUrl("html/img/" + topDocumentValue.getDocimg());
 			imgNew.setTime(5000);
+			imgNew.setIndex(topDocumentValue.getPlayindex());
 			imgNew.setTitle(topDocumentValue.getTitle());
 			imgNews.add(imgNew);
 		}
-
 		net.sf.json.JSONArray jsonArray = net.sf.json.JSONArray
 				.fromObject(imgNews);
 		indexPageContent.put("pics", jsonArray.toString());
@@ -332,5 +347,5 @@ public class WebSiteVisitorManagerImpl extends BaseManagerImpl implements
 		// TODO Auto-generated method stub
 		return this.webResourceDao.getRecentDocs(count);
 	}
-	
+
 }

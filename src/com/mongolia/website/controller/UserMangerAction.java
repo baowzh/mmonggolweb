@@ -1,8 +1,13 @@
 package com.mongolia.website.controller;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLConnection;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -22,6 +27,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.WebDataBinder;
@@ -32,6 +38,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.support.ByteArrayMultipartFileEditor;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.mongolia.website.manager.impls.SysConfig;
 import com.mongolia.website.manager.interfaces.UserManager;
 import com.mongolia.website.model.DistrictValue;
 import com.mongolia.website.model.FriendValue;
@@ -44,6 +51,8 @@ import com.mongolia.website.util.StaticConstants;
 public class UserMangerAction {
 	@Autowired
 	private UserManager userManager;
+	@Autowired
+	private SysConfig sysConfig;
 
 	/**
 	 * 获取用户信息
@@ -344,7 +353,7 @@ public class UserMangerAction {
 					.getRealPath("/html/userhead");
 			String imgnamesm = "";
 			imgnamesm = userValue.getUserid() + ".jpg";
-			if (userValue.getImg() != null&&userValue.getImg().length!=0) {
+			if (userValue.getImg() != null && userValue.getImg().length != 0) {
 				ImgeUtil.CompressPic(userValue.getImg(), path, imgnamesm,
 						StaticConstants.IMGWIDTHSM, StaticConstants.IMGHEIGHTSM);
 				userValue.setHeadurl(imgnamesm);
@@ -447,21 +456,47 @@ public class UserMangerAction {
 	 */
 	@RequestMapping("/checkusernameandpassword.do")
 	public ModelAndView checkUserNameAndPassword(UserValue UserValue,
-			ModelMap map) {
+			ModelMap map) throws Exception {
 		List<UserValue> userValues = userManager.getUsers(
 				UserValue.getUserid(), UserValue.getUsername());
 		if (userValues == null || userValues.isEmpty()) {
 			map.put("result", "0");// 用户不存在
 		} else {
-			// 校验密码是否正确
-			UserValue userValuei = userValues.get(0);
-			if (!userValuei.getPassword().equalsIgnoreCase(
-					UserValue.getPassword())) {
+			UserValue sysUserValue = userValues.get(0);
+			if (sysConfig.getOnline().intValue() == 1
+					&& sysUserValue.getOldid() != null) {
+				String urlstr = sysConfig.getCheckpassurl() + "/pas.asp?pas="
+						+ UserValue.getPassword();
+				URL url = new URL(urlstr);
+				URLConnection rulConnection = url.openConnection();
+				HttpURLConnection httpUrlConnection = (HttpURLConnection) rulConnection;
+				httpUrlConnection.connect();
+				InputStream iniputStream = httpUrlConnection.getInputStream();
+				byte reader[] = new byte[1024];
+				int length = 0;
+				ByteArrayOutputStream ooutStream = new ByteArrayOutputStream();
+				while ((length = iniputStream.read(reader)) != -1) {
+					ooutStream.write(reader, 0, length);
+				}
+				String encripedPass = ooutStream.toString();
+				UserValue.setEncripedPass(encripedPass);
+				ooutStream.close();
+				iniputStream.close();
+			} else {
+				Md5PasswordEncoder md5 = new Md5PasswordEncoder();
+				String pass = md5.encodePassword(UserValue.getPassword(),
+						StaticConstants.encrypekey);
+				UserValue.setEncripedPass(pass);
+			}
+
+			if (!sysUserValue.getPassword().equalsIgnoreCase(
+					UserValue.getEncripedPass())) {
 				map.put("result", "1");// 用户密码不正确
 			} else {
 				map.put("result", "2");// 用户名和密码都正确
 			}
 		}
+
 		return new ModelAndView("jsonView", map);
 	}
 

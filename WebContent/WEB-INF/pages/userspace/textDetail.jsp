@@ -171,7 +171,7 @@
 		<div class="mnlist"
 			style="background-color: #014886;; width: 30px; color: #fff; padding-left: 10px; height: 100%;">
 			 </div>
-		<div class="msheet"
+		<div class="msheet" id="commentlist"
 			style="float: left; overflow: auto;; padding-top: 10px; height: 100%;">
 			<c:forEach items="${comments}" var="messageValue" varStatus="status">
 				<div class="postSheet" style="float: left; height: 540px;">

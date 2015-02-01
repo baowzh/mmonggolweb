@@ -574,7 +574,7 @@ public class BlogManagerAction {
 			imgValue.setImgdesc(imgGrpupValue.getComm());
 			imgValue.setWidth(tempImgValue.getWidth());
 			imgValue.setHeight(tempImgValue.getHeight());
-			this.webResourceManager.doAddImg(imgValue);
+			this.webResourceManager.doAddImg(imgValue,path1);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -623,6 +623,8 @@ public class BlogManagerAction {
 		try {
 			String path = request.getSession().getServletContext()
 					.getRealPath("/html/img");
+			String path1 = request.getSession().getServletContext()
+					.getRealPath("/html/photoalbum");
 			String imgid = UUIDMaker.getUUID();
 			String imgname = imgid + ".jpg";
 			if(imgValue.getImg()!=null&&imgValue.getImg().length!=0){
@@ -634,7 +636,7 @@ public class BlogManagerAction {
 				imgValue.setImgdesc(imgValue.getImgcomm());
 				imgValue.setWidth(tempImgValue.getWidth());
 				imgValue.setHeight(tempImgValue.getHeight());
-				this.webResourceManager.doAddImg(imgValue);
+				this.webResourceManager.doAddImg(imgValue,path1);
 			}
 		} catch (Exception ex) {
 			ex.printStackTrace();

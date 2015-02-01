@@ -109,7 +109,7 @@ public interface WebResourceManager {
 	 * @param imgValue
 	 * @throws ManagerException
 	 */
-	public void doAddImg(ImgValue imgValue) throws ManagerException;
+	public void doAddImg(ImgValue imgValue,String facepath) throws ManagerException;
 
 	/**
 	 * 

@@ -178,6 +178,7 @@ var loaddoccomment = function() {
 						innerHTML = innerHTML + '</div>';
 					}
 					$("#commentlist").html(innerHTML);
+					setpagewidth();
 				}
 			});
 

@@ -591,6 +591,9 @@ public class WebSiteVisiterAction {
 			List<DocumentValue> recentdocs = this.webSiteVisitorManager
 					.getRecentDocs(14);
 			map.put("recentdocs", recentdocs);
+			List<TopDocumentValue> imgnews=this.webSiteVisitorManager.getTopDocuments(
+					StaticConstants.TOP_TYPE1, null, 7);
+			map.put("imgnews", imgnews);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

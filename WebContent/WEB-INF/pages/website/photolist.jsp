@@ -42,7 +42,7 @@
 						<a
 							href="getimginfo.do?imgid=<c:out value="${imgValue.docid}" />&userid=<c:out value="${imgValue.userid}" />"><img
 							class="displayimg" style="width: 154px; height: 163px;"
-							src="getimg.do?imgid=<c:out value="${imgValue.docid}" />"></a>
+							src="html/img/<c:out value="${imgValue.docid}" />.jpg"></a>
 					</div>
 
 				</c:forEach>

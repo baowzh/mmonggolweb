@@ -277,7 +277,7 @@ var getpass = function() {
 			// window.location.href = 'index.do';
 			if (data.mess == 1) {
 				MessageWindow.showMess('    email:'
-						+ data.mailaddress + '   ');
+						+ data.mailaddress + '<br>   email    ');
 			}
 		}
 	});

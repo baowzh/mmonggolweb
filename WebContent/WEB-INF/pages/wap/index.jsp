@@ -31,7 +31,8 @@
 		</div>
 		<div class="mln"
 			style="height: 90px; width: 30px; font-size: 18px; float: right; color: #fff; padding-top: 0px;">
-			<a href="phonebloglist.do"></a></div>
+			<a href="phonebloglist.do"></a>
+		</div>
 		<div class="emptyItem" style="height: 70px; float: right;"></div>
 		<div class="mln"
 			style="height: 90px; font-size: 18px; float: right; color: #fff; padding-top: 0px;">
@@ -39,6 +40,14 @@
 		</div>
 	</div>
 	<div id="slider" style="width: 100%;">
+		<c:forEach items="${imgnews}" var="topDocumentValue"
+			varStatus="status">
+			<div>
+				<a href="phonedetail.do?docid=<c:out value="${topDocumentValue.docid}"/>"><img class="tab_img"
+					src="html/img/<c:out value="${topDocumentValue.docimg}"/>" /></a>
+			</div>
+		</c:forEach>
+		<!--  
 		<div>
 			<a href="productdetail.html"><img class="tab_img"
 				src="site/img/vido.jpg" /></a>
@@ -53,11 +62,7 @@
 			<a href="productdetail.html"><img class="tab_img"
 				src="site/img/vido.jpg" /></a>
 		</div>
-
-		<div>
-			<a href="productdetail.html"><img class="tab_img"
-				src="site/img/vido.jpg" /></a>
-		</div>
+		-->
 
 	</div>
 	<div class="wrap content" style="padding-top: 2px; height: 350px;">
@@ -76,9 +81,7 @@
 								value="${documentValue.title}" /></a>
 					</div>
 					<div class="author">
-						<a
-							href="#">
-							<c:out value="${documentValue.docauthor}" />
+						<a href="#"> <c:out value="${documentValue.docauthor}" />
 						</a>
 					</div>
 				</div>
