@@ -578,7 +578,7 @@
 		messagesenderid ,
 		messagesendername ,
 		messagecont,
-		messagesenderimgurl ,
+		(select headurl from user where user.userid=messagesenderid) messagesenderurl ,
 		sendtime,
 		message.userid,
 		resourcekind ,

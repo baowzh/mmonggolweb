@@ -176,8 +176,12 @@ public class MessageValue {
 		this.headurl = headurl;
 	}
 
+	
+
+
+
 	public String getMessagesenderurl() {
-		return this.getMessagesenderid()+".jpg";
+		return messagesenderurl;
 	}
 
 	public void setMessagesenderurl(String messagesenderurl) {
@@ -185,7 +189,7 @@ public class MessageValue {
 	}
 
 	public String getUserurl() {
-		return this.userid+".jpg";
+		return userurl;
 	}
 
 	public void setUserurl(String userurl) {

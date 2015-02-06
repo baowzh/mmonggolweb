@@ -31,6 +31,11 @@ var dosubmit = function() {
 		MessageWindow.showMess("'email'      ");
 		return;
 	}
+	var reg=/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
+	if(!reg.test(email)){
+		MessageWindow.showMess("'email'      ");
+		return;	
+	}
 	var varifycode = $("#varifycode").val();
 	if (varifycode == null || varifycode == '') {
 		MessageWindow.showMess("' '      ");

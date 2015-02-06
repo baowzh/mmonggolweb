@@ -58,19 +58,20 @@ public class WebSiteVisitorDaoImpl extends BaseDaoiBatis implements
 					"pagingquerydoc", paingModel);
 
 		}
-		DocumentValue docarray[] = new DocumentValue[docs.size()];
-		docs.toArray(docarray);
-		Arrays.sort(docarray, new Comparator<DocumentValue>() {
-
-			@Override
-			public int compare(DocumentValue o1, DocumentValue o2) {
-				// TODO Auto-generated method stub
-				return o2.getIreadcount() - o1.getIreadcount();
-			}
-
-		});
-
-		return Arrays.asList(docarray);
+//		DocumentValue docarray[] = new DocumentValue[docs.size()];
+//		docs.toArray(docarray);
+//		Arrays.sort(docarray, new Comparator<DocumentValue>() {
+//
+//			@Override
+//			public int compare(DocumentValue o1, DocumentValue o2) {
+//				// TODO Auto-generated method stub
+//				return o2.getIreadcount() - o1.getIreadcount();
+//			}
+//
+//		});
+//
+//		return Arrays.asList(docarray);
+		return docs;
 	}
 
 	@Override

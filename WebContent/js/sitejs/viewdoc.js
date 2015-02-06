@@ -13,9 +13,9 @@ var setpagewidth = function() {
 	});
 	var width1 = width + sheetwidth + 200;
 	if (count == 0) {
-		width1 = width + sheetwidth + 1000
+		width1 = width + sheetwidth + 1200
 	} else {
-		width1 = width + sheetwidth + 1000;
+		width1 = width + sheetwidth + 1200;
 	}
 
 	// $(document).width(width1);

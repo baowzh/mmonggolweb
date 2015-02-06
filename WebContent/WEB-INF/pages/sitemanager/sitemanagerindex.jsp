@@ -35,12 +35,15 @@
 		<div class="mnlist">
 			<li><a href="commentlist.do"> </a></li>
 		</div>
+		<!--  
 		<div class="mnlist">
 			<li><a href="getopinions.do"> </a></li>
 		</div>
+		-->
 		<div class="mnlist">
 			<li><a href="javascript:password()">  </a></li>
 		</div>
+		<!--  
 		<div class="mnlist">
 			<li><a href="advert.do">   </a></li>
 		</div>
@@ -50,12 +53,15 @@
 		<div class="mnlist">
 			<li><a href="votemanager.do"> </a></li>
 		</div>
+			-->
 		<div class="mnlist">
 			<li><a href="booklist.do"> </a></li>
 		</div>
+		<!--  
 		<div class="mnlist">
 			<li><a href="createsitepage.do"> </a></li>
 		</div>
+		-->
 	</div>
 	<!-- 444 -->
 	<div class="content" id="astopwriting"

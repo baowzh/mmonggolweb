@@ -35,7 +35,8 @@
 	<div id="condiv">
 		<div class="mln"
 			style="float: left; width: 40px; background-color: #f2967b; height: 100%; padding-left: 10px;">
-			<a href="tologin.do"> &nbsp;</a> <a href="index.do"> &nbsp; </a> <a
+			<a href="tologin.do"> &nbsp;</a> <a href="index.do">
+				&nbsp; </a> <a
 				href="gouserindex.do?userid=<c:out value="${user.userid}" />">
 				  &nbsp;</a> <a a="registe.do"> </a>
 		</div>
@@ -130,13 +131,13 @@
 						default="0" /></span>   <a href="javascript:markdocument()">
 					 </a> <span id="markcount"><c:out
 						value="${documentValue.markcount}" default="0" /></span>  <br />
-				  <span id="readcount"><c:out
-						value="${documentValue.readcount}" default="0" /></span> <br />
-				  
-				<c:out value="${documentValue.docRelTimeStr}" />
-				<br /> <a href="#comment"> </a><span id="commentCount">
-					<c:out value="${documentValue.commentCount}" default="0" />
-				</span> 
+				<c:if test="${self==1}">
+					<a
+						href="toupddoc.do?docid=<c:out value="${documentValue.docid}" />">
+					   </a>
+					<a href="javascript:deldoc(1);"> &nbsp;  </a>
+					
+				</c:if>
 			</div>
 		</div>
 		<div class="mnlist"
@@ -144,8 +145,8 @@
 
 		<div class=" flt"
 			style="float: left; width: 240px; height: 98%; margin: 0px 8px 8px 8px; padding: 5px; background: white; border: solid 1px #014886;">
-			
-				<div class="readerl">
+
+			<div class="readerl">
 				<c:forEach items="${visitors}" var="visitorValue" varStatus="status">
 					<div class="i" style="float: left;">
 						<img src="html/userhead/<c:out value="${visitorValue.headurl}" />"
@@ -163,9 +164,9 @@
 									value="${visitorValue.visitdatestr}" /></font>
 						</div>
 					</div>
-					</c:forEach>
-				</div>
-			
+				</c:forEach>
+			</div>
+
 		</div>
 
 		<div class="mnlist"
@@ -269,7 +270,7 @@
 			<div class="loadingbox" style="display: none;"></div>
 			<div class="artclList" id="artclList">
 				<c:forEach items="${docList}" var="documentValue" varStatus="status">
-					<div class="m1ln" >
+					<div class="m1ln">
 						<a><img src="img/dot.gif"></a> <a
 							href="getuserdocdetail.do?docid=<c:out value="${documentValue.docid}" />&pageindex=1"><c:out
 								value="${documentValue.doctitle}" escapeXml="false" /> </a>

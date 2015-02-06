@@ -283,21 +283,20 @@
 
 									<c:forEach items="${imggroupValues}" var="imgGrpupValue"
 										varStatus="status">
-										<div class="folder">
+										<div class="folder" style="width:162px;height:180px;">
 											<a
 												href="javascript:openPhotoList('<c:out value="${imgGrpupValue.imggroupid}"/>')">
 												<c:if test="${imgGrpupValue.faceurl!=null}">
 												<img
-												width="600" height="400"
+												style="width:132px;height:150px;"
 												src="html/photoalbum/<c:out value="${imgGrpupValue.faceurl}"/>">
 												</c:if>
 												<c:if test="${imgGrpupValue.faceurl==null}">
-												<img
-												width="600" height="400"
+												<img style="width:132px;height:150px;"
 												src="html/photoalbum/imgface.jpg">
 												</c:if>
 											</a>
-											<div class="m1ln" style="text-align: center;">
+											<div class="m1ln" style="text-align: center;height:145px;">
 												<a title="<c:out value="${imgGrpupValue.imggroupname}"/>"
 													href="javascript:openPhotoList('<c:out value="${imgGrpupValue.imggroupid}"/>')"><c:out
 														value="${imgGrpupValue.imggroupname}" escapeXml="false" /></a>

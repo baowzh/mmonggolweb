@@ -47,8 +47,8 @@ var login = function() {
 						var innerHTML = '<div class=\"loin\" style=\"padding-left:10px;\">'
 								+ '<div class=\"avtr\"><img src=\"'
 								+ imgurl
-								+ data.userinfo.userid
-								+ '.jpg\"  style=\"width:80px;\" /></div>'
+								+ data.userinfo.headurl
+								+ '\"  style=\"width:80px;\" /></div>'
 								+ '<div class=\"desc  \" style=\"width:120px\">'
 								+ '<div class=\"m1ln\">   '
 								+ data.userinfo.artname
@@ -153,8 +153,8 @@ $(document)
 									var innerHTML = '<div class=\"loin\" style=\"padding-left:10px;\">'
 											+ '<div class=\"avtr\"><img src=\"'
 											+ imgurl
-											+ data.userinfo.userid
-											+ '.jpg \"  style=\"width:80px;\" /></div>'
+											+ data.userinfo.headurl
+											+ '\"  style=\"width:80px;\" /></div>'
 											+ '<div class=\"desc  \" style=\"width:120px\">'
 											+ '<div class=\"m1ln\">  '
 											+ data.userinfo.artname
