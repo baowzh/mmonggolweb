@@ -44,31 +44,45 @@
 </head>
 <body style="background-color: #fff; scroll: none;">
 	<div id="viewhead" class="viewhead"
-		style="height: 30px; background-color: #f2967b"></div>
+		style="height: 30px; background-color: #dfa64f"></div>
 	<div id="condiv">
+	<div class="mln"
+			style="float: left; width: 5px; height: 100%; background-color: #dfa64f;">
+			<!-- 			#f2967b -->
+		</div>
 		<div class="mln"
-			style="float: left; width: 40px; background-color: #f2967b; height: 100%; padding-left: 10px;">
-			<a href="tologin.do"> &nbsp;</a> <a href="index.do">
-				&nbsp; </a> <a
+			style="float: left; width: 109px; height: 100%; padding-top: 110px; font-size: 19px; background-color: #dfa64f; background: url(site/img/phonehead.jpg) center top no-repeat;">
+			<br> <br>      <br>
+			<br>       <br>
+		</div>
+		<div class="mln"
+			style="width: 30px; padding-left: 10px;  float: left; background-color: #dfa64f; height: 100%;">
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="tologin.do"> &nbsp; &nbsp;</a> <a href="index.do">
+				&nbsp; &nbsp; </a> <a
 				href="gouserindex.do?userid=<c:out value="${user.userid}" />">
-				  &nbsp;</a> <a a="registe.do"> </a>
+				  &nbsp; &nbsp;</a> <a href="registe.do"> </a>
+			<c:if test="${self==0&&login==1}">
+				<a>&nbsp; &nbsp;  &nbsp; &nbsp;</a>
+				<a></a>
+			</c:if>
 		</div>
 		<div class="flt" style="top: 0px; padding: 0px; height: 100%;"
 			id="nameCard">
 			<div class=" flt nameCard nameCardC"
-				style="border: 0px; background: #f2967b; height: 100%;">
+				style="border: 0px; background: #dfa64f; height: 100%;">
 				<div class="flt">
-					<div class="m1ln name" style="padding-top: 10px;">
-						<c:out value="${user.artname}" />
-					</div>
 					<div class="avatar">
 						<img src="html/userhead/<c:out value="${user.headurl}" />"
 							width="334" height="446" />
 					</div>
+					<div class="m1ln name"
+						style="padding-top: 30px; color: #fff; font-size: 23px;">
+						<c:out value="${user.artname}" />
+					</div>
 				</div>
 				<div class="cbt"></div>
 				<div class=" "
-					style="padding-top: 10px; width: 180px; margin: 0 auto">
+					style="padding-top: 10px; width: 180px; margin: 0 auto; color: #fff;">
 					<div class="m1ln">
 						 
 						<c:choose>
@@ -112,14 +126,15 @@
 		</div>
 		<!--  -->
 		<div class="mln" style="float: left; padding-top: 30px; height: 95%;">
-			<h1 id="doctitle" style="line-height: 100%; margin: 20px;">
+			<div id="doctitle" class="msheet titlediv"
+				style="line-height: 100%; margin: 20px;">
 				<c:out value="${documentValue.doctitle}" />
-			</h1>
+			</div>
 		</div>
 		<div class="msheet shareBookmark" style="float: left; height: 400px;">
 			<div style="margin: 0px 20px 20px 20px;">
 				 
-				<c:out value="${documentValue.docchannelname}" />
+				 
 				<br> <a href="javascript:sharedocument()"> </a> <span
 					id="sharecount"><c:out value="${documentValue.sharecount}"
 						default="0" /></span>   <a href="javascript:markdocument()">
@@ -189,10 +204,10 @@
 			</div>
 		</div>
 		<div class="mnlist"
-			style="background-color: #014886;; width: 30px; color: #fff; padding-left: 10px; height: 100%;"></div>
+			style="background-color: #dfa64f;; width: 30px; color: #fff; padding-left: 10px; height: 100%;"></div>
 
 		<div class=" flt"
-			style="float: left; width: 240px; height: 98%; margin: 0px 8px 8px 8px; padding: 5px; background: white; border: solid 1px #014886;">
+			style="float: left; width: 240px; height: 98%; margin: 0px 8px 8px 8px; padding: 5px; background: white; border: solid 1px #dfa64f;">
 
 			<div class="readerl">
 				<c:forEach items="${visitors}" var="visitorValue" varStatus="status">
@@ -218,7 +233,7 @@
 		</div>
 
 		<div class="mnlist"
-			style="background-color: #014886;; width: 30px; color: #fff; padding-left: 10px; height: 100%;">
+			style="background-color: #dfa64f;; width: 30px; color: #fff; padding-left: 10px; height: 100%;">
 			 </div>
 		<div class="msheet" id="commentlist"
 			style="float: left; overflow: auto;; padding-top: 10px; height: 100%;">
@@ -311,7 +326,7 @@
 		</nobr>	
 	</div>
 	<div id="viewhead" class="viewhead"
-		style="height: 30px; background-color: #f2967b"></div>
+		style="height: 30px; background-color: #dfa64f"></div>
 	<%@ include file="bloghiddendiv.jsp"%>
 	<%@ include file="logindiv.jsp"%>
 </body>

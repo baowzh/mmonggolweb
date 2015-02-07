@@ -250,6 +250,11 @@ public class BlogManagerAction {
 						null);
 				// 计算每个comments 是否要显示
 			}
+			if (sessionUser != null) {
+				map.put("login", 1);
+			} else {
+				map.put("login", 0);
+			}
 			if (sessionUser != null
 					&& userid.equalsIgnoreCase(sessionUser.getUserid())) {
 				user = (UserValue) request.getSession().getAttribute("user");// 在线session
@@ -354,8 +359,8 @@ public class BlogManagerAction {
 			String path = request.getSession().getServletContext()
 					.getRealPath("html/img");
 			imgname = UUIDMaker.getUUID() + ".jpg";
-			if(imgValue.getImg()!=null&&imgValue.getImg().length!=0){
-				ImgeUtil.CompressPic(imgValue.getImg(), path, imgname);	
+			if (imgValue.getImg() != null && imgValue.getImg().length != 0) {
+				ImgeUtil.CompressPic(imgValue.getImg(), path, imgname);
 			}
 			//
 		} catch (Exception ex) {
@@ -552,14 +557,15 @@ public class BlogManagerAction {
 					.getRealPath("/html/photoalbum");
 			ImgValue tempImgValue = new ImgValue();
 			ImgValue imgValue = new ImgValue();
-			String imgname = "";
-			imgname = UUIDMaker.getUUID() + ".jpg";
-			if (imgGrpupValue.getImgurl()!=null&&imgGrpupValue.getImgurl().length!=0){
+			String imgid =  UUIDMaker.getUUID();
+			String imgname = imgid+ ".jpg";
+			if (imgGrpupValue.getImgurl() != null
+					&& imgGrpupValue.getImgurl().length != 0) {
 				tempImgValue = ImgeUtil.CompressPic(imgGrpupValue.getImgurl(),
 						path, imgname);
 				ImgeUtil.CompressPic(imgGrpupValue.getImgurl(), path1, imgname);
-				imgValue.setImgurl(imgname);		
-				ImgeUtil.CompressPic(imgGrpupValue.getImgurl(), path, imgname);
+				imgValue.setImgurl(imgname);
+				//ImgeUtil.CompressPic(imgGrpupValue.getImgurl(), path, imgname);
 			}
 			imgGrpupValue.setImggroupid(UUIDMaker.getUUID());
 			imgGrpupValue.setFaceurl(imgname);
@@ -569,12 +575,13 @@ public class BlogManagerAction {
 			this.webResourceManager.doAddIImgGroup(imgGrpupValue);
 			// 同时新增一个图片
 			imgValue.setImggroupid(imgGrpupValue.getImggroupid());
-			imgValue.setImgid(UUIDMaker.getTimeBasedUUID());
+			imgValue.setImgid(imgid);
+			imgValue.setUserid(imgGrpupValue.getUserid());
 			imgValue.setImgname(imgGrpupValue.getImggroupname());
 			imgValue.setImgdesc(imgGrpupValue.getComm());
 			imgValue.setWidth(tempImgValue.getWidth());
 			imgValue.setHeight(tempImgValue.getHeight());
-			this.webResourceManager.doAddImg(imgValue,path1);
+			this.webResourceManager.doAddImg(imgValue, path1);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -598,8 +605,9 @@ public class BlogManagerAction {
 					.getRealPath("/html/photoalbum");
 			String imgname = "";
 			imgname = UUIDMaker.getUUID() + ".jpg";
-			if(imgGrpupValue.getImgurl()!=null&&imgGrpupValue.getImgurl()!=null){
-				ImgeUtil.CompressPic(imgGrpupValue.getImgurl(), path, imgname);	
+			if (imgGrpupValue.getImgurl() != null
+					&& imgGrpupValue.getImgurl() != null) {
+				ImgeUtil.CompressPic(imgGrpupValue.getImgurl(), path, imgname);
 			}
 			this.webResourceManager.doUpdIImgGroup(imgGrpupValue);
 		} catch (Exception ex) {
@@ -627,16 +635,16 @@ public class BlogManagerAction {
 					.getRealPath("/html/photoalbum");
 			String imgid = UUIDMaker.getUUID();
 			String imgname = imgid + ".jpg";
-			if(imgValue.getImg()!=null&&imgValue.getImg().length!=0){
+			if (imgValue.getImg() != null && imgValue.getImg().length != 0) {
 				ImgValue tempImgValue = ImgeUtil.CompressPic(imgValue.getImg(),
 						path, imgname);
-				imgValue.setImgurl(imgname);	
+				imgValue.setImgurl(imgname);
 				imgValue.setImgid(imgid);
 				imgValue.setImgname(imgValue.getImgid());
 				imgValue.setImgdesc(imgValue.getImgcomm());
 				imgValue.setWidth(tempImgValue.getWidth());
 				imgValue.setHeight(tempImgValue.getHeight());
-				this.webResourceManager.doAddImg(imgValue,path1);
+				this.webResourceManager.doAddImg(imgValue, path1);
 			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -2188,11 +2196,12 @@ public class BlogManagerAction {
 			String path = request.getSession().getServletContext()
 					.getRealPath("/html/img");
 			imgname = UUIDMaker.getUUID() + ".jpg";
-			if(bookStoreValue.getImgurl()!=null&&bookStoreValue.getImgurl().length!=0){
+			if (bookStoreValue.getImgurl() != null
+					&& bookStoreValue.getImgurl().length != 0) {
 				ImgeUtil.CompressPic(bookStoreValue.getImgurl(), path, imgname);
-				map.put("picurl", "html/img/" + imgname);		
+				map.put("picurl", "html/img/" + imgname);
 			}
-		
+
 		} catch (Exception ex) {
 			return new ModelAndView("sitemanager/error", map);
 		}

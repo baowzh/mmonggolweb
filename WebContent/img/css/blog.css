@@ -65,9 +65,10 @@ a img {
 }
 
 .postSheet {
-	border: solid 10px #CCF;
+	/* 	border: solid 10px #CCF; */
+	border: solid 10px #dfa64f;
 	display: run-in;
-	height: 480px;
+	height: 470px;
 	margin-left: 10px;
 }
 
@@ -76,11 +77,12 @@ a img {
 }
 
 .postSheet .posterInf {
-	height: 480px;
+	height: 470px;
 	display: inline-block;
 	width: 70px;
 	padding: 5px;
-	background: #CCF;
+	background: #dfa64f;
+	/* 	background: #CCF; */
 }
 
 .posterInf .avtThumb {
@@ -320,7 +322,7 @@ a img {
 
 .recentAcvtyBox {
 	padding: 5px;
-/* 	margin-top: 10px; */
+	/* 	margin-top: 10px; */
 	background: #fff;
 	width: 700px;
 	float: left;
@@ -415,4 +417,9 @@ a img {
 	border-radius: 10px;
 	background: #666 url(../loading2.gif) no-repeat center;
 	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.titlediv {
+	font-weight: bold;
+	font-size: 30px;
 }

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title> </title>
+<title><c:out value="${documentValue.doctitle}" /></title>
 <link href="site/css/index.css" rel="stylesheet" type="text/css" />
 <link href="site/css/main.css" rel="stylesheet" type="text/css" />
 <link href="img/css/main.css" rel="stylesheet" type="text/css" />
@@ -31,31 +31,46 @@
 </head>
 <body style="background-color: #fff; scroll: none;">
 	<div id="viewhead" class="viewhead"
-		style="height: 30px; background-color: #f2967b"></div>
+		style="height: 30px; background-color: #dfa64f;"></div>
 	<div id="condiv">
 		<div class="mln"
-			style="float: left; width: 40px; background-color: #f2967b; height: 100%; padding-left: 10px;">
-			<a href="tologin.do"> &nbsp;</a> <a href="index.do">
-				&nbsp; </a> <a
-				href="gouserindex.do?userid=<c:out value="${user.userid}" />">
-				  &nbsp;</a> <a a="registe.do"> </a>
+			style="float: left; width: 5px; height: 100%; background-color: #dfa64f;">
+			<!-- 			#f2967b -->
 		</div>
+		<div class="mln"
+			style="float: left; width: 109px; height: 100%; padding-top: 110px; font-size: 19px; background-color: #dfa64f; background: url(site/img/phonehead.jpg) center top no-repeat;">
+			<br> <br>      <br>
+			<br>       <br>
+		</div>
+		<div class="mln"
+			style="width: 30px; padding-left: 10px;  float: left; background-color: #dfa64f; height: 100%;">
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="tologin.do"> &nbsp; &nbsp;</a> <a href="index.do">
+				&nbsp; &nbsp; </a> <a
+				href="gouserindex.do?userid=<c:out value="${user.userid}" />">
+				  &nbsp; &nbsp;</a> <a href="registe.do"> </a>
+			<c:if test="${self==0&&login==1}">
+				<a>&nbsp; &nbsp;  &nbsp; &nbsp;</a>
+				<a></a>
+			</c:if>
+		</div>
+
 		<div class="flt" style="top: 0px; padding: 0px; height: 100%;"
 			id="nameCard">
 			<div class=" flt nameCard nameCardC"
-				style="border: 0px; background: #f2967b; height: 100%;">
+				style="border: 0px; background: #dfa64f; height: 100%;">
 				<div class="flt">
-					<div class="m1ln name" style="padding-top: 10px;">
-						<c:out value="${user.artname}" />
-					</div>
 					<div class="avatar">
 						<img src="html/userhead/<c:out value="${user.headurl}" />"
 							width="334" height="446" />
 					</div>
+					<div class="m1ln name"
+						style="padding-top: 30px; color: #fff; font-size: 23px;">
+						<c:out value="${user.artname}" />
+					</div>
 				</div>
 				<div class="cbt"></div>
 				<div class=" "
-					style="padding-top: 10px; width: 180px; margin: 0 auto">
+					style="padding-top: 10px; width: 180px; margin: 0 auto; color: #fff;">
 					<div class="m1ln">
 						 
 						<c:choose>
@@ -99,9 +114,10 @@
 		</div>
 		<!--  -->
 		<div class="mln" style="float: left; padding-top: 30px; height: 95%;">
-			<h1 id="doctitle" style="line-height: 100%; margin: 20px;">
+			<div id="doctitle" class="msheet titlediv"
+				style="line-height: 100%; margin: 20px;">
 				<c:out value="${documentValue.doctitle}" />
-			</h1>
+			</div>
 		</div>
 		<div class="msheet shareBookmark" style="float: left; height: 400px;">
 			<div style="margin: 0px 20px 20px 20px;">
@@ -134,17 +150,17 @@
 				<c:if test="${self==1}">
 					<a
 						href="toupddoc.do?docid=<c:out value="${documentValue.docid}" />">
-					   </a>
+						  </a>
 					<a href="javascript:deldoc(1);"> &nbsp;  </a>
-					
+
 				</c:if>
 			</div>
 		</div>
 		<div class="mnlist"
-			style="background-color: #014886;; width: 30px; color: #fff; padding-left: 10px; height: 100%;"></div>
+			style="background-color: #dfa64f;; width: 30px; color: #fff; padding-left: 10px; height: 100%;"></div>
 
 		<div class=" flt"
-			style="float: left; width: 240px; height: 98%; margin: 0px 8px 8px 8px; padding: 5px; background: white; border: solid 1px #014886;">
+			style="float: left; width: 240px; height: 98%; margin: 0px 8px 8px 8px; padding: 5px; background: white;">
 
 			<div class="readerl">
 				<c:forEach items="${visitors}" var="visitorValue" varStatus="status">
@@ -152,7 +168,7 @@
 						<img src="html/userhead/<c:out value="${visitorValue.headurl}" />"
 							width="60" height="70" />
 						<div class="frt" style="width: 20px;">
-							<div class="m1ln" style="padding-top: 8px;">
+							<div class="m1ln" style="padding-top: 8px;overflow:hidden;height:85px;">
 								<a
 									href="gouserindex.do?userid=<c:out value="${visitorValue.visitorid}" />">
 									<c:out value="${visitorValue.visitorname}" />
@@ -170,22 +186,23 @@
 		</div>
 
 		<div class="mnlist"
-			style="background-color: #014886;; width: 30px; color: #fff; padding-left: 10px; height: 100%;">
+			style="background-color: #dfa64f;; width: 30px; color: #fff; padding-left: 10px; height: 100%;">
 			 </div>
 		<div class="msheet" id="commentlist"
-			style="float: left; overflow: auto;; padding-top: 10px; height: 100%;">
+			style="float: left; overflow: auto;; padding-top: 10px; height: 98%;">
 			<c:forEach items="${comments}" var="messageValue" varStatus="status">
-				<div class="postSheet" style="float: left; height: 540px;">
-					<div class="posterInf" style="float: left; height: 540px;">
+				<div class="postSheet" style="float: left; height: 500px;">
+					<div class="posterInf" style="float: left; height: 500px;">
 						<div class="avtThumb flt">
 							<img
 								src="html/userhead/<c:out value="${messageValue.messagesenderurl}" />"
 								width="30" height="40" />
 						</div>
 						<div class="inf flt">
-							<div class="row">
+							<div class="row" style="color: #fff;">
 								<a
-									href="gouserindex.do?userid=<c:out value="${messageValue.messagesenderid}" />"><c:out
+									href="gouserindex.do?userid=<c:out value="${messageValue.messagesenderid}" />"
+									style="color: #fff;"><c:out
 										value="${messageValue.messagesendername}" /> </a><br /> <br />
 								<c:out value="${messageValue.sendtimestr}" />
 							</div>
@@ -263,7 +280,7 @@
 		</nobr>
 		<div class="mnlist" style="float: left;"></div>
 		<div class="mnlist"
-			style="background-color: #014886;; width: 30px; color: #fff; padding-left: 10px; height: 100%;">
+			style="background-color: #dfa64f;; width: 30px; color: #fff; padding-left: 10px; height: 100%;">
 			  </div>
 		<div class="flt txtBlogList" style="width: 720px; margin-top: 20px;">
 			<!-- 进度条 -->
@@ -271,7 +288,7 @@
 			<div class="artclList" id="artclList">
 				<c:forEach items="${docList}" var="documentValue" varStatus="status">
 					<div class="m1ln">
-						<a><img src="img/dot.gif"></a> <a
+						<a><img src="site/img/qig_1_v.png"></a> <a
 							href="getuserdocdetail.do?docid=<c:out value="${documentValue.docid}" />&pageindex=1"><c:out
 								value="${documentValue.doctitle}" escapeXml="false" /> </a>
 					</div>
@@ -283,9 +300,12 @@
 				</div>
 			</div>
 		</div>
+		<div class="mln"
+			style="float: right; width: 25px; height: 100%; background-color: #dfa64f;">
+		</div>
 	</div>
 	<div id="viewhead" class="viewhead"
-		style="height: 30px; background-color: #f2967b"></div>
+		style="height: 30px; background-color: #dfa64f"></div>
 	<%@ include file="bloghiddendiv.jsp"%>
 	<%@ include file="logindiv.jsp"%>
 </body>

@@ -341,7 +341,7 @@
 	</insert>
 	<select id="getResourceCommentList" parameterClass="java.util.Map"
 		resultClass="MessageValue">
-		SELECT message.*,user.artname FROM message ,user where
+		SELECT message.*,user.artname,(select headurl from user where `user`.userid=message.messagesenderid) as messagesenderurl FROM message ,user where
 		message.userid=USER.userid
 		<dynamic prepend="and">
 			<isNotNull prepend="and" property="resourceid">

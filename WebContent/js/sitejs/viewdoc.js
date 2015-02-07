@@ -6,16 +6,26 @@ var setpagewidth = function() {
 	var width = $('#condiv')[0].scrollWidth;
 	var sheetwidth = 0;
 	var count = 0;
+	var postSheets=0;
+	$('.postSheet').each(function(i, val) {
+		postSheets = postSheets + $(val)[0].scrollWidth + 50;
+	});
+	$('#commentlist').css({width : postSheets});
 	$('.msheet').each(function(i, val) {
 		sheetwidth = sheetwidth + $(val)[0].scrollWidth + 10;
 		count++;
 
 	});
+	var agentkind=0;
+	agentkind=$('#agentkind').val();
 	var width1 = width + sheetwidth + 200;
 	if (count == 0) {
 		width1 = width + sheetwidth + 1200
 	} else {
-		width1 = width + sheetwidth + 1200;
+		//if(agentkind==1){
+			width1 = width + sheetwidth + 1200;
+		//}
+		
 	}
 
 	// $(document).width(width1);
