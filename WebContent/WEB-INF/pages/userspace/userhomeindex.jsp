@@ -81,7 +81,7 @@
 									<c:forEach items="${docList}" var="documentValue"
 										varStatus="status">
 										<div class="m1ln">
-											<a><img src="img/dot.gif"></a> <a
+											<a><img src="site/img/qig_1_v.png"></a> <a
 												href="getuserdocdetail.do?docid=<c:out value="${documentValue.docid}" />"><c:out
 													value="${documentValue.doctitle}" escapeXml="false" /> </a>
 
@@ -246,7 +246,7 @@
 									<c:forEach items="${votelist}" var="voteValue"
 										varStatus="status">
 										<div class="m1ln">
-											<a><img src="site/img/qig_1_v.png"></a><a
+											<a><img src="img/dot.gif"></a><a
 												href="joinvote.do?redirecturl=gouserindex.do&voteid=<c:out value="${voteValue.voteid}" />&userid=<c:out value="${userid}" />"><c:out
 													value="${voteValue.topic}" escapeXml="true" /> </a>&nbsp;
 										</div>
