@@ -8,9 +8,11 @@ var setpagewidth = function() {
 	var count = 0;
 	var postSheets=0;
 	$('.postSheet').each(function(i, val) {
-		postSheets = postSheets + $(val)[0].scrollWidth + 50;
+		postSheets = postSheets + $(val)[0].scrollWidth ;
 	});
-	$('#commentlist').css({width : postSheets});
+	//if($('#commentlist')[0].scrollWidth-postSheets<0){
+		$('#commentlist').css({width : postSheets+200});	
+	// }
 	$('.msheet').each(function(i, val) {
 		sheetwidth = sheetwidth + $(val)[0].scrollWidth + 10;
 		count++;

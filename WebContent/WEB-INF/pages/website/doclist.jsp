@@ -52,7 +52,7 @@
 					</div>
 					<div class=" pagenav">
 						<a><span id="picbtn1"
-							style="cursor: pointer; border: 1px solid rgb(204, 204, 204); display: inline-block; color: #fff; background-color: #c90; border-radius: 5px; line-height: 20px; width: 20px;">&nbsp;&lt;&nbsp;
+							style="cursor: pointer; border: 1px solid rgb(204, 204, 204); display: inline-block; color: #fff; background-color: #c90; border-radius: 8px; line-height: 20px; width: 20px;">&nbsp;&lt;&nbsp;
 						</span></a>
 						<c:forEach items="${pagingindexs}" var="pagingindex"
 							varStatus="status">
@@ -65,12 +65,12 @@
 									</c:if>
 								</c:if> <c:if test="${pagingindex.current==1}">
 									<span id="picbtn1"
-										style="cursor: pointer; border: 1px solid rgb(204, 204, 204); display: inline-block; color: #fff; background-color: #c90; border-radius: 5px; line-height: 20px; width: 20px;">&nbsp;<c:out
+										style="cursor: pointer; border: 1px solid rgb(204, 204, 204); display: inline-block; color: #fff; background-color: #c90; border-radius: 8px; line-height: 20px; width: 20px;">&nbsp;<c:out
 											value="${pagingindex.pageindex}" default="" />&nbsp;
 									</span>
 								</c:if> <c:if test="${pagingindex.current==0}">
 									<span id="picbtn1"
-										style="cursor: pointer; border: 1px solid rgb(204, 204, 204); display: inline-block; color: #fff; background-color: #c90; border-radius: 5px; line-height: 20px; width: 20px;">&nbsp;<c:out
+										style="cursor: pointer; border: 1px solid rgb(204, 204, 204); display: inline-block; color: #fff; background-color: #c90; border-radius: 8px; line-height: 20px; width: 20px;">&nbsp;<c:out
 											value="${pagingindex.pageindex}" default="" />&nbsp;
 									</span>
 								</c:if> <c:if test="${pagingindex.doc==1}">
@@ -81,10 +81,11 @@
 								</c:if> </a>
 						</c:forEach>
 						<a><span id="picbtn1"
-							style="cursor: pointer; border: 1px solid rgb(204, 204, 204); display: inline-block; color: #fff; background-color: #c90; border-radius: 5px; line-height: 20px; width: 20px;">&nbsp;&gt;&nbsp;
-						</span></a> (
+							style="cursor: pointer; border: 1px solid rgb(204, 204, 204); display: inline-block; color: #fff; background-color: #c90; border-radius: 8px; line-height: 20px; width: 20px;">&nbsp;&gt;&nbsp;
+						</span></a>
+						<!--   (
 						<c:out value="${paingModel.rowcount}" default="0" />
-						)
+						)-->
 					</div>
 				</div>
 
@@ -96,7 +97,7 @@
 					<div class="cbt"></div>
 		</div>
 	</form>
-	<div class="wrp m0a ribbon"></div>
+<!-- 	<div class="wrp m0a ribbon"></div> -->
 	<%@ include file="tail.jsp"%>
 </body>
 </html>

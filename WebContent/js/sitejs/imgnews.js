@@ -47,7 +47,7 @@ function initPicPlayer(pics, w, h) {
 		btns
 				.append('<span id="picbtn'
 						+ i
-						+ '" style="cursor:pointer; border:solid 1px #ccc;background-color:#eee;border-radius:3px; display:inline-block;font-size:14px;">&nbsp;'
+						+ '" style="cursor:pointer; border:solid 1px #ccc;background-color: #c90;color:#fff;border-radius:7px; display:inline-block;font-size:14px;">&nbsp;'
 						+ (i + 1) + '&nbsp;</span>&nbsp;');
 		$('#picbtn' + i).data('index', i);
 		$('#picbtn' + i).click(
@@ -74,8 +74,8 @@ function initPicPlayer(pics, w, h) {
 		selectedItem.fadeIn('slow');
 		//
 		if (selectedBtn) {
-			selectedBtn.css('backgroundColor', '#eee');
-			selectedBtn.css('color', '#000');
+			selectedBtn.css('backgroundColor', '#c90');
+			selectedBtn.css('color', '#fff');
 		}
 		selectedBtn = $('#picbtn' + index);
 		selectedBtn.css('backgroundColor', '#000');

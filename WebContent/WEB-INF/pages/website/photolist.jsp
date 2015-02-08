@@ -75,7 +75,7 @@
 			</div>
 		</div>
 	</form>
-	<div class="wrp m0a ribbon"></div>
+<!-- 	<div class="wrp m0a ribbon"></div> -->
 	<%@ include file="tail.jsp"%>
 </body>
 </html>

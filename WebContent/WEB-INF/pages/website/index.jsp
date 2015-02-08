@@ -931,6 +931,7 @@
 
 				</c:forEach>
 			</div>
+			<ul class="flex-direction-nav"><li><a class="flex-prev" href="#">Previous</a></li><li><a class="flex-next" href="#">Next</a></li></ul>
 		</div>
 		<div class="cls"></div>
 	</div>

@@ -590,7 +590,7 @@ body {
 	-webkit-text-orientation: sideways-right;
 	-ms-text-orientation: sideways-right;
 	width: 189px;
-	height: 160px;
+	height: 180px;
 	/* 	border-right: 1px solid #ccc; */
 	/* 	border-bottom: 1px solid #ccc; */
 	border-right: 1px solid #014886;
@@ -652,13 +652,13 @@ body {
 	float: left;
 	width: 300px;
 	font-family: arial, "宋体";
-	padding: 10px;
+	padding: 5px;
 }
 
 .contact {
 	width: 430px;
 	float: right;
-	padding: 8px;
+	padding: 5px;
 }
 
 .clear {
@@ -786,4 +786,33 @@ body {
 	float: left;
 	overflow: hidden;
 	height: 560px;
+}
+
+.flex-direction-nav {
+	
+}
+
+.flex-direction-nav .flex-prev {
+	opacity: 0.8;
+	left: 20px;
+}
+
+.flex-direction-nav .flex-next {
+	background-position: 100% 0;
+	right: 20px;
+	opacity: 0.8;
+/* 	left: 20px; */
+}
+
+.flex-direction-nav a {
+	width: 30px;
+	height: 30px;
+	margin: -20px 0 0;
+	display: block;
+	background: url(../img/bg_direction_nav.png) no-repeat 0 0;
+	position: absolute;
+	top: 50%;
+	cursor: pointer;
+	text-indent: -9999px;
+	opacity: 0;
 }

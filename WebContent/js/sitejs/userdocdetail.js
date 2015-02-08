@@ -70,6 +70,7 @@ var addcomment = function(dtype, hidden) {
 				} else {
 					$('#editor1').val('');
 				}
+				CKEDITOR.instances.editor1.setData(' ')
 				// CKEDITOR.instances.editor1.body.innerText='';
 				loaddoccomment();
 				$("#userid").val('');
@@ -444,12 +445,12 @@ var previousdoc = function() {
 
 };
 /*
-var chgUrl = function(imgid) {
-	var timestamp = (new Date()).valueOf();
-	url = 'getimg.do?imgid=' + imgid + '&timestamp=' + timestamp;
-	alert(url);
-	return url;
-};*/
+ var chgUrl = function(imgid) {
+ var timestamp = (new Date()).valueOf();
+ url = 'getimg.do?imgid=' + imgid + '&timestamp=' + timestamp;
+ alert(url);
+ return url;
+ };*/
 var test = function() {
 	//
 	showConfirmMess("             "
@@ -465,29 +466,29 @@ var test = function() {
 	//
 };
 /*
-var replaceverifycode = function(id) {
-	var imgSrc='';
-	if(id!=null&&id!=undefined){
-		 imgSrc = $("#varifyimg"+id);
-	}else{
-		 imgSrc = $("#varifyimg");
-	}
-	var src = imgSrc.attr("src");
-	imgSrc.attr("src", changeurl(src));
+ var replaceverifycode = function(id) {
+ var imgSrc='';
+ if(id!=null&&id!=undefined){
+ imgSrc = $("#varifyimg"+id);
+ }else{
+ imgSrc = $("#varifyimg");
+ }
+ var src = imgSrc.attr("src");
+ imgSrc.attr("src", changeurl(src));
 
-};
+ };
 
-function changeurl(url) {
-	var timestamp = (new Date()).valueOf();
-	url = url.substring(0, 17);
-	if ((url.indexOf("&") >= 0)) {
-		url = url + "¡Átamp=" + timestamp;
-	} else {
-		url = url + "?timestamp=" + timestamp;
-	}
-	return url;
-};
-*/
+ function changeurl(url) {
+ var timestamp = (new Date()).valueOf();
+ url = url.substring(0, 17);
+ if ((url.indexOf("&") >= 0)) {
+ url = url + "¡Átamp=" + timestamp;
+ } else {
+ url = url + "?timestamp=" + timestamp;
+ }
+ return url;
+ };
+ */
 function refreshdata(index) {
 	var obj1 = $('#imgsharecount' + index).val();
 	$("#imgtitle").text($("#imgtitle" + index).val());
@@ -549,4 +550,3 @@ var checklogin = function() {
 	return islogin;
 
 };
-
