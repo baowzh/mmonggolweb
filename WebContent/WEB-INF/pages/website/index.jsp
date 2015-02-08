@@ -512,7 +512,7 @@
 							src="html/userhead/<c:out value="${userValue.headurl}" />"
 							style="width: 47px;" /></a>
 					</div>
-					<div class="m1ln" style="float: left;">
+					<div class="m1ln" style="float: left;overflow:hidden;height:80px;">
 						<a
 							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
 							&nbsp;<c:out value="${userValue.artname}" />
@@ -607,7 +607,7 @@
 								src="html/userhead/<c:out value="${userValue.headurl}" />"
 								style="width: 47px;" /></a>
 						</div>
-						<div class="m1ln" style="float: left;">
+						<div class="m1ln" style="float: left;overflow:hidden;height:80px;">
 							<a
 								href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
 								&nbsp;<c:out value="${userValue.artname}" />
@@ -729,7 +729,7 @@
 								src="html/userhead/<c:out value="${userValue.headurl}" />"
 								style="width: 47px;" /></a>
 						</div>
-						<div class="m1ln" style="float: left;">
+						<div class="m1ln" style="float: left;overflow:hidden;height:80px;">
 							<a
 								href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
 								&nbsp;<c:out value="${userValue.artname}" />
@@ -1045,7 +1045,7 @@
 								src="html/userhead/<c:out value="${userValue.headurl}" />"
 								style="width: 47px;" /></a>
 						</div>
-						<div class="m1ln" style="float: left;">
+						<div class="m1ln" style="float: left;overflow:hidden;height:80px;">
 							<a
 								href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
 								&nbsp;<c:out value="${userValue.artname}" />
@@ -1135,7 +1135,7 @@
 								src="html/userhead/<c:out value="${userValue.headurl}" />"
 								style="width: 47px;" /></a>
 						</div>
-						<div class="m1ln" style="float: left;">
+						<div class="m1ln" style="float: left;overflow:hidden;height:80px;">
 							<a
 								href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
 								&nbsp;<c:out value="${userValue.artname}" />
