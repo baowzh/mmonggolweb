@@ -246,7 +246,7 @@
 									<c:forEach items="${votelist}" var="voteValue"
 										varStatus="status">
 										<div class="m1ln">
-											<a><img src="img/dot.gif"></a><a
+											<a><img src="site/img/qig_1_v.png"></a><a
 												href="joinvote.do?redirecturl=gouserindex.do&voteid=<c:out value="${voteValue.voteid}" />&userid=<c:out value="${userid}" />"><c:out
 													value="${voteValue.topic}" escapeXml="true" /> </a>&nbsp;
 										</div>
