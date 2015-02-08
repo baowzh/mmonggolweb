@@ -52,8 +52,8 @@
 		</div>
 		<div class="mln"
 			style="float: left; width: 109px; height: 100%; padding-top: 110px; font-size: 19px; background-color: #dfa64f; background: url(site/img/phonehead.jpg) center top no-repeat;">
-			<br> <br>      <br>
-			<br>       <br>
+			<br> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      <br>
+			<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      <br>
 		</div>
 		<div class="mln"
 			style="width: 30px; padding-left: 10px;  float: left; background-color: #dfa64f; height: 100%;">
@@ -131,7 +131,7 @@
 				<c:out value="${documentValue.doctitle}" />
 			</div>
 		</div>
-		<div class="msheet shareBookmark" style="float: left; height: 400px;">
+		<div class="msheet shareBookmark" style="float: left; height: 390px;">
 			<div style="margin: 0px 20px 20px 20px;">
 				 
 				 
@@ -187,7 +187,7 @@
 					value="<c:out value="${imgValue.crtimestr}"/>">
 			</c:forEach>
 		</div>
-		<div class="msheet shareBookmark" style="float: left; height: 400px;">
+		<div class="msheet shareBookmark" style="float: left; height: 390px;">
 			<div style="margin: 0px 20px 20px 20px;">
 				<a href="javascript:sharedocument()"> </a> <span
 					id="sharecount"><c:out value="${documentValue.sharecount}"

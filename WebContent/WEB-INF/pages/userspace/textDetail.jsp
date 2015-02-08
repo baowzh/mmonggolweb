@@ -38,14 +38,16 @@
 			<!-- 			#f2967b -->
 		</div>
 		<div class="mln"
-			style="float: left; width: 109px; height: 100%; padding-top: 110px; font-size: 19px; background-color: #dfa64f; background: url(site/img/phonehead.jpg) center top no-repeat;">
-			<br> <br>      <br>
-			<br>       <br>
+			style="float: left; width: 109px; height: 100%; font-size: 19px; background-color: #dfa64f; background: url(site/img/phonehead.jpg) center top no-repeat;">
+			<br> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			     <br> <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			     <br>
 		</div>
 		<div class="mln"
-			style="width: 30px; padding-left: 10px;  float: left; background-color: #dfa64f; height: 100%;">
-			&nbsp;&nbsp;&nbsp;&nbsp;<a href="tologin.do"> &nbsp; &nbsp;</a> <a href="index.do">
-				&nbsp; &nbsp; </a> <a
+			style="width: 30px; padding-left: 10px; float: left; background-color: #dfa64f; height: 100%;">
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="tologin.do"> &nbsp;
+				&nbsp;</a> <a href="index.do"> &nbsp; &nbsp; </a> <a
 				href="gouserindex.do?userid=<c:out value="${user.userid}" />">
 				  &nbsp; &nbsp;</a> <a href="registe.do"> </a>
 			<c:if test="${self==0&&login==1}">
@@ -119,7 +121,7 @@
 				<c:out value="${documentValue.doctitle}" />
 			</div>
 		</div>
-		<div class="msheet shareBookmark" style="float: left; height: 400px;">
+		<div class="msheet shareBookmark" style="float: left; height: 390px;">
 			<div style="margin: 0px 20px 20px 20px;">
 				 
 				<c:out value="${documentValue.docchannelname}" />
@@ -140,7 +142,7 @@
 		<div class="msheet" style="padding: 10px; float: left; height: 95%;">
 			<c:out value="${documentValue.htmlstr}" escapeXml="false" />
 		</div>
-		<div class="msheet shareBookmark" style="float: left; height: 400px;">
+		<div class="msheet shareBookmark" style="float: left; height: 390px;">
 			<div style="margin: 0px 20px 20px 20px;">
 				<a href="javascript:sharedocument()"> </a> <span
 					id="sharecount"><c:out value="${documentValue.sharecount}"
@@ -168,7 +170,8 @@
 						<img src="html/userhead/<c:out value="${visitorValue.headurl}" />"
 							width="60" height="70" />
 						<div class="frt" style="width: 20px;">
-							<div class="m1ln" style="padding-top: 8px;overflow:hidden;height:85px;">
+							<div class="m1ln"
+								style="padding-top: 8px; overflow: hidden; height: 85px;">
 								<a
 									href="gouserindex.do?userid=<c:out value="${visitorValue.visitorid}" />">
 									<c:out value="${visitorValue.visitorname}" />

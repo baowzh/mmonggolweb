@@ -74,11 +74,8 @@
 				</c:forEach>
 			</div>
 		</div>
-		<!-- 		<div class="lmainR ofh" style="text-align: center;"> -->
-		<%-- 			<%@ include file="../website/tail.jsp"%>			 --%>
-		<!-- 			<div class="cbt"></div> -->
-		<!-- 		</div> -->
-		<div class="wrp m0a ribbon"></div
 	</form>
+	<div class="wrp m0a ribbon"></div>
+	<%@ include file="tail.jsp"%>
 </body>
 </html>
