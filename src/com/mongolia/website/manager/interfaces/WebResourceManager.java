@@ -160,7 +160,7 @@ public interface WebResourceManager {
 	 */
 	public Map<String, Object> getBlogInfo(UserValue blogUser,
 			UserValue sessionUser, Integer self, String docchannel,
-			Integer pageindex) throws ManagerException;
+			Integer pageindex,Integer clienttype) throws ManagerException;
 
 	/**
 	 * 

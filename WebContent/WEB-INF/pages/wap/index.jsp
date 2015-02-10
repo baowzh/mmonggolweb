@@ -43,27 +43,12 @@
 		<c:forEach items="${imgnews}" var="topDocumentValue"
 			varStatus="status">
 			<div>
-				<a href="phonedetail.do?docid=<c:out value="${topDocumentValue.docid}"/>"><img class="tab_img"
+				<a
+					href="phonedetail.do?docid=<c:out value="${topDocumentValue.docid}"/>"><img
+					class="tab_img"
 					src="html/img/<c:out value="${topDocumentValue.docimg}"/>" /></a>
 			</div>
 		</c:forEach>
-		<!--  
-		<div>
-			<a href="productdetail.html"><img class="tab_img"
-				src="site/img/vido.jpg" /></a>
-		</div>
-
-		<div>
-			<a href="productdetail.html"><img class="tab_img"
-				src="site/img/vido.jpg" /></a>
-		</div>
-
-		<div>
-			<a href="productdetail.html"><img class="tab_img"
-				src="site/img/vido.jpg" /></a>
-		</div>
-		-->
-
 	</div>
 	<div class="wrap content" style="padding-top: 2px; height: 350px;">
 		<div class="listCardTtl ttlStl1" style="height: 350px;">
@@ -81,7 +66,9 @@
 								value="${documentValue.title}" /></a>
 					</div>
 					<div class="author">
-						<a href="#"> <c:out value="${documentValue.docauthor}" />
+						<a
+							href="phoneuserindex.do?userid=<c:out value="${documentValue.userid}" />">
+							<c:out value="${documentValue.docauthor}" />
 						</a>
 					</div>
 				</div>
@@ -105,7 +92,7 @@
 					</div>
 					<div class="author">
 						<a
-							href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
+							href="phoneuserindex.do?userid=<c:out value="${documentValue.userid}" />">
 							<c:out value="${documentValue.docauthor}" />
 						</a>
 					</div>

@@ -105,50 +105,67 @@ public class BlogManagerAction {
 	@RequestMapping("/gouserindex.do")
 	public ModelAndView gointoroom(HttpServletRequest request, ModelMap map) {
 		try {
-			UserValue sessionUser = (UserValue) request.getSession()
-					.getAttribute("user");
-			String url = request.getParameter("url");
-			if (url == null || url.equalsIgnoreCase("")) {
-				url = "userdoclist.do";
-			}
-			map.put("url", url);
-			String userid = request.getParameter("userid");
-			String docchannel = request.getParameter("docchannel");
-			UserValue user = null;
-			Integer self = new Integer(0);
-			if (userid == null || userid.equalsIgnoreCase("")) {
-				user = (UserValue) request.getSession().getAttribute("user");// 在线session
-				map.put("maillogin", sessionUser.getMaillogin());
-				self = new Integer(1);
-			} else {
-				List<UserValue> uservalues = this.userManager.getUsers(userid,
-						null);// 被浏览用户
-				user = uservalues.get(0);
-				if (sessionUser != null
-						&& sessionUser.getUserid().equalsIgnoreCase(
-								user.getUserid())) {
-					self = new Integer(1);
-					map.put("maillogin", sessionUser.getMaillogin());
-				} else {
-					self = new Integer(0);
-				}
-			}
-			map.put("self", self);
-			Map<String, Object> bologInfos = this.webResourceManager
-					.getBlogInfo(user, sessionUser, self, docchannel, 1);
-			map.putAll(bologInfos);
-			map.put("previousindex", 1);
-			map.put("currentindex", 1);
-			map.put("nextindex", 1);
-			if (sessionUser == null) {
-				map.put("notlogin", 1);
-			} else {
-				map.put("notlogin", 0);
-			}
+			map.putAll(getUserBlogInfo(request,1));
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
 		return new ModelAndView("userspace/userhomeindex", map);
+	}
+
+	private Map<String, Object> getUserBlogInfo(HttpServletRequest request,Integer clienttype)
+			throws Exception {
+		Map<String, Object> map = new HashMap<String, Object>();
+		UserValue sessionUser = (UserValue) request.getSession().getAttribute(
+				"user");
+		String url = request.getParameter("url");
+		if (url == null || url.equalsIgnoreCase("")) {
+			url = "userdoclist.do";
+		}
+		map.put("url", url);
+		String userid = request.getParameter("userid");
+		String docchannel = request.getParameter("docchannel");
+		UserValue user = null;
+		Integer self = new Integer(0);
+		if (userid == null || userid.equalsIgnoreCase("")) {
+			user = (UserValue) request.getSession().getAttribute("user");// 在线session
+			map.put("maillogin", sessionUser.getMaillogin());
+			self = new Integer(1);
+		} else {
+			List<UserValue> uservalues = this.userManager
+					.getUsers(userid, null);// 被浏览用户
+			user = uservalues.get(0);
+			if (sessionUser != null
+					&& sessionUser.getUserid().equalsIgnoreCase(
+							user.getUserid())) {
+				self = new Integer(1);
+				map.put("maillogin", sessionUser.getMaillogin());
+			} else {
+				self = new Integer(0);
+			}
+		}
+		map.put("self", self);
+		Map<String, Object> bologInfos = this.webResourceManager.getBlogInfo(
+				user, sessionUser, self, docchannel, 1,clienttype);
+		map.putAll(bologInfos);
+		map.put("previousindex", 1);
+		map.put("currentindex", 1);
+		map.put("nextindex", 1);
+		if (sessionUser == null) {
+			map.put("notlogin", 1);
+		} else {
+			map.put("notlogin", 0);
+		}
+		return map;
+	}
+
+	@RequestMapping("/phoneuserindex.do")
+	public ModelAndView phoneuserindex(HttpServletRequest request, ModelMap map) {
+		try {
+			map.putAll(getUserBlogInfo(request,2));
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return new ModelAndView("wap/userphoneindex", map);
 	}
 
 	/**
@@ -211,79 +228,102 @@ public class BlogManagerAction {
 	public ModelAndView getuserdocdetail(HttpServletRequest request,
 			HttpServletResponse response, ModelMap map) {
 		try {
-			UserValue user = null;
-			UserValue sessionUser = (UserValue) request.getSession()
-					.getAttribute("user");
-			Integer self = new Integer(0);
-			String docid = request.getParameter("docid");
-			if (docid != null && docid.indexOf("?") > 0) {
-				docid = docid.split("\\?")[0];
-			}
-			String pageindex = request.getParameter("pageindex");
-			Integer pindex = 1;
-			if (pageindex != null && !pageindex.equalsIgnoreCase("")) {
-				pindex = Integer.parseInt(pageindex);
-			}
-			Map<String, Object> params = new HashMap<String, Object>();
-			params.put("docid", docid);
-			String userid = null;
-			DocumentValue documentValue = this.webResourceManager
-					.readUserDDocument(docid, sessionUser);
-			List<MessageValue> comments = new ArrayList<MessageValue>();
-			if (documentValue != null) {
-				userid = documentValue.getUserid();
-				Integer commentCount = this.webResourceManager
-						.getResourceCommentCount(docid,
-								StaticConstants.RESOURCE_TYPE_DOC);
-				documentValue.setCommentCount(commentCount);
-				// 格式化
-				java.text.SimpleDateFormat simpleDateFormat = new java.text.SimpleDateFormat(
-						"yyyy-MM-dd");
-				String docRelTime = simpleDateFormat.format(documentValue
-						.getDocreltime());
-				documentValue.setDocRelTimeStr(docRelTime);
-				map.put("documentValue", documentValue);
-				userid = documentValue.getUserid();
-
-				comments = this.webResourceManager.getResourceCommentList(
-						docid, StaticConstants.DOCTYPE_DOC, null, null, null,
-						null);
-				// 计算每个comments 是否要显示
-			}
-			if (sessionUser != null) {
-				map.put("login", 1);
-			} else {
-				map.put("login", 0);
-			}
-			if (sessionUser != null
-					&& userid.equalsIgnoreCase(sessionUser.getUserid())) {
-				user = (UserValue) request.getSession().getAttribute("user");// 在线session
-				self = new Integer(1);
-			} else {
-				List<UserValue> uservalues = this.userManager.getUsers(userid,
-						null);// 被浏览用户
-				user = uservalues.get(0);
-				self = new Integer(0);
-			}
-			map.put("self", self);
-			Map<String, Object> bologInfos = this.webResourceManager
-					.getBlogInfo(user, sessionUser, self, null, pindex);
-			map.putAll(bologInfos);
-			setHiddenFlg(user, sessionUser, comments);
-			showemotion(comments);
-			map.put("comments", comments);
-			Integer agentkind = 0;
-			String user_agent_kind = request.getHeader("user-agent");
-			if (user_agent_kind.indexOf("Chrome") > 0) {
-				agentkind = 1;
-			} else {
-				agentkind = 0;
-			}
-			map.put("agentkind", agentkind);
+			map.putAll(getDocDetail(request));
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
 		return new ModelAndView("userspace/textDetail", map);
+	}
+
+	/**
+	 * 
+	 * @param request
+	 * @return
+	 * @throws Exception
+	 */
+	private Map<String, Object> getDocDetail(HttpServletRequest request)
+			throws Exception {
+		Map<String, Object> map = new HashMap<String, Object>();
+		UserValue user = null;
+		UserValue sessionUser = (UserValue) request.getSession().getAttribute(
+				"user");
+		Integer self = new Integer(0);
+		String docid = request.getParameter("docid");
+		if (docid != null && docid.indexOf("?") > 0) {
+			docid = docid.split("\\?")[0];
+		}
+		String pageindex = request.getParameter("pageindex");
+		Integer pindex = 1;
+		if (pageindex != null && !pageindex.equalsIgnoreCase("")) {
+			pindex = Integer.parseInt(pageindex);
+		}
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("docid", docid);
+		String userid = null;
+		DocumentValue documentValue = this.webResourceManager
+				.readUserDDocument(docid, sessionUser);
+		List<MessageValue> comments = new ArrayList<MessageValue>();
+		if (documentValue != null) {
+			userid = documentValue.getUserid();
+			Integer commentCount = this.webResourceManager
+					.getResourceCommentCount(docid,
+							StaticConstants.RESOURCE_TYPE_DOC);
+			documentValue.setCommentCount(commentCount);
+			// 格式化
+			java.text.SimpleDateFormat simpleDateFormat = new java.text.SimpleDateFormat(
+					"yyyy-MM-dd");
+			String docRelTime = simpleDateFormat.format(documentValue
+					.getDocreltime());
+			documentValue.setDocRelTimeStr(docRelTime);
+			map.put("documentValue", documentValue);
+			userid = documentValue.getUserid();
+
+			comments = this.webResourceManager.getResourceCommentList(docid,
+					StaticConstants.DOCTYPE_DOC, null, null, null, null);
+			// 计算每个comments 是否要显示
+		}
+		if (sessionUser != null) {
+			map.put("login", 1);
+		} else {
+			map.put("login", 0);
+		}
+		if (sessionUser != null
+				&& userid.equalsIgnoreCase(sessionUser.getUserid())) {
+			user = (UserValue) request.getSession().getAttribute("user");// 在线session
+			self = new Integer(1);
+		} else {
+			List<UserValue> uservalues = this.userManager
+					.getUsers(userid, null);// 被浏览用户
+			user = uservalues.get(0);
+			self = new Integer(0);
+		}
+		map.put("self", self);
+		Map<String, Object> bologInfos = this.webResourceManager.getBlogInfo(
+				user, sessionUser, self, null, pindex,1);
+		map.putAll(bologInfos);
+		setHiddenFlg(user, sessionUser, comments);
+		showemotion(comments);
+		map.put("comments", comments);
+		Integer agentkind = 0;
+		String user_agent_kind = request.getHeader("user-agent");
+		if (user_agent_kind.indexOf("Chrome") > 0) {
+			agentkind = 1;
+		} else {
+			agentkind = 0;
+		}
+		map.put("agentkind", agentkind);
+		return map;
+	}
+
+	@RequestMapping("/phonedetail.do")
+	public ModelAndView phonedetail(HttpServletRequest request,
+			PaingModel<DocumentValue> paingModel, ModelMap map) {
+		try {
+			map.putAll(getDocDetail(request));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return new ModelAndView("wap/detail", map);
 	}
 
 	/**
@@ -557,15 +597,16 @@ public class BlogManagerAction {
 					.getRealPath("/html/photoalbum");
 			ImgValue tempImgValue = new ImgValue();
 			ImgValue imgValue = new ImgValue();
-			String imgid =  UUIDMaker.getUUID();
-			String imgname = imgid+ ".jpg";
+			String imgid = UUIDMaker.getUUID();
+			String imgname = imgid + ".jpg";
 			if (imgGrpupValue.getImgurl() != null
 					&& imgGrpupValue.getImgurl().length != 0) {
 				tempImgValue = ImgeUtil.CompressPic(imgGrpupValue.getImgurl(),
 						path, imgname);
 				ImgeUtil.CompressPic(imgGrpupValue.getImgurl(), path1, imgname);
 				imgValue.setImgurl(imgname);
-				//ImgeUtil.CompressPic(imgGrpupValue.getImgurl(), path, imgname);
+				// ImgeUtil.CompressPic(imgGrpupValue.getImgurl(), path,
+				// imgname);
 			}
 			imgGrpupValue.setImggroupid(UUIDMaker.getUUID());
 			imgGrpupValue.setFaceurl(imgname);
@@ -1284,7 +1325,7 @@ public class BlogManagerAction {
 		map.put("self", self);
 		try {
 			Map<String, Object> bologInfos = this.webResourceManager
-					.getBlogInfo(user, sessionUser, self, null, 1);
+					.getBlogInfo(user, sessionUser, self, null, 1,1);
 			map.putAll(bologInfos);
 		} catch (Exception ex) {
 			ex.printStackTrace();

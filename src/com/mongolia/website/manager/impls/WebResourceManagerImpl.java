@@ -322,7 +322,7 @@ public class WebResourceManagerImpl implements WebResourceManager {
 	@Override
 	public Map<String, Object> getBlogInfo(UserValue blogUser,
 			UserValue sessionUser, Integer self, String docchannel,
-			Integer pageindex) throws ManagerException {
+			Integer pageindex,Integer clienttype) throws ManagerException {
 		// TODO Auto-generated method stub
 		Map<String, Object> map = new HashMap<String, Object>();
 		try {
@@ -340,6 +340,11 @@ public class WebResourceManagerImpl implements WebResourceManager {
 				pagingModel.setDocstatus(StaticConstants.DOCSTATUS2);
 			} else {
 				pagingModel.setPagesize(24);
+			}
+			if(clienttype.intValue()==1){
+				pagingModel.setPagesize(24);
+			}else{
+				pagingModel.setPagesize(14);
 			}
 			if (pageindex != null) {
 				pagingModel.setPageindex(pageindex);

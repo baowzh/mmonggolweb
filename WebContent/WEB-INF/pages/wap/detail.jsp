@@ -21,7 +21,7 @@
 <body onload="q();">
 	<div class="wrap" id="wrap">
 		<div class="header">
-			<div style="width: 240px; height: 90px; float: left;">
+			<div id="headimgdiv" style="height: 90px; float: left;">
 				<img src="site/img/phonehead.jpg"
 					style="width: 104px; height: 90px;">
 			</div>
@@ -41,16 +41,60 @@
 		</div>
 		<div class="main" id="main">
 			<div class="condiv" id="condiv">
+				<div class="con" style="height: 130px;">
+					<div class="con" style="float: right; height: 130px; width: 160px;">
+						<a href="phoneuserindex.do?userid=<c:out value="${user.userid}" />"><img
+							src="html/userhead/<c:out value="${user.headurl}" />"
+							style="width: 120px; height: 160px;"> </a>
+					</div>
+					<div class="con"
+						style="float: right; height: 130px; width: 210px; padding-rigth: 10px;font-size:16px;">
+						<div style="font-size:20px;color:#f00;">
+							&nbsp;&nbsp; <a style="text-decoration: none;color:#f00;"
+								href="phoneuserindex.do?userid=<c:out value="${user.userid}" />"><c:out
+									value="${user.artname}" /> </a>
+						</div>
+						<div style="font-size:18px;height:20px;">
+							&nbsp;&nbsp; 
+							<c:choose>
+								<c:when test="${user.sex==1}">
+							         
+							       </c:when>
+
+								<c:when test="${user.sex==0}">
+							          
+							       </c:when>
+								<c:otherwise>
+							          
+							       </c:otherwise>
+							</c:choose>
+						</div>
+						<div style="font-size:18px;height:20px;">
+							&nbsp;&nbsp; 
+							<c:out value="${user.age}" default="  " />
+						</div>
+						<div style="font-size:18px;height:20px;">
+							&nbsp;&nbsp;  
+							<c:out value="${user.nowprovincename}" default="  " />
+						</div>
+					</div>
+				</div>
 				<div class="con">
 					<h1>
 						<c:out value="${documentValue.doctitle}" />
 					</h1>
-				</div>
-				<div class="con">
-					<h2> &nbsp;<c:out value="${documentValue.docauthor}" /> **** &nbsp;&nbsp;&nbsp;
-						  &nbsp;<c:out value="${documentValue.docRelTimeStr}" /></h2> 
+					<h2>
+						 &nbsp;
+						<c:out value="${documentValue.docchannelname}" />
+						**   &nbsp;
+						<c:out value="${documentValue.docRelTimeStr}" />
+						**  &nbsp; <span id="readcount"><c:out
+								value="${documentValue.readcount}" default="0" /></span> 
+
+					</h2>
 				</div>
 				<div class="content">
+
 					<div class='con'>
 						<c:out value="${documentValue.htmlstr}" escapeXml="false" />
 					</div>

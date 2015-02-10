@@ -6,6 +6,7 @@ var q = function() {
 	$('#wrap').css('height', availHeight);
 	$('#main').css('height', availHeight - 20);
 	$('#condiv').css('width', availHeight - 100);
+	$('#headimgdiv').css({width:availWidth-90});
 	$(".con img").each(
 			function() {
 				$(this).addClass("rotateimg");

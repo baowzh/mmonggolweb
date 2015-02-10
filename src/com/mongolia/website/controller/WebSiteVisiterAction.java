@@ -619,34 +619,6 @@ public class WebSiteVisiterAction {
 		return new ModelAndView("wap/list", map);
 	}
 
-	@RequestMapping("/phonedetail.do")
-	public ModelAndView phonedetail(HttpServletRequest request,
-			PaingModel<DocumentValue> paingModel, ModelMap map) {
-		String docid = request.getParameter("docid");
-		try {
-			DocumentValue documentValue = this.webResourceManager
-					.readUserDDocument(docid, null);
-			// String matchStr =
-			// "<img\\s+(?:[^>]*)src\\s*=\\s*([^>]+)(with\\s*=\\s*[0-9]+)*(height\\s*=\\s*[0-9]+)*/>";
-			// Pattern destStri = Pattern.compile(matchStr);// ^
-			// Matcher mati = destStri.matcher(documentValue.getHtmlstr());
-			// StringBuffer bufferi = new StringBuffer();
-			// while (mati.find()) {
-			// String groupi = mati.group(0);
-			// groupi = "<div class=\"conimg\">" + groupi + "</div>";
-			// mati.appendReplacement(bufferi, groupi);
-			// }
-			// mati.appendTail(bufferi);
-			// String docContent = bufferi.toString();
-			// documentValue.setHtmlstr(docContent);
-			map.put("documentValue", documentValue);
-		} catch (ManagerException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return new ModelAndView("wap/detail", map);
-	}
-
 	@RequestMapping("/professionlist.do")
 	public ModelAndView professionlist(HttpServletRequest request,
 			QueryUserForm queryUserForm, ModelMap map) {

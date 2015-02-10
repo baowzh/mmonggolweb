@@ -30,22 +30,25 @@
 		</div>
 		<div class="mln"
 			style="height: 80px; width: 30px; font-size: 18px; float: right; color: #fff;">
-			<a href="phonebloglist.do"></a></div>
+			<a href="phonebloglist.do"></a>
+		</div>
 		<div class="emptyItem" style="height: 70px; float: right;"></div>
 		<div class="mln"
 			style="height: 80px; font-size: 18px; float: right; color: #fff;">
 			<a href="phoneindex.do"> </a>
 		</div>
 	</div>
-	<div class="wrap content" style="min-height: 460px;padding-left:8px;">
+	<div class="wrap content" style="min-height: 460px; padding-left: 8px;">
 		<c:forEach items="${users}" var="userValue" varStatus="status">
 			<div class="xldgurg">
 				<div class="avtr">
-					<a href="#"><img
-						src="html/userhead/<c:out value="${userValue.headurl}" />  "></a>
+					<a href="phoneuserindex.do?userid=<c:out value="${userValue.userid}" />"><img
+						src="html/userhead/<c:out value="${userValue.headurl}" />  ">
+					</a>
 				</div>
-				<div class="m1ln" style="float: left;">
-					<a href="#"> &nbsp;<c:out value="${userValue.artname}" />
+				<div class="m1ln" style="float: left;height:90px;overflow:hidden;">
+					<a href="phoneuserindex.do?userid=<c:out value="${userValue.userid}" />">
+						&nbsp;<c:out value="${userValue.artname}" />
 					</a>
 				</div>
 			</div>
@@ -54,10 +57,10 @@
 	<div class="wrap content"
 		style="height: 30px; text-align: center; background: #fff; color: #fff;">
 		<div class="footer">
-		<c:out value="${pagestr}" escapeXml="false" />
+			<c:out value="${pagestr}" escapeXml="false" />
 		</div>
 	</div>
-	
+
 	<!--  
 	<div class="wrap content"
 		style="height: 3px; text-align: center; background: #fff; color: #fff;"></div>
