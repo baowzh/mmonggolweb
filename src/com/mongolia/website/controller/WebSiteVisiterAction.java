@@ -28,7 +28,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mongolia.website.manager.ManagerException;
 import com.mongolia.website.manager.impls.SysConfig;
 import com.mongolia.website.manager.interfaces.ChannelManager;
 import com.mongolia.website.manager.interfaces.UserManager;
@@ -38,6 +37,7 @@ import com.mongolia.website.manager.interfaces.WebSiteVisitorManager;
 import com.mongolia.website.model.Channel;
 import com.mongolia.website.model.DistrictValue;
 import com.mongolia.website.model.DocumentValue;
+import com.mongolia.website.model.ImgGrpupValue;
 import com.mongolia.website.model.PagingIndex;
 import com.mongolia.website.model.PaingModel;
 import com.mongolia.website.model.QueryDocForm;
@@ -439,7 +439,7 @@ public class WebSiteVisiterAction {
 			throws IOException {
 		try {
 			String pageindex = request.getParameter("pageindex");
-			PaingModel<DocumentValue> paingModel = new PaingModel<DocumentValue>();
+			PaingModel<ImgGrpupValue> paingModel = new PaingModel<ImgGrpupValue>();
 			paingModel.setDoctype(StaticConstants.DOCTYPE_IMG);
 			if (pageindex == null) {
 				paingModel.setPageindex(1);
@@ -447,11 +447,12 @@ public class WebSiteVisiterAction {
 			} else {
 				paingModel.setPageindex(Integer.parseInt(pageindex));
 			}
-			paingModel.setStartrow((paingModel.getPageindex() - 1) * 24);
+			paingModel.setStartrow((paingModel.getPageindex() - 1) * 8);
+			paingModel.setPagesize(8);
 			paingModel.setEndrow(paingModel.getPagesize());
-			paingModel.setPagesize(24);
-			PaingModel<DocumentValue> pageModel = webSiteVisitorManager
-					.pagingquerydoc(paingModel);
+
+			PaingModel<ImgGrpupValue> pageModel = webSiteVisitorManager
+					.pagingqueryAlbum(paingModel);
 			map.put("imgList", pageModel.getModelList());
 			if (pageModel.getModelList().isEmpty()) {
 				map.put("isempty", 1);
@@ -459,10 +460,10 @@ public class WebSiteVisiterAction {
 				map.put("isempty", 0);
 			}
 			String idAndIndexrel = "";
-			List<DocumentValue> docs = pageModel.getModelList();
+			List<ImgGrpupValue> docs = pageModel.getModelList();
 			for (int i = 0; i < docs.size(); i++) {
 				idAndIndexrel = idAndIndexrel + (i + 1) + ","
-						+ docs.get(i).getDocid() + "#";
+						+ docs.get(i).getImggroupid() + "#";
 			}
 			List<PagingIndex> indexs = new ArrayList<PagingIndex>();
 			for (int i = 0; i < paingModel.getPagecount(); i++) {
@@ -498,7 +499,7 @@ public class WebSiteVisiterAction {
 			map.put("pagingindexs", indexs);
 			map.put("imgcount", pageModel.getRowcount());
 			map.put("idAndIndexrel", idAndIndexrel);
-			String linkstr = PageUtil.getPagingImgLink(pageModel, 1);
+			String linkstr = PageUtil.getPagingAlbumLink(pageModel, 1);
 			map.put("linkstr", linkstr);
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -591,8 +592,8 @@ public class WebSiteVisiterAction {
 			List<DocumentValue> recentdocs = this.webSiteVisitorManager
 					.getRecentDocs(14);
 			map.put("recentdocs", recentdocs);
-			List<TopDocumentValue> imgnews=this.webSiteVisitorManager.getTopDocuments(
-					StaticConstants.TOP_TYPE1, null, 7);
+			List<TopDocumentValue> imgnews = this.webSiteVisitorManager
+					.getTopDocuments(StaticConstants.TOP_TYPE1, null, 7);
 			map.put("imgnews", imgnews);
 		} catch (Exception ex) {
 			ex.printStackTrace();

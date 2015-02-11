@@ -87,7 +87,8 @@ public class WebResourceManagerImpl implements WebResourceManager {
 	}
 
 	@Override
-	public void doAddImg(ImgValue imgValue,String facepath) throws ManagerException {
+	public void doAddImg(ImgValue imgValue, String facepath)
+			throws ManagerException {
 		// TODO Auto-generated method stub
 		try {
 			DocumentValue documentValue = new DocumentValue();
@@ -115,8 +116,8 @@ public class WebResourceManagerImpl implements WebResourceManager {
 					ImgGrpupValue imgGrpupValue = groups.get(0);
 					String imgname = UUIDMaker.getUUID() + ".jpg";
 					imgGrpupValue.setFaceurl(imgname);
-					ImgValue tempImgValue = ImgeUtil.CompressPic(imgValue.getImg(),
-							facepath, imgname);
+					ImgValue tempImgValue = ImgeUtil.CompressPic(
+							imgValue.getImg(), facepath, imgname);
 					// imgGrpupValue.setFaceimg(imgcontent);
 					this.webResourceDao.updIImgGroup(imgGrpupValue);
 				}
@@ -243,7 +244,8 @@ public class WebResourceManagerImpl implements WebResourceManager {
 	}
 
 	@Override
-	public void doDeleteImg(String imgId,String userid) throws ManagerException {
+	public void doDeleteImg(String imgId, String userid)
+			throws ManagerException {
 		// TODO Auto-generated method stub
 		try {
 			String ids[] = imgId.split(",");
@@ -322,7 +324,7 @@ public class WebResourceManagerImpl implements WebResourceManager {
 	@Override
 	public Map<String, Object> getBlogInfo(UserValue blogUser,
 			UserValue sessionUser, Integer self, String docchannel,
-			Integer pageindex,Integer clienttype) throws ManagerException {
+			Integer pageindex, Integer clienttype) throws ManagerException {
 		// TODO Auto-generated method stub
 		Map<String, Object> map = new HashMap<String, Object>();
 		try {
@@ -341,9 +343,9 @@ public class WebResourceManagerImpl implements WebResourceManager {
 			} else {
 				pagingModel.setPagesize(24);
 			}
-			if(clienttype.intValue()==1){
+			if (clienttype.intValue() == 1) {
 				pagingModel.setPagesize(24);
-			}else{
+			} else {
 				pagingModel.setPagesize(14);
 			}
 			if (pageindex != null) {
@@ -428,9 +430,15 @@ public class WebResourceManagerImpl implements WebResourceManager {
 			map.put("blogNews", this.webResourceDao.getBlogNews(
 					blogUser.getUserid(), queryDate1));
 			// 获取当前博主分享的作品
+			Integer fetchcount=24;
+			if(clienttype.intValue() == 1){
+				fetchcount=24;
+			}else{
+				fetchcount=14;
+			}
 			PaingModel<DocumentValue> sharePaingModel = this
 					.pagingQuerySharedDocs(params, StaticConstants.DOCTYPE_DOC,
-							1, 24);
+							1, fetchcount);
 			map.put("sharePaingModel", sharePaingModel);
 			List<PagingIndex> sharepageIndexs = new ArrayList<PagingIndex>();
 			for (int i = 0; i < sharePaingModel.getPagecount() && i < 3; i++) {
@@ -900,6 +908,9 @@ public class WebResourceManagerImpl implements WebResourceManager {
 		try {
 			List<MessageValue> messageList = this.getResourceCommentList(
 					resourceid, resourceType, userid, messageid, null, null);
+			 List<MessageValue> res=this.getResourceCommentList(
+						resourceid, resourceType, null, messageid, userid, null);
+						messageList.addAll(res);
 			if (messageList == null || messageList.isEmpty()) {
 				throw new ManagerException("01");
 			}
@@ -1773,14 +1784,14 @@ public class WebResourceManagerImpl implements WebResourceManager {
 				outStream.close();
 				// imgValuei.setImgcontent(ooutStream.toByteArray());
 				iniputStream.close();
-				String imgid=imgValuei.getImgurl().split("\\.")[0];
+				String imgid = imgValuei.getImgurl().split("\\.")[0];
 				imgValuei.setImgid(imgid);
 				imgValuei.setImgname(imgValuei.getImgid());
 				imgValuei.setImgdesc("tongbu");
 				imgValuei.setImgurl(imgValuei.getImgurl());
 				imgValuei.setWidth(200);
 				imgValuei.setHeight(210);
-				this.doAddImg(imgValuei,null);
+				this.doAddImg(imgValuei, null);
 			} catch (Exception ex) {
 				ex.printStackTrace();
 				continue;

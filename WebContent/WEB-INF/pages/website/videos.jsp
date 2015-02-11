@@ -38,17 +38,17 @@
 				style="width: 1000px; margin-top: 0px; padding: 0px;">
 				<c:forEach items="${paingModel.modelList}" var="imgValue"
 					varStatus="status">
-					<div class="folder" style="width: 240px; height: 250px;">
+					<div class="folder" style="width: 240px; height: 250px;border:0px;">
 						<c:if test="${imgValue.facepath!=null}">
 							<a
 								href="getuserdocdetail.do?docid=<c:out value="${imgValue.docid}"/>"><img
 								src="<c:out value="${imgValue.facepath}"/>"
-								style="width: 201px; height: 250px;" /></a>
+								style="width: 201px; height: 250px;background:#fff;" /></a>
 						</c:if>
 						<c:if test="${imgValue.facepath==null}">
 							<a
 								href="getuserdocdetail.do?docid=<c:out value="${imgValue.docid}"/>"><img
-								src="img/vido.jpg" style="width: 201px; height: 250px;" /></a>
+								src="img/vido.jpg" style="width: 201px; height: 250px;background:#fff;" /></a>
 						</c:if>
 						<div class="m1ln" style="height: 250px;">
 							<c:out value="${imgValue.doctitle}" />

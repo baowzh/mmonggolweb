@@ -15,7 +15,8 @@
 <title>altanhurd</title>
 <link href="site/css/userphoneindex.css" rel="stylesheet"
 	type="text/css" />
-<script type="text/javascript" src="js/sitejs/wapindex.js"></script>
+<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="js/sitejs/userphoneindex.js"></script>
 </head>
 <body onload="q();">
 	<div class="wrap header">
@@ -37,7 +38,7 @@
 			<div class="avatar">
 				<img src="html/userhead/<c:out value="${user.headurl}" />" />
 			</div>
-			<div class="m1ln name" style="height:180px;overflow: hidden;">
+			<div class="m1ln name" style="height: 180px; overflow: hidden;">
 				<c:out value="${user.artname}" />
 			</div>
 		</div>
@@ -84,7 +85,7 @@
 				</div>
 		</div>
 		<div class="listCardBody" style="height: 390px;">
-			<div class="listBody">
+			<div class="listBody" id="doclistdiv">
 				<c:forEach items="${docList}" var="documentValue" varStatus="status">
 					<div class="nwsl1">
 						<div class="title" style="height: 100%;">
@@ -143,7 +144,7 @@
 					</div>
 			</div>
 			<div class="listCardBody" style="height: 390px;">
-				<div class="listBody">
+				<div class="listBody" id="sharedoclistbody">
 					<c:forEach items="${sharePaingModel.modelList}" var="documentValue"
 						varStatus="status">
 						<div class="nwsl1">
@@ -152,6 +153,12 @@
 									href="phonedetail.do?docid=<c:out value="${documentValue.docid}"/>"
 									target="_blank" class="tit_text_overflow"><c:out
 										value="${documentValue.doctitle}" /></a>
+							</div>
+							<div class="author">
+								<a
+									href="phonedetail.do?docid=<c:out value="${documentValue.userid}"/>"
+									target="_blank" class="tit_text_overflow"><c:out
+										value="${documentValue.docauthor}" /></a>
 							</div>
 						</div>
 					</c:forEach>
@@ -172,7 +179,7 @@
 								href="javascript:openpage('<c:out value="${pagingIndex.pageindex}" />','<c:out value="${user.userid}" />',2);switchclass('page<c:out value="${pagingIndex.pageindex}" />');">
 								<c:if test="${status.index==0}">
 									<span id="page<c:out value="${pagingIndex.pageindex}" />"
-										class="cursharespanstyle">&nbsp;<c:out
+										class="curspanstyle">&nbsp;<c:out
 											value="${pagingIndex.pageindex}" />&nbsp;
 									</span>
 								</c:if> <c:if test="${status.index!=0}">

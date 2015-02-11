@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.mongolia.website.model.DocumentValue;
+import com.mongolia.website.model.ImgGrpupValue;
 import com.mongolia.website.model.PaingModel;
 import com.mongolia.website.model.ProgramItem;
 import com.mongolia.website.model.ProgramValue;
@@ -60,5 +61,14 @@ public interface WebSiteVisitorManager extends BaseManager {
 	 * @throws Exception
 	 */
 	public List<DocumentValue> getRecentDocs(Integer count) throws Exception;
+	/**
+	 * 
+	 * @param paingModel
+	 * @return
+	 * @throws Exception
+	 */
+	public PaingModel<ImgGrpupValue> pagingqueryAlbum(
+			PaingModel<ImgGrpupValue> paingModel) throws Exception;
+
 
 }

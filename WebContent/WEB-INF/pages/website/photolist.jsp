@@ -21,61 +21,77 @@
 <link rel="stylesheet" href="js\messagebox\jquery.msgbox.css" />
 </head>
 <body>
-	<form id="Form" action="pagingimglist.do" method="post">
-		<!-- 		<div class="lmainR ofh" style="text-align: center; height: 64px;"> -->
-		<!-- 			<img src="img/logo.png" width="980" /> -->
-		<!-- 		</div> -->
-		<div class="wrp m0a logo">
-			<div class="naveFrame">
-				<%@ include file="../website/head.jsp"%>
-			</div>
-			<div class="cbt"></div>
+	<div class="wrp m0a logo">
+		<div class="naveFrame">
+			<%@ include file="../website/head.jsp"%>
 		</div>
-		<div class="wrp m0a ribbon"></div>
-		<div class="layer m0a">
-			<!-- 		<div class="lmainR ofh"> -->
-			<div class="flt glryBox"
-				style="width: 1000px; margin-top: 0px; padding: 0px;">
-				<c:forEach items="${imgList}" var="imgValue" varStatus="status">
-					<div class="displayfolder"
-						style="width: 162px; height: 170px; margin: 2px; 2 px; 2 px; 2 px; overflow: visible; padding-bottom: 2px;">
-						<a
-							href="getimginfo.do?imgid=<c:out value="${imgValue.docid}" />&userid=<c:out value="${imgValue.userid}" />"><img
-							class="displayimg" style="width: 154px; height: 163px;"
-							src="html/img/<c:out value="${imgValue.docid}" />.jpg"></a>
-					</div>
-
-				</c:forEach>
-			</div>
-			<div class=" pagenav">
-				<c:forEach items="${pagingindexs}" var="pagingindex"
-					varStatus="status">
+		<div class="cbt"></div>
+	</div>
+	<div class="wrp m0a ribbon"></div>
+	<div class="layer m0a">
+		<!-- 		<div class="lmainR ofh"> -->
+		<div class="flt glryBox"
+			style="width: 1000px; margin-top: 0px; padding: 0px;">
+			<c:forEach items="${imgList}" var="imgGrpupValue" varStatus="status">
+				<div class="folder"
+					style="width: 240px; height: 250px; border: 0px;">
 					<a
-						href="imgs.do?pageindex=<c:out value="${pagingindex.pageindex}" />">
-						<c:if test="${pagingindex.doc==1}">
-							<c:if test="${pagingindex.front==1}">									 
-									              ..									 
-									            </c:if>
-						</c:if> <c:if test="${pagingindex.current==1}">
-							<span id="picbtn1" class="curspanstyle"> &nbsp;<c:out
-									value="${pagingindex.pageindex}" default="" />&nbsp;
-							</span>
-						</c:if> <c:if test="${pagingindex.current==0}">
-							<span id="picbtn1" class="spanstyle"> &nbsp;<c:out
-									value="${pagingindex.pageindex}" default="" />&nbsp;
-							</span>
-						</c:if> <c:if test="${pagingindex.doc==1}">
-							<c:if test="${pagingindex.front==0}">									 
-								             	 ..									 
-									            </c:if>
+						href="javascript:openPhotoAlbum('<c:out value="${imgGrpupValue.imggroupid}"/>','<c:out value="${imgGrpupValue.userid}"/>')">
+						<c:if test="${imgGrpupValue.faceurl!=null}">
+							<img style="width: 201px; height: 250px; background: #fff;"
+								src="html/photoalbum/<c:out value="${imgGrpupValue.faceurl}"/>">
+						</c:if> <c:if test="${imgGrpupValue.faceurl==null}">
+							<img style="width: 201px; height: 250px; background: #fff;"
+								src="html/photoalbum/imgface.jpg">
 						</c:if>
 					</a>
+					<div class="m1ln" style="height: 250px;">
+						<a title="<c:out value="${imgGrpupValue.imggroupname}"/>"
+							href="javascript:openPhotoAlbum('<c:out value="${imgGrpupValue.imggroupid}"/>','<c:out value="${imgGrpupValue.userid}"/>')"><c:out
+								value="${imgGrpupValue.imggroupname}" /></a>
+					</div>
+				</div>
 
-				</c:forEach>
-			</div>
+			</c:forEach>
 		</div>
-	</form>
-<!-- 	<div class="wrp m0a ribbon"></div> -->
+		<div class=" pagenav">
+			<c:forEach items="${pagingindexs}" var="pagingindex"
+				varStatus="status">
+				<a
+					href="imgs.do?pageindex=<c:out value="${pagingindex.pageindex}" />">
+					<c:if test="${pagingindex.doc==1}">
+						<c:if test="${pagingindex.front==1}">									 
+									              ..									 
+									            </c:if>
+					</c:if> <c:if test="${pagingindex.current==1}">
+						<span id="picbtn1" class="curspanstyle"> &nbsp;<c:out
+								value="${pagingindex.pageindex}" default="" />&nbsp;
+						</span>
+					</c:if> <c:if test="${pagingindex.current==0}">
+						<span id="picbtn1" class="spanstyle"> &nbsp;<c:out
+								value="${pagingindex.pageindex}" default="" />&nbsp;
+						</span>
+					</c:if> <c:if test="${pagingindex.doc==1}">
+						<c:if test="${pagingindex.front==0}">									 
+								             	 ..									 
+									            </c:if>
+					</c:if>
+				</a>
+
+			</c:forEach>
+		</div>
+	</div>
 	<%@ include file="tail.jsp"%>
 </body>
+<script>
+var openPhotoAlbum = function(albumid,userid) {
+	if (albumid == null || albumid == '') {
+		return;
+	}
+	if (userid == null || userid == '') {
+		return;
+	}
+	window.location.href="getimglist.do?userid="+userid+"&imggroupid="+albumid;
+};
+</script>
 </html>

@@ -22,6 +22,7 @@ import com.mongolia.website.manager.interfaces.UserManager;
 import com.mongolia.website.manager.interfaces.WebSiteVisitorManager;
 import com.mongolia.website.model.BookStoreValue;
 import com.mongolia.website.model.DocumentValue;
+import com.mongolia.website.model.ImgGrpupValue;
 import com.mongolia.website.model.ImgNew;
 import com.mongolia.website.model.ImgValue;
 import com.mongolia.website.model.MessageValue;
@@ -207,7 +208,7 @@ public class WebSiteVisitorManagerImpl extends BaseManagerImpl implements
 		htmimgFile.mkdir();
 		imgFile.mkdir();
 		List<ImgNew> imgNews = new ArrayList<ImgNew>();
-		tops=Arrays.asList(seldocs);
+		tops = Arrays.asList(seldocs);
 		for (TopDocumentValue topDocumentValue : tops) {
 			ImgNew imgNew = new ImgNew();
 			imgNew.setLink("getuserdocdetail.do?docid="
@@ -346,6 +347,38 @@ public class WebSiteVisitorManagerImpl extends BaseManagerImpl implements
 	public List<DocumentValue> getRecentDocs(Integer count) throws Exception {
 		// TODO Auto-generated method stub
 		return this.webResourceDao.getRecentDocs(count);
+	}
+
+	@Override
+	public PaingModel<ImgGrpupValue> pagingqueryAlbum(
+			PaingModel<ImgGrpupValue> paingModel) throws Exception {
+		// TODO Auto-generated method stub
+		paingModel.setStartrow((paingModel.getPageindex() - 1)
+				* paingModel.getPagesize());
+		paingModel.setEndrow(paingModel.getPagesize());
+		List<ImgGrpupValue> documents = this.webSiteVisitorDao
+				.pagingqueryAlbum(paingModel);
+		paingModel.setModelList(documents);
+		Integer rowCount = this.webSiteVisitorDao.getAlbumRowCount(paingModel);
+		paingModel.setRowcount("" + rowCount);
+		int pageCount = rowCount / paingModel.getPagesize();
+		if (rowCount % paingModel.getPagesize() > 0) {
+			pageCount = pageCount + 1;
+		}
+		paingModel.setPagecount(pageCount);
+		if (paingModel.getPageindex() < paingModel.getPagecount()) {
+			paingModel.setNextindex(pageCount);
+		} else {
+			paingModel.setNextindex(paingModel.getPageindex() + 1);
+		}
+		if (paingModel.getPageindex() > 1) {
+			paingModel.setPreviousindex(paingModel.getPageindex() - 1);
+		} else {
+			paingModel.setPreviousindex(1);
+		}
+
+		return paingModel;
+
 	}
 
 }

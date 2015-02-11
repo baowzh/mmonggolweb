@@ -2,7 +2,7 @@
  * 打开页面
  * 
  * @param {}
- *            pageurl
+ * pageurl
  */
 var openpage = function(index, currentuserid, type, pagetype, neebarlocation) {
 	var querurl = 'pagingsharedoc.do';
@@ -42,7 +42,8 @@ var openpage = function(index, currentuserid, type, pagetype, neebarlocation) {
 				data : {
 					userid : currentuserid,
 					pageindex : index,
-					pagetype : pagetype
+					pagetype : pagetype,
+					pagesize:24
 				},
 				complete : function() {
 					$(".loadingbox").hide();
@@ -54,7 +55,7 @@ var openpage = function(index, currentuserid, type, pagetype, neebarlocation) {
 
 							if (pagetype == 1) {
 								htmlstrr = htmlstrr
-										+ '<div class=\"m1ln\"><a><img src="img/dot.gif"></a>'
+										+ '<div class=\"m1ln\"><a><img src="site/img/qig_1_v.png"></a>'
 										+ '<a '
 										+ 'href=\"getuserdocdetail.do?docid='
 										+ data.doclist[i].docid + '&pageindex='

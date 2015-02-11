@@ -105,6 +105,9 @@ public class BlogManagerAction {
 	@RequestMapping("/gouserindex.do")
 	public ModelAndView gointoroom(HttpServletRequest request, ModelMap map) {
 		try {
+			if (this.isphoneagent(request)) {
+				return new ModelAndView("redirect:phoneindex.do");
+			}
 			map.putAll(getUserBlogInfo(request,1));
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -1612,7 +1615,9 @@ public class BlogManagerAction {
 	public ModelAndView pagingdoc(PaingModel<DocumentValue> pagingModel,
 			ModelMap map) {
 		try {
-			pagingModel.setPagesize(24);
+			if(pagingModel.getPagesize()==null||pagingModel.getPagesize().intValue()==0){
+				pagingModel.setPagesize(24);
+			}
 			pagingModel.setDoctype(StaticConstants.DOCTYPE_DOC);
 			pagingModel.setDocstatus(StaticConstants.DOCSTATUS2);
 			PaingModel<DocumentValue> paingModel1 = this.webSiteVisitorManager
@@ -1633,7 +1638,9 @@ public class BlogManagerAction {
 	public ModelAndView pagingsharedoc(PaingModel<DocumentValue> pagingModel,
 			ModelMap map) {
 		try {
-			pagingModel.setPagesize(24);
+			if(pagingModel.getPagesize()==null||pagingModel.getPagesize().intValue()==0){
+				pagingModel.setPagesize(24);
+			}
 			pagingModel.setDoctype(StaticConstants.DOCTYPE_DOC);
 			Map<String, Object> params = new HashMap<String, Object>();
 			params.put("userid", pagingModel.getUserid());
@@ -2257,6 +2264,14 @@ public class BlogManagerAction {
 		dateFormat.setLenient(false);
 		binder.registerCustomEditor(Date.class, new CustomDateEditor(
 				dateFormat, false));
+	}
+	private boolean isphoneagent(HttpServletRequest request) {
+		// Enumeration<String> headers = request.getHeaderNames();
+		String user_agent = request.getHeader("user-agent");
+		if (user_agent.indexOf("Mobile") > 0) {
+			return true;
+		}
+		return false;
 	}
 
 }

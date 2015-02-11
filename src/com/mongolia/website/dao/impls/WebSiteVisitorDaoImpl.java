@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 import com.mongolia.website.dao.interfaces.WebSiteVisitorDao;
 import com.mongolia.website.model.BookStoreValue;
 import com.mongolia.website.model.DocumentValue;
+import com.mongolia.website.model.ImgGrpupValue;
 import com.mongolia.website.model.PaingModel;
 import com.mongolia.website.model.ProgramItem;
 import com.mongolia.website.model.ProgramValue;
@@ -137,5 +138,20 @@ public class WebSiteVisitorDaoImpl extends BaseDaoiBatis implements
 		return this.getSqlMapClientTemplate().queryForList("querySeltedBooks",
 				queryparams);
 	}
+
+	@Override
+	public List<ImgGrpupValue> pagingqueryAlbum(
+			PaingModel<ImgGrpupValue> paingModel) throws Exception {
+		// TODO Auto-generated method stub
+		return this.getSqlMapClientTemplate().queryForList("pagingAlbums", paingModel);
+	}
+
+	@Override
+	public Integer getAlbumRowCount(PaingModel<ImgGrpupValue> paingModel)
+			throws Exception {
+		// TODO Auto-generated method stub
+		return (Integer)this.getSqlMapClientTemplate().queryForObject("pagingAlbumsCount", paingModel);
+	}
+	
 
 }
