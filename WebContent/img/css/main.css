@@ -622,7 +622,7 @@ body.alag {
 
 .sharenwsl1 {
 	line-height: 20px;
-	height: 300px;
+	height: 480px;
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
@@ -630,6 +630,7 @@ body.alag {
 	background: url(../fl_01.gif) no-repeat center 0px;
 	text-indent: 20px;
 	width: 20px;
+	border-right: #cccccc 1px dashed;
 }
 /*以下对联广告的css代码*/
 .duilian {

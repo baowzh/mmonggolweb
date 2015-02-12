@@ -55,6 +55,7 @@ public class UserManagerImpl implements UserManager {
 		String pass = md5.encodePassword(userValue.getPassword(),
 				StaticConstants.encrypekey);
 		userValue.setPassword(pass);
+		userValue.setHeadurl("nan.jpg");
 		userManagerDao.createUser(userValue);
 	}
 

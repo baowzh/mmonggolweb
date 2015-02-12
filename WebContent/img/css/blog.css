@@ -356,12 +356,12 @@ a img {
 .spanstyle {
 	cursor: pointer;
 	border: 1px solid rgb(204, 204, 204);
-	border-radius:8px;
+	border-radius: 8px;
 	display: inline-block;
-	color:#fff;
-/* 	color: rgb(0, 0, 0); */
+	color: #fff;
+	/* 	color: rgb(0, 0, 0); */
 	background-color: #c90;
-/* 	background-color: rgb(238, 238, 238); */
+	/* 	background-color: rgb(238, 238, 238); */
 	line-height: 21px;
 	width: 30px;
 }
@@ -375,11 +375,10 @@ a img {
 /* 	line-height: 18px; */
 /* 	width: 22px; */
 /* } */
-
 .curspanstyle {
 	cursor: pointer;
 	border: 1px solid rgb(204, 204, 204);
-	border-radius:8px;
+	border-radius: 8px;
 	display: inline-block;
 	color: rgb(0, 0, 0);
 	background: #0078b6;
@@ -436,4 +435,26 @@ a img {
 .titlediv {
 	font-weight: bold;
 	font-size: 30px;
+}
+
+.channelname {
+	padding-top: 10px;
+	padding-left:5px;
+	width: 22px;
+	height: 150px;
+	writing-mode: tb-rl;
+	-webkit-writing-mode: vertical-lr;
+	-moz-writing-mode: vertical-lr;
+	-ms-writing-mode: vertical-lr;
+	-o-writing-mode: vertical-lr;
+	-webkit-text-orientation: sideways-right;
+	border-radius: 5px;
+	border-color: #014886;
+	background-color: #c90;
+	float:left;
+}
+.channelname a {
+	color: #fff;
+	text-decoration: none;
+	font-size: 18px;
 }
