@@ -108,15 +108,15 @@ public class BlogManagerAction {
 			if (this.isphoneagent(request)) {
 				return new ModelAndView("redirect:phoneindex.do");
 			}
-			map.putAll(getUserBlogInfo(request,1));
+			map.putAll(getUserBlogInfo(request, 1));
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
 		return new ModelAndView("userspace/userhomeindex", map);
 	}
 
-	private Map<String, Object> getUserBlogInfo(HttpServletRequest request,Integer clienttype)
-			throws Exception {
+	private Map<String, Object> getUserBlogInfo(HttpServletRequest request,
+			Integer clienttype) throws Exception {
 		Map<String, Object> map = new HashMap<String, Object>();
 		UserValue sessionUser = (UserValue) request.getSession().getAttribute(
 				"user");
@@ -147,8 +147,14 @@ public class BlogManagerAction {
 			}
 		}
 		map.put("self", self);
+		if (sessionUser != null) {
+			map.put("islogin", 1);
+			map.put("loginuserid", sessionUser.getUserid());
+		} else {
+			map.put("islogin", 0);
+		}
 		Map<String, Object> bologInfos = this.webResourceManager.getBlogInfo(
-				user, sessionUser, self, docchannel, 1,clienttype);
+				user, sessionUser, self, docchannel, 1, clienttype);
 		map.putAll(bologInfos);
 		map.put("previousindex", 1);
 		map.put("currentindex", 1);
@@ -164,7 +170,7 @@ public class BlogManagerAction {
 	@RequestMapping("/phoneuserindex.do")
 	public ModelAndView phoneuserindex(HttpServletRequest request, ModelMap map) {
 		try {
-			map.putAll(getUserBlogInfo(request,2));
+			map.putAll(getUserBlogInfo(request, 2));
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -302,7 +308,7 @@ public class BlogManagerAction {
 		}
 		map.put("self", self);
 		Map<String, Object> bologInfos = this.webResourceManager.getBlogInfo(
-				user, sessionUser, self, null, pindex,1);
+				user, sessionUser, self, null, pindex, 1);
 		map.putAll(bologInfos);
 		setHiddenFlg(user, sessionUser, comments);
 		showemotion(comments);
@@ -835,6 +841,32 @@ public class BlogManagerAction {
 			UserValue user = null;
 			UserValue sessionUser = (UserValue) request.getSession()
 					.getAttribute("user");
+			if (sessionUser != null) {
+				map.put("islogin", 1);
+				map.put("loginuserid", sessionUser.getUserid());
+			} else {
+				map.put("islogin", 0);
+			}
+			Integer self = new Integer(0);
+			String userid = request.getParameter("userid");
+			if (userid == null || userid.equalsIgnoreCase("")) {
+				user = (UserValue) request.getSession().getAttribute("user");// 在线session
+				map.put("maillogin", sessionUser.getMaillogin());
+				self = new Integer(1);
+			} else {
+				List<UserValue> uservalues = this.userManager
+						.getUsers(userid, null);// 被浏览用户
+				user = uservalues.get(0);
+				if (sessionUser != null
+						&& sessionUser.getUserid().equalsIgnoreCase(
+								user.getUserid())) {
+					self = new Integer(1);
+					map.put("maillogin", sessionUser.getMaillogin());
+				} else {
+					self = new Integer(0);
+				}
+			}
+			map.put("self", self);
 			DocumentValue documentValue = this.webResourceManager
 					.readUserDDocument(imgid, sessionUser);
 			if (documentValue.getDoctype() == StaticConstants.RESOURCE_TYPE_DOC) {
@@ -880,8 +912,6 @@ public class BlogManagerAction {
 				}
 				// 修改格式
 				this.showemotion(comments);
-				//
-				//
 				this.setHiddenFlg(user, sessionUser, comments);
 				map.put("comments", comments);
 				map.put("documentValue", documentValue);
@@ -1326,9 +1356,15 @@ public class BlogManagerAction {
 		}
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("self", self);
+		if (sessionUser != null) {
+			map.put("islogin", 1);
+			map.put("loginuserid", sessionUser.getUserid());
+		} else {
+			map.put("islogin", 0);
+		}
 		try {
 			Map<String, Object> bologInfos = this.webResourceManager
-					.getBlogInfo(user, sessionUser, self, null, 1,1);
+					.getBlogInfo(user, sessionUser, self, null, 1, 1);
 			map.putAll(bologInfos);
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -1615,7 +1651,8 @@ public class BlogManagerAction {
 	public ModelAndView pagingdoc(PaingModel<DocumentValue> pagingModel,
 			ModelMap map) {
 		try {
-			if(pagingModel.getPagesize()==null||pagingModel.getPagesize().intValue()==0){
+			if (pagingModel.getPagesize() == null
+					|| pagingModel.getPagesize().intValue() == 0) {
 				pagingModel.setPagesize(24);
 			}
 			pagingModel.setDoctype(StaticConstants.DOCTYPE_DOC);
@@ -1638,7 +1675,8 @@ public class BlogManagerAction {
 	public ModelAndView pagingsharedoc(PaingModel<DocumentValue> pagingModel,
 			ModelMap map) {
 		try {
-			if(pagingModel.getPagesize()==null||pagingModel.getPagesize().intValue()==0){
+			if (pagingModel.getPagesize() == null
+					|| pagingModel.getPagesize().intValue() == 0) {
 				pagingModel.setPagesize(24);
 			}
 			pagingModel.setDoctype(StaticConstants.DOCTYPE_DOC);
@@ -2265,6 +2303,7 @@ public class BlogManagerAction {
 		binder.registerCustomEditor(Date.class, new CustomDateEditor(
 				dateFormat, false));
 	}
+
 	private boolean isphoneagent(HttpServletRequest request) {
 		// Enumeration<String> headers = request.getHeaderNames();
 		String user_agent = request.getHeader("user-agent");

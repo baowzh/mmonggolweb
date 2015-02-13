@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<div class="flt" style="width: 250px;border: solid 1px #014886;">
+<div class="flt" style="width: 250px; border: solid 1px #014886;">
 	<div class="flt" style="width: 250px;">
 		<div class="flt"
 			style="position: relative; top: -190px; padding: 8px;" id="nameCard">
@@ -78,14 +78,13 @@
 							-->
 
 						<c:if test="${self==1}">
-							<a href="doedituserinifo.do">   &nbsp;&nbsp;&nbsp;
-							</a>
+							<a href="doedituserinifo.do">  &nbsp;&nbsp;&nbsp; </a>
 							<a href="javascript:showpassdialog();">   </a>
 						</c:if>
 						<c:if test="${self==0}">
 							<a
 								href="javascript:showuserinfo('<c:out value="${user.userid}" />');">
-								  &nbsp;&nbsp;&nbsp; </a>
+								 &nbsp;&nbsp;&nbsp; </a>
 						</c:if>
 
 
@@ -109,18 +108,19 @@
 			<div class=" m1ln " style="padding-top: 8px;">
 				<a href="gouserindex.do?userid=<c:out value="${user.userid}" />">
 					<c:if test="${self==1}"> </c:if> <c:if test="${self==0}">  </c:if>
-				</a> 
-
-				<!--							  <a href="#">  </a>   -->
-				<!--							  <a href="#">   </a>   -->
-
-				<a href="photoAlbumList.do?userid=<c:out value="${user.userid}" />"></a>
+				</a>  <a
+					href="photoAlbumList.do?userid=<c:out value="${user.userid}" />"></a>
 				 <a href="friendlist.do?userid=<c:out value="${user.userid}" />"></a>
+				<c:if test="${self==1||islogin==0}">
 				 <a href="#"> </a>
+				</c:if>
+				<c:if test="${self==0&&islogin==1}">
+				 <a href="gouserindex.do?userid=<c:out value="${loginuserid}" />">  </a>
+				</c:if>
 			</div>
 		</div>
 		<div class=" flt"
-			style="width: 225px; margin: 0px 8px 8px 8px; padding: 5px; background: white;border: solid 1px #014886;">
+			style="width: 225px; margin: 0px 8px 8px 8px; padding: 5px; background: white; border: solid 1px #014886;">
 			<div class="friendL">
 				<div class="i">
 					<div class="m0a" style="width: 40px;">
@@ -151,7 +151,7 @@
 			</c:forEach>
 		</div>
 		<div class=" flt"
-			style="width: 225px; margin: 0px 8px 8px 8px; padding: 5px; background: white;border: solid 1px #014886;">
+			style="width: 225px; margin: 0px 8px 8px 8px; padding: 5px; background: white; border: solid 1px #014886;">
 			<div class="friendL">
 				<div class="i">
 					<div class="m0a" style="width: 40px;">
@@ -166,8 +166,7 @@
 			<c:forEach items="${visitors}" var="visitorValue" varStatus="status">
 				<div class=" friendL">
 					<div class="i">
-						<img
-							src="html/userhead/<c:out value="${visitorValue.headurl}" />"
+						<img src="html/userhead/<c:out value="${visitorValue.headurl}" />"
 							width="334" height="446" />
 						<div class="frt" style="width: 20px;">
 							<div class="m1ln">

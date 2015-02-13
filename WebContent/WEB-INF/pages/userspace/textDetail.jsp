@@ -51,8 +51,8 @@
 				href="gouserindex.do?userid=<c:out value="${user.userid}" />">
 				  &nbsp; &nbsp;</a> <a href="registe.do"> </a>
 			<c:if test="${self==0&&login==1}">
-				<a>&nbsp; &nbsp;  &nbsp; &nbsp;</a>
-				<a></a>
+				<a href="gouserindex.do?userid=<c:out value="${loginuserid}" />">&nbsp; &nbsp;  &nbsp; &nbsp;</a>
+<!-- 				<a></a> -->
 			</c:if>
 		</div>
 
@@ -162,7 +162,7 @@
 			style="background-color: #dfa64f;; width: 30px; color: #fff; padding-left: 10px; height: 100%;"></div>
 
 		<div class=" flt"
-			style="float: left; width: 240px; height: 98%; margin: 0px 8px 8px 8px; padding: 5px; background: white;">
+			style="float: left; width: 245px; height: 98%; margin: 0px 8px 8px 8px; padding: 5px; background: white;">
 
 			<div class="readerl">
 				<c:forEach items="${visitors}" var="visitorValue" varStatus="status">
@@ -171,7 +171,7 @@
 							width="60" height="70" />
 						<div class="frt" style="width: 20px;">
 							<div class="m1ln"
-								style="padding-top: 8px; overflow: hidden; height: 85px;">
+								style="padding-top: 8px; overflow: hidden; height: 85px;width:22px;">
 								<a
 									href="gouserindex.do?userid=<c:out value="${visitorValue.visitorid}" />">
 									<c:out value="${visitorValue.visitorname}" />

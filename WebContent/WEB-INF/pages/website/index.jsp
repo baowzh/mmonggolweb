@@ -105,7 +105,7 @@
 		</div>
 	</div>
 	<div class="wrp m0a ribbon"></div>
-	<div class="layer m0a" style="padding-top:0px;">
+	<div class="layer m0a" style="padding-top: 0px;">
 		<div class="card1" style="height: 340px; width: 380px;">
 			<div style="width: 380px; height: 330px; padding: 5px;">
 				<div class="sldrFrm" id="picplayer"
@@ -119,7 +119,7 @@
 				<div class="more"></div>
 				<div class="ctail"></div>
 			</div>
-			<div class="listCardBody" style="height: 334px;padding-left:5px;">
+			<div class="listCardBody" style="height: 334px; padding-left: 5px;">
 				<c:forEach items="${indexPageContent.selecteddocs}"
 					var="documentValue" varStatus="status">
 					<div class="nwsl1">
@@ -140,14 +140,16 @@
 				</c:forEach>
 			</div>
 		</div>
-		<div class="card2" style="height: 340px; width: 180px;margin:0px 0px;">
+		<div class="card2"
+			style="height: 340px; width: 180px; margin: 0px 0px;">
 			<div class="listCardTtl ttlStl1" style="height: 340px;">
 				<div class="top"></div>
 				<div class="ttl" style="height: 146px;"></div>
 				<div class="more"></div>
 				<div class="ctail"></div>
 			</div>
-			<div class="listCardBody" style="height: 308px; padding-top: 30px;background-color:#ffbd49;">
+			<div class="listCardBody"
+				style="height: 308px; padding-top: 30px; background-color: #ffbd49;">
 				<form id="searchform" class="mglForm" method="post">
 					<div class="inputHolder"></div>
 					<c:if test="${agentkind==1}">
@@ -183,7 +185,7 @@
 		<div class="cls"></div>
 	</div>
 	<div class="layer m0a">
-		<div class="card2" style="background-color:#ffbd49;">
+		<div class="card2" style="background-color: #ffbd49;">
 			<div class="  lcell" style="width: 150px; height: 320px;">
 				<div class="lcell cardlogin" id="logindiv"
 					style="height: 290px; padding-left: 20px; padding-top: 10px;">
@@ -288,8 +290,8 @@
 			<div class="listCardBody sheet" style="width: 290px; float: left;">
 				<div class="nrglgq">
 					<div class="tx">
-						<a href="#"> <img
-							src="html/userhead/sorqin_20121113161432591.jpg" />
+						<a href="gouserindex.do?userid=264611659E3C11E4BC9D199A577C4ABB">
+							<img src="html/userhead/264611659E3C11E4BC9D199A577C4ABB.jpg" />
 						</a>
 					</div>
 					<div class="m1ln"
@@ -299,7 +301,8 @@
 				</div>
 				<div class="nrglgq">
 					<div class="tx">
-						<a href="#"> <img src="html/userhead/nv.jpg" />
+						<a href="gouserindex.do?userid=406144219E3C11E4BC9D199A577C4ABB">
+							<img src="html/userhead/sorqin_20131225121051806.jpg" />
 						</a>
 					</div>
 					<div class="m1ln"
@@ -309,8 +312,8 @@
 				</div>
 				<div class="nrglgq">
 					<div class="tx">
-						<a href="#"> <img
-							src="html/userhead/nv.jpg" />
+						<a href="gouserindex.do?userid=509E859D9E3C11E4BC9D199A577C4ABB">
+							<img src="html/userhead/sorqin_201511412943468.jpg" />
 						</a>
 					</div>
 					<div class="m1ln"
@@ -320,8 +323,8 @@
 				</div>
 				<div class="nrglgq">
 					<div class="tx">
-						<a href="#"> <img
-							src="html/userhead/nv.jpg" />
+						<a href="gouserindex.do?userid=4ED4E9ED9E3C11E4BC9D199A577C4ABB">
+							<img src="html/userhead/4ED4E9ED9E3C11E4BC9D199A577C4ABB.jpg" />
 						</a>
 					</div>
 					<div class="m1ln"
@@ -333,10 +336,19 @@
 				<div class="nrglgq"
 					style="height: 90px; padding-top: 15px; font-size: 17px;">
 					<a class="vdrtgalSuld">     
-						</a> <a href="#"> </a><br /> <a href="#"></a> <br />
-					<a href="#">  </a> <br /> <a href="#">  </a> <br />
-					<a href="#"></a> <br /> <a href="#"> </a> <br />
-					<a href="#">  </a><br /> <a href="#"></a>
+						</a> <a href="gouserindex.do?userid=E2D8BA9A56D311E482CDC5C98E32019F">
+					</a><br /> <a
+						href="gouserindex.do?userid=2BE82D959E3C11E4BC9D199A577C4ABB"></a>
+					<br /> <a
+						href="gouserindex.do?userid=41495A539E3C11E4BC9D199A577C4ABB">
+						 </a> <br /> <a href="#">  </a> <br /> <a
+						href="gouserindex.do?userid=267733899E3C11E4BC9D199A577C4ABB"></a>
+					<br /> <a
+						href="gouserindex.do?userid=27725C7F9E3C11E4BC9D199A577C4ABB">
+					</a> <br /> <a
+						href="gouserindex.do?userid=278484F19E3C11E4BC9D199A577C4ABB">
+						 </a><br /> <a
+						href="gouserindex.do?userid=281EC92B9E3C11E4BC9D199A577C4ABB"></a>
 				</div>
 			</div>
 		</div>
@@ -512,7 +524,8 @@
 							src="html/userhead/<c:out value="${userValue.headurl}" />"
 							style="width: 47px;" /></a>
 					</div>
-					<div class="m1ln" style="float: left;overflow:hidden;height:80px;">
+					<div class="m1ln"
+						style="float: left; overflow: hidden; height: 80px;">
 						<a
 							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
 							&nbsp;<c:out value="${userValue.artname}" />
@@ -607,7 +620,8 @@
 								src="html/userhead/<c:out value="${userValue.headurl}" />"
 								style="width: 47px;" /></a>
 						</div>
-						<div class="m1ln" style="float: left;overflow:hidden;height:80px;">
+						<div class="m1ln"
+							style="float: left; overflow: hidden; height: 80px;">
 							<a
 								href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
 								&nbsp;<c:out value="${userValue.artname}" />
@@ -707,7 +721,7 @@
 				</c:forEach>
 			</div>
 		</div>
-<!-- 		<div class="cls"></div> -->
+		<!-- 		<div class="cls"></div> -->
 	</div>
 	<div class="layer m0a">
 		<div class="card3">
@@ -729,7 +743,8 @@
 								src="html/userhead/<c:out value="${userValue.headurl}" />"
 								style="width: 47px;" /></a>
 						</div>
-						<div class="m1ln" style="float: left;overflow:hidden;height:80px;">
+						<div class="m1ln"
+							style="float: left; overflow: hidden; height: 80px;">
 							<a
 								href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
 								&nbsp;<c:out value="${userValue.artname}" />
@@ -931,7 +946,10 @@
 
 				</c:forEach>
 			</div>
-			<ul class="flex-direction-nav"><li><a class="flex-prev" href="#">Previous</a></li><li><a class="flex-next" href="#">Next</a></li></ul>
+			<ul class="flex-direction-nav">
+				<li><a class="flex-prev" href="#">Previous</a></li>
+				<li><a class="flex-next" href="#">Next</a></li>
+			</ul>
 		</div>
 		<div class="cls"></div>
 	</div>
@@ -1046,7 +1064,8 @@
 								src="html/userhead/<c:out value="${userValue.headurl}" />"
 								style="width: 47px;" /></a>
 						</div>
-						<div class="m1ln" style="float: left;overflow:hidden;height:80px;">
+						<div class="m1ln"
+							style="float: left; overflow: hidden; height: 80px;">
 							<a
 								href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
 								&nbsp;<c:out value="${userValue.artname}" />
@@ -1136,7 +1155,8 @@
 								src="html/userhead/<c:out value="${userValue.headurl}" />"
 								style="width: 47px;" /></a>
 						</div>
-						<div class="m1ln" style="float: left;overflow:hidden;height:80px;">
+						<div class="m1ln"
+							style="float: left; overflow: hidden; height: 80px;">
 							<a
 								href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
 								&nbsp;<c:out value="${userValue.artname}" />
@@ -1210,35 +1230,38 @@
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
 				<div class="top"></div>
-				<div class="ttl" style="height:210px;">    </div>
+				<div class="ttl" style="height: 210px;">  
+					</div>
 				<div class="ctail"></div>
 			</div>
 			<div id="ticker-next" class="ticker-btn prev">
 				<span class="glyphicon glyphicon-chevron-up"></span>
 			</div>
 			<ul id="vertical-ticker">
-			<c:forEach items="${indexPageContent.selBooks}"
-					var="bookStoreValue" varStatus="status">
-				<li>
-					<div class="xldgurg"
-						style="width: 290px; height: 270px; margin: 0px; border: none;">
-						<div class=" avatar">
-							<a
-								href="<c:out value="${bookStoreValue.booklink}" />"
-								target="_blank"><img src="html/img/<c:out value="${bookStoreValue.bookimg}" />" title=""
-								style="width: 220px; height: 270px;"></a>
+				<c:forEach items="${indexPageContent.selBooks}" var="bookStoreValue"
+					varStatus="status">
+					<li>
+						<div class="xldgurg"
+							style="width: 290px; height: 270px; margin: 0px; border: none;">
+							<div class=" avatar">
+								<a href="<c:out value="${bookStoreValue.booklink}" />"
+									target="_blank"><img
+									src="html/img/<c:out value="${bookStoreValue.bookimg}" />"
+									title="" style="width: 220px; height: 270px;"></a>
 
+							</div>
+							<div class="m1ln"
+								style="float: left; padding-left: 15px; width: 60px;">
+								<a href="gouserindex.do?userid=8F995C07E46C11E3BB214D96A0031390">
+									&nbsp;   : <c:out value="${bookStoreValue.bookname}" />
+									<br> &nbsp; :<c:out
+											value="${bookStoreValue.bookprice}" />  <br>
+											&nbsp;  : <c:out
+												value="${bookStoreValue.bookauthor}" />
+								</a>
+							</div>
 						</div>
-						<div class="m1ln"
-							style="float: left; padding-left: 15px; width: 60px;">
-							<a href="gouserindex.do?userid=8F995C07E46C11E3BB214D96A0031390">
-								&nbsp;   : <c:out value="${bookStoreValue.bookname}" /> <br> &nbsp;
-									:<c:out value="${bookStoreValue.bookprice}" />  <br> &nbsp;
-									  : <c:out value="${bookStoreValue.bookauthor}" /> 
-							</a>
-						</div>
-					</div>
-				</li>
+					</li>
 				</c:forEach>
 			</ul>
 			<div id="ticker-previous" class="ticker-btn prev">
@@ -1359,37 +1382,37 @@
 					<div class="ctail"></div>
 				</div>
 				<div class="nrglgq"
-					style="width: 620px; height: 390px; line-height: 23px;padding-top:4px;	border: solid 1px #014886;border-left: none;">
+					style="width: 620px; height: 390px; line-height: 23px; padding-top: 4px; border: solid 1px #014886; border-left: none;">
 					<div class="nwsl1">
 						<div class="title">
-							<a href="#" target="_blank" class="tit_text_overflow">
+							<a href="gouserindex.do?userid=3938AFBB9E3C11E4BC9D199A577C4ABB" target="_blank" class="tit_text_overflow">
 								   </a>
 						</div>
 
 					</div>
 					<div class="nwsl1">
 						<div class="title">
-							<a href="#" target="_blank" class="tit_text_overflow">
+							<a href="gouserindex.do?userid=274495BB9E3C11E4BC9D199A577C4ABB" target="_blank" class="tit_text_overflow">
 								     </a>
 						</div>
 
 					</div>
 					<div class="nwsl1">
 						<div class="title">
-							<a href="#" target="_blank" class="tit_text_overflow">
+							<a href="gouserindex.do?userid=267733899E3C11E4BC9D199A577C4ABB" target="_blank" class="tit_text_overflow">
 								   </a>
 						</div>
 
 					</div>
 					<div class="nwsl1">
 						<div class="title">
-							<a href="#" target="_blank" class="tit_text_overflow">
+							<a href="gouserindex.do?userid=26CBE3419E3C11E4BC9D199A577C4ABB" target="_blank" class="tit_text_overflow">
 								    </a>
 						</div>
 					</div>
 					<div class="nwsl1">
 						<div class="title">
-							<a href="#" target="_blank" class="tit_text_overflow">
+							<a href="gouserindex.do?userid=5025AC0B9E3C11E4BC9D199A577C4ABB" target="_blank" class="tit_text_overflow">
 								  </a>
 						</div>
 					</div>
@@ -1407,19 +1430,19 @@
 					</div>
 					<div class="nwsl1">
 						<div class="title">
-							<a href="#" target="_blank" class="tit_text_overflow">
+							<a href="gouserindex.do?userid=E6D4B2B1AC4411E499C637545E795662" target="_blank" class="tit_text_overflow">
 								   </a>
 						</div>
 					</div>
 					<div class="nwsl1">
 						<div class="title">
-							<a href="#" target="_blank" class="tit_text_overflow">
+							<a href="gouserindex.do?userid=307137779E3C11E4BC9D199A577C4ABB" target="_blank" class="tit_text_overflow">
 								    </a>
 						</div>
 					</div>
 					<div class="nwsl1">
 						<div class="title">
-							<a href="#" target="_blank" class="tit_text_overflow">
+							<a href="gouserindex.do?userid=41495A539E3C11E4BC9D199A577C4ABB" target="_blank" class="tit_text_overflow">
 								       </a>
 						</div>
 					</div>
@@ -1437,19 +1460,19 @@
 					</div>
 					<div class="nwsl1">
 						<div class="title">
-							<a href="#" target="_blank" class="tit_text_overflow">
+							<a href="gouserindex.do?userid=2F3731C39E3C11E4BC9D199A577C4ABB" target="_blank" class="tit_text_overflow">
 								   </a>
 						</div>
 					</div>
 					<div class="nwsl1">
 						<div class="title">
-							<a href="#" target="_blank" class="tit_text_overflow">
+							<a href="gouserindex.do?userid=E93E5EB8AC4F11E499C637545E795662" target="_blank" class="tit_text_overflow">
 								  </a>
 						</div>
 					</div>
 					<div class="nwsl1">
 						<div class="title">
-							<a href="#" target="_blank" class="tit_text_overflow">
+							<a href="gouserindex.do?userid=2B62A9DD9E3C11E4BC9D199A577C4ABB" target="_blank" class="tit_text_overflow">
 								    </a>
 						</div>
 					</div>
@@ -1461,26 +1484,19 @@
 					</div>
 					<div class="nwsl1">
 						<div class="title">
-							<a href="#" target="_blank" class="tit_text_overflow"> 
+							<a href="gouserindex.do?userid=27725C7F9E3C11E4BC9D199A577C4ABB" target="_blank" class="tit_text_overflow"> 
 								 </a>
 						</div>
 					</div>
 					<div class="nwsl1">
 						<div class="title">
-							<a href="#" target="_blank" class="tit_text_overflow"> 
-								 </a>
-						</div>
-					</div>
-					<div class="nwsl1">
-						<div class="title">
-							<a href="#" target="_blank" class="tit_text_overflow"> 
+							<a href="gouserindex.do?userid=4E2FD0399E3C11E4BC9D199A577C4ABB" target="_blank" class="tit_text_overflow"> 
 								 </a>
 						</div>
 					</div>
 					<div class="elsehu">
-						<div class="author">
-					         13684719585
-					</div>
+						<div class="author">      
+							  13684719585</div>
 					</div>
 				</div>
 			</div>

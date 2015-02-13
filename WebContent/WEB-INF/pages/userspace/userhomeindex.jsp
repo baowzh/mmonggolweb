@@ -88,7 +88,7 @@
 									</c:forEach>
 								</div>
 								<div class="cbt"></div>
-								<c:if test="${fn:length(docList)!=0}">
+								<c:if test="${fn:length(docList)!=0&&fn:length(docpageIndexs)!=0}">
 									<div class="paginationArea">
 										<div class="pagination" id="docpagelist">
 											<a class="first disabled" id="firsta"
