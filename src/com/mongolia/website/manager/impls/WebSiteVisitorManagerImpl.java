@@ -304,7 +304,7 @@ public class WebSiteVisitorManagerImpl extends BaseManagerImpl implements
 			Calendar cal = Calendar.getInstance(java.util.Locale.CHINA);
 			Date fetchDate = cal.getTime();
 			int fetchtime = 0;
-			while (topDocuments.size() == 0 && fetchtime > 10) {
+			while (topDocuments.size() == 0 && fetchtime < 10) {
 				topDocuments.addAll(this.webSiteVisitorDao.getTopDocuments(
 						fetchDate, type, docid, limit));
 				Calendar calendar = java.util.Calendar.getInstance();
