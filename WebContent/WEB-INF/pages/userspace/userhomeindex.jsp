@@ -145,7 +145,7 @@
 										<c:forEach items="${sharePaingModel.modelList}"
 											var="documentValue" varStatus="status">
 											<div class="sharenwsl1">
-												<div class="title" style="height: 395px;">
+												<div class="title" style="height: 380px;">
 													<a
 														href="getuserdocdetail.do?docid=<c:out value="${documentValue.docid}" />"><c:out
 															value="${documentValue.doctitle}" escapeXml="false" /> </a>

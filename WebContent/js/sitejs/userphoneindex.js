@@ -41,9 +41,10 @@ var openpage = function(index, currentuserid, type) {
 					for (i in data.doclist) {
 						var listdiv = $('<div></div>').addClass('nwsl1');
 						var docobj = $('<div></div>').addClass('title')
-						if(type == 1){
-							docobj.css(
-									'height', '100%');
+						if (type == 1) {
+							docobj.css('height', '100%');
+						} else {
+							//docobj.css('height', '380');
 						}
 						var aobj = $('<a></a>').addClass('tit_text_overflow')
 								.prop(

@@ -151,11 +151,11 @@ var loaddoccomment = function() {
 					for (i in data.comments) {// the channel
 						// 给div popDetail添加子div元素
 						innerHTML = innerHTML
-								+ '<div class=\"mnlist\">  </div><br><div class=\"postSheet\">'
-								+ '<div class=\"posterInf\">'
+								+ '<div class=\"postSheet\" style=\"float: left; height: 500px;\">'
+								+ '<div class=\"posterInf\" style=\"float: left; height: 500px;\">'
 								+ '<div class=\"avtThumb flt\"><img src=\"html/userhead/'
 								+ data.comments[i].messagesenderid
-								+ '.jpg \" width=\"300\" height=\"400\" /></div>'
+								+ '.jpg \" width=\"300\" height=\"500\" /></div>'
 								+ '<div class=\"inf flt\">'
 								+ '<div class=\"row\"> <a href=\"gouserindex.do?userid='
 								+ data.comments[i].messagesenderid + '\">'

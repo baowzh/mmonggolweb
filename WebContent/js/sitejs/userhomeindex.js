@@ -74,7 +74,7 @@ var openpage = function(index, currentuserid, type, pagetype, neebarlocation) {
 
 						} else if (type == 2) {
 							htmlstrr = htmlstrr
-									+ '<div class=\"sharenwsl1\"><div class="title" style="height:230px;">'
+									+ '<div class=\"sharenwsl1\"><div class="title" style="height:380px;">'
 									+ '<a '
 									+ 'href=\"getuserdocdetail.do?docid='
 									+ data.doclist[i].docid
