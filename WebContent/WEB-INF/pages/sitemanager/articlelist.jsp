@@ -70,9 +70,9 @@
 								<div class="m1ln h100"> </div>
 							</td>
 							<td style="background: #eee;">
-								<div class="inputHolder">
+								<div class="inputHolder" >
 									<input type="text" name="authorname" id="authorname"
-										value="<c:out value="${queryDocForm.authorname}"/>" />
+										value="<c:out value="${queryDocForm.authorname}"/>" style="background-color:#fff;color:#fff;"/>
 								</div>
 							</td>
 							<td>
@@ -82,11 +82,11 @@
 								<div class="inputHolder" style="background: #eee;">
 									<input type="text" name="strcrtime" id="strcrtime"
 										value="<c:out value="${queryDocForm.strcrtime}"/>"
-										style="height: 40px;" class="modTxtTime" readonly="readonly"
+										style="height: 40px;background-color:#fff;" class="modTxtTime"  readonly="readonly"
 										onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" /> - <input
 										type="text" name="endcrtime" id="endcrtime"
 										value="<c:out value="${queryDocForm.endcrtime}"/>"
-										style="height: 40px;" class="modTxtTime" readonly="readonly"
+										style="height: 40px;background-color:#fff;" class="modTxtTime" readonly="readonly"
 										onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" />
 								</div>
 							</td>
@@ -98,7 +98,7 @@
 							<td>
 								<div class="inputHolder">
 									<input type="text" name="doctitle" id="doctitle"
-										value="<c:out value="${queryDocForm.doctitle}"/>" />
+										value="<c:out value="${queryDocForm.doctitle}"/>" style="background-color:#fff;"/>
 								</div>
 							</td>
 							<td>

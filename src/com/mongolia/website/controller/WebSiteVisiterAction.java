@@ -279,11 +279,11 @@ public class WebSiteVisiterAction {
 
 				queryDocParams.put("channelid", queryDocForm.getChannel());
 			}
-			if (queryDocForm.getAuthorname() != null
-					&& queryDocForm.getAuthorname().equalsIgnoreCase("")) {
+			if (queryDocForm.getAuthorname()==null||(queryDocForm.getAuthorname() != null
+					&& queryDocForm.getAuthorname().equalsIgnoreCase(""))) {
 				queryDocParams.put("authorname", null);
 			} else {
-				queryDocParams.put("authorname", queryDocForm.getAuthorname());
+				queryDocParams.put("authorname", queryDocForm.getAuthorname().trim());
 			}
 			if (queryDocForm.getStrcrtime() != null
 					&& queryDocForm.getStrcrtime().equalsIgnoreCase("")) {
@@ -297,11 +297,11 @@ public class WebSiteVisiterAction {
 			} else {
 				queryDocParams.put("endcrtime", queryDocForm.getEndcrtime());
 			}
-			if (queryDocForm.getDoctitle() != null
-					&& queryDocForm.getDoctitle().equalsIgnoreCase("")) {
+			if (queryDocForm.getDoctitle() == null||(queryDocForm.getDoctitle() != null
+					&& queryDocForm.getDoctitle().equalsIgnoreCase(""))) {
 				queryDocParams.put("doctitle", null);
 			} else {
-				queryDocParams.put("doctitle", queryDocForm.getDoctitle());
+				queryDocParams.put("doctitle", queryDocForm.getDoctitle().trim());
 			}
 			if (queryDocForm.getTop() != null
 					&& queryDocForm.getTop().intValue() != 0) {

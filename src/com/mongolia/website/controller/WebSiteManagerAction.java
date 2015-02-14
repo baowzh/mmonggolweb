@@ -215,11 +215,13 @@ public class WebSiteManagerAction {
 				}
 
 			}
-			if (queryDocForm.getAuthorname() != null
-					&& queryDocForm.getAuthorname().equalsIgnoreCase("")) {
+			if (queryDocForm.getAuthorname() == null
+					|| (queryDocForm.getAuthorname() != null && queryDocForm
+							.getAuthorname().equalsIgnoreCase(""))) {
 				queryDocParams.put("authorname", null);
 			} else {
-				queryDocParams.put("authorname", queryDocForm.getAuthorname());
+				queryDocParams.put("authorname", queryDocForm.getAuthorname()
+						.trim());
 			}
 			if (queryDocForm.getStrcrtime() != null
 					&& queryDocForm.getStrcrtime().equalsIgnoreCase("")) {
@@ -233,11 +235,13 @@ public class WebSiteManagerAction {
 			} else {
 				queryDocParams.put("endcrtime", queryDocForm.getEndcrtime());
 			}
-			if (queryDocForm.getDoctitle() != null
-					&& queryDocForm.getDoctitle().equalsIgnoreCase("")) {
+			if (queryDocForm.getDoctitle() == null
+					|| (queryDocForm.getDoctitle() != null && queryDocForm
+							.getDoctitle().equalsIgnoreCase(""))) {
 				queryDocParams.put("doctitle", null);
 			} else {
-				queryDocParams.put("doctitle", queryDocForm.getDoctitle());
+				queryDocParams.put("doctitle", queryDocForm.getDoctitle()
+						.trim());
 			}
 			if (queryDocForm.getTop() != null
 					&& queryDocForm.getTop().intValue() != 0) {
@@ -383,7 +387,7 @@ public class WebSiteManagerAction {
 		try {
 			String path = request.getSession().getServletContext()
 					.getRealPath("/html/img");
-			String imgname = "altan_"+UUIDMaker.getUUID() + ".jpg";
+			String imgname = "altan_" + UUIDMaker.getUUID() + ".jpg";
 			if (topDocumentValue.getPlayimg() != null
 					&& topDocumentValue.getPlayimg().length != 0) {
 				ImgeUtil.CompressPic(topDocumentValue.getPlayimg(), path,
