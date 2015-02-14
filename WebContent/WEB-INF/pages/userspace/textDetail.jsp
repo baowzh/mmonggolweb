@@ -47,11 +47,11 @@
 		<div class="mln"
 			style="width: 30px; padding-left: 10px; float: left; background-color: #dfa64f; height: 100%;">
 			&nbsp;&nbsp;&nbsp;&nbsp;<a href="tologin.do"> &nbsp;
-				&nbsp;</a> <a href="index.do"> &nbsp; &nbsp; </a> <a
+				&nbsp;</a> <a href="index.do"> &nbsp; &nbsp; </a> <a
 				href="gouserindex.do?userid=<c:out value="${user.userid}" />">
 				  &nbsp; &nbsp;</a> <a href="registe.do"> </a>
 			<c:if test="${self==0&&login==1}">
-				<a href="gouserindex.do?userid=<c:out value="${loginuserid}" />">&nbsp; &nbsp;  &nbsp; &nbsp;</a>
+				<a href="gouserindex.do?userid=<c:out value="${loginuserid}" />">&nbsp; &nbsp;  &nbsp;&nbsp;</a>
 <!-- 				<a></a> -->
 			</c:if>
 		</div>

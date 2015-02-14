@@ -27,7 +27,7 @@
 			</div>
 			<div class="moldiv" style="float: right;">
 				<div class="navitem">
-					<a href="phoneindex.do" style="font-size: 18px;"> </a>
+					<a href="phoneindex.do" style="font-size: 18px;"> </a>
 				</div>
 				<div class="emptyItem"></div>
 				<div class="navitem">

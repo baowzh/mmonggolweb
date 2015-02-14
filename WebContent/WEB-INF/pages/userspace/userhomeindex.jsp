@@ -6,7 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Blog Home</title>
+<title><c:out value="${user.artname}" /></title>
 <link href="site/css/main.css" rel="stylesheet" type="text/css" />
 <link href="site/css/index.css" rel="stylesheet" type="text/css" />
 <link href="img/css/main.css" type="text/css" rel="stylesheet" />
