@@ -35,14 +35,13 @@
 	<div id="condiv">
 		<div class="mln"
 			style="float: left; width: 5px; height: 100%; background-color: #dfa64f;">
-			<!-- 			#f2967b -->
 		</div>
 		<div class="mln"
 			style="float: left; width: 109px; height: 100%; font-size: 19px; background-color: #dfa64f; background: url(site/img/phonehead.jpg) center top no-repeat;">
-			<br> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<br> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			     <br> <br>
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			     <br>
+			     <br>
 		</div>
 		<div class="mln"
 			style="width: 30px; padding-left: 10px; float: left; background-color: #dfa64f; height: 100%;">
@@ -52,7 +51,6 @@
 				  &nbsp; &nbsp;</a> <a href="registe.do"> </a>
 			<c:if test="${self==0&&login==1}">
 				<a href="gouserindex.do?userid=<c:out value="${loginuserid}" />">&nbsp; &nbsp;  &nbsp;&nbsp;</a>
-<!-- 				<a></a> -->
 			</c:if>
 		</div>
 
@@ -115,13 +113,13 @@
 			</div>
 		</div>
 		<!--  -->
-		<div class="mln" style="float: left; padding-top: 30px; height: 95%;">
+		<div class="msheet mln" style="float: left; padding-top: 30px; height: 95%;">
 			<div id="doctitle" class="msheet titlediv"
 				style="line-height: 100%; margin: 20px;">
 				<c:out value="${documentValue.doctitle}" />
 			</div>
 		</div>
-		<div class="msheet shareBookmark" style="float: left; height: 390px;">
+		<div class="msheet shareBookmark" style="float: left; height: 300px;">
 			<div style="margin: 0px 20px 20px 20px;">
 				 
 				<c:out value="${documentValue.docchannelname}" />
@@ -142,7 +140,7 @@
 		<div class="msheet" style="padding: 10px; float: left; height: 95%;">
 			<c:out value="${documentValue.htmlstr}" escapeXml="false" />
 		</div>
-		<div class="msheet shareBookmark" style="float: left; height: 390px;">
+		<div class="msheet shareBookmark" style="float: left; height: 300px;">
 			<div style="margin: 0px 20px 20px 20px;">
 				<a href="javascript:sharedocument()"> </a> <span
 					id="sharecount"><c:out value="${documentValue.sharecount}"
@@ -252,7 +250,7 @@
 						value="<c:out value="${documentValue.docid}" />">
 
 				</div>
-				<div style="display: block; float: left; padding-top: 20px;">
+				<div style="display: block; float: left; padding-top: 20px;width:50px;">
 					<div class="commoper">
 						<div class="mnlist"
 							style="width: 50px; height: 210px; padding-left: 10px;">
@@ -304,7 +302,7 @@
 			</div>
 		</div>
 		<div class="mln"
-			style="float: right; width: 25px; height: 100%; background-color: #dfa64f;">
+			style="float: right; width: 30px; height: 100%; background-color: #dfa64f;color:#fff;">
 		</div>
 	</div>
 	<div id="viewhead" class="viewhead"

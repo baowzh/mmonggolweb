@@ -4,6 +4,7 @@ $(window).on("load", function(e) {
 var setpagewidth = function() {
 	var height = $(window).height();
 	var width = $('#condiv')[0].scrollWidth;
+	//alert(width);
 	var sheetwidth = 0;
 	var count = 0;
 	var postSheets = 0;

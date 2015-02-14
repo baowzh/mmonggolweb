@@ -50,12 +50,13 @@
 			style="float: left; width: 5px; height: 100%; background-color: #dfa64f;">
 			<!-- 			#f2967b -->
 		</div>
-		<div class="mln"
-			style="float: left; width: 109px; height: 100%; padding-top: 110px; font-size: 19px; background-color: #dfa64f; background: url(site/img/phonehead.jpg) center top no-repeat;">
-			<br> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<div class="mln"
+			style="float: left; width: 109px; height: 100%; font-size: 19px; background-color: #dfa64f; background: url(site/img/phonehead.jpg) center top no-repeat;">
+			<br> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 			     <br> <br>
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			     <br>
+			     <br>
 		</div>
 		<div class="mln"
 			style="width: 30px; padding-left: 10px; float: left; background-color: #dfa64f; height: 100%;">
@@ -134,7 +135,7 @@
 				<c:out value="${documentValue.doctitle}" />
 			</div>
 		</div>
-		<div class="msheet shareBookmark" style="float: left; height: 390px;">
+		<div class="msheet shareBookmark" style="float: left; height: 300px;">
 			<div style="margin: 0px 20px 20px 20px;">
 				   <br> <a href="javascript:sharedocument()">
 					</a> <span id="sharecount"><c:out
@@ -208,7 +209,7 @@
 			style="background-color: #dfa64f;; width: 30px; color: #fff; padding-left: 10px; height: 100%;"></div>
 
 		<div class=" flt"
-			style="float: left; width: 240px; height: 98%; margin: 0px 8px 8px 8px; padding: 5px; background: white; border: solid 1px #dfa64f;">
+			style="float: left; width: 245px; height: 98%; margin: 0px 8px 8px 8px; padding: 5px; background: white; border: solid 1px #dfa64f;">
 
 			<div class="readerl">
 				<c:forEach items="${visitors}" var="visitorValue" varStatus="status">
@@ -216,7 +217,7 @@
 						<img src="html/userhead/<c:out value="${visitorValue.headurl}" />"
 							width="60" height="70" />
 						<div class="frt" style="width: 20px;">
-							<div class="m1ln" style="padding-top: 8px;">
+							<div class="m1ln" style="padding-top: 8px;overflow: hidden; height: 85px;width:22px;">
 								<a
 									href="gouserindex.do?userid=<c:out value="${visitorValue.visitorid}" />">
 									<c:out value="${visitorValue.visitorname}" />
@@ -296,7 +297,7 @@
 						value="<c:out value="${documentValue.docid}" />">
 
 				</div>
-				<div style="display: block; float: left; padding-top: 20px;">
+				<div style="display: block; float: left; padding-top: 20px;width: 50px;">
 					<div class="commoper">
 						<div class="mnlist"
 							style="width: 50px; height: 210px; padding-left: 10px;">
@@ -325,6 +326,9 @@
 				</div>
 			</form>
 		</nobr>
+		<div class="mln"
+			style="float: right; width: 30px; height: 100%; background-color: #dfa64f;color:#fff;">
+		</div>
 	</div>
 	<div id="viewhead" class="viewhead"
 		style="height: 30px; background-color: #dfa64f"></div>
