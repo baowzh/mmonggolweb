@@ -160,16 +160,19 @@
 			style="background-color: #dfa64f;; width: 30px; color: #fff; padding-left: 10px; height: 100%;"></div>
 
 		<div class=" flt"
-			style="float: left; width: 245px; height: 98%; margin: 0px 8px 8px 8px; padding: 5px; background: white;">
+			style="float: left; width: 270px; height: 98%; margin: 0px 8px 8px 8px; padding: 5px; background: white;">
 
 			<div class="readerl">
 				<c:forEach items="${visitors}" var="visitorValue" varStatus="status">
 					<div class="i" style="float: left;">
-						<img src="html/userhead/<c:out value="${visitorValue.headurl}" />"
-							width="60" height="70" />
-						<div class="frt" style="width: 20px;">
+<!-- 					class="frt" -->
+						<div  style="width: 90px;height:85">
+							<div style="width:60px;height:85px;float:left;">
+							 <img src="html/userhead/<c:out value="${visitorValue.headurl}" />"
+							width="60" height="85" />
+							</div>
 							<div class="m1ln"
-								style="padding-top: 8px; overflow: hidden; height: 85px;width:22px;">
+								style="padding-top: 8px; overflow: hidden; height: 85px;width:22px;float:left;">
 								<a
 									href="gouserindex.do?userid=<c:out value="${visitorValue.visitorid}" />">
 									<c:out value="${visitorValue.visitorname}" />

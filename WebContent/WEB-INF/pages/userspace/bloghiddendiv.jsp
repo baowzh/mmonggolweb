@@ -58,24 +58,25 @@
 	writing-mode: tb-lr;
 }
 </style>
-<div id="accordion" class="lmainR"
-	style="-webkit-writing-mode: vertical-lr; writing-mode: tb-lr; display: none">
-	<div class="mnlist"
+<!-- class="lmainR" -->
+<!-- -webkit-writing-mode: vertical-lr; writing-mode: tb-lr;  -->
+<div id="accordion"  style="display: none">
+	<div class="mnlist" style="float:left;"
 		onclick="javascript:switchdiv('receivediv','senddiv');">
 		</div>
 	<!--  -->
-	<div class="  lcell" style="width: 800px; height: 450px;"
+	<div class="  lcell" style="width: 800px; height: 450px;float:left;"
 		id="receivediv">
 		<c:if test="${notlogin==0}">
 			<iframe width="100%" height="450px;" frameBorder="0" frameSpacing="0"
 				scrolling="auto" src="getMessage.do?type=1"></iframe>
 		</c:if>
 	</div>
-	<div class="mnlist"
+	<div class="mnlist" style="float:left;"
 		onclick="javascript:switchdiv('senddiv','receivediv');">
 		 </div>
 	<div class="  lcell"
-		style="width: 800px; height: 450px; display: none;" id="senddiv">
+		style="width: 800px; height: 450px; display: none;float:left;" id="senddiv">
 		<c:if test="${notlogin==0}">
 			<iframe width="100%" height="450px;" frameBorder="0" frameSpacing="0"
 				scrolling="auto" src="getMessage.do?type=2"></iframe>

@@ -46,7 +46,6 @@ import com.mongolia.website.model.PagingIndex;
 import com.mongolia.website.model.PaingModel;
 import com.mongolia.website.model.QuestionValue;
 import com.mongolia.website.model.ShareResourceValue;
-import com.mongolia.website.model.TopDocumentValue;
 import com.mongolia.website.model.UserValue;
 import com.mongolia.website.model.VisitorValue;
 import com.mongolia.website.model.VoteDetailForm;
@@ -929,12 +928,12 @@ public class WebResourceManagerImpl implements WebResourceManager {
 	}
 
 	@Override
-	public List<MessageValue> getReceMessList(String userid, String messid,
-			Integer pageIndex) throws ManagerException {
+	public PaingModel<MessageValue> getReceMessList(String userid, String messid,
+			Integer pageIndex,Integer rowcount) throws ManagerException {
 		// TODO Auto-generated method stub
-		List<MessageValue> mess = this.webResourceDao.getMessList(userid, 1,
-				messid, userid, pageIndex);
-		for (MessageValue messageValue : mess) {
+		PaingModel<MessageValue> pagingmodel = this.webResourceDao.getMessList(userid, 1,
+				messid, userid, pageIndex,rowcount);
+		for (MessageValue messageValue : pagingmodel.getModelList()) {
 			if (messageValue.getMessagecont() != null) {
 				try {
 					messageValue.setContenthtml(new String(messageValue
@@ -945,16 +944,18 @@ public class WebResourceManagerImpl implements WebResourceManager {
 			}
 
 		}
-		return mess;
+		return pagingmodel;
 	}
 
 	@Override
-	public List<MessageValue> getSendMessList(String userid, String messid,
-			Integer pageIndex) throws ManagerException {
+	public PaingModel<MessageValue> getSendMessList(String userid, String messid,
+			Integer pageIndex,Integer rowcount) throws ManagerException {
 		// TODO Auto-generated method stub
-		List<MessageValue> mess = this.webResourceDao.getMessList(userid, 2,
-				messid, userid, pageIndex);
-		for (MessageValue messageValue : mess) {
+		PaingModel<MessageValue> pagingmodel=this.webResourceDao.getMessList(userid, 2,
+				messid, userid, pageIndex,rowcount);
+		//List<MessageValue> mess = this.webResourceDao.getMessList(userid, 2,
+				//messid, userid, pageIndex);
+		for (MessageValue messageValue : pagingmodel.getModelList()) {
 			if (messageValue.getMessagecont() != null) {
 				try {
 					messageValue.setContenthtml(new String(messageValue
@@ -964,7 +965,7 @@ public class WebResourceManagerImpl implements WebResourceManager {
 				}
 			}
 		}
-		return mess;
+		return pagingmodel;
 	}
 
 	@Override
@@ -1011,7 +1012,7 @@ public class WebResourceManagerImpl implements WebResourceManager {
 				sendmessageValue.setMessagecont(comment.getBytes("utf-8"));
 				sendmessageValue.setMessagesendername(messageSenderName);
 				sendmessageValue.setSendtime(new Date());
-				this.webResourceDao.addCommentOnResource(sendmessageValue);
+				//this.webResourceDao.addCommentOnResource(sendmessageValue);
 			} else if (messType.intValue() == StaticConstants.MESS_TYPE_QUSTION) {// 加为
 				// 校验是否已经添加为朋友
 				List<FriendValue> friends = webResourceDao.getFriendValues(
@@ -1802,7 +1803,13 @@ public class WebResourceManagerImpl implements WebResourceManager {
 			}
 
 		}
-
 	}
+
+	@Override
+	public void delMessage(String userid, String messid) throws Exception {
+		// TODO Auto-generated method stub
+		this.webResourceDao.delMessage( messid);
+	}
+	
 
 }

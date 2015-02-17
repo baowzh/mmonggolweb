@@ -854,8 +854,8 @@ public class BlogManagerAction {
 				map.put("maillogin", sessionUser.getMaillogin());
 				self = new Integer(1);
 			} else {
-				List<UserValue> uservalues = this.userManager
-						.getUsers(userid, null);// 被浏览用户
+				List<UserValue> uservalues = this.userManager.getUsers(userid,
+						null);// 被浏览用户
 				user = uservalues.get(0);
 				if (sessionUser != null
 						&& sessionUser.getUserid().equalsIgnoreCase(
@@ -1264,14 +1264,23 @@ public class BlogManagerAction {
 			if (pageIndex == null) {
 				pageIndex = "1";
 			}
-			List<MessageValue> receiveMessList = this.webResourceManager
+
+			PaingModel<MessageValue> messagepage = this.webResourceManager
 					.getReceMessList(currentuserid, null,
-							Integer.parseInt(pageIndex));
+							Integer.parseInt(pageIndex), 8);
+			List<MessageValue> receiveMessList = messagepage.getModelList();
 			showemotion(receiveMessList);
-			List<MessageValue> sendMessList = this.webResourceManager
+			List<PagingIndex> pageindexs = getMessagePageindexs(
+					Integer.parseInt(pageIndex), messagepage.getPagecount());
+			PaingModel<MessageValue> messagepage1 = this.webResourceManager
 					.getSendMessList(currentuserid, null,
-							Integer.parseInt(pageIndex));
+							Integer.parseInt(pageIndex), 8);
+			map.put("pageindexs", pageindexs);
+			List<MessageValue> sendMessList = messagepage1.getModelList();
 			showemotion(sendMessList);
+			List<PagingIndex> pageindexs1 = getMessagePageindexs(
+					Integer.parseInt(pageIndex), messagepage1.getPagecount());
+			map.put("pageindexs1", pageindexs1);
 			String type = request.getParameter("type");
 			if ("1".equalsIgnoreCase(type)) {
 				map.put("messList", receiveMessList);
@@ -1284,6 +1293,42 @@ public class BlogManagerAction {
 			ex.printStackTrace();
 		}
 		return new ModelAndView("userspace/messlist", map);
+	}
+
+	private List<PagingIndex> getMessagePageindexs(Integer pageindex,
+			Integer pageCount) {
+		List<PagingIndex> indexs = new ArrayList<PagingIndex>();
+		for (int i = 0; i < pageCount; i++) {
+			PagingIndex pagingIndex = new PagingIndex();// 就显示首页，末页和当前页，当前页前面，后面
+			pagingIndex.setPageindex(i + 1);
+			if (i + 1 == pageindex.intValue()) {
+				pagingIndex.setCurrent(1);
+			}
+			if (i == 0) {
+				indexs.add(pagingIndex);
+				pagingIndex.setDoc(0);
+			} else if (i == pageCount - 1) {
+				indexs.add(pagingIndex);
+				pagingIndex.setDoc(0);
+			} else if (i + 1 == pageindex) {
+				indexs.add(pagingIndex);
+				pagingIndex.setCurrent(1);
+			} else if (i == pageindex) {
+				indexs.add(pagingIndex);
+				if (i + 2 != pageCount && i != 1) {
+					pagingIndex.setDoc(1);
+					pagingIndex.setFront(0);
+				}
+			} else if (i == pageindex - 2) {
+				indexs.add(pagingIndex);
+				if (i != 1 && i + 1 != pageCount && i + 1 != pageindex) {
+					pagingIndex.setDoc(1);
+					pagingIndex.setFront(1);
+				}
+			}
+
+		}
+		return indexs;
 	}
 
 	@RequestMapping("/getmesscontent.do")
@@ -1470,11 +1515,22 @@ public class BlogManagerAction {
 			pageIndex = Integer.parseInt(pageindex);
 		}
 		try {
-			List<MessageValue> receiveMess = this.webResourceManager
-					.getReceMessList(sessionUser.getUserid(), messid, pageIndex);
-			List<MessageValue> sendMess = this.webResourceManager
-					.getSendMessList(sessionUser.getUserid(), messid, pageIndex);
+
+			PaingModel<MessageValue> pagemodel = this.webResourceManager
+					.getReceMessList(sessionUser.getUserid(), messid,
+							pageIndex, 8);
+			List<MessageValue> receiveMess = pagemodel.getModelList();
+			List<PagingIndex> recepageindex = this.getMessagePageindexs(
+					pageIndex, pagemodel.getPagecount());
+			PaingModel<MessageValue> pagemodel1 = this.webResourceManager
+					.getSendMessList(sessionUser.getUserid(), messid,
+							pageIndex, 8);
+			List<MessageValue> sendMess = pagemodel1.getModelList();
+			List<PagingIndex> sendpageindex = this.getMessagePageindexs(
+					pageIndex, pagemodel.getPagecount());
 			map.put("receiveMess", receiveMess);
+			map.put("recepageindexs", recepageindex);
+			map.put("sendpageindexs", sendpageindex);
 			map.put("sendMess", sendMess);
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -2311,6 +2367,20 @@ public class BlogManagerAction {
 			return true;
 		}
 		return false;
+	}
+
+	@RequestMapping("/delMessage.do")
+	public ModelAndView delMessage(HttpServletRequest request,
+			HttpServletResponse response, ModelMap map) {
+		try {
+			this.webResourceManager.delMessage("",
+					request.getParameter("messid"));
+			map.put("success", "1");
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			map.put("success", "0");
+		}
+		return new ModelAndView("jsonView", map);
 	}
 
 }

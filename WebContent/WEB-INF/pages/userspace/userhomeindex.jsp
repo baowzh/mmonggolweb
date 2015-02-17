@@ -79,7 +79,7 @@
 									<c:forEach items="${docList}" var="documentValue"
 										varStatus="status">
 										<div class="m1ln">
-											<a><img src="site/img/qig_1_v.png"></a> <a
+											<a><img src="site/img/qig_1_v.png"></a>&nbsp;&nbsp; <a
 												href="getuserdocdetail.do?docid=<c:out value="${documentValue.docid}" />"><c:out
 													value="${documentValue.doctitle}" escapeXml="false" /> </a>
 
@@ -289,8 +289,8 @@
 											</div>
 										</c:if>
 										<c:if test="${self==0}">
-											<a href="#"><c:out value="${friendNews.docauthor}" /> </a>   <a
-												href="#"> <c:out value="${friendNews.doctitle}"
+											<a href="getuserdocdetail.do?docid=<c:out value="${friendNews.docid}" />"><c:out value="${friendNews.docauthor}" /> </a>   <a
+												href="getuserdocdetail.do?docid=<c:out value="${friendNews.docid}" />"> <c:out value="${friendNews.doctitle}"
 													escapeXml="false" />  
 											</a>    
 							<p class="newsAbs">

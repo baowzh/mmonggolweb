@@ -2,7 +2,7 @@
  * 打开页面
  * 
  * @param {}
- * pageurl
+ *            pageurl
  */
 var openpage = function(index, currentuserid, type, pagetype, neebarlocation) {
 	var querurl = 'pagingsharedoc.do';
@@ -43,7 +43,7 @@ var openpage = function(index, currentuserid, type, pagetype, neebarlocation) {
 					userid : currentuserid,
 					pageindex : index,
 					pagetype : pagetype,
-					pagesize:24
+					pagesize : 24
 				},
 				complete : function() {
 					$(".loadingbox").hide();
@@ -55,7 +55,7 @@ var openpage = function(index, currentuserid, type, pagetype, neebarlocation) {
 
 							if (pagetype == 1) {
 								htmlstrr = htmlstrr
-										+ '<div class=\"m1ln\"><a><img src="site/img/qig_1_v.png"></a>'
+										+ '<div class=\"m1ln\"><a><img src="site/img/qig_1_v.png"></a>&nbsp;&nbsp;'
 										+ '<a '
 										+ 'href=\"getuserdocdetail.do?docid='
 										+ data.doclist[i].docid + '&pageindex='
@@ -102,19 +102,6 @@ var openpage = function(index, currentuserid, type, pagetype, neebarlocation) {
 					} else if (type == 2) {
 						// 设置当前 连接的
 						$("#sharedoclist").html(data.pagingstr);
-						// $(".sharespanstyle").each(function(i, o) {
-						// $(o).removeClass("cursharespanstyle");
-						// $(o).addClass("sharespanstyle");
-						//
-						// });
-						// $(".cursharespanstyle").each(function(i, o) {
-						// $(o).removeClass("cursharespanstyle");
-						// $(o).addClass("sharespanstyle");
-						//
-						// });
-						// $(".sharespanstyle#page" + index).addClass(
-						// "cursharespanstyle").removeClass(
-						// "sharespanstyle");
 					}
 
 				}
@@ -131,8 +118,9 @@ var openPhotoList = function(albumid) {
 	}
 	$("#imggroupid").val(albumid);
 	$("#alinkform").attr('action', 'getimglist.do');
-	//$("#alinkform").submit();
-	window.location.href="getimglist.do?userid="+userid+"&imggroupid="+albumid;
+	// $("#alinkform").submit();
+	window.location.href = "getimglist.do?userid=" + userid + "&imggroupid="
+			+ albumid;
 };
 /**
  * 添加朋友
@@ -207,8 +195,9 @@ var writemessage = function() {
 	var islogin = false;
 	islogin = checklogin();
 	if (islogin == false) {
-		//MessageWindow
-				//.showMess('         ');
+		// MessageWindow
+		// .showMess('        
+		// ');
 		openloginwin();
 		return;
 	}
@@ -234,65 +223,8 @@ var addmessface = function(emotionname) {
  */
 var receivemessage = function() {
 
-	/*
-	 * $ .ajax({ async : true, cache : false, type : 'POST', dataType : "json",
-	 * url : "getmessages.do",// 请求的action路径 error : function() {// 请求失败处理函数
-	 * alert('请求失败'); }, success : function(data) { // 请求成功后处理函数。 var innerHTML =
-	 * ''; for (i in data.receiveMess) { innerHTML = innerHTML + ' <div
-	 * class=\"xldgurg\" style=\"width: 124px; height: 470px;\"> ' + ' <div
-	 * class=\"avtr\"><a ' + ' href=\"gouserindex.do?userid= ' +
-	 * data.receiveMess[i].messagesenderid + ' \"> ' + ' <img ' + '
-	 * src=\"getsmheadimge.do?userid=' + data.receiveMess[i].messagesenderid +
-	 * '\"' + ' width=\"570\" height=\"447\" />' + ' </a> <input
-	 * type=\"checkbox\" name=\"selectbox\"' + ' id=\"' +
-	 * data.receiveMess[i].messagesenderid + ' \"/>' + ' </div>' + ' <div
-	 * class=\"desc \" style=\"color: #000; height: 370px;widht:120px;\">' + '
-	 * <div class=\"m1ln\" style=\"height: 350px;\">' + ' <a' + '
-	 * href=\"gouserindex.do?userid=' + data.receiveMess[i].messagesenderid + '
-	 * \">' + data.receiveMess[i].artname + ' </a> '; var kindstr = ""; var
-	 * messstr = ""; if (data.receiveMess[i].messtype == 2) { kindstr = "
-	 *    "; messstr = "    " +
-	 * data.receiveMess[i].sendtime + "<br><a href=\"javascript:readmessage('" +
-	 * data.receiveMess[i].messageid + "',1);\" style=\"color:#f00\">
-	 * </a>"; } else if (data.receiveMess[i].messtype == 4) { kindstr =
-	 * "  "; messstr = "   " +
-	 * data.receiveMess[i].sendtime + '<br><a href=\"javascript:addfriends(\'' +
-	 * data.receiveMess[i].messagesenderid + '\',1,\'' +
-	 * data.receiveMess[i].messageid + '\')\" style=\"color:#f00;\"></a> 
-	 * <a href=\"\" style=\"color:#f00;\"> </a>'; } else { }
-	 * 
-	 * innerHTML = innerHTML + kindstr + ' </div>' + ' <div class=\"m1ln\"
-	 * style=\"height: 350px;width:100px;\" >' + messstr + '</div>' + '</div>' + '</div>'; }
-	 * $("#receivediv").html(innerHTML);
-	 */
-	//
-	/*
-	 * innerHTML = ""; for (i in data.sendMess) { innerHTML = innerHTML + ' <div
-	 * class=\"xldgurg\" style=\"width: 124px; height: 470px; !important;\"> ' + '
-	 * <div class=\"avtr\"><a ' + ' href=\"gouserindex.do?userid= ' +
-	 * data.sendMess[i].userid + ' \"> ' + ' <img ' + '
-	 * src=\"getsmheadimge.do?userid=' + data.sendMess[i].userid + '\"' + '
-	 * width=\"570\" height=\"447\" />' + ' </a> <input type=\"checkbox\"
-	 * name=\"selectbox\"' + ' id=\"' + data.sendMess[i].userid + ' \"/>' + '
-	 * </div>' + ' <div class=\"desc \" style=\"color: #000; height:
-	 * 370px;widht:120px;!important;\">' + ' <div class=\"m1ln\" style=\"height:
-	 * 350px;\">' + ' <a' + ' href=\"gouserindex.do?userid=' +
-	 * data.sendMess[i].userid + ' \">' + data.sendMess[i].artname + ' 
-	 *   </a>' + ' </div>' + ' <div class=\"m1ln\"
-	 * style=\"height: 350px;width:100px; !important;\" >' + '   ' +
-	 * data.sendMess[i].sendtime + '<br> <a href=\"\"
-	 * style=\"color:#f00\"> </a></div></div></div>'; }
-	 * 
-	 * $("#senddiv").html(innerHTML);
-	 * 
-	 * $("#accordion").dialog({ height : 510, width : 1000, resizable : false,
-	 * modal : true
-	 * 
-	 * }); } });
-	 */
-
 	$("#accordion").dialog({
-		height : 510,
+		height : 530,
 		width : 900,
 		resizable : false,
 		modal : true
@@ -338,8 +270,9 @@ var openaddfrienddl = function() {
 	var islogin = false;
 	islogin = checklogin();
 	if (!islogin) {
-		//MessageWindow
-				//.showMess('         ');
+		// MessageWindow
+		// .showMess('       
+		// ');
 		openloginwin();
 		return;
 	}
@@ -361,7 +294,7 @@ var openaddfrienddl = function() {
 var sendaddfriendmess = function(visiteduserid) {
 	// addfrienddiv
 	var mess = $("#addfriendmess").text();
-	//alert(mess);
+	// alert(mess);
 	$
 			.ajax({
 				async : false,
@@ -492,8 +425,8 @@ var showdiv = function(id1, id2, id3) {
 };
 var showpassdialog = function() {
 	$('#updpassdiv').dialog({// addfriendmess 13347126631
-		width:300,
-		height:350,
+		width : 300,
+		height : 350,
 		resizable : false,
 		modal : true
 	});

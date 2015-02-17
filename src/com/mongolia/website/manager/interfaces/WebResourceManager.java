@@ -109,14 +109,16 @@ public interface WebResourceManager {
 	 * @param imgValue
 	 * @throws ManagerException
 	 */
-	public void doAddImg(ImgValue imgValue,String facepath) throws ManagerException;
+	public void doAddImg(ImgValue imgValue, String facepath)
+			throws ManagerException;
 
 	/**
 	 * 
 	 * @param imgId
 	 * @throws ManagerException
 	 */
-	public void doDeleteImg(String imgId,String userid) throws ManagerException;
+	public void doDeleteImg(String imgId, String userid)
+			throws ManagerException;
 
 	/**
 	 * 获取工具栏
@@ -160,7 +162,7 @@ public interface WebResourceManager {
 	 */
 	public Map<String, Object> getBlogInfo(UserValue blogUser,
 			UserValue sessionUser, Integer self, String docchannel,
-			Integer pageindex,Integer clienttype) throws ManagerException;
+			Integer pageindex, Integer clienttype) throws ManagerException;
 
 	/**
 	 * 
@@ -256,8 +258,9 @@ public interface WebResourceManager {
 	 * @return
 	 * @throws ManagerException
 	 */
-	public List<MessageValue> getReceMessList(String userid, String messid,
-			Integer pageIndex) throws ManagerException;
+	public PaingModel<MessageValue> getReceMessList(String userid,
+			String messid, Integer pageIndex, Integer rowcount)
+			throws ManagerException;
 
 	/**
 	 * 
@@ -267,8 +270,9 @@ public interface WebResourceManager {
 	 * @return
 	 * @throws ManagerException
 	 */
-	public List<MessageValue> getSendMessList(String userid, String messid,
-			Integer pageIndex) throws ManagerException;
+	public PaingModel<MessageValue> getSendMessList(String userid,
+			String messid, Integer pageIndex, Integer rowcount)
+			throws ManagerException;
 
 	/**
 	 * 
@@ -459,5 +463,13 @@ public interface WebResourceManager {
 	public void synOldMess() throws Exception;
 
 	public void synOldImg(String imgpath) throws Exception;
+
+	/**
+	 * 
+	 * @param userid
+	 * @param messid
+	 * @throws Exception
+	 */
+	public void delMessage(String userid, String messid) throws Exception;
 
 }

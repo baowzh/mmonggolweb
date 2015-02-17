@@ -44,28 +44,7 @@ var login = function() {
 					var imgurl = 'html/userhead/';
 					var homdurl = 'gouserindex.do';
 					if (data.success == 'true') {
-						var innerHTML = '<div class=\"loin\" style=\"padding-left:10px;\">'
-								+ '<div class=\"avtr\"><img src=\"'
-								+ imgurl
-								+ data.userinfo.headurl
-								+ '\"  style=\"width:80px;\" /></div>'
-								+ '<div class=\"desc  \" style=\"width:120px\">'
-								+ '<div class=\"m1ln\">   '
-								+ data.userinfo.artname
-								+ '</div>'
-								+ '<div class=\"m1ln\"><a href=\"'
-								+ homdurl
-								+ '\"> </a></div>'
-								+ '<div class=\"m1ln\"><a href=\"'
-								+ 'javascript:logout();'
-								+ '\"> </a></div>'
-								+ '<div class=\"m1ln\"><a href=\"#\">     : '
-								+ data.userinfo.logindate
-								+ '</a></div>'
-								+ '</div>' + '</div>';
-						// $("#loginform").html(innerHTML);
-						$("#logindiv").html(innerHTML);
-
+						iniuserinfocard(data);
 					} else {
 						if (data.mess == '1') {
 							MessageWindow
@@ -76,8 +55,8 @@ var login = function() {
 									.html(
 											'<div style=\"writing-mode: tb-lr; -webkit-writing-mode: vertical-lr;-webkit-text-orientation: sideways-right;\"> <br>&nbsp;&nbsp; &nbsp;     <br>     '
 													+ '<br><br><a href=\"registe.do\" style=\"text-decoration: none;color: #f00;\">&nbsp;&nbsp; &nbsp&nbsp;&nbsp; &nbsp </a>   </div>');
-						} else if (data.mess == '3') {
 
+						} else if (data.mess == '3') {
 							MessageWindow
 									.showMess('       ');
 							$('#registlink').attr('href',
@@ -86,13 +65,8 @@ var login = function() {
 							$('#registlink')
 									.html(
 											'<font color="#f00">  </font>');
-
-						} else {
-							//
-						}
-
+						} 
 					}
-
 				}
 			});
 
@@ -150,27 +124,7 @@ $(document)
 									if (data.userinfo == null) {
 										return;
 									}
-									var innerHTML = '<div class=\"loin\" style=\"padding-left:10px;\">'
-											+ '<div class=\"avtr\"><img src=\"'
-											+ imgurl
-											+ data.userinfo.headurl
-											+ '\"  style=\"width:80px;\" /></div>'
-											+ '<div class=\"desc  \" style=\"width:120px\">'
-											+ '<div class=\"m1ln\">  '
-											+ data.userinfo.artname
-											+ '</div>'
-											+ '<div class=\"m1ln\"><a href=\"'
-											+ homdurl
-											+ '\"> </a></div>'
-											+ '<div class=\"m1ln\"><a href=\"'
-											+ 'javascript:logout();'
-											+ '\"> </a></div>'
-											+ '<div class=\"m1ln\">   : '
-											+ data.userinfo.logindate
-											+ '</div>' + '</div>' + '</div>';
-									// $("#loginform").html(innerHTML);
-									$("#logindiv").html(innerHTML);
-
+									iniuserinfocard(data);
 								}
 							});
 					// 显示顶部广告
@@ -182,14 +136,35 @@ $(document)
 					} else {
 						$('#searchtext').addClass('iesearchtext');
 					}
-					// 设置视频为滚动区域
-					/*
-					$('#videoBox').slimScroll({
-					    width: '950px',
-					    height: '329px'
-					});*/
-
 				}));
+/**
+ * 
+ */
+var iniuserinfocard = function(data) {
+	var imgurl = 'html/userhead/';
+	var homdurl = 'gouserindex.do';
+	var logindiv = $('<div></div>').addClass('loin').css('padding-left', 10);
+	var avtrdiv = $('<div></div>').addClass('avtr');
+	avtrdiv = avtrdiv.append($('<img>').prop('src',
+			imgurl + data.userinfo.headurl));
+	avtrdiv = avtrdiv.css('width', 80);
+	var descdiv = $('<div></div>').addClass('desc').css('width', 120);
+	descdiv.append($('<div></div>').addClass('m1ln').text(
+			'  ' + data.userinfo.artname));
+	descdiv.append($('<div></div>').addClass('m1ln').append(
+			$('<a></a>').prop('href', homdurl).text(' ')));
+	descdiv.append($('<div></div>').addClass('m1ln').append(
+			$('<a></a>').prop('href', 'javascript:logout();').text(
+					' ')));
+	descdiv.append($('<div></div>').addClass('m1ln').append(
+			$('<a></a>').prop('href', '#').text(
+					'   :' + data.userinfo.logindate)));
+	logindiv = logindiv.append(avtrdiv);
+	logindiv = logindiv.append(descdiv);
+	$("#logindiv").html(
+			$('<div></div>').addClass('loin').append(logindiv.html()));
+
+};
 /**
  * 退出系统
  */
@@ -204,10 +179,57 @@ var logout = function() {
 			MessageWindow.showMess('    ');
 		},
 		success : function(data) { // 请求成功后处理函数。
-			window.location.href = 'index.do';
+			//window.location.href = 'index.do';
+			initloginform();
 		}
 	});
 
+};
+var initloginform = function() {
+	var loginform = $('<form></form>').addClass('mglForm').prop('action',
+			'checkandlogin.do').prop('id', 'loginform').prop('method', 'post');
+	var label1 = $('<div></div>').addClass('label').css('width', 27).text(
+			'  ');
+	loginform.append(label1);
+	var label2 = $('<div></div>').addClass('label').css('width', 27).text(
+			'  ');
+	loginform.append(label2);
+	var label3 = $('<div></div>').addClass('label').css('width', 27).text(
+			'').append(
+			$('<a></a>').text('  :').prop('href',
+					'javascript:replaceverifycode();'));
+	loginform.append(label3);
+	var label4 = $('<div></div>').addClass('label').css('width', 27).append(
+			$('<a></a>').prop('href', 'javascript:replaceverifycode();')
+					.append(
+							$('<img>').prop('src', 'verifyCodeServlet').prop(
+									'id', 'varifyimg').css({
+								width : 18,
+								height : 100
+							})));
+	loginform.append(label4);
+	var inputHolder1 = $('<div></div>').addClass('inputHolder').append(
+			$('<input>').prop('name', 'username').prop('id', 'username'));
+	loginform.append(inputHolder1);
+	var inputHolder2 = $('<div></div>').addClass('inputHolder').append(
+			$('<input>').prop('name', 'password').prop('id', 'password').prop(
+					'type', 'password'));
+	loginform.append(inputHolder2);
+	var inputHolder3 = $('<div></div>').addClass('inputHolder').append(
+			$('<input>').prop('name', 'validcode').prop('id', 'varifycode'));
+	loginform.append(inputHolder3);
+	var operdiv = $('<div></div>').addClass('mnlist').css({
+		height : 150,
+		width : 30
+	});
+	operdiv = operdiv.append($('<a></a>').prop('id', 'registlink').prop('href',
+			'registe.do').text(''));
+	operdiv.append('&nbsp;&nbsp;&nbsp;&nbsp;');
+	operdiv = operdiv.append($('<a></a>').prop('href', 'javascript:login();')
+			.text(''));
+	loginform.append(operdiv);
+	var contentdiv = $('<div></div>').addClass('content').append(loginform);
+	$('#logindiv').html('<div class="content">' + contentdiv.html() + '<div>');
 };
 var search = function(action) {
 	var searchtext = $("#searchtext").val();
@@ -260,26 +282,30 @@ var showsideadver = function() {
  * 通过邮箱找回密码
  */
 var getpass = function() {
-	$.ajax({
-		async : false,
-		cache : false,
-		type : 'POST',
-		dataType : "json",
-		url : 'getpasswithmail.do',// 请求的action路径
-		data : {
-			username : $("input[name='username']").val(),
-			validcode : $("input[name='validcode']").val()
-		},
-		error : function() {// 请求失败处理函数
-			MessageWindow.showMess('    ');
-		},
-		success : function(data) { // 请求成功后处理函数。
-			// window.location.href = 'index.do';
-			if (data.mess == 1) {
-				MessageWindow.showMess('    email:'
-						+ data.mailaddress + '<br>   email    ');
-			}
-		}
-	});
+	$
+			.ajax({
+				async : false,
+				cache : false,
+				type : 'POST',
+				dataType : "json",
+				url : 'getpasswithmail.do',// 请求的action路径
+				data : {
+					username : $("input[name='username']").val(),
+					validcode : $("input[name='validcode']").val()
+				},
+				error : function() {// 请求失败处理函数
+					MessageWindow
+							.showMess('    ');
+				},
+				success : function(data) { // 请求成功后处理函数。
+					// window.location.href = 'index.do';
+					if (data.mess == 1) {
+						MessageWindow
+								.showMess('    email:'
+										+ data.mailaddress
+										+ '<br>   email    ');
+					}
+				}
+			});
 
 };
