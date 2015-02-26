@@ -924,12 +924,12 @@
 							<a
 								href="getuserdocdetail.do?docid=<c:out value="${imgValue.docid}"/>"><img
 								src="<c:out value="${imgValue.facepath}"/>"
-								style="width: 280px; height: 318px;" /></a>
+								style="width: 273px; height: 318px;" /></a>
 						</c:if>
 						<c:if test="${imgValue.facepath==null}">
 							<a
 								href="getuserdocdetail.do?docid=<c:out value="${imgValue.docid}"/>"><img
-								src="img/vido.jpg" style="width: 280px; height: 318px;" /></a>
+								src="img/vido.jpg" style="width: 273px; height: 318px;" /></a>
 						</c:if>
 						<!-- 
 						<a

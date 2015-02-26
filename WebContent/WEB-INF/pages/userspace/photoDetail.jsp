@@ -135,7 +135,7 @@
 				<c:out value="${documentValue.doctitle}" />
 			</div>
 		</div>
-		<div class="msheet shareBookmark" style="float: left; height: 300px;">
+		<div class="msheet shareBookmark" style="float: left; height: 300px;margin-top:0px;padding-top:150px;">
 			<div style="margin: 0px 20px 20px 20px;">
 				   <br> <a href="javascript:sharedocument()">
 					</a> <span id="sharecount"><c:out
@@ -189,7 +189,7 @@
 					value="<c:out value="${imgValue.crtimestr}"/>">
 			</c:forEach>
 		</div>
-		<div class="msheet shareBookmark" style="float: left; height: 390px;">
+		<div class="msheet shareBookmark" style="float: left; height: 390px;margin-top:0px;padding-top:150px;">
 			<div style="margin: 0px 20px 20px 20px;">
 				<a href="javascript:sharedocument()"> </a> <span
 					id="sharecount"><c:out value="${documentValue.sharecount}"
@@ -228,7 +228,7 @@
 								</a>
 							</div>
 						</div>
-						<div class="time">
+						<div class="time" style="width:70px;">
 							<font size="1px;"><c:out
 									value="${visitorValue.visitdatestr}" /></font>
 						</div>

@@ -156,7 +156,7 @@
 			<%@ include file="../website/tail.jsp"%>
 		</div>
 		<div id="validcodediv"
-			style="width: 140px; height: 210px; display: none;">
+			style="width: 140px; height: 210px; display: none;z-index:99;">
 			<div class="content" style="width: 150px; height: 270px;">
 				<form action="addfriend.do" name="addfriendform" id="addfriendform"
 					class="mglForm">

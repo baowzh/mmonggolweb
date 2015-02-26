@@ -466,6 +466,9 @@
 			<isNotNull prepend="," property="compiler">
 				compiler= #compiler#
 			</isNotNull>
+			<isNotNull prepend="," property="flashurl">
+				flashurl= #flashurl#
+			</isNotNull>
 		</dynamic>
 		where docid=#docid# and userid=#userid#
 	</update>

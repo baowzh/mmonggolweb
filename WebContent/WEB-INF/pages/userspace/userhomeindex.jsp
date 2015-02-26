@@ -88,7 +88,8 @@
 									</c:forEach>
 								</div>
 								<div class="cbt"></div>
-								<c:if test="${fn:length(docList)!=0&&fn:length(docpageIndexs)!=0}">
+								<c:if
+									test="${fn:length(docList)!=0&&fn:length(docpageIndexs)!=0}">
 									<div class="paginationArea">
 										<div class="pagination" id="docpagelist">
 											<a class="first disabled" id="firsta"
@@ -130,122 +131,189 @@
 									</div>
 								</c:if>
 							</div>
-                             <hr>
-							<!-- 分享作品 -->
-							<c:if test="${fn:length(sharePaingModel.modelList)!=0}">
-								<div class="flt txtBlogList" id="sharedoclistidv">
-									<c:if test="${self==1}">
-										<div class="addNewArtcl"></div>
-									</c:if>
-									<div class="channelname">
-										<a href="#"> &nbsp; &nbsp; </a>
-									</div>
-									<div class="artclList" id="shareartclList"
-										style="height: 480px;">
-										<c:forEach items="${sharePaingModel.modelList}"
-											var="documentValue" varStatus="status">
-											<div class="sharenwsl1">
-												<div class="title" style="height: 380px;">
-													<a
-														href="getuserdocdetail.do?docid=<c:out value="${documentValue.docid}" />"><c:out
-															value="${documentValue.doctitle}" escapeXml="false" /> </a>
+							<hr>
+								<!-- 分享作品 -->
+								<c:if test="${fn:length(sharePaingModel.modelList)!=0}">
+									<div class="flt txtBlogList" id="sharedoclistidv">
+										<c:if test="${self==1}">
+											<div class="addNewArtcl"></div>
+										</c:if>
+										<div class="channelname">
+											<a href="#"> &nbsp; &nbsp; </a>
+										</div>
+										<div class="artclList" id="shareartclList"
+											style="height: 480px;">
+											<c:forEach items="${sharePaingModel.modelList}"
+												var="documentValue" varStatus="status">
+												<div class="sharenwsl1">
+													<div class="title" style="height: 380px;">
+														<a
+															href="getuserdocdetail.do?docid=<c:out value="${documentValue.docid}" />"><c:out
+																value="${documentValue.doctitle}" escapeXml="false" />
+														</a>
+													</div>
+													<div class="author">
+														<a
+															href="gouserindex.do?userid=<c:out value="${documentValue.userid}"/>"><c:out
+																value="${documentValue.docauthor}" escapeXml="false" /></a>
+													</div>
 												</div>
-												<div class="author">
-													<a
-														href="gouserindex.do?userid=<c:out value="${documentValue.userid}"/>"><c:out
-															value="${documentValue.docauthor}" escapeXml="false" /></a>
+											</c:forEach>
+										</div>
+										<div class="cbt"></div>
+										<div class="paginationArea">
+											<div class="pagination" id="sharedoclist">
+												<a class="first disabled" id="firsta"
+													href="javascript:openpage('1','<c:out value="${user.userid}" />',2);switchclass('first');">
+													<span id="pagefirst" class="spanstyle">&lt;&lt; </span>
+												</a> <a class="first disabled" id="previousa"
+													href="javascript:openpage('<c:out value="${previousindex}" />','<c:out value="${user.userid}" />',2);switchclass('pageprevious');">
+													<span id="pageprevious" class="spanstyle">&nbsp;&lt;&nbsp;
+												</span>
+												</a>
+												<c:forEach items="${sharepageIndexs}" var="pagingIndex"
+													varStatus="status">
+													<a class="first disabled"
+														href="javascript:openpage('<c:out value="${pagingIndex.pageindex}" />','<c:out value="${user.userid}" />',2);switchclass('page<c:out value="${pagingIndex.pageindex}" />');">
+														<c:if test="${status.index==0}">
+															<span id="page<c:out value="${pagingIndex.pageindex}" />"
+																class="cursharespanstyle">&nbsp;<c:out
+																	value="${pagingIndex.pageindex}" />&nbsp;
+															</span>
+														</c:if> <c:if test="${status.index!=0}">
+															<span id="page<c:out value="${pagingIndex.pageindex}" />"
+																class="sharespanstyle">&nbsp;<c:out
+																	value="${pagingIndex.pageindex}" />&nbsp;
+															</span>
+														</c:if>
+													</a>
+												</c:forEach>
+												<a class="first disabled" id="nexta"
+													href="javascript:openpage('2','<c:out value="${user.userid}" />',2);switchclass('pagenext');">
+													<span id="pagenext" class="spanstyle">&nbsp;&gt;&nbsp;
+												</span>
+												</a> <a class="first disabled" id="lasta"
+													href="javascript:openpage('<c:out value="${pageCount}" />','<c:out value="${user.userid}" />',2);switchclass('pagelast');">
+													<span id="pagelast" class="spanstyle">&gt;&gt; </span>
+												</a>
+
+											</div>
+										</div>
+									</div>
+									<hr>
+								</c:if>
+
+								<div class="flt glryBox">
+									<div class="m0a" style="width: 690px; margin: 0px;">
+										<c:if test="${self==1}">
+											<div class="addNewAlbum">
+												<div class="m1ln borderOuter"
+													style="height: 100px; text-align: center;">
+													<a href="javascript:openaddphotoalbumdialog();">
+														 </a>
+												</div>
+
+											</div>
+
+										</c:if>
+										<div class="folder photoAlbumC">
+											<div style="width: 80px; margin: 4em 2em;">
+												<div class=" msheet">
+													<a href="#">  <br /><br /> <br />  <br><br /></a>
+												</div>
+											</div>
+										</div>
+
+										<c:forEach items="${imggroupValues}" var="imgGrpupValue"
+											varStatus="status">
+											<div class="folder" style="width: 162px; height: 180px;">
+												<a
+													href="javascript:openPhotoList('<c:out value="${imgGrpupValue.imggroupid}"/>')">
+													<c:if test="${imgGrpupValue.faceurl!=null}">
+														<img style="width: 132px; height: 150px;"
+															src="html/photoalbum/<c:out value="${imgGrpupValue.faceurl}"/>">
+													</c:if> <c:if test="${imgGrpupValue.faceurl==null}">
+														<img style="width: 132px; height: 150px;"
+															src="html/photoalbum/imgface.jpg">
+													</c:if>
+												</a>
+												<div class="m1ln" style="text-align: center; height: 145px;">
+													<a title="<c:out value="${imgGrpupValue.imggroupname}"/>"
+														href="javascript:openPhotoList('<c:out value="${imgGrpupValue.imggroupid}"/>')"><c:out
+															value="${imgGrpupValue.imggroupname}" escapeXml="false" /></a>
+												</div>
+												<div class="time">
+													<c:out value="${imgGrpupValue.createdtimestr}" />
+													<!-- 											2014-03-08 -->
 												</div>
 											</div>
 										</c:forEach>
 									</div>
-									<div class="cbt"></div>
-									<div class="paginationArea">
-										<div class="pagination" id="sharedoclist">
-											<a class="first disabled" id="firsta"
-												href="javascript:openpage('1','<c:out value="${user.userid}" />',2);switchclass('first');">
-												<span id="pagefirst" class="spanstyle">&lt;&lt; </span>
-											</a> <a class="first disabled" id="previousa"
-												href="javascript:openpage('<c:out value="${previousindex}" />','<c:out value="${user.userid}" />',2);switchclass('pageprevious');">
-												<span id="pageprevious" class="spanstyle">&nbsp;&lt;&nbsp;
-											</span>
-											</a>
-											<c:forEach items="${sharepageIndexs}" var="pagingIndex"
-												varStatus="status">
-												<a class="first disabled"
-													href="javascript:openpage('<c:out value="${pagingIndex.pageindex}" />','<c:out value="${user.userid}" />',2);switchclass('page<c:out value="${pagingIndex.pageindex}" />');">
-													<c:if test="${status.index==0}">
-														<span id="page<c:out value="${pagingIndex.pageindex}" />"
-															class="cursharespanstyle">&nbsp;<c:out
-																value="${pagingIndex.pageindex}" />&nbsp;
-														</span>
-													</c:if> <c:if test="${status.index!=0}">
-														<span id="page<c:out value="${pagingIndex.pageindex}" />"
-															class="sharespanstyle">&nbsp;<c:out
-																value="${pagingIndex.pageindex}" />&nbsp;
-														</span>
-													</c:if>
-												</a>
-											</c:forEach>
-											<a class="first disabled" id="nexta"
-												href="javascript:openpage('2','<c:out value="${user.userid}" />',2);switchclass('pagenext');">
-												<span id="pagenext" class="spanstyle">&nbsp;&gt;&nbsp;
-											</span>
-											</a> <a class="first disabled" id="lasta"
-												href="javascript:openpage('<c:out value="${pageCount}" />','<c:out value="${user.userid}" />',2);switchclass('pagelast');">
-												<span id="pagelast" class="spanstyle">&gt;&gt; </span>
-											</a>
-
-										</div>
-									</div>
 								</div>
 								<hr>
-							</c:if>
-
-							<div class="flt glryBox">
-								<div class="m0a" style="width: 690px; margin: 0px;">
-									<c:if test="${self==1}">
-										<div class="addNewAlbum">
-											<div class="m1ln borderOuter"
-												style="height: 100px; text-align: center;">
-												<a href="javascript:openaddphotoalbumdialog();">
-													 </a>
-											</div>
-
-										</div>
-
-									</c:if>
-									<div class="folder photoAlbumC">
-										<div style="width: 80px; margin: 4em 2em;">
-											<div class=" msheet">
-												<a href="#">  <br /><br /> <br />  <br><br /></a>
-											</div>
+							<div class="flt txtBlogList" id="sharedoclistidv">
+								<c:if test="${self==1}">
+									<div class="addNewArtcl">
+										<div class="m1ln borderOuter"
+											style="height: 90px; text-align: center;">
+											<a href="addvote.do">  </a>
 										</div>
 									</div>
-
-									<c:forEach items="${imggroupValues}" var="imgGrpupValue"
-										varStatus="status">
-										<div class="folder" style="width: 162px; height: 180px;">
-											<a
-												href="javascript:openPhotoList('<c:out value="${imgGrpupValue.imggroupid}"/>')">
-												<c:if test="${imgGrpupValue.faceurl!=null}">
-													<img style="width: 132px; height: 150px;"
-														src="html/photoalbum/<c:out value="${imgGrpupValue.faceurl}"/>">
-												</c:if> <c:if test="${imgGrpupValue.faceurl==null}">
-													<img style="width: 132px; height: 150px;"
-														src="html/photoalbum/imgface.jpg">
-												</c:if>
-											</a>
-											<div class="m1ln" style="text-align: center; height: 145px;">
-												<a title="<c:out value="${imgGrpupValue.imggroupname}"/>"
-													href="javascript:openPhotoList('<c:out value="${imgGrpupValue.imggroupid}"/>')"><c:out
-														value="${imgGrpupValue.imggroupname}" escapeXml="false" /></a>
-											</div>
-											<div class="time">
-												<c:out value="${imgGrpupValue.createdtimestr}" />
-												<!-- 											2014-03-08 -->
-											</div>
+								</c:if>
+								<div class="channelname">
+									<a href="#"> &nbsp; &nbsp;</a>
+								</div>
+								<div class="artclList" id="shareartclList"
+									style="height: 480px;">
+									<c:forEach items="${votelist}"
+										var="documentValue" varStatus="status">
+										<div class="sharenwsl1">
+											<div class="title" style="height: 380px;">
+												<a
+													href="getuserdocdetail.do?docid=<c:out value="${documentValue.voteid}" />"><c:out
+														value="${documentValue.topic}" escapeXml="false" /> </a>
+											</div>										
 										</div>
 									</c:forEach>
+								</div>
+								<div class="cbt"></div>
+								<div class="paginationArea">
+									<div class="pagination" id="sharedoclist">
+										<a class="first disabled" id="firsta"
+											href="javascript:openpage('1','<c:out value="${user.userid}" />',2);switchclass('first');">
+											<span id="pagefirst" class="spanstyle">&lt;&lt; </span>
+										</a> <a class="first disabled" id="previousa"
+											href="javascript:openpage('<c:out value="${previousindex}" />','<c:out value="${user.userid}" />',2);switchclass('pageprevious');">
+											<span id="pageprevious" class="spanstyle">&nbsp;&lt;&nbsp;
+										</span>
+										</a>
+										<c:forEach items="${sharepageIndexs}" var="pagingIndex"
+											varStatus="status">
+											<a class="first disabled"
+												href="javascript:openpage('<c:out value="${pagingIndex.pageindex}" />','<c:out value="${user.userid}" />',2);switchclass('page<c:out value="${pagingIndex.pageindex}" />');">
+												<c:if test="${status.index==0}">
+													<span id="page<c:out value="${pagingIndex.pageindex}" />"
+														class="cursharespanstyle">&nbsp;<c:out
+															value="${pagingIndex.pageindex}" />&nbsp;
+													</span>
+												</c:if> <c:if test="${status.index!=0}">
+													<span id="page<c:out value="${pagingIndex.pageindex}" />"
+														class="sharespanstyle">&nbsp;<c:out
+															value="${pagingIndex.pageindex}" />&nbsp;
+													</span>
+												</c:if>
+											</a>
+										</c:forEach>
+										<a class="first disabled" id="nexta"
+											href="javascript:openpage('2','<c:out value="${user.userid}" />',2);switchclass('pagenext');">
+											<span id="pagenext" class="spanstyle">&nbsp;&gt;&nbsp;
+										</span>
+										</a> <a class="first disabled" id="lasta"
+											href="javascript:openpage('<c:out value="${pageCount}" />','<c:out value="${user.userid}" />',2);switchclass('pagelast');">
+											<span id="pagelast" class="spanstyle">&gt;&gt; </span>
+										</a>
+
+									</div>
 								</div>
 							</div>
 							<hr>
@@ -289,9 +357,12 @@
 											</div>
 										</c:if>
 										<c:if test="${self==0}">
-											<a href="getuserdocdetail.do?docid=<c:out value="${friendNews.docid}" />"><c:out value="${friendNews.docauthor}" /> </a>   <a
-												href="getuserdocdetail.do?docid=<c:out value="${friendNews.docid}" />"> <c:out value="${friendNews.doctitle}"
-													escapeXml="false" />  
+											<a
+												href="getuserdocdetail.do?docid=<c:out value="${friendNews.docid}" />"><c:out
+													value="${friendNews.docauthor}" /> </a>   <a
+												href="getuserdocdetail.do?docid=<c:out value="${friendNews.docid}" />">
+												<c:out value="${friendNews.doctitle}" escapeXml="false" />
+												 
 											</a>    
 							<p class="newsAbs">
 												<c:out value="${friendNews.docabstract}"

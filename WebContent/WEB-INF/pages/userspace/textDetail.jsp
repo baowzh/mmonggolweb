@@ -119,7 +119,7 @@
 				<c:out value="${documentValue.doctitle}" />
 			</div>
 		</div>
-		<div class="msheet shareBookmark" style="float: left; height: 300px;">
+		<div class="msheet shareBookmark" style="float: left; height: 300px;margin-top:0px;padding-top:150px;">
 			<div style="margin: 0px 20px 20px 20px;">
 				 
 				<c:out value="${documentValue.docchannelname}" />
@@ -136,11 +136,11 @@
 					<c:out value="${documentValue.commentCount}" default="0" />
 				</span> 
 			</div>
-		</div>
+		</div>		
 		<div class="msheet" style="padding: 10px; float: left; height: 95%;">
 			<c:out value="${documentValue.htmlstr}" escapeXml="false" />
 		</div>
-		<div class="msheet shareBookmark" style="float: left; height: 300px;">
+		<div class="msheet shareBookmark" style="float: left; height: 300px;margin-top:0px;padding-top:150px;">
 			<div style="margin: 0px 20px 20px 20px;">
 				<a href="javascript:sharedocument()"> </a> <span
 					id="sharecount"><c:out value="${documentValue.sharecount}"
@@ -179,7 +179,7 @@
 								</a>
 							</div>
 						</div>
-						<div class="time">
+						<div class="time" style="width:70px;">
 							<font size="1px;"><c:out
 									value="${visitorValue.visitdatestr}" /></font>
 						</div>

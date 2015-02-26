@@ -26,6 +26,7 @@
 		<property name="minPoolSize"><value>${jdbc.minPoolSize}</value></property>		
 		<property name="initialPoolSize"><value>10</value></property>
 		<property name="acquireIncrement"><value>5</value></property>
+        <property name="checkoutTimeout"><value>30000</value></property>
 	</bean>
 	<!-- 事物 -->
 	<bean id="transactionManager"

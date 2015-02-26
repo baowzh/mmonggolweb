@@ -6,6 +6,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title> </title>
+<link href="site/css/main.css" rel="stylesheet" type="text/css" />
+<link href="site/css/index.css" rel="stylesheet" type="text/css" />
 <link href="img/css/main.css" type="text/css" rel="stylesheet" />
 <link href="img/css/voteDesign.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
@@ -20,9 +22,13 @@
 <link rel="stylesheet" href="js\messagebox\jquery.msgbox.css" />
 </head>
 <body>
-	<div class="lmainR ofh" style="text-align: center; height: 64px;">
-		<img src="img/logo.png" width="980" />
+	<div class="wrp m0a logo">
+		<div class="naveFrame">
+			<%@ include file="../website/head.jsp"%>
+		</div>
+		<div class="cbt"></div>
 	</div>
+	<div class="wrp m0a ribbon"></div>
 	<div class="lmainR ofh">
 		<div class="lmainR"
 			style="writing-mode: tb-lr; -webkit-writing-mode: vertical-lr;">
@@ -180,10 +186,7 @@
 
 	</div>
 	<div class="lmainR ofh" style="text-align: center;">
-		<div class="tailCard">
 			<%@ include file="../website/tail.jsp"%>
 		</div>
-		<div class="cbt"></div>
-	</div>
 </body>
 </html>
