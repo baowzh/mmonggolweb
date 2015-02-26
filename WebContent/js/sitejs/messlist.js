@@ -74,3 +74,9 @@ var backlist=function(listdivid,detailid){
 	$('#' + detailid).css('display', 'none');
 	
 };
+/**
+ * 
+ */
+var readcomm=function(docid){
+	parent.window.location.href='getuserdocdetail.do?docid='+docid;
+}

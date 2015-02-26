@@ -65,8 +65,8 @@
 							href="javascript:writemessage('<c:out value="${user.userid}" />');">
 							&nbsp;&nbsp;&nbsp;</a>
 						<c:if test="${self==1}">
-							<a href="javascript:receivemessage();">(<c:out
-									value="${messageCount}" />)
+							<a href="javascript:receivemessage();">(<span style="color:#f00;"><c:out
+									value="${messageCount}" /></span>)
 							</a>
 						</c:if>
 					</div>

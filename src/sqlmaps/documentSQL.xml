@@ -623,7 +623,7 @@
 				message.received=#received#
 			</isNotNull>
 			<isNotNull prepend="and" property="messtype">
-				message.messtype=#messtype#
+				message.messtype in ($messtype$)
 			</isNotNull>
 
 		</dynamic>
@@ -656,7 +656,7 @@
 				message.received=#received#
 			</isNotNull>
 			<isNotNull prepend="and" property="messtype">
-				message.messtype in (2,4)
+				message.messtype in ($messtype$)
 			</isNotNull>
 
 		</dynamic>
@@ -704,7 +704,7 @@
 	<select id="getMessageCount" parameterClass="java.util.Map"
 		resultClass="java.lang.Integer">
 		select count(1) from message where userid=#userid# and
-		messtype in (2,4)
+		messtype in (2,4,1)
 	</select>
 	<select id="isshared" parameterClass="java.util.Map"
 		resultClass="java.lang.Integer">

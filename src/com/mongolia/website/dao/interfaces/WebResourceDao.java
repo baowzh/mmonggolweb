@@ -702,5 +702,14 @@ public interface WebResourceDao extends BaseDao {
 	 * @throws Exception
 	 */
 	public void delMessage(String messid) throws Exception;
+	/**
+	 * 
+	 * @param resourceid
+	 * @param fechtcount
+	 * @return
+	 * @throws Exception
+	 */
+	public List<VisitorValue> getVisitorList(String resourceid,
+			Integer fechtcount) throws Exception;
 
 }

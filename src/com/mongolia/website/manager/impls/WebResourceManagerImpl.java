@@ -482,7 +482,7 @@ public class WebResourceManagerImpl implements WebResourceManager {
 					visitorValue
 							.setVisitortype(StaticConstants.VISITOR_TYPE_NOREG);
 				}
-
+				visitorValue.setVisittype(StaticConstants.VISIT_TYPE1);
 				this.webResourceDao.addVisitLog(visitorValue);
 			} else {
 				Date queryDate = new Date();
@@ -623,16 +623,22 @@ public class WebResourceManagerImpl implements WebResourceManager {
 				if (userValue != null
 						&& userValue.getUserkind() != StaticConstants.USER_KIND2) {
 					visitorValue.setVisitorid(userValue.getUserid());
+					visitorValue.setVisitortype(2);
 				} else {
 					visitorValue.setVisitorid(StaticConstants.NO_LOGIIN_USERID);
+					visitorValue.setVisitortype(1);
 				}
-
 				visitorValue.setVisitdate(new Date());
 				List<UserValue> docusers = this.userManager.getUsers(
 						documentValue.getUserid(), null);
 				UserValue docuser = docusers.get(0);
-				visitorValue.setVisitorname(docuser.getArtname());
+				if(userValue!=null){
+					visitorValue.setVisitorname(userValue.getArtname());	
+				}else{
+					visitorValue.setVisitorname("#");	
+				}
 				visitorValue.setUserid(docuser.getUserid());
+				visitorValue.setVisittype(StaticConstants.VISIT_TYPE2);
 				this.webResourceDao.addDocReader(visitorValue);
 				// 修改文章被读次数
 				this.webResourceDao.doIsRead(docid);
@@ -1839,4 +1845,11 @@ public class WebResourceManagerImpl implements WebResourceManager {
 		this.webResourceDao.delMessage(messid);
 	}
 
+	@Override
+	public List<VisitorValue> getVisitorList(String resourceid,
+			Integer fechtcount) throws Exception {
+		// TODO Auto-generated method stub
+		return this.webResourceDao.getVisitorList(resourceid, fechtcount);
+	}
+	
 }

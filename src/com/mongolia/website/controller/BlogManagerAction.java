@@ -63,6 +63,7 @@ import com.mongolia.website.model.MessageValue;
 import com.mongolia.website.model.PagingIndex;
 import com.mongolia.website.model.PaingModel;
 import com.mongolia.website.model.UserValue;
+import com.mongolia.website.model.VisitorValue;
 import com.mongolia.website.model.VoteDetailForm;
 import com.mongolia.website.model.VoteDetailValue;
 import com.mongolia.website.model.VoteResultDetailValue;
@@ -310,9 +311,12 @@ public class BlogManagerAction {
 		Map<String, Object> bologInfos = this.webResourceManager.getBlogInfo(
 				user, sessionUser, self, null, pindex, 1);
 		map.putAll(bologInfos);
+		List<VisitorValue> visitors = this.webResourceManager.getVisitorList(
+				docid, 24);
 		setHiddenFlg(user, sessionUser, comments);
 		showemotion(comments);
 		map.put("comments", comments);
+		map.put("visitors", visitors);
 		Integer agentkind = 0;
 		String user_agent_kind = request.getHeader("user-agent");
 		if (user_agent_kind.indexOf("Chrome") > 0) {
@@ -902,6 +906,9 @@ public class BlogManagerAction {
 				}
 				map.put("imggroupid", imggroupid);
 				map.putAll(this.getBlogInfo(request));
+				List<VisitorValue> visitors = this.webResourceManager
+						.getVisitorList(imgid, 24);
+				map.put("visitors", visitors);
 				map.put("imgs", imgs);
 				List<MessageValue> comments = this.webResourceManager
 						.getResourceCommentList(imgid,

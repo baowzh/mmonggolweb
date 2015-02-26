@@ -307,6 +307,12 @@
 			<isNotNull prepend="and" property="visitortype">
 				visitor.visitortype=#visitortype#
 			</isNotNull>
+			<isNotNull prepend="and" property="visittype">
+				visitor.visittype=#visittype#
+			</isNotNull>
+			<isNotNull prepend="and" property="visitobjid">
+				visitor.visitobjid=#visitobjid#
+			</isNotNull>
 		</dynamic>
 		order by visitdate desc limit 0,20
 	</select>
@@ -612,7 +618,16 @@
 	<select id="getVisitTime" parameterClass="java.util.Map"
 		resultClass="VisitorValue">
 		select visitorid,max(visitdate) as visitdate from visitor where visitorid
-		in($instr$ ) group by visitorid
+		in($instr$ ) 
+		<dynamic prepend="and">
+			<isNotNull prepend="and" property="visittype">
+				visittype=#visittype#
+			</isNotNull>
+			<isNotNull prepend="and" property="visitobjid">
+				visitobjid=#visitobjid#
+			</isNotNull>
+		</dynamic>
+		group by visitorid
 	</select>
 
 </sqlMap>

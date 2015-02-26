@@ -139,4 +139,12 @@ public class StaticConstants {
 	public static String SEL_TYPE92 = "92";
 	public static String SEL_TYPE93 = "93";
 	public static String encrypekey="hurd1@#";
+	/**
+	 * 浏览博客主页
+	 */
+	public static Integer VISIT_TYPE1=1; 
+	/**
+	 * 浏览文章或者是图片等资源
+	 */
+	public static Integer VISIT_TYPE2=2; 
 }

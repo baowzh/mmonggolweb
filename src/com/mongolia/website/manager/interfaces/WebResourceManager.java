@@ -472,4 +472,14 @@ public interface WebResourceManager {
 	 */
 	public void delMessage(String userid, String messid) throws Exception;
 
+	/**
+	 * 
+	 * @param resourceid
+	 * @param fechtcount
+	 * @return
+	 * @throws Exception
+	 */
+	public List<VisitorValue> getVisitorList(String resourceid,
+			Integer fechtcount) throws Exception;
+
 }

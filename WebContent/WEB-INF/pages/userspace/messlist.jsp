@@ -58,6 +58,9 @@
 								<a
 									href="gouserindex.do?userid=<c:out value="${messageValue.messagesenderid}" />"><c:out
 										value="${messageValue.artname}" /> </a> 
+								<c:if test="${messageValue.messtype==1}">
+								          
+								</c:if>
 								<c:if test="${messageValue.messtype==2}">
 								  
 								</c:if>
@@ -75,6 +78,14 @@
 									<a style="color:#f00;"
 										href="javascript:readmess('reclist','recdetail','<c:out
 										value="${messageValue.messageid}" />',1);"></a> &nbsp;  &nbsp;
+									<a style="color:#f00;"
+										href="javascript:delMessage('<c:out value="${messageValue.messageid}" />');"></a>
+								</c:if>
+								<c:if test="${messageValue.messtype==1}">
+									    <c:out value="${messageValue.sendtimestr}" />
+									<br>
+									<a style="color:#f00;"
+										href="javascript:readcomm('<c:out value="${messageValue.resourceid}" />')"></a> &nbsp;  &nbsp;
 									<a style="color:#f00;"
 										href="javascript:delMessage('<c:out value="${messageValue.messageid}" />');"></a>
 								</c:if>
