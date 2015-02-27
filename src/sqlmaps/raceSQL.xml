@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="race">
+	<typeAlias alias="RaceModelValue" type="com.mongolia.website.model.RaceModelValue" />
+	<typeAlias alias="RaceScoreLogValue"
+		type="com.mongolia.website.model.RaceScoreLogValue" />
+	<typeAlias alias="RaceDocumentValue"
+		type="com.mongolia.website.model.RaceDocumentValue" />
+	<typeAlias alias="UserValue" type="com.mongolia.website.model.UserValue" />
+	<select id="getRaceModel" parameterClass="java.util.Map"
+		resultClass="RaceModelValue">
+		select * from racemodel
+		<dynamic prepend="where">
+			<isNotNull prepend="and" property="raceid">
+				raceid=#raceid#
+			</isNotNull>
+			<isNotNull prepend="and" property="inactive">
+				inactive=#inactive#
+			</isNotNull>
+		</dynamic>
+	</select>
+	<select id="getRaceDocumentValue" parameterClass="java.util.Map"
+		resultClass="RaceDocumentValue">
+		select * from racedocument
+		<dynamic prepend="where">
+			<isNotNull prepend="and" property="raceid">
+				raceid=#raceid#
+			</isNotNull>
+			<isNotNull prepend="and" property="docid">
+				docid=#docid#
+			</isNotNull>
+			<isNotNull prepend="and" property="inactive">
+				inactive=#inactive#
+			</isNotNull>
+			<isNotNull prepend="and" property="joinuserid">
+				joinuserid=#joinuserid#
+			</isNotNull>
+		</dynamic>
+	</select>
+	<select id="getRaceScoreLogValue" parameterClass="java.util.Map"
+		resultClass="RaceScoreLogValue">
+		select * from racescorelog
+		<dynamic prepend="where">
+			<isNotNull prepend="and" property="raceid">
+				raceid=#raceid#
+			</isNotNull>
+			<isNotNull prepend="and" property="docid">
+				docid=#docid#
+			</isNotNull>
+			<isNotNull prepend="and" property="usertype">
+				usertype=#usertype#
+			</isNotNull>
+			<isNotNull prepend="and" property="scoreuserid">
+				scoreuserid=#scoreuserid#
+			</isNotNull>
+		</dynamic>
+	</select>
+	<insert id="addRaceDocumentValue" parameterClass="RaceDocumentValue">
+		insert into
+		RaceDocument(
+		raceid,
+		docid,
+		joindate,
+		nettotalscore,
+		netaveragescore,
+		spetotalscore,
+		speaveragescore,
+		finalscore,
+		joinuserid
+		) values(
+		#raceid#,
+		#docid#,
+		#joindate#,
+		#nettotalscore#,
+		#netaveragescore#,
+		#spetotalscore#,
+		#speaveragescore#,
+		#finalscore#,
+		#joinuserid#
+		)
+	</insert>
+	<delete id="delRaceDocumentValue" parameterClass="java.util.Map">
+		delete from racedocument where raceid=#raceid# and
+		docid=#docid# and joinuserid=#joinuserid#
+	</delete>
+	<insert id="addRaceScoreLogValue" parameterClass="RaceScoreLogValue">
+		insert into
+		RaceScoreLog(
+		  raceid,
+	      docid,
+	      scoredate,
+	      scoreuserid,
+	      usertype,
+	      score
+		) values(
+		  #raceid#,
+	      #docid#,
+	      #scoredate#,
+	      #scoreuserid#,
+	      #usertype#,
+	      #score#
+		)
+	</insert>
+	<select id="getRaceUserList" parameterClass="java.util.Map"
+		resultClass="UserValue">
+		select distinct b.* from racedocument a,user b where a.joinuserid=b.userid
+		<dynamic prepend="and">
+			<isNotNull prepend="and" property="raceid">
+				a.raceid=#raceid#
+			</isNotNull>
+		</dynamic>
+	</select>
+	
+	
+</sqlMap>

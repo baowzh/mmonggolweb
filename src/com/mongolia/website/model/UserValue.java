@@ -76,10 +76,12 @@ public class UserValue implements UserDetails {
 	private String professionname;
 	private String imguser;
 	private String oldid;
-    private String headurl;
-    private String sexsel;
-    private String blogclasssel;
-    private byte[] img;
+	private String headurl;
+	private String sexsel;
+	private String blogclasssel;
+	private byte[] img;
+	private Integer managerflag;
+
 	public String getLastip() {
 		return lastip;
 	}
@@ -683,6 +685,13 @@ public class UserValue implements UserDetails {
 	public void setEncripedPass(String encripedPass) {
 		this.encripedPass = encripedPass;
 	}
-	
-	
+
+	public Integer getManagerflag() {
+		return managerflag;
+	}
+
+	public void setManagerflag(Integer managerflag) {
+		this.managerflag = managerflag;
+	}
+
 }

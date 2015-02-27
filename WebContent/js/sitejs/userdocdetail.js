@@ -7,7 +7,7 @@ $(document).ready(function() {
 		left : -27
 	});
 	CKEDITOR.config.height = 400;
-	//CKEDITOR.config.width = 300;
+	// CKEDITOR.config.width = 300;
 	// alert('aa');
 });
 /**
@@ -445,12 +445,10 @@ var previousdoc = function() {
 
 };
 /*
- var chgUrl = function(imgid) {
- var timestamp = (new Date()).valueOf();
- url = 'getimg.do?imgid=' + imgid + '&timestamp=' + timestamp;
- alert(url);
- return url;
- };*/
+ * var chgUrl = function(imgid) { var timestamp = (new Date()).valueOf(); url =
+ * 'getimg.do?imgid=' + imgid + '&timestamp=' + timestamp; alert(url); return
+ * url; };
+ */
 var test = function() {
 	//
 	showConfirmMess("             "
@@ -466,28 +464,14 @@ var test = function() {
 	//
 };
 /*
- var replaceverifycode = function(id) {
- var imgSrc='';
- if(id!=null&&id!=undefined){
- imgSrc = $("#varifyimg"+id);
- }else{
- imgSrc = $("#varifyimg");
- }
- var src = imgSrc.attr("src");
- imgSrc.attr("src", changeurl(src));
-
- };
-
- function changeurl(url) {
- var timestamp = (new Date()).valueOf();
- url = url.substring(0, 17);
- if ((url.indexOf("&") >= 0)) {
- url = url + "¡Átamp=" + timestamp;
- } else {
- url = url + "?timestamp=" + timestamp;
- }
- return url;
- };
+ * var replaceverifycode = function(id) { var imgSrc='';
+ * if(id!=null&&id!=undefined){ imgSrc = $("#varifyimg"+id); }else{ imgSrc =
+ * $("#varifyimg"); } var src = imgSrc.attr("src"); imgSrc.attr("src",
+ * changeurl(src)); };
+ * 
+ * function changeurl(url) { var timestamp = (new Date()).valueOf(); url =
+ * url.substring(0, 17); if ((url.indexOf("&") >= 0)) { url = url + "¡Átamp=" +
+ * timestamp; } else { url = url + "?timestamp=" + timestamp; } return url; };
  */
 function refreshdata(index) {
 	var obj1 = $('#imgsharecount' + index).val();
@@ -548,5 +532,109 @@ var checklogin = function() {
 		}
 	});
 	return islogin;
+
+};
+/**
+ * 显示参加比赛界面
+ */
+var showjoinracediv = function() {
+	$("#joinracediv").dialog({
+		height : 340,
+		width : 230,
+		resizable : true,
+		model : false
+	});
+};
+/**
+ * 
+ */
+var joinrace = function() {
+	var type = $('input[name="jointype"]:checked').val();
+	var validcode = $('#raicevalidcode').val();
+	if (type == null || type == '') {
+		MessageWindow
+				.showMess('      ');
+		return;
+	}
+	if (validcode == null || validcode == '') {
+		MessageWindow.showMess('    ');
+		return;
+	}
+	$
+			.ajax({
+				async : false,
+				cache : false,
+				type : 'POST',
+				dataType : "json",
+				data : {
+					raceid : $('#raceid').val(),
+					docid : $('#docid').val(),
+					jointype : $('input[name="jointype"]:checked').val(),
+					raicevalidcode : $('#raicevalidcode').val()
+				},
+				url : 'addRaceDocument.do',// 请求的action路径
+				error : function() {// 请求失败处理函数
+					MessageWindow
+							.showMess('         ');
+				},
+				success : function(data) {
+					if (data.mess == '0') {
+						MessageWindow.showMess('   ');
+						$("#joinracediv").dialog("close");
+					} else if (data.mess == '1') {
+						MessageWindow
+								.showMess('        ');
+					} else if (data.mess == '2') {
+						MessageWindow
+								.showMess('            ');
+					} else if (data.mess == '3') {
+						MessageWindow
+								.showMess('       ');
+					} else if (data.mess == '4') {
+						MessageWindow
+								.showMess('       ');
+					}
+				}
+			});
+}
+/**
+ * 
+ */
+var delfromrace = function(raceid, docid) {
+	showConfirmMess("        ",
+			function() {
+				if (this.getValue() == true) {
+					deldocfromrace(raceid, docid);
+				}
+			});
+};
+/**
+ * 
+ */
+var deldocfromrace = function(raceid, docid) {
+	$.ajax({
+		async : false,
+		cache : false,
+		type : 'POST',
+		dataType : "json",
+		data : {
+			raceid : raceid,
+			docid : docid
+		},
+		url : 'delRaceDocument.do',// 请求的action路径
+		error : function() {// 请求失败处理函数
+			MessageWindow.showMess('    ');
+		},
+		success : function(data) {
+			if (data.mess == '0') {
+				MessageWindow.showMess('   ');
+				window.location.href = 'getuserdocdetail.do?docid='
+						+ $('#docid').val();
+			} else {
+				MessageWindow.showMess('    ');
+			}
+
+		}
+	});
 
 };

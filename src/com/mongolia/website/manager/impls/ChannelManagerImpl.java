@@ -1,5 +1,6 @@
 package com.mongolia.website.manager.impls;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -58,4 +59,11 @@ public class ChannelManagerImpl implements ChannelManager {
 		channelDao.deleteChannel(params);
 	}
 
+	@Override
+	public List<Channel> getRaceChannelList() throws Exception {
+		// TODO Auto-generated method stub
+		
+		return this.channelDao.getRaceChannelList(new HashMap<String,Object>());
+	}
+	
 }

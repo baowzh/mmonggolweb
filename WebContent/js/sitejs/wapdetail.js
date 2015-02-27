@@ -24,4 +24,9 @@ var q = function() {
 						'<div style="height:' + (width - height)
 								+ 'px;"></div>');
 			});
+	// 设置iframe 高度和宽度
+	$('iframe').prop('height',390);
+	$('iframe').prop('width',410);
+	//alert($('iframe').prop('height'));
+	// alert($('iframe').prop('width'));
 }

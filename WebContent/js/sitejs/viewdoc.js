@@ -4,7 +4,7 @@ $(window).on("load", function(e) {
 var setpagewidth = function() {
 	var height = $(window).height();
 	var width = $('#condiv')[0].scrollWidth;
-	//alert(width);
+	// alert(width);
 	var sheetwidth = 0;
 	var count = 0;
 	var postSheets = 0;
@@ -33,7 +33,7 @@ var setpagewidth = function() {
 	});
 
 	var width1 = width + sheetwidth;
-	//alert(isie8);
+	// alert(isie8);
 	if (count == 0) {
 		if (!isie8) {
 			width1 = width + sheetwidth + 1430;
@@ -58,12 +58,12 @@ var setpagewidth = function() {
 			width : width
 		});
 	} else {
-		document.getElementById("condiv").style.width = width1+'px';
-		document.getElementById("condiv").style.height = height - 60+'px';
+		document.getElementById("condiv").style.width = width1 + 'px';
+		document.getElementById("condiv").style.height = height - 60 + 'px';
 		width = $('#condiv')[0].scrollWidth;
 		$('.viewhead').css({
 			width : width
 		});
 	}
-
+	$('iframe').css('z-index', 10);
 }

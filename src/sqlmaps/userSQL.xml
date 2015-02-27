@@ -58,7 +58,8 @@
 		profession.professioncode=user.professioncode ) as professionname,
 		blogclass,
 		oldid,
-		headurl
+		headurl,
+		managerflag
 		from
 		user
 		<dynamic prepend="where">

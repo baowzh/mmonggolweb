@@ -49,6 +49,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.mongolia.website.controller.ckeditor.SamplePostData;
 import com.mongolia.website.manager.ManagerException;
 import com.mongolia.website.manager.interfaces.ChannelManager;
+import com.mongolia.website.manager.interfaces.RaceManager;
 import com.mongolia.website.manager.interfaces.UserManager;
 import com.mongolia.website.manager.interfaces.WebResourceManager;
 import com.mongolia.website.manager.interfaces.WebSiteManager;
@@ -62,6 +63,8 @@ import com.mongolia.website.model.ImgValue;
 import com.mongolia.website.model.MessageValue;
 import com.mongolia.website.model.PagingIndex;
 import com.mongolia.website.model.PaingModel;
+import com.mongolia.website.model.RaceDocumentValue;
+import com.mongolia.website.model.RaceModelValue;
 import com.mongolia.website.model.UserValue;
 import com.mongolia.website.model.VisitorValue;
 import com.mongolia.website.model.VoteDetailForm;
@@ -94,6 +97,8 @@ public class BlogManagerAction {
 	private WebSiteManager webSiteManager;
 	@Autowired
 	private ChannelManager channelManager;
+	@Autowired
+	private RaceManager raceManager;
 
 	/**
 	 * 进入个人主页
@@ -191,8 +196,19 @@ public class BlogManagerAction {
 			HttpServletResponse response, ModelMap map) {
 		map.put("opertype", "1");
 		Integer agentkind = 0;
-		List<Channel> chanels = this.channelManager
-				.getChannelList(new HashMap<String, Object>());
+		// 如果是网站维护人员可以多几个栏目
+		UserValue sessionUser = (UserValue) request.getSession().getAttribute(
+				"user");
+		List<Channel> chanels = new ArrayList<Channel>();
+		if (sessionUser.getManagerflag() != null
+				&& sessionUser.getManagerflag().intValue() == 1) {
+			Map<String, Object> getchannelparams = new HashMap<String, Object>();
+			getchannelparams.put("type", "1");
+			chanels = this.channelManager.getChannelList(getchannelparams);
+		} else {
+			chanels = this.channelManager
+					.getChannelList(new HashMap<String, Object>());
+		}
 		String user_agent_kind = request.getHeader("user-agent");
 		if (user_agent_kind.indexOf("Chrome") > 0) {
 			agentkind = 1;
@@ -238,7 +254,24 @@ public class BlogManagerAction {
 	public ModelAndView getuserdocdetail(HttpServletRequest request,
 			HttpServletResponse response, ModelMap map) {
 		try {
-			map.putAll(getDocDetail(request));
+			map.putAll(getDocDetail(request, 1));
+			// 一个时间段只能有一个有效的活动
+			List<RaceModelValue> raceModelValues = this.raceManager
+					.getRaceModels(null, 1);
+			// 校验是否已经送比赛则显示取消按钮
+			// 获取参赛活动，如果有则在页面后面加参赛按钮
+			if (raceModelValues != null && !raceModelValues.isEmpty()) {
+				map.put("raceModelValue", raceModelValues.get(0));
+				List<RaceDocumentValue> racedocs = this.raceManager
+						.getRaceDocuments(raceModelValues.get(0).getRaceid(),
+								request.getParameter("docid"), null);
+				if (racedocs != null && !racedocs.isEmpty()) {
+					map.put("isjoin", 1);
+				} else {
+					map.put("isjoin", 0);
+				}
+				map.put("raceModelValue", raceModelValues.get(0));
+			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -251,8 +284,8 @@ public class BlogManagerAction {
 	 * @return
 	 * @throws Exception
 	 */
-	private Map<String, Object> getDocDetail(HttpServletRequest request)
-			throws Exception {
+	private Map<String, Object> getDocDetail(HttpServletRequest request,
+			Integer clienttype) throws Exception {
 		Map<String, Object> map = new HashMap<String, Object>();
 		UserValue user = null;
 		UserValue sessionUser = (UserValue) request.getSession().getAttribute(
@@ -271,7 +304,7 @@ public class BlogManagerAction {
 		params.put("docid", docid);
 		String userid = null;
 		DocumentValue documentValue = this.webResourceManager
-				.readUserDDocument(docid, sessionUser);
+				.readUserDDocument(docid, sessionUser, clienttype);
 		List<MessageValue> comments = new ArrayList<MessageValue>();
 		if (documentValue != null) {
 			userid = documentValue.getUserid();
@@ -332,7 +365,7 @@ public class BlogManagerAction {
 	public ModelAndView phonedetail(HttpServletRequest request,
 			PaingModel<DocumentValue> paingModel, ModelMap map) {
 		try {
-			map.putAll(getDocDetail(request));
+			map.putAll(getDocDetail(request, 2));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -498,9 +531,18 @@ public class BlogManagerAction {
 		} else {
 			agentkind = 0;
 		}
-
-		List<Channel> chanels = this.channelManager
-				.getChannelList(new HashMap<String, Object>());
+		UserValue sessionUser = (UserValue) request.getSession().getAttribute(
+				"user");
+		List<Channel> chanels = new ArrayList<Channel>();
+		if (sessionUser.getManagerflag() != null
+				&& sessionUser.getManagerflag().intValue() == 1) {
+			Map<String, Object> getchannelparams = new HashMap<String, Object>();
+			getchannelparams.put("type", "1");
+			chanels = this.channelManager.getChannelList(getchannelparams);
+		} else {
+			chanels = this.channelManager
+					.getChannelList(new HashMap<String, Object>());
+		}
 		map.put("agentkind", agentkind);
 		map.put("chanels", chanels);
 		//
@@ -872,7 +914,7 @@ public class BlogManagerAction {
 			}
 			map.put("self", self);
 			DocumentValue documentValue = this.webResourceManager
-					.readUserDDocument(imgid, sessionUser);
+					.readUserDDocument(imgid, sessionUser, 1);
 			if (documentValue.getDoctype() == StaticConstants.RESOURCE_TYPE_DOC) {
 				documentValue.setHtmlstr(new String(documentValue
 						.getDoccontent()));
@@ -1610,7 +1652,7 @@ public class BlogManagerAction {
 			UserValue sessionUser = (UserValue) request.getSession()
 					.getAttribute("user");
 			DocumentValue documentValue = this.webResourceManager
-					.readUserDDocument(docid, sessionUser);
+					.readUserDDocument(docid, sessionUser, 1);
 			Integer commentCount = this.webResourceManager
 					.getResourceCommentCount(docid,
 							StaticConstants.RESOURCE_TYPE_IMG);
@@ -1670,7 +1712,7 @@ public class BlogManagerAction {
 			// UserValue user=null;
 
 			DocumentValue documentValue = this.webResourceManager
-					.readUserDDocument(docid, sessionUser);
+					.readUserDDocument(docid, sessionUser, 1);
 			Integer commentCount = this.webResourceManager
 					.getResourceCommentCount(docid,
 							StaticConstants.RESOURCE_TYPE_IMG);
@@ -2279,7 +2321,7 @@ public class BlogManagerAction {
 			params.put("docid", docid);
 			String userid = null;
 			DocumentValue documentValue = this.webResourceManager
-					.readUserDDocument(docid, sessionUser);
+					.readUserDDocument(docid, sessionUser, 1);
 			List<MessageValue> comments = new ArrayList<MessageValue>();
 			if (documentValue != null) {
 				userid = documentValue.getUserid();

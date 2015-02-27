@@ -43,7 +43,7 @@ public interface WebResourceManager {
 	 * @return
 	 * @throws ManagerException
 	 */
-	public DocumentValue readUserDDocument(String docid, UserValue userValue)
+	public DocumentValue readUserDDocument(String docid, UserValue userValue,Integer clienttype)
 			throws ManagerException;
 
 	/**

@@ -50,7 +50,8 @@
 				href="gouserindex.do?userid=<c:out value="${user.userid}" />">
 				  &nbsp; &nbsp;</a> <a href="registe.do"> </a>
 			<c:if test="${self==0&&login==1}">
-				<a href="gouserindex.do?userid=<c:out value="${loginuserid}" />">&nbsp; &nbsp;  &nbsp;&nbsp;</a>
+				<a href="gouserindex.do?userid=<c:out value="${loginuserid}" />">&nbsp;
+					&nbsp;  &nbsp;&nbsp;</a>
 			</c:if>
 		</div>
 
@@ -113,13 +114,15 @@
 			</div>
 		</div>
 		<!--  -->
-		<div class="msheet mln" style="float: left; padding-top: 30px; height: 95%;">
+		<div class="msheet mln"
+			style="float: left; padding-top: 30px; height: 95%;">
 			<div id="doctitle" class="msheet titlediv"
 				style="line-height: 100%; margin: 20px;">
 				<c:out value="${documentValue.doctitle}" />
 			</div>
 		</div>
-		<div class="msheet shareBookmark" style="float: left; height: 300px;margin-top:0px;padding-top:150px;">
+		<div class="msheet shareBookmark"
+			style="float: left; height: 300px; margin-top: 0px; padding-top: 150px;">
 			<div style="margin: 0px 20px 20px 20px;">
 				 
 				<c:out value="${documentValue.docchannelname}" />
@@ -136,11 +139,12 @@
 					<c:out value="${documentValue.commentCount}" default="0" />
 				</span> 
 			</div>
-		</div>		
+		</div>
 		<div class="msheet" style="padding: 10px; float: left; height: 95%;">
 			<c:out value="${documentValue.htmlstr}" escapeXml="false" />
 		</div>
-		<div class="msheet shareBookmark" style="float: left; height: 300px;margin-top:0px;padding-top:150px;">
+		<div class="msheet shareBookmark"
+			style="float: left; height: 300px; margin-top: 0px; padding-top: 150px;">
 			<div style="margin: 0px 20px 20px 20px;">
 				<a href="javascript:sharedocument()"> </a> <span
 					id="sharecount"><c:out value="${documentValue.sharecount}"
@@ -152,7 +156,21 @@
 						href="toupddoc.do?docid=<c:out value="${documentValue.docid}" />">
 						  </a>
 					<a href="javascript:deldoc(1);"> &nbsp;  </a>
-
+					<br />
+					<c:if test="${raceModelValue!=null&&isjoin==0}">
+						<a
+							href="javascript:showjoinracediv('<c:out value="${raceModelValue.raceid}" />','<c:out value="${documentValue.docid}" />')"><c:out
+								value="${raceModelValue.racename}" />  </a>
+						<input type="hidden" id="raceid" name="raceid"
+							value="<c:out value="${raceModelValue.raceid}" />">
+					</c:if>
+					<c:if test="${raceModelValue!=null&&isjoin==1}">
+						<a
+							href="javascript:delfromrace('<c:out value="${raceModelValue.raceid}" />','<c:out value="${documentValue.docid}" />')"><c:out
+								value="${raceModelValue.racename}" />  </a>
+						<input type="hidden" id="raceid" name="raceid"
+							value="<c:out value="${raceModelValue.raceid}" />">
+					</c:if>
 				</c:if>
 			</div>
 		</div>
@@ -165,21 +183,22 @@
 			<div class="readerl">
 				<c:forEach items="${visitors}" var="visitorValue" varStatus="status">
 					<div class="i" style="float: left;">
-<!-- 					class="frt" -->
-						<div  style="width: 90px;height:85">
-							<div style="width:60px;height:85px;float:left;">
-							 <img src="html/userhead/<c:out value="${visitorValue.headurl}" />"
-							width="60" height="85" />
+						<!-- 					class="frt" -->
+						<div style="width: 90px; height: 85">
+							<div style="width: 60px; height: 85px; float: left;">
+								<img
+									src="html/userhead/<c:out value="${visitorValue.headurl}" />"
+									width="60" height="85" />
 							</div>
 							<div class="m1ln"
-								style="padding-top: 8px; overflow: hidden; height: 85px;width:22px;float:left;">
+								style="padding-top: 8px; overflow: hidden; height: 85px; width: 22px; float: left;">
 								<a
 									href="gouserindex.do?userid=<c:out value="${visitorValue.visitorid}" />">
 									<c:out value="${visitorValue.visitorname}" />
 								</a>
 							</div>
 						</div>
-						<div class="time" style="width:70px;">
+						<div class="time" style="width: 70px;">
 							<font size="1px;"><c:out
 									value="${visitorValue.visitdatestr}" /></font>
 						</div>
@@ -253,7 +272,8 @@
 						value="<c:out value="${documentValue.docid}" />">
 
 				</div>
-				<div style="display: block; float: left; padding-top: 20px;width:50px;">
+				<div
+					style="display: block; float: left; padding-top: 20px; width: 50px;">
 					<div class="commoper">
 						<div class="mnlist"
 							style="width: 50px; height: 210px; padding-left: 10px;">
@@ -305,7 +325,7 @@
 			</div>
 		</div>
 		<div class="mln"
-			style="float: right; width: 30px; height: 100%; background-color: #dfa64f;color:#fff;">
+			style="float: right; width: 30px; height: 100%; background-color: #dfa64f; color: #fff;">
 		</div>
 	</div>
 	<div id="viewhead" class="viewhead"

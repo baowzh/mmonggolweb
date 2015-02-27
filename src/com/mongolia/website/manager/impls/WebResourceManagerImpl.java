@@ -31,6 +31,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import au.id.jericho.lib.html.Element;
 import au.id.jericho.lib.html.HTMLElementName;
+import au.id.jericho.lib.html.OutputDocument;
 import au.id.jericho.lib.html.Source;
 
 import com.mongolia.website.dao.interfaces.ChannelManagerDao;
@@ -523,7 +524,7 @@ public class WebResourceManagerImpl implements WebResourceManager {
 	}
 
 	@Override
-	public DocumentValue readUserDDocument(String docid, UserValue userValue)
+	public DocumentValue readUserDDocument(String docid, UserValue userValue,Integer clienttype)
 			throws ManagerException {
 		// TODO Auto-generated method stub
 		Map<String, Object> params = new HashMap<String, Object>();
@@ -541,7 +542,7 @@ public class WebResourceManagerImpl implements WebResourceManager {
 							.getDoccontent());
 					documentValue.setDoccontent(newcontent);
 				}
-
+                
 				//
 				if (documentValue.getDoctype().intValue() == StaticConstants.RESOURCE_TYPE_DOC) {
 					String docContent = new String(

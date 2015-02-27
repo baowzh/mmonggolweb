@@ -60,23 +60,24 @@
 </style>
 <!-- class="lmainR" -->
 <!-- -webkit-writing-mode: vertical-lr; writing-mode: tb-lr;  -->
-<div id="accordion"  style="display: none">
-	<div class="mnlist" style="float:left;"
+<div id="accordion" style="display: none">
+	<div class="mnlist" style="float: left;"
 		onclick="javascript:switchdiv('receivediv','senddiv');">
 		</div>
 	<!--  -->
-	<div class="  lcell" style="width: 800px; height: 450px;float:left;"
+	<div class="  lcell" style="width: 800px; height: 450px; float: left;"
 		id="receivediv">
 		<c:if test="${notlogin==0}">
 			<iframe width="100%" height="450px;" frameBorder="0" frameSpacing="0"
 				scrolling="auto" src="getMessage.do?type=1"></iframe>
 		</c:if>
 	</div>
-	<div class="mnlist" style="float:left;"
+	<div class="mnlist" style="float: left;"
 		onclick="javascript:switchdiv('senddiv','receivediv');">
 		 </div>
 	<div class="  lcell"
-		style="width: 800px; height: 450px; display: none;float:left;" id="senddiv">
+		style="width: 800px; height: 450px; display: none; float: left;"
+		id="senddiv">
 		<c:if test="${notlogin==0}">
 			<iframe width="100%" height="450px;" frameBorder="0" frameSpacing="0"
 				scrolling="auto" src="getMessage.do?type=2"></iframe>
@@ -307,4 +308,39 @@
 			</table>
 		</div>
 	</div>
+</div>
+<div class="content" id="joinracediv"
+	style="padding-left: 8px; display: none; background: white; padding: 5px; border-radius: 5px;z-index:9999;position:relative;">
+	<form class="mglForm" action="#" id="joinrace" method="post">
+
+		<div class="inputHolder" style="width: 32px; height: 280px;">
+			<div class="label" style="padding-left: 3px;"> 
+				 </div>
+			<input type="radio" name="jointype" value="1">
+		</div>
+
+		<div class="inputHolder" style="width: 32px; height: 280px;">
+			<div class="label" style="padding-left: 3px;"> 
+				 </div>
+			<input type="radio" name="jointype" value="2">
+		</div>
+		<div class="label">
+			  <a href="javascript:replaceverifycode('2');"></a>
+			:
+		</div>
+		<div class="label">
+			<a href="javascript:replaceverifycode('2');"><img
+				src="verifyCodeServlet" id="varifyimg2" width="18" height="90"></a>
+		</div>
+		<div class="inputHolder" style="width: 32px; height: 170px;">
+			<input name="raicevalidcode" id="raicevalidcode"
+				style="-webkit-transform-origin: 10px 20px;">
+		</div>
+		<div class="mnlist" style="text-align: center; height: 170px;">
+
+		</div>
+		<div class="mnlist" style="text-align: center; height: 170px;">
+			<a href="javascript:joinrace();"> </a>
+		</div>
+	</form>
 </div>
