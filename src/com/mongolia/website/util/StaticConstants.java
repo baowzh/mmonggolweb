@@ -138,13 +138,30 @@ public class StaticConstants {
 	public static String SEL_TYPE91 = "91";
 	public static String SEL_TYPE92 = "92";
 	public static String SEL_TYPE93 = "93";
-	public static String encrypekey="hurd1@#";
+	public static String encrypekey = "hurd1@#";
 	/**
 	 * 浏览博客主页
 	 */
-	public static Integer VISIT_TYPE1=1; 
+	public static Integer VISIT_TYPE1 = 1;
 	/**
 	 * 浏览文章或者是图片等资源
 	 */
-	public static Integer VISIT_TYPE2=2; 
+	public static Integer VISIT_TYPE2 = 2;
+	/**
+	 * 参与比赛方式- 成人比赛
+	 */
+	public static Integer JOINRACE_TYPE1 = 1;
+	/**
+	 * 参与比赛方式- 儿童比赛
+	 */
+	public static Integer JOINRACE_TYPE2 = 2;
+	/**
+	 * 评分用户类型1-网友
+	 */
+	public static Integer SCORE_USER_TYPE1 = 1;
+	/**
+	 * 评分用户类型2-专家
+	 */
+	public static Integer SCORE_USER_TYPE2 = 2;
+
 }

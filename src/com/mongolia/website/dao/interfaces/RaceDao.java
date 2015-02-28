@@ -54,7 +54,8 @@ public interface RaceDao {
 	 * @param docid
 	 * @throws Exception
 	 */
-	public void delRaceDocument(String raceid, String docid,String userid) throws Exception;
+	public void delRaceDocument(String raceid, String docid, String userid)
+			throws Exception;
 
 	/**
 	 * 
@@ -70,4 +71,14 @@ public interface RaceDao {
 	 * @throws Exception
 	 */
 	public List<UserValue> getRaceUserList(String raceid) throws Exception;
+
+	/**
+	 * 
+	 * @param raceid
+	 * @param docid
+	 * @return
+	 * @throws Exception
+	 */
+	public List<RaceDocumentValue> getRaceSumValue(String raceid, String docid)
+			throws Exception;
 }

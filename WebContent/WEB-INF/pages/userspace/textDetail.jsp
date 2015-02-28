@@ -144,189 +144,240 @@
 			<c:out value="${documentValue.htmlstr}" escapeXml="false" />
 		</div>
 		<div class="msheet shareBookmark"
-			style="float: left; height: 300px; margin-top: 0px; padding-top: 150px;">
+			style="float: left; height: 340px; margin-top: 0px; padding-top: 150px;">
 			<div style="margin: 0px 20px 20px 20px;">
 				<a href="javascript:sharedocument()"> </a> <span
 					id="sharecount"><c:out value="${documentValue.sharecount}"
 						default="0" /></span>   <a href="javascript:markdocument()">
 					 </a> <span id="markcount"><c:out
 						value="${documentValue.markcount}" default="0" /></span>  <br />
-				<c:if test="${self==1}">
-					<a
-						href="toupddoc.do?docid=<c:out value="${documentValue.docid}" />">
-						  </a>
-					<a href="javascript:deldoc(1);"> &nbsp;  </a>
-					<br />
-					<c:if test="${raceModelValue!=null&&isjoin==0}">
-						<a
-							href="javascript:showjoinracediv('<c:out value="${raceModelValue.raceid}" />','<c:out value="${documentValue.docid}" />')"><c:out
-								value="${raceModelValue.racename}" />  </a>
-						<input type="hidden" id="raceid" name="raceid"
-							value="<c:out value="${raceModelValue.raceid}" />">
-					</c:if>
-					<c:if test="${raceModelValue!=null&&isjoin==1}">
-						<a
-							href="javascript:delfromrace('<c:out value="${raceModelValue.raceid}" />','<c:out value="${documentValue.docid}" />')"><c:out
-								value="${raceModelValue.racename}" />  </a>
-						<input type="hidden" id="raceid" name="raceid"
-							value="<c:out value="${raceModelValue.raceid}" />">
-					</c:if>
-				</c:if>
 			</div>
 		</div>
-		<div class="mnlist"
-			style="background-color: #dfa64f;; width: 30px; color: #fff; padding-left: 10px; height: 100%;"></div>
+		<div class="msheet"
+			style="float: left; height: 340px; margin-top: 0px; padding-top: 100px;">
+		<c:if test="${self==1}">
+			<a href="toupddoc.do?docid=<c:out value="${documentValue.docid}" />">
+				  </a>
+			<a href="javascript:deldoc(1);"> &nbsp;  </a>
+			<br />
+			<c:if test="${raceModelValue!=null&&isjoin==0}">
+				<a
+					href="javascript:showjoinracediv('<c:out value="${raceModelValue.raceid}" />','<c:out value="${documentValue.docid}" />')"><c:out
+						value="${raceModelValue.racename}" />  </a>
+				<input type="hidden" id="raceid" name="raceid"
+					value="<c:out value="${raceModelValue.raceid}" />">
+			</c:if>
+			<c:if test="${raceModelValue!=null&&isjoin==1}">
+				<a
+					href="javascript:delfromrace('<c:out value="${raceModelValue.raceid}" />','<c:out value="${documentValue.docid}" />')"><c:out
+						value="${raceModelValue.racename}" />  </a>
+				<input type="hidden" id="raceid" name="raceid"
+					value="<c:out value="${raceModelValue.raceid}" />">
+			</c:if>
+		</c:if>
+		<c:if test="${raceModelValue!=null&&isjoin==1}">
+			<a href="#"><c:out value="${raceModelValue.racename}" /> 
+				  </a>
+			<br>
+			<a href="#">  :<c:out
+					value="${raceDocumentValue.nettotalscore}"  default="0"/>
+			</a>
+			<br>
+			<a href="#">     :<c:out
+					value="${raceDocumentValue.netscorecount}" default="0"  />
+			</a>
+			<br>
+			<a href="#">   <c:out
+					value="${raceDocumentValue.netaveragescore}" default="0" />
+			</a>
+			<br>
+			<a href="#">   :<c:out
+					value="${raceDocumentValue.spetotalscore}" default="0" />
+			</a>
+			<br>
+			<a href="#">     :<c:out
+					value="${raceDocumentValue.spescorecount}" default="0" />
+			</a>
+			<br>
+			<a href="#">     <c:out
+					value="${raceDocumentValue.speaveragescore}"  default="0"/>
+			</a>
+			<br>
+			<a href="#">    </a>
+			<br>
+			<c:if test="${self==0}">
+				<select id="racescore" name="racescore">
+					<option value="9.9">9.9</option>
+					<option value="9.8">9.8</option>
+					<option value="9.7">9.7</option>
+					<option value="9.6">9.6</option>
+					<option value="9.5">9.5</option>
+					<option value="9.4">9.4</option>
+					<option value="9.3">9.3</option>
+					<option value="9.2">9.2</option>
+					<option value="9.1">9.1</option>
+					<option value="9.0">9.0</option>
+				</select>
+				<a
+					href="javascript:scoreracedoc('<c:out value="${raceModelValue.raceid}" />','<c:out value="${documentValue.docid}" />');">
+					  </a>
+			</c:if>
+			<br>
+		</c:if>
+	</div>
+	<div class="mnlist"
+		style="background-color: #dfa64f;; width: 30px; color: #fff; padding-left: 10px; height: 100%;"></div>
 
-		<div class=" flt"
-			style="float: left; width: 270px; height: 98%; margin: 0px 8px 8px 8px; padding: 5px; background: white;">
+	<div class=" flt"
+		style="float: left; width: 270px; height: 98%; margin: 0px 8px 8px 8px; padding: 5px; background: white;">
 
-			<div class="readerl">
-				<c:forEach items="${visitors}" var="visitorValue" varStatus="status">
-					<div class="i" style="float: left;">
-						<!-- 					class="frt" -->
-						<div style="width: 90px; height: 85">
-							<div style="width: 60px; height: 85px; float: left;">
-								<img
-									src="html/userhead/<c:out value="${visitorValue.headurl}" />"
-									width="60" height="85" />
-							</div>
-							<div class="m1ln"
-								style="padding-top: 8px; overflow: hidden; height: 85px; width: 22px; float: left;">
-								<a
-									href="gouserindex.do?userid=<c:out value="${visitorValue.visitorid}" />">
-									<c:out value="${visitorValue.visitorname}" />
-								</a>
-							</div>
-						</div>
-						<div class="time" style="width: 70px;">
-							<font size="1px;"><c:out
-									value="${visitorValue.visitdatestr}" /></font>
-						</div>
-					</div>
-				</c:forEach>
-			</div>
-
-		</div>
-
-		<div class="mnlist"
-			style="background-color: #dfa64f;; width: 30px; color: #fff; padding-left: 10px; height: 100%;">
-			 </div>
-		<div class="msheet" id="commentlist"
-			style="float: left; overflow: auto;; padding-top: 10px; height: 98%;">
-			<c:forEach items="${comments}" var="messageValue" varStatus="status">
-				<div class="postSheet" style="float: left; height: 500px;">
-					<div class="posterInf" style="float: left; height: 500px;">
-						<div class="avtThumb flt">
+		<div class="readerl">
+			<c:forEach items="${visitors}" var="visitorValue" varStatus="status">
+				<div class="i" style="float: left;">
+					<!-- 					class="frt" -->
+					<div style="width: 90px; height: 85">
+						<div style="width: 60px; height: 85px; float: left;">
 							<img
-								src="html/userhead/<c:out value="${messageValue.messagesenderurl}" />"
-								width="30" height="40" />
+								src="html/userhead/<c:out value="${visitorValue.headurl}" />"
+								width="60" height="85" />
 						</div>
-						<div class="inf flt">
-							<div class="row" style="color: #fff;">
-								<a
-									href="gouserindex.do?userid=<c:out value="${messageValue.messagesenderid}" />"
-									style="color: #fff;"><c:out
-										value="${messageValue.messagesendername}" /> </a><br /> <br />
-								<c:out value="${messageValue.sendtimestr}" />
-							</div>
-							<div class="row"></div>
+						<div class="m1ln"
+							style="padding-top: 8px; overflow: hidden; height: 85px; width: 22px; float: left;">
+							<a
+								href="gouserindex.do?userid=<c:out value="${visitorValue.visitorid}" />">
+								<c:out value="${visitorValue.visitorname}" />
+							</a>
 						</div>
 					</div>
-					<p>
-						<c:if test="${messageValue.hidden==0}">
-							<c:out value="${messageValue.contenthtml}" escapeXml="false" />
-						</c:if>
-						<c:if test="${messageValue.hidden==1}">
-												        
-												</c:if>
-
-					</p>
-					<c:if test="${messageValue.showdel==1}">
-						<p>
-							<a
-								href="javascript:delcomment('<c:out value="${messageValue.messageid}" />');"></a><a
-								href="javascript:writemess('<c:out value="${messageValue.messagesenderid}" />','
-									<c:out value="${messageValue.messagesendername}" />');">&nbsp;&nbsp;&nbsp;&nbsp;
-								</a>
-						</p>
-					</c:if>
+					<div class="time" style="width: 70px;">
+						<font size="1px;"><c:out
+								value="${visitorValue.visitdatestr}" /></font>
+					</div>
 				</div>
 			</c:forEach>
 		</div>
-		<nobr>
-			<form action="addCommentOnResource.do" name="commentform"
-				id="commentform">
-				<div class="comment"
-					style="display: inline; width: 260px; float: left; padding: 20px;"
-					id="commentcontainer">
-					<a name="comment"></a>
 
+	</div>
 
-					<textarea id="editor1" name="commentdiv" class="ckeditor"
-						style="width: 80px; height: 100px;"></textarea>
-					<input type="hidden" name="agentkind" id="agentkind"
-						value="<c:out value="${agentkind}" />"> <input
-						type="hidden" name="userid" id="userid"> <input
-						type="hidden" name="doctype" id="doctype" value="1"> <input
-						type="hidden" name="docid" id="docid"
-						value="<c:out value="${documentValue.docid}" />">
-
-				</div>
-				<div
-					style="display: block; float: left; padding-top: 20px; width: 50px;">
-					<div class="commoper">
-						<div class="mnlist"
-							style="width: 50px; height: 210px; padding-left: 10px;">
-							<a href="javascript:addcomment(1,0);" style="height: 80px;">
-								&nbsp;  </a>&nbsp; <a href="javascript:addcomment(1,1);">
-							</a>
+	<div class="mnlist"
+		style="background-color: #dfa64f;; width: 30px; color: #fff; padding-left: 10px; height: 100%;">
+		 </div>
+	<div class="msheet" id="commentlist"
+		style="float: left; overflow: auto;; padding-top: 10px; height: 98%;">
+		<c:forEach items="${comments}" var="messageValue" varStatus="status">
+			<div class="postSheet" style="float: left; height: 500px;">
+				<div class="posterInf" style="float: left; height: 500px;">
+					<div class="avtThumb flt">
+						<img
+							src="html/userhead/<c:out value="${messageValue.messagesenderurl}" />"
+							width="30" height="40" />
+					</div>
+					<div class="inf flt">
+						<div class="row" style="color: #fff;">
+							<a
+								href="gouserindex.do?userid=<c:out value="${messageValue.messagesenderid}" />"
+								style="color: #fff;"><c:out
+									value="${messageValue.messagesendername}" /> </a><br /> <br />
+							<c:out value="${messageValue.sendtimestr}" />
 						</div>
-						<a href="JavaScript:void(0)" id="message_face"><img
-							src="img/pl_bq.png" /></a> <a href="javascript:replaceverifycode();"><img
-							src="verifyCodeServlet" id="varifyimg" width="18" height="90" /></a>&nbsp;&nbsp;
-
-						<c:if test="${agentkind==1}">
-							<!-- 谷歌浏览器 -->
-							<input type="text" name="validcode" id="validcode"
-								style="-webkit-writing-mode: vertical-lr; writing-mode: tb-lr; height: 15px; width: 60px; -webkit-transform: rotate(90deg); -webkit-transform-origin: 10px 10px;" />
-
-						</c:if>
-						<c:if test="${agentkind==0}">
-							<!-- 谷歌浏览器 -->
-							<input type="text" name="validcode" id="validcode"
-								style="-webkit-writing-mode: vertical-lr; writing-mode: tb-lr; height: 60px; width: 18px;" />
-						</c:if>
-						&nbsp;&nbsp;
-
+						<div class="row"></div>
 					</div>
 				</div>
-			</form>
-		</nobr>
-		<div class="mnlist" style="float: left;"></div>
-		<div class="mnlist"
-			style="background-color: #dfa64f;; width: 30px; color: #fff; padding-left: 10px; height: 100%;">
-			  </div>
-		<div class="flt txtBlogList" style="width: 720px; margin-top: 20px;">
-			<!-- 进度条 -->
-			<div class="loadingbox" style="display: none;"></div>
-			<div class="artclList" id="artclList">
-				<c:forEach items="${docList}" var="documentValue" varStatus="status">
-					<div class="m1ln">
-						<a><img src="site/img/qig_1_v.png"></a> <a
-							href="getuserdocdetail.do?docid=<c:out value="${documentValue.docid}" />&pageindex=1"><c:out
-								value="${documentValue.doctitle}" escapeXml="false" /> </a>
-					</div>
-				</c:forEach>
+				<p>
+					<c:if test="${messageValue.hidden==0}">
+						<c:out value="${messageValue.contenthtml}" escapeXml="false" />
+					</c:if>
+					<c:if test="${messageValue.hidden==1}">
+												        
+												</c:if>
+
+				</p>
+				<c:if test="${messageValue.showdel==1}">
+					<p>
+						<a
+							href="javascript:delcomment('<c:out value="${messageValue.messageid}" />');"></a><a
+							href="javascript:writemess('<c:out value="${messageValue.messagesenderid}" />','
+									<c:out value="${messageValue.messagesendername}" />');">&nbsp;&nbsp;&nbsp;&nbsp;
+							</a>
+					</p>
+				</c:if>
 			</div>
-			<div class="paginationArea">
-				<div class="pagination" id="docpagelist">
-					<c:out value="${pagingstr}" escapeXml="false" />
+		</c:forEach>
+	</div>
+	<nobr>
+		<form action="addCommentOnResource.do" name="commentform"
+			id="commentform">
+			<div class="comment"
+				style="display: inline; width: 260px; float: left; padding: 20px;"
+				id="commentcontainer">
+				<a name="comment"></a>
+
+
+				<textarea id="editor1" name="commentdiv" class="ckeditor"
+					style="width: 80px; height: 100px;"></textarea>
+				<input type="hidden" name="agentkind" id="agentkind"
+					value="<c:out value="${agentkind}" />"> <input
+					type="hidden" name="userid" id="userid"> <input
+					type="hidden" name="doctype" id="doctype" value="1"> <input
+					type="hidden" name="docid" id="docid"
+					value="<c:out value="${documentValue.docid}" />">
+
+			</div>
+			<div
+				style="display: block; float: left; padding-top: 20px; width: 50px;">
+				<div class="commoper">
+					<div class="mnlist"
+						style="width: 50px; height: 210px; padding-left: 10px;">
+						<a href="javascript:addcomment(1,0);" style="height: 80px;">
+							&nbsp;  </a>&nbsp; <a href="javascript:addcomment(1,1);">
+						</a>
+					</div>
+					<a href="JavaScript:void(0)" id="message_face"><img
+						src="img/pl_bq.png" /></a> <a href="javascript:replaceverifycode();"><img
+						src="verifyCodeServlet" id="varifyimg" width="18" height="90" /></a>&nbsp;&nbsp;
+
+					<c:if test="${agentkind==1}">
+						<!-- 谷歌浏览器 -->
+						<input type="text" name="validcode" id="validcode"
+							style="-webkit-writing-mode: vertical-lr; writing-mode: tb-lr; height: 15px; width: 60px; -webkit-transform: rotate(90deg); -webkit-transform-origin: 10px 10px;" />
+
+					</c:if>
+					<c:if test="${agentkind==0}">
+						<!-- 谷歌浏览器 -->
+						<input type="text" name="validcode" id="validcode"
+							style="-webkit-writing-mode: vertical-lr; writing-mode: tb-lr; height: 60px; width: 18px;" />
+					</c:if>
+					&nbsp;&nbsp;
+
 				</div>
 			</div>
+		</form>
+	</nobr>
+	<div class="mnlist" style="float: left;"></div>
+	<div class="mnlist"
+		style="background-color: #dfa64f;; width: 30px; color: #fff; padding-left: 10px; height: 100%;">
+		  </div>
+	<div class="flt txtBlogList" style="width: 720px; margin-top: 20px;">
+		<!-- 进度条 -->
+		<div class="loadingbox" style="display: none;"></div>
+		<div class="artclList" id="artclList">
+			<c:forEach items="${docList}" var="documentValue" varStatus="status">
+				<div class="m1ln">
+					<a><img src="site/img/qig_1_v.png"></a> <a
+						href="getuserdocdetail.do?docid=<c:out value="${documentValue.docid}" />&pageindex=1"><c:out
+							value="${documentValue.doctitle}" escapeXml="false" /> </a>
+				</div>
+			</c:forEach>
 		</div>
-		<div class="mln"
-			style="float: right; width: 30px; height: 100%; background-color: #dfa64f; color: #fff;">
+		<div class="paginationArea">
+			<div class="pagination" id="docpagelist">
+				<c:out value="${pagingstr}" escapeXml="false" />
+			</div>
 		</div>
+	</div>
+	<div class="mln"
+		style="float: right; width: 30px; height: 100%; background-color: #dfa64f; color: #fff;">
+	</div>
 	</div>
 	<div id="viewhead" class="viewhead"
 		style="height: 30px; background-color: #dfa64f"></div>

@@ -7,8 +7,6 @@ $(document).ready(function() {
 		left : -27
 	});
 	CKEDITOR.config.height = 400;
-	// CKEDITOR.config.width = 300;
-	// alert('aa');
 });
 /**
  * 给文章增加留言
@@ -638,3 +636,49 @@ var deldocfromrace = function(raceid, docid) {
 	});
 
 };
+/**
+ * 给文章打分
+ */
+var scoreracedoc = function(raceid, docid) {
+	var islogin = checklogin();
+	if (islogin == false) {
+		openloginwin();
+		return;
+	}
+	var racescore = $('#racescore').val();
+	$
+			.ajax({
+				async : false,
+				cache : false,
+				type : 'POST',
+				dataType : "json",
+				data : {
+					raceid : raceid,
+					docid : docid,
+					score : racescore
+				},
+				url : 'addRaceScoreLogValue.do',// 请求的action路径
+				error : function() {// 请求失败处理函数
+					MessageWindow
+							.showMess('    ');
+				},
+				success : function(data) {
+					if (data.mess == '0') {
+						MessageWindow.showMess('    ');
+						window.location.href = 'getuserdocdetail.do?docid='
+								+ $('#docid').val();
+					} else if (data.mess == '1') {
+						MessageWindow
+								.showMess('           ');
+					} else if (data.mess == '3') {
+						MessageWindow
+								.showMess('           ');
+					} else if (data.mess == '4') {
+						MessageWindow
+								.showMess('             ');
+					}
+
+				}
+			});
+
+}

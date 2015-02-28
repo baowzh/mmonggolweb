@@ -12,8 +12,15 @@ public class RaceDocumentValue {
 	private Double speaveragescore;
 	private Double finalscore;
 	private String joinuserid;
+	private Integer netscorecount;
+	private Integer spescorecount;
+	/**
+	 * 1 成人比赛 2 儿童比赛
+	 */
 	private Integer jointype;
 	private String raicevalidcode;
+	private Integer scorecountl;
+	private Integer usertype;
 
 	public String getRaceid() {
 		return raceid;
@@ -101,6 +108,38 @@ public class RaceDocumentValue {
 
 	public void setRaicevalidcode(String raicevalidcode) {
 		this.raicevalidcode = raicevalidcode;
+	}
+
+	public Integer getScorecountl() {
+		return scorecountl;
+	}
+
+	public void setScorecountl(Integer scorecountl) {
+		this.scorecountl = scorecountl;
+	}
+
+	public Integer getNetscorecount() {
+		return netscorecount;
+	}
+
+	public void setNetscorecount(Integer netscorecount) {
+		this.netscorecount = netscorecount;
+	}
+
+	public Integer getSpescorecount() {
+		return spescorecount;
+	}
+
+	public void setSpescorecount(Integer spescorecount) {
+		this.spescorecount = spescorecount;
+	}
+
+	public Integer getUsertype() {
+		return usertype;
+	}
+
+	public void setUsertype(Integer usertype) {
+		this.usertype = usertype;
 	}
 
 }

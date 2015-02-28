@@ -65,6 +65,7 @@ import com.mongolia.website.model.PagingIndex;
 import com.mongolia.website.model.PaingModel;
 import com.mongolia.website.model.RaceDocumentValue;
 import com.mongolia.website.model.RaceModelValue;
+import com.mongolia.website.model.RaceScoreLogValue;
 import com.mongolia.website.model.UserValue;
 import com.mongolia.website.model.VisitorValue;
 import com.mongolia.website.model.VoteDetailForm;
@@ -271,11 +272,44 @@ public class BlogManagerAction {
 					map.put("isjoin", 0);
 				}
 				map.put("raceModelValue", raceModelValues.get(0));
+				RaceDocumentValue raceDocumentValue = getRaceScoreStatus(
+						raceModelValues.get(0).getRaceid(),
+						request.getParameter("docid"));
+				map.put("raceDocumentValue", raceDocumentValue);
 			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
 		return new ModelAndView("userspace/textDetail", map);
+	}
+
+	private RaceDocumentValue getRaceScoreStatus(String raceid, String docid) {
+		RaceDocumentValue raceDocumentValue = new RaceDocumentValue();
+		try {
+			List<RaceDocumentValue> raceScoreLogValues = this.raceManager
+					.getRaceSumValue(raceid, docid);
+			for (RaceDocumentValue raceScoreLogValue : raceScoreLogValues) {
+				if (raceScoreLogValue.getUsertype().intValue() == StaticConstants.JOINRACE_TYPE1) {
+					raceDocumentValue.setNettotalscore(raceScoreLogValue
+							.getNettotalscore());
+					raceDocumentValue.setNetscorecount(raceScoreLogValue
+							.getNetscorecount());
+					raceDocumentValue.setNetaveragescore(raceScoreLogValue
+							.getNetaveragescore());
+				} else {
+					raceDocumentValue.setSpetotalscore(raceScoreLogValue
+							.getNettotalscore());
+					raceDocumentValue.setSpescorecount(raceScoreLogValue
+							.getNetscorecount());
+					raceDocumentValue.setSpeaveragescore(raceScoreLogValue
+							.getNetaveragescore());
+				}
+			}
+
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return raceDocumentValue;
 	}
 
 	/**

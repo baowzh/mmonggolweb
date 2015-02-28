@@ -81,6 +81,7 @@ public class UserValue implements UserDetails {
 	private String blogclasssel;
 	private byte[] img;
 	private Integer managerflag;
+	private Integer expert;
 
 	public String getLastip() {
 		return lastip;
@@ -692,6 +693,14 @@ public class UserValue implements UserDetails {
 
 	public void setManagerflag(Integer managerflag) {
 		this.managerflag = managerflag;
+	}
+
+	public Integer getExpert() {
+		return expert;
+	}
+
+	public void setExpert(Integer expert) {
+		this.expert = expert;
 	}
 
 }

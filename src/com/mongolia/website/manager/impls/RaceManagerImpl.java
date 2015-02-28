@@ -2,23 +2,29 @@ package com.mongolia.website.manager.impls;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mongolia.website.dao.interfaces.RaceDao;
+import com.mongolia.website.dao.interfaces.UserManagerDao;
 import com.mongolia.website.manager.interfaces.RaceManager;
 import com.mongolia.website.model.RaceDocumentValue;
 import com.mongolia.website.model.RaceModelValue;
 import com.mongolia.website.model.RaceScoreLogValue;
 import com.mongolia.website.model.RaceUser;
 import com.mongolia.website.model.UserValue;
+import com.mongolia.website.util.StaticConstants;
 
 @Service("raceManager")
 public class RaceManagerImpl implements RaceManager {
 	@Autowired
 	private RaceDao raceDao;
+	@Autowired
+	private UserManagerDao userManagerDao;
 
 	@Override
 	public List<RaceModelValue> getRaceModels(String raceid, Integer inactive)
@@ -84,21 +90,52 @@ public class RaceManagerImpl implements RaceManager {
 		if (racedocs == null || racedocs.isEmpty()) {
 			throw new Exception("1");
 		}
-		raceDao.delRaceDocument(raceid, docid,userid);
+		raceDao.delRaceDocument(raceid, docid, userid);
 	}
 
 	@Override
 	public void addRaceScoreLogValue(RaceScoreLogValue raceScoreLogValue)
 			throws Exception {
 		// TODO Auto-generated method stub
+		Map<String, Object> queryUserParams = new HashMap<String, Object>();
+		queryUserParams.put("userid", raceScoreLogValue.getScoreuserid());
+		List<UserValue> userValues = this.userManagerDao
+				.getUser(queryUserParams);
+		if (userValues == null || userValues.isEmpty()) {
+			throw new Exception("2");// 没有找到用户
+		}
+		UserValue userValue = userValues.get(0);
+		if (userValue.getExpert() != null
+				&& userValue.getExpert().intValue() == StaticConstants.SCORE_USER_TYPE2) {// 专家可以平三次
+			raceScoreLogValue.setUsertype(StaticConstants.SCORE_USER_TYPE2);
+		} else {
+			raceScoreLogValue.setUsertype(StaticConstants.SCORE_USER_TYPE1);
+		}
+		// 获取参与比赛类型
+		List<RaceDocumentValue> racedos = this.raceDao.getRaceDocuments(
+				raceScoreLogValue.getRaceid(), raceScoreLogValue.getDocid(),
+				null);
+		RaceDocumentValue raceDocumentValue = racedos.get(0);
 		// 1. 校验是否已经评过分
 		List<RaceScoreLogValue> scorelogs = this.raceDao.getRaceScoreLog(
 				raceScoreLogValue.getRaceid(), raceScoreLogValue.getDocid(),
 				raceScoreLogValue.getScoreuserid());
-		if (scorelogs != null && !scorelogs.isEmpty()) {
-			throw new Exception("1");
+		if (scorelogs != null
+				&& !scorelogs.isEmpty()
+				&& raceScoreLogValue.getUsertype().intValue() == StaticConstants.SCORE_USER_TYPE1
+				&& raceDocumentValue.getJointype().intValue() == StaticConstants.JOINRACE_TYPE1) {
+			throw new Exception("1");// 普通用户只能评一次分数
+		} else if (scorelogs != null
+				&& scorelogs.size() >= 3
+				&& raceScoreLogValue.getUsertype().intValue() == StaticConstants.SCORE_USER_TYPE2
+				&& raceDocumentValue.getJointype().intValue() == StaticConstants.JOINRACE_TYPE1) {
+			throw new Exception("3");// 专家用户只能平三次
+		} else if (scorelogs != null
+				&& scorelogs.size() >= 2
+				&& raceScoreLogValue.getUsertype().intValue() == StaticConstants.SCORE_USER_TYPE2
+				&& raceDocumentValue.getJointype().intValue() == StaticConstants.JOINRACE_TYPE2) {
+			throw new Exception("4");// 儿童作品专家用户只能平2次
 		}
-		// 2.
 		raceScoreLogValue.setScoredate(new Date());
 		raceDao.addRaceScoreLogValue(raceScoreLogValue);
 	}
@@ -119,5 +156,13 @@ public class RaceManagerImpl implements RaceManager {
 		}
 		return raceUsers;
 	}
+
+	@Override
+	public List<RaceDocumentValue> getRaceSumValue(String raceid, String docid)
+			throws Exception {
+		// TODO Auto-generated method stub
+		return this.raceDao.getRaceSumValue(raceid, docid);
+	}
+	
 
 }

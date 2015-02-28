@@ -84,10 +84,21 @@ public class RaceDaoImpl extends BaseDaoiBatis implements RaceDao {
 	@Override
 	public List<UserValue> getRaceUserList(String raceid) throws Exception {
 		// TODO Auto-generated method stub
-		Map<String,Object> queryMap=new HashMap<String,Object>();
+		Map<String, Object> queryMap = new HashMap<String, Object>();
 		queryMap.put("raceid", raceid);
 		return this.getSqlMapClientTemplate().queryForList("getRaceUserList",
 				queryMap);
+	}
+
+	@Override
+	public List<RaceDocumentValue> getRaceSumValue(String raceid, String docid)
+			throws Exception {
+		// TODO Auto-generated method stub,
+		Map<String, Object> getSumRaceValueParams = new HashMap<String, Object>();
+		getSumRaceValueParams.put("raceid", raceid);
+		getSumRaceValueParams.put("docid", docid);
+		return this.getSqlMapClientTemplate().queryForList("getRaceSumValue",
+				getSumRaceValueParams);
 	}
 
 }

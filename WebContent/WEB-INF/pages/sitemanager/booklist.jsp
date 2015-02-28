@@ -54,7 +54,7 @@
 						<c:out value="${bookStoreValue.bookname}" />
 						<br> :
 						<c:out value="${bookStoreValue.bookauthor}" />
-						<br> :100  <input type="checkbox"
+						<br> : <c:out value="${bookStoreValue.bookprice}" />  <input type="checkbox"
 							id="<c:out value="${bookStoreValue.bookid}" />"
 							name="bookcheckbox">
 

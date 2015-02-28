@@ -1,5 +1,6 @@
 package com.mongolia.website.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -95,9 +96,14 @@ public class RaceController {
 	public ModelAndView addRaceScoreLogValue(HttpServletRequest request,
 			RaceScoreLogValue raceScoreLogValue, ModelMap map) {
 		try {
+			UserValue sessionUser = (UserValue) request.getSession()
+					.getAttribute("user");
+			raceScoreLogValue.setScoreuserid(sessionUser.getUserid());
+			raceScoreLogValue.setScoredate(new Date());
 			this.raceManager.addRaceScoreLogValue(raceScoreLogValue);
 			map.put("mess", 0);
 		} catch (Exception ex) {
+			ex.printStackTrace();
 			map.put("mess", ex.getMessage());
 		}
 		return new ModelAndView("jsonView", map);

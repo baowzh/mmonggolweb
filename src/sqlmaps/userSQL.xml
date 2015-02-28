@@ -59,7 +59,8 @@
 		blogclass,
 		oldid,
 		headurl,
-		managerflag
+		managerflag,
+		expert
 		from
 		user
 		<dynamic prepend="where">

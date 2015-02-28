@@ -62,8 +62,7 @@
 			<param-value>
 			checkdocument.do,astopwriting.do,userlist.do,sitemanagerindex.do,articlelist.do,stopuser.do,reuseuser.do,deleteuser.do,getopinions.do,viewopinion.do,getOpinionContent.do,addopinions.do,toaddopinion.do,advert.do,
 				addadvert.do,edituserinfo.do,addfriend.do,toadddoc.do,imgupload.do,adddoc.do,toupddoc.do,deletedoc.do,updatedoc.do,addimggroup.do,updimggroup.do,addimg.do,dodeleteimggroup.do,addCommentOnResource.do,
-				shareUserresource.do,markUserresource.do,delresourcecomment.do,sendMessage.do,createsitepage.do,booklist.do,addbook.do,delbooks.do,selectedBook.do
-			
+				shareUserresource.do,markUserresource.do,delresourcecomment.do,sendMessage.do,createsitepage.do,booklist.do,addbook.do,delbooks.do,selectedBook.do,addRaceScoreLogValue.do
 			</param-value>
 		</init-param>
 		<init-param>

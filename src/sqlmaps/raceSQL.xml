@@ -68,7 +68,8 @@
 		spetotalscore,
 		speaveragescore,
 		finalscore,
-		joinuserid
+		joinuserid,
+		jointype
 		) values(
 		#raceid#,
 		#docid#,
@@ -78,40 +79,49 @@
 		#spetotalscore#,
 		#speaveragescore#,
 		#finalscore#,
-		#joinuserid#
+		#joinuserid#,
+		#jointype#
 		)
 	</insert>
 	<delete id="delRaceDocumentValue" parameterClass="java.util.Map">
-		delete from racedocument where raceid=#raceid# and
-		docid=#docid# and joinuserid=#joinuserid#
+		delete from
+		racedocument where raceid=#raceid# and
+		docid=#docid# and
+		joinuserid=#joinuserid#
 	</delete>
 	<insert id="addRaceScoreLogValue" parameterClass="RaceScoreLogValue">
 		insert into
 		RaceScoreLog(
-		  raceid,
-	      docid,
-	      scoredate,
-	      scoreuserid,
-	      usertype,
-	      score
+		raceid,
+		docid,
+		scoredate,
+		scoreuserid,
+		usertype,
+		score
 		) values(
-		  #raceid#,
-	      #docid#,
-	      #scoredate#,
-	      #scoreuserid#,
-	      #usertype#,
-	      #score#
+		#raceid#,
+		#docid#,
+		#scoredate#,
+		#scoreuserid#,
+		#usertype#,
+		#score#
 		)
 	</insert>
 	<select id="getRaceUserList" parameterClass="java.util.Map"
 		resultClass="UserValue">
-		select distinct b.* from racedocument a,user b where a.joinuserid=b.userid
+		select distinct b.* from racedocument a,user b where
+		a.joinuserid=b.userid
 		<dynamic prepend="and">
 			<isNotNull prepend="and" property="raceid">
 				a.raceid=#raceid#
 			</isNotNull>
 		</dynamic>
 	</select>
-	
-	
+	<select id="getRaceSumValue" parameterClass="java.util.Map"
+		resultClass="RaceDocumentValue">
+		select sum(a.score) nettotalscore,count(1) as
+		netscorecount,sum(a.score)/count(1) as netaveragescore,usertype from
+		racescorelog a where a.raceid=#raceid# and a.docid=#docid#
+		GROUP BY a.raceid,a.docid,a.usertype
+	</select>
 </sqlMap>

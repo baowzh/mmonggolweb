@@ -59,7 +59,8 @@ public interface RaceManager {
 	 * @param docid
 	 * @throws Exception
 	 */
-	public void delRaceDocument(String raceid, String docid,String userid) throws Exception;
+	public void delRaceDocument(String raceid, String docid, String userid)
+			throws Exception;
 
 	/**
 	 * 
@@ -69,7 +70,9 @@ public interface RaceManager {
 	public void addRaceScoreLogValue(RaceScoreLogValue raceScoreLogValue)
 			throws Exception;
 
-	public List<RaceUser> getRaceIndexContent(String raceid)
+	public List<RaceUser> getRaceIndexContent(String raceid) throws Exception;
+
+	public List<RaceDocumentValue> getRaceSumValue(String raceid, String docid)
 			throws Exception;
 
 }
