@@ -384,4 +384,7 @@
 	<%@ include file="bloghiddendiv.jsp"%>
 	<%@ include file="logindiv.jsp"%>
 </body>
+<script>
+var raceModelJson = <c:out value="${raceModelJson}" escapeXml="false" />;
+</script>
 </html>

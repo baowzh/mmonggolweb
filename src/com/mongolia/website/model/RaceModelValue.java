@@ -1,5 +1,6 @@
 package com.mongolia.website.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class RaceModelValue {
@@ -35,6 +36,9 @@ public class RaceModelValue {
 	 * 是否处于活动中
 	 */
 	private Integer inactive;
+
+	private String begindatestr;
+	private String enddatestr;
 
 	public String getRaceid() {
 		return raceid;
@@ -98,6 +102,35 @@ public class RaceModelValue {
 
 	public void setInactive(Integer inactive) {
 		this.inactive = inactive;
+	}
+
+	public String getBegindatestr() {
+		if (this.begindate == null) {
+			return null;
+		} else {
+			java.text.SimpleDateFormat formar = new SimpleDateFormat(
+					"yyyy-MM-dd");
+			return formar.format(begindate);
+		}
+
+	}
+
+	public void setBegindatestr(String begindatestr) {
+		this.begindatestr = begindatestr;
+	}
+
+	public String getEnddatestr() {
+		if (this.getEnddate() == null) {
+			return null;
+		} else {
+			java.text.SimpleDateFormat formar = new SimpleDateFormat(
+					"yyyy-MM-dd");
+			return formar.format(this.getEnddate());
+		}
+	}
+
+	public void setEnddatestr(String enddatestr) {
+		this.enddatestr = enddatestr;
 	}
 
 }

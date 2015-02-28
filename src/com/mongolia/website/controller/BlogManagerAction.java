@@ -65,7 +65,6 @@ import com.mongolia.website.model.PagingIndex;
 import com.mongolia.website.model.PaingModel;
 import com.mongolia.website.model.RaceDocumentValue;
 import com.mongolia.website.model.RaceModelValue;
-import com.mongolia.website.model.RaceScoreLogValue;
 import com.mongolia.website.model.UserValue;
 import com.mongolia.website.model.VisitorValue;
 import com.mongolia.website.model.VoteDetailForm;
@@ -276,6 +275,9 @@ public class BlogManagerAction {
 						raceModelValues.get(0).getRaceid(),
 						request.getParameter("docid"));
 				map.put("raceDocumentValue", raceDocumentValue);
+				JSONObject json = new JSONObject();
+				json.put("raceModel", raceModelValues.get(0));
+				map.put("raceModelJson", json.toString());
 			}
 		} catch (Exception ex) {
 			ex.printStackTrace();

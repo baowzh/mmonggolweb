@@ -97,6 +97,16 @@ public class RaceManagerImpl implements RaceManager {
 	public void addRaceScoreLogValue(RaceScoreLogValue raceScoreLogValue)
 			throws Exception {
 		// TODO Auto-generated method stub
+		List<RaceModelValue> raceModelValues = this.raceDao.getRaceModels(
+				raceScoreLogValue.getRaceid(), 1);
+		RaceModelValue raceModelValue = raceModelValues.get(0);
+		Date currentDate = new Date();
+		currentDate.setTime(System.currentTimeMillis());
+		if (currentDate.compareTo(raceModelValue.getBegindate()) < 0) {
+			throw new Exception("5");
+		} else if (currentDate.compareTo(raceModelValue.getEnddate()) > 0) {
+			throw new Exception("6");
+		}
 		Map<String, Object> queryUserParams = new HashMap<String, Object>();
 		queryUserParams.put("userid", raceScoreLogValue.getScoreuserid());
 		List<UserValue> userValues = this.userManagerDao
@@ -163,6 +173,5 @@ public class RaceManagerImpl implements RaceManager {
 		// TODO Auto-generated method stub
 		return this.raceDao.getRaceSumValue(raceid, docid);
 	}
-	
 
 }
