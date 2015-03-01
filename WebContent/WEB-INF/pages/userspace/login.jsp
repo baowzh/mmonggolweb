@@ -6,14 +6,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>博主的主页</title>
-<link href="img/css/main.css" type="text/css" rel="stylesheet" />
-<link href="img/css/listpages.css" type="text/css" rel="stylesheet" />
-<link href="img/css/blog.css" type="text/css" rel="stylesheet" />
 <link href="img/css/login.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="js/jqGrid/js/jquery-1.9.1.js"></script>
 <script type="text/javascript" src="js/util/js/messageWindow.js"></script>
 <script type="text/javascript" src="js/sitejs/login.js"></script>
 <script type="text/javascript" src="js/sitejs/regist.js"></script>
+<script type="text/javascript" src="js/sitejs/changevalidcode.js"></script>
 <script src="js/messagebox/jquery.msgbox.js"></script>
 <script src="js/messagebox/jquery.dragndrop.min.js"></script>
 <link rel="stylesheet" href="js\messagebox\jquery.msgbox.css" />
@@ -49,6 +47,8 @@
 							<div class="mnlist">
 								<!-- 						<input  type="button" onclick="javascript:dosubmit();" value=" "/> -->
 								<a href="javascript:dosubmit();"></a>
+								<a id="registlink" href="registe.do">&nbsp;&nbsp;
+									&nbsp;&nbsp;</a>
 							</div>
 						</form>
 					</div>
@@ -67,7 +67,6 @@
 	MessageWindow.showMess("    ");
 	</c:when>
 	<c:otherwise>
-	// MessageWindow.showMess("          ");
 	</c:otherwise>
 	</c:choose>
 </script>

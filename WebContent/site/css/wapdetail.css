@@ -212,7 +212,7 @@ html {
 	display: block;
 }
 
-.msheet {
+.phonesheet {
 	-webkit-writing-mode: vertical-lr;
 	-moz-writing-mode: vertical-lr;
 	-ms-writing-mode: vertical-lr;
@@ -225,10 +225,36 @@ html {
 	-ms-text-orientation: sideways-right;
 	font-size:18px;
 }
-.msheet p{
+.phonesheet p{
+	font-size:18px;
+}
+.phonesheet a{
+	color: #000;
+	text-decoration: none;
 	font-size:18px;
 }
 .titlediv {
 	font-weight: bold;
 	font-size: 30px;
+}
+.mnlist {
+	writing-mode: tb-lr;
+	-webkit-writing-mode: vertical-lr;
+	-webkit-text-orientation: sideways-right;
+	-ms-text-orientation: sideways-right;
+	line-height: 20px;
+	height: 320px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	float: left;
+	/* 	background: url(../icon.png) no-repeat center 0px; */
+	text-indent: 20px;
+	width: 20px;
+}
+
+.mnlist a {
+	/* 	color: #666; */
+	text-decoration: none;
+	color: #014886;
 }
