@@ -6,7 +6,7 @@ var q = function() {
 	$('#main').css('height', availHeight - 105);
 	$('#content').css('width', availWidth + 10);
 	$('#headimgdiv').css({
-		width : availWidth - 90
+		width : availWidth - 150
 	});
 	var sheetwidth = 0;
 	$('.phonesheet').each(function(i, val) {

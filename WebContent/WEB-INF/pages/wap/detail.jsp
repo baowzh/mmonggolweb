@@ -28,18 +28,28 @@
 			<img src="site/img/phonehead.jpg" style="width: 104px; height: 90px;">
 		</div>
 		<div class="mln"
-			style="height: 90px; width: 22px; font-size: 18px; float: left; color: #fff; padding-top: 0px;">
-			<a href="phoneindex.do" style="font-size: 18px;"> </a>
+			style="height: 90px; font-size: 18px; width: 22px; float: right; color: #fff; padding-top: 0px;">
+			<a href="tologin.do"></a>
+		</div>
+		<div class="emptyItem" style="height: 70px; float: right;"></div>
+		<div class="mln"
+			style="height: 90px; font-size: 18px; width: 22px; float: right; color: #fff; padding-top: 0px;">
+			<a href="registe.do"> </a>
 		</div>
 		<div class="emptyItem" style="height: 70px; float: left;"></div>
 		<div class="mln"
-			style="height: 90px; width: 22px; font-size: 18px; float: left; color: #fff; padding-top: 0px;">
+			style="height: 90px; width: 22px; font-size: 18px; float: right; color: #fff; padding-top: 0px;">
 			<a href="phonechannel.do" style="font-size: 18px;"> </a>
 		</div>
 		<div class="emptyItem" style="height: 70px; float: left;"></div>
 		<div class="mln"
-			style="height: 90px; width: 22px; font-size: 18px; float: left; color: #fff; padding-top: 0px;">
+			style="height: 90px; width: 22px; font-size: 18px; float: right; color: #fff; padding-top: 0px;">
 			<a href="phonebloglist.do" style="font-size: 18px;"> </a>
+		</div>
+		<div class="emptyItem" style="height: 70px; float: right;"></div>
+		<div class="mln"
+			style="height: 90px; width: 22px; font-size: 18px; float: right; color: #fff; padding-top: 0px;">
+			<a href="phoneindex.do" style="font-size: 18px;"> </a>
 		</div>
 	</div>
 	<div id="content" style="overflow: scroll;">

@@ -26,12 +26,23 @@
 </head>
 <body onload="q();">
 	<div class="wrap header">
-		<div style="float: left; width: 240px;">
+		<div id="headerbackground" style="float: left;">
 			<img src="site/img/phonehead.jpg" style="height: 90px; width: 104px;">
 		</div>
 		<div class="mln"
+			style="height: 90px; font-size: 18px; float: right; color: #fff; padding-top: 0px;">
+			<a href="tologin.do"></a>
+		</div>
+		<div class="emptyItem" style="height: 70px; float: right;"></div>
+		<div class="mln"
+			style="height: 90px; font-size: 18px; float: right; color: #fff; padding-top: 0px;">
+			<a href="registe.do"> </a>
+		</div>
+		<div class="emptyItem" style="height: 70px; float: right;"></div>
+		<div class="mln"
 			style="height: 80px; width: 30px; font-size: 18px; float: right; color: #fff;">
-			<a href="phonebloglist.do"></a></div>
+			<a href="phonebloglist.do"></a>
+		</div>
 		<div class="emptyItem" style="height: 70px; float: right;"></div>
 		<div class="mln"
 			style="height: 80px; font-size: 18px; float: right; color: #fff;">
