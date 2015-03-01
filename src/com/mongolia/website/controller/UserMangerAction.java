@@ -256,7 +256,21 @@ public class UserMangerAction {
 			map.put("success", "0");
 			return new ModelAndView("jsonView", map);
 		}
-		return new ModelAndView("forward:doedituserinifo.do", map);
+		if (this.isphoneagent(request)) {
+			return new ModelAndView("redirect:phoneindex.do");
+		} else {
+			return new ModelAndView("forward:doedituserinifo.do", map);
+		}
+
+	}
+
+	private boolean isphoneagent(HttpServletRequest request) {
+		// Enumeration<String> headers = request.getHeaderNames();
+		String user_agent = request.getHeader("user-agent");
+		if (user_agent.indexOf("Mobile") > 0) {
+			return true;
+		}
+		return false;
 	}
 
 	@RequestMapping("/doedituserinifo.do")
