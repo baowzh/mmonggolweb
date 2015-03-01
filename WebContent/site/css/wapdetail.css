@@ -1,7 +1,16 @@
+/*
 @font-face {
 	font-family: Mongol;
 	src: url(../../font/Mongol.woff) format("woff"),
 		url(../../font/Mongol.ttf) format("truetype");
+}*/
+@font-face {
+	src: url(../../font/MenksoftQagan_cn.ttf);
+	font-family: "MenksoftQagan";
+}
+body {
+	font-family: "MenksoftQagan";
+	font-size: 19px;
 }
 
 * {
@@ -25,9 +34,9 @@ html {
 .header {
 	text-align: center;
 	background: #d29130;
-/* 	border-bottom: #50cff3 solid 2px; */
+	/* 	border-bottom: #50cff3 solid 2px; */
 	height: 90px;
-/* 	background:url("../img/phonehead.jpg") */
+	/* 	background:url("../img/phonehead.jpg") */
 }
 
 .main {
@@ -110,7 +119,6 @@ html {
 /* 	-webkit-transform-origin: left top; */
 /* 	-webkit-transform: translate(100%, 0%) rotate(90deg); */
 /* } */
-
 .rotateimg {
 	-ms-transform-origin: left top;
 	-ms-transform: translate(100%, 0%) rotate(90deg);
@@ -120,7 +128,7 @@ html {
 	-o-transform: translate(100%, 0%) rotate(90deg);
 	-webkit-transform-origin: left top;
 	-webkit-transform: translate(100%, 0%) rotate(90deg);
-	 margin-left: 300px;
+	margin-left: 300px;
 }
 
 .conimg p {
@@ -148,11 +156,12 @@ html {
 .content {
 	overflow: hidden;
 }
-.moldiv{
+
+.moldiv {
 	-webkit-transform-origin: right top;
 	-webkit-transform: translate(-100%, 0px) rotate(270deg);
-	height:80px;
-	width:90px;
+	height: 80px;
+	width: 90px;
 }
 
 .navitem {
@@ -167,16 +176,59 @@ html {
 	background-color: #c90;
 	width: 90px;;
 	height: 20px;
-	padding-top:5px;
+	padding-top: 5px;
 }
-.navitem a{
-	color:#fff;
+
+.navitem a {
+	color: #fff;
 	text-decoration: none;
 }
+.mln {
+	padding-top: 10px;
+	width: 30px;
+	height: 125px;
+	writing-mode: tb-rl;
+	-webkit-writing-mode: vertical-lr;
+	-moz-writing-mode: vertical-lr;
+	-ms-writing-mode: vertical-lr;
+	-o-writing-mode: vertical-lr;
+	-webkit-text-orientation: sideways-right;
+	border-radius: 5px;
+	border-color: #014886;
+	background-color: #c90;
+}
+
+.mln a {
+	color: #fff;
+	text-decoration: none;
+	font-size: 18px;
+}
+
 .emptyItem {
 	color: #fff;
 	width: 8px;
 	height: 3px;
 	font-size: 19px;
 	display: block;
+}
+
+.msheet {
+	-webkit-writing-mode: vertical-lr;
+	-moz-writing-mode: vertical-lr;
+	-ms-writing-mode: vertical-lr;
+	-o-writing-mode: vertical-lr;
+	writing-mode: tb-lr;
+	line-height: 23px;
+	word-break: keep-all;
+	text-align: left;
+	-webkit-text-orientation: sideways-right;
+	-ms-text-orientation: sideways-right;
+	font-size:18px;
+}
+.msheet p{
+	font-size:18px;
+}
+.titlediv {
+	font-weight: bold;
+	font-size: 30px;
 }

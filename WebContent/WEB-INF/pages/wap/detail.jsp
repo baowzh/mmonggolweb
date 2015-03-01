@@ -13,98 +13,104 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <meta name="format-detection" content="telephone=no" />
 <meta name="format-detection" content="email=no" />
-<title>altanhurd</title>
+<title>金轮文化网</title>
 <link href="site/css/wapdetail.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="js/sitejs/wapdetail.js"></script>
 </head>
 <body onload="q();">
-	<div class="wrap" id="wrap">
-		<div class="header">
-			<div id="headimgdiv" style="height: 90px; float: left;">
-				<img src="site/img/phonehead.jpg"
-					style="width: 104px; height: 90px;">
-			</div>
-			<div class="moldiv" style="float: right;">
-				<div class="navitem">
-					<a href="phoneindex.do" style="font-size: 18px;"> </a>
-				</div>
-				<div class="emptyItem"></div>
-				<div class="navitem">
-					<a href="phonechannel.do" style="font-size: 18px;"> </a>
-				</div>
-				<div class="emptyItem"></div>
-				<div class="navitem">
-					<a href="phonebloglist.do" style="font-size: 18px;"> </a>
-				</div>
-			</div>
+	<!-- 	<div class="wrap" id="wrap"> -->
+	<div class="header">
+		<div id="headimgdiv" style="height: 90px; float: left;">
+			<img src="site/img/phonehead.jpg" style="width: 104px; height: 90px;">
 		</div>
-		<div class="main" id="main">
-			<div class="condiv" id="condiv">
-				<div class="con" style="height: 130px;">
-					<div class="con" style="float: right; height: 130px; width: 160px;">
-						<a href="phoneuserindex.do?userid=<c:out value="${user.userid}" />"><img
-							src="html/userhead/<c:out value="${user.headurl}" />"
-							style="width: 120px; height: 160px;"> </a>
-					</div>
-					<div class="con"
-						style="float: right; height: 130px; width: 210px; padding-rigth: 10px;font-size:16px;">
-						<div style="font-size:20px;color:#f00;">
-							&nbsp;&nbsp; <a style="text-decoration: none;color:#f00;"
-								href="phoneuserindex.do?userid=<c:out value="${user.userid}" />"><c:out
-									value="${user.artname}" /> </a>
-						</div>
-						<div style="font-size:18px;height:20px;">
-							&nbsp;&nbsp; 
-							<c:choose>
-								<c:when test="${user.sex==1}">
+		<div class="mln"
+			style="height: 90px; width: 22px; font-size: 18px; float: left; color: #fff; padding-top: 0px;">
+			<a href="phoneindex.do" style="font-size: 18px;"> </a>
+		</div>
+		<div class="emptyItem" style="height: 70px; float: left;"></div>
+		<div class="mln"
+			style="height: 90px; width: 22px; font-size: 18px; float: left; color: #fff; padding-top: 0px;">
+			<a href="phonechannel.do" style="font-size: 18px;"> </a>
+		</div>
+		<div class="emptyItem" style="height: 70px; float: left;"></div>
+		<div class="mln"
+			style="height: 90px; width: 22px; font-size: 18px; float: left; color: #fff; padding-top: 0px;">
+			<a href="phonebloglist.do" style="font-size: 18px;"> </a>
+		</div>
+	</div>
+	<div id="content" style="overflow:scroll;">
+	<div class="main" id="main">
+		<div style="float: left; padding-top: 20px; height: 95%;width:180px;">
+			<div class="msheet flt" style="padding-left: 10px;">
+				<div class="avatar" style="width:144px;height:180px;">
+					<a href="phoneuserindex.do?userid=<c:out value="${user.userid}" />"><img
+						src="html/userhead/<c:out value="${user.headurl}" />" style="width:144px;height:180px;" /> </a>
+				</div>
+				<div class="m1ln name"
+					style="height: 100px; overflow: hidden; font-size: 20px; color: #f00;">
+					<a style="text-decoration: none; color: #f00;font-size: 20px;"
+						href="phoneuserindex.do?userid=<c:out value="${user.userid}" />"><c:out
+							value="${user.artname}" /> </a>
+				</div>
+			</div>
+			<div class="msheet flt"
+				style="padding-top: 10px; padding-left: 10px; width: 140px; margin: 0 auto">
+				<div class="m1ln">
+					 
+					<c:choose>
+						<c:when test="${user.sex==1}">
 							         
 							       </c:when>
-
-								<c:when test="${user.sex==0}">
+						<c:when test="${user.sex==0}">
 							          
 							       </c:when>
-								<c:otherwise>
+						<c:otherwise>
 							          
 							       </c:otherwise>
-							</c:choose>
-						</div>
-						<div style="font-size:18px;height:20px;">
-							&nbsp;&nbsp; 
-							<c:out value="${user.age}" default="  " />
-						</div>
-						<div style="font-size:18px;height:20px;">
-							&nbsp;&nbsp;  
-							<c:out value="${user.nowprovincename}" default="  " />
-						</div>
-					</div>
+					</c:choose>
 				</div>
-				<div class="con">
-					<h1>
-						<c:out value="${documentValue.doctitle}" />
-					</h1>
-					<h2>
-						 &nbsp;
-						<c:out value="${documentValue.docchannelname}" />
-						**   &nbsp;
-						<c:out value="${documentValue.docRelTimeStr}" />
-						**  &nbsp; <span id="readcount"><c:out
-								value="${documentValue.readcount}" default="0" /></span> 
+				<div class="m1ln">
+					 
+					<c:out value="${user.age}" default="  " />
+				</div>
+				<div class="m1ln">
+					  
+					<c:out value="${user.nowprovincename}" default="  " />
+				</div>
 
-					</h2>
+				<div class="m1ln">
+					 
+					<c:out value="${user.regdatestr}" default="  " />
 				</div>
-				<div class="content">
 
-					<div class='con'>
-						<c:out value="${documentValue.htmlstr}" escapeXml="false" />
-					</div>
-					<div class='conimg' style='height: 868px;'></div>
-				</div>
-				<div class="con footer">
-					<h1></h1>
+				<div class="m1ln">
+					 
+					<c:out value="${totalVisitCount}" />
 				</div>
 			</div>
 		</div>
+		<div class="msheet"
+			style="float: left; padding-top: 30px; height: 95%;">
+			<div id="doctitle" class="msheet titlediv"
+				style="line-height: 100%; margin: 20px;">
+				<c:out value="${documentValue.doctitle}" />
+			</div>
+			<h2>
+				 &nbsp;
+				<c:out value="${documentValue.docchannelname}" />
+				**   &nbsp;
+				<c:out value="${documentValue.docRelTimeStr}" />
+				**  &nbsp; <span id="readcount"><c:out
+						value="${documentValue.readcount}" default="0" /></span> 
+
+			</h2>
+		</div>
+		<div class="msheet" style="padding: 15px; float: left; height: 95%;">
+			<c:out value="${documentValue.htmlstr}" escapeXml="false" />
+		</div>
+		
+	</div>
 	</div>
 </body>
 </html>
