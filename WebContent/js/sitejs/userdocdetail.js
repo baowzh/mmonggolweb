@@ -669,13 +669,23 @@ var scoreracedoc = function(raceid, docid) {
 								+ $('#docid').val();
 					} else if (data.mess == '1') {
 						MessageWindow
-								.showMess('           ');
+								.showMess('          ');
 					} else if (data.mess == '3') {
 						MessageWindow
-								.showMess('           ');
+								.showMess('          ');
 					} else if (data.mess == '4') {
 						MessageWindow
-								.showMess('             ');
+								.showMess('          ');
+					} else if (data.mess == '5') {
+						MessageWindow
+								.showMess('    <br>'
+										+ raceModelJson.raceModel.begindatestr
+										+ '    ');
+					} else if (data.mess == '6') {
+						MessageWindow
+								.showMess('    <br>'
+										+ raceModelJson.raceModel.enddatestr
+										+ '     ');
 					}
 
 				}
