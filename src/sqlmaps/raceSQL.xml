@@ -37,6 +37,9 @@
 			<isNotNull prepend="and" property="joinuserid">
 				joinuserid=#joinuserid#
 			</isNotNull>
+			<isNotNull prepend="and" property="round">
+				raceround=#round#
+			</isNotNull>
 		</dynamic>
 	</select>
 	<select id="getRaceScoreLogValue" parameterClass="java.util.Map"
@@ -55,6 +58,9 @@
 			<isNotNull prepend="and" property="scoreuserid">
 				scoreuserid=#scoreuserid#
 			</isNotNull>
+			<isNotNull prepend="and" property="round">
+				round=#round#
+			</isNotNull>
 		</dynamic>
 	</select>
 	<insert id="addRaceDocumentValue" parameterClass="RaceDocumentValue">
@@ -69,7 +75,8 @@
 		speaveragescore,
 		finalscore,
 		joinuserid,
-		jointype
+		jointype,
+		raceround
 		) values(
 		#raceid#,
 		#docid#,
@@ -80,7 +87,8 @@
 		#speaveragescore#,
 		#finalscore#,
 		#joinuserid#,
-		#jointype#
+		#jointype#,
+		#raceround#
 		)
 	</insert>
 	<delete id="delRaceDocumentValue" parameterClass="java.util.Map">
@@ -97,14 +105,16 @@
 		scoredate,
 		scoreuserid,
 		usertype,
-		score
+		score,
+		round
 		) values(
 		#raceid#,
 		#docid#,
 		#scoredate#,
 		#scoreuserid#,
 		#usertype#,
-		#score#
+		#score#,
+		#round#
 		)
 	</insert>
 	<select id="getRaceUserList" parameterClass="java.util.Map"
@@ -120,8 +130,8 @@
 	<select id="getRaceSumValue" parameterClass="java.util.Map"
 		resultClass="RaceDocumentValue">
 		select sum(a.score) nettotalscore,count(1) as
-		netscorecount,sum(a.score)/count(1) as netaveragescore,usertype from
-		racescorelog a where a.raceid=#raceid# and a.docid=#docid#
+		netscorecount,sum(a.score)/count(1) as netaveragescore,usertype as raceround from
+		racescorelog a where a.raceid=#raceid# and a.docid=#docid# and round=#round#
 		GROUP BY a.raceid,a.docid,a.usertype
 	</select>
 </sqlMap>

@@ -32,7 +32,7 @@ public interface RaceManager {
 	 * @throws Exception
 	 */
 	public List<RaceDocumentValue> getRaceDocuments(String raceid,
-			String docid, String userid) throws Exception;
+			String docid, String userid,Integer round) throws Exception;
 
 	/**
 	 * 
@@ -43,7 +43,7 @@ public interface RaceManager {
 	 * @throws Exception
 	 */
 	public List<RaceScoreLogValue> getRaceScoreLog(String raceid, String docid,
-			String userid) throws Exception;
+			String userid,Integer round) throws Exception;
 
 	/**
 	 * 
@@ -72,7 +72,7 @@ public interface RaceManager {
 
 	public List<RaceUser> getRaceIndexContent(String raceid) throws Exception;
 
-	public List<RaceDocumentValue> getRaceSumValue(String raceid, String docid)
+	public List<RaceDocumentValue> getRaceSumValue(String raceid, String docid,Integer round)
 			throws Exception;
 
 }

@@ -29,12 +29,13 @@ public class RaceDaoImpl extends BaseDaoiBatis implements RaceDao {
 
 	@Override
 	public List<RaceDocumentValue> getRaceDocuments(String raceid,
-			String docid, String userid) throws Exception {
+			String docid, String userid,Integer round) throws Exception {
 		// TODO Auto-generated method stub
 		Map<String, Object> queryParams = new HashMap<String, Object>();
 		queryParams.put("raceid", raceid);
 		queryParams.put("docid", docid);
 		queryParams.put("joinuserid", userid);
+		queryParams.put("round", round);
 		return this.getSqlMapClientTemplate().queryForList(
 				"getRaceDocumentValue", queryParams);
 
@@ -42,12 +43,13 @@ public class RaceDaoImpl extends BaseDaoiBatis implements RaceDao {
 
 	@Override
 	public List<RaceScoreLogValue> getRaceScoreLog(String raceid, String docid,
-			String userid) throws Exception {
+			String userid,Integer round) throws Exception {
 		// TODO Auto-generated method stub
 		Map<String, Object> queryParams = new HashMap<String, Object>();
 		queryParams.put("raceid", raceid);
 		queryParams.put("docid", docid);
 		queryParams.put("userid", userid);
+		queryParams.put("round", round);
 		return this.getSqlMapClientTemplate().queryForList(
 				"getRaceScoreLogValue", queryParams);
 	}
@@ -91,12 +93,13 @@ public class RaceDaoImpl extends BaseDaoiBatis implements RaceDao {
 	}
 
 	@Override
-	public List<RaceDocumentValue> getRaceSumValue(String raceid, String docid)
+	public List<RaceDocumentValue> getRaceSumValue(String raceid, String docid,Integer round)
 			throws Exception {
 		// TODO Auto-generated method stub,
 		Map<String, Object> getSumRaceValueParams = new HashMap<String, Object>();
 		getSumRaceValueParams.put("raceid", raceid);
 		getSumRaceValueParams.put("docid", docid);
+		getSumRaceValueParams.put("round", round);
 		return this.getSqlMapClientTemplate().queryForList("getRaceSumValue",
 				getSumRaceValueParams);
 	}

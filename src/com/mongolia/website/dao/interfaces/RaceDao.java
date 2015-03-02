@@ -27,7 +27,7 @@ public interface RaceDao {
 	 * @throws Exception
 	 */
 	public List<RaceDocumentValue> getRaceDocuments(String raceid,
-			String docid, String userid) throws Exception;
+			String docid, String userid,Integer round) throws Exception;
 
 	/**
 	 * 
@@ -38,7 +38,7 @@ public interface RaceDao {
 	 * @throws Exception
 	 */
 	public List<RaceScoreLogValue> getRaceScoreLog(String raceid, String docid,
-			String userid) throws Exception;
+			String userid,Integer round) throws Exception;
 
 	/**
 	 * 
@@ -79,6 +79,6 @@ public interface RaceDao {
 	 * @return
 	 * @throws Exception
 	 */
-	public List<RaceDocumentValue> getRaceSumValue(String raceid, String docid)
+	public List<RaceDocumentValue> getRaceSumValue(String raceid, String docid,Integer round)
 			throws Exception;
 }

@@ -14,6 +14,7 @@ public class RaceDocumentValue {
 	private String joinuserid;
 	private Integer netscorecount;
 	private Integer spescorecount;
+	private Integer raceround;
 	/**
 	 * 1 成人比赛 2 儿童比赛
 	 */
@@ -142,4 +143,11 @@ public class RaceDocumentValue {
 		this.usertype = usertype;
 	}
 
+	public Integer getRaceround() {
+		return raceround;
+	}
+
+	public void setRaceround(Integer raceround) {
+		this.raceround = raceround;
+	}
 }

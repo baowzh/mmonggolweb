@@ -9,7 +9,7 @@ public class RaceScoreLogValue {
 	private String scoreuserid;
 	private Integer usertype;
 	private Double score;
-
+    private Integer round;
 	public String getRaceid() {
 		return raceid;
 	}
@@ -58,4 +58,11 @@ public class RaceScoreLogValue {
 		this.score = score;
 	}
 
+	public Integer getRound() {
+		return round;
+	}
+
+	public void setRound(Integer round) {
+		this.round = round;
+	}
 }

@@ -261,11 +261,14 @@ public class BlogManagerAction {
 		return new ModelAndView("userspace/textDetail", map);
 	}
 
-	private RaceDocumentValue getRaceScoreStatus(String raceid, String docid) {
+	private RaceDocumentValue getRaceScoreStatus(String raceid, String docid,
+			Integer round) {
 		RaceDocumentValue raceDocumentValue = new RaceDocumentValue();
+		raceDocumentValue.setNetaveragescore(new Double(0));
+		raceDocumentValue.setSpeaveragescore(new Double(0));
 		try {
 			List<RaceDocumentValue> raceScoreLogValues = this.raceManager
-					.getRaceSumValue(raceid, docid);
+					.getRaceSumValue(raceid, docid, round);
 			for (RaceDocumentValue raceScoreLogValue : raceScoreLogValues) {
 				if (raceScoreLogValue.getUsertype().intValue() == StaticConstants.JOINRACE_TYPE1) {
 					raceDocumentValue.setNettotalscore(raceScoreLogValue
@@ -283,6 +286,10 @@ public class BlogManagerAction {
 							.getNetaveragescore());
 				}
 			}
+			raceDocumentValue.setFinalscore(raceDocumentValue
+					.getNetaveragescore()
+					* 0.2
+					+ raceDocumentValue.getSpeaveragescore() * 0.8);
 
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -371,29 +378,31 @@ public class BlogManagerAction {
 		}
 		map.put("agentkind", agentkind);
 		// 一个时间段只能有一个有效的活动
-					List<RaceModelValue> raceModelValues = this.raceManager
-							.getRaceModels(null, 1);
-					// 校验是否已经送比赛则显示取消按钮
-					// 获取参赛活动，如果有则在页面后面加参赛按钮
-					if (raceModelValues != null && !raceModelValues.isEmpty()) {
-						map.put("raceModelValue", raceModelValues.get(0));
-						List<RaceDocumentValue> racedocs = this.raceManager
-								.getRaceDocuments(raceModelValues.get(0).getRaceid(),
-										request.getParameter("docid"), null);
-						if (racedocs != null && !racedocs.isEmpty()) {
-							map.put("isjoin", 1);
-						} else {
-							map.put("isjoin", 0);
-						}
-						map.put("raceModelValue", raceModelValues.get(0));
-						RaceDocumentValue raceDocumentValue = getRaceScoreStatus(
-								raceModelValues.get(0).getRaceid(),
-								request.getParameter("docid"));
-						map.put("raceDocumentValue", raceDocumentValue);
-						JSONObject json = new JSONObject();
-						json.put("raceModel", raceModelValues.get(0));
-						map.put("raceModelJson", json.toString());
-					}
+		List<RaceModelValue> raceModelValues = this.raceManager.getRaceModels(
+				null, 1);
+		// 校验是否已经送比赛则显示取消按钮
+		// 获取参赛活动，如果有则在页面后面加参赛按钮
+		if (raceModelValues != null && !raceModelValues.isEmpty()) {
+			map.put("raceModelValue", raceModelValues.get(0));
+			List<RaceDocumentValue> racedocs = this.raceManager
+					.getRaceDocuments(raceModelValues.get(0).getRaceid(),
+							request.getParameter("docid"), null,
+							raceModelValues.get(0).getRound());
+			if (racedocs != null && !racedocs.isEmpty()) {
+				map.put("isjoin", 1);
+			} else {
+				map.put("isjoin", 0);
+			}
+			map.put("raceModelValue", raceModelValues.get(0));
+			RaceDocumentValue raceDocumentValue = getRaceScoreStatus(
+					raceModelValues.get(0).getRaceid(),
+					request.getParameter("docid"), raceModelValues.get(0)
+							.getRound());
+			map.put("raceDocumentValue", raceDocumentValue);
+			JSONObject json = new JSONObject();
+			json.put("raceModel", raceModelValues.get(0));
+			map.put("raceModelJson", json.toString());
+		}
 		return map;
 	}
 

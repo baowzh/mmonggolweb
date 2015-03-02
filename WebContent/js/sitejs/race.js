@@ -47,16 +47,21 @@ var joinrace = function() {
 						$("#joinracediv").dialog("close");
 					} else if (data.mess == '1') {
 						MessageWindow
-								.showMess('        ');
+								.showMess('       ');
 					} else if (data.mess == '2') {
 						MessageWindow
-								.showMess('            ');
+								.showMess('        <br/>      ');
 					} else if (data.mess == '3') {
 						MessageWindow
-								.showMess('       ');
+								.showMess('        ');
 					} else if (data.mess == '4') {
 						MessageWindow
-								.showMess('       ');
+								.showMess('      ');
+					} else if (data.mess == '5') {
+						MessageWindow
+								.showMess(' '
+										+ raceModelJson.raceModel.round
+										+ '     <br/>     ');
 					}
 				}
 			});
@@ -141,7 +146,7 @@ var scoreracedoc = function(raceid, docid) {
 								.showMess('          ');
 					} else if (data.mess == '4') {
 						MessageWindow
-								.showMess('          ');
+								.showMess('      ');
 					} else if (data.mess == '5') {
 						MessageWindow
 								.showMess('    <br>'

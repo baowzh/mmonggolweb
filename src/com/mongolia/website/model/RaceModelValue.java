@@ -39,6 +39,7 @@ public class RaceModelValue {
 
 	private String begindatestr;
 	private String enddatestr;
+	private Integer round;
 
 	public String getRaceid() {
 		return raceid;
@@ -131,6 +132,14 @@ public class RaceModelValue {
 
 	public void setEnddatestr(String enddatestr) {
 		this.enddatestr = enddatestr;
+	}
+
+	public Integer getRound() {
+		return round;
+	}
+
+	public void setRound(Integer round) {
+		this.round = round;
 	}
 
 }
