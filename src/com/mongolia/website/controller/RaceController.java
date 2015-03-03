@@ -125,7 +125,7 @@ public class RaceController {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-		return new ModelAndView("baitelhei/raceuserlist", map);
+		return new ModelAndView("baitelhei/raceindex", map);
 	}
 
 }

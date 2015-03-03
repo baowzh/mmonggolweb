@@ -1,0 +1,73 @@
+﻿@charset "utf-8";
+/* CSS Document */
+@font-face {
+	src: url(../../font/MenksoftQagan_cn.ttf);
+	font-family: "MenksoftQagan";
+}
+
+body {
+	padding: 0;
+	margin: 0;
+	font-family: "MenksoftQagan ";
+	background-color: #eecf88;
+}
+
+.racetitle {
+	-webkit-writing-mode: vertical-lr;
+	writing-mode: tb-lr;
+	-webkit-text-orientation: sideways-right;
+	-ms-text-orientation: sideways-right;
+	float: left;
+	margin: 1px auto;
+	background: #fff;
+	overflow: hidden;
+	height:60px;
+	width:1000px;
+	border: 1px dotted #e0e0e0;
+}
+
+.raceuser {
+	float: left;
+	-webkit-writing-mode: vertical-lr;
+	writing-mode: tb-lr;
+	width: 128px;
+	height: 490px;
+	border: 1px dotted #e0e0e0;
+	padding: 5px;
+}
+
+.raceuser .avtr {
+	float: left;
+	width: 120px;
+	height: 135px;
+}
+
+.raceuser .avtr img {
+	width: 120px;
+	height: 130px;
+	border: solid 1px #ccc;
+}
+
+.raceuser .desc {
+	width: 120px;
+	padding: 5px;
+	float: left;
+	height: 320px;
+}
+
+.desitem {
+	writing-mode: tb-lr;
+	-webkit-writing-mode: vertical-lr;
+	-webkit-text-orientation: sideways-right;
+	-ms-text-orientation: sideways-right;
+	width: 20px;
+	overflow: hidden;
+	float: left;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.raceuser .desc .desitem {
+	height: 230px;
+}
