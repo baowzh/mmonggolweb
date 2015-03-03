@@ -34,6 +34,7 @@
 				<div class="ttl" style="height: 146px;"></div>
 				<div class="more"></div>
 				<div class="ctail"></div>
+				
 			</div>
 			<div class="listCardBody" style="height: 334px; padding-left: 5px;">
 				<c:forEach items="${indexPageContent.selecteddocs}"

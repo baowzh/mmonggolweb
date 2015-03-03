@@ -32,6 +32,7 @@ public class RaceController {
 	@RequestMapping("/getRaceModels.do")
 	public ModelAndView getRaceModels(HttpServletRequest request, ModelMap map) {
 		try {
+			
 			List<RaceModelValue> raceModelValues = this.raceManager
 					.getRaceModels(request.getParameter("raceid"), 1);
 			map.put("raceModelValues", raceModelValues);
