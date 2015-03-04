@@ -116,4 +116,10 @@
 		style="height: 30px; text-align: center; background: #d29130; color: #fff; padding-top: 3px; font-size: 13px; positon: fixed:bottom:0px;">
 		版权所有 © 2014-2015</div>
 </body>
+<script type="text/javascript">
+var loginsuccess='<c:out value="${loginsuccess}"/>';
+	if(loginsuccess=='1'){
+	  alert('成功登陆');
+	}
+</script>
 </html>

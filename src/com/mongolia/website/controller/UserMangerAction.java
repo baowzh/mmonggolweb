@@ -179,7 +179,8 @@ public class UserMangerAction {
 						return new ModelAndView("redirect:" + desurl, map);
 
 					} else {
-						return new ModelAndView("redirect:index.do", map);
+						map.put("loginsuccess", "loginsuccess");
+						return new ModelAndView("redirect:index.do?loginsuccess=1", map);
 					}
 
 				}
@@ -257,7 +258,7 @@ public class UserMangerAction {
 			return new ModelAndView("jsonView", map);
 		}
 		if (this.isphoneagent(request)) {
-			return new ModelAndView("redirect:phoneindex.do");
+			return new ModelAndView("redirect:phoneuserindex.do");
 		} else {
 			return new ModelAndView("forward:doedituserinifo.do", map);
 		}

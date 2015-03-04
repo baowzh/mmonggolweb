@@ -77,7 +77,13 @@ public class WebSiteVisiterAction {
 		Map<String, Object> indexPageContent = new HashMap<String, Object>();
 		try {
 			if (this.isphoneagent(request)) {
-				return new ModelAndView("redirect:phoneindex.do");
+				String loginsuccess=request.getParameter("loginsuccess");
+				if(loginsuccess!=null){
+					return new ModelAndView("redirect:phoneindex.do?loginsuccess=1");	
+				}else{
+					return new ModelAndView("redirect:phoneindex.do");	
+				}
+				
 			}
 			String path = request.getSession().getServletContext()
 					.getRealPath("/");
@@ -586,6 +592,7 @@ public class WebSiteVisiterAction {
 	public ModelAndView phoneindex(HttpServletRequest request,
 			PaingModel<DocumentValue> paingModel, ModelMap map) {
 		try {
+			String loginsuccess=request.getParameter("loginsuccess");
 			List<TopDocumentValue> selecteddocs = this.webSiteVisitorManager
 					.getTopDocuments(StaticConstants.TOP_TYPE4, null, 14);
 			map.put("selecteddocs", selecteddocs);
@@ -595,6 +602,7 @@ public class WebSiteVisiterAction {
 			List<TopDocumentValue> imgnews = this.webSiteVisitorManager
 					.getTopDocuments(StaticConstants.TOP_TYPE1, null, 7);
 			map.put("imgnews", imgnews);
+			map.put("loginsuccess", loginsuccess);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

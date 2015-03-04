@@ -1,6 +1,7 @@
 package com.mongolia.website.manager.interfaces;
 
 import java.util.List;
+import java.util.Map;
 
 import com.mongolia.website.model.RaceDocumentValue;
 import com.mongolia.website.model.RaceModelValue;
@@ -32,7 +33,7 @@ public interface RaceManager {
 	 * @throws Exception
 	 */
 	public List<RaceDocumentValue> getRaceDocuments(String raceid,
-			String docid, String userid,Integer round) throws Exception;
+			String docid, String userid, Integer round) throws Exception;
 
 	/**
 	 * 
@@ -43,7 +44,7 @@ public interface RaceManager {
 	 * @throws Exception
 	 */
 	public List<RaceScoreLogValue> getRaceScoreLog(String raceid, String docid,
-			String userid,Integer round) throws Exception;
+			String userid, Integer round) throws Exception;
 
 	/**
 	 * 
@@ -72,7 +73,17 @@ public interface RaceManager {
 
 	public List<RaceUser> getRaceIndexContent(String raceid) throws Exception;
 
-	public List<RaceDocumentValue> getRaceSumValue(String raceid, String docid,Integer round)
+	public List<RaceDocumentValue> getRaceSumValue(String raceid, String docid,
+			Integer round) throws Exception;
+
+	/**
+	 * 
+	 * @param raceid
+	 * @param pageid
+	 * @return
+	 * @throws Exception
+	 */
+	public Map<String, Object> getRaceIndexCon(String raceid, String pageid)
 			throws Exception;
 
 }

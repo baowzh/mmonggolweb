@@ -22,6 +22,7 @@ public class RaceDocumentValue {
 	private String raicevalidcode;
 	private Integer scorecountl;
 	private Integer usertype;
+	private String doctitle;
 
 	public String getRaceid() {
 		return raceid;
@@ -150,4 +151,13 @@ public class RaceDocumentValue {
 	public void setRaceround(Integer raceround) {
 		this.raceround = raceround;
 	}
+
+	public String getDoctitle() {
+		return doctitle;
+	}
+
+	public void setDoctitle(String doctitle) {
+		this.doctitle = doctitle;
+	}
+
 }

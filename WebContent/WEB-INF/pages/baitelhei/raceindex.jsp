@@ -22,7 +22,7 @@
 <body>
 	<div class="wrp m0a logo">
 		<div class="naveFrame">
-			<%-- 			<%@ include file="head.jsp"%> --%>
+						<%@ include file="../website/head.jsp"%>
 		</div>
 		<div class="cbt"></div>
 	</div>
@@ -34,10 +34,10 @@
 				<div class="ttl" style="height: 146px;"></div>
 				<div class="more"></div>
 				<div class="ctail"></div>
-				
+
 			</div>
 			<div class="listCardBody" style="height: 334px; padding-left: 5px;">
-				<c:forEach items="${indexPageContent.selecteddocs}"
+				<c:forEach items="${indexPageContent.medegdeldocs}"
 					var="documentValue" varStatus="status">
 					<div class="nwsl1">
 						<div class="title">
@@ -60,12 +60,12 @@
 		<div class="card1" style="height: 340px; width: 500px;">
 			<div class="listCardTtl ttlStl1" style="height: 340px;">
 				<div class="top"></div>
-				<div class="ttl" style="height: 146px;"> </div>
+				<div class="ttl" style="height: 146px;"></div>
 				<div class="more"></div>
 				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody" style="height: 334px; padding-left: 5px;">
-				<c:forEach items="${indexPageContent.selecteddocs}"
+				<c:forEach items="${indexPageContent.medegeleldocs}"
 					var="documentValue" varStatus="status">
 					<div class="nwsl1">
 						<div class="title">
@@ -88,782 +88,41 @@
 	</div>
 	<div class="lmainR ofh">
 		<div
-			style="float: left; margin: 1px 0px; background: #fff; overflow: scroll; height: 1500px;">
-			<div class="raceuser">
-				<div class="avtr">
-					<a
-						href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-						<img src="html/userhead/nan.jpg" />
-					</a>
-				</div>
-				<div class="desc">
-					<div class="desitem" style="height: 320px;">
+			style="float: left; margin: 1px 0px; background: #fff; overflow: scroll; max-height: 1500px; min-height: 530px; min-width: 1000px;">
+			<c:forEach items="${raceUsers}" var="raceUser" varStatus="status">
+				<div class="raceuser">
+					<div class="avtr">
 						<a
-							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-							<span class="label1">  :<c:out
-									value="${userValue.artname}" />
-						</span>
+							href="gouserindex.do?userid=<c:out value="${raceUser.uservalue.userid}" />">
+							<img src="html/userhead/<c:out value="${raceUser.uservalue.headurl}" />" />
 						</a>
 					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 1 : </span>
-						<c:out value="${userValue.nowprovince}" />
+					<div class="desc">
+						<div class="desitem" style="height: 320px;">
+							<div class="author">
+								 :
+								<c:out value="${raceUser.uservalue.artname}" />
+							</div>
+						</div>
+						<c:forEach items="${raceUser.raceDocumentValues}"
+							var="raceDocumentValue" varStatus="status">
+							<div class="nwsl1">
+								<div class="title" style="height: 240px;">
+									<a
+										href="getuserdocdetail.do?docid=<c:out value="${raceDocumentValue.docid}"/>"
+										target="_blank" class="tit_text_overflow"><c:out
+											value="${raceDocumentValue.doctitle}" /></a>
+								</div>
+								<div class="author">
+									<a
+										href="getuserdocdetail.do?docid=<c:out value="${raceDocumentValue.docid}"/>">
+										  </a>
+								</div>
+							</div>
+						</c:forEach>
 					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 2: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 3: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-
 				</div>
-			</div>
-			<div class="raceuser">
-				<div class="avtr">
-					<a
-						href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-						<img src="html/userhead/nan.jpg" />
-					</a>
-				</div>
-				<div class="desc">
-					<div class="desitem" style="height: 320px;">
-						<a
-							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-							<span class="label1">  :<c:out
-									value="${userValue.artname}" />
-						</span>
-						</a>
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 1 : </span>
-						<c:out value="${userValue.nowprovince}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 2: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 3: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-
-				</div>
-			</div>
-			<div class="raceuser">
-				<div class="avtr">
-					<a
-						href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-						<img src="html/userhead/nan.jpg" />
-					</a>
-				</div>
-				<div class="desc">
-					<div class="desitem" style="height: 320px;">
-						<a
-							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-							<span class="label1">  :<c:out
-									value="${userValue.artname}" />
-						</span>
-						</a>
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 1 : </span>
-						<c:out value="${userValue.nowprovince}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 2: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 3: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-
-				</div>
-			</div>
-			<div class="raceuser">
-				<div class="avtr">
-					<a
-						href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-						<img src="html/userhead/nan.jpg" />
-					</a>
-				</div>
-				<div class="desc">
-					<div class="desitem" style="height: 320px;">
-						<a
-							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-							<span class="label1">  :<c:out
-									value="${userValue.artname}" />
-						</span>
-						</a>
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 1 : </span>
-						<c:out value="${userValue.nowprovince}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 2: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 3: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-
-				</div>
-			</div>
-			<div class="raceuser">
-				<div class="avtr">
-					<a
-						href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-						<img src="html/userhead/nan.jpg" />
-					</a>
-				</div>
-				<div class="desc">
-					<div class="desitem" style="height: 320px;">
-						<a
-							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-							<span class="label1">  :<c:out
-									value="${userValue.artname}" />
-						</span>
-						</a>
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 1 : </span>
-						<c:out value="${userValue.nowprovince}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 2: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 3: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-
-				</div>
-			</div>
-			<div class="raceuser">
-				<div class="avtr">
-					<a
-						href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-						<img src="html/userhead/nan.jpg" />
-					</a>
-				</div>
-				<div class="desc">
-					<div class="desitem" style="height: 320px;">
-						<a
-							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-							<span class="label1">  :<c:out
-									value="${userValue.artname}" />
-						</span>
-						</a>
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 1 : </span>
-						<c:out value="${userValue.nowprovince}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 2: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 3: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-
-				</div>
-			</div>
-			<div class="raceuser">
-				<div class="avtr">
-					<a
-						href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-						<img src="html/userhead/nan.jpg" />
-					</a>
-				</div>
-				<div class="desc">
-					<div class="desitem" style="height: 320px;">
-						<a
-							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-							<span class="label1">  :<c:out
-									value="${userValue.artname}" />
-						</span>
-						</a>
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 1 : </span>
-						<c:out value="${userValue.nowprovince}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 2: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 3: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-
-				</div>
-			</div>
-			<div class="raceuser">
-				<div class="avtr">
-					<a
-						href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-						<img src="html/userhead/nan.jpg" />
-					</a>
-				</div>
-				<div class="desc">
-					<div class="desitem" style="height: 320px;">
-						<a
-							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-							<span class="label1">  :<c:out
-									value="${userValue.artname}" />
-						</span>
-						</a>
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 1 : </span>
-						<c:out value="${userValue.nowprovince}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 2: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 3: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-
-				</div>
-			</div>
-			<div class="raceuser">
-				<div class="avtr">
-					<a
-						href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-						<img src="html/userhead/nan.jpg" />
-					</a>
-				</div>
-				<div class="desc">
-					<div class="desitem" style="height: 320px;">
-						<a
-							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-							<span class="label1">  :<c:out
-									value="${userValue.artname}" />
-						</span>
-						</a>
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 1 : </span>
-						<c:out value="${userValue.nowprovince}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 2: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 3: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-
-				</div>
-			</div>
-			<div class="raceuser">
-				<div class="avtr">
-					<a
-						href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-						<img src="html/userhead/nan.jpg" />
-					</a>
-				</div>
-				<div class="desc">
-					<div class="desitem" style="height: 320px;">
-						<a
-							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-							<span class="label1">  :<c:out
-									value="${userValue.artname}" />
-						</span>
-						</a>
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 1 : </span>
-						<c:out value="${userValue.nowprovince}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 2: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 3: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-
-				</div>
-			</div>
-			<div class="raceuser">
-				<div class="avtr">
-					<a
-						href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-						<img src="html/userhead/nan.jpg" />
-					</a>
-				</div>
-				<div class="desc">
-					<div class="desitem" style="height: 320px;">
-						<a
-							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-							<span class="label1">  :<c:out
-									value="${userValue.artname}" />
-						</span>
-						</a>
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 1 : </span>
-						<c:out value="${userValue.nowprovince}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 2: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 3: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-
-				</div>
-			</div>
-			<div class="raceuser">
-				<div class="avtr">
-					<a
-						href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-						<img src="html/userhead/nan.jpg" />
-					</a>
-				</div>
-				<div class="desc">
-					<div class="desitem" style="height: 320px;">
-						<a
-							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-							<span class="label1">  :<c:out
-									value="${userValue.artname}" />
-						</span>
-						</a>
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 1 : </span>
-						<c:out value="${userValue.nowprovince}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 2: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 3: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-
-				</div>
-			</div>
-			<div class="raceuser">
-				<div class="avtr">
-					<a
-						href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-						<img src="html/userhead/nan.jpg" />
-					</a>
-				</div>
-				<div class="desc">
-					<div class="desitem" style="height: 320px;">
-						<a
-							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-							<span class="label1">  :<c:out
-									value="${userValue.artname}" />
-						</span>
-						</a>
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 1 : </span>
-						<c:out value="${userValue.nowprovince}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 2: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 3: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-
-				</div>
-			</div>
-			<div class="raceuser">
-				<div class="avtr">
-					<a
-						href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-						<img src="html/userhead/nan.jpg" />
-					</a>
-				</div>
-				<div class="desc">
-					<div class="desitem" style="height: 320px;">
-						<a
-							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-							<span class="label1">  :<c:out
-									value="${userValue.artname}" />
-						</span>
-						</a>
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 1 : </span>
-						<c:out value="${userValue.nowprovince}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 2: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 3: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-
-				</div>
-			</div>
-			<div class="raceuser">
-				<div class="avtr">
-					<a
-						href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-						<img src="html/userhead/nan.jpg" />
-					</a>
-				</div>
-				<div class="desc">
-					<div class="desitem" style="height: 320px;">
-						<a
-							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-							<span class="label1">  :<c:out
-									value="${userValue.artname}" />
-						</span>
-						</a>
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 1 : </span>
-						<c:out value="${userValue.nowprovince}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 2: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 3: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-
-				</div>
-			</div>
-			<div class="raceuser">
-				<div class="avtr">
-					<a
-						href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-						<img src="html/userhead/nan.jpg" />
-					</a>
-				</div>
-				<div class="desc">
-					<div class="desitem" style="height: 320px;">
-						<a
-							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-							<span class="label1">  :<c:out
-									value="${userValue.artname}" />
-						</span>
-						</a>
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 1 : </span>
-						<c:out value="${userValue.nowprovince}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 2: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 3: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-
-				</div>
-			</div>
-			<div class="raceuser">
-				<div class="avtr">
-					<a
-						href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-						<img src="html/userhead/nan.jpg" />
-					</a>
-				</div>
-				<div class="desc">
-					<div class="desitem" style="height: 320px;">
-						<a
-							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-							<span class="label1">  :<c:out
-									value="${userValue.artname}" />
-						</span>
-						</a>
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 1 : </span>
-						<c:out value="${userValue.nowprovince}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 2: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 3: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-
-				</div>
-			</div>
-			<div class="raceuser">
-				<div class="avtr">
-					<a
-						href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-						<img src="html/userhead/nan.jpg" />
-					</a>
-				</div>
-				<div class="desc">
-					<div class="desitem" style="height: 320px;">
-						<a
-							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-							<span class="label1">  :<c:out
-									value="${userValue.artname}" />
-						</span>
-						</a>
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 1 : </span>
-						<c:out value="${userValue.nowprovince}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 2: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 3: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-
-				</div>
-			</div>
-			<div class="raceuser">
-				<div class="avtr">
-					<a
-						href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-						<img src="html/userhead/nan.jpg" />
-					</a>
-				</div>
-				<div class="desc">
-					<div class="desitem" style="height: 320px;">
-						<a
-							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-							<span class="label1">  :<c:out
-									value="${userValue.artname}" />
-						</span>
-						</a>
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 1 : </span>
-						<c:out value="${userValue.nowprovince}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 2: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 3: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-
-				</div>
-			</div>
-			<div class="raceuser">
-				<div class="avtr">
-					<a
-						href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-						<img src="html/userhead/nan.jpg" />
-					</a>
-				</div>
-				<div class="desc">
-					<div class="desitem" style="height: 320px;">
-						<a
-							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-							<span class="label1">  :<c:out
-									value="${userValue.artname}" />
-						</span>
-						</a>
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 1 : </span>
-						<c:out value="${userValue.nowprovince}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 2: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 3: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-
-				</div>
-			</div>
-			<div class="raceuser">
-				<div class="avtr">
-					<a
-						href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-						<img src="html/userhead/nan.jpg" />
-					</a>
-				</div>
-				<div class="desc">
-					<div class="desitem" style="height: 320px;">
-						<a
-							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-							<span class="label1">  :<c:out
-									value="${userValue.artname}" />
-						</span>
-						</a>
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 1 : </span>
-						<c:out value="${userValue.nowprovince}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 2: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 3: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-
-				</div>
-			</div>
-			<div class="raceuser">
-				<div class="avtr">
-					<a
-						href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-						<img src="html/userhead/nan.jpg" />
-					</a>
-				</div>
-				<div class="desc">
-					<div class="desitem" style="height: 320px;">
-						<a
-							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-							<span class="label1">  :<c:out
-									value="${userValue.artname}" />
-						</span>
-						</a>
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 1 : </span>
-						<c:out value="${userValue.nowprovince}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 2: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 3: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-
-				</div>
-			</div>
-			<div class="raceuser">
-				<div class="avtr">
-					<a
-						href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-						<img src="html/userhead/nan.jpg" />
-					</a>
-				</div>
-				<div class="desc">
-					<div class="desitem" style="height: 320px;">
-						<a
-							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-							<span class="label1">  :<c:out
-									value="${userValue.artname}" />
-						</span>
-						</a>
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 1 : </span>
-						<c:out value="${userValue.nowprovince}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 2: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 3: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-
-				</div>
-			</div>
-			<div class="raceuser">
-				<div class="avtr">
-					<a
-						href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-						<img src="html/userhead/nan.jpg" />
-					</a>
-				</div>
-				<div class="desc">
-					<div class="desitem" style="height: 320px;">
-						<a
-							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-							<span class="label1">  :<c:out
-									value="${userValue.artname}" />
-						</span>
-						</a>
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 1 : </span>
-						<c:out value="${userValue.nowprovince}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 2: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 3: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-
-				</div>
-			</div>
-			<div class="raceuser">
-				<div class="avtr">
-					<a
-						href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-						<img src="html/userhead/nan.jpg" />
-					</a>
-				</div>
-				<div class="desc">
-					<div class="desitem" style="height: 320px;">
-						<a
-							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-							<span class="label1">  :<c:out
-									value="${userValue.artname}" />
-						</span>
-						</a>
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 1 : </span>
-						<c:out value="${userValue.nowprovince}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 2: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-					<div class="desitem" style="height: 320px;">
-						<span class="label1"> 3: </span>
-						<c:out value="${totalVisitCount}" />
-					</div>
-
-				</div>
-			</div>
+			</c:forEach>
 
 		</div>
 		<div class="layer m0a" style="padding-top: 0px;">
@@ -885,15 +144,17 @@
 						</div>
 						<div class="desc">
 							<div class="desitem" style="height: 320px;">
-								<a
-									href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-									<span class="label1">  :<c:out
-											value="${userValue.artname}" />
-								</span>
-								</a>
+								<div class="author">
+									<a
+										href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
+										<span class="label1">  :<c:out
+												value="${userValue.artname}" />
+									</span>
+									</a>
+								</div>
 							</div>
 							<div class="desitem" style="height: 320px;">
-								<span class="label1">  : </span>
+								<div class="author"> :</div>
 								<c:out value="${userValue.nowprovince}" />
 							</div>
 
@@ -909,15 +170,17 @@
 						</div>
 						<div class="desc">
 							<div class="desitem" style="height: 320px;">
-								<a
-									href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-									<span class="label1">  :<c:out
-											value="${userValue.artname}" />
-								</span>
-								</a>
+								<div class="author">
+									<a
+										href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
+										<span class="label1">  :<c:out
+												value="${userValue.artname}" />
+									</span>
+									</a>
+								</div>
 							</div>
 							<div class="desitem" style="height: 320px;">
-								<span class="label1">  : </span>
+								<div class="author"> :</div>
 								<c:out value="${userValue.nowprovince}" />
 							</div>
 
@@ -933,22 +196,24 @@
 						</div>
 						<div class="desc">
 							<div class="desitem" style="height: 320px;">
-								<a
-									href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-									<span class="label1">  :<c:out
-											value="${userValue.artname}" />
-								</span>
-								</a>
+								<div class="author">
+									<a
+										href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
+										<span class="label1">  :<c:out
+												value="${userValue.artname}" />
+									</span>
+									</a>
+								</div>
 							</div>
 							<div class="desitem" style="height: 320px;">
-								<span class="label1">  : </span>
+								<div class="author"> :</div>
 								<c:out value="${userValue.nowprovince}" />
 							</div>
 
 
 						</div>
 					</div>
-					<div class="raceuser" style="width: 120px;">
+					<div class="raceuser">
 						<div class="avtr">
 							<a
 								href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
@@ -957,22 +222,24 @@
 						</div>
 						<div class="desc">
 							<div class="desitem" style="height: 320px;">
-								<a
-									href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-									<span class="label1">  :<c:out
-											value="${userValue.artname}" />
-								</span>
-								</a>
+								<div class="author">
+									<a
+										href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
+										<span class="label1">  :<c:out
+												value="${userValue.artname}" />
+									</span>
+									</a>
+								</div>
 							</div>
 							<div class="desitem" style="height: 320px;">
-								<span class="label1">  : </span>
+								<div class="author"> :</div>
 								<c:out value="${userValue.nowprovince}" />
 							</div>
 
 
 						</div>
 					</div>
-					<div class="raceuser" style="width: 120px;">
+					<div class="raceuser">
 						<div class="avtr">
 							<a
 								href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
@@ -981,22 +248,24 @@
 						</div>
 						<div class="desc">
 							<div class="desitem" style="height: 320px;">
-								<a
-									href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-									<span class="label1">  :<c:out
-											value="${userValue.artname}" />
-								</span>
-								</a>
+								<div class="author">
+									<a
+										href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
+										<span class="label1">  :<c:out
+												value="${userValue.artname}" />
+									</span>
+									</a>
+								</div>
 							</div>
 							<div class="desitem" style="height: 320px;">
-								<span class="label1">  : </span>
+								<div class="author"> :</div>
 								<c:out value="${userValue.nowprovince}" />
 							</div>
 
 
 						</div>
 					</div>
-					<div class="raceuser" style="width: 120px;">
+					<div class="raceuser">
 						<div class="avtr">
 							<a
 								href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
@@ -1005,110 +274,88 @@
 						</div>
 						<div class="desc">
 							<div class="desitem" style="height: 320px;">
-								<a
-									href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-									<span class="label1">  :<c:out
-											value="${userValue.artname}" />
-								</span>
-								</a>
+								<div class="author">
+									<a
+										href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
+										<span class="label1">  :<c:out
+												value="${userValue.artname}" />
+									</span>
+									</a>
+								</div>
 							</div>
 							<div class="desitem" style="height: 320px;">
-								<span class="label1">  : </span>
+								<div class="author"> :</div>
 								<c:out value="${userValue.nowprovince}" />
 							</div>
 
 
 						</div>
 					</div>
-					<div class="raceuser" style="width: 120px;">
-						<div class="avtr">
-							<a
-								href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-								<img src="html/userhead/nan.jpg" />
-							</a>
-						</div>
-						<div class="desc">
-							<div class="desitem" style="height: 320px;">
-								<a
-									href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-									<span class="label1">  :<c:out
-											value="${userValue.artname}" />
-								</span>
-								</a>
-							</div>
-							<div class="desitem" style="height: 320px;">
-								<span class="label1">  : </span>
-								<c:out value="${userValue.nowprovince}" />
-							</div>
 
 
-						</div>
+				</div>
+			</div>
+			<div class="layer m0a" style="padding-top: 0px;">
+				<div class="card1" style="height: 340px; width: 500px;">
+					<div class="listCardTtl ttlStl1" style="height: 340px;">
+						<div class="top"></div>
+						<div class="ttl" style="height: 146px;"></div>
+						<div class="more"></div>
+						<div class="ctail"></div>
+					</div>
+					<div class="listCardBody" style="height: 334px; padding-left: 5px;">
+						<c:forEach items="${indexPageContent.selecteddocs}"
+							var="documentValue" varStatus="status">
+							<div class="nwsl1">
+								<div class="title">
+									<a
+										href="getuserdocdetail.do?docid=<c:out value="${documentValue.docid}"/>"
+										target="_blank" class="tit_text_overflow"><c:out
+											value="${documentValue.title}" /></a>
+								</div>
+								<div class="author">
+									<a
+										href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
+										<c:out value="${documentValue.docauthor}" />
+									</a>
+								</div>
+							</div>
+
+						</c:forEach>
 					</div>
 				</div>
-
-			</div>
-		</div>
-		<div class="layer m0a" style="padding-top: 0px;">
-		<div class="card1" style="height: 340px; width: 500px;">
-			<div class="listCardTtl ttlStl1" style="height: 340px;">
-				<div class="top"></div>
-				<div class="ttl" style="height: 146px;"></div>
-				<div class="more"></div>
-				<div class="ctail"></div>
-			</div>
-			<div class="listCardBody" style="height: 334px; padding-left: 5px;">
-				<c:forEach items="${indexPageContent.selecteddocs}"
-					var="documentValue" varStatus="status">
-					<div class="nwsl1">
-						<div class="title">
-							<a
-								href="getuserdocdetail.do?docid=<c:out value="${documentValue.docid}"/>"
-								target="_blank" class="tit_text_overflow"><c:out
-									value="${documentValue.title}" /></a>
-						</div>
-						<div class="author">
-							<a
-								href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
-								<c:out value="${documentValue.docauthor}" />
-							</a>
-						</div>
+				<div class="card1" style="height: 340px; width: 500px;">
+					<div class="listCardTtl ttlStl1" style="height: 340px;">
+						<div class="top"></div>
+						<div class="ttl" style="height: 146px;">  </div>
+						<div class="more"></div>
+						<div class="ctail"></div>
 					</div>
+					<div class="listCardBody" style="height: 334px; padding-left: 5px;">
+						<c:forEach items="${indexPageContent.selecteddocs}"
+							var="documentValue" varStatus="status">
+							<div class="nwsl1">
+								<div class="title">
+									<a
+										href="getuserdocdetail.do?docid=<c:out value="${documentValue.docid}"/>"
+										target="_blank" class="tit_text_overflow"><c:out
+											value="${documentValue.title}" /></a>
+								</div>
+								<div class="author">
+									<a
+										href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
+										<c:out value="${documentValue.docauthor}" />
+									</a>
+								</div>
+							</div>
 
-				</c:forEach>
-			</div>
-		</div>
-		<div class="card1" style="height: 340px; width: 500px;">
-			<div class="listCardTtl ttlStl1" style="height: 340px;">
-				<div class="top"></div>
-				<div class="ttl" style="height: 146px;">  </div>
-				<div class="more"></div>
-				<div class="ctail"></div>
-			</div>
-			<div class="listCardBody" style="height: 334px; padding-left: 5px;">
-				<c:forEach items="${indexPageContent.selecteddocs}"
-					var="documentValue" varStatus="status">
-					<div class="nwsl1">
-						<div class="title">
-							<a
-								href="getuserdocdetail.do?docid=<c:out value="${documentValue.docid}"/>"
-								target="_blank" class="tit_text_overflow"><c:out
-									value="${documentValue.title}" /></a>
-						</div>
-						<div class="author">
-							<a
-								href="gouserindex.do?userid=<c:out value="${documentValue.userid}" />">
-								<c:out value="${documentValue.docauthor}" />
-							</a>
-						</div>
+						</c:forEach>
 					</div>
-
-				</c:forEach>
+				</div>
 			</div>
-		</div>
-	</div>
 
-	</div>
-	<%@ include file="../website/tail.jsp"%>
+		</div>
+		<%@ include file="../website/tail.jsp"%>
 </body>
 <script>
 	var districtsdata = <c:out value="${districtsdata}" escapeXml="false" />;

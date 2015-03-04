@@ -2,6 +2,7 @@ package com.mongolia.website.controller;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -32,7 +33,7 @@ public class RaceController {
 	@RequestMapping("/getRaceModels.do")
 	public ModelAndView getRaceModels(HttpServletRequest request, ModelMap map) {
 		try {
-			
+
 			List<RaceModelValue> raceModelValues = this.raceManager
 					.getRaceModels(request.getParameter("raceid"), 1);
 			map.put("raceModelValues", raceModelValues);
@@ -122,7 +123,12 @@ public class RaceController {
 		try {
 			List<RaceUser> raceUsers = this.raceManager
 					.getRaceIndexContent(request.getParameter("raceid"));
+			Map<String, Object> indexcontent = this.raceManager
+					.getRaceIndexCon(request.getParameter("raceid"),
+							"raceindex");
 			map.put("raceUsers", raceUsers);
+			map.put("indexPageContent", indexcontent);
+			// 跟专题相关的页面栏目
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

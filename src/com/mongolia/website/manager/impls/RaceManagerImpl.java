@@ -11,7 +11,12 @@ import org.springframework.stereotype.Service;
 
 import com.mongolia.website.dao.interfaces.RaceDao;
 import com.mongolia.website.dao.interfaces.UserManagerDao;
+import com.mongolia.website.dao.interfaces.WebPageManagerDao;
+import com.mongolia.website.dao.interfaces.WebSiteVisitorDao;
 import com.mongolia.website.manager.interfaces.RaceManager;
+import com.mongolia.website.model.DocumentValue;
+import com.mongolia.website.model.PageChannelRelationValue;
+import com.mongolia.website.model.PaingModel;
 import com.mongolia.website.model.RaceDocumentValue;
 import com.mongolia.website.model.RaceModelValue;
 import com.mongolia.website.model.RaceScoreLogValue;
@@ -25,6 +30,10 @@ public class RaceManagerImpl implements RaceManager {
 	private RaceDao raceDao;
 	@Autowired
 	private UserManagerDao userManagerDao;
+	@Autowired
+	private WebPageManagerDao webPageManagerDao;
+	@Autowired
+	private WebSiteVisitorDao webSiteVisitorDao;
 
 	@Override
 	public List<RaceModelValue> getRaceModels(String raceid, Integer inactive)
@@ -167,10 +176,34 @@ public class RaceManagerImpl implements RaceManager {
 	}
 
 	@Override
-	public List<RaceDocumentValue> getRaceSumValue(String raceid, String docid,Integer round)
+	public List<RaceDocumentValue> getRaceSumValue(String raceid, String docid,
+			Integer round) throws Exception {
+		// TODO Auto-generated method stub
+		return this.raceDao.getRaceSumValue(raceid, docid, round);
+	}
+
+	@Override
+	public Map<String, Object> getRaceIndexCon(String raceid, String pageid)
 			throws Exception {
 		// TODO Auto-generated method stub
-		return this.raceDao.getRaceSumValue(raceid, docid,round);
+		List<PageChannelRelationValue> relations = webPageManagerDao
+				.getRelatedChannes("raceindex");
+		Map<String, Object> indexPageContent = new HashMap<String, Object>();
+		for (int i = 0; i < relations.size(); i++) {
+			PageChannelRelationValue channel = relations.get(i);
+			PaingModel<DocumentValue> paingModel = new PaingModel<DocumentValue>();
+			paingModel.setDocchannel(channel.getChannelid());
+			paingModel.setPageindex(1);
+			paingModel.setPageindex(StaticConstants.INDEX_DOC_ROWCOUNT);
+			paingModel.setStartrow(0);
+			paingModel.setEndrow(channel.getChanneldoccount());// fetchcount
+			paingModel.setDocstatus(2);
+			paingModel.setInindex(1);
+			List<DocumentValue> documents = this.webSiteVisitorDao
+					.pagingquerydoc(paingModel);
+			indexPageContent.put(channel.getVariablename(), documents);
+		}
+		return indexPageContent;
 	}
 
 }

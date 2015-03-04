@@ -28,8 +28,6 @@ body {
 
 .raceuser {
 	float: left;
-	-webkit-writing-mode: vertical-lr;
-	writing-mode: tb-lr;
 	width: 128px;
 	height: 490px;
 	border: 1px dotted #e0e0e0;
@@ -56,10 +54,10 @@ body {
 }
 
 .desitem {
-	writing-mode: tb-lr;
-	-webkit-writing-mode: vertical-lr;
-	-webkit-text-orientation: sideways-right;
-	-ms-text-orientation: sideways-right;
+/* 	writing-mode: tb-lr; */
+/* 	-webkit-writing-mode: vertical-lr; */
+/* 	-webkit-text-orientation: sideways-right; */
+/* 	-ms-text-orientation: sideways-right; */
 	width: 20px;
 	overflow: hidden;
 	float: left;

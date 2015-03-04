@@ -43,8 +43,8 @@ var joinrace = function() {
 				},
 				success : function(data) {
 					if (data.mess == '0') {
-						MessageWindow.showMess('   ');
 						$("#joinracediv").dialog("close");
+						MessageWindow.showMess('   ');				
 					} else if (data.mess == '1') {
 						MessageWindow
 								.showMess('       ');
