@@ -7,6 +7,7 @@ public class RaceUser {
 	 * 参与比赛用户
 	 */
 	private UserValue uservalue;
+	private Double maxscore;
 	/**
 	 * 参与作品集合
 	 */
@@ -27,5 +28,14 @@ public class RaceUser {
 	public void setRaceDocumentValues(List<RaceDocumentValue> raceDocumentValues) {
 		this.raceDocumentValues = raceDocumentValues;
 	}
+
+	public Double getMaxscore() {
+		return maxscore;
+	}
+
+	public void setMaxscore(Double maxscore) {
+		this.maxscore = maxscore;
+	}
+	
 
 }

@@ -9,6 +9,8 @@
 	<typeAlias alias="RaceDocumentValue"
 		type="com.mongolia.website.model.RaceDocumentValue" />
 	<typeAlias alias="UserValue" type="com.mongolia.website.model.UserValue" />
+	<typeAlias alias="RaceRound" type="com.mongolia.website.model.RaceRound" />
+	<typeAlias alias="RaceUserModel" type="com.mongolia.website.model.RaceUserModel" />
 	<select id="getRaceModel" parameterClass="java.util.Map"
 		resultClass="RaceModelValue">
 		select * from racemodel
@@ -18,6 +20,33 @@
 			</isNotNull>
 			<isNotNull prepend="and" property="inactive">
 				inactive=#inactive#
+			</isNotNull>
+		</dynamic>
+	</select>
+	<select id="getRaceUserModels" parameterClass="java.util.Map"
+		resultClass="RaceUserModel">
+		select * from raceuser
+		<dynamic prepend="where">
+			<isNotNull prepend="and" property="raceid">
+				raceid=#raceid#
+			</isNotNull>
+			<isNotNull prepend="and" property="round">
+				round=#round#
+			</isNotNull>
+			<isNotNull prepend="and" property="userid">
+				userid=#userid#
+			</isNotNull>
+		</dynamic>
+	</select>
+	<select id="getRaceRounds" parameterClass="java.util.Map"
+		resultClass="RaceRound">
+		select * from racemodel
+		<dynamic prepend="where">
+			<isNotNull prepend="and" property="raceid">
+				raceid=#raceid#
+			</isNotNull>
+			<isNotNull prepend="and" property="raceround">
+				raceround=#raceround#
 			</isNotNull>
 		</dynamic>
 	</select>
@@ -119,19 +148,44 @@
 	</insert>
 	<select id="getRaceUserList" parameterClass="java.util.Map"
 		resultClass="UserValue">
-		select distinct b.* from racedocument a,user b where
-		a.joinuserid=b.userid
+		select distinct b.* from racedocument a,user b,racemodel c where
+		a.joinuserid=b.userid and a.raceid=c.raceid
 		<dynamic prepend="and">
 			<isNotNull prepend="and" property="raceid">
 				a.raceid=#raceid#
+			</isNotNull>
+			<isNotNull prepend="and" property="round">
+				c.round=#round#
 			</isNotNull>
 		</dynamic>
 	</select>
 	<select id="getRaceSumValue" parameterClass="java.util.Map"
 		resultClass="RaceDocumentValue">
 		select sum(a.score) nettotalscore,count(1) as
-		netscorecount,sum(a.score)/count(1) as netaveragescore,usertype as raceround from
+		netscorecount,sum(a.score)/count(1) as netaveragescore,usertype ,round as raceround from
 		racescorelog a where a.raceid=#raceid# and a.docid=#docid# and round=#round#
-		GROUP BY a.raceid,a.docid,a.usertype
+		GROUP BY a.raceid,a.docid,a.usertype,round
 	</select>
+	<select id="getUserMaxScores" parameterClass="java.util.Map"
+		resultClass="UserValue">
+	 select b.docid,b.joinuserid as userid,max(netaveragescore+speaveragescore) as maxscore from (select a.docid,a.joinuserid,a.netaveragescore,a.speaveragescore from (
+       select a.docid as docid,b.joinuserid as joinuserid  ,sum(a.score)/count(1)*0.2 as netaveragescore,0 as speaveragescore  from racescorelog a,racedocument b where a.raceid=b.raceid and a.docid=b.docid and a.usertype=1
+       and a.raceid=#raceid# and a.round=#round#
+         union ALL
+       select a.docid as docid,b.joinuserid as joinuserid  ,0 as netaveragescore,sum(a.score)/count(1)*0.8 as speaveragescore  from racescorelog a,racedocument b where a.raceid=b.raceid and a.docid=b.docid and a.usertype=2
+       and a.raceid=#raceid# and a.round=#round#
+      )  a) b where <![CDATA[IFNULL(b.netaveragescore,0)+IFNULL(b.speaveragescore,0)<>0]]> GROUP BY b.docid,b.joinuserid
+	</select>
+		<insert id="addRaceUserModel" parameterClass="RaceUserModel">
+		insert into
+		raceuser(
+		raceid,
+		userid,
+		round
+		) values(
+		#raceid#,
+		#userid#,
+		#round#
+		)
+	</insert>
 </sqlMap>

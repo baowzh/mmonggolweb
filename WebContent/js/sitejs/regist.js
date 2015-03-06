@@ -2,22 +2,26 @@ var doregist = function() {
 	// 校验数据完整性
 	var username = $("#username").val();
 	if (username == null || username == '') {
-		MessageWindow.showMess("' '      ");
+		MessageWindow.showMess("' '    ");
+		return;
+	}
+	if (!username.match(/[^\u4e00-\u9fa5]/g)){
+		MessageWindow.showMess("' '      ");
 		return;
 	}
 	var artname = $("#artname").val();
 	if (artname == null || artname == '') {
-		MessageWindow.showMess("'  '      ");
+		MessageWindow.showMess("'  '    ");
 		return;
 	}
 	var password = $("#password").val();
 	if (password == null || password == '') {
-		MessageWindow.showMess("' '      ");
+		MessageWindow.showMess("' '     ");
 		return;
 	}
 	var varifycode = $("#varifycode").val();
 	if (varifycode == null || varifycode == '') {
-		MessageWindow.showMess("' '      ");
+		MessageWindow.showMess("' '     ");
 		return;
 	}
 	var agree = $("#agree")[0].checked;//checkbox.checked

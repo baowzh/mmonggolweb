@@ -372,6 +372,8 @@ public class UserMangerAction {
 				ImgeUtil.CompressPic(userValue.getImg(), path, imgnamesm,
 						StaticConstants.IMGWIDTHSM, StaticConstants.IMGHEIGHTSM);
 				userValue.setHeadurl(imgnamesm);
+			}else{
+				userValue.setHeadurl(null);
 			}
 			userManager.doUpdateUser(userValue);
 			List<UserValue> sessions = this.userManager.getUsers(

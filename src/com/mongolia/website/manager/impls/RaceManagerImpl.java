@@ -1,6 +1,8 @@
 package com.mongolia.website.manager.impls;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -8,6 +10,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.mongolia.website.dao.interfaces.RaceDao;
 import com.mongolia.website.dao.interfaces.UserManagerDao;
@@ -19,12 +22,15 @@ import com.mongolia.website.model.PageChannelRelationValue;
 import com.mongolia.website.model.PaingModel;
 import com.mongolia.website.model.RaceDocumentValue;
 import com.mongolia.website.model.RaceModelValue;
+import com.mongolia.website.model.RaceRound;
 import com.mongolia.website.model.RaceScoreLogValue;
 import com.mongolia.website.model.RaceUser;
+import com.mongolia.website.model.RaceUserModel;
 import com.mongolia.website.model.UserValue;
 import com.mongolia.website.util.StaticConstants;
 
 @Service("raceManager")
+@Transactional(rollbackFor = Exception.class)
 public class RaceManagerImpl implements RaceManager {
 	@Autowired
 	private RaceDao raceDao;
@@ -67,20 +73,34 @@ public class RaceManagerImpl implements RaceManager {
 			throw new Exception("1");
 		}
 		// 是否处于第一轮
-		if (racemodels.get(0).getRound().intValue() != 1) {
-			throw new Exception("5");
+		List<RaceUserModel> joinusers = this.raceDao.getRaceUserModels(
+				racemodels.get(0).getRaceid(), racemodels.get(0).getRound(),
+				raceDocumentValue.getJoinuserid());
+		if (racemodels.get(0).getRound().intValue() != 1 && joinusers.isEmpty()) {
+			throw new Exception("5");// 不是第一轮切少资格用户则
 		}
 		// 2.校验是否已经够了限制数
-		List<RaceDocumentValue> documents = this.raceDao.getRaceDocuments(
-				raceDocumentValue.getRaceid(), null,
-				raceDocumentValue.getJoinuserid(), 1);
-		if (documents.size() >= 3) {
+		List<RaceDocumentValue> documents = this.raceDao
+				.getRaceDocuments(raceDocumentValue.getRaceid(), null,
+						raceDocumentValue.getJoinuserid(), racemodels.get(0)
+								.getRound());
+		if (documents.size() >= 1) {
 			throw new Exception("2");
 		}
+		// 参与方式是否一致
+		// if (documents != null && !documents.isEmpty()) {// 校验参与方式是否一致
+		// for (RaceDocumentValue raceDocumentValuei : documents) {
+		// if (raceDocumentValuei.getJointype().intValue() != raceDocumentValue
+		// .getJointype().intValue()) {
+		// throw new Exception("6");// 参与方式不一致
+		// }
+		// }
+		// }
 		// 3.是否已经参与了
-		documents = this.raceDao.getRaceDocuments(
-				raceDocumentValue.getRaceid(), raceDocumentValue.getDocid(),
-				raceDocumentValue.getJoinuserid(), 1);
+		documents = this.raceDao
+				.getRaceDocuments(raceDocumentValue.getRaceid(),
+						raceDocumentValue.getDocid(), raceDocumentValue
+								.getJoinuserid(), racemodels.get(0).getRound());
 		if (!documents.isEmpty()) {
 			throw new Exception("3");
 		}
@@ -114,11 +134,14 @@ public class RaceManagerImpl implements RaceManager {
 		List<RaceModelValue> raceModelValues = this.raceDao.getRaceModels(
 				raceScoreLogValue.getRaceid(), 1);
 		RaceModelValue raceModelValue = raceModelValues.get(0);
+		// 获取当前nvgvlga
+		List<RaceRound> raceRounds = this.raceDao.getRaceRounds(
+				raceModelValue.getRaceid(), raceModelValue.getRound());
 		Date currentDate = new Date();
 		currentDate.setTime(System.currentTimeMillis());
-		if (currentDate.compareTo(raceModelValue.getBegindate()) < 0) {
+		if (currentDate.compareTo(raceRounds.get(0).getBegindate()) < 0) {
 			throw new Exception("5");
-		} else if (currentDate.compareTo(raceModelValue.getEnddate()) > 0) {
+		} else if (currentDate.compareTo(raceRounds.get(0).getEnddate()) > 0) {
 			throw new Exception("6");
 		}
 		Map<String, Object> queryUserParams = new HashMap<String, Object>();
@@ -161,18 +184,49 @@ public class RaceManagerImpl implements RaceManager {
 		// 先获取所有参与比赛用户列表，在根据用户列表获取每个用户列表下面的参赛作品列表
 		List<RaceModelValue> raceModelValues = this.raceDao.getRaceModels(
 				raceid, 1);
-		List<UserValue> userlist = this.raceDao.getRaceUserList(raceid);
+		List<UserValue> userlist = this.raceDao.getRaceUserList(raceModelValues
+				.get(0).getRaceid(), raceModelValues.get(0).getRound());
+		List<UserValue> maxScorelist = this.raceDao.getUserMaxScores(
+				raceModelValues.get(0).getRaceid(), raceModelValues.get(0)
+						.getRound());
 		List<RaceUser> raceUsers = new ArrayList<RaceUser>();
 		for (UserValue uservalue : userlist) {
 			RaceUser raceUser = new RaceUser();
 			raceUser.setUservalue(uservalue);
+			UserValue maxScore = getMaxScore(uservalue, maxScorelist);
+			if (maxScore != null) {
+				raceUser.setMaxscore(maxScore.getMaxscore());
+			} else {
+				raceUser.setMaxscore(new Double(0));
+			}
 			List<RaceDocumentValue> documents = this.raceDao.getRaceDocuments(
-					raceid, null, uservalue.getUserid(), raceModelValues.get(0)
-							.getRound());
+					raceModelValues.get(0).getRaceid(), null,
+					uservalue.getUserid(), raceModelValues.get(0).getRound());
 			raceUser.setRaceDocumentValues(documents);
 			raceUsers.add(raceUser);
 		}
-		return raceUsers;
+		RaceUser raceusers[] = new RaceUser[raceUsers.size()];
+		raceUsers.toArray(raceusers);
+		Arrays.sort(raceusers, new Comparator<RaceUser>() {
+			@Override
+			public int compare(RaceUser o1, RaceUser o2) {
+				// TODO Auto-generated method stub
+				return o2.getMaxscore().compareTo(o1.getMaxscore());
+			}
+		});
+		return Arrays.asList(raceusers);
+	}
+
+	private UserValue getMaxScore(UserValue uservalue,
+			List<UserValue> maxScorelist) {
+		UserValue returnUserValue = new UserValue();
+		returnUserValue.setMaxscore(new Double(0));
+		for (UserValue userValuei : maxScorelist) {
+			if (userValuei.getUserid().equalsIgnoreCase(uservalue.getUserid())) {
+				returnUserValue = userValuei;
+			}
+		}
+		return returnUserValue;
 	}
 
 	@Override
@@ -204,6 +258,57 @@ public class RaceManagerImpl implements RaceManager {
 			indexPageContent.put(channel.getVariablename(), documents);
 		}
 		return indexPageContent;
+	}
+
+	@Override
+	public void switchUserToNextRound(String raceid, String userid,
+			Integer jointype) throws Exception {
+		// TODO Auto-generated method stub
+		List<RaceModelValue> racemodels = this.raceDao.getRaceModels(null, 1);
+		if (racemodels != null && !racemodels.isEmpty()) {
+			RaceModelValue raceModelValue = racemodels.get(0);
+			Integer nextround = raceModelValue.getRound() + 1;
+			// 1.校验是否存在
+			List<RaceDocumentValue> racedocs = this.raceDao.getRaceDocuments(
+					raceModelValue.getRaceid(), null, userid,
+					raceModelValue.getRound());
+			if (racedocs == null || racedocs.isEmpty()) {
+				throw new Exception("4");// vrvldagan d vrvlqahv budugel baihu
+											// ugei
+			}
+			// 2.校验是否已经转换
+			List<RaceUserModel> raceusers = this.raceDao.getRaceUserModels(
+					raceid, raceModelValue.getRound(), userid);
+			if (raceusers != null && !raceusers.isEmpty()) {
+				throw new Exception("5");// vrvldagan d vrvlqahv budugel baihu
+			}
+			// 3.是否在活动期间
+			Date currentDate = new Date();
+			currentDate.setTime(System.currentTimeMillis());
+			if (currentDate.compareTo(raceModelValue.getBegindate()) < 0) {
+				throw new Exception("6");
+			} else if (currentDate.compareTo(raceModelValue.getEnddate()) > 0) {
+				throw new Exception("7");
+			}
+			// 校验是否有nextround
+			List<RaceRound> rounds = this.raceDao.getRaceRounds(
+					raceModelValue.getRaceid(), nextround);
+			if (rounds == null || rounds.isEmpty()) {
+				throw new Exception("7"); //  
+			}
+			this.raceDao.addRaceUser(raceid, userid, nextround);
+
+		} else {
+			throw new Exception("3");
+		}
+	}
+
+	@Override
+	public PaingModel<RaceScoreLogValue> pagingqueryscorelog(String raceid,
+			String docid, String index, Integer round) throws Exception {
+		// TODO Auto-generated method stub
+		this.raceDao.getRaceScoreLog(raceid, docid, index, round);
+		return null;
 	}
 
 }

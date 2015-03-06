@@ -3,6 +3,7 @@ package com.mongolia.website.manager.interfaces;
 import java.util.List;
 import java.util.Map;
 
+import com.mongolia.website.model.PaingModel;
 import com.mongolia.website.model.RaceDocumentValue;
 import com.mongolia.website.model.RaceModelValue;
 import com.mongolia.website.model.RaceScoreLogValue;
@@ -85,5 +86,17 @@ public interface RaceManager {
 	 */
 	public Map<String, Object> getRaceIndexCon(String raceid, String pageid)
 			throws Exception;
+
+	/**
+	 * 加资格用户
+	 * 
+	 * @param raceDocumentValue
+	 * @throws Exception
+	 */
+	public void switchUserToNextRound(String raceid, String userid,
+			Integer jointype) throws Exception;
+
+	public PaingModel<RaceScoreLogValue> pagingqueryscorelog(String raceid,
+			String docid, String index, Integer round) throws Exception;
 
 }

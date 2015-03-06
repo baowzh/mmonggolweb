@@ -62,7 +62,13 @@ public class UserManagerImpl implements UserManager {
 	@Override
 	public void doUpdateUser(UserValue userValue) throws Exception {
 		// TODO Auto-generated method stub
-		if (userValue.getHeadurl() == null) {
+		//
+		Map<String, Object> queryUserMap = new HashMap<String, Object>();
+		queryUserMap.put("userid", userValue.getUserid());
+		List<UserValue> user = this.userManagerDao.getUser(queryUserMap);
+		if (userValue.getHeadurl() == null
+				&& (user.get(0).getHeadurl() == null || user.get(0)
+						.getHeadurl().equalsIgnoreCase(""))) {
 			if (userValue.getSex() != null
 					|| userValue.getSex().intValue() == 1) {
 				userValue.setHeadurl("nan.jpg");

@@ -7,9 +7,12 @@ import java.util.Map;
 import org.springframework.stereotype.Repository;
 
 import com.mongolia.website.dao.interfaces.RaceDao;
+import com.mongolia.website.model.PaingModel;
 import com.mongolia.website.model.RaceDocumentValue;
 import com.mongolia.website.model.RaceModelValue;
+import com.mongolia.website.model.RaceRound;
 import com.mongolia.website.model.RaceScoreLogValue;
+import com.mongolia.website.model.RaceUserModel;
 import com.mongolia.website.model.UserValue;
 
 @Repository("raceDao")
@@ -29,7 +32,7 @@ public class RaceDaoImpl extends BaseDaoiBatis implements RaceDao {
 
 	@Override
 	public List<RaceDocumentValue> getRaceDocuments(String raceid,
-			String docid, String userid,Integer round) throws Exception {
+			String docid, String userid, Integer round) throws Exception {
 		// TODO Auto-generated method stub
 		Map<String, Object> queryParams = new HashMap<String, Object>();
 		queryParams.put("raceid", raceid);
@@ -43,7 +46,7 @@ public class RaceDaoImpl extends BaseDaoiBatis implements RaceDao {
 
 	@Override
 	public List<RaceScoreLogValue> getRaceScoreLog(String raceid, String docid,
-			String userid,Integer round) throws Exception {
+			String userid, Integer round) throws Exception {
 		// TODO Auto-generated method stub
 		Map<String, Object> queryParams = new HashMap<String, Object>();
 		queryParams.put("raceid", raceid);
@@ -84,17 +87,19 @@ public class RaceDaoImpl extends BaseDaoiBatis implements RaceDao {
 	}
 
 	@Override
-	public List<UserValue> getRaceUserList(String raceid) throws Exception {
+	public List<UserValue> getRaceUserList(String raceid, Integer round)
+			throws Exception {
 		// TODO Auto-generated method stub
 		Map<String, Object> queryMap = new HashMap<String, Object>();
 		queryMap.put("raceid", raceid);
+		queryMap.put("round", round);
 		return this.getSqlMapClientTemplate().queryForList("getRaceUserList",
 				queryMap);
 	}
 
 	@Override
-	public List<RaceDocumentValue> getRaceSumValue(String raceid, String docid,Integer round)
-			throws Exception {
+	public List<RaceDocumentValue> getRaceSumValue(String raceid, String docid,
+			Integer round) throws Exception {
 		// TODO Auto-generated method stub,
 		Map<String, Object> getSumRaceValueParams = new HashMap<String, Object>();
 		getSumRaceValueParams.put("raceid", raceid);
@@ -102,6 +107,70 @@ public class RaceDaoImpl extends BaseDaoiBatis implements RaceDao {
 		getSumRaceValueParams.put("round", round);
 		return this.getSqlMapClientTemplate().queryForList("getRaceSumValue",
 				getSumRaceValueParams);
+	}
+
+	/**
+	 * 
+	 * @param raceid
+	 * @param round
+	 * @return
+	 * @throws Exception
+	 */
+	public List<UserValue> getUserMaxScores(String raceid, Integer round)
+			throws Exception {
+		// TODO Auto-generated method stub
+		Map<String, Object> queryMap = new HashMap<String, Object>();
+		queryMap.put("raceid", raceid);
+		queryMap.put("round", round);
+		return this.getSqlMapClientTemplate().queryForList("getUserMaxScores",
+				queryMap);
+	}
+
+	@Override
+	public List<RaceRound> getRaceRounds(String raceid, Integer round)
+			throws Exception {
+		// TODO Auto-generated method stub
+		Map<String, Object> getRaceRoundParams = new HashMap<String, Object>();
+		getRaceRoundParams.put("raceid", raceid);
+		getRaceRoundParams.put("raceround", round);
+		return this.getSqlMapClientTemplate().queryForList("getRaceRounds",
+				getRaceRoundParams);
+	}
+
+	@Override
+	public List<RaceUserModel> getRaceUserModels(String raceid, Integer round,
+			String userid) throws Exception {
+		// TODO Auto-generated method stub
+		Map<String, Object> getRaceRoundParams = new HashMap<String, Object>();
+		getRaceRoundParams.put("raceid", raceid);
+		getRaceRoundParams.put("round", round);
+		getRaceRoundParams.put("userid", userid);
+		return this.getSqlMapClientTemplate().queryForList("getRaceUserModels",
+				getRaceRoundParams);
+	}
+
+	@Override
+	public void addRaceUser(String raceid, String userid, Integer round)
+			throws Exception {
+		// TODO Auto-generated method stub
+		RaceUserModel raceUserModel = new RaceUserModel();
+		raceUserModel.setRaceid(raceid);
+		raceUserModel.setRound(round);
+		raceUserModel.setUserid(userid);
+		this.getSqlMapClientTemplate()
+				.insert("addRaceUserModel", raceUserModel);
+	}
+
+	@Override
+	public List<RaceScoreLogValue> pagingqueryscorelog(String raceid,
+			String docid, String index) throws Exception {
+		// TODO Auto-generated method stub
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("raceid", raceid);
+		params.put("docid", docid);
+		params.put("index", index);
+		return this.getSqlMapClientTemplate().queryForList(
+				"pagingqueryscorelog", params);
 	}
 
 }

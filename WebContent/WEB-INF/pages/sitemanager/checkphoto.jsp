@@ -60,7 +60,7 @@
 				<c:forEach items="${pagingindexs}" var="pagingindex"
 					varStatus="status">
 					<a
-						href="pagingimglist.do?pageindex=<c:out value="${pagingindex.pageindex}" />">
+						href="pagingimglist.do?pageindex=<c:out value="${pagingindex.pageindex}" />&status=<c:out value="${status}" />">
 						<c:if test="${pagingindex.doc==1}">
 							<c:if test="${pagingindex.front==1}">									 
 									              ..									 
@@ -83,8 +83,29 @@
 				</c:forEach>
 			</div>
 			<div class=" pagenav">
-				<input type="checkbox" name="checkall"
-					onclick="javascript:selectAllDoc(this)"
+				<c:choose>
+					<c:when test="${status==2}">
+						<select name="status" id="status">
+							<option value="1">未审核</option>
+							<option value="2" selected = "selected">已审核</option>
+						</select>
+
+					</c:when>
+					<c:when test="${user.sex==1}">
+						<select name="status" id="status">
+							<option value="1" selected = "selected">未审核</option>
+							<option value="2">已审核</option>
+						</select>
+					</c:when>
+					<c:otherwise>
+						<select name="status" id="status">
+							<option value="1">未审核</option>
+							<option value="2">已审核</option>
+						</select>
+					</c:otherwise>
+				</c:choose>
+				<a href="javascript:queryimgs();">查询</a> <input type="checkbox"
+					name="checkall" onclick="javascript:selectAllDoc(this)"
 					style="width: 20px; height: 20px;" /> </span> <span class="spanstyle"><a
 					href="javascript:checkdoc();"><img src="img/auditimg.png" /></a></span> <span
 					class="spanstyle"><a href="javascript:deletedoc();"><img
@@ -99,4 +120,9 @@
 		<div class="wrp m0a ribbon"></div
 	</form>
 </body>
+<script>
+ var queryimgs=function(){
+	window.location.href='pagingimglist.do?pageindex=1&status='+$('#status').val();
+ };
+</script>
 </html>

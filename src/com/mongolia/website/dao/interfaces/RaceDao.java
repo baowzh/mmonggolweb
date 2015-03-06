@@ -2,9 +2,12 @@ package com.mongolia.website.dao.interfaces;
 
 import java.util.List;
 
+import com.mongolia.website.model.PaingModel;
 import com.mongolia.website.model.RaceDocumentValue;
 import com.mongolia.website.model.RaceModelValue;
+import com.mongolia.website.model.RaceRound;
 import com.mongolia.website.model.RaceScoreLogValue;
+import com.mongolia.website.model.RaceUserModel;
 import com.mongolia.website.model.UserValue;
 
 public interface RaceDao {
@@ -27,7 +30,7 @@ public interface RaceDao {
 	 * @throws Exception
 	 */
 	public List<RaceDocumentValue> getRaceDocuments(String raceid,
-			String docid, String userid,Integer round) throws Exception;
+			String docid, String userid, Integer round) throws Exception;
 
 	/**
 	 * 
@@ -38,7 +41,7 @@ public interface RaceDao {
 	 * @throws Exception
 	 */
 	public List<RaceScoreLogValue> getRaceScoreLog(String raceid, String docid,
-			String userid,Integer round) throws Exception;
+			String userid, Integer round) throws Exception;
 
 	/**
 	 * 
@@ -70,7 +73,8 @@ public interface RaceDao {
 	 * @return
 	 * @throws Exception
 	 */
-	public List<UserValue> getRaceUserList(String raceid) throws Exception;
+	public List<UserValue> getRaceUserList(String raceid, Integer round)
+			throws Exception;
 
 	/**
 	 * 
@@ -79,6 +83,59 @@ public interface RaceDao {
 	 * @return
 	 * @throws Exception
 	 */
-	public List<RaceDocumentValue> getRaceSumValue(String raceid, String docid,Integer round)
+	public List<RaceDocumentValue> getRaceSumValue(String raceid, String docid,
+			Integer round) throws Exception;
+
+	/**
+	 * 
+	 * @param raceid
+	 * @param round
+	 * @return
+	 * @throws Exception
+	 */
+	public List<UserValue> getUserMaxScores(String raceid, Integer round)
 			throws Exception;
+
+	/**
+	 * 
+	 * @param raceid
+	 * @param round
+	 * @return
+	 * @throws Exception
+	 */
+	public List<RaceRound> getRaceRounds(String raceid, Integer round)
+			throws Exception;
+
+	/**
+	 * 
+	 * @param raceid
+	 * @param round
+	 * @param userid
+	 * @return
+	 * @throws Exception
+	 */
+	public List<RaceUserModel> getRaceUserModels(String raceid, Integer round,
+			String userid) throws Exception;
+
+	/**
+	 * 
+	 * @param raceid
+	 * @param round
+	 * @param userid
+	 * @throws Exception
+	 */
+	public void addRaceUser(String raceid, String userid, Integer round)
+			throws Exception;
+
+	/**
+	 * 
+	 * @param raceid
+	 * @param docid
+	 * @param index
+	 * @return
+	 * @throws Exception
+	 */
+	public List<RaceScoreLogValue> pagingqueryscorelog(String raceid,
+			String docid, String index) throws Exception;
+
 }

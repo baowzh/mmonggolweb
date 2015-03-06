@@ -82,7 +82,7 @@ public class UserValue implements UserDetails {
 	private byte[] img;
 	private Integer managerflag;
 	private Integer expert;
-
+    private Double maxscore;
 	public String getLastip() {
 		return lastip;
 	}
@@ -702,5 +702,14 @@ public class UserValue implements UserDetails {
 	public void setExpert(Integer expert) {
 		this.expert = expert;
 	}
+
+	public Double getMaxscore() {
+		return maxscore;
+	}
+
+	public void setMaxscore(Double maxscore) {
+		this.maxscore = maxscore;
+	}
+	
 
 }
