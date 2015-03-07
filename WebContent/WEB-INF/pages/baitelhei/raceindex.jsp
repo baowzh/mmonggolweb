@@ -141,20 +141,24 @@
 										style="color: #f00;">   </a>
 								</div>
 							</div>
+							<div class="desitem" style="height: 320px;">
+								<div class="author" style="color: #f00;">
+									 :
+									<fmt:formatNumber value="${raceUser.maxscore}" type="currency"
+										pattern="#0.00" />
+								</div>
+							</div>
+							<div class="desitem" style="height: 320px;">
+								<div class="author">
+									<a
+										href="raceScoreDetail.do?raceid=<c:out value="${raceDocumentValue.raceid}"/>&docid=<c:out value="${raceDocumentValue.docid}"/>&round=<c:out value="${raceDocumentValue.raceround}"/>">
+										   </a>
+								</div>
+							</div>
+
 						</c:forEach>
-						<div class="desitem" style="height: 320px;">
-							<div class="author" style="color: #f00;">
-								 :
-								<fmt:formatNumber value="${raceUser.maxscore}" type="currency"
-									pattern="#0.00" />
-								<%-- 								<c:out value="${raceUser.maxscore}" /> --%>
-							</div>
-						</div>
-						<div class="desitem" style="height: 320px;">
-							<div class="author">
-								<a href="#">    </a>
-							</div>
-						</div>
+
+
 						<c:if test="${userValue!=null&&userValue.managerflag==1}">
 							<div class="desitem" style="height: 320px;">
 								<div class="author">
@@ -330,8 +334,6 @@
 							<div class="author"> :</div>
 							<c:out value="${userValue.nowprovince}" />
 						</div>
-
-
 					</div>
 				</div>
 

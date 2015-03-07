@@ -31,86 +31,88 @@
 		<div class="cbt"></div>
 	</div>
 	<div class="wrp m0a ribbon"></div>
-
 	<div class="layer m0a">
 		<div
-			style="float: left; margin: 1px 0px; background: #fff; overflow: scroll; max-height: 1500px; min-height: 530px; min-width: 1000px;">
-			<c:forEach items="${raceUsers}" var="raceUser" varStatus="status">
-				<div class="raceuser">
-					<div class="avtr">
+			style="float: left; margin: 1px 0px; background: #fff; overflow: scroll; max-height: 1680px; min-height: 420px; min-width: 1000px;">
+			<c:forEach items="${paingModel.modelList}" var="raceScoreLogValue"
+				varStatus="status">
+				<div class="raceuser"
+					style="width: 82px; height: 400px;padding 2px;">
+					<div class="avtr" style="width: 82px; height: 110px;">
 						<a
-							href="gouserindex.do?userid=<c:out value="${raceUser.uservalue.userid}" />">
+							href="gouserindex.do?userid=<c:out value="${raceScoreLogValue.scoreuserid}" />">
 							<img
-							src="html/userhead/<c:out value="${raceUser.uservalue.headurl}" />" />
+							src="html/userhead/<c:out value="${raceScoreLogValue.headurl}" />"
+							style="width: 82px; height: 110px;" />
 						</a>
 					</div>
-					<div class="desc">
-						<div class="desitem" style="height: 320px;">
+					<div class="desc" style="width: 112px; height: 265px;">
+						<div class="desitem" style="height: 265px;">
 							<div class="author">
-								 :
-								<c:out value="${raceUser.uservalue.artname}" />
+								  :
+								<c:out value="${raceScoreLogValue.artname}" />
 							</div>
 						</div>
-						<div class="desitem" style="height: 320px;">
+						<div class="desitem" style="height: 265px;">
 							<div class="author">
-								   :
+								:
 								<c:choose>
-									<c:when test="${raceUser.uservalue.jointype==1}">
-							           
+									<c:when test="${raceScoreLogValue.usertype==1}">
+							           
 							       </c:when>
-									<c:when test="${raceUser.uservalue.jointype==2}">
-							            
+									<c:when test="${raceScoreLogValue.usertype==2}">
+							           
 							       </c:when>
 									<c:otherwise>
-							           
+							           
 							       </c:otherwise>
 								</c:choose>
 							</div>
 						</div>
-						<c:forEach items="${raceUser.raceDocumentValues}"
-							var="raceDocumentValue" varStatus="status">
-							<div class="nwsl1">
-								<div class="title" style="height: 240px; color: #f00;">
-									<a
-										href="getuserdocdetail.do?docid=<c:out value="${raceDocumentValue.docid}"/>"
-										target="_blank" class="tit_text_overflow" style="color: #f00;">
-										<c:out value="${raceDocumentValue.doctitle}" />  
-									</a>
-								</div>
-								<div class="author">
-									<a
-										href="getuserdocdetail.do?docid=<c:out value="${raceDocumentValue.docid}"/>"
-										style="color: #f00;">   </a>
-								</div>
-							</div>
-						</c:forEach>
-						<div class="desitem" style="height: 320px;">
-							<div class="author" style="color: #f00;">
-								 :
-								<fmt:formatNumber value="${raceUser.maxscore}" type="currency"
-									pattern="#0.00" />
-								<%-- 								<c:out value="${raceUser.maxscore}" /> --%>
-							</div>
-						</div>
-						<div class="desitem" style="height: 320px;">
+						<div class="desitem" style="height: 265px;">
 							<div class="author">
-								<a href="#">    </a>
+								 :
+								<c:out value="${raceScoreLogValue.score}" />
 							</div>
 						</div>
-						<c:if test="${userValue!=null&&userValue.managerflag==1}">
-							<div class="desitem" style="height: 320px;">
-								<div class="author">
-									<a
-										href="javascript:switchtonextround('<c:out value="${raceUser.uservalue.userid}"/>','<c:out value="${raceUser.uservalue.userid}"/>',<c:out value="${raceUser.uservalue.jointype}"/>);">
-										    </a>
-								</div>
+						<div class="desitem" style="height: 265px;">
+							<div class="author">
+								  :
+								<fmt:formatDate value="${raceScoreLogValue.scoredate}"
+									type="both" pattern="yyyy-MM-dd" />
 							</div>
-						</c:if>
+						</div>
 					</div>
 				</div>
 			</c:forEach>
-
 		</div>
+		<div class="paginationArea">
+			<div class="pagination" id="docpagelist">
+				<a class="first disabled" id="firest"
+					href="javascript:openpage('1','264611659E3C11E4BC9D199A577C4ABB',1,0,true);switchclass('pagefist');"><span
+					id="pagefirest" class="spanstyle">&lt;&lt;</span></a><a
+					class="first disabled" id="previous"
+					href="javascript:openpage('1','264611659E3C11E4BC9D199A577C4ABB',1,0,true);switchclass('previous');"><span
+					id="pageprevious" class="spanstyle">&lt;</span></a><a
+					class="first disabled" id="page1"
+					href="javascript:openpage('1','264611659E3C11E4BC9D199A577C4ABB',1,0,true);switchclass('1');"><span
+					id="pagepage1" class="spanstyle">1</span></a><a class="first disabled"
+					id="page2"
+					href="javascript:openpage('2','264611659E3C11E4BC9D199A577C4ABB',1,0,true);switchclass('2');"><span
+					id="pagepage2" class="curspanstyle">2</span></a><a
+					class="first disabled" id="page3"
+					href="javascript:openpage('3','264611659E3C11E4BC9D199A577C4ABB',1,0,true);switchclass('3');"><span
+					id="pagepage3" class="spanstyle">3</span></a><a class="first disabled"
+					id="next"
+					href="javascript:openpage('2','264611659E3C11E4BC9D199A577C4ABB',1,0,true);switchclass('next');"><span
+					id="pagenext" class="spanstyle">&gt;</span></a><a
+					class="first disabled" id="last"
+					href="javascript:openpage('26','264611659E3C11E4BC9D199A577C4ABB',1,0,true);switchclass('last');"><span
+					id="pagelast" class="spanstyle">&gt;&gt;</span></a>
+			</div>
+		</div>
+
+
 	</div>
 	<%@ include file="../website/tail.jsp"%>
 </body>

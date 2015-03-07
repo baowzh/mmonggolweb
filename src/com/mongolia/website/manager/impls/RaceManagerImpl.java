@@ -308,8 +308,34 @@ public class RaceManagerImpl implements RaceManager {
 	public PaingModel<RaceScoreLogValue> pagingqueryscorelog(String raceid,
 			String docid, String index, Integer round) throws Exception {
 		// TODO Auto-generated method stub
-		this.raceDao.getRaceScoreLog(raceid, docid, index, round);
-		return null;
+		List<RaceScoreLogValue> racescores = this.raceDao.pagingqueryscorelog(
+				raceid, docid, round, Integer.parseInt(index));
+		Integer rount = this.raceDao.racescorecount(raceid, docid, round);
+		PaingModel<RaceScoreLogValue> paingModel = new PaingModel<RaceScoreLogValue>();
+		paingModel.setModelList(racescores);
+		paingModel.setRowcount("" + rount);
+		//
+		paingModel.setPagesize(28);
+		int pageCount = rount / 28;
+		if (rount % paingModel.getPagesize() > 0) {
+			pageCount = pageCount + 1;
+		}
+		paingModel.setPageindex(Integer.parseInt(index));
+		paingModel.setPagecount(pageCount);
+		if (paingModel.getPageindex() < paingModel.getPagecount()) {
+			paingModel.setNextindex(pageCount);
+		} else {
+			paingModel.setNextindex(paingModel.getPageindex() + 1);
+		}
+		if (paingModel.getPageindex() > 1) {
+			paingModel.setPreviousindex(paingModel.getPageindex() - 1);
+		} else {
+			paingModel.setPreviousindex(1);
+		}
+		paingModel.setDocstatus(round);
+		paingModel.setDocchannel(raceid);
+		paingModel.setImggroupid(docid);
+		return paingModel;
 	}
 
 	public List<ImgValue> getRaceImgList(String raceid, Integer count)

@@ -178,17 +178,23 @@
 		select b.docid,b.joinuserid as
 		userid,max(netaveragescore+speaveragescore) as maxscore from (select
 		a.docid,a.joinuserid,a.netaveragescore,a.speaveragescore from (
-		select a.docid as docid,b.joinuserid as joinuserid
-		,sum(a.score)/count(1)*0.2 as netaveragescore,0 as speaveragescore
-		from racescorelog a,racedocument b where a.raceid=b.raceid and
-		a.docid=b.docid and a.usertype=1
+		select
+		a.docid as docid,b.joinuserid as joinuserid
+		,sum(a.score)/count(1)*0.2
+		as netaveragescore,0 as speaveragescore
+		from racescorelog
+		a,racedocument b where a.raceid=b.raceid and
+		a.docid=b.docid and
+		a.usertype=1
 		and a.raceid=#raceid# and a.round=#round#
 		union ALL
-		select a.docid as docid,b.joinuserid as joinuserid ,0 as
+		select
+		a.docid as docid,b.joinuserid as joinuserid ,0 as
 		netaveragescore,sum(a.score)/count(1)*0.8 as speaveragescore from
 		racescorelog a,racedocument b where a.raceid=b.raceid and
 		a.docid=b.docid and a.usertype=2
-		and a.raceid=#raceid# and a.round=#round#
+		and a.raceid=#raceid# and
+		a.round=#round#
 		) a) b where <![CDATA[IFNULL(b.netaveragescore,0)+IFNULL(b.speaveragescore,0)<>0]]>
 		GROUP BY b.docid,b.joinuserid
 	</select>
@@ -206,7 +212,7 @@
 	</insert>
 	<select id="getRaceImgList" parameterClass="java.util.Map"
 		resultClass="ImgValue">
-		select img.*,b.startdate  from
+		select img.*,b.startdate from
 		img,topdocument b where
 		img.imgid=b.docid
 		<dynamic prepend="and">
@@ -215,5 +221,38 @@
 			</isNotNull>
 		</dynamic>
 		ORDER BY b.startdate desc LIMIT 0, #count#
+	</select>
+	<select id="pagingqueryscorelog" parameterClass="java.util.Map"
+		resultClass="RaceScoreLogValue">
+		select a.* from (select a.*,b.headurl,b.artname from racescorelog a, user b where
+		a.scoreuserid=b.userid
+		<dynamic prepend="and">
+			<isNotNull prepend="and" property="raceid">
+				a.raceid=#raceid#
+			</isNotNull>
+			<isNotNull prepend="and" property="docid">
+				a.docid=#docid#
+			</isNotNull>
+			<isNotNull prepend="and" property="round">
+				round=#round#
+			</isNotNull>
+		</dynamic>
+		) a order by a.scoredate LIMIT #start#, #count#
+	</select>
+	<select id="racescorecount" parameterClass="java.util.Map"
+		resultClass="java.lang.Integer">
+		select count(1) from racescorelog a, user b where
+		a.scoreuserid=b.userid
+		<dynamic prepend="and">
+			<isNotNull prepend="and" property="raceid">
+				a.raceid=#raceid#
+			</isNotNull>
+			<isNotNull prepend="and" property="docid">
+				a.docid=#docid#
+			</isNotNull>
+			<isNotNull prepend="and" property="round">
+				a.round=#round#
+			</isNotNull>
+		</dynamic>
 	</select>
 </sqlMap>

@@ -136,7 +136,17 @@ public interface RaceDao {
 	 * @throws Exception
 	 */
 	public List<RaceScoreLogValue> pagingqueryscorelog(String raceid,
-			String docid, String index) throws Exception;
+			String docid, Integer round, Integer index) throws Exception;
+
+	/**
+	 * 
+	 * @param raceid
+	 * @param docid
+	 * @param index
+	 * @return
+	 * @throws Exception
+	 */
+	public Integer racescorecount(String raceid, String docid, Integer round) throws Exception;
 
 	/**
 	 * 

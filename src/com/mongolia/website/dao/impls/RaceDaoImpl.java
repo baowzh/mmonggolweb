@@ -163,12 +163,15 @@ public class RaceDaoImpl extends BaseDaoiBatis implements RaceDao {
 
 	@Override
 	public List<RaceScoreLogValue> pagingqueryscorelog(String raceid,
-			String docid, String index) throws Exception {
+			String docid, Integer round, Integer index) throws Exception {
 		// TODO Auto-generated method stub
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("raceid", raceid);
 		params.put("docid", docid);
-		params.put("index", index);
+		params.put("round", round);
+		Integer startindex = (index - 1) * 28;
+		params.put("start", startindex);
+		params.put("count", 28);
 		return this.getSqlMapClientTemplate().queryForList(
 				"pagingqueryscorelog", params);
 	}
@@ -182,6 +185,18 @@ public class RaceDaoImpl extends BaseDaoiBatis implements RaceDao {
 		queryImgParams.put("count", count);
 		return this.getSqlMapClientTemplate().queryForList("getRaceImgList",
 				queryImgParams);
+	}
+
+	@Override
+	public Integer racescorecount(String raceid, String docid, Integer round)
+			throws Exception {
+		// TODO Auto-generated method stub
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("raceid", raceid);
+		params.put("docid", docid);
+		params.put("round", round);
+		return (Integer) this.getSqlMapClientTemplate().queryForObject(
+				"racescorecount", params);
 	}
 
 }

@@ -6,6 +6,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import net.sf.json.JSONObject;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -21,6 +23,7 @@ import com.mongolia.website.model.RaceModelValue;
 import com.mongolia.website.model.RaceScoreLogValue;
 import com.mongolia.website.model.RaceUser;
 import com.mongolia.website.model.UserValue;
+import com.mongolia.website.util.PageUtil;
 import com.mongolia.website.util.StaticConstants;
 
 @Controller
@@ -154,13 +157,13 @@ public class RaceController {
 	@RequestMapping("/switchDocToNextRound.do")
 	public ModelAndView switchDocToNextRound(HttpServletRequest request,
 			RaceDocumentValue raceDocumentValue, ModelMap map) {
-//		String sysvalidcode = (String) request.getSession().getAttribute(
-//				"validateCode");
+		// String sysvalidcode = (String) request.getSession().getAttribute(
+		// "validateCode");
 		try {
-//			if (!sysvalidcode.equalsIgnoreCase(raceDocumentValue
-//					.getRaicevalidcode())) {
-//				throw new Exception("1");// 校验码不对
-//			}
+			// if (!sysvalidcode.equalsIgnoreCase(raceDocumentValue
+			// .getRaicevalidcode())) {
+			// throw new Exception("1");// 校验码不对
+			// }
 			UserValue sessionUser = (UserValue) request.getSession()
 					.getAttribute("user");
 			if (sessionUser.getManagerflag() == null
@@ -178,21 +181,25 @@ public class RaceController {
 		return new ModelAndView("jsonView", map);
 	}
 
+	@RequestMapping("/raceScoreDetail.do")
 	public ModelAndView raceScoreDetail(HttpServletRequest request, ModelMap map) {
 		String raceid = request.getParameter("raceid");
 		String docid = request.getParameter("docid");
 		String index = request.getParameter("index");
 		String round = request.getParameter("round");
-		PaingModel<RaceScoreLogValue> paingModel = new PaingModel<RaceScoreLogValue>();
-		paingModel.setPagesize(StaticConstants.DEFAULT_PAGESIZE);
-		paingModel.setStartrow((paingModel.getPageindex() - 1)
-				* paingModel.getPagesize());
-		paingModel.setEndrow(paingModel.getPageindex()
-				* paingModel.getPagesize());
 		try {
-			PaingModel<RaceScoreLogValue> pamodel = raceManager
+			if (index == null || index.equalsIgnoreCase("")) {
+				index = "1";
+			}
+			PaingModel<RaceScoreLogValue> retPaingModel = raceManager
 					.pagingqueryscorelog(raceid, docid, index,
 							Integer.parseInt(round));
+			map.put("paingModel", retPaingModel);
+			//
+			String pagingstr = PageUtil.getPagingLinkForRaceScore(
+					retPaingModel, 1);
+			map.put("pagingstr", pagingstr);
+			//
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

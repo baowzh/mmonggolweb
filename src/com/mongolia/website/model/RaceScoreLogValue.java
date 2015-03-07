@@ -9,7 +9,10 @@ public class RaceScoreLogValue {
 	private String scoreuserid;
 	private Integer usertype;
 	private Double score;
-    private Integer round;
+	private Integer round;
+	private String headurl;
+	private String artname;
+
 	public String getRaceid() {
 		return raceid;
 	}
@@ -65,4 +68,21 @@ public class RaceScoreLogValue {
 	public void setRound(Integer round) {
 		this.round = round;
 	}
+
+	public String getHeadurl() {
+		return headurl;
+	}
+
+	public void setHeadurl(String headurl) {
+		this.headurl = headurl;
+	}
+
+	public String getArtname() {
+		return artname;
+	}
+
+	public void setArtname(String artname) {
+		this.artname = artname;
+	}
+
 }
