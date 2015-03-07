@@ -109,11 +109,12 @@
 			<%@ include file="../website/tail.jsp"%>
 		</div>
 	</form>
-	<div style="display: none" id="addimg" style="width:270px;height:300px;">
+	<div style="display: none" id="addimg"
+		style="width:270px;height:300px;">
 		<div class="content"
 			style="width: 280px; height: 310px; background: white; padding: 5px; border-radius: 5px;">
-			<form action="addimg.do" id="addimgform" method="post" class="mglForm"
-				enctype="multipart/form-data" />
+			<form action="addimg.do" id="addimgform" method="post"
+				class="mglForm" enctype="multipart/form-data" />
 			<div class="label" style="text-align: center;">  :</div>
 			<div class="inputHolder" style="width: 32px; height: 270px;">
 				<input type="text" name="albumname" id="albumname" readonly="true"
@@ -125,11 +126,16 @@
 				<input type="text" name="imgcomm" id="imgcomm"></input>
 			</div>
 
-			<div class="label" style="text-align: center;"> 
-				:</div>
-			<div class="inputHolder" style="width: 32px; height: 270px;">
-				<input type="radio" name="cover" id="cover"></input>
+			<div class="label" style="text-align: center; height: 210px;">
+				   :<input type="checkbox" name="cover"
+					id="cover"></input>
 			</div>
+			<c:if test="${racemodel!=null&&sessionuser.managerflag==1}">
+				<div class="label" style="text-align: center; height: 210px;">
+					   :<input type="checkbox" name="forrace"
+						id="forrace"></input>
+				</div>
+			</c:if>
 			<div class="label" style="text-align: center;">:</div>
 			<div class="inputHolder" style="width: 32px; height: 270px;">
 				<input type="file" name="img" id="img" style="height: 210px;"></input>

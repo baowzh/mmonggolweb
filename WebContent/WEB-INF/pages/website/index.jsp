@@ -21,7 +21,6 @@
 <script type="text/javascript" src="js/scroll/sodon-min.js"></script>
 <script type="text/javascript" src="js/scroll/JQScrollView.js"></script>
 <script type="text/javascript" src="js/scroll/scrollview-min.js"></script>
-<script type="text/javascript" src="js/scroll/scrollview-min.js"></script>
 <script type="text/javascript" src="js/scroll/jquery.totemticker.min.js"></script>
 <link href="icons/favicon.ico" type="image/x-icon" rel="ico">
 	<link href="icons/favicon.ico" type="image/x-icon" rel="shortcut icon">

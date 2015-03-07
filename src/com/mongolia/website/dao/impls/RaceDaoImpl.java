@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.stereotype.Repository;
 
 import com.mongolia.website.dao.interfaces.RaceDao;
+import com.mongolia.website.model.ImgValue;
 import com.mongolia.website.model.PaingModel;
 import com.mongolia.website.model.RaceDocumentValue;
 import com.mongolia.website.model.RaceModelValue;
@@ -171,6 +172,17 @@ public class RaceDaoImpl extends BaseDaoiBatis implements RaceDao {
 		params.put("index", index);
 		return this.getSqlMapClientTemplate().queryForList(
 				"pagingqueryscorelog", params);
+	}
+
+	@Override
+	public List<ImgValue> getRaceImgList(String raceid, Integer count)
+			throws Exception {
+		// TODO Auto-generated method stub
+		Map<String, Object> queryImgParams = new HashMap<String, Object>();
+		queryImgParams.put("raceid", raceid);
+		queryImgParams.put("count", count);
+		return this.getSqlMapClientTemplate().queryForList("getRaceImgList",
+				queryImgParams);
 	}
 
 }

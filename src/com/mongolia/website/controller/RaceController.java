@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.mongolia.website.manager.interfaces.RaceManager;
 import com.mongolia.website.model.DocumentValue;
+import com.mongolia.website.model.ImgValue;
 import com.mongolia.website.model.PaingModel;
 import com.mongolia.website.model.RaceDocumentValue;
 import com.mongolia.website.model.RaceModelValue;
@@ -129,8 +130,18 @@ public class RaceController {
 			Map<String, Object> indexcontent = this.raceManager
 					.getRaceIndexCon(request.getParameter("raceid"),
 							"raceindex");
+			List<RaceModelValue> raceModelValues = this.raceManager
+					.getRaceModels(null, 1);
+			Object userValueobj = request.getSession().getAttribute("user");
+			if (userValueobj != null) {
+				map.put("userValue", (UserValue) userValueobj);
+			}
 			map.put("raceUsers", raceUsers);
 			map.put("indexPageContent", indexcontent);
+			map.put("racemodel", raceModelValues.get(0));
+			List<ImgValue> imgs = this.raceManager.getRaceImgList(
+					raceModelValues.get(0).getRaceid(), 10);
+			map.put("imgs", imgs);
 			// 跟专题相关的页面栏目
 		} catch (Exception ex) {
 			ex.printStackTrace();

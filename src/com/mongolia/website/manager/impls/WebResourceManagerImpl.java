@@ -31,10 +31,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import au.id.jericho.lib.html.Element;
 import au.id.jericho.lib.html.HTMLElementName;
-import au.id.jericho.lib.html.OutputDocument;
 import au.id.jericho.lib.html.Source;
 
 import com.mongolia.website.dao.interfaces.ChannelManagerDao;
+import com.mongolia.website.dao.interfaces.RaceDao;
 import com.mongolia.website.dao.interfaces.WebResourceDao;
 import com.mongolia.website.manager.ManagerException;
 import com.mongolia.website.manager.interfaces.UserManager;
@@ -50,6 +50,7 @@ import com.mongolia.website.model.MessageValue;
 import com.mongolia.website.model.PagingIndex;
 import com.mongolia.website.model.PaingModel;
 import com.mongolia.website.model.QuestionValue;
+import com.mongolia.website.model.RaceModelValue;
 import com.mongolia.website.model.ShareResourceValue;
 import com.mongolia.website.model.UserValue;
 import com.mongolia.website.model.VisitorValue;
@@ -76,6 +77,8 @@ public class WebResourceManagerImpl implements WebResourceManager {
 	private ChannelManagerDao channelDao;
 	@Autowired
 	private SysConfig sysConfig;
+	@Autowired
+	private RaceDao raceDao;
 
 	@Override
 	public void doAddIImgGroup(ImgGrpupValue imgGrpupValue)
@@ -109,6 +112,14 @@ public class WebResourceManagerImpl implements WebResourceManager {
 			// byte[] imgcontent = imgValue.getImgcontent();
 			// byte[] newcontent = this.gzipdoccontent(imgcontent);
 			// imgValue.setImgcontent(newcontent);
+			if (imgValue.getForrace() != null
+					&& imgValue.getForrace().intValue() == 1) {
+				List<RaceModelValue> raceModelValues = this.raceDao
+						.getRaceModels(null, 1);
+				if (raceModelValues != null && !raceModelValues.isEmpty()) {
+					imgValue.setRaceid(raceModelValues.get(0).getRaceid());
+				}
+			}
 			webResourceDao.addImg(imgValue);
 			// 如果是封面修改相册封面
 			if (imgValue.getCover() == 1) {
@@ -524,8 +535,8 @@ public class WebResourceManagerImpl implements WebResourceManager {
 	}
 
 	@Override
-	public DocumentValue readUserDDocument(String docid, UserValue userValue,Integer clienttype)
-			throws ManagerException {
+	public DocumentValue readUserDDocument(String docid, UserValue userValue,
+			Integer clienttype) throws ManagerException {
 		// TODO Auto-generated method stub
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("docid", docid);
@@ -542,7 +553,7 @@ public class WebResourceManagerImpl implements WebResourceManager {
 							.getDoccontent());
 					documentValue.setDoccontent(newcontent);
 				}
-                
+
 				//
 				if (documentValue.getDoctype().intValue() == StaticConstants.RESOURCE_TYPE_DOC) {
 					String docContent = new String(
@@ -633,10 +644,10 @@ public class WebResourceManagerImpl implements WebResourceManager {
 				List<UserValue> docusers = this.userManager.getUsers(
 						documentValue.getUserid(), null);
 				UserValue docuser = docusers.get(0);
-				if(userValue!=null){
-					visitorValue.setVisitorname(userValue.getArtname());	
-				}else{
-					visitorValue.setVisitorname("#");	
+				if (userValue != null) {
+					visitorValue.setVisitorname(userValue.getArtname());
+				} else {
+					visitorValue.setVisitorname("#");
 				}
 				visitorValue.setUserid(docuser.getUserid());
 				visitorValue.setVisittype(StaticConstants.VISIT_TYPE2);
@@ -1852,5 +1863,5 @@ public class WebResourceManagerImpl implements WebResourceManager {
 		// TODO Auto-generated method stub
 		return this.webResourceDao.getVisitorList(resourceid, fechtcount);
 	}
-	
+
 }

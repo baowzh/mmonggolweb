@@ -11,6 +11,7 @@
 	<typeAlias alias="UserValue" type="com.mongolia.website.model.UserValue" />
 	<typeAlias alias="RaceRound" type="com.mongolia.website.model.RaceRound" />
 	<typeAlias alias="RaceUserModel" type="com.mongolia.website.model.RaceUserModel" />
+	<typeAlias alias="ImgValue" type="com.mongolia.website.model.ImgValue" />
 	<select id="getRaceModel" parameterClass="java.util.Map"
 		resultClass="RaceModelValue">
 		select * from racemodel
@@ -52,7 +53,8 @@
 	</select>
 	<select id="getRaceDocumentValue" parameterClass="java.util.Map"
 		resultClass="RaceDocumentValue">
-		select a.*,b.doctitle from racedocument a,document b where a.docid=b.docid
+		select a.*,b.doctitle from racedocument a,document b where
+		a.docid=b.docid
 		<dynamic prepend="and">
 			<isNotNull prepend="and" property="raceid">
 				a.raceid=#raceid#
@@ -136,7 +138,8 @@
 		usertype,
 		score,
 		round
-		) values(
+		)
+		values(
 		#raceid#,
 		#docid#,
 		#scoredate#,
@@ -148,7 +151,8 @@
 	</insert>
 	<select id="getRaceUserList" parameterClass="java.util.Map"
 		resultClass="UserValue">
-		select distinct b.* from racedocument a,user b,racemodel c where
+		select distinct b.*,a.jointype from racedocument a,user b,racemodel c
+		where
 		a.joinuserid=b.userid and a.raceid=c.raceid
 		<dynamic prepend="and">
 			<isNotNull prepend="and" property="raceid">
@@ -162,21 +166,33 @@
 	<select id="getRaceSumValue" parameterClass="java.util.Map"
 		resultClass="RaceDocumentValue">
 		select sum(a.score) nettotalscore,count(1) as
-		netscorecount,sum(a.score)/count(1) as netaveragescore,usertype ,round as raceround from
-		racescorelog a where a.raceid=#raceid# and a.docid=#docid# and round=#round#
-		GROUP BY a.raceid,a.docid,a.usertype,round
+		netscorecount,sum(a.score)/count(1) as netaveragescore,usertype ,round
+		as raceround from
+		racescorelog a where a.raceid=#raceid# and
+		a.docid=#docid# and round=#round#
+		GROUP BY
+		a.raceid,a.docid,a.usertype,round
 	</select>
 	<select id="getUserMaxScores" parameterClass="java.util.Map"
 		resultClass="UserValue">
-	 select b.docid,b.joinuserid as userid,max(netaveragescore+speaveragescore) as maxscore from (select a.docid,a.joinuserid,a.netaveragescore,a.speaveragescore from (
-       select a.docid as docid,b.joinuserid as joinuserid  ,sum(a.score)/count(1)*0.2 as netaveragescore,0 as speaveragescore  from racescorelog a,racedocument b where a.raceid=b.raceid and a.docid=b.docid and a.usertype=1
-       and a.raceid=#raceid# and a.round=#round#
-         union ALL
-       select a.docid as docid,b.joinuserid as joinuserid  ,0 as netaveragescore,sum(a.score)/count(1)*0.8 as speaveragescore  from racescorelog a,racedocument b where a.raceid=b.raceid and a.docid=b.docid and a.usertype=2
-       and a.raceid=#raceid# and a.round=#round#
-      )  a) b where <![CDATA[IFNULL(b.netaveragescore,0)+IFNULL(b.speaveragescore,0)<>0]]> GROUP BY b.docid,b.joinuserid
+		select b.docid,b.joinuserid as
+		userid,max(netaveragescore+speaveragescore) as maxscore from (select
+		a.docid,a.joinuserid,a.netaveragescore,a.speaveragescore from (
+		select a.docid as docid,b.joinuserid as joinuserid
+		,sum(a.score)/count(1)*0.2 as netaveragescore,0 as speaveragescore
+		from racescorelog a,racedocument b where a.raceid=b.raceid and
+		a.docid=b.docid and a.usertype=1
+		and a.raceid=#raceid# and a.round=#round#
+		union ALL
+		select a.docid as docid,b.joinuserid as joinuserid ,0 as
+		netaveragescore,sum(a.score)/count(1)*0.8 as speaveragescore from
+		racescorelog a,racedocument b where a.raceid=b.raceid and
+		a.docid=b.docid and a.usertype=2
+		and a.raceid=#raceid# and a.round=#round#
+		) a) b where <![CDATA[IFNULL(b.netaveragescore,0)+IFNULL(b.speaveragescore,0)<>0]]>
+		GROUP BY b.docid,b.joinuserid
 	</select>
-		<insert id="addRaceUserModel" parameterClass="RaceUserModel">
+	<insert id="addRaceUserModel" parameterClass="RaceUserModel">
 		insert into
 		raceuser(
 		raceid,
@@ -188,4 +204,16 @@
 		#round#
 		)
 	</insert>
+	<select id="getRaceImgList" parameterClass="java.util.Map"
+		resultClass="ImgValue">
+		select img.*,b.startdate  from
+		img,topdocument b where
+		img.imgid=b.docid
+		<dynamic prepend="and">
+			<isNotNull prepend="and" property="raceid">
+				img.raceid=#raceid#
+			</isNotNull>
+		</dynamic>
+		ORDER BY b.startdate desc LIMIT 0, #count#
+	</select>
 </sqlMap>

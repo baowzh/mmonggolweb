@@ -60,7 +60,7 @@
 				<c:forEach items="${pagingindexs}" var="pagingindex"
 					varStatus="status">
 					<a
-						href="pagingimglist.do?pageindex=<c:out value="${pagingindex.pageindex}" />&status=<c:out value="${status}" />">
+						href="pagingimglist.do?pageindex=<c:out value="${pagingindex.pageindex}" />&imgstatus=<c:out value="${imgstatus}" />">
 						<c:if test="${pagingindex.doc==1}">
 							<c:if test="${pagingindex.front==1}">									 
 									              ..									 
@@ -84,21 +84,21 @@
 			</div>
 			<div class=" pagenav">
 				<c:choose>
-					<c:when test="${status==2}">
-						<select name="status" id="status">
+					<c:when test="${imgstatus==2}">
+						<select name="imgstatus" id="imgstatus">
 							<option value="1">未审核</option>
 							<option value="2" selected = "selected">已审核</option>
 						</select>
 
 					</c:when>
-					<c:when test="${user.sex==1}">
-						<select name="status" id="status">
+					<c:when test="${imgstatus==1}">
+						<select name="imgstatus" id="imgstatus">
 							<option value="1" selected = "selected">未审核</option>
 							<option value="2">已审核</option>
 						</select>
 					</c:when>
 					<c:otherwise>
-						<select name="status" id="status">
+						<select name="imgstatus" id="imgstatus">
 							<option value="1">未审核</option>
 							<option value="2">已审核</option>
 						</select>
@@ -122,7 +122,7 @@
 </body>
 <script>
  var queryimgs=function(){
-	window.location.href='pagingimglist.do?pageindex=1&status='+$('#status').val();
+	window.location.href='pagingimglist.do?pageindex=1&imgstatus='+$('#imgstatus').val();
  };
 </script>
 </html>

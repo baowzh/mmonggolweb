@@ -2,7 +2,7 @@ package com.mongolia.website.dao.interfaces;
 
 import java.util.List;
 
-import com.mongolia.website.model.PaingModel;
+import com.mongolia.website.model.ImgValue;
 import com.mongolia.website.model.RaceDocumentValue;
 import com.mongolia.website.model.RaceModelValue;
 import com.mongolia.website.model.RaceRound;
@@ -137,5 +137,15 @@ public interface RaceDao {
 	 */
 	public List<RaceScoreLogValue> pagingqueryscorelog(String raceid,
 			String docid, String index) throws Exception;
+
+	/**
+	 * 
+	 * @param raceid
+	 * @param count
+	 * @return
+	 * @throws Exception
+	 */
+	public List<ImgValue> getRaceImgList(String raceid, Integer count)
+			throws Exception;
 
 }

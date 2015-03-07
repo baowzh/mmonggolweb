@@ -17,7 +17,7 @@ var joinrace = function() {
 	var validcode = $('#raicevalidcode').val();
 	if (type == null || type == '') {
 		MessageWindow
-				.showMess('      ');
+				.showMess('    ');
 		return;
 	}
 	if (validcode == null || validcode == '') {
@@ -44,13 +44,14 @@ var joinrace = function() {
 				success : function(data) {
 					if (data.mess == '0') {
 						$("#joinracediv").dialog("close");
-						MessageWindow.showMess('   ');				
+						MessageWindow.showMess('   ');	
+						window.location.href='raceindex.do';
 					} else if (data.mess == '1') {
 						MessageWindow
 								.showMess('       ');
 					} else if (data.mess == '2') {
 						MessageWindow
-								.showMess('        <br/>      ');
+								.showMess(raceModelJson.raceModel.round+'        <br/>       ');
 					} else if (data.mess == '3') {
 						MessageWindow
 								.showMess('        ');

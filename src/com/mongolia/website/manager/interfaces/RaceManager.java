@@ -3,6 +3,8 @@ package com.mongolia.website.manager.interfaces;
 import java.util.List;
 import java.util.Map;
 
+import com.mongolia.website.model.DocumentValue;
+import com.mongolia.website.model.ImgValue;
 import com.mongolia.website.model.PaingModel;
 import com.mongolia.website.model.RaceDocumentValue;
 import com.mongolia.website.model.RaceModelValue;
@@ -96,7 +98,34 @@ public interface RaceManager {
 	public void switchUserToNextRound(String raceid, String userid,
 			Integer jointype) throws Exception;
 
+	/**
+	 * 
+	 * @param raceid
+	 * @param docid
+	 * @param index
+	 * @param round
+	 * @return
+	 * @throws Exception
+	 */
 	public PaingModel<RaceScoreLogValue> pagingqueryscorelog(String raceid,
 			String docid, String index, Integer round) throws Exception;
+
+	/**
+	 * 
+	 * @param raceid
+	 * @param count
+	 * @return
+	 * @throws Exception
+	 */
+	public List<ImgValue> getRaceImgList(String raceid, Integer count)
+			throws Exception;
+
+	/**
+	 * 
+	 * @param channelid
+	 * @return
+	 * @throws Exception
+	 */
+	public List<DocumentValue> getvides(String channelid) throws Exception;
 
 }

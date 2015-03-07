@@ -163,5 +163,9 @@ public class StaticConstants {
 	 * 评分用户类型2-专家
 	 */
 	public static Integer SCORE_USER_TYPE2 = 2;
+	/**
+	 * 
+	 */
+	public static String bubaichanelid="50000000000005";
 
 }

@@ -18,6 +18,7 @@ import com.mongolia.website.dao.interfaces.WebPageManagerDao;
 import com.mongolia.website.dao.interfaces.WebSiteVisitorDao;
 import com.mongolia.website.manager.interfaces.RaceManager;
 import com.mongolia.website.model.DocumentValue;
+import com.mongolia.website.model.ImgValue;
 import com.mongolia.website.model.PageChannelRelationValue;
 import com.mongolia.website.model.PaingModel;
 import com.mongolia.website.model.RaceDocumentValue;
@@ -309,6 +310,33 @@ public class RaceManagerImpl implements RaceManager {
 		// TODO Auto-generated method stub
 		this.raceDao.getRaceScoreLog(raceid, docid, index, round);
 		return null;
+	}
+
+	public List<ImgValue> getRaceImgList(String raceid, Integer count)
+			throws Exception {
+		return this.raceDao.getRaceImgList(raceid, count);
+	}
+
+	/**
+	 * 
+	 * @param channelid
+	 * @return
+	 * @throws Exception
+	 */
+	public List<DocumentValue> getvides(String channelid) throws Exception {
+		//
+		PaingModel<DocumentValue> paingModelVide0 = new PaingModel<DocumentValue>();
+		paingModelVide0.setDocchannel(StaticConstants.bubaichanelid);
+		paingModelVide0.setPageindex(1);
+		paingModelVide0.setPageindex(StaticConstants.INDEX_DOC_ROWCOUNT);
+		paingModelVide0.setStartrow(0);
+		paingModelVide0.setEndrow(9);
+		paingModelVide0.setDocstatus(2);
+		paingModelVide0.setFlash(1);
+		paingModelVide0.setInindex(1);
+		List<DocumentValue> documents = this.webSiteVisitorDao
+				.pagingquerydoc(paingModelVide0);
+		return documents;
 	}
 
 }

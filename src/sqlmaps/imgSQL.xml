@@ -18,7 +18,8 @@
 		imgcontent,
 		width,
 		height,
-		oldid
+		oldid,
+		raceid
 		) values(
 		#imgid#,
 		#imgname#,
@@ -30,7 +31,8 @@
 		#imgcontent#,
 		#width#,
 		#height#,
-		#oldid#
+		#oldid#,
+		#raceid#
 		)
 	</insert>
 	<select id="getImgList" parameterClass="java.util.Map"

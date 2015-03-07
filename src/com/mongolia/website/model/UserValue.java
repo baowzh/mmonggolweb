@@ -82,7 +82,9 @@ public class UserValue implements UserDetails {
 	private byte[] img;
 	private Integer managerflag;
 	private Integer expert;
-    private Double maxscore;
+	private Double maxscore;
+	private Integer jointype;
+
 	public String getLastip() {
 		return lastip;
 	}
@@ -710,6 +712,13 @@ public class UserValue implements UserDetails {
 	public void setMaxscore(Double maxscore) {
 		this.maxscore = maxscore;
 	}
-	
+
+	public Integer getJointype() {
+		return jointype;
+	}
+
+	public void setJointype(Integer jointype) {
+		this.jointype = jointype;
+	}
 
 }

@@ -690,7 +690,7 @@ public class WebSiteManagerAction {
 	public ModelAndView pagingImgList(HttpServletRequest request, ModelMap map) {
 		try {
 			String pageindex = request.getParameter("pageindex");
-			String status = request.getParameter("status");
+			String imgstatus = request.getParameter("imgstatus");
 			PaingModel<DocumentValue> paingModel = new PaingModel<DocumentValue>();
 			paingModel.setDoctype(StaticConstants.DOCTYPE_IMG);
 			if (pageindex == null) {
@@ -702,9 +702,9 @@ public class WebSiteManagerAction {
 			paingModel.setStartrow((paingModel.getPageindex() - 1) * 24);
 			paingModel.setEndrow(paingModel.getPagesize());
 			paingModel.setPagesize(24);
-			if (status != null && !status.equalsIgnoreCase("")) {
+			if (imgstatus != null && !imgstatus.equalsIgnoreCase("")) {
 				try {
-					paingModel.setDocstatus(Integer.parseInt(status));
+					paingModel.setDocstatus(Integer.parseInt(imgstatus));
 				} catch (Exception ex) {
 					ex.printStackTrace();
 				}
@@ -758,7 +758,7 @@ public class WebSiteManagerAction {
 			map.put("pagingindexs", indexs);
 			map.put("imgcount", pageModel.getRowcount());
 			map.put("idAndIndexrel", idAndIndexrel);
-			map.put("status", status);
+			map.put("imgstatus", imgstatus);
 			String linkstr = PageUtil.getPagingImgLink(pageModel, 1);
 			map.put("linkstr", linkstr);
 		} catch (Exception ex) {

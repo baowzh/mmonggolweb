@@ -881,6 +881,17 @@ public class BlogManagerAction {
 			map.put("imgcount", pageModel.getRowcount());
 			map.put("imggroupid", opergroupid);
 			map.put("idAndIndexrel", idAndIndexrel);
+			// 检索是否有专题活动
+			List<RaceModelValue> racemodels = this.raceManager.getRaceModels(
+					null, 1);
+			if (racemodels != null && !racemodels.isEmpty()) {
+				map.put("racemodel", racemodels.get(0));
+			}
+			Object sessionobj =  request.getSession().getAttribute(
+					"user");
+			if(sessionobj!=null){
+				map.put("sessionuser", sessionobj);	
+			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

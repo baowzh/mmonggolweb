@@ -24,6 +24,8 @@ public class ImgValue {
 	private Integer readcount = new Integer(0);
 	private Integer commcount = new Integer(0);
 	private String oldid;
+	private Integer forrace = new Integer(0);
+	private String raceid;
 
 	public String getImgid() {
 		return imgid;
@@ -191,6 +193,22 @@ public class ImgValue {
 
 	public void setImg(byte[] img) {
 		this.img = img;
+	}
+
+	public Integer getForrace() {
+		return forrace;
+	}
+
+	public void setForrace(Integer forrace) {
+		this.forrace = forrace;
+	}
+
+	public String getRaceid() {
+		return raceid;
+	}
+
+	public void setRaceid(String raceid) {
+		this.raceid = raceid;
 	}
 
 }
