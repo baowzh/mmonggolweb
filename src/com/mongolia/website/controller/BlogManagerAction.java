@@ -203,11 +203,13 @@ public class BlogManagerAction {
 		if (sessionUser.getManagerflag() != null
 				&& sessionUser.getManagerflag().intValue() == 1) {
 			Map<String, Object> getchannelparams = new HashMap<String, Object>();
-			getchannelparams.put("type", "1");
+			getchannelparams.put("types", "1,2");
 			chanels = this.channelManager.getChannelList(getchannelparams);
 		} else {
+			Map<String, Object> getchannelparams = new HashMap<String, Object>();
+			getchannelparams.put("types", "2");
 			chanels = this.channelManager
-					.getChannelList(new HashMap<String, Object>());
+					.getChannelList(getchannelparams);
 		}
 		String user_agent_kind = request.getHeader("user-agent");
 		if (user_agent_kind.indexOf("Chrome") > 0) {

@@ -142,6 +142,8 @@ public class RaceController {
 			List<ImgValue> imgs = this.raceManager.getRaceImgList(
 					raceModelValues.get(0).getRaceid(), 10);
 			map.put("imgs", imgs);
+			List<DocumentValue> videos = this.raceManager.getvides(null);
+			map.put("videos", videos);
 			// 跟专题相关的页面栏目
 		} catch (Exception ex) {
 			ex.printStackTrace();

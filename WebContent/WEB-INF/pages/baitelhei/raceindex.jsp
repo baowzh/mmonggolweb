@@ -190,8 +190,32 @@
 							<div class="author">
 								<a
 									href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-									<span class="label1">  :<c:out
-											value="${userValue.artname}" />
+									<span class="label1">  : <%-- 									<c:out --%>
+										<%-- 											value="${userValue.artname}" /> --%>
+								</span>
+								</a>
+							</div>
+						</div>
+						<div class="desitem" style="height: 320px;">
+							<div class="author"> :</div>
+							<c:out value="${userValue.nowprovince}" />
+						</div>
+					</div>
+				</div>
+				<div class="raceuser">
+					<div class="avtr">
+						<a
+							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
+							<img src="html/userhead/nan.jpg" />
+						</a>
+					</div>
+					<div class="desc">
+						<div class="desitem" style="height: 320px;">
+							<div class="author">
+								<a
+									href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
+									<span class="label1">  : <%-- 									<c:out --%>
+										<%-- 											value="${userValue.artname}" /> --%>
 								</span>
 								</a>
 							</div>
@@ -216,8 +240,8 @@
 							<div class="author">
 								<a
 									href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-									<span class="label1">  :<c:out
-											value="${userValue.artname}" />
+									<span class="label1">  : <%-- 									<c:out --%>
+										<%-- 											value="${userValue.artname}" /> --%>
 								</span>
 								</a>
 							</div>
@@ -242,8 +266,8 @@
 							<div class="author">
 								<a
 									href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-									<span class="label1">  :<c:out
-											value="${userValue.artname}" />
+									<span class="label1">  : <%-- 									<c:out --%>
+										<%-- 											value="${userValue.artname}" /> --%>
 								</span>
 								</a>
 							</div>
@@ -268,34 +292,8 @@
 							<div class="author">
 								<a
 									href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-									<span class="label1">  :<c:out
-											value="${userValue.artname}" />
-								</span>
-								</a>
-							</div>
-						</div>
-						<div class="desitem" style="height: 320px;">
-							<div class="author"> :</div>
-							<c:out value="${userValue.nowprovince}" />
-						</div>
-
-
-					</div>
-				</div>
-				<div class="raceuser">
-					<div class="avtr">
-						<a
-							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-							<img src="html/userhead/nan.jpg" />
-						</a>
-					</div>
-					<div class="desc">
-						<div class="desitem" style="height: 320px;">
-							<div class="author">
-								<a
-									href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-									<span class="label1">  :<c:out
-											value="${userValue.artname}" />
+									<span class="label1">  : <%-- 									<c:out --%>
+										<%-- 											value="${userValue.artname}" /> --%>
 								</span>
 								</a>
 							</div>
@@ -343,136 +341,34 @@
 	<div class="layer m0a">
 		<div class="card5" style="height: 320px;">
 			<div class="videoBox" id="videoBox">
-				<div class="video"
-					style="width: 302px; height: 328px; overflow: hidden; float: left; display: inline;">
-
-
-					<a
-						href="getuserdocdetail.do?docid=69C51EB79E3C11E4BC9D199A577C4ABB"><img
-						src="img/vido.jpg" style="width: 273px; height: 318px;"></a>
-
-					<!-- 
+				<c:forEach items="${videos}" var="imgValue"
+					varStatus="status">
+					<div class="video" style="width: 303px; height: 320px;">
+						<c:if test="${imgValue.facepath!=null}">
+							<a
+								href="getuserdocdetail.do?docid=<c:out value="${imgValue.docid}"/>"><img
+								src="<c:out value="${imgValue.facepath}"/>"
+								style="width: 273px; height: 318px;" /></a>
+						</c:if>
+						<c:if test="${imgValue.facepath==null}">
+							<a
+								href="getuserdocdetail.do?docid=<c:out value="${imgValue.docid}"/>"><img
+								src="img/vido.jpg" style="width: 273px; height: 318px;" /></a>
+						</c:if>
+						<!-- 
 						<a
-							href="getuserdocdetail.do?docid=69C51EB79E3C11E4BC9D199A577C4ABB">
+							href="getuserdocdetail.do?docid=<c:out value="${imgValue.docid}"/>">
 							<img src="img/vido.jpg" style="width: 280px; height: 318px;" />
 						</a>
 						 -->
-					<div class="m1ln"
-						style="height: 318px; width: 18px; padding-left: 5px;">
-						</div>
+						<div class="m1ln"
+							style="height: 318px; width: 18px; padding-left: 5px;">
+							<c:out value="${imgValue.doctitle}" />
+						</div>
 
-				</div>
+					</div>
 
-
-
-				<div class="video"
-					style="width: 302px; height: 328px; overflow: hidden; float: left; display: inline;">
-
-
-					<a
-						href="getuserdocdetail.do?docid=69F9C39B9E3C11E4BC9D199A577C4ABB"><img
-						src="img/vido.jpg" style="width: 273px; height: 318px;"></a>
-
-					<!-- 
-						<a
-							href="getuserdocdetail.do?docid=69F9C39B9E3C11E4BC9D199A577C4ABB">
-							<img src="img/vido.jpg" style="width: 280px; height: 318px;" />
-						</a>
-						 -->
-					<div class="m1ln"
-						style="height: 318px; width: 18px; padding-left: 5px;">
-						 </div>
-
-				</div>
-
-
-
-				<div class="video"
-					style="width: 302px; height: 328px; overflow: hidden; float: left; display: inline;">
-
-
-					<a
-						href="getuserdocdetail.do?docid=6A055CF39E3C11E4BC9D199A577C4ABB"><img
-						src="img/vido.jpg" style="width: 273px; height: 318px;"></a>
-
-					<!-- 
-						<a
-							href="getuserdocdetail.do?docid=6A055CF39E3C11E4BC9D199A577C4ABB">
-							<img src="img/vido.jpg" style="width: 280px; height: 318px;" />
-						</a>
-						 -->
-					<div class="m1ln"
-						style="height: 318px; width: 18px; padding-left: 5px;">
-						 </div>
-
-				</div>
-
-
-
-				<div class="video"
-					style="width: 302px; height: 328px; overflow: hidden; float: left; display: inline;">
-
-
-					<a
-						href="getuserdocdetail.do?docid=6A0535E19E3C11E4BC9D199A577C4ABB"><img
-						src="img/vido.jpg" style="width: 273px; height: 318px;"></a>
-
-					<!-- 
-						<a
-							href="getuserdocdetail.do?docid=6A0535E19E3C11E4BC9D199A577C4ABB">
-							<img src="img/vido.jpg" style="width: 280px; height: 318px;" />
-						</a>
-						 -->
-					<div class="m1ln"
-						style="height: 318px; width: 18px; padding-left: 5px;">
-						  </div>
-
-				</div>
-
-
-
-				<div class="video"
-					style="width: 302px; height: 328px; overflow: hidden; float: left; display: inline;">
-
-
-					<a
-						href="getuserdocdetail.do?docid=6A0584059E3C11E4BC9D199A577C4ABB"><img
-						src="img/vido.jpg" style="width: 273px; height: 318px;"></a>
-
-					<!-- 
-						<a
-							href="getuserdocdetail.do?docid=6A0584059E3C11E4BC9D199A577C4ABB">
-							<img src="img/vido.jpg" style="width: 280px; height: 318px;" />
-						</a>
-						 -->
-					<div class="m1ln"
-						style="height: 318px; width: 18px; padding-left: 5px;">
-						 </div>
-
-				</div>
-
-
-
-				<div class="video"
-					style="width: 302px; height: 328px; overflow: hidden; float: left; display: inline;">
-
-
-					<a
-						href="getuserdocdetail.do?docid=696D3AF99E3C11E4BC9D199A577C4ABB"><img
-						src="img/vido.jpg" style="width: 273px; height: 318px;"></a>
-
-					<!-- 
-						<a
-							href="getuserdocdetail.do?docid=696D3AF99E3C11E4BC9D199A577C4ABB">
-							<img src="img/vido.jpg" style="width: 280px; height: 318px;" />
-						</a>
-						 -->
-					<div class="m1ln"
-						style="height: 318px; width: 18px; padding-left: 5px;">
-						     </div>
-
-				</div>
-
+				</c:forEach>
 			</div>
 			<ul class="flex-direction-nav">
 				<li><a class="flex-prev" href="#">Previous</a></li>
@@ -548,8 +444,7 @@
 					     </div>
 			</div>
 			<div class="listImgBox" style="height: 444px;">
-				<c:forEach items="${imgs}" var="imgValue"
-					varStatus="status">
+				<c:forEach items="${imgs}" var="imgValue" varStatus="status">
 					<div class="thumb1">
 						<a
 							href="getimginfo.do?imgid=<c:out value="${imgValue.imgid}"/>&userid=<c:out value="${imgValue.userid}"/>"
@@ -565,7 +460,6 @@
 	<%@ include file="../website/tail.jsp"%>
 </body>
 <script>
-
 	SODON.example.scrollViewHome = new SODON.widget.ScrollView("videoBox", {
 		nextButton : "home-scroll-next",
 		prevButton : "home-scroll-prev",

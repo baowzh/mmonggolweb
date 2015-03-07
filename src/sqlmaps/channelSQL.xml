@@ -17,7 +17,7 @@
 			<isNotNull prepend="and" property="chnlname">
 				CHNLNAME=#chnlname#
 			</isNotNull>
-			<isNotNull prepend="and" property="type">
+			<isNotNull prepend="and" property="types">
 				type in ($types$)
 			</isNotNull>
 		</dynamic>
