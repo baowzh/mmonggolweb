@@ -279,7 +279,7 @@ public class RaceManagerImpl implements RaceManager {
 			}
 			// 2.校验是否已经转换
 			List<RaceUserModel> raceusers = this.raceDao.getRaceUserModels(
-					raceid, raceModelValue.getRound(), userid);
+					raceid, nextround, userid);
 			if (raceusers != null && !raceusers.isEmpty()) {
 				throw new Exception("5");// vrvldagan d vrvlqahv budugel baihu
 			}
@@ -295,7 +295,7 @@ public class RaceManagerImpl implements RaceManager {
 			List<RaceRound> rounds = this.raceDao.getRaceRounds(
 					raceModelValue.getRaceid(), nextround);
 			if (rounds == null || rounds.isEmpty()) {
-				throw new Exception("7"); //  
+				throw new Exception("8"); //  
 			}
 			this.raceDao.addRaceUser(raceid, userid, nextround);
 

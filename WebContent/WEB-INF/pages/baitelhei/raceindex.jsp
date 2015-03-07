@@ -158,7 +158,9 @@
 						<c:if test="${userValue!=null&&userValue.managerflag==1}">
 							<div class="desitem" style="height: 320px;">
 								<div class="author">
-									<a href="#">     </a>
+									<a
+										href="javascript:switchtonextround('<c:out value="${raceUser.uservalue.userid}"/>','<c:out value="${raceUser.uservalue.userid}"/>',<c:out value="${raceUser.uservalue.jointype}"/>);">
+										    </a>
 								</div>
 							</div>
 						</c:if>
@@ -341,8 +343,7 @@
 	<div class="layer m0a">
 		<div class="card5" style="height: 320px;">
 			<div class="videoBox" id="videoBox">
-				<c:forEach items="${videos}" var="imgValue"
-					varStatus="status">
+				<c:forEach items="${videos}" var="imgValue" varStatus="status">
 					<div class="video" style="width: 303px; height: 320px;">
 						<c:if test="${imgValue.facepath!=null}">
 							<a
@@ -473,5 +474,6 @@
 		auto : true,
 		repeat : "repeat-back"
 	});
+	var raceModelJson = <c:out value="${raceModelJson}" escapeXml="false" />;
 </script>
 </html>

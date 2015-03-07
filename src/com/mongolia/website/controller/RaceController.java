@@ -154,13 +154,13 @@ public class RaceController {
 	@RequestMapping("/switchDocToNextRound.do")
 	public ModelAndView switchDocToNextRound(HttpServletRequest request,
 			RaceDocumentValue raceDocumentValue, ModelMap map) {
-		String sysvalidcode = (String) request.getSession().getAttribute(
-				"validateCode");
+//		String sysvalidcode = (String) request.getSession().getAttribute(
+//				"validateCode");
 		try {
-			if (!sysvalidcode.equalsIgnoreCase(raceDocumentValue
-					.getRaicevalidcode())) {
-				throw new Exception("1");// 校验码不对
-			}
+//			if (!sysvalidcode.equalsIgnoreCase(raceDocumentValue
+//					.getRaicevalidcode())) {
+//				throw new Exception("1");// 校验码不对
+//			}
 			UserValue sessionUser = (UserValue) request.getSession()
 					.getAttribute("user");
 			if (sessionUser.getManagerflag() == null
