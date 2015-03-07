@@ -47,7 +47,7 @@
 				raceid=#raceid#
 			</isNotNull>
 			<isNotNull prepend="and" property="raceround">
-				raceround=#raceround#
+				round=#raceround#
 			</isNotNull>
 		</dynamic>
 	</select>

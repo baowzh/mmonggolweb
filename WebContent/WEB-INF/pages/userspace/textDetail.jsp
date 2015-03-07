@@ -397,19 +397,6 @@
 	<%@ include file="logindiv.jsp"%>
 </body>
 <script>
-SODON.example.scrollViewHome = new SODON.widget.ScrollView("videoBox", {
-	nextButton : "home-scroll-next",
-	prevButton : "home-scroll-prev",
-	direction : "horizontal",
-	screenSize : 3,
-	itemWidth : 302,
-	itemHeight : 328,
-	itemSpace : 30,
-	waitTime : 3000, // Huleeh hugatsaa /by milli sec/
-	speed : 1, // Hudulguunii hurd /by sec/
-	auto : true,
-	repeat : "repeat-back"
-});
 var raceModelJson = <c:out value="${raceModelJson}" escapeXml="false" />;
 </script>
 </html>

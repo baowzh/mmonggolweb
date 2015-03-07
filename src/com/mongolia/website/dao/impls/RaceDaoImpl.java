@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import com.mongolia.website.dao.interfaces.RaceDao;
 import com.mongolia.website.model.ImgValue;
-import com.mongolia.website.model.PaingModel;
 import com.mongolia.website.model.RaceDocumentValue;
 import com.mongolia.website.model.RaceModelValue;
 import com.mongolia.website.model.RaceRound;
