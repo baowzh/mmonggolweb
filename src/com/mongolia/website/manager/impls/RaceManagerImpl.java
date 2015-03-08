@@ -139,12 +139,13 @@ public class RaceManagerImpl implements RaceManager {
 		List<RaceRound> raceRounds = this.raceDao.getRaceRounds(
 				raceModelValue.getRaceid(), raceModelValue.getRound());
 		Date currentDate = new Date();
-		currentDate.setTime(System.currentTimeMillis());
+		//currentDate.setTime(System.currentTimeMillis());
 		if (currentDate.compareTo(raceRounds.get(0).getBegindate()) < 0) {
 			throw new Exception("5");
 		} else if (currentDate.compareTo(raceRounds.get(0).getEnddate()) > 0) {
 			throw new Exception("6");
 		}
+		raceScoreLogValue.setRound(raceRounds.get(0).getRaceround());
 		Map<String, Object> queryUserParams = new HashMap<String, Object>();
 		queryUserParams.put("userid", raceScoreLogValue.getScoreuserid());
 		List<UserValue> userValues = this.userManagerDao

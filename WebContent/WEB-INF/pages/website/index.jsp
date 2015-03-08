@@ -23,6 +23,7 @@
 <script type="text/javascript" src="js/scroll/JQScrollView.js"></script>
 <script type="text/javascript" src="js/scroll/scrollview-min.js"></script>
 <script type="text/javascript" src="js/scroll/jquery.totemticker.min.js"></script>
+<script src="js/sitejs/galleria-1.4.2.min.js"></script>
 <link href="icons/favicon.ico" type="image/x-icon" rel="ico">
 	<link href="icons/favicon.ico" type="image/x-icon" rel="shortcut icon">
 </head>
@@ -186,6 +187,63 @@
 			</div>
 		</div>
 		<div class="cls"></div>
+	</div>
+	<div class="layer m0a">
+		<div class="card3" style="width: 428px;">
+			<div class="listCardTtl ttlStl1" style="height: 340px;">
+				<div class="top"></div>
+				<div class="ttl" style="height: 146px;"> 2015</div>
+				<div class="more"></div>
+				<div class="ctail"></div>
+			</div>
+			<div
+				style="height: 320px; padding:2px; width: 380px; float: left;">
+				<iframe
+					src="http://www.tudou.com/programs/view/html5embed.action?type=0&code=PhLD7ul2Y0A&lcode=&resourceId=0_06_05_99"
+					allowtransparency="true" allowfullscreen="true" scrolling="no"
+					border="0" frameborder="0" style="width: 380px; height: 310px;"></iframe>
+			</div>
+		</div>
+		<div class="card3" style="width: 572px;">
+		 
+			<div class="listCardTtl ttlStl1" style="height: 340px;">
+				<div class="top"></div>
+				<div class="ttl" style="height: 146px;">  </div>
+				<div class="more"></div>
+				<div class="ctail"></div>
+			</div>
+			<div class="ftig" style="padding:2px;border: solid 1px #014886;width:526px;overflow:hidden;color:#666;">&nbsp;&nbsp;      
+				 3.21  2009         
+				      2015     
+				           
+				  
+				 <br/>1.        
+				  <br/>2.       
+				         
+				   10000      5000   
+				  2000      <br/> 3.   
+				          
+				 <br/>4. 3   8       
+				   3.21         
+				      <br/> 1.     
+				           
+				             
+				    <br/>2.      
+				       mp3    
+				  <br/>3.      
+				             
+				2000      1000      500 
+				    <br/> <a href="#" style="color:#f00;"> 3.10        
+				</a>
+				 <br/>
+				  <br/>
+				 <a href="getuserdocdetail.do?docid=BC3056AEC1C511E4B6462FBAC2F2F66B" style="color:#f00;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   </a>
+				 <a href="raceindex.do" style="color:#f00;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </a>
+				</div>
+               
+		</div>
+		
+	</div>
 	</div>
 	<div class="layer m0a">
 		<div class="card2" style="background-color: #ffbd49;">
@@ -1388,35 +1446,40 @@
 					style="width: 620px; height: 390px; line-height: 23px; padding-top: 4px; border: solid 1px #014886; border-left: none;">
 					<div class="nwsl1">
 						<div class="title">
-							<a href="gouserindex.do?userid=3938AFBB9E3C11E4BC9D199A577C4ABB" target="_blank" class="tit_text_overflow">
-								   </a>
+							<a href="gouserindex.do?userid=3938AFBB9E3C11E4BC9D199A577C4ABB"
+								target="_blank" class="tit_text_overflow">  
+								 </a>
 						</div>
 
 					</div>
 					<div class="nwsl1">
 						<div class="title">
-							<a href="gouserindex.do?userid=274495BB9E3C11E4BC9D199A577C4ABB" target="_blank" class="tit_text_overflow">
-								     </a>
+							<a href="gouserindex.do?userid=274495BB9E3C11E4BC9D199A577C4ABB"
+								target="_blank" class="tit_text_overflow">   
+								  </a>
 						</div>
 
 					</div>
 					<div class="nwsl1">
 						<div class="title">
-							<a href="gouserindex.do?userid=267733899E3C11E4BC9D199A577C4ABB" target="_blank" class="tit_text_overflow">
-								   </a>
+							<a href="gouserindex.do?userid=267733899E3C11E4BC9D199A577C4ABB"
+								target="_blank" class="tit_text_overflow">  
+								 </a>
 						</div>
 
 					</div>
 					<div class="nwsl1">
 						<div class="title">
-							<a href="gouserindex.do?userid=26CBE3419E3C11E4BC9D199A577C4ABB" target="_blank" class="tit_text_overflow">
-								    </a>
+							<a href="gouserindex.do?userid=26CBE3419E3C11E4BC9D199A577C4ABB"
+								target="_blank" class="tit_text_overflow">    
+								</a>
 						</div>
 					</div>
 					<div class="nwsl1">
 						<div class="title">
-							<a href="gouserindex.do?userid=5025AC0B9E3C11E4BC9D199A577C4ABB" target="_blank" class="tit_text_overflow">
-								  </a>
+							<a href="gouserindex.do?userid=5025AC0B9E3C11E4BC9D199A577C4ABB"
+								target="_blank" class="tit_text_overflow">  
+								</a>
 						</div>
 					</div>
 					<div class="nwsl1">
@@ -1433,20 +1496,23 @@
 					</div>
 					<div class="nwsl1">
 						<div class="title">
-							<a href="gouserindex.do?userid=E6D4B2B1AC4411E499C637545E795662" target="_blank" class="tit_text_overflow">
-								   </a>
+							<a href="gouserindex.do?userid=E6D4B2B1AC4411E499C637545E795662"
+								target="_blank" class="tit_text_overflow">  
+								 </a>
 						</div>
 					</div>
 					<div class="nwsl1">
 						<div class="title">
-							<a href="gouserindex.do?userid=307137779E3C11E4BC9D199A577C4ABB" target="_blank" class="tit_text_overflow">
-								    </a>
+							<a href="gouserindex.do?userid=307137779E3C11E4BC9D199A577C4ABB"
+								target="_blank" class="tit_text_overflow">   
+								 </a>
 						</div>
 					</div>
 					<div class="nwsl1">
 						<div class="title">
-							<a href="gouserindex.do?userid=41495A539E3C11E4BC9D199A577C4ABB" target="_blank" class="tit_text_overflow">
-								       </a>
+							<a href="gouserindex.do?userid=41495A539E3C11E4BC9D199A577C4ABB"
+								target="_blank" class="tit_text_overflow">  
+								     </a>
 						</div>
 					</div>
 					<div class="nwsl1">
@@ -1463,20 +1529,23 @@
 					</div>
 					<div class="nwsl1">
 						<div class="title">
-							<a href="gouserindex.do?userid=2F3731C39E3C11E4BC9D199A577C4ABB" target="_blank" class="tit_text_overflow">
-								   </a>
+							<a href="gouserindex.do?userid=2F3731C39E3C11E4BC9D199A577C4ABB"
+								target="_blank" class="tit_text_overflow">   
+								</a>
 						</div>
 					</div>
 					<div class="nwsl1">
 						<div class="title">
-							<a href="gouserindex.do?userid=E93E5EB8AC4F11E499C637545E795662" target="_blank" class="tit_text_overflow">
-								  </a>
+							<a href="gouserindex.do?userid=E93E5EB8AC4F11E499C637545E795662"
+								target="_blank" class="tit_text_overflow">  
+								</a>
 						</div>
 					</div>
 					<div class="nwsl1">
 						<div class="title">
-							<a href="gouserindex.do?userid=2B62A9DD9E3C11E4BC9D199A577C4ABB" target="_blank" class="tit_text_overflow">
-								    </a>
+							<a href="gouserindex.do?userid=2B62A9DD9E3C11E4BC9D199A577C4ABB"
+								target="_blank" class="tit_text_overflow">  
+								  </a>
 						</div>
 					</div>
 					<div class="nwsl1">
@@ -1487,14 +1556,15 @@
 					</div>
 					<div class="nwsl1">
 						<div class="title">
-							<a href="gouserindex.do?userid=27725C7F9E3C11E4BC9D199A577C4ABB" target="_blank" class="tit_text_overflow"> 
-								 </a>
+							<a href="gouserindex.do?userid=27725C7F9E3C11E4BC9D199A577C4ABB"
+								target="_blank" class="tit_text_overflow">  
+							</a>
 						</div>
 					</div>
 					<div class="nwsl1">
 						<div class="title">
-							<a href="gouserindex.do?userid=4E2FD0399E3C11E4BC9D199A577C4ABB" target="_blank" class="tit_text_overflow"> 
-								 </a>
+							<a href="gouserindex.do?userid=4E2FD0399E3C11E4BC9D199A577C4ABB"
+								target="_blank" class="tit_text_overflow">   </a>
 						</div>
 					</div>
 					<div class="elsehu">
@@ -1537,5 +1607,7 @@
 		stop : '#stop',
 		start : '#start'
 	});
+	//Galleria.loadTheme('js/sitejs/galleria.classic.js');
+	//Galleria.run('#galleria');
 </script>
 </html>
