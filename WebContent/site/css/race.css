@@ -65,10 +65,12 @@ body {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+	color:#036;
 }
 
 .raceuser .desc .desitem {
 	height: 230px;
+	color:#036;
 }
 
 .paginationArea {

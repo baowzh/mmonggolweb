@@ -50,7 +50,7 @@
 
 				&nbsp;&nbsp;&nbsp;&nbsp;   2015    
 				     <br /> &nbsp;&nbsp;&nbsp;  
-				  <br />      <a href="#"
+				  <br />      <a href="getuserdocdetail.do?docid=A8B42397ACEA11E4894809B72A938D07"
 					target="_blank"> </a>
 			</div>
 		</div>
@@ -116,8 +116,8 @@
 									</div>
 								</div>
 								<div class="desitem" style="height: 320px;">
-									<div class="author">
-										<a
+									<div class="author" style="color:#036;">
+										<a style="color:#036;"
 											href="raceScoreDetail.do?raceid=<c:out value="${raceDocumentValue.raceid}"/>&docid=<c:out value="${raceDocumentValue.docid}"/>&round=<c:out value="${raceDocumentValue.raceround}"/>">
 											   </a>
 									</div>
@@ -128,8 +128,8 @@
 
 							<c:if test="${userValue!=null&&userValue.managerflag==1}">
 								<div class="desitem" style="height: 320px;">
-									<div class="author">
-										<a
+									<div class="author" style="color:#036;">
+										<a style="color:#036;"
 											href="javascript:switchtonextround('<c:out value="${raceUser.uservalue.userid}"/>','<c:out value="${raceUser.uservalue.userid}"/>',<c:out value="${raceUser.uservalue.jointype}"/>);">
 											    </a>
 									</div>
