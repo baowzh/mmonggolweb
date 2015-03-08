@@ -6,8 +6,6 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import net.sf.json.JSONObject;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -24,7 +22,6 @@ import com.mongolia.website.model.RaceScoreLogValue;
 import com.mongolia.website.model.RaceUser;
 import com.mongolia.website.model.UserValue;
 import com.mongolia.website.util.PageUtil;
-import com.mongolia.website.util.StaticConstants;
 
 @Controller
 public class RaceController {

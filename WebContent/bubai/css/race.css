@@ -1,0 +1,243 @@
+﻿@charset "utf-8";
+
+@font-face {
+	font-family: "MenksoftQagan";
+	font-style: normal;
+	font-weight: normal;
+	src: url(../../font/MenksoftQagan_cn.ttf);
+}
+
+.tig {
+	/* 	font-family: Menksoft2007; */
+	font-family: "MenksoftQagan";
+	-webkit-writing-mode: vertical-lr;
+	-webkit-text-orientation: sideways-right;
+	writing-mode: tb-lr;
+}
+
+body {
+	margin: 0px 0px;
+	background: #9C9;
+}
+
+A:link {
+	EXT-DECORATION: none;
+	text-decoration: none;
+}
+
+A:hover {
+	TEXT-DECORATION: underline;
+	color: #0C6;
+}
+
+.box_y {
+	margin: 0px auto;
+	width: 1000px;
+	background: #081E4F;
+}
+
+.box_1 {
+	float: left;
+	width: 1000px;
+	height: 230px;
+}
+
+.box_2 {
+	float: left;
+	width: 485px;
+	height: 270px;
+	margin: 5px 0px 0px 10px;
+}
+
+.box_2_1 {
+	float: left;
+	width: 35px;
+	height: 230px;
+	font-size: 18px;
+	color: #FFF;
+	line-height: 35px;
+	padding-top: 40px;
+	background: #081E4F;
+}
+
+.box_2_2 {
+	float: left;
+	width: 444px;
+	height: 264px;
+	padding: 3px 3px 3px 0px;
+	border-radius: 5px;
+	font-size: 17px;
+	color: #036;
+	word-break: keep-all;
+	overflow: hidden
+}
+
+.box_3 {
+	float: left;
+	height: 1960px;
+	margin-left: 10px;
+	margin-top: 5px;
+	/* 	height: 530px; */
+}
+
+.box_3_1 {
+	float: left;
+	width: 35px;
+	height: 1960px;
+	font-size: 18px;
+	color: #FFF;
+	line-height: 35px;
+	padding-top: 40px;
+	background: #081E4F;
+}
+
+.box_3_2 {
+	float: left;
+	height: 1960px;
+	border-radius: 5px;
+	width: 945px;
+	overflow: scroll;
+} /*参赛人员信息总框*/
+.box_4 {
+	float: left;
+	width: 980px;
+	height: 490px;
+	margin-left: 10px;
+	margin-top: 5px;
+}
+
+.box_4_1 {
+	float: left;
+	width: 35px;
+	height: 490px;
+	font-size: 18px;
+	color: #FFF;
+	line-height: 35px;
+	padding-top: 40px;
+	background: #081E4F;
+}
+
+.box_4_2 {
+	float: left;
+	width: 945px;
+	height: 490px;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.box_5 {
+	float: left;
+	width: 980px;
+	height: 440px;
+	margin-left: 10px;
+	margin-top: 5px;
+}
+
+.box_5_1 {
+	float: left;
+	width: 35px;
+	height: 380px;
+	font-size: 18px;
+	color: #FFF;
+	line-height: 35px;
+	padding-top: 40px;
+	background: #081E4F;
+}
+
+.box_5_2 {
+	float: left;
+	width: 945px;
+	height: 440px;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.box_6 {
+	float: left;
+	width: 980px;
+	height: 160px;
+	margin-left: 10px;
+	margin-top: 5px;
+}
+
+.box_6_1 {
+	margin-left: auto;
+	margin-right: auto;
+	width: 300px;
+	height: 80px;
+	font-size: 18px;
+	color: #000;
+	line-height: 20px;
+	padding-top: 0px;
+}
+
+.box_6_2 {
+	float: left;
+	width: 945px;
+	height: 60px;
+	font-size: 13px;
+	text-align: center;
+}
+
+.box_7 {
+	float: left;
+	width: 980px;
+	height: 190px;
+	margin-left: 10px;
+	font-size: 17px;
+	color: #FFF;
+}
+
+.box_7_1 {
+	float: left;
+	width: 25px;
+	height: 185px;
+	font-size: 17px;
+	color: #CCC;
+	line-height: 25px;
+	padding-top: 5px;
+	background: #081E4F;
+}
+
+.box_7_2 {
+	float: left;
+	width: auto;
+	height: 175px;
+	font-size: 17px;
+	color: #FFF;
+	line-height: 20px;
+	padding-top: 15px;
+	background: #081E4F;
+}
+
+.vgalja_1 {
+	float: left;
+	width: 1000px;
+	height: 24px;
+	background: url(../images/vgalja_1.jpg) repeat-x;
+}
+
+.vgalja_2 {
+	float: left;
+	width: 980px;
+	height: 12px;
+	margin-left: 10px;
+	margin-top: 5px;
+	background: url(../images/vgalja_2.jpg) repeat-x;
+}
+
+.ungge_ar {
+	background: #F4F8F9
+}
+
+.qagan {
+	color: #FFF
+}
+
+.baragan {
+	color: #CCC
+}
+
+.hara {
+	color: #000
+}

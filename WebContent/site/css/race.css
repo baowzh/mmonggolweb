@@ -29,7 +29,7 @@ body {
 
 .raceuser {
 	float: left;
-	width: 128px;
+	width: 118px;
 	height: 490px;
 	border: 1px dotted #e0e0e0;
 	padding: 5px;
@@ -37,18 +37,18 @@ body {
 
 .raceuser .avtr {
 	float: left;
-	width: 120px;
+	width: 110px;
 	height: 135px;
 }
 
 .raceuser .avtr img {
-	width: 120px;
-	height: 130px;
+	width: 110px;
+	height: 120px;
 	border: solid 1px #ccc;
 }
 
 .raceuser .desc {
-	width: 120px;
+	width: 110px;
 	padding: 5px;
 	float: left;
 	height: 320px;
@@ -59,7 +59,7 @@ body {
 	/* 	-webkit-writing-mode: vertical-lr; */
 	/* 	-webkit-text-orientation: sideways-right; */
 	/* 	-ms-text-orientation: sideways-right; */
-	width: 20px;
+	width: 18px;
 	overflow: hidden;
 	float: left;
 	overflow: hidden;

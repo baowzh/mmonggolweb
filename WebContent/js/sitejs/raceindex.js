@@ -46,3 +46,9 @@ var switchtonextround = function(userid, raceid, jointype) {
 				}
 			});
 };
+//$(document).ready(function() {
+//	alert($("#box3_list")[0].scrollHeight);
+//	$("#box3_title").css({
+//		height : $("#box3_list")[0].scrollHeight
+//	});
+//});
