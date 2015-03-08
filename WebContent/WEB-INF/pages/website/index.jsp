@@ -9,6 +9,7 @@
 <link href="site/css/index.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="js\messagebox\jquery.msgbox.css" />
 <link rel="stylesheet" href="site/css/scroll.css" />
+<link href="bubai/css/race.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="js/sitejs/index.js"></script>
 <script type="text/javascript" src="js/sitejs/changevalidcode.js"></script>

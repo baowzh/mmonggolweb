@@ -250,7 +250,7 @@
 					<div class="avtr" style="width: 95px;">
 						<a
 							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-							<img src="bubai/images/bater.JPG"  style="width: 98px;"/>
+							<img src="bubai/images/bater.JPG" style="width: 98px;" />
 						</a>
 					</div>
 					<div class="desc" style="width: 95px;">
@@ -265,9 +265,9 @@
 							</div>
 						</div>
 						<div class="tig" style="height: 320px; width: 70px; float: left;">
-							:         
-							         
-							     </div>
+							:           
+							         
+							   </div>
 
 
 					</div>
@@ -279,21 +279,20 @@
 							<img src="html/userhead/nan.jpg" />
 						</a>
 					</div>
-					<div class="desc">
+					<div class="desc" style="width: 95px;">
 						<div class="desitem" style="height: 320px;">
 							<div class="author">
 								<a
 									href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-									<span class="label1">  : <%-- 									<c:out --%>
+									<span class="label1">  :·   <%-- 									<c:out --%>
 										<%-- 											value="${userValue.artname}" /> --%>
 								</span>
 								</a>
 							</div>
 						</div>
-						<div class="desitem" style="height: 320px;">
-							<div class="author"> :</div>
-							<c:out value="${userValue.nowprovince}" />
-						</div>
+						<div class="tig" style="height: 320px; width: 70px; float: left;">
+							:            
+							       </div>
 
 
 					</div>

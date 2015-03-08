@@ -112,7 +112,6 @@
 			</ul>
 		</div>
 	</div>
-	<!--页脚信息-->
 	<div class="foot-info">
 		<p class="copyright">©&nbsp;2014&nbsp;&nbsp;金轮文化传媒网</p>
 		<div class="contact">
@@ -124,3 +123,4 @@
 		<div class="clear"></div>
 	</div>
 </div>
+-->
