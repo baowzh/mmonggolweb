@@ -2,6 +2,97 @@
 	pageEncoding="utf-8"%>
 <!-- <div class="wrp m0a pagetail"></div> -->
 <div class="wrp m0a ribbon"></div>
+<div class="footer">
+	<div class="footer-sec">
+		<div class="footer-sec_1 ftig">
+			<a href="#" class="baragan">   </a>
+		</div>
+		<div class="footer-sec_2 ftig">
+			<a href="#" target="_blank" class="qagan">  
+				</a><br> <a href="#" target="_blank" class="qagan">
+				  </a><br> <a href="#" target="_blank" class="qagan">
+				  </a><br> <a href="#" target="_blank" class="qagan">
+				   </a><br>
+		</div>
+		<div class="footer-sec_1 ftig">
+			<a href="#" class="baragan">  </a>
+		</div>
+		<div class="footer-sec_2 ftig">
+			<a href="#" target="_blank" class="qagan">   </a><br> <a
+				href="#" target="_blank" class="qagan">   </a><br>
+			<a href="#" target="_blank" class="qagan">   QQ</a><br>
+			<a href="#" target="_blank" class="qagan">   </a><br>
+			<a href="#" target="_blank" class="qagan">  </a><br>
+			<a href="#" target="_blank" class="qagan">   </a><br>
+			<a href="#" target="_blank" class="qagan">   </a><br>
+			<a href="#" target="_blank" class="qagan">  </a><br>
+		</div>
+		<div class="footer-sec_1 ftig">
+			<a href="#" class="baragan">   </a>
+		</div>
+		<div class="footer-sec_2 ftig">
+			<a href="#" target="_blank" class="qagan">  </a><br>
+			<a href="#" target="_blank" class="qagan">  </a><br>
+			<a href="#" target="_blank" class="qagan">   </a><br>
+			<a href="#" target="_blank" class="qagan">  
+				</a><br>
+		</div>
+		<div class="footer-sec_1 ftig">
+			<a href="#" class="baragan">  </a>
+		</div>
+		<div class="footer-sec_2 ftig">
+			<a href="http://www.holvoo.net/index.do" class="qagan">
+				</a><br> <a href="http://www.qinggis.net/" class="qagan">
+				 </a><br> <a href="http://www.solongonews.mn/"
+				class="qagan">  </a><br> <a
+				href="http://mongol.kerqin.gov.cn/" class="qagan"> 
+				 </a><br> <a href="http://bj.mongol.cn/" class="qagan">
+				   </a><br> <a href="http://www.oturchid.com/"
+				class="qagan">  </a><br> <a
+				href="http://www.mgyxw.com/" class="qagan">  </a><br>
+			<a href="http://www.hlberb.com/" class="qagan">   
+				</a><br> <a href="http://www.altanhurd.com/" class="qagan">
+				</a><br> <a href="#" class="qagan"> </a><br> <a
+				href="http://www.mongol.cn/" class="qagan">  </a><br>
+			<a href="http://www.tangsug.com/" class="qagan"> 
+				</a><br> <a href="http://www.mgyyw.com/" class="qagan">
+				 </a><br> <a href="http://www.duu5.com/" class="qagan">
+				 </a><br> <a href="http://www.qinggis.net/"
+				class="qagan">  </a><br> <a
+				href="http://www.burgud.com/" class="qagan"> 
+				</a><br> <a href="http://www.wendusi.net/Default.aspx"
+				class="qagan"></a><br> <a href="#" class="qagan">
+				  </a><br> <a href="http://www.borhansoyol.net/"
+				class="qagan">     </a><br> <a
+				href="http://www.mgl9.com/" class="qagan"> </a><br>
+			<a href="http://www.huritai.com/" class="qagan"> 
+				</a><br> <a href="http://www.mglblog.net/" class="qagan">
+				</a><br> <a href="http://www.qeqen.com/" class="qagan">
+				   </a><br> <a href="#" class="qagan">
+				  </a><br> <a href="http://imofif.com/"
+				class="qagan">   </a><br> <a
+				href="http://mgl.surag.net/" class="qagan">   
+				 </a><br> <a href="http://www.soyol.com/" class="qagan">
+				 </a><br>
+		</div>
+	</div>
+	<div style="font: 0px/0px sans-serif; clear: both; display: block"></div>
+	<div class="tail">
+		<div class="tail-sec_1 ftig">
+			 <br>  <br>  <br>  <br>
+			 <br>  <br>  <br>
+			 <br>  <br>  <br>  <br>
+			 <br> 
+		</div>
+		<div class="tail-sec_2">
+			呼和浩特金轮文化传播有限责任公司版权所有 <br> ©2015 altanhurd.com &nbsp;TEL:
+			13684719585 &nbsp; Email:altanhurd@163.com <br> <a
+				href="http://www.miitbeian.gov.cn/" class="hara">蒙ICP备12001968号</a>
+		</div>
+	</div>
+
+</div>
+<!--  
 <div id="footer">
 	<div class="footer-sec" style="width: 140px;">		
 		<div class="m narrow-cat">

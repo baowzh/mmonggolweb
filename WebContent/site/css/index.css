@@ -573,18 +573,75 @@ body {
 	width: 21px;
 }
 
-#footer {
+.footer {
+	margin: 0px auto;
 	width: 1000px;
-	margin: 0 auto;
-	/* 	margin: 20px 0 0 0; */
-	/* 	padding: 9px 0 0 0; */
-	/* 	background: #f8f8f8; */
-	border-top: 1px solid #ccc;
-	background: #fff;
-	/* 	background: url(../img/tail.jpg); */
-	/* 	background-image: url(../../img/arv_ag.jpg) */
+	background: #081E4F;
+}
+.footer-sec {
+	float: left;
+	width: 980px;
+	height: 190px;
+	margin-left: 10px;
+	font-size: 17px;
+	color: #FFF;
 }
 
+.footer-sec_1 {
+	float: left;
+	width: 25px;
+	height: 185px;
+	font-size: 17px;
+	color: #CCC;
+	line-height: 25px;
+	padding-top: 5px;
+	background: #081E4F;
+}
+.ftig {
+	font-family: "MenksoftQagan";
+	-webkit-writing-mode: vertical-lr;
+	-webkit-text-orientation: sideways-right;
+	writing-mode: tb-lr;
+}
+.ftig a{
+	text-decoration: none;
+	color:#fff;
+}
+.footer-sec_2 {
+	float: left;
+	width: auto;
+	height: 175px;
+	font-size: 17px;
+	color: #FFF;
+	line-height: 20px;
+	padding-top: 15px;
+	background: #081E4F;
+}
+.tail{
+	float: left;
+	width: 980px;
+	height: 160px;
+	margin-left: 10px;
+	margin-top: 5px;
+}
+.tail-sec_1{
+	margin-left: auto;
+	margin-right: auto;
+	width: 300px;
+	height: 80px;
+	font-size: 18px;
+	color: #000;
+	line-height: 20px;
+	padding-top: 0px;
+}
+.tail-sec_2{
+	float: left;
+	width: 945px;
+	height: 60px;
+	font-size: 13px;
+	text-align: center;
+}
+/*
 .footer-sec {
 	writing-mode: tb-lr;
 	-webkit-writing-mode: vertical-lr;
@@ -592,8 +649,6 @@ body {
 	-ms-text-orientation: sideways-right;
 	width: 189px;
 	height: 180px;
-	/* 	border-right: 1px solid #ccc; */
-	/* 	border-bottom: 1px solid #ccc; */
 	border-right: 1px solid #014886;
 	border-bottom: 1px solid #014886;
 	float: left;
@@ -625,7 +680,7 @@ body {
 }
 
 .m a {
-	/* 	color: #666; */
+
 	text-decoration: none;
 	text-align: top;
 	color: #666;
@@ -661,7 +716,7 @@ body {
 	float: right;
 	padding: 5px;
 }
-
+*/
 .clear {
 	clear: both;
 }
