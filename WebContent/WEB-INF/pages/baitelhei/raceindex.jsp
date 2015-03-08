@@ -143,32 +143,9 @@
 		</div>
 		<div class="vgalja_2"></div>
 		<div class="box_4">
-			<div class="box_4_1 tig"></div>
+			<div class="box_4_1 tig"></div>
 			<div class="box_4_2 ungge_ar">
 				<!--这里评委信息-->
-				<div class="raceuser" style="width: 95px;">
-					<div class="avtr" style="width: 95px;">
-						<a
-							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-							<img src="bubai/images/tseqen.jpg" style="width: 95px;" />
-						</a>
-					</div>
-					<div class="desc" style="width: 95px;">
-						<div class="desitem" style="height: 320px;">
-							<div class="author">
-								<a
-									href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-									<span class="label1">  : ·  </span>
-								</a>
-							</div>
-						</div>
-						<div class="tig" style="height: 320px; width: 70px; float: left;">
-							:         
-							           
-							           
-							     </div>
-					</div>
-				</div>
 				<div class="raceuser" style="width: 195px;">
 					<div class="avtr">
 						<a
@@ -181,7 +158,7 @@
 							<div class="author">
 								<a
 									href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-									<span class="label1">  :  </span>
+									<span class="label1"> :  </span>
 								</a>
 							</div>
 						</div>
@@ -200,7 +177,7 @@
 					<div class="avtr" style="width: 95px;">
 						<a
 							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-							<img src="bubai/images/qvlmun.JPG" style="width: 95px;" />
+							<img src="bubai/images/tseqen.jpg" style="width: 95px;" />
 						</a>
 					</div>
 					<div class="desc" style="width: 95px;">
@@ -208,16 +185,15 @@
 							<div class="author">
 								<a
 									href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-									<span class="label1">  :  
-										 </span>
+									<span class="label1"> : ·  </span>
 								</a>
 							</div>
 						</div>
 						<div class="tig" style="height: 320px; width: 70px; float: left;">
-							:  （1963-）       
-							         
-							          
-							      </div>
+							:         
+							           
+							           
+							     </div>
 					</div>
 				</div>
 				<div class="raceuser" style="width: 95px;">
@@ -232,7 +208,7 @@
 							<div class="author">
 								<a
 									href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-									<span class="label1">  :  
+									<span class="label1"> :  
 										<%-- 									<c:out --%> <%-- 											value="${userValue.artname}" /> --%>
 								</span>
 								</a>
@@ -244,6 +220,32 @@
 							   </div>
 					</div>
 				</div>
+				
+				<div class="raceuser" style="width: 95px;">
+					<div class="avtr" style="width: 95px;">
+						<a
+							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
+							<img src="bubai/images/qvlmun.JPG" style="width: 95px;" />
+						</a>
+					</div>
+					<div class="desc" style="width: 95px;">
+						<div class="desitem" style="height: 320px;">
+							<div class="author">
+								<a
+									href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
+									<span class="label1"> :  
+										 </span>
+								</a>
+							</div>
+						</div>
+						<div class="tig" style="height: 320px; width: 70px; float: left;">
+							:  （1963-）       
+							         
+							          
+							      </div>
+					</div>
+				</div>
+				
 				<div class="raceuser" style="width: 110px;">
 					<div class="avtr" style="width: 95px;">
 						<a
@@ -256,7 +258,7 @@
 							<div class="author">
 								<a
 									href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-									<span class="label1">  :·  <%-- 									<c:out --%>
+									<span class="label1"> :·  <%-- 									<c:out --%>
 										<%-- 											value="${userValue.artname}" /> --%>
 								</span>
 								</a>
@@ -282,7 +284,7 @@
 							<div class="author">
 								<a
 									href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-									<span class="label1">  :  <%-- 									<c:out --%>
+									<span class="label1"> :  <%-- 									<c:out --%>
 										<%-- 											value="${userValue.artname}" /> --%>
 								</span>
 								</a>
@@ -307,7 +309,7 @@
 							<div class="author">
 								<a
 									href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-									<span class="label1">  :·  <%-- 									<c:out --%>
+									<span class="label1"> :·  <%-- 									<c:out --%>
 										<%-- 											value="${userValue.artname}" /> --%>
 								</span>
 								</a>

@@ -51,7 +51,7 @@ public class RaceDaoImpl extends BaseDaoiBatis implements RaceDao {
 		Map<String, Object> queryParams = new HashMap<String, Object>();
 		queryParams.put("raceid", raceid);
 		queryParams.put("docid", docid);
-		queryParams.put("userid", userid);
+		queryParams.put("scoreuserid", userid);
 		queryParams.put("round", round);
 		return this.getSqlMapClientTemplate().queryForList(
 				"getRaceScoreLogValue", queryParams);
