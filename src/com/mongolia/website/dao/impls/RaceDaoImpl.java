@@ -7,7 +7,9 @@ import java.util.Map;
 import org.springframework.stereotype.Repository;
 
 import com.mongolia.website.dao.interfaces.RaceDao;
+import com.mongolia.website.model.DocumentValue;
 import com.mongolia.website.model.ImgValue;
+import com.mongolia.website.model.PaingModel;
 import com.mongolia.website.model.RaceDocumentValue;
 import com.mongolia.website.model.RaceModelValue;
 import com.mongolia.website.model.RaceRound;
@@ -169,9 +171,9 @@ public class RaceDaoImpl extends BaseDaoiBatis implements RaceDao {
 		params.put("raceid", raceid);
 		params.put("docid", docid);
 		params.put("round", round);
-		Integer startindex = (index - 1) * 28;
+		Integer startindex = (index - 1) * 30;
 		params.put("start", startindex);
-		params.put("count", 28);
+		params.put("count", 30);
 		return this.getSqlMapClientTemplate().queryForList(
 				"pagingqueryscorelog", params);
 	}
@@ -198,5 +200,20 @@ public class RaceDaoImpl extends BaseDaoiBatis implements RaceDao {
 		return (Integer) this.getSqlMapClientTemplate().queryForObject(
 				"racescorecount", params);
 	}
+
+	@Override
+	public List<DocumentValue> pagingquerydoc(
+			PaingModel<DocumentValue> paingModel) throws Exception {
+		// TODO Auto-generated method stub
+		return this.getSqlMapClientTemplate().queryForList("pagingqueryracedoc", paingModel);
+	}
+
+	@Override
+	public Integer getRowCount(PaingModel<DocumentValue> paingModel)
+			throws Exception {
+		// TODO Auto-generated method stub
+		return (Integer)this.getSqlMapClientTemplate().queryForObject("getRaceDocRowCount", paingModel);
+	}
+	
 
 }

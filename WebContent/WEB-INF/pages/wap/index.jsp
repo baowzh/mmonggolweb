@@ -26,7 +26,7 @@
 </head>
 <body onload="q();">
 	<div class="wrap header">
-		<div  id="headerbackground" style="float: left;">
+		<div id="headerbackground" style="float: left;">
 			<img src="site/img/phonehead.jpg" style="height: 90px; width: 104px;">
 		</div>
 		<div class="mln"
@@ -120,6 +120,7 @@
 var loginsuccess='<c:out value="${loginsuccess}"/>';
 	if(loginsuccess=='1'){
 	  alert('成功登陆');
+	  window.location.href='phoneuserindex.do';
 	}
 </script>
 </html>

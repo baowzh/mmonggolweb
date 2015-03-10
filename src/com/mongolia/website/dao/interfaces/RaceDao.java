@@ -2,7 +2,9 @@ package com.mongolia.website.dao.interfaces;
 
 import java.util.List;
 
+import com.mongolia.website.model.DocumentValue;
 import com.mongolia.website.model.ImgValue;
+import com.mongolia.website.model.PaingModel;
 import com.mongolia.website.model.RaceDocumentValue;
 import com.mongolia.website.model.RaceModelValue;
 import com.mongolia.website.model.RaceRound;
@@ -146,7 +148,8 @@ public interface RaceDao {
 	 * @return
 	 * @throws Exception
 	 */
-	public Integer racescorecount(String raceid, String docid, Integer round) throws Exception;
+	public Integer racescorecount(String raceid, String docid, Integer round)
+			throws Exception;
 
 	/**
 	 * 
@@ -156,6 +159,12 @@ public interface RaceDao {
 	 * @throws Exception
 	 */
 	public List<ImgValue> getRaceImgList(String raceid, Integer count)
+			throws Exception;
+
+	public List<DocumentValue> pagingquerydoc(
+			PaingModel<DocumentValue> paingModel) throws Exception;
+
+	public Integer getRowCount(PaingModel<DocumentValue> paingModel)
 			throws Exception;
 
 }

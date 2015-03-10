@@ -74,6 +74,11 @@
 								<div class="author">
 									 :
 									<c:out value="${raceUser.uservalue.artname}" />
+									<c:if test="${raceUser.maxscore!=0}">
+									&nbsp; 
+									<a href="#" style="color: #f00;"><c:out
+												value="${status.index+1}" />     </a>
+									</c:if>
 								</div>
 							</div>
 							<div class="desitem" style="height: 320px;">
@@ -131,7 +136,7 @@
 								<div class="desitem" style="height: 320px;">
 									<div class="author" style="color: #036;">
 										<a style="color: #036;"
-											href="javascript:switchtonextround('<c:out value="${raceUser.uservalue.userid}"/>','<c:out value="${raceUser.uservalue.userid}"/>',<c:out value="${raceUser.uservalue.jointype}"/>);">
+											href="javascript:switchtonextround('<c:out value="${raceUser.uservalue.userid}"/>','<c:out value="${raceDocumentValue.raceid}"/>',<c:out value="${raceUser.uservalue.jointype}"/>);">
 											    </a>
 									</div>
 								</div>
@@ -208,8 +213,8 @@
 							<div class="author">
 								<a
 									href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-									<span class="label1"> :  
-										<%-- 									<c:out --%> <%-- 											value="${userValue.artname}" /> --%>
+									<span class="label1"> :   <%-- 									<c:out --%>
+										<%-- 											value="${userValue.artname}" /> --%>
 								</span>
 								</a>
 							</div>
@@ -220,7 +225,7 @@
 							   </div>
 					</div>
 				</div>
-				
+
 				<div class="raceuser" style="width: 95px;">
 					<div class="avtr" style="width: 95px;">
 						<a
@@ -233,8 +238,7 @@
 							<div class="author">
 								<a
 									href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-									<span class="label1"> :  
-										 </span>
+									<span class="label1"> :    </span>
 								</a>
 							</div>
 						</div>
@@ -245,7 +249,7 @@
 							      </div>
 					</div>
 				</div>
-				
+
 				<div class="raceuser" style="width: 110px;">
 					<div class="avtr" style="width: 95px;">
 						<a
@@ -284,24 +288,25 @@
 							<div class="author">
 								<a
 									href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-									<span class="label1"> :  <%-- 									<c:out --%>
+									<span class="label1"> :   <%-- 									<c:out --%>
 										<%-- 											value="${userValue.artname}" /> --%>
 								</span>
 								</a>
 							</div>
 						</div>
-						<div class="tig" style="height: 320px; width: 70px; float: left;">
-							:            
-							       </div>
+						<div class="tig" style="height: 320px; width: 70px; float: left;">
+							 :        
+							<br />         
+						</div>
 
 
 					</div>
 				</div>
-				<div class="raceuser" style="width:128px;">
+				<div class="raceuser" style="width: 128px;">
 					<div class="avtr">
 						<a
 							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-							<img src="html/userhead/nan.jpg" />
+							<img src="bubai/images/sarenqvgt.jpg" />
 						</a>
 					</div>
 					<div class="desc" style="width: 95px;">
@@ -371,6 +376,51 @@
 					</c:forEach>
 				</div>
 			</div>
+		</div>
+		<div class="vgalja_2"></div>
+		<div class="box_8_4 tig"></div>
+		<div class="box_8 ungge_ar">
+			<div class="box_8_1 tig">  </div>
+			<div class="box_8_2 tig">□      
+				</div>
+			<div class="box_8_1 tig">  </div>
+			<div class="box_8_2 tig">
+				□      <br>  <br>
+				□         <br>
+				□      
+				 
+			</div>
+			<div class="box_8_1 tig">    </div>
+			<div class="box_8_2 tig">
+				□   <br> www.altanhurd.com
+			</div>
+			<div class="box_8_1 tig">       
+				 </div>
+			<div class="box_8_3">
+				<img src="bubai/images/altanhurd_wx.jpg" width="120" /><br>altanhurd01
+			</div>
+			<div class="box_8_1 tig">  </div>
+			<div class="box_8_2 tig">
+				□     <br> □    
+				    <br> □   
+				     <br> □   
+				  <br>      <br>
+				□         
+				   <br> □   
+				  <br> □    
+				<br> □      <br>
+			</div>
+			<div class="box_8_1 tig">  </div>
+			<div class="box_8_2 tig">
+				□      <br> □   
+				  <br> □     <br> □
+				 <br> □  <br> □   <br>
+				□  <br> □   <br> □
+				       &nbsp;   
+				 <br> □     
+			</div>
+
+
 		</div>
 		<div class="vgalja_2"></div>
 		<div class="box_7">
@@ -464,6 +514,6 @@
 	<!--y-->
 </body>
 <script>
-	//var raceModelJson = <c:out value="${raceModelJson}" escapeXml="false" />;
+	var raceModelJson = <c:out value="${raceModelJson}" escapeXml="false" />;
 </script>
 </html>

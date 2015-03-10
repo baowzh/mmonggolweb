@@ -12,7 +12,6 @@ public class RaceScoreLogValue {
 	private Integer round;
 	private String headurl;
 	private String artname;
-
 	public String getRaceid() {
 		return raceid;
 	}

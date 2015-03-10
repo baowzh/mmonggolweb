@@ -40,6 +40,7 @@ public class RaceModelValue {
 	private String begindatestr;
 	private String enddatestr;
 	private Integer round;
+	private RaceRound raceRound;
 
 	public String getRaceid() {
 		return raceid;
@@ -140,6 +141,14 @@ public class RaceModelValue {
 
 	public void setRound(Integer round) {
 		this.round = round;
+	}
+
+	public RaceRound getRaceRound() {
+		return raceRound;
+	}
+
+	public void setRaceRound(RaceRound raceRound) {
+		this.raceRound = raceRound;
 	}
 
 }

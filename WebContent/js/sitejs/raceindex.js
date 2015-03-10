@@ -9,7 +9,7 @@ var switchtonextround = function(userid, raceid, jointype) {
 				type : 'POST',
 				dataType : "json",
 				data : {
-					userid : userid,
+					joinuserid : userid,
 					raceid : raceid,
 					jointype : jointype
 				},
@@ -30,7 +30,7 @@ var switchtonextround = function(userid, raceid, jointype) {
 						MessageWindow
 								.showMess('  '
 										+ raceModelJson.raceModel.round
-										+ '    <br/>    <br/>    ');
+										+ '     <br/>    <br/>    ');
 					} else if (data.mess == '5') {
 						MessageWindow
 								.showMess('       ');

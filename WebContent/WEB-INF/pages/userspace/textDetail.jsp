@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -192,8 +193,9 @@
 						value="${raceDocumentValue.netscorecount}" default="0" />
 				</a>
 				<br>
-				<a href="#">   <c:out
-						value="${raceDocumentValue.netaveragescore}" default="0" />
+				<a href="#">    <fmt:formatNumber
+						value="${raceDocumentValue.netaveragescore}" type="currency"
+						pattern="#0.00" />
 				</a>
 				<br>
 				<a href="#">   :<c:out
@@ -204,37 +206,51 @@
 						value="${raceDocumentValue.spescorecount}" default="0" />
 				</a>
 				<br>
-				<a href="#">    <c:out
-						value="${raceDocumentValue.speaveragescore}" default="0" />
+				<a href="#">     <fmt:formatNumber
+						value="${raceDocumentValue.speaveragescore}" type="currency"
+						pattern="#0.00" />
 				</a>
 				<br>
-				<a href="#">    </a>
-				<br>
-				<a href="#"> :   <c:out
-						value="${raceDocumentValue.netaveragescore}" default="0" /> X20%+
-					   <c:out
-						value="${raceDocumentValue.speaveragescore}" default="0" /> X80%=<c:out value="${raceDocumentValue.finalscore}"
-						default="0" />
+				<a href="#"> :   <fmt:formatNumber
+						value="${raceDocumentValue.netaveragescore}" type="currency"
+						pattern="#0.00" /> X20%+    <fmt:formatNumber
+						value="${raceDocumentValue.speaveragescore}" type="currency"
+						pattern="#0.00" /> X80%= <fmt:formatNumber
+						value="${raceDocumentValue.finalscore}" type="currency"
+						pattern="#0.00" />
+
 				</a>
 				<br>
 				<c:if test="${self==0}">
 					<select id="racescore" name="racescore">
-						<option value="9.9">9.9</option>
-						<option value="9.8">9.8</option>
-						<option value="9.7">9.7</option>
-						<option value="9.6">9.6</option>
-						<option value="9.5">9.5</option>
-						<option value="9.4">9.4</option>
-						<option value="9.3">9.3</option>
-						<option value="9.2">9.2</option>
-						<option value="9.1">9.1</option>
+						<option value="8.5">8.5</option>
+						<option value="8.6">8.6</option>
+						<option value="8.7">8.7</option>
+						<option value="8.8">8.8</option>
+						<option value="8.9">8.9</option>
 						<option value="9.0">9.0</option>
+						<option value="9.1">9.1</option>
+						<option value="9.2">9.2</option>
+						<option value="9.3">9.3</option>
+						<option value="9.4">9.4</option>
+						<option value="9.5">9.5</option>
+						<option value="9.6">9.6</option>
+						<option value="9.7">9.7</option>
+						<option value="9.8">9.8</option>
+						<option value="9.9">9.9</option>
 					</select>
-					<a
+					<a style="color:#f00;"
 						href="javascript:scoreracedoc('<c:out value="${raceModelValue.raceid}" />','<c:out value="${documentValue.docid}" />');">
-						  </a>
+						&nbsp;&nbsp;  </a>
 				</c:if>
 				<br>
+				<a style="color:#f00;"
+					href="raceScoreDetail.do?raceid=<c:out value="${raceModelValue.raceid}"/>&docid=<c:out value="${documentValue.docid}"/>&round=<c:out value="${raceModelValue.round}"/>">
+					   </a>
+				<br>
+				<br>
+				
+				
 			</c:if>
 		</div>
 		<div class="mnlist"
@@ -397,6 +413,6 @@
 	<%@ include file="logindiv.jsp"%>
 </body>
 <script>
-var raceModelJson = <c:out value="${raceModelJson}" escapeXml="false" />;
+	var raceModelJson = <c:out value="${raceModelJson}" escapeXml="false" />;
 </script>
 </html>

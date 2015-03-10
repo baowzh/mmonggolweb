@@ -127,5 +127,15 @@ public interface RaceManager {
 	 * @throws Exception
 	 */
 	public List<DocumentValue> getvides(String channelid) throws Exception;
+	/**
+	 * 
+	 * @param raceid
+	 * @param docid
+	 * @param index
+	 * @param round
+	 * @return
+	 * @throws Exception
+	 */
+	public PaingModel<DocumentValue> pagingqueryracedoc(PaingModel<DocumentValue> paingModel) throws Exception;
 
 }

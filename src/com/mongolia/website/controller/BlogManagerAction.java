@@ -112,7 +112,7 @@ public class BlogManagerAction {
 	public ModelAndView gointoroom(HttpServletRequest request, ModelMap map) {
 		try {
 			if (this.isphoneagent(request)) {
-				return new ModelAndView("redirect:phoneindex.do");
+				return new ModelAndView("redirect:phoneuserindex.do");
 			}
 			map.putAll(getUserBlogInfo(request, 1));
 		} catch (Exception ex) {

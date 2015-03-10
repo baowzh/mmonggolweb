@@ -19,6 +19,10 @@ var q = function() {
 	$('#main').css({
 		width : width1
 	});
+	var u = navigator.userAgent;
+	if(u.indexOf('iPhone') > -1){
+		$('#content').css('width', width1 + 5);
+	}
 	if (width1 > availWidth) {
 		// $('.header').css('background-size', '' + width1 + 'px 90px');
 		// $('.header').css('width', width1);
@@ -70,27 +74,31 @@ var scoreracedoc = function(raceid, docid) {
 				success : function(data) {
 					if (data.mess == '0') {
 						MessageWindow.showMess('    ');
-						window.location.href = 'getuserdocdetail.do?docid='
+						window.location.href = 'phonedetail.do?docid='
 								+ $('#docid').val();
 					} else if (data.mess == '1') {
 						MessageWindow
-								.showMess('          ');
+								.showMess('      <br/>      ');
 					} else if (data.mess == '3') {
 						MessageWindow
-								.showMess('          ');
+								.showMess('            ');
 					} else if (data.mess == '4') {
 						MessageWindow
 								.showMess('          ');
 					} else if (data.mess == '5') {
 						MessageWindow
 								.showMess('    <br>'
-										+ raceModelJson.raceModel.begindatestr
+										+ raceModelJson.raceModel.raceRound.begindatestr
 										+ '    ');
 					} else if (data.mess == '6') {
 						MessageWindow
 								.showMess('    <br>'
-										+ raceModelJson.raceModel.enddatestr
+										+ raceModelJson.raceModel.raceRound.enddatestr
 										+ '     ');
+					}
+					else if (data.mess == '7') {
+						MessageWindow
+								.showMess('        ');
 					}
 
 				}

@@ -178,26 +178,34 @@
 							value="${raceDocumentValue.speaveragescore}" default="0" />
 					</a>
 					<br>
-					<a href="#">    </a>
+					<a style="color:#f00;"
+					href="raceScoreDetail.do?raceid=<c:out value="${raceModelValue.raceid}"/>&docid=<c:out value="${documentValue.docid}"/>&round=<c:out value="${raceModelValue.round}"/>">
+					   </a>
+				<br>
 					<br>
 					<c:if test="${self==0}">
 						<div style="height: 40px; width: 20px; float: left;">
 							<select id="racescore" name="racescore"
 								style="height: 20px; font-size: 20px; -webkit-writing-mode: horizontal-tb">
-								<option value="9.9">9.9</option>
-								<option value="9.8">9.8</option>
-								<option value="9.7">9.7</option>
-								<option value="9.6">9.6</option>
-								<option value="9.5">9.5</option>
-								<option value="9.4">9.4</option>
-								<option value="9.3">9.3</option>
-								<option value="9.2">9.2</option>
-								<option value="9.1">9.1</option>
+								<option value="8.5">8.5</option>
+								<option value="8.6">8.6</option>
+								<option value="8.7">8.7</option>
+								<option value="8.8">8.8</option>
+								<option value="8.9">8.9</option>
 								<option value="9.0">9.0</option>
+								<option value="9.1">9.1</option>
+								<option value="9.2">9.2</option>
+								<option value="9.3">9.3</option>
+								<option value="9.4">9.4</option>
+								<option value="9.5">9.5</option>
+								<option value="9.6">9.6</option>
+								<option value="9.7">9.7</option>
+								<option value="9.8">9.8</option>
+								<option value="9.9">9.9</option>
 							</select>
 						</div>
 						<div style="float: left;">
-							<a
+							<a style="color:#f00;"
 								href="javascript:scoreracedoc('<c:out value="${raceModelValue.raceid}" />','<c:out value="${documentValue.docid}" />');">
 								  </a>
 						</div>

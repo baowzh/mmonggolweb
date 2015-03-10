@@ -30,6 +30,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.mongolia.website.manager.impls.SysConfig;
 import com.mongolia.website.manager.interfaces.ChannelManager;
+import com.mongolia.website.manager.interfaces.RaceManager;
 import com.mongolia.website.manager.interfaces.UserManager;
 import com.mongolia.website.manager.interfaces.WebResourceManager;
 import com.mongolia.website.manager.interfaces.WebSiteManager;
@@ -60,6 +61,8 @@ public class WebSiteVisiterAction {
 	private WebResourceManager webResourceManager;
 	@Autowired
 	UserManager userManager;
+	@Autowired
+	private RaceManager raceManager;
 	@Resource(name = "configInfo")
 	private SysConfig sysConfig;
 
@@ -669,6 +672,23 @@ public class WebSiteVisiterAction {
 		String pagestr = PageUtil.getPagingUserLink(paingUser, 1);
 		map.put("pagestr", pagestr);
 		return new ModelAndView("wap/selblogs");
+	}
+	@RequestMapping("/phoneracelist.do")
+	public ModelAndView phoneracelist(HttpServletRequest request,
+			PaingModel<DocumentValue> paingModel, ModelMap map) {
+		try {
+			paingModel.setPagesize(12);
+			paingModel.setStartrow(1 * paingModel.getPagesize());
+			paingModel.setEndrow(12);
+			PaingModel<DocumentValue> pamodel = this.raceManager.pagingqueryracedoc(paingModel);
+			String pagingstr = PageUtil.getPagingLink(pamodel, 1);
+			map.put("pagingstr", pagingstr);
+			map.put("selecteddocs", pamodel.getModelList());
+			map.put("docchannel", paingModel.getDocchannel());
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return new ModelAndView("wap/racelist", map);
 	}
 
 }

@@ -6,6 +6,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import net.sf.json.JSONObject;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -144,6 +146,9 @@ public class RaceController {
 			map.put("imgs", imgs);
 			List<DocumentValue> videos = this.raceManager.getvides(null);
 			map.put("videos", videos);
+			JSONObject json = new JSONObject();
+			json.put("raceModel", raceModelValues.get(0));
+			map.put("raceModelJson", json.toString());
 			// 跟专题相关的页面栏目
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -202,5 +207,6 @@ public class RaceController {
 		}
 		return new ModelAndView("baitelhei/racedetail", map);
 	}
+	
 
 }

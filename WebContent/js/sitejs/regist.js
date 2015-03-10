@@ -5,6 +5,10 @@ var doregist = function() {
 		MessageWindow.showMess("' '    ");
 		return;
 	}
+	if (username.length <6) {
+		MessageWindow.showMess("' '     ");
+		return;
+	}
 	if (!username.match(/[^\u4e00-\u9fa5]/g)){
 		MessageWindow.showMess("' '      ");
 		return;
@@ -12,6 +16,10 @@ var doregist = function() {
 	var artname = $("#artname").val();
 	if (artname == null || artname == '') {
 		MessageWindow.showMess("'  '    ");
+		return;
+	}
+	if (artname.length <8) {
+		MessageWindow.showMess("'  '     ");
 		return;
 	}
 	var password = $("#password").val();

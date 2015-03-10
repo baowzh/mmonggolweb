@@ -37,7 +37,7 @@
 			<c:forEach items="${paingModel.modelList}" var="raceScoreLogValue"
 				varStatus="status">
 				<div class="raceuser"
-					style="width: 82px; height: 400px;padding 2px;">
+					style="width: 86px; height: 400px;padding 2px;">
 					<div class="avtr" style="width: 82px; height: 110px;">
 						<a
 							href="gouserindex.do?userid=<c:out value="${raceScoreLogValue.scoreuserid}" />">
@@ -79,7 +79,7 @@
 							<div class="author">
 								  :
 								<fmt:formatDate value="${raceScoreLogValue.scoredate}"
-									type="both" pattern="yyyy-MM-dd" />
+									type="both" pattern="yyyy-MM-dd HH:mm:ss" />
 							</div>
 						</div>
 					</div>
@@ -88,27 +88,7 @@
 		</div>
 		<div class="paginationArea">
 			<div class="pagination" id="docpagelist">
-				<a class="first disabled" id="firest"
-					href="javascript:openpage('1','264611659E3C11E4BC9D199A577C4ABB',1,0,true);switchclass('pagefist');"><span
-					id="pagefirest" class="spanstyle">&lt;&lt;</span></a><a
-					class="first disabled" id="previous"
-					href="javascript:openpage('1','264611659E3C11E4BC9D199A577C4ABB',1,0,true);switchclass('previous');"><span
-					id="pageprevious" class="spanstyle">&lt;</span></a><a
-					class="first disabled" id="page1"
-					href="javascript:openpage('1','264611659E3C11E4BC9D199A577C4ABB',1,0,true);switchclass('1');"><span
-					id="pagepage1" class="spanstyle">1</span></a><a class="first disabled"
-					id="page2"
-					href="javascript:openpage('2','264611659E3C11E4BC9D199A577C4ABB',1,0,true);switchclass('2');"><span
-					id="pagepage2" class="curspanstyle">2</span></a><a
-					class="first disabled" id="page3"
-					href="javascript:openpage('3','264611659E3C11E4BC9D199A577C4ABB',1,0,true);switchclass('3');"><span
-					id="pagepage3" class="spanstyle">3</span></a><a class="first disabled"
-					id="next"
-					href="javascript:openpage('2','264611659E3C11E4BC9D199A577C4ABB',1,0,true);switchclass('next');"><span
-					id="pagenext" class="spanstyle">&gt;</span></a><a
-					class="first disabled" id="last"
-					href="javascript:openpage('26','264611659E3C11E4BC9D199A577C4ABB',1,0,true);switchclass('last');"><span
-					id="pagelast" class="spanstyle">&gt;&gt;</span></a>
+				<c:out value="${pagingstr}" escapeXml="false" />
 			</div>
 		</div>
 
@@ -117,19 +97,8 @@
 	<%@ include file="../website/tail.jsp"%>
 </body>
 <script>
-	SODON.example.scrollViewHome = new SODON.widget.ScrollView("videoBox", {
-		nextButton : "home-scroll-next",
-		prevButton : "home-scroll-prev",
-		direction : "horizontal",
-		screenSize : 3,
-		itemWidth : 302,
-		itemHeight : 328,
-		itemSpace : 30,
-		waitTime : 3000, // Huleeh hugatsaa /by milli sec/
-		speed : 1, // Hudulguunii hurd /by sec/
-		auto : true,
-		repeat : "repeat-back"
-	});
-	var raceModelJson = <c:out value="${raceModelJson}" escapeXml="false" />;
+	var openpage =function(index,raceid,docid,round){
+		window.location.href='raceScoreDetail.do?raceid='+raceid+'&docid='+docid+'&round='+round+'&index='+index;
+	}
 </script>
 </html>

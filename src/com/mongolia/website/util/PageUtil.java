@@ -751,6 +751,10 @@ public class PageUtil {
 			index2 = pagingModel.getPageindex();
 			index3 = pagingModel.getPageindex() + 1;
 		}
+		if(pagingModel.getPagecount()==1){
+			index2 = 1;
+			index3 = 1;
+		}
 		PagingIndex previousPagingIndex1 = new PagingIndex();
 		previousPagingIndex1.setPageindex(index1);
 		previousPagingIndex1.setShowstr(""
@@ -762,11 +766,24 @@ public class PageUtil {
 				+ pagingModel.getDocstatus() + ");");
 		previousPagingIndex1
 				.setId("page" + previousPagingIndex1.getPageindex());
-		pagse.add(previousPagingIndex1);
+		if(pagingModel.getPageindex().intValue()==1){
+			previousPagingIndex1.setCurrent(1);
+		}
+		if(pagingModel.getPagecount()!=1){
+			pagse.add(previousPagingIndex1);	
+		}
+		
 
 		//
 		PagingIndex currentpage = new PagingIndex();
-		currentpage.setPageindex(index2);
+		if(pagingModel.getPageindex().intValue()==1){
+			previousPagingIndex1.setCurrent(1);
+			currentpage.setPageindex(index2);
+			currentpage.setCurrent(0);
+		}else{
+		currentpage.setPageindex(index2);	
+		currentpage.setCurrent(1);
+		}
 		currentpage.setShowstr("" + currentpage.getPageindex());
 		currentpage.setLink("javascript:openpage('"
 				+ currentpage.getPageindex() + "','"
@@ -775,7 +792,7 @@ public class PageUtil {
 				+ pagingModel.getDocstatus() + ");");
 		currentpage.setId("page" + currentpage.getPageindex());
 		pagse.add(currentpage);
-		currentpage.setCurrent(1);
+		
 		//
 		//
 		PagingIndex nextpage1 = new PagingIndex();
@@ -786,7 +803,9 @@ public class PageUtil {
 				+ pagingModel.getImggroupid() + "',"
 				+ pagingModel.getDocstatus() + ");");
 		nextpage1.setId("page" + nextpage1.getPageindex());
-		pagse.add(nextpage1);
+		if(pagingModel.getPagecount()!=1){
+			pagse.add(nextpage1);
+		}
 		//
 		PagingIndex nextPagingIndex = new PagingIndex();
 		nextPagingIndex.setShowstr(">");

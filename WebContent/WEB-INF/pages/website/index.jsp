@@ -233,11 +233,11 @@
 				  <br/>3.      
 				             
 				2000      1000      500 
-				    <br/> <a href="#" style="color:#f00;"> 3.10        
+				    <br/> <a href="#" style="color:#f00;">                    
 				</a>
 				 <br/>
 				  <br/>
-				 <a href="getuserdocdetail.do?docid=BC3056AEC1C511E4B6462FBAC2F2F66B" style="color:#f00;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   </a>
+				 <a href="getuserdocdetail.do?docid=2342DDA8C67711E4991909EC2D952D50" style="color:#f00;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   </a>
 				 <a href="raceindex.do" style="color:#f00;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </a>
 				</div>
                

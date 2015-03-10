@@ -58,7 +58,12 @@ var joinrace = function() {
 					} else if (data.mess == '4') {
 						MessageWindow
 								.showMess('      ');
-					} else if (data.mess == '5') {
+					}
+					else if (data.mess == '7') {
+						MessageWindow
+								.showMess('        ');
+					}
+					else if (data.mess == '5') {
 						MessageWindow
 								.showMess(' '
 										+ raceModelJson.raceModel.round
@@ -141,23 +146,27 @@ var scoreracedoc = function(raceid, docid) {
 								+ $('#docid').val();
 					} else if (data.mess == '1') {
 						MessageWindow
-								.showMess('          ');
+								.showMess('        <br/>      ');
 					} else if (data.mess == '3') {
 						MessageWindow
-								.showMess('          ');
+								.showMess('       <br/>      ');
 					} else if (data.mess == '4') {
 						MessageWindow
 								.showMess('      ');
 					} else if (data.mess == '5') {
 						MessageWindow
 								.showMess('    <br>'
-										+ raceModelJson.raceModel.begindatestr
+										+ raceModelJson.raceModel.raceRound.begindatestr
 										+ '    ');
 					} else if (data.mess == '6') {
 						MessageWindow
 								.showMess('    <br>'
-										+ raceModelJson.raceModel.enddatestr
+										+ raceModelJson.raceModel.raceRound.enddatestr
 										+ '     ');
+					}
+					else if (data.mess == '7') {
+						MessageWindow
+								.showMess('        ');
 					}
 
 				}

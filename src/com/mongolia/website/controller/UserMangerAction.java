@@ -180,7 +180,8 @@ public class UserMangerAction {
 
 					} else {
 						map.put("loginsuccess", "loginsuccess");
-						return new ModelAndView("redirect:index.do?loginsuccess=1", map);
+						return new ModelAndView(
+								"redirect:index.do?loginsuccess=1", map);
 					}
 
 				}
@@ -372,7 +373,7 @@ public class UserMangerAction {
 				ImgeUtil.CompressPic(userValue.getImg(), path, imgnamesm,
 						StaticConstants.IMGWIDTHSM, StaticConstants.IMGHEIGHTSM);
 				userValue.setHeadurl(imgnamesm);
-			}else{
+			} else {
 				userValue.setHeadurl(null);
 			}
 			userManager.doUpdateUser(userValue);
@@ -520,17 +521,20 @@ public class UserMangerAction {
 	@RequestMapping("/tologin.do")
 	public ModelAndView toLogin(ModelMap map) {
 		// 如果处于登陆状态则直接进入博客主页
-		// HttpServletRequest request = ((ServletRequestAttributes)
-		// RequestContextHolder
-		// .getRequestAttributes()).getRequest();
-		// UserValue sessionUser = (UserValue)
-		// request.getSession().getAttribute(
-		// "user");// 在线session
-		// if (sessionUser == null) {
-		return new ModelAndView("userspace/login", map);
-		// } else {
-		// return blogManagerAction.gointoroom(request, map);
-		// }
+		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder
+				.getRequestAttributes()).getRequest();
+		UserValue sessionUser = (UserValue) request.getSession().getAttribute(
+				"user");// 在线session
+		if (sessionUser == null) {
+			return new ModelAndView("userspace/login", map);
+		} else {
+			//if (this.isphoneagent(request)) {
+				//return new ModelAndView("redirect:phoneuserindex.do");
+			//}else{
+				return new ModelAndView("redirect:gouserindex.do", map);	
+			//}
+		
+		}
 	}
 
 	/**
@@ -809,5 +813,6 @@ public class UserMangerAction {
 		binder.registerCustomEditor(Date.class, new CustomDateEditor(
 				dateFormat, false));
 	}
+	
 
 }

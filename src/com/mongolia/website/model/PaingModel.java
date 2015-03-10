@@ -71,7 +71,8 @@ public class PaingModel<E> {
 	private String pagetype;
 	private Integer inindex;
 	private Integer flash;
-
+    private String raceid;
+    private Integer round;
 	public Integer getPagesize() {
 		return pagesize;
 	}
@@ -222,6 +223,22 @@ public class PaingModel<E> {
 
 	public void setFlash(Integer flash) {
 		this.flash = flash;
+	}
+
+	public String getRaceid() {
+		return raceid;
+	}
+
+	public void setRaceid(String raceid) {
+		this.raceid = raceid;
+	}
+
+	public Integer getRound() {
+		return round;
+	}
+
+	public void setRound(Integer round) {
+		this.round = round;
 	}
 
 	
