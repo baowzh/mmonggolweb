@@ -5,7 +5,7 @@ var q = function() {
 	setTimeout(scrollTo, 0, 0, 0);
 	var availHeight = $(window).height();
 	var availWidth = $(window).width();
-	$('#headerbackground').css('width',availWidth-130)
+	$('#headerbackground').css('width',availWidth-165)
 	$('.wrap').css('width', availWidth);
 	$('.listCardBody').css('width', availWidth-36);
 	$('#slider').css({height:availHeight*0.4});

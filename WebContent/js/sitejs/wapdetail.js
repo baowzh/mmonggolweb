@@ -21,8 +21,9 @@ var q = function() {
 	});
 	var u = navigator.userAgent;
 	if(u.indexOf('iPhone') > -1){
-		$('#content').css('width', width1 + 5);
-	}
+		 $('#content').css('width', width1 + 5);
+		 $('.header').css('width', width1+5);
+	 }
 	if (width1 > availWidth) {
 		// $('.header').css('background-size', '' + width1 + 'px 90px');
 		// $('.header').css('width', width1);
@@ -156,6 +157,10 @@ var phonelogin = function() {
 							MessageWindow
 									.showMess('       ');
 						}
+						else if (data.mess == '5') {
+							MessageWindow
+									.showMess('  email    <br>         ');
+						} 
 					}
 				}
 			});

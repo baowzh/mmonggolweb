@@ -41,7 +41,7 @@ public class RaceManagerImpl implements RaceManager {
 	private WebPageManagerDao webPageManagerDao;
 	@Autowired
 	private WebSiteVisitorDao webSiteVisitorDao;
-	
+
 	@Override
 	public List<RaceModelValue> getRaceModels(String raceid, Integer inactive)
 			throws Exception {
@@ -61,7 +61,7 @@ public class RaceManagerImpl implements RaceManager {
 	public List<RaceDocumentValue> getRaceDocuments(String raceid,
 			String docid, String userid, Integer round) throws Exception {
 		// TODO Auto-generated method stub
-		return raceDao.getRaceDocuments(raceid, docid, userid, round);
+		return raceDao.getRaceDocuments(raceid, docid, userid, round, null);
 	}
 
 	@Override
@@ -81,7 +81,8 @@ public class RaceManagerImpl implements RaceManager {
 		if (racemodels == null || racemodels.isEmpty()) {
 			throw new Exception("1");
 		}
-		List<RaceRound> rounds=this.raceDao.getRaceRounds(racemodels.get(0).getRaceid(), racemodels.get(0).getRound());
+		List<RaceRound> rounds = this.raceDao.getRaceRounds(racemodels.get(0)
+				.getRaceid(), racemodels.get(0).getRound());
 		// 是否处于第一轮
 		List<RaceUserModel> joinusers = this.raceDao.getRaceUserModels(
 				racemodels.get(0).getRaceid(), racemodels.get(0).getRound(),
@@ -90,10 +91,10 @@ public class RaceManagerImpl implements RaceManager {
 			throw new Exception("5");// 不是第一轮切少资格用户则
 		}
 		// 2.校验是否已经够了限制数
-		List<RaceDocumentValue> documents = this.raceDao
-				.getRaceDocuments(raceDocumentValue.getRaceid(), null,
-						raceDocumentValue.getJoinuserid(), racemodels.get(0)
-								.getRound());
+		List<RaceDocumentValue> documents = this.raceDao.getRaceDocuments(
+				raceDocumentValue.getRaceid(), null,
+				raceDocumentValue.getJoinuserid(),
+				racemodels.get(0).getRound(), null);
 		if (documents.size() >= 1) {
 			throw new Exception("2");
 		}
@@ -107,10 +108,10 @@ public class RaceManagerImpl implements RaceManager {
 		// }
 		// }
 		// 3.是否已经参与了
-		documents = this.raceDao
-				.getRaceDocuments(raceDocumentValue.getRaceid(),
-						raceDocumentValue.getDocid(), raceDocumentValue
-								.getJoinuserid(), racemodels.get(0).getRound());
+		documents = this.raceDao.getRaceDocuments(
+				raceDocumentValue.getRaceid(), raceDocumentValue.getDocid(),
+				raceDocumentValue.getJoinuserid(),
+				racemodels.get(0).getRound(), null);
 		if (!documents.isEmpty()) {
 			throw new Exception("3");
 		}
@@ -176,7 +177,7 @@ public class RaceManagerImpl implements RaceManager {
 		// 获取参与比赛类型
 		List<RaceDocumentValue> racedos = this.raceDao.getRaceDocuments(
 				raceScoreLogValue.getRaceid(), raceScoreLogValue.getDocid(),
-				null, raceModelValue.getRound());
+				null, raceModelValue.getRound(), null);
 		RaceDocumentValue raceDocumentValue = racedos.get(0);
 		// 1. 校验是否已经评过分
 		List<RaceScoreLogValue> scorelogs = this.raceDao.getRaceScoreLog(
@@ -194,17 +195,22 @@ public class RaceManagerImpl implements RaceManager {
 	}
 
 	@Override
-	public List<RaceUser> getRaceIndexContent(String raceid) throws Exception {
+	public List<RaceUser> getRaceIndexContent(String raceid, Integer jointype)
+			throws Exception {
 		// TODO Auto-generated method stub
 		// 先获取所有参与比赛用户列表，在根据用户列表获取每个用户列表下面的参赛作品列表
 		List<RaceModelValue> raceModelValues = this.raceDao.getRaceModels(
 				raceid, 1);
 		List<UserValue> userlist = this.raceDao.getRaceUserList(raceModelValues
-				.get(0).getRaceid(), raceModelValues.get(0).getRound());
+				.get(0).getRaceid(), raceModelValues.get(0).getRound(),
+				jointype);
 		List<UserValue> maxScorelist = this.raceDao.getUserMaxScores(
 				raceModelValues.get(0).getRaceid(), raceModelValues.get(0)
-						.getRound());
+						.getRound(), jointype);
 		List<RaceUser> raceUsers = new ArrayList<RaceUser>();
+		List<RaceDocumentValue> documents = this.raceDao.getRaceDocuments(
+				raceModelValues.get(0).getRaceid(), null, null, raceModelValues
+						.get(0).getRound(), jointype);
 		for (UserValue uservalue : userlist) {
 			RaceUser raceUser = new RaceUser();
 			raceUser.setUservalue(uservalue);
@@ -214,10 +220,17 @@ public class RaceManagerImpl implements RaceManager {
 			} else {
 				raceUser.setMaxscore(new Double(0));
 			}
-			List<RaceDocumentValue> documents = this.raceDao.getRaceDocuments(
-					raceModelValues.get(0).getRaceid(), null,
-					uservalue.getUserid(), raceModelValues.get(0).getRound());
-			raceUser.setRaceDocumentValues(documents);
+			RaceDocumentValue raceDocumentValue = getRaceDocument(
+					uservalue.getUserid(), documents);
+			/*
+			 * List<RaceDocumentValue> documents =
+			 * this.raceDao.getRaceDocuments(
+			 * raceModelValues.get(0).getRaceid(), null, uservalue.getUserid(),
+			 * raceModelValues.get(0).getRound(), jointype);
+			 */
+			List<RaceDocumentValue> racedoces = new ArrayList<RaceDocumentValue>();
+			racedoces.add(raceDocumentValue);
+			raceUser.setRaceDocumentValues(racedoces);
 			raceUsers.add(raceUser);
 		}
 		RaceUser raceusers[] = new RaceUser[raceUsers.size()];
@@ -230,6 +243,16 @@ public class RaceManagerImpl implements RaceManager {
 			}
 		});
 		return Arrays.asList(raceusers);
+	}
+
+	private RaceDocumentValue getRaceDocument(String userid,
+			List<RaceDocumentValue> docs) {
+		for (RaceDocumentValue raceDocumentValue : docs) {
+			if (raceDocumentValue.getJoinuserid().equalsIgnoreCase(userid)) {
+				return raceDocumentValue;
+			}
+		}
+		return null;
 	}
 
 	private UserValue getMaxScore(UserValue uservalue,
@@ -252,8 +275,8 @@ public class RaceManagerImpl implements RaceManager {
 	}
 
 	@Override
-	public Map<String, Object> getRaceIndexCon(String raceid, String pageid)
-			throws Exception {
+	public Map<String, Object> getRaceIndexCon(String raceid, String pageid,
+			Integer jointype) throws Exception {
 		// TODO Auto-generated method stub
 		List<PageChannelRelationValue> relations = webPageManagerDao
 				.getRelatedChannes("raceindex");
@@ -286,7 +309,7 @@ public class RaceManagerImpl implements RaceManager {
 			// 1.校验是否存在
 			List<RaceDocumentValue> racedocs = this.raceDao.getRaceDocuments(
 					raceModelValue.getRaceid(), null, userid,
-					raceModelValue.getRound());
+					raceModelValue.getRound(), null);
 			if (racedocs == null || racedocs.isEmpty()) {
 				throw new Exception("4");// vrvldagan d vrvlqahv budugel baihu
 											// ugei
@@ -305,17 +328,19 @@ public class RaceManagerImpl implements RaceManager {
 			} else if (currentDate.compareTo(raceModelValue.getEnddate()) > 0) {
 				throw new Exception("7");
 			}
-			List<RaceRound> rounds=this.raceDao.getRaceRounds(raceModelValue.getRaceid(), raceModelValue.getRound());
-			if(currentDate.compareTo(rounds.get(0).getEnddate())<0){
+			List<RaceRound> rounds = this.raceDao.getRaceRounds(
+					raceModelValue.getRaceid(), raceModelValue.getRound());
+			if (currentDate.compareTo(rounds.get(0).getEnddate()) < 0) {
 				throw new Exception("9");
 			}
 			// 校验是否有nextround
-		    rounds = this.raceDao.getRaceRounds(
-					raceModelValue.getRaceid(), nextround);
+			rounds = this.raceDao.getRaceRounds(raceModelValue.getRaceid(),
+					nextround);
 			if (rounds == null || rounds.isEmpty()) {
 				throw new Exception("8"); //  
 			}
-			this.raceDao.addRaceUser(raceModelValue.getRaceid(), userid, nextround);
+			this.raceDao.addRaceUser(raceModelValue.getRaceid(), userid,
+					nextround);
 
 		} else {
 			throw new Exception("3");
@@ -384,16 +409,16 @@ public class RaceManagerImpl implements RaceManager {
 	}
 
 	@Override
-	public PaingModel<DocumentValue> pagingqueryracedoc(PaingModel<DocumentValue> paingModel) throws Exception {
+	public PaingModel<DocumentValue> pagingqueryracedoc(
+			PaingModel<DocumentValue> paingModel) throws Exception {
 		// TODO Auto-generated method stub
 		paingModel.setStartrow((paingModel.getPageindex() - 1)
 				* paingModel.getPagesize());
 		paingModel.setEndrow(paingModel.getPagesize());
-		List<RaceModelValue> raceModels= this.raceDao.getRaceModels(null, 1);
+		List<RaceModelValue> raceModels = this.raceDao.getRaceModels(null, 1);
 		paingModel.setRaceid(raceModels.get(0).getRaceid());
 		paingModel.setRound(raceModels.get(0).getRound());
-		List<DocumentValue> documents = this.raceDao
-				.pagingquerydoc(paingModel);
+		List<DocumentValue> documents = this.raceDao.pagingquerydoc(paingModel);
 		paingModel.setModelList(documents);
 		Integer rowCount = this.raceDao.getRowCount(paingModel);
 		paingModel.setRowcount("" + rowCount);
@@ -414,8 +439,7 @@ public class RaceManagerImpl implements RaceManager {
 		}
 
 		return paingModel;
-	
+
 	}
-	
 
 }

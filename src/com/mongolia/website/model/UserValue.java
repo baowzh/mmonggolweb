@@ -84,6 +84,7 @@ public class UserValue implements UserDetails {
 	private Integer expert;
 	private Double maxscore;
 	private Integer jointype;
+	private Integer active;
 
 	public String getLastip() {
 		return lastip;
@@ -719,6 +720,14 @@ public class UserValue implements UserDetails {
 
 	public void setJointype(Integer jointype) {
 		this.jointype = jointype;
+	}
+
+	public Integer getActive() {
+		return active;
+	}
+
+	public void setActive(Integer active) {
+		this.active = active;
 	}
 
 }

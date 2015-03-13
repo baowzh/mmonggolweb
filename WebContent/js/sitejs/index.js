@@ -66,6 +66,10 @@ var login = function() {
 									.html(
 											'<font color="#f00">  </font>');
 						} 
+						else if (data.mess == '5') {
+							MessageWindow
+									.showMess('  email    <br>         ');
+						} 
 					}
 				}
 			});

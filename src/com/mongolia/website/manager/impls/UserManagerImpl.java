@@ -56,7 +56,50 @@ public class UserManagerImpl implements UserManager {
 				StaticConstants.encrypekey);
 		userValue.setPassword(pass);
 		userValue.setHeadurl("nan.jpg");
+		// 校验邮箱地址的有效性
+		if (userValue.getEmail() == null
+				|| userValue.getEmail().equalsIgnoreCase("")) {
+			throw new Exception("请填写邮箱地址!");
+		}
+		Map<String, Object> getparams = new HashMap<String, Object>();
+		getparams.put("email", userValue.getEmail());
+		List<UserValue> users = this.userManagerDao.getUser(getparams);
+		if (users != null && !users.isEmpty()) {
+			throw new Exception("此邮箱已注册过账号，不能重复注册!");
+		}
+		//
 		userManagerDao.createUser(userValue);
+		MimeMessage mailMessage = this.mailSender.createMimeMessage();
+		this.mailSender.setUsername("imubwz@126.com");
+		this.mailSender.setHost("smtp.126.com");
+		this.mailSender.getPassword();
+		this.mailSender.getHost();
+		Properties prop = new Properties();
+		prop.put("mail.smtp.auth", "true"); // 将这个参数设为true，让服务器进行认证,认证用户名和密码是否正确
+		prop.put("mail.smtp.timeout", "25000");
+		mailSender.setJavaMailProperties(prop);
+		MimeMessageHelper messageHelper = new MimeMessageHelper(mailMessage,
+				true, "utf-8");
+		messageHelper.setTo(userValue.getEmail());
+		messageHelper.setSubject(this.sysConfig.getSitename() + "激活账号地址");
+		String uuid = md5.encodePassword(userValue.getUsername(),
+				StaticConstants.encrypekey);
+		messageHelper
+				.setFrom(new InternetAddress(this.mailSender.getUsername()));
+		String mailstr = "您好！请点击这里<a href=\""
+				+ this.sysConfig.getSiteaddress()
+				+ "/activateUser.do?username="
+				+ userValue.getUsername()
+				+ "&id="
+				+ uuid
+				+ "\"</a>激活账号，激活成功以后登陆系统,如果无法点击请把下列地址写浏览器中访问"
+				+ ""+ this.sysConfig.getSiteaddress()
+				+ "/activateUser.do?username="
+				+ userValue.getUsername()
+				+ "&id="
+				+ uuid;
+		messageHelper.setText(mailstr, true);
+		mailSender.send(mailMessage);
 	}
 
 	@Override
@@ -101,6 +144,10 @@ public class UserManagerImpl implements UserManager {
 			throw new Exception("2");
 		}
 		UserValue sysUserValue = users.get(0);
+		if (sysUserValue.getActive() == null
+				|| sysUserValue.getActive().intValue() == 0) {
+			throw new Exception("5");
+		}
 		//
 		if (sysConfig.getOnline().intValue() == 1
 				&& sysUserValue.getOldid() != null) {
@@ -128,7 +175,6 @@ public class UserManagerImpl implements UserManager {
 			userValue.setEncripedPass(pass);
 		}
 		//
-
 		if (userValue.getUsername()
 				.equalsIgnoreCase(sysUserValue.getUsername())) {
 			if (userValue.getEncripedPass().equalsIgnoreCase(
@@ -333,4 +379,15 @@ public class UserManagerImpl implements UserManager {
 		return userValue;
 	}
 
+	@Override
+	public void activateUser(String usrname, String activeid) throws Exception {
+		// TODO Auto-generated method stub
+		Md5PasswordEncoder md5 = new Md5PasswordEncoder();
+		String uuid = md5.encodePassword(usrname, StaticConstants.encrypekey);
+		if (uuid.equalsIgnoreCase(activeid)) {
+			this.userManagerDao.activateUser(usrname);
+		} else {
+			throw new Exception("激活账号地址不正确！");
+		}
+	}
 }

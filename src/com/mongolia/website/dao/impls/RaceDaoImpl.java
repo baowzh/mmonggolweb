@@ -34,13 +34,14 @@ public class RaceDaoImpl extends BaseDaoiBatis implements RaceDao {
 
 	@Override
 	public List<RaceDocumentValue> getRaceDocuments(String raceid,
-			String docid, String userid, Integer round) throws Exception {
+			String docid, String userid, Integer round,Integer jointype) throws Exception {
 		// TODO Auto-generated method stub
 		Map<String, Object> queryParams = new HashMap<String, Object>();
 		queryParams.put("raceid", raceid);
 		queryParams.put("docid", docid);
 		queryParams.put("joinuserid", userid);
 		queryParams.put("round", round);
+		queryParams.put("jointype", jointype);
 		return this.getSqlMapClientTemplate().queryForList(
 				"getRaceDocumentValue", queryParams);
 
@@ -89,12 +90,13 @@ public class RaceDaoImpl extends BaseDaoiBatis implements RaceDao {
 	}
 
 	@Override
-	public List<UserValue> getRaceUserList(String raceid, Integer round)
+	public List<UserValue> getRaceUserList(String raceid, Integer round,Integer jointype)
 			throws Exception {
 		// TODO Auto-generated method stub
 		Map<String, Object> queryMap = new HashMap<String, Object>();
 		queryMap.put("raceid", raceid);
 		queryMap.put("round", round);
+		queryMap.put("jointype", jointype);
 		return this.getSqlMapClientTemplate().queryForList("getRaceUserList",
 				queryMap);
 	}
@@ -118,12 +120,13 @@ public class RaceDaoImpl extends BaseDaoiBatis implements RaceDao {
 	 * @return
 	 * @throws Exception
 	 */
-	public List<UserValue> getUserMaxScores(String raceid, Integer round)
+	public List<UserValue> getUserMaxScores(String raceid, Integer round,Integer jointype)
 			throws Exception {
 		// TODO Auto-generated method stub
 		Map<String, Object> queryMap = new HashMap<String, Object>();
 		queryMap.put("raceid", raceid);
 		queryMap.put("round", round);
+		queryMap.put("jointype", jointype);
 		return this.getSqlMapClientTemplate().queryForList("getUserMaxScores",
 				queryMap);
 	}

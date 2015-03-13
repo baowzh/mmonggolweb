@@ -30,11 +30,14 @@
 			<div class="iconContainer"></div>
 			<div class="border">
 				<div class="loginWindow">
-					<div class="content" style="width: 170px;">
+					<div class="content" style="width: 190px;">
 						<form class="mglForm" action="doregiste.do" id="userinfoform"
 							method="post">
 							<div class="label">  </div>
 							<div class="label">:</div>
+							<div class="label">
+								 (Email)<font color="#f00">*</font> 
+							</div>
 							<div class="label">  </div>
 							<div class="label">
 								  <a href="javascript:replaceverifycode();"></a>
@@ -46,16 +49,20 @@
 								</a>
 							</div>
 							<div class="inputHolder">
-								<input name="username" id="username" value="" />
+								<input name="username" id="username" value="" maxlength="20"/>
 							</div>
 							<div class="inputHolder">
-								<input name="artname" id="artname" value="" />
+								<input name="artname" id="artname" value="" maxlength="30"/>
 							</div>
 							<div class="inputHolder">
-								<input name="password" id="password" type="password" />
+								<input type="text" name="email" id="email"
+									value="<c:out value="${userinfo.email}"/>" maxlength="40"></input>
 							</div>
 							<div class="inputHolder">
-								<input name="varifycode" id="varifycode" value="" />
+								<input name="password" id="password" type="password" maxlength="10"/>
+							</div>
+							<div class="inputHolder">
+								<input name="varifycode" id="varifycode" value="" maxlength="10"/>
 							</div>
 							<div class="mnlist"
 								style="height: 210px; text-indent: 0px; font-size: 16px;">

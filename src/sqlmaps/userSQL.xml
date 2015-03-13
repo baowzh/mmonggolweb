@@ -60,7 +60,8 @@
 		oldid,
 		headurl,
 		managerflag,
-		expert
+		expert,
+		active
 		from
 		user
 		<dynamic prepend="where">
@@ -84,6 +85,9 @@
 			</isNotNull>
 			<isNotNull prepend="and" property="userkind">
 				userkind=#userkind#
+			</isNotNull>
+			<isNotNull prepend="and" property="email">
+				email=#email#
 			</isNotNull>
 		</dynamic>
 		order by regdate desc
@@ -631,5 +635,8 @@
 		</dynamic>
 		group by visitorid
 	</select>
+	<update id="activateUser" parameterClass="java.util.Map">
+		 update user set user.active=1 where username=#username#
+	</update>
 
 </sqlMap>

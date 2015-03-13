@@ -52,10 +52,14 @@ var login = function() {
 									.showMess('           ');
 						}
 						if (data.mess == '2') {
+
 						} else if (data.mess == '3') {
 							MessageWindow
 									.showMess('            ');
 
+						} else if (data.mess == '5') {
+							MessageWindow
+									.showMess('  email  <br>     ');
 						} else {
 							//
 						}

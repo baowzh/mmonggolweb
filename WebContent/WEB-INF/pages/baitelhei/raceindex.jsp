@@ -13,6 +13,8 @@
 <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="js/util/js/messageWindow.js"></script>
 <script src="js/sitejs/raceindex.js"></script>
+<script language="javascript" type="text/javascript"
+	src="http://js.users.51.la/17667713.js"></script>
 <title> 2015</title>
 </head>
 <body>
@@ -57,7 +59,12 @@
 		</div>
 		<div class="vgalja_2"></div>
 		<div class="box_3">
-			<div class="box_3_1 tig" id="box3_title">  </div>
+			<c:if test="${jointype==1}">
+				<div class="box_3_1 tig" id="box3_title">  </div>
+			</c:if>
+			<c:if test="${jointype==2}">
+				<div class="box_3_1 tig" id="box3_title">  </div>
+			</c:if>
 			<div class="box_3_2 ungge_ar" id="box3_list">
 				<!--这里参赛人员信息框-->
 				<c:forEach items="${raceUsers}" var="raceUser" varStatus="status">
@@ -117,7 +124,7 @@
 								<div class="desitem" style="height: 320px;">
 									<div class="author" style="color: #f00;">
 										 :
-										<fmt:formatNumber value="${raceUser.maxscore}" type="currency"
+										<fmt:formatNumber value="${raceUser.maxscore}" type="NUMBER"
 											pattern="#0.00" />
 									</div>
 								</div>
@@ -416,8 +423,9 @@
 				  <br> □     <br> □
 				 <br> □  <br> □   <br>
 				□  <br> □   <br> □
-				       &nbsp;   
-				 <br> □     
+				       &nbsp;  
+				  <br> □    
+				
 			</div>
 
 
@@ -511,6 +519,11 @@
 			</div>
 		</div>
 	</div>
+	<noscript>
+		<a href="http://www.51.la/?17667713" target="_blank"><img
+			alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;"
+			src="http://img.users.51.la/17667713.asp" style="border: none" /></a>
+	</noscript>
 	<!--y-->
 </body>
 <script>

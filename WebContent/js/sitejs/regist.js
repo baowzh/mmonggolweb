@@ -5,11 +5,11 @@ var doregist = function() {
 		MessageWindow.showMess("' '    ");
 		return;
 	}
-	if (username.length <6) {
+	if (username.length < 6) {
 		MessageWindow.showMess("' '     ");
 		return;
 	}
-	if (!username.match(/[^\u4e00-\u9fa5]/g)){
+	if (!username.match(/[^\u4e00-\u9fa5]/g)) {
 		MessageWindow.showMess("' '      ");
 		return;
 	}
@@ -18,10 +18,11 @@ var doregist = function() {
 		MessageWindow.showMess("'  '    ");
 		return;
 	}
-	if (artname.length <8) {
+	/*
+	if (artname.length < 8) {
 		MessageWindow.showMess("'  '     ");
 		return;
-	}
+	}*/
 	var password = $("#password").val();
 	if (password == null || password == '') {
 		MessageWindow.showMess("' '     ");
@@ -32,9 +33,20 @@ var doregist = function() {
 		MessageWindow.showMess("' '     ");
 		return;
 	}
-	var agree = $("#agree")[0].checked;//checkbox.checked
-	if (agree==false||agree==undefined) {
-		MessageWindow.showMess("        <br>  ");
+	var email = $("#email").val();
+	if (email == null || email == '') {
+		MessageWindow.showMess("'email'     ");
+		return;
+	}
+	var reg=/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
+	if(!reg.test(email)){
+		MessageWindow.showMess("'email'      ");
+		return;	
+	}
+	var agree = $("#agree")[0].checked;// checkbox.checked
+	if (agree == false || agree == undefined) {
+		MessageWindow
+				.showMess("        <br>  ");
 		return;
 	}
 	var error = false;
@@ -78,9 +90,7 @@ var doregist = function() {
 				},
 				success : function(data) { // 请求成功后处理函数。
 					if (data.exists == '1') {
-						exists = true;
-						MessageWindow
-								.showMess("' '       <br>    ");
+						exists = true;					
 						error = true;
 					}
 				}
@@ -128,6 +138,13 @@ var checkusreisexists = function() {
 		},
 		success : function(data) { // 请求成功后处理函数。
 			if (data.exists == '1') {
+				MessageWindow
+				.showMess("' '       <br>    ");
+				exists = true;
+			}
+			if (data.exists == '2') {
+				MessageWindow
+				.showMess("'你已经注册过用户 ");
 				exists = true;
 			}
 		}

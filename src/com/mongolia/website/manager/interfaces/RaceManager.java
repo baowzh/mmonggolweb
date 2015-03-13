@@ -74,7 +74,7 @@ public interface RaceManager {
 	public void addRaceScoreLogValue(RaceScoreLogValue raceScoreLogValue)
 			throws Exception;
 
-	public List<RaceUser> getRaceIndexContent(String raceid) throws Exception;
+	public List<RaceUser> getRaceIndexContent(String raceid,Integer jointype) throws Exception;
 
 	public List<RaceDocumentValue> getRaceSumValue(String raceid, String docid,
 			Integer round) throws Exception;
@@ -86,7 +86,7 @@ public interface RaceManager {
 	 * @return
 	 * @throws Exception
 	 */
-	public Map<String, Object> getRaceIndexCon(String raceid, String pageid)
+	public Map<String, Object> getRaceIndexCon(String raceid, String pageid,Integer jointype)
 			throws Exception;
 
 	/**

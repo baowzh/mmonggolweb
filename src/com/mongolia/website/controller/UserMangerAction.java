@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -198,7 +199,7 @@ public class UserMangerAction {
 			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
-			map.put("mess", "3");
+			map.put("mess", ex.getMessage());
 			return new ModelAndView("userspace/login", map);
 		}
 
@@ -242,21 +243,31 @@ public class UserMangerAction {
 	 */
 	@RequestMapping("/doregiste.do")
 	public ModelAndView doregiste(HttpServletRequest request,
-			UserValue userValue, ModelMap map) {
+			UserValue userValue, ModelMap map, HttpServletResponse response) {
 		try {
 			userManager.doCreateUser(userValue);
 			List<UserValue> users = this.userManager.getUsers(null,
 					userValue.getUsername());
 			if (users != null && !users.isEmpty()) {
-				map.put("userinfo", users.get(0));
-				request.getSession().setAttribute("user", users.get(0));
+				// map.put("userinfo", users.get(0));
+				// request.getSession().setAttribute("user", users.get(0));
+				map.put("errorMess", "成功注册系统,请登录邮箱" + userValue.getEmail()
+						+ "激活账号再登陆系统。");
+				map.put("success", "0");
+				return new ModelAndView("website/error", map);
 			}
 			map.put("success", "1");
+			Cookie cookie = new Cookie("userName", userValue.getName());
+			cookie.setMaxAge(30 * 24 * 60 * 60);
+			response.addCookie(cookie);
+			// 发送电子邮件
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			map.put("error", ex.getMessage());
+			map.put("errorMess", ex.getMessage());
+
 			map.put("success", "0");
-			return new ModelAndView("jsonView", map);
+			return new ModelAndView("website/error", map);
 		}
 		if (this.isphoneagent(request)) {
 			return new ModelAndView("redirect:phoneuserindex.do");
@@ -455,13 +466,22 @@ public class UserMangerAction {
 	 * @return
 	 */
 	@RequestMapping("/checkuserisexists.do")
-	public ModelAndView checkUserIsExists(UserValue UserValue, ModelMap map) {
+	public ModelAndView checkUserIsExists(HttpServletRequest request,
+			UserValue UserValue, ModelMap map) {
 		List<UserValue> userValues = userManager.getUsers(
 				UserValue.getUserid(), UserValue.getUsername());
 		if (userValues == null || userValues.isEmpty()) {
 			map.put("exists", "0");
 		} else {
 			map.put("exists", "1");
+		}
+		Cookie cookies[] = request.getCookies();
+		for (Cookie cookie : cookies) {
+			if (cookie.getName().equalsIgnoreCase("userName")
+					&& cookie.getValue() != null) {
+				map.put("exists", "2");
+				break;
+			}
 		}
 		return new ModelAndView("jsonView", map);
 	}
@@ -528,12 +548,12 @@ public class UserMangerAction {
 		if (sessionUser == null) {
 			return new ModelAndView("userspace/login", map);
 		} else {
-			//if (this.isphoneagent(request)) {
-				//return new ModelAndView("redirect:phoneuserindex.do");
-			//}else{
-				return new ModelAndView("redirect:gouserindex.do", map);	
-			//}
-		
+			// if (this.isphoneagent(request)) {
+			// return new ModelAndView("redirect:phoneuserindex.do");
+			// }else{
+			return new ModelAndView("redirect:gouserindex.do", map);
+			// }
+
 		}
 	}
 
@@ -813,6 +833,21 @@ public class UserMangerAction {
 		binder.registerCustomEditor(Date.class, new CustomDateEditor(
 				dateFormat, false));
 	}
-	
+
+	@RequestMapping("/activateUser.do")
+	public ModelAndView activateUser(HttpServletRequest request,
+			HttpServletResponse response, ModelMap map) {
+		try {
+			String userid = (String) request.getParameter("id");
+			String username = (String) request.getParameter("username");
+			this.userManager.activateUser(username, userid);
+			map.put("errorMess", "成功激活账号，请到主页进行登陆系统！");
+			map.put("success", "0");
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			map.put("errorMess", ex.getMessage());
+		}
+		return new ModelAndView("website/error", map);
+	}
 
 }

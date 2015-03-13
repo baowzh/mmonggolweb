@@ -32,7 +32,7 @@ public interface RaceDao {
 	 * @throws Exception
 	 */
 	public List<RaceDocumentValue> getRaceDocuments(String raceid,
-			String docid, String userid, Integer round) throws Exception;
+			String docid, String userid, Integer round,Integer jointype) throws Exception;
 
 	/**
 	 * 
@@ -75,7 +75,7 @@ public interface RaceDao {
 	 * @return
 	 * @throws Exception
 	 */
-	public List<UserValue> getRaceUserList(String raceid, Integer round)
+	public List<UserValue> getRaceUserList(String raceid, Integer round,Integer jointype)
 			throws Exception;
 
 	/**
@@ -95,7 +95,7 @@ public interface RaceDao {
 	 * @return
 	 * @throws Exception
 	 */
-	public List<UserValue> getUserMaxScores(String raceid, Integer round)
+	public List<UserValue> getUserMaxScores(String raceid, Integer round,Integer jointype)
 			throws Exception;
 
 	/**

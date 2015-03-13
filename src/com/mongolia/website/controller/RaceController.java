@@ -127,11 +127,11 @@ public class RaceController {
 	public ModelAndView raceindex(HttpServletRequest request, ModelMap map) {
 		// 获取所有参赛人员和相关的作品
 		try {
-			List<RaceUser> raceUsers = this.raceManager
-					.getRaceIndexContent(request.getParameter("raceid"));
+			List<RaceUser> raceUsers = this.raceManager.getRaceIndexContent(
+					request.getParameter("raceid"), 1);
 			Map<String, Object> indexcontent = this.raceManager
 					.getRaceIndexCon(request.getParameter("raceid"),
-							"raceindex");
+							"raceindex", 1);
 			List<RaceModelValue> raceModelValues = this.raceManager
 					.getRaceModels(null, 1);
 			Object userValueobj = request.getSession().getAttribute("user");
@@ -149,6 +149,47 @@ public class RaceController {
 			JSONObject json = new JSONObject();
 			json.put("raceModel", raceModelValues.get(0));
 			map.put("raceModelJson", json.toString());
+			map.put("jointype", 1);
+			// 跟专题相关的页面栏目
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return new ModelAndView("baitelhei/raceindex", map);
+	}
+	
+	/**
+	 * 
+	 * @param request
+	 * @param map
+	 * @return
+	 */
+	@RequestMapping("/childraceindex.do")
+	public ModelAndView childraceindex(HttpServletRequest request, ModelMap map) {
+		// 获取所有参赛人员和相关的作品
+		try {
+			List<RaceUser> raceUsers = this.raceManager.getRaceIndexContent(
+					request.getParameter("raceid"), 2);
+			Map<String, Object> indexcontent = this.raceManager
+					.getRaceIndexCon(request.getParameter("raceid"),
+							"raceindex", 2);
+			List<RaceModelValue> raceModelValues = this.raceManager
+					.getRaceModels(null, 1);
+			Object userValueobj = request.getSession().getAttribute("user");
+			if (userValueobj != null) {
+				map.put("userValue", (UserValue) userValueobj);
+			}
+			map.put("raceUsers", raceUsers);
+			map.put("indexPageContent", indexcontent);
+			map.put("racemodel", raceModelValues.get(0));
+			List<ImgValue> imgs = this.raceManager.getRaceImgList(
+					raceModelValues.get(0).getRaceid(), 10);
+			map.put("imgs", imgs);
+			List<DocumentValue> videos = this.raceManager.getvides(null);
+			map.put("videos", videos);
+			JSONObject json = new JSONObject();
+			json.put("raceModel", raceModelValues.get(0));
+			map.put("raceModelJson", json.toString());
+			map.put("jointype", 2);
 			// 跟专题相关的页面栏目
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -207,6 +248,5 @@ public class RaceController {
 		}
 		return new ModelAndView("baitelhei/racedetail", map);
 	}
-	
 
 }

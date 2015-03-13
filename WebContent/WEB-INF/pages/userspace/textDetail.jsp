@@ -30,6 +30,8 @@
 <script src="js/messagebox/jquery.msgbox.js"></script>
 <script src="js/messagebox/jquery.dragndrop.min.js"></script>
 <script type="text/javascript" src="ckeditor/ckeditor.js"></script>
+<script language="javascript" type="text/javascript" src="http://js.users.51.la/17667713.js"></script>
+<noscript><a href="http://www.51.la/?17667713" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/17667713.asp" style="border:none" /></a></noscript>
 </head>
 <body style="background-color: #fff; scroll: none;">
 	<div id="viewhead" class="viewhead"
@@ -185,8 +187,12 @@
 				<a href="#"><c:out value="${raceModelValue.racename}" /> 
 					  </a>
 				<br>
-				<a href="#">  :<c:out
-						value="${raceDocumentValue.nettotalscore}" default="0" />
+				<a href="#">  :
+<%-- 				<c:out --%>
+<%-- 						value="${raceDocumentValue.nettotalscore}" default="0" /> --%>
+						<fmt:formatNumber
+						value="${raceDocumentValue.nettotalscore}" type="NUMBER"
+						pattern="#0.00" />
 				</a>
 				<br>
 				<a href="#">     :<c:out
@@ -194,7 +200,7 @@
 				</a>
 				<br>
 				<a href="#">    <fmt:formatNumber
-						value="${raceDocumentValue.netaveragescore}" type="currency"
+						value="${raceDocumentValue.netaveragescore}" type="NUMBER"
 						pattern="#0.00" />
 				</a>
 				<br>
@@ -207,16 +213,16 @@
 				</a>
 				<br>
 				<a href="#">     <fmt:formatNumber
-						value="${raceDocumentValue.speaveragescore}" type="currency"
+						value="${raceDocumentValue.speaveragescore}" type="NUMBER"
 						pattern="#0.00" />
 				</a>
 				<br>
 				<a href="#"> :   <fmt:formatNumber
-						value="${raceDocumentValue.netaveragescore}" type="currency"
+						value="${raceDocumentValue.netaveragescore}" type="NUMBER"
 						pattern="#0.00" /> X20%+    <fmt:formatNumber
-						value="${raceDocumentValue.speaveragescore}" type="currency"
+						value="${raceDocumentValue.speaveragescore}" type="NUMBER"
 						pattern="#0.00" /> X80%= <fmt:formatNumber
-						value="${raceDocumentValue.finalscore}" type="currency"
+						value="${raceDocumentValue.finalscore}" type="NUMBER"
 						pattern="#0.00" />
 
 				</a>

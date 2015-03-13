@@ -162,6 +162,9 @@
 			<isNotNull prepend="and" property="round">
 				c.round=#round#
 			</isNotNull>
+			<isNotNull prepend="and" property="jointype">
+				a.jointype=#jointype#
+			</isNotNull>
 		</dynamic>
 	</select>
 	<select id="getRaceSumValue" parameterClass="java.util.Map"
@@ -177,25 +180,25 @@
 	<select id="getUserMaxScores" parameterClass="java.util.Map"
 		resultClass="UserValue">
 		select b.docid,b.joinuserid as
-		userid,netaveragescore+speaveragescore as maxscore from (select
-		a.docid,a.joinuserid,a.netaveragescore,a.speaveragescore from (
+		userid,netaveragescore*0.2+speaveragescore*0.8 as maxscore from (select
+		a.docid,a.joinuserid,sum(a.netaveragescore) as netaveragescore ,sum(a.speaveragescore) as speaveragescore  from (
 		select
 		a.docid as docid,b.joinuserid as joinuserid
-		,(sum(a.score)/count(1))*0.2 as netaveragescore,0 as speaveragescore
+		,(sum(a.score)/count(1)) as netaveragescore,0 as speaveragescore
 		from racescorelog
 		a,racedocument b where a.raceid=b.raceid and
 		a.docid=b.docid and
 		a.usertype=1
-		and a.raceid=#raceid# and a.round=#round# GROUP BY  a.docid,b.joinuserid
+		and a.raceid=#raceid# and a.round=#round# and b.jointype=#jointype# GROUP BY  a.docid,b.joinuserid
 		union ALL
 		select
 		a.docid as docid,b.joinuserid as joinuserid ,0 as
-		netaveragescore,(sum(a.score)/count(1))*0.8 as speaveragescore from
+		netaveragescore,(sum(a.score)/count(1)) as speaveragescore from
 		racescorelog a,racedocument b where a.raceid=b.raceid and
 		a.docid=b.docid and a.usertype=2
 		and a.raceid=#raceid# and
-		a.round=#round#  GROUP BY a.docid,b.joinuserid
-		) a) b where <![CDATA[IFNULL(b.netaveragescore,0)+IFNULL(b.speaveragescore,0)<>0]]>
+		a.round=#round# and b.jointype=#jointype#  GROUP BY a.docid,b.joinuserid
+		) a GROUP BY a.docid,a.joinuserid  ) b where <![CDATA[IFNULL(b.netaveragescore,0)+IFNULL(b.speaveragescore,0)<>0]]>
 		
 	</select>
 	<insert id="addRaceUserModel" parameterClass="RaceUserModel">
