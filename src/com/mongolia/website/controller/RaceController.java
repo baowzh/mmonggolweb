@@ -239,18 +239,11 @@ public class RaceController {
 			if (index == null || index.equalsIgnoreCase("")) {
 				index = "1";
 			}
-			List<RaceDocumentValue> docs = this.raceManager.getRaceDocuments(
-					raceid, docid, null, null);
-			if (docs.get(0).getJointype().intValue() == StaticConstants.JOINRACE_TYPE2) {
-				round = "1";
-			} else {
-				round = request.getParameter("round");
-			}
+			round = request.getParameter("round");
 			PaingModel<RaceScoreLogValue> retPaingModel = raceManager
 					.pagingqueryscorelog(raceid, docid, index,
 							Integer.parseInt(round));
 			map.put("paingModel", retPaingModel);
-			//
 			String pagingstr = PageUtil.getPagingLinkForRaceScore(
 					retPaingModel, 1);
 			map.put("pagingstr", pagingstr);

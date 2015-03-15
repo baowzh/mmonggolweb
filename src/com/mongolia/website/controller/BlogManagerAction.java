@@ -390,10 +390,8 @@ public class BlogManagerAction {
 							request.getParameter("docid"), null, null);
 			if (racedocs != null
 					&& !racedocs.isEmpty()
-					&& ((racedocs.get(0).getRaceround().intValue() == raceModelValues
-							.get(0).getRound().intValue()) || (racedocs.get(0)
-							.getRaceround().intValue() == 1 && racedocs.get(0)
-							.getJointype().intValue() == 2))) {
+					&& racedocs.get(0).getRaceround().intValue() == raceModelValues
+							.get(0).getRound().intValue()) {
 				map.put("isjoin", 1);
 			} else {
 				map.put("isjoin", 0);
