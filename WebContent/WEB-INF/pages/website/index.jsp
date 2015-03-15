@@ -243,7 +243,7 @@
 					  </a> 
 					-->
 					<a href="raceindex.do" style="color: #f00;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  </a>
-					<a href="childraceindex.do" style="color: #f00;">&nbsp;&nbsp;   </a>
+					<a href="raceindex.do" style="color: #f00;">&nbsp;&nbsp;   </a>
 			</div>
 
 		</div>

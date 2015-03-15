@@ -77,7 +77,10 @@ public interface RaceDao {
 	 */
 	public List<UserValue> getRaceUserList(String raceid, Integer round,Integer jointype)
 			throws Exception;
-
+	
+	public List<UserValue> getRaceChildList(String raceid, Integer round,Integer jointype)
+			throws Exception;
+	
 	/**
 	 * 
 	 * @param raceid

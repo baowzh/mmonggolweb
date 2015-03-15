@@ -18,7 +18,6 @@ import com.mongolia.website.model.BookStoreValue;
  *
  */
 @Service("bookStoreManagerImpl")
-@Transactional(rollbackFor = Exception.class)
 public class BookStoreManagerImpl implements BookStoreManager {
 	@Resource(name = "bookStoreDaoImpl")
 	private BookStoreDao bookStoreDao;

@@ -201,6 +201,23 @@
 		) a GROUP BY a.docid,a.joinuserid  ) b where <![CDATA[IFNULL(b.netaveragescore,0)+IFNULL(b.speaveragescore,0)<>0]]>
 		
 	</select>
+	<select id="getRaceChildList" parameterClass="java.util.Map"
+		resultClass="UserValue">
+		select distinct b.*,a.jointype from racedocument a,user b
+		where
+		a.joinuserid=b.userid and a.raceid=#raceid#
+		<dynamic prepend="and">
+			<isNotNull prepend="and" property="raceid">
+				a.raceid=#raceid#
+			</isNotNull>
+			<isNotNull prepend="and" property="round">
+				a.raceround=#round#
+			</isNotNull>
+			<isNotNull prepend="and" property="jointype">
+				a.jointype=#jointype#
+			</isNotNull>
+		</dynamic>
+	</select>
 	<insert id="addRaceUserModel" parameterClass="RaceUserModel">
 		insert into
 		raceuser(

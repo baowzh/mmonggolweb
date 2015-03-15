@@ -15,7 +15,6 @@ import com.mongolia.website.model.PageChannelRelationValue;
 import com.mongolia.website.model.WebPageValue;
 
 @Service("webPageManager")
-@Transactional(rollbackFor = Exception.class)
 public class WebPageManagerImpl implements WebPageManager {
 	@Autowired
 	private WebPageManagerDao webPageManagerDao;

@@ -11,6 +11,7 @@ public class RaceRound {
 	private Date netuserendtime;
     private String begindatestr;
     private String enddatestr;
+    private Date childtime;
 	public String getRaceid() {
 		return raceid;
 	}
@@ -78,6 +79,13 @@ public class RaceRound {
 	public void setEnddatestr(String enddatestr) {
 		this.enddatestr = enddatestr;
 	}
-	
 
+	public Date getChildtime() {
+		return childtime;
+	}
+
+	public void setChildtime(Date childtime) {
+		this.childtime = childtime;
+	}
+	
 }

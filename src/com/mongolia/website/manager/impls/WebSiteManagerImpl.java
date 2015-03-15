@@ -14,7 +14,6 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.mongolia.website.controller.freemarker.CustomFreeMarkerConfigurer;
 import com.mongolia.website.dao.interfaces.UserManagerDao;
@@ -39,7 +38,6 @@ import com.mongolia.website.util.UUIDMaker;
 import freemarker.template.Template;
 
 @Service("webSiteManager")
-@Transactional(rollbackFor = Exception.class)
 public class WebSiteManagerImpl implements WebSiteManager {
 	@Autowired
 	private WebSiteManagerDao WebSiteManagerDao;

@@ -14,7 +14,6 @@ import com.mongolia.website.model.Channel;
 import com.mongolia.website.util.UUIDMaker;
 
 @Service("channelManager")
-@Transactional(rollbackFor = Exception.class)
 public class ChannelManagerImpl implements ChannelManager {
 
 	@Autowired

@@ -9,9 +9,12 @@
 <link href="site/css/race.css" type="text/css" rel="stylesheet" />
 <link href="site/css/index.css" rel="stylesheet" type="text/css" />
 <link href="site/css/main.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="js\messagebox\jquery.msgbox.css" />
 <link rel="stylesheet" href="site/css/scroll.css" />
 <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="js/util/js/messageWindow.js"></script>
+<script src="js/messagebox/jquery.msgbox.js"></script>
+<script src="js/messagebox/jquery.dragndrop.min.js"></script>
 <script src="js/sitejs/raceindex.js"></script>
 <script language="javascript" type="text/javascript"
 	src="http://js.users.51.la/17667713.js"></script>
@@ -68,6 +71,97 @@
 			<div class="box_3_2 ungge_ar" id="box3_list">
 				<!--这里参赛人员信息框-->
 				<c:forEach items="${raceUsers}" var="raceUser" varStatus="status">
+					<div class="raceuser">
+						<div class="avtr">
+							<a
+								href="gouserindex.do?userid=<c:out value="${raceUser.uservalue.userid}" />">
+								<img
+								src="html/userhead/<c:out value="${raceUser.uservalue.headurl}" />" />
+							</a>
+						</div>
+						<div class="desc">
+							<div class="desitem" style="height: 320px;">
+								<div class="author">
+									 :
+									<c:out value="${raceUser.uservalue.artname}" />
+									<c:if test="${raceUser.maxscore!=0}">
+									&nbsp; 
+									<a href="#" style="color: #f00;"><c:out
+												value="${status.index+1}" />     </a>
+									</c:if>
+								</div>
+							</div>
+							<div class="desitem" style="height: 320px;">
+								<div class="author">
+									   :
+									<c:choose>
+										<c:when test="${raceUser.uservalue.jointype==1}">
+							           
+							       </c:when>
+										<c:when test="${raceUser.uservalue.jointype==2}">
+							            
+							       </c:when>
+										<c:otherwise>
+							           
+							       </c:otherwise>
+									</c:choose>
+								</div>
+							</div>
+							<c:forEach items="${raceUser.raceDocumentValues}"
+								var="raceDocumentValue" varStatus="status">
+								<div class="nwsl1">
+									<div class="title" style="height: 240px; color: #f00;">
+										<a
+											href="getuserdocdetail.do?docid=<c:out value="${raceDocumentValue.docid}"/>"
+											target="_blank" class="tit_text_overflow"
+											style="color: #f00;"> <c:out
+												value="${raceDocumentValue.doctitle}" />  
+										</a>
+									</div>
+									<div class="author">
+										<a
+											href="getuserdocdetail.do?docid=<c:out value="${raceDocumentValue.docid}"/>"
+											style="color: #f00;">   </a>
+									</div>
+								</div>
+								<div class="desitem" style="height: 320px;">
+									<div class="author" style="color: #f00;">
+										 :
+										<fmt:formatNumber value="${raceUser.maxscore}" type="NUMBER"
+											pattern="#0.00" />
+									</div>
+								</div>
+								<div class="desitem" style="height: 320px;">
+									<div class="author" style="color: #036;">
+										<a style="color: #036;"
+											href="raceScoreDetail.do?raceid=<c:out value="${raceDocumentValue.raceid}"/>&docid=<c:out value="${raceDocumentValue.docid}"/>&round=<c:out value="${raceDocumentValue.raceround}"/>">
+											   </a>
+									</div>
+								</div>
+
+							</c:forEach>
+
+
+							<c:if test="${userValue!=null&&userValue.managerflag==1}">
+								<div class="desitem" style="height: 320px;">
+									<div class="author" style="color: #036;">
+										<a style="color: #036;"
+											href="javascript:switchtonextround('<c:out value="${raceUser.uservalue.userid}"/>','<c:out value="${raceDocumentValue.raceid}"/>',<c:out value="${raceUser.uservalue.jointype}"/>);">
+											    </a>
+									</div>
+								</div>
+							</c:if>
+						</div>
+					</div>
+				</c:forEach>
+			</div>
+		</div>
+		<div class="vgalja_2"></div>
+		<div class="box_3">						
+				<div class="box_3_1 tig" id="box3_title">  </div>			
+			<div class="box_3_2 ungge_ar" id="box3_list">
+				<!--这里参赛人员信息框-->
+				<c:forEach items="${raceUsers1}" var="raceUser" varStatus="status">
 					<div class="raceuser">
 						<div class="avtr">
 							<a

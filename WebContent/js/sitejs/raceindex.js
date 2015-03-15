@@ -20,9 +20,7 @@ var switchtonextround = function(userid, raceid, jointype) {
 				},
 				success : function(data) {
 					if (data.mess == '0') {
-						$("#joinracediv").dialog("close");
 						MessageWindow.showMess('   ');
-						window.location.href = 'raceindex.do';
 					} else if (data.mess == '3') {
 						MessageWindow
 								.showMess('     ');

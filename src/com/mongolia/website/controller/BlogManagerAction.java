@@ -208,8 +208,7 @@ public class BlogManagerAction {
 		} else {
 			Map<String, Object> getchannelparams = new HashMap<String, Object>();
 			getchannelparams.put("types", "2");
-			chanels = this.channelManager
-					.getChannelList(getchannelparams);
+			chanels = this.channelManager.getChannelList(getchannelparams);
 		}
 		String user_agent_kind = request.getHeader("user-agent");
 		if (user_agent_kind.indexOf("Chrome") > 0) {
@@ -388,9 +387,13 @@ public class BlogManagerAction {
 			map.put("raceModelValue", raceModelValues.get(0));
 			List<RaceDocumentValue> racedocs = this.raceManager
 					.getRaceDocuments(raceModelValues.get(0).getRaceid(),
-							request.getParameter("docid"), null,
-							raceModelValues.get(0).getRound());
-			if (racedocs != null && !racedocs.isEmpty()) {
+							request.getParameter("docid"), null, null);
+			if (racedocs != null
+					&& !racedocs.isEmpty()
+					&& ((racedocs.get(0).getRaceround().intValue() == raceModelValues
+							.get(0).getRound().intValue()) || (racedocs.get(0)
+							.getRaceround().intValue() == 1 && racedocs.get(0)
+							.getJointype().intValue() == 2))) {
 				map.put("isjoin", 1);
 			} else {
 				map.put("isjoin", 0);
@@ -889,10 +892,9 @@ public class BlogManagerAction {
 			if (racemodels != null && !racemodels.isEmpty()) {
 				map.put("racemodel", racemodels.get(0));
 			}
-			Object sessionobj =  request.getSession().getAttribute(
-					"user");
-			if(sessionobj!=null){
-				map.put("sessionuser", sessionobj);	
+			Object sessionobj = request.getSession().getAttribute("user");
+			if (sessionobj != null) {
+				map.put("sessionuser", sessionobj);
 			}
 		} catch (Exception ex) {
 			ex.printStackTrace();

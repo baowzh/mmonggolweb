@@ -74,7 +74,8 @@ public interface RaceManager {
 	public void addRaceScoreLogValue(RaceScoreLogValue raceScoreLogValue)
 			throws Exception;
 
-	public List<RaceUser> getRaceIndexContent(String raceid,Integer jointype) throws Exception;
+	public List<RaceUser> getRaceIndexContent(String raceid, Integer jointype,
+			Integer type) throws Exception;
 
 	public List<RaceDocumentValue> getRaceSumValue(String raceid, String docid,
 			Integer round) throws Exception;
@@ -86,8 +87,8 @@ public interface RaceManager {
 	 * @return
 	 * @throws Exception
 	 */
-	public Map<String, Object> getRaceIndexCon(String raceid, String pageid,Integer jointype)
-			throws Exception;
+	public Map<String, Object> getRaceIndexCon(String raceid, String pageid,
+			Integer jointype) throws Exception;
 
 	/**
 	 * 加资格用户
@@ -127,6 +128,7 @@ public interface RaceManager {
 	 * @throws Exception
 	 */
 	public List<DocumentValue> getvides(String channelid) throws Exception;
+
 	/**
 	 * 
 	 * @param raceid
@@ -136,6 +138,7 @@ public interface RaceManager {
 	 * @return
 	 * @throws Exception
 	 */
-	public PaingModel<DocumentValue> pagingqueryracedoc(PaingModel<DocumentValue> paingModel) throws Exception;
+	public PaingModel<DocumentValue> pagingqueryracedoc(
+			PaingModel<DocumentValue> paingModel) throws Exception;
 
 }

@@ -14,6 +14,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.mongolia.website.manager.impls.RaceManagerImpl;
 import com.mongolia.website.manager.interfaces.RaceManager;
 import com.mongolia.website.model.DocumentValue;
 import com.mongolia.website.model.ImgValue;
@@ -24,6 +25,7 @@ import com.mongolia.website.model.RaceScoreLogValue;
 import com.mongolia.website.model.RaceUser;
 import com.mongolia.website.model.UserValue;
 import com.mongolia.website.util.PageUtil;
+import com.mongolia.website.util.StaticConstants;
 
 @Controller
 public class RaceController {
@@ -128,7 +130,7 @@ public class RaceController {
 		// 获取所有参赛人员和相关的作品
 		try {
 			List<RaceUser> raceUsers = this.raceManager.getRaceIndexContent(
-					request.getParameter("raceid"), 1);
+					request.getParameter("raceid"), 1, 1);
 			Map<String, Object> indexcontent = this.raceManager
 					.getRaceIndexCon(request.getParameter("raceid"),
 							"raceindex", 1);
@@ -150,13 +152,16 @@ public class RaceController {
 			json.put("raceModel", raceModelValues.get(0));
 			map.put("raceModelJson", json.toString());
 			map.put("jointype", 1);
+			List<RaceUser> raceUsers1 = this.raceManager.getRaceIndexContent(
+					request.getParameter("raceid"), 2, 2);// 儿童组的特殊处理
+			map.put("raceUsers1", raceUsers1);
 			// 跟专题相关的页面栏目
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
 		return new ModelAndView("baitelhei/raceindex", map);
 	}
-	
+
 	/**
 	 * 
 	 * @param request
@@ -168,7 +173,7 @@ public class RaceController {
 		// 获取所有参赛人员和相关的作品
 		try {
 			List<RaceUser> raceUsers = this.raceManager.getRaceIndexContent(
-					request.getParameter("raceid"), 2);
+					request.getParameter("raceid"), 2, 2);
 			Map<String, Object> indexcontent = this.raceManager
 					.getRaceIndexCon(request.getParameter("raceid"),
 							"raceindex", 2);
@@ -217,7 +222,7 @@ public class RaceController {
 					raceDocumentValue.getRaceid(),
 					raceDocumentValue.getJoinuserid(),
 					raceDocumentValue.getJointype());
-
+			map.put("mess", 0);
 		} catch (Exception ex) {
 			map.put("mess", ex.getMessage());
 		}
@@ -233,6 +238,13 @@ public class RaceController {
 		try {
 			if (index == null || index.equalsIgnoreCase("")) {
 				index = "1";
+			}
+			List<RaceDocumentValue> docs = this.raceManager.getRaceDocuments(
+					raceid, docid, null, null);
+			if (docs.get(0).getJointype().intValue() == StaticConstants.JOINRACE_TYPE2) {
+				round = "1";
+			} else {
+				round = request.getParameter("round");
 			}
 			PaingModel<RaceScoreLogValue> retPaingModel = raceManager
 					.pagingqueryscorelog(raceid, docid, index,

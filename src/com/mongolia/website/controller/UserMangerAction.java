@@ -248,14 +248,15 @@ public class UserMangerAction {
 			userManager.doCreateUser(userValue);
 			List<UserValue> users = this.userManager.getUsers(null,
 					userValue.getUsername());
-			if (users != null && !users.isEmpty()) {
+			request.getSession().setAttribute("user", users.get(0));
+			/*if (users != null && !users.isEmpty()) {
 				// map.put("userinfo", users.get(0));
 				// request.getSession().setAttribute("user", users.get(0));
 				map.put("errorMess", "成功注册系统,请登录邮箱" + userValue.getEmail()
 						+ "激活账号再登陆系统。");
 				map.put("success", "0");
 				return new ModelAndView("website/error", map);
-			}
+			}*/
 			map.put("success", "1");
 			Cookie cookie = new Cookie("userName", userValue.getName());
 			cookie.setMaxAge(30 * 24 * 60 * 60);
@@ -265,7 +266,6 @@ public class UserMangerAction {
 			ex.printStackTrace();
 			map.put("error", ex.getMessage());
 			map.put("errorMess", ex.getMessage());
-
 			map.put("success", "0");
 			return new ModelAndView("website/error", map);
 		}

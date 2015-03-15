@@ -9,7 +9,6 @@ import com.mongolia.website.manager.interfaces.WechatManager;
 import com.mongolia.website.model.WechatAccountEntity;
 
 @Service("wechatManagerImpl")
-@Transactional(rollbackFor = Exception.class)
 public class WechatManagerImpl implements WechatManager {
 
 	@Override

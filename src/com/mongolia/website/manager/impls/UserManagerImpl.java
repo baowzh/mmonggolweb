@@ -19,7 +19,6 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.mongolia.website.dao.interfaces.UserManagerDao;
 import com.mongolia.website.dao.interfaces.WebResourceDao;
@@ -33,7 +32,6 @@ import com.mongolia.website.util.StaticConstants;
 import com.mongolia.website.util.UUIDMaker;
 
 @Service("userManager")
-@Transactional(rollbackFor = Exception.class)
 public class UserManagerImpl implements UserManager {
 	@Autowired
 	private UserManagerDao userManagerDao;
@@ -69,6 +67,7 @@ public class UserManagerImpl implements UserManager {
 		}
 		//
 		userManagerDao.createUser(userValue);
+		/*
 		MimeMessage mailMessage = this.mailSender.createMimeMessage();
 		this.mailSender.setUsername("imubwz@126.com");
 		this.mailSender.setHost("smtp.126.com");
@@ -99,7 +98,7 @@ public class UserManagerImpl implements UserManager {
 				+ "&id="
 				+ uuid;
 		messageHelper.setText(mailstr, true);
-		mailSender.send(mailMessage);
+		mailSender.send(mailMessage);*/
 	}
 
 	@Override
@@ -144,10 +143,11 @@ public class UserManagerImpl implements UserManager {
 			throw new Exception("2");
 		}
 		UserValue sysUserValue = users.get(0);
+		/*
 		if (sysUserValue.getActive() == null
 				|| sysUserValue.getActive().intValue() == 0) {
 			throw new Exception("5");
-		}
+		}*/
 		//
 		if (sysConfig.getOnline().intValue() == 1
 				&& sysUserValue.getOldid() != null) {

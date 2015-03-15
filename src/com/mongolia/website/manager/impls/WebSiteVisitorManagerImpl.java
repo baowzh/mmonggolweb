@@ -12,7 +12,6 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.mongolia.website.dao.interfaces.ChannelManagerDao;
 import com.mongolia.website.dao.interfaces.WebPageManagerDao;
@@ -36,7 +35,6 @@ import com.mongolia.website.model.UserValue;
 import com.mongolia.website.util.StaticConstants;
 
 @Service("webSiteVisitorManager")
-@Transactional(rollbackFor = Exception.class)
 public class WebSiteVisitorManagerImpl extends BaseManagerImpl implements
 		WebSiteVisitorManager {
 	@Autowired

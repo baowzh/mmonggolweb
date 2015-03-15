@@ -16,7 +16,6 @@ import com.mongolia.website.manager.interfaces.BaseManager;
  * @author zeting
  */
 @Service("baseManager")
-@Transactional(rollbackFor = Exception.class)
 public class BaseManagerImpl implements BaseManager {
 
 	protected final Log log = LogFactory.getLog(getClass());

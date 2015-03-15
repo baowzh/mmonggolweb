@@ -217,6 +217,18 @@ public class RaceDaoImpl extends BaseDaoiBatis implements RaceDao {
 		// TODO Auto-generated method stub
 		return (Integer)this.getSqlMapClientTemplate().queryForObject("getRaceDocRowCount", paingModel);
 	}
+
+	@Override
+	public List<UserValue> getRaceChildList(String raceid, Integer round,
+			Integer jointype) throws Exception {
+		// TODO Auto-generated method stub
+		Map<String, Object> queryMap = new HashMap<String, Object>();
+		queryMap.put("raceid", raceid);
+		queryMap.put("round", round);
+		queryMap.put("jointype", jointype);
+		return this.getSqlMapClientTemplate().queryForList("getRaceChildList", queryMap);
+	}
+	
 	
 
 }

@@ -24,7 +24,6 @@ import com.mongolia.website.model.TextTemplate;
 import com.mongolia.website.util.MessageUtil;
 
 @Service("wechatServiceImpl")
-@Transactional(rollbackFor = Exception.class)
 public class WechatServiceImpl implements WechatService {
 	@Resource(name = "autoResponseManagerImpl")
 	private AutoResponseManager autoResponseManager;

@@ -10,7 +10,6 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.mongolia.website.dao.interfaces.RaceDao;
 import com.mongolia.website.dao.interfaces.UserManagerDao;
@@ -31,7 +30,6 @@ import com.mongolia.website.model.UserValue;
 import com.mongolia.website.util.StaticConstants;
 
 @Service("raceManager")
-@Transactional(rollbackFor = Exception.class)
 public class RaceManagerImpl implements RaceManager {
 	@Autowired
 	private RaceDao raceDao;
@@ -41,6 +39,7 @@ public class RaceManagerImpl implements RaceManager {
 	private WebPageManagerDao webPageManagerDao;
 	@Autowired
 	private WebSiteVisitorDao webSiteVisitorDao;
+	public static Integer GER_USER_TYPE_CHILD = 2;
 
 	@Override
 	public List<RaceModelValue> getRaceModels(String raceid, Integer inactive)
@@ -145,17 +144,34 @@ public class RaceManagerImpl implements RaceManager {
 		List<RaceModelValue> raceModelValues = this.raceDao.getRaceModels(
 				raceScoreLogValue.getRaceid(), 1);
 		RaceModelValue raceModelValue = raceModelValues.get(0);
+		List<RaceDocumentValue> docs = this.raceDao.getRaceDocuments(
+				raceModelValue.getRaceid(), raceScoreLogValue.getDocid(), null,
+				null, null);
 		// 获取当前nvgvlga
-		List<RaceRound> raceRounds = this.raceDao.getRaceRounds(
-				raceModelValue.getRaceid(), raceModelValue.getRound());
 		Date currentDate = new Date();
-		// currentDate.setTime(System.currentTimeMillis());
-		if (currentDate.compareTo(raceRounds.get(0).getBegindate()) < 0) {
-			throw new Exception("5");
-		} else if (currentDate.compareTo(raceRounds.get(0).getEnddate()) > 0) {
-			throw new Exception("6");
+		List<RaceRound> raceRounds = new ArrayList<RaceRound>();
+		if (docs.get(0).getJointype().intValue() == StaticConstants.JOINRACE_TYPE2) {
+			raceRounds = this.raceDao.getRaceRounds(raceModelValue.getRaceid(),
+					raceModelValue.getRound() - 1);
+			// currentDate.setTime(System.currentTimeMillis());
+			if (currentDate.compareTo(raceRounds.get(0).getBegindate()) < 0) {
+				throw new Exception("5");
+			} else if (currentDate.compareTo(raceRounds.get(0).getChildtime()) > 0) {
+				throw new Exception("6");
+			}
+			raceScoreLogValue.setRound(raceRounds.get(0).getRaceround());
+		} else {
+			raceRounds = this.raceDao.getRaceRounds(raceModelValue.getRaceid(),
+					raceModelValue.getRound());
+			// currentDate.setTime(System.currentTimeMillis());
+			if (currentDate.compareTo(raceRounds.get(0).getBegindate()) < 0) {
+				throw new Exception("5");
+			} else if (currentDate.compareTo(raceRounds.get(0).getEnddate()) > 0) {
+				throw new Exception("6");
+			}
+			raceScoreLogValue.setRound(raceRounds.get(0).getRaceround());
 		}
-		raceScoreLogValue.setRound(raceRounds.get(0).getRaceround());
+
 		Map<String, Object> queryUserParams = new HashMap<String, Object>();
 		queryUserParams.put("userid", raceScoreLogValue.getScoreuserid());
 		List<UserValue> userValues = this.userManagerDao
@@ -171,46 +187,90 @@ public class RaceManagerImpl implements RaceManager {
 			raceScoreLogValue.setUsertype(StaticConstants.SCORE_USER_TYPE1);
 		}
 		if (raceScoreLogValue.getUsertype().intValue() == StaticConstants.SCORE_USER_TYPE1
-				&& currentDate.compareTo(raceRounds.get(0).getNetuserendtime()) > 0) {
+				&& currentDate.compareTo(raceRounds.get(0).getNetuserendtime()) > 0
+				&& docs.get(0).getJointype().intValue() == StaticConstants.JOINRACE_TYPE1) {
+			throw new Exception("7");
+		} else if (raceScoreLogValue.getUsertype().intValue() == StaticConstants.SCORE_USER_TYPE1
+				&& currentDate.compareTo(raceRounds.get(0).getChildtime()) > 0
+				&& docs.get(0).getJointype().intValue() == StaticConstants.JOINRACE_TYPE2) {
+			throw new Exception("7");
+		} else if (raceScoreLogValue.getUsertype().intValue() == StaticConstants.SCORE_USER_TYPE2
+				&& currentDate.compareTo(raceRounds.get(0).getChildtime()) > 0
+				&& docs.get(0).getJointype().intValue() == StaticConstants.JOINRACE_TYPE2) {
 			throw new Exception("7");
 		}
 		// 获取参与比赛类型
-		List<RaceDocumentValue> racedos = this.raceDao.getRaceDocuments(
-				raceScoreLogValue.getRaceid(), raceScoreLogValue.getDocid(),
-				null, raceModelValue.getRound(), null);
-		RaceDocumentValue raceDocumentValue = racedos.get(0);
-		// 1. 校验是否已经评过分
-		List<RaceScoreLogValue> scorelogs = this.raceDao.getRaceScoreLog(
-				raceScoreLogValue.getRaceid(), raceScoreLogValue.getDocid(),
-				raceScoreLogValue.getScoreuserid(), raceModelValue.getRound());
-		if (scorelogs != null && !scorelogs.isEmpty()) {
-			throw new Exception("1");// 普通用户只能评一次分数
-		} else if (raceModelValue.getRound().intValue() > 2
-				&& raceScoreLogValue.getUsertype().intValue() == StaticConstants.SCORE_USER_TYPE2
-				&& raceDocumentValue.getJointype().intValue() == StaticConstants.JOINRACE_TYPE2) {
-			throw new Exception("4");// 儿童作品专家用户只能平2次
+		if(docs.get(0).getJointype().intValue() == StaticConstants.JOINRACE_TYPE1){
+			List<RaceDocumentValue> racedos = this.raceDao.getRaceDocuments(
+					raceScoreLogValue.getRaceid(), raceScoreLogValue.getDocid(),
+					null, raceModelValue.getRound(), null);
+			RaceDocumentValue raceDocumentValue = racedos.get(0);
+			// 1. 校验是否已经评过分
+			List<RaceScoreLogValue> scorelogs = this.raceDao.getRaceScoreLog(
+					raceScoreLogValue.getRaceid(), raceScoreLogValue.getDocid(),
+					raceScoreLogValue.getScoreuserid(), raceModelValue.getRound());
+			if (scorelogs != null && !scorelogs.isEmpty()) {
+				throw new Exception("1");// 普通用户只能评一次分数
+			} else if (raceModelValue.getRound().intValue() > 2
+					&& raceScoreLogValue.getUsertype().intValue() == StaticConstants.SCORE_USER_TYPE2
+					&& raceDocumentValue.getJointype().intValue() == StaticConstants.JOINRACE_TYPE2) {
+				throw new Exception("4");// 儿童作品专家用户只能平2次
+			}	
+		}else{
+			List<RaceDocumentValue> racedos = this.raceDao.getRaceDocuments(
+					raceScoreLogValue.getRaceid(), raceScoreLogValue.getDocid(),
+					null, 1, null);
+			RaceDocumentValue raceDocumentValue = racedos.get(0);
+			// 1. 校验是否已经评过分
+			List<RaceScoreLogValue> scorelogs = this.raceDao.getRaceScoreLog(
+					raceScoreLogValue.getRaceid(), raceScoreLogValue.getDocid(),
+					raceScoreLogValue.getScoreuserid(), 1);
+			if (scorelogs != null && !scorelogs.isEmpty()) {
+				throw new Exception("1");// 普通用户只能评一次分数
+			} else if (raceModelValue.getRound().intValue() > 2
+					&& raceScoreLogValue.getUsertype().intValue() == StaticConstants.SCORE_USER_TYPE2
+					&& raceDocumentValue.getJointype().intValue() == StaticConstants.JOINRACE_TYPE2) {
+				throw new Exception("4");// 儿童作品专家用户只能平2次
+			}
 		}
 		raceScoreLogValue.setScoredate(new Date());
 		raceDao.addRaceScoreLogValue(raceScoreLogValue);
 	}
 
 	@Override
-	public List<RaceUser> getRaceIndexContent(String raceid, Integer jointype)
-			throws Exception {
+	public List<RaceUser> getRaceIndexContent(String raceid, Integer jointype,
+			Integer type) throws Exception {
 		// TODO Auto-generated method stub
 		// 先获取所有参与比赛用户列表，在根据用户列表获取每个用户列表下面的参赛作品列表
 		List<RaceModelValue> raceModelValues = this.raceDao.getRaceModels(
 				raceid, 1);
-		List<UserValue> userlist = this.raceDao.getRaceUserList(raceModelValues
-				.get(0).getRaceid(), raceModelValues.get(0).getRound(),
-				jointype);
-		List<UserValue> maxScorelist = this.raceDao.getUserMaxScores(
-				raceModelValues.get(0).getRaceid(), raceModelValues.get(0)
-						.getRound(), jointype);
+		List<UserValue> userlist = new ArrayList<UserValue>();
+		if (type.intValue() == RaceManagerImpl.GER_USER_TYPE_CHILD) {
+			userlist = this.raceDao.getRaceChildList(raceModelValues.get(0)
+					.getRaceid(), 1, jointype);
+		} else {
+			userlist = this.raceDao.getRaceUserList(raceModelValues.get(0)
+					.getRaceid(), raceModelValues.get(0).getRound(), jointype);
+		}
+		List<UserValue> maxScorelist = new ArrayList<UserValue>();
+		if (type.intValue() == RaceManagerImpl.GER_USER_TYPE_CHILD) {
+			maxScorelist = this.raceDao.getUserMaxScores(raceModelValues.get(0)
+					.getRaceid(), 1, jointype);
+		} else {
+			maxScorelist = this.raceDao.getUserMaxScores(raceModelValues.get(0)
+					.getRaceid(), raceModelValues.get(0).getRound(), jointype);
+		}
 		List<RaceUser> raceUsers = new ArrayList<RaceUser>();
-		List<RaceDocumentValue> documents = this.raceDao.getRaceDocuments(
-				raceModelValues.get(0).getRaceid(), null, null, raceModelValues
-						.get(0).getRound(), jointype);
+		List<RaceDocumentValue> documents = new ArrayList<RaceDocumentValue>();
+		if (type.intValue() == RaceManagerImpl.GER_USER_TYPE_CHILD) {
+			documents = this.raceDao.getRaceDocuments(raceModelValues.get(0)
+					.getRaceid(), null, null, 1, jointype);
+		} else {
+			documents = this.raceDao.getRaceDocuments(raceModelValues.get(0)
+					.getRaceid(), null, null,
+					raceModelValues.get(0).getRound(), jointype);
+		}
+
 		for (UserValue uservalue : userlist) {
 			RaceUser raceUser = new RaceUser();
 			raceUser.setUservalue(uservalue);
@@ -316,7 +376,7 @@ public class RaceManagerImpl implements RaceManager {
 			}
 			// 2.校验是否已经转换
 			List<RaceUserModel> raceusers = this.raceDao.getRaceUserModels(
-					raceid, nextround, userid);
+					raceModelValue.getRaceid(), nextround, userid);
 			if (raceusers != null && !raceusers.isEmpty()) {
 				throw new Exception("5");// vrvldagan d vrvlqahv budugel baihu
 			}
