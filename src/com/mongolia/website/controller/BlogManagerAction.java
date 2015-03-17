@@ -387,7 +387,7 @@ public class BlogManagerAction {
 			map.put("raceModelValue", raceModelValues.get(0));
 			List<RaceDocumentValue> racedocs = this.raceManager
 					.getRaceDocuments(raceModelValues.get(0).getRaceid(),
-							request.getParameter("docid"), null, null);
+							request.getParameter("docid"), null, raceModelValues.get(0).getRound());
 			if (racedocs != null
 					&& !racedocs.isEmpty()
 					&& racedocs.get(0).getRaceround().intValue() == raceModelValues

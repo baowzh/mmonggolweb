@@ -257,7 +257,7 @@
 				round=#round#
 			</isNotNull>
 		</dynamic>
-		) a order by a.scoredate LIMIT #start#, #count#
+		) a order by a.usertype desc LIMIT #start#, #count#
 	</select>
 	<select id="racescorecount" parameterClass="java.util.Map"
 		resultClass="java.lang.Integer">
@@ -340,6 +340,23 @@
 			<isNotNull prepend="and" property="raceid">
 				 exists(select 1 from racedocument where racedocument.docid=document.docid
 				and racedocument.raceid=#raceid# and racedocument.raceround=#round# )
+			</isNotNull>
+		</dynamic>
+	</select>
+	<select id="getRaceJoinUserList" parameterClass="java.util.Map"
+		resultClass="UserValue">
+		select distinct b.*,a.jointype from racedocument a,user b,racemodel c
+		where
+		a.joinuserid=b.userid and a.raceid=c.raceid
+		<dynamic prepend="and">
+			<isNotNull prepend="and" property="raceid">
+				a.raceid=#raceid#
+			</isNotNull>
+			<isNotNull prepend="and" property="round">
+				a.raceround=#round#
+			</isNotNull>
+			<isNotNull prepend="and" property="jointype">
+				a.jointype=#jointype#
 			</isNotNull>
 		</dynamic>
 	</select>

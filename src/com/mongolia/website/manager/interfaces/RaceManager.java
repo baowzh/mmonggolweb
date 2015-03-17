@@ -140,5 +140,15 @@ public interface RaceManager {
 	 */
 	public PaingModel<DocumentValue> pagingqueryracedoc(
 			PaingModel<DocumentValue> paingModel) throws Exception;
+	/**
+	 * 
+	 * @param raceid
+	 * @param jointype
+	 * @param round
+	 * @return
+	 * @throws Exception
+	 */
+	public List<RaceUser> getRaceStatus(String raceid, Integer jointype,
+			Integer round) throws Exception;
 
 }

@@ -14,7 +14,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mongolia.website.manager.impls.RaceManagerImpl;
 import com.mongolia.website.manager.interfaces.RaceManager;
 import com.mongolia.website.model.DocumentValue;
 import com.mongolia.website.model.ImgValue;
@@ -25,7 +24,6 @@ import com.mongolia.website.model.RaceScoreLogValue;
 import com.mongolia.website.model.RaceUser;
 import com.mongolia.website.model.UserValue;
 import com.mongolia.website.util.PageUtil;
-import com.mongolia.website.util.StaticConstants;
 
 @Controller
 public class RaceController {
@@ -252,6 +250,44 @@ public class RaceController {
 			ex.printStackTrace();
 		}
 		return new ModelAndView("baitelhei/racedetail", map);
+	}
+
+	@RequestMapping("/racestatus.do")
+	public ModelAndView racestatus(HttpServletRequest request, ModelMap map) {
+		String raceid = request.getParameter("raceid");
+		String round = request.getParameter("round");
+		try {
+			List<RaceUser> raceusers = this.raceManager.getRaceStatus(raceid,
+					1, Integer.parseInt(round));
+			List<RaceUser> raceUsers1 = this.raceManager.getRaceStatus(raceid,
+					2, Integer.parseInt(round));
+			map.put("raceUsers", raceusers);
+			map.put("raceUsers1", raceUsers1);
+			Map<String, Object> indexcontent = this.raceManager
+					.getRaceIndexCon(request.getParameter("raceid"),
+							"raceindex", 1);
+			List<RaceModelValue> raceModelValues = this.raceManager
+					.getRaceModels(null, 1);
+			Object userValueobj = request.getSession().getAttribute("user");
+			if (userValueobj != null) {
+				map.put("userValue", (UserValue) userValueobj);
+			}
+			map.put("indexPageContent", indexcontent);
+			map.put("racemodel", raceModelValues.get(0));
+			List<ImgValue> imgs = this.raceManager.getRaceImgList(
+					raceModelValues.get(0).getRaceid(), 10);
+			map.put("imgs", imgs);
+			List<DocumentValue> videos = this.raceManager.getvides(null);
+			map.put("videos", videos);
+			JSONObject json = new JSONObject();
+			json.put("raceModel", raceModelValues.get(0));
+			map.put("raceModelJson", json.toString());
+			map.put("jointype", 1);
+			
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return new ModelAndView("baitelhei/raceindex", map);
 	}
 
 }

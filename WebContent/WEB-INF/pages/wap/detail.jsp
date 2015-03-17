@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!DOCTYPE html>
 <!--HTML5 doctype-->
@@ -154,16 +155,18 @@
 					<a href="#"><c:out value="${raceModelValue.racename}" /> 
 						  </a>
 					<br>
-					<a href="#">  :<c:out
-							value="${raceDocumentValue.nettotalscore}" default="0" />
+					<a href="#">  :<fmt:formatNumber
+							value="${raceDocumentValue.nettotalscore}" type="NUMBER"
+							pattern="#0.00" />
 					</a>
 					<br>
 					<a href="#">     :<c:out
 							value="${raceDocumentValue.netscorecount}" default="0" />
 					</a>
 					<br>
-					<a href="#">   <c:out
-							value="${raceDocumentValue.netaveragescore}" default="0" />
+					<a href="#">   <fmt:formatNumber
+							value="${raceDocumentValue.netaveragescore}" type="NUMBER"
+							pattern="#0.00" />
 					</a>
 					<br>
 					<a href="#">   :<c:out
@@ -174,14 +177,25 @@
 							value="${raceDocumentValue.spescorecount}" default="0" />
 					</a>
 					<br>
-					<a href="#">    <c:out
-							value="${raceDocumentValue.speaveragescore}" default="0" />
+					<a href="#">    <fmt:formatNumber
+							value="${raceDocumentValue.speaveragescore}" type="NUMBER"
+							pattern="#0.00" />
 					</a>
 					<br>
-					<a style="color:#f00;"
-					href="raceScoreDetail.do?raceid=<c:out value="${raceModelValue.raceid}"/>&docid=<c:out value="${documentValue.docid}"/>&round=<c:out value="${raceModelValue.round}"/>">
-					   </a>
-				<br>
+					<a href="#"> :   <fmt:formatNumber
+							value="${raceDocumentValue.netaveragescore}" type="NUMBER"
+							pattern="#0.00" /> X20%+    <fmt:formatNumber
+							value="${raceDocumentValue.speaveragescore}" type="NUMBER"
+							pattern="#0.00" /> X80%= <fmt:formatNumber
+							value="${raceDocumentValue.finalscore}" type="NUMBER"
+							pattern="#0.00" />
+
+					</a>
+					<br>
+					<a style="color: #f00;"
+						href="raceScoreDetail.do?raceid=<c:out value="${raceModelValue.raceid}"/>&docid=<c:out value="${documentValue.docid}"/>&round=<c:out value="${raceModelValue.round}"/>">
+						   </a>
+
 					<br>
 					<c:if test="${self==0}">
 						<div style="height: 40px; width: 20px; float: left;">
@@ -205,7 +219,7 @@
 							</select>
 						</div>
 						<div style="float: left;">
-							<a style="color:#f00;"
+							<a style="color: #f00;"
 								href="javascript:scoreracedoc('<c:out value="${raceModelValue.raceid}" />','<c:out value="${documentValue.docid}" />');">
 								  </a>
 						</div>
@@ -226,6 +240,11 @@
 <script>
 	var raceModelJson = <c:out value="${raceModelJson}" escapeXml="false" />;
 </script>
-<script language="javascript" type="text/javascript" src="http://js.users.51.la/17667713.js"></script>
-<noscript><a href="http://www.51.la/?17667713" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/17667713.asp" style="border:none" /></a></noscript>
+<script language="javascript" type="text/javascript"
+	src="http://js.users.51.la/17667713.js"></script>
+<noscript>
+	<a href="http://www.51.la/?17667713" target="_blank"><img
+		alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;"
+		src="http://img.users.51.la/17667713.asp" style="border: none" /></a>
+</noscript>
 </html>

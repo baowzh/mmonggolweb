@@ -169,5 +169,16 @@ public interface RaceDao {
 
 	public Integer getRowCount(PaingModel<DocumentValue> paingModel)
 			throws Exception;
+	/**
+	 * 
+	 * @param raceid
+	 * @param round
+	 * @param jointype
+	 * @return
+	 * @throws Exception
+	 */
+	public List<UserValue> getRaceJoinUserList(String raceid, Integer round,Integer jointype)
+			throws Exception;
+	
 
 }

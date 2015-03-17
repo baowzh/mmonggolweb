@@ -174,6 +174,7 @@ public class RaceManagerImpl implements RaceManager {
 				&& currentDate.compareTo(raceRounds.get(0).getNetuserendtime()) > 0) {
 			throw new Exception("7");
 		}
+
 		// 获取参与比赛类型
 		List<RaceDocumentValue> racedos = this.raceDao.getRaceDocuments(
 				raceScoreLogValue.getRaceid(), raceScoreLogValue.getDocid(),
@@ -189,6 +190,18 @@ public class RaceManagerImpl implements RaceManager {
 				&& raceScoreLogValue.getUsertype().intValue() == StaticConstants.SCORE_USER_TYPE2
 				&& raceDocumentValue.getJointype().intValue() == StaticConstants.JOINRACE_TYPE2) {
 			throw new Exception("4");// 儿童作品专家用户只能平2次
+		}
+		if (raceModelValue.getRound().intValue() == 3) {// 决赛专家现场评分
+			if (raceScoreLogValue.getUsertype().intValue() == StaticConstants.SCORE_USER_TYPE2
+					&& currentDate.compareTo(raceRounds.get(0)
+							.getNetuserendtime()) < 0) {
+				throw new Exception("8");
+			}
+		}
+		if (raceModelValue.getRound().intValue() == 3
+				&& raceDocumentValue.getJointype().intValue() == StaticConstants.JOINRACE_TYPE2
+				&& currentDate.compareTo(raceRounds.get(0).getNetuserendtime()) < 0) {// 决赛专家现场评分
+			throw new Exception("9");
 		}
 		raceScoreLogValue.setScoredate(new Date());
 		raceDao.addRaceScoreLogValue(raceScoreLogValue);
@@ -441,7 +454,57 @@ public class RaceManagerImpl implements RaceManager {
 		}
 
 		return paingModel;
+	}
 
+	@Override
+	public List<RaceUser> getRaceStatus(String raceid, Integer jointype,
+			Integer round) throws Exception {
+		// TODO Auto-generated method stub
+		List<RaceModelValue> raceModelValues = this.raceDao.getRaceModels(
+				raceid, 1);
+		List<UserValue> userlist = new ArrayList<UserValue>();
+		userlist = this.raceDao.getRaceJoinUserList(raceModelValues.get(0)
+				.getRaceid(), round, jointype);
+		List<UserValue> maxScorelist = new ArrayList<UserValue>();
+		maxScorelist = this.raceDao.getUserMaxScores(raceModelValues.get(0)
+				.getRaceid(), round, jointype);
+		List<RaceUser> raceUsers = new ArrayList<RaceUser>();
+		List<RaceDocumentValue> documents = new ArrayList<RaceDocumentValue>();
+		documents = this.raceDao.getRaceDocuments(raceModelValues.get(0)
+				.getRaceid(), null, null, round,
+				jointype);
+		for (UserValue uservalue : userlist) {
+			RaceUser raceUser = new RaceUser();
+			raceUser.setUservalue(uservalue);
+			UserValue maxScore = getMaxScore(uservalue, maxScorelist);
+			if (maxScore != null) {
+				raceUser.setMaxscore(maxScore.getMaxscore());
+			} else {
+				raceUser.setMaxscore(new Double(0));
+			}
+			RaceDocumentValue raceDocumentValue = getRaceDocument(
+					uservalue.getUserid(), documents);
+			/*
+			 * List<RaceDocumentValue> documents =
+			 * this.raceDao.getRaceDocuments(
+			 * raceModelValues.get(0).getRaceid(), null, uservalue.getUserid(),
+			 * raceModelValues.get(0).getRound(), jointype);
+			 */
+			List<RaceDocumentValue> racedoces = new ArrayList<RaceDocumentValue>();
+			racedoces.add(raceDocumentValue);
+			raceUser.setRaceDocumentValues(racedoces);
+			raceUsers.add(raceUser);
+		}
+		RaceUser raceusers[] = new RaceUser[raceUsers.size()];
+		raceUsers.toArray(raceusers);
+		Arrays.sort(raceusers, new Comparator<RaceUser>() {
+			@Override
+			public int compare(RaceUser o1, RaceUser o2) {
+				// TODO Auto-generated method stub
+				return o2.getMaxscore().compareTo(o1.getMaxscore());
+			}
+		});
+		return Arrays.asList(raceusers);
 	}
 
 }

@@ -168,6 +168,15 @@ var scoreracedoc = function(raceid, docid) {
 						MessageWindow
 								.showMess('        ');
 					}
+					else if (data.mess == '8') {
+						MessageWindow
+								.showMess('        ');
+					}
+					else if (data.mess == '9') {
+						MessageWindow
+								.showMess('      <br>        ');
+					}
+
 
 				}
 			});

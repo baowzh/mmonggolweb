@@ -74,7 +74,7 @@ A:hover {
 
 .box_3 {
 	float: left;
-	height: 1960px;
+	height: 980px;
 	margin-left: 10px;
 	margin-top: 5px;
 	/* 	height: 530px; */
@@ -83,7 +83,7 @@ A:hover {
 .box_3_1 {
 	float: left;
 	width: 35px;
-	height: 1960px;
+	height: 980px;
 	font-size: 18px;
 	color: #FFF;
 	line-height: 35px;
@@ -93,8 +93,8 @@ A:hover {
 
 .box_3_2 {
 	float: left;
-	height: 1960px;
-/*     height: 3920px; */
+/* 	height: 1960px; */
+    height: 980px;
 	border-radius: 5px;
 	width: 945px;
 	overflow: scroll;
