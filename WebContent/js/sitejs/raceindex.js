@@ -126,7 +126,7 @@ var setRaceList = function(raceUsers, id) {
 		desitem3.append(linkdiv);
 		desci.append(desitem3);
 		var desitem4 = $('<div></div>').addClass('desitem').css('height', 320);
-		var text4 = ' :' + raceUsers[i].maxscore;
+		var text4 = ' :' + Math.round(raceUsers[i].maxscore*100)/100;
 		desitem4.append($('<div></div>').addClass('author').text(text4))
 		desci.append(desitem4);
 		var desitem5 = $('<div></div>').addClass('desitem').css('height', 320);
