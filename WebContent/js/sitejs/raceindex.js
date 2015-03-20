@@ -50,14 +50,14 @@ var switchtonextround = function(userid, raceid, jointype) {
 $(document).ready(function() {
 	setInterval(function() {
 
-	}, 1000);
+	}, 5000);
 });
 /**
  * 自动刷新活动页面
  */
 var refreshracestatus = function() {
 	$.ajax({
-		async : true,
+		async : false,
 		cache : false,
 		type : 'POST',
 		dataType : "json",
