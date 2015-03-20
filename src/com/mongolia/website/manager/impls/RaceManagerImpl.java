@@ -208,8 +208,7 @@ public class RaceManagerImpl implements RaceManager {
 	}
 
 	@Override
-	public List<RaceUser> getRaceIndexContent(String raceid, Integer jointype,
-			Integer type) throws Exception {
+	public List<RaceUser> getRaceIndexContent(String raceid, Integer jointype) throws Exception {
 		// TODO Auto-generated method stub
 		// 先获取所有参与比赛用户列表，在根据用户列表获取每个用户列表下面的参赛作品列表
 		List<RaceModelValue> raceModelValues = this.raceDao.getRaceModels(

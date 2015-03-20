@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import net.sf.json.JSONObject;
 
@@ -128,7 +129,7 @@ public class RaceController {
 		// 获取所有参赛人员和相关的作品
 		try {
 			List<RaceUser> raceUsers = this.raceManager.getRaceIndexContent(
-					request.getParameter("raceid"), 1, 1);
+					request.getParameter("raceid"), 1);
 			Map<String, Object> indexcontent = this.raceManager
 					.getRaceIndexCon(request.getParameter("raceid"),
 							"raceindex", 1);
@@ -151,7 +152,7 @@ public class RaceController {
 			map.put("raceModelJson", json.toString());
 			map.put("jointype", 1);
 			List<RaceUser> raceUsers1 = this.raceManager.getRaceIndexContent(
-					request.getParameter("raceid"), 2, 2);// 儿童组的特殊处理
+					request.getParameter("raceid"), 2);// 儿童组的特殊处理
 			map.put("raceUsers1", raceUsers1);
 			// 跟专题相关的页面栏目
 		} catch (Exception ex) {
@@ -171,7 +172,7 @@ public class RaceController {
 		// 获取所有参赛人员和相关的作品
 		try {
 			List<RaceUser> raceUsers = this.raceManager.getRaceIndexContent(
-					request.getParameter("raceid"), 2, 2);
+					request.getParameter("raceid"), 2);
 			Map<String, Object> indexcontent = this.raceManager
 					.getRaceIndexCon(request.getParameter("raceid"),
 							"raceindex", 2);
@@ -283,11 +284,23 @@ public class RaceController {
 			json.put("raceModel", raceModelValues.get(0));
 			map.put("raceModelJson", json.toString());
 			map.put("jointype", 1);
-			
+
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
 		return new ModelAndView("baitelhei/raceindex", map);
+	}
+
+	@RequestMapping("/refreshRaceList.do")
+	public ModelAndView refreshRaceList(HttpServletRequest request,
+			HttpServletResponse response, ModelMap map) throws Exception {
+		List<RaceUser> raceUsers = this.raceManager.getRaceIndexContent(
+				request.getParameter("raceid"), 1);
+		List<RaceUser> raceUsers2 = this.raceManager.getRaceIndexContent(
+				request.getParameter("raceid"), 2);
+		map.put("raceUsers", raceUsers);
+		map.put("raceUsers2", raceUsers2);
+		return new ModelAndView("jsonView", map);
 	}
 
 }

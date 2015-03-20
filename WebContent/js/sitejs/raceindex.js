@@ -44,9 +44,109 @@ var switchtonextround = function(userid, raceid, jointype) {
 				}
 			});
 };
-//$(document).ready(function() {
-//	alert($("#box3_list")[0].scrollHeight);
-//	$("#box3_title").css({
-//		height : $("#box3_list")[0].scrollHeight
-//	});
-//});
+/**
+ * 设置时间间隔
+ */
+$(document).ready(function() {
+	setInterval(function() {
+
+	}, 1000);
+});
+/**
+ * 自动刷新活动页面
+ */
+var refreshracestatus = function() {
+	$.ajax({
+		async : true,
+		cache : false,
+		type : 'POST',
+		dataType : "json",
+		url : 'refreshRaceList.do',// 请求的action路径
+		error : function() {// 请求失败处理函数
+			// MessageWindow.showMess('链接服务异常，请稍后在试。');
+		},
+		success : function(data) {
+			setRaceList(data.raceUsers, 'box3_list');
+			setRaceList(data.raceUsers2, 'box3_list1');
+		}
+	})
+};
+var setRaceList = function(raceUsers, id) {
+	$('#' + id).empty();
+	for (i in raceUsers) {
+		var raceuseri = $('<div></div>').addClass('raceuser');
+		var avtri = $('<div></div>').addClass('avtr');
+		avtri.append($('<a></a>').prop('href',
+				'gouserindex.do?userid=' + raceUsers[i].uservalue.userid)
+				.append(
+						$('<img>').prop(
+								'src',
+								'html/userhead/'
+										+ raceUsers[i].uservalue.headurl)));
+		var desci = $('<div></div>').addClass('desc');
+		var desitem1 = $('<div></div>').addClass('desitem').css('height', 320);
+		var text1 = '';
+		if (raceUsers[i].maxscore != 0) {
+			text1 = ' :' + raceUsers[i].uservalue.artname
+					+ '&nbsp; ' + (i + 1) + '    ';
+		} else {
+			text1 = ' :' + raceUsers[i].uservalue.artname;
+		}
+		desitem1.append($('<div></div>').addClass('author').text(text1));
+		desci.append(desitem1);
+		var desitem2 = $('<div></div>').addClass('desitem').css('height', 320);
+		var text2 = '   :';
+		if (raceUsers[i].uservalue.jointype == 1) {
+			text2 = text2 + '  ';
+		} else if (raceUsers[i].uservalue.jointype == 2) {
+			text2 = text2 + '    ';
+		} else {
+			text2 = text2 + '  ';
+		}
+		desitem2.append($('<div></div>').addClass('author').text(text2));
+		desci.append(desitem2);
+		var desitem3 = $('<div></div>').addClass('nwsl1');
+		var titlei = $('<div></div>').addClass('title').css("height", 240).css(
+				"color", "#f00");
+		titlei.append($('<a></a>').prop(
+				'href',
+				'getuserdocdetail.do?docid='
+						+ raceUsers[i].raceDocumentValues[0].docid).prop(
+				"target", "_blank").addClass('tit_text_overflow').css("color",
+				"#f00").text(raceUsers[i].raceDocumentValues[0].doctitle));
+		desitem3.append(titlei);
+		// 添加评分按钮
+		var linkdiv = $('<div></div>').addClass('author').append(
+				$('<a></a>').prop(
+						'href',
+						'getuserdocdetail.do?docid='
+								+ raceUsers[i].raceDocumentValues[0].docid)
+						.text(' ').css("color", "#f00"));
+
+		desitem3.append(linkdiv);
+		desci.append(desitem3);
+		var desitem4 = $('<div></div>').addClass('desitem').css('height', 320);
+		var text4 = ' :' + raceUsers[i].maxscore;
+		desitem4.append($('<div></div>').addClass('author').text(text4))
+		desci.append(desitem4);
+		var desitem5 = $('<div></div>').addClass('desitem').css('height', 320);
+		var text5 = '   ';
+		desitem5
+				.append($('<div></div>')
+						.addClass('author')
+						.append(
+								$('<a></a>')
+										.prop(
+												'href',
+												'raceScoreDetail.do?raceid='
+														+ raceUsers[i].raceDocumentValues[0].raceid
+														+ '&docid='
+														+ raceUsers[i].raceDocumentValues[0].docid
+														+ '&round='
+														+ raceUsers[i].raceDocumentValues[0].raceround)));
+		desci.append(desitem5);
+		raceuseri.append(avtri);
+		raceuseri.append(desci);
+		$('#' + id).append(raceuseri);
+	}
+};

@@ -165,7 +165,7 @@
 		<div class="vgalja_2"></div>
 		<div class="box_3">
 			<div class="box_3_1 tig" id="box3_title">  </div>
-			<div class="box_3_2 ungge_ar" id="box3_list">
+			<div class="box_3_2 ungge_ar" id="box3_list1">
 				<!--这里参赛人员信息框-->
 				<c:forEach items="${raceUsers1}" var="raceUser" varStatus="status">
 					<div class="raceuser">
