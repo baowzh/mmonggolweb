@@ -30,8 +30,13 @@
 <script src="js/messagebox/jquery.msgbox.js"></script>
 <script src="js/messagebox/jquery.dragndrop.min.js"></script>
 <script type="text/javascript" src="ckeditor/ckeditor.js"></script>
-<script language="javascript" type="text/javascript" src="http://js.users.51.la/17667713.js"></script>
-<noscript><a href="http://www.51.la/?17667713" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/17667713.asp" style="border:none" /></a></noscript>
+<script language="javascript" type="text/javascript"
+	src="http://js.users.51.la/17667713.js"></script>
+<noscript>
+	<a href="http://www.51.la/?17667713" target="_blank"><img
+		alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;"
+		src="http://img.users.51.la/17667713.asp" style="border: none" /></a>
+</noscript>
 </head>
 <body style="background-color: #fff; scroll: none;">
 	<div id="viewhead" class="viewhead"
@@ -148,6 +153,10 @@
 			<c:out value="${documentValue.htmlstr}" escapeXml="false" />
 		</div>
 		<div class="msheet shareBookmark"
+			style="float: left; height: 340px; margin-top: 0px; padding-top: 90px;">
+			<img src="getQRCode.do?docid=<c:out value="${documentValue.docid}" />" width="200" height="240">
+		</div>
+		<div class="msheet shareBookmark"
 			style="float: left; height: 340px; margin-top: 0px; padding-top: 150px;">
 			<div style="margin: 0px 20px 20px 20px;">
 				<a href="javascript:sharedocument()"> </a> <span
@@ -187,12 +196,9 @@
 				<a href="#"><c:out value="${raceModelValue.racename}" /> 
 					  </a>
 				<br>
-				<a href="#">  :
-<%-- 				<c:out --%>
-<%-- 						value="${raceDocumentValue.nettotalscore}" default="0" /> --%>
-						<fmt:formatNumber
-						value="${raceDocumentValue.nettotalscore}" type="NUMBER"
-						pattern="#0.00" />
+				<a href="#">  : <%-- 				<c:out --%> <%-- 						value="${raceDocumentValue.nettotalscore}" default="0" /> --%>
+					<fmt:formatNumber value="${raceDocumentValue.nettotalscore}"
+						type="NUMBER" pattern="#0.00" />
 				</a>
 				<br>
 				<a href="#">     :<c:out
@@ -245,18 +251,18 @@
 						<option value="9.8">9.8</option>
 						<option value="9.9">9.9</option>
 					</select>
-					<a style="color:#f00;"
+					<a style="color: #f00;"
 						href="javascript:scoreracedoc('<c:out value="${raceModelValue.raceid}" />','<c:out value="${documentValue.docid}" />');">
 						&nbsp;&nbsp;  </a>
 				</c:if>
 				<br>
-				<a style="color:#f00;"
+				<a style="color: #f00;"
 					href="raceScoreDetail.do?raceid=<c:out value="${raceModelValue.raceid}"/>&docid=<c:out value="${documentValue.docid}"/>&round=<c:out value="${raceModelValue.round}"/>">
 					   </a>
 				<br>
 				<br>
-				
-				
+
+
 			</c:if>
 		</div>
 		<div class="mnlist"

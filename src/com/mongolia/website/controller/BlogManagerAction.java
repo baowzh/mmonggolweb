@@ -4,6 +4,7 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -46,8 +47,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.support.ByteArrayMultipartFileEditor;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.EncodeHintType;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.common.BitMatrix;
 import com.mongolia.website.controller.ckeditor.SamplePostData;
 import com.mongolia.website.manager.ManagerException;
+import com.mongolia.website.manager.impls.SysConfig;
 import com.mongolia.website.manager.interfaces.ChannelManager;
 import com.mongolia.website.manager.interfaces.RaceManager;
 import com.mongolia.website.manager.interfaces.UserManager;
@@ -99,6 +106,8 @@ public class BlogManagerAction {
 	private ChannelManager channelManager;
 	@Autowired
 	private RaceManager raceManager;
+	@Autowired
+	private SysConfig sysConfig;
 
 	/**
 	 * 进入个人主页
@@ -387,7 +396,8 @@ public class BlogManagerAction {
 			map.put("raceModelValue", raceModelValues.get(0));
 			List<RaceDocumentValue> racedocs = this.raceManager
 					.getRaceDocuments(raceModelValues.get(0).getRaceid(),
-							request.getParameter("docid"), null, raceModelValues.get(0).getRound());
+							request.getParameter("docid"), null,
+							raceModelValues.get(0).getRound());
 			if (racedocs != null
 					&& !racedocs.isEmpty()
 					&& racedocs.get(0).getRaceround().intValue() == raceModelValues
@@ -2488,6 +2498,33 @@ public class BlogManagerAction {
 			map.put("success", "0");
 		}
 		return new ModelAndView("jsonView", map);
+	}
+
+	@RequestMapping("/getQRCode.do")
+	public ResponseEntity<byte[]> getQRCode(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		String imgid = request.getParameter("docid");
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("imgid", imgid);
+		int width = 200; // 图像宽度
+		int height = 240; // 图像高度
+		String format = "png";// 图像类型
+		Map<EncodeHintType, Object> hints = new HashMap<EncodeHintType, Object>();
+		hints.put(EncodeHintType.CHARACTER_SET, "UTF-8");
+		BitMatrix bitMatrix = new MultiFormatWriter().encode(
+				sysConfig.getSiteaddress() + "/phonedetail.do?docid=" + imgid,
+				BarcodeFormat.QR_CODE, width, height, hints);// 生成矩阵
+		ByteArrayOutputStream stream = new ByteArrayOutputStream();
+		MatrixToImageWriter.writeToStream(bitMatrix, format, stream);// 输出图像
+		byte[] imgcontent = stream.toByteArray();
+		HttpHeaders responseHeaders = new HttpHeaders();
+		responseHeaders.setContentType(MediaType.IMAGE_PNG);
+		responseHeaders.setContentLength(imgcontent.length);
+		responseHeaders
+				.setCacheControl("no-store, no-cache, must-revalidate, post-check=0, pre-check=0");
+		responseHeaders.setPragma("no-cache");
+		return new ResponseEntity<byte[]>(imgcontent, responseHeaders,
+				HttpStatus.OK);
 	}
 
 }

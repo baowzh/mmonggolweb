@@ -15,13 +15,18 @@
 <meta name="format-detection" content="telephone=no" />
 <meta name="format-detection" content="email=no" />
 <title>金轮文化网</title>
+<link href="img/css/main.css" type="text/css" rel="stylesheet" />
 <link href="site/css/wapdetail.css" rel="stylesheet" type="text/css" />
+<link href="img/css/login.css" type="text/css" rel="stylesheet" />
 <link rel="stylesheet" href="js\messagebox\jquery.msgbox.css" />
 <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="js/util/js/messageWindow.js"></script>
 <script src="js/messagebox/jquery.dragndrop.min.js"></script>
 <script src="js/messagebox/jquery.msgbox.js"></script>
 <script type="text/javascript" src="js/sitejs/wapdetail.js"></script>
+<script type="text/javascript" src="js/sitejs/login.js"></script>
+<script type="text/javascript" src="js/sitejs/regist.js"></script>
+<script type="text/javascript" src="js/sitejs/changevalidcode.js"></script>
 </head>
 <body onload="q();">
 	<div class="header">
@@ -129,6 +134,10 @@
 				<c:out value="${documentValue.htmlstr}" escapeXml="false" />
 			</div>
 			<div class="phonesheet"
+				style="float: left; height: 340px; margin-top: 0px; padding-top: 80px;">
+				<img src="getQRCode.do?docid=<c:out value="${documentValue.docid}" />" width="200" height="240">
+			</div>
+			<div class="phonesheet"
 				style="float: left; height: 340px; margin-top: 0px; padding-top: 100px;">
 				<c:if test="${self==1}">
 					<a
@@ -200,22 +209,22 @@
 					<c:if test="${self==0}">
 						<div style="height: 40px; width: 20px; float: left;">
 							<select id="racescore" name="racescore"
-								style="height: 20px; font-size: 20px; -webkit-writing-mode: horizontal-tb">
-								<option value="8.5">8.5</option>
-								<option value="8.6">8.6</option>
-								<option value="8.7">8.7</option>
-								<option value="8.8">8.8</option>
-								<option value="8.9">8.9</option>
-								<option value="9.0">9.0</option>
-								<option value="9.1">9.1</option>
-								<option value="9.2">9.2</option>
-								<option value="9.3">9.3</option>
-								<option value="9.4">9.4</option>
-								<option value="9.5">9.5</option>
-								<option value="9.6">9.6</option>
-								<option value="9.7">9.7</option>
-								<option value="9.8">9.8</option>
-								<option value="9.9">9.9</option>
+								style="height:20px;font-size: 20px; -webkit-writing-mode: horizontal-tb">
+								<option value="8.5" style="display: block;padding: 0px 2px 1px;min-height: 1.2em;">8.5</option>
+								<option value="8.6" style="display: block;padding: 0px 2px 1px;min-height: 1.2em;">8.6</option>
+								<option value="8.7" style="display: block;padding: 0px 2px 1px;min-height: 1.2em;">8.7</option>
+								<option value="8.8" style="display: block;padding: 0px 2px 1px;min-height: 1.2em;">8.8</option>
+								<option value="8.9" style="display: block;padding: 0px 2px 1px;min-height: 1.2em;">8.9</option>
+								<option value="9.0" style="display: block;padding: 0px 2px 1px;min-height: 1.2em;">9.0</option>
+								<option value="9.1" style="display: block;padding: 0px 2px 1px;min-height: 1.2em;">9.1</option>
+								<option value="9.2" style="display: block;padding: 0px 2px 1px;min-height: 1.2em;">9.2</option>
+								<option value="9.3" style="display: block;padding: 0px 2px 1px;min-height: 1.2em;">9.3</option>
+								<option value="9.4" style="display: block;padding: 0px 2px 1px;min-height: 1.2em;">9.4</option>
+								<option value="9.5" style="display: block;padding: 0px 2px 1px;min-height: 1.2em;">9.5</option>
+								<option value="9.6" style="display: block;padding: 0px 2px 1px;min-height: 1.2em;">9.6</option>
+								<option value="9.7" style="display: block;padding: 0px 2px 1px;min-height: 1.2em;">9.7</option>
+								<option value="9.8" style="display: block;padding: 0px 2px 1px;min-height: 1.2em;">9.8</option>
+								<option value="9.9" style="display: block;padding: 0px 2px 1px;min-height: 1.2em;">9.9</option>
 							</select>
 						</div>
 						<div style="float: left;">
@@ -233,7 +242,7 @@
 		value="<c:out value="${login}" />">
 	<input type="hidden" id="docid" name="docid"
 		value="<c:out value="${documentValue.docid}" />">
-	<div id="logindiv" style="float: left; display: none;">
+	<div id="logindiv" style="float: left; display: none;width:100%;margin:0px auto;">
 		<%@ include file="../userspace/phonelogin.jsp"%>
 	</div>
 </body>
