@@ -336,7 +336,7 @@ var writemess = function(senderid, sendername) {
 	$("#comment").val(sendername + '  ');
 };
 var addemotion = function(emotionname) {
-	var img = "<img src=\"img/faces/" + emotionname + ".gif\"/><br>";
+	var img = "<img src=\"img/faces/" + emotionname + ".gif\"/>";
 	CKEDITOR.instances.editor1.insertHtml(img);
 	/*
 	 * var agentkind = $("#agentkind").val(); if (agentkind == '1') {

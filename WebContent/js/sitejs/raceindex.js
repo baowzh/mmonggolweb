@@ -49,8 +49,8 @@ var switchtonextround = function(userid, raceid, jointype) {
  */
 $(document).ready(function() {
 	setInterval(function() {
-
-	}, 5000);
+		refreshracestatus();
+	}, 30000);
 });
 /**
  * 自动刷新活动页面
@@ -72,6 +72,9 @@ var refreshracestatus = function() {
 	})
 };
 var setRaceList = function(raceUsers, id) {
+	if (raceUsers.length == 0) {
+		return;
+	}
 	$('#' + id).empty();
 	for (i in raceUsers) {
 		var raceuseri = $('<div></div>').addClass('raceuser');
@@ -86,14 +89,24 @@ var setRaceList = function(raceUsers, id) {
 		var desci = $('<div></div>').addClass('desc');
 		var desitem1 = $('<div></div>').addClass('desitem').css('height', 320);
 		var text1 = '';
-		if (raceUsers[i].maxscore != 0) {
+		// alert(raceUsers[i].maxscore*1 -0);
+		if (raceUsers[i].maxscore*1 -0>0) {
 			text1 = ' :' + raceUsers[i].uservalue.artname
-					+ '&nbsp; ' + (i + 1) + '    ';
+					+ '  ';
+			desitem1
+					.append($('<div></div>').addClass('author').text(text1+' ')
+							.append(
+									$('<a></a>').prop('href', '#').css('color',
+											'#f00').text(
+											(i * 1 + 1)
+													+ '    ')));
+			desci.append(desitem1);
+
 		} else {
 			text1 = ' :' + raceUsers[i].uservalue.artname;
+			desitem1.append($('<div></div>').addClass('author').text(text1));
+			desci.append(desitem1);
 		}
-		desitem1.append($('<div></div>').addClass('author').text(text1));
-		desci.append(desitem1);
 		var desitem2 = $('<div></div>').addClass('desitem').css('height', 320);
 		var text2 = '   :';
 		if (raceUsers[i].uservalue.jointype == 1) {
@@ -126,25 +139,34 @@ var setRaceList = function(raceUsers, id) {
 		desitem3.append(linkdiv);
 		desci.append(desitem3);
 		var desitem4 = $('<div></div>').addClass('desitem').css('height', 320);
-		var text4 = ' :' + Math.round(raceUsers[i].maxscore*100)/100;
-		desitem4.append($('<div></div>').addClass('author').text(text4))
+		var text4 = ' :' + Math.round(raceUsers[i].maxscore * 1000)
+				/ 1000;
+		desitem4.append($('<div></div>').addClass('author').text(text4).css(
+				"color", "#f00"))
 		desci.append(desitem4);
 		var desitem5 = $('<div></div>').addClass('desitem').css('height', 320);
 		var text5 = '   ';
-		desitem5
-				.append($('<div></div>')
-						.addClass('author')
-						.append(
-								$('<a></a>')
-										.prop(
-												'href',
-												'raceScoreDetail.do?raceid='
-														+ raceUsers[i].raceDocumentValues[0].raceid
-														+ '&docid='
-														+ raceUsers[i].raceDocumentValues[0].docid
-														+ '&round='
-														+ raceUsers[i].raceDocumentValues[0].raceround)));
+		desitem5.append($('<div></div>').addClass('author').append(
+				$('<a></a>').prop(
+						'href',
+						'raceScoreDetail.do?raceid='
+								+ raceUsers[i].raceDocumentValues[0].raceid
+								+ '&docid='
+								+ raceUsers[i].raceDocumentValues[0].docid
+								+ '&round='
+								+ raceUsers[i].raceDocumentValues[0].raceround)
+						.text(text5).css('color','#036')).css('color','#036'));
 		desci.append(desitem5);
+		//
+		/*
+		var desitem6 = $('<div></div>').addClass('desitem').css('height', 320);
+		var text6 = '   ';
+		desitem6.append($('<div></div>').addClass('author').append(
+				$('<a></a>').prop(
+						'href',
+						'javascript:switchtonextround('''+ raceUsers[i].uservalue.userid+ ''','''+ raceUsers[i].raceDocumentValues[0].raceid+ ''','''+ raceUsers[i].raceDocumentValues[0].jointype+''')').text(text6).css('color','#036')).css('color','#036'));
+		desci.append(desitem6);
+		*/
 		raceuseri.append(avtri);
 		raceuseri.append(desci);
 		$('#' + id).append(raceuseri);

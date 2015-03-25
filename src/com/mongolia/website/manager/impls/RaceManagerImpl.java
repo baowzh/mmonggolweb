@@ -186,11 +186,13 @@ public class RaceManagerImpl implements RaceManager {
 				raceScoreLogValue.getScoreuserid(), raceModelValue.getRound());
 		if (scorelogs != null && !scorelogs.isEmpty()) {
 			throw new Exception("1");// 普通用户只能评一次分数
-		} else if (raceModelValue.getRound().intValue() > 2
-				&& raceScoreLogValue.getUsertype().intValue() == StaticConstants.SCORE_USER_TYPE2
-				&& raceDocumentValue.getJointype().intValue() == StaticConstants.JOINRACE_TYPE2) {
-			throw new Exception("4");// 儿童作品专家用户只能平2次
-		}
+		} 
+//		else if (raceModelValue.getRound().intValue() > 2
+//				&& raceScoreLogValue.getUsertype().intValue() == StaticConstants.SCORE_USER_TYPE2
+//				&& raceDocumentValue.getJointype().intValue() == StaticConstants.JOINRACE_TYPE2) {
+//			throw new Exception("4");// 儿童作品专家用户只能平2次
+//		}
+		
 		if (raceModelValue.getRound().intValue() == 3) {// 决赛专家现场评分
 			if (raceScoreLogValue.getUsertype().intValue() == StaticConstants.SCORE_USER_TYPE2
 					&& currentDate.compareTo(raceRounds.get(0)

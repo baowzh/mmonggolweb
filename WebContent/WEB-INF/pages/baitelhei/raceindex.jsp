@@ -34,11 +34,10 @@
 				     2015       
 				           
 				        
-				        
-				  <a
+				          <a
 					href="getuserdocdetail.do?docid=4E044938CDF611E4ADCCAFCA42C1DDE0"
 					target="_blank"> </a>
-				</div>
+			</div>
 		</div>
 		<div class="box_2">
 			<div class="box_2_1 tig">  </div>
@@ -134,7 +133,7 @@
 									<div class="author" style="color: #f00;">
 										 :
 										<fmt:formatNumber value="${raceUser.maxscore}" type="NUMBER"
-											pattern="#0.00" />
+											pattern="#0.000" />
 									</div>
 								</div>
 								<div class="desitem" style="height: 320px;">
@@ -144,10 +143,7 @@
 											   </a>
 									</div>
 								</div>
-
 							</c:forEach>
-
-
 							<c:if test="${userValue!=null&&userValue.managerflag==1}">
 								<div class="desitem" style="height: 320px;">
 									<div class="author" style="color: #036;">
@@ -227,7 +223,7 @@
 									<div class="author" style="color: #f00;">
 										 :
 										<fmt:formatNumber value="${raceUser.maxscore}" type="NUMBER"
-											pattern="#0.00" />
+											pattern="#0.000" />
 									</div>
 								</div>
 								<div class="desitem" style="height: 320px;">
@@ -237,10 +233,7 @@
 											   </a>
 									</div>
 								</div>
-
 							</c:forEach>
-
-
 							<c:if test="${userValue!=null&&userValue.managerflag==1}">
 								<div class="desitem" style="height: 320px;">
 									<div class="author" style="color: #036;">
@@ -486,6 +479,8 @@
 				</div>
 			</div>
 		</div>
+		<input id="managerflag" name="managerflag" type="hidden"
+			value="<c:out value="${userValue.managerflag}" />">
 		<div class="vgalja_2"></div>
 		<div class="box_8_4 tig"></div>
 		<div class="box_8 ungge_ar">

@@ -736,6 +736,9 @@ public class WebResourceManagerImpl implements WebResourceManager {
 				MessageValue messageValue = comments.get(i);
 				messageValue.setContenthtml(new String(messageValue
 						.getMessagecont(), "utf-8"));
+				String contenthtml = messageValue.getContenthtml();
+				contenthtml = contenthtml.replaceAll("<br />", "");
+				messageValue.setContenthtml(contenthtml);
 				java.text.SimpleDateFormat simpleDateFormat = new SimpleDateFormat(
 						"yyyy-MM-dd HH:mm:ss");
 				if (messageValue.getSendtime() != null) {
@@ -1079,6 +1082,10 @@ public class WebResourceManagerImpl implements WebResourceManager {
 		// Map<String, Object> returnMap = new HashMap<String, Object>();
 		try {
 			Integer startIndex = 0;
+			if (pagingmodel.getPageindex() == null
+					|| pagingmodel.getPageindex().intValue() == 0) {
+				pagingmodel.setPageindex(1);
+			}
 			startIndex = (pagingmodel.getPageindex() - 1)
 					* pagingmodel.getPagesize();
 			List<FriendValue> friends = this.webResourceDao.pagingQueryFriends(

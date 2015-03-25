@@ -325,7 +325,7 @@
 
 	<select id="getTotalVisitorCount" parameterClass="java.util.Map"
 		resultClass="java.lang.Integer">
-		select count(1) from visitor
+		select visitcount from user
 		<dynamic prepend="where">
 			<isNotNull prepend="and" property="userid">
 				userid=#userid#
@@ -341,7 +341,7 @@
 				userid=#userid#
 			</isNotNull>
 			<isNotNull prepend="and" property="visitdate">
-				visitdate=#visitdate#
+				visitdate=#visitdate# 
 			</isNotNull>
 		</dynamic>
 	</select>
@@ -371,6 +371,9 @@
 		#visitortype#
 		)
 	</insert>
+	<update id="updatetotalvisitcount" parameterClass="com.mongolia.website.model.VisitorValue">
+	  update user set user.visitcount=ifnull(visitcount,0)+1 where userid=#userid#
+	</update>
 
 	<insert id="addFriendValue" parameterClass="com.mongolia.website.model.FriendValue">
 		insert into friend(

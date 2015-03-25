@@ -39,7 +39,7 @@ var joinrace = function() {
 				url : 'addRaceDocument.do',// 请求的action路径
 				error : function() {// 请求失败处理函数
 					MessageWindow
-							.showMess('         ');
+							.showMess('    ');
 				},
 				success : function(data) {
 					if (data.mess == '0') {
@@ -67,7 +67,7 @@ var joinrace = function() {
 						MessageWindow
 								.showMess(' '
 										+ raceModelJson.raceModel.round
-										+ '     <br/>     ');
+										+ '     <br/>     ');
 					}
 				}
 			});
@@ -146,13 +146,13 @@ var scoreracedoc = function(raceid, docid) {
 								+ $('#docid').val();
 					} else if (data.mess == '1') {
 						MessageWindow
-								.showMess('        <br/>      ');
+								.showMess('        <br/>      ');
 					} else if (data.mess == '3') {
 						MessageWindow
-								.showMess('       <br/>      ');
+								.showMess('       <br/>      ');
 					} else if (data.mess == '4') {
 						MessageWindow
-								.showMess('      ');
+								.showMess('      ');
 					} else if (data.mess == '5') {
 						MessageWindow
 								.showMess('    <br>'

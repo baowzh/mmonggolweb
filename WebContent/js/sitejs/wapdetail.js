@@ -79,10 +79,10 @@ var scoreracedoc = function(raceid, docid) {
 								+ $('#docid').val();
 					} else if (data.mess == '1') {
 						MessageWindow
-								.showMess('      <br/>      ');
+								.showMess('      <br/>      ');
 					} else if (data.mess == '3') {
 						MessageWindow
-								.showMess('            ');
+								.showMess('            ');
 					} else if (data.mess == '4') {
 						MessageWindow
 								.showMess('          ');

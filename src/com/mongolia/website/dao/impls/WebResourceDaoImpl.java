@@ -1,5 +1,6 @@
 package com.mongolia.website.dao.impls;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -176,7 +177,9 @@ public class WebResourceDaoImpl extends BaseDaoiBatis implements WebResourceDao 
 		queryParams.put("visitorid", visitorid);
 		queryParams.put("userid", userid);
 		queryParams.put("visitorname", visitorname);
-		queryParams.put("visitdate", new Date());
+		SimpleDateFormat  simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd");
+		String date=simpleDateFormat.format(new Date());
+		queryParams.put("visitdate", date);
 		return (Integer) (this.getSqlMapClientTemplate().queryForObject(
 				"getDateVisitCount", queryParams));
 	}
@@ -197,7 +200,9 @@ public class WebResourceDaoImpl extends BaseDaoiBatis implements WebResourceDao 
 	public void addVisitLog(VisitorValue visitorValue) throws Exception {
 		// TODO Auto-generated method stub
 		this.getSqlMapClientTemplate().insert("addVisitorValue", visitorValue);
-
+		// 修改user表中的字段
+		this.getSqlMapClientTemplate().update("updatetotalvisitcount", visitorValue);
+		
 	}
 
 	@Override
