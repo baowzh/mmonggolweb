@@ -542,6 +542,9 @@ public class WebResourceDaoImpl extends BaseDaoiBatis implements WebResourceDao 
 		// TODO Auto-generated method stub
 		Map<String, Object> queryparams = new HashMap<String, Object>();
 		queryparams.put("userid", userid);
+		if(startindex<0){
+			startindex=0;
+		}
 		queryparams.put("startindex", startindex);
 		queryparams.put("fetchcount", fetchcount);
 		return this.getSqlMapClientTemplate().queryForList(

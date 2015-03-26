@@ -1,11 +1,13 @@
 ﻿<%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="t" uri="/css-tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title> </title>
 <link href="site/css/main.css" rel="stylesheet" type="text/css" />
+<t:font_css type="jquery,easyui,tools"></t:font_css>
 <link href="site/css/index.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="js\messagebox\jquery.msgbox.css" />
 <link rel="stylesheet" href="site/css/scroll.css" />
@@ -213,43 +215,46 @@
 			</div>
 			<div class="ftig"
 				style="padding: 2px; border: solid 1px #014886; width: 526px; overflow: hidden; color: #666;">
-				&nbsp;&nbsp;        3.21  2009  
-				         
-				   2015          
-				         <br />1. 
-				        <br />2. 
-				          
-				        10000 
-				    5000      2000    
-				 <br /> 3.        
-				       <br />4. 3   8 
-				         3.21 
-				           
-				  <br /> 1.       
-				           
-				             
-				  <br />2.      
-				       mp3    
-				  <br />3.      
-				             
-				2000      1000      500 
-				    <br /> 
-				<a href="#" style="color: #f00;">
-				        </a> <br />
-					<br/>
-					<!--  
+				&nbsp;          
+				<br> &nbsp;&nbsp; 3   21      
+					  16           
+					        
+					           
+					           
+					          <br>
+						&nbsp;&nbsp;         
+						         2015 
+						          
+						    <br> &nbsp;&nbsp; 
+							           10
+							            
+							         
+							      152   12  
+							   90      12  
+							  3   21   24    
+							      <br> &nbsp;&nbsp; 2015
+								           
+								           
+								            
+								        
+								     
+								  <a
+								href="getuserdocdetail.do?docid=CDB4BF78D0FF11E49F4B8BD59167622F"
+								target="_blank" style="color: #036;">   </a>
+				<br /> <br />
+				<!--  
 					<a
 					href="getuserdocdetail.do?docid=2342DDA8C67711E4991909EC2D952D50"
 					style="color: #f00;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					  </a> 
 					-->
-					<a href="raceindex.do" style="color: #f00;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  </a>
-					<a href="raceindex.do" style="color: #f00;">&nbsp;&nbsp;   </a>
-					<br/>
-					<br/>
-					<a style="color: #f00;" href="racestatus.do?raceid=10000222&round=1"> &nbsp;&nbsp;<   ></a> 
-					<a style="color: #f00;"  href="racestatus.do?raceid=10000222&round=2"><   ></a>
-					<br/>
+				<a href="raceindex.do" style="color: #f00;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					 </a> <a href="raceindex.do" style="color: #f00;">&nbsp;&nbsp;
+					  </a> <br /> <br /> <a style="color: #f00;"
+					href="racestatus.do?raceid=10000222&round=1">
+					&nbsp;&nbsp;<   ></a>  <a style="color: #f00;"
+					href="racestatus.do?raceid=10000222&round=2">< 
+					 ></a> <br />
 			</div>
 
 		</div>
@@ -1589,13 +1594,13 @@
 	</div>
 	<%@ include file="tail.jsp"%>
 	<noscript>
-			<a href="http://www.51.la/?17667713" target="_blank"><img
-				alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;"
-				src="http://img.users.51.la/17667713.asp" style="border: none" /></a>
-		</noscript>
+		<a href="http://www.51.la/?17667713" target="_blank"><img
+			alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;"
+			src="http://img.users.51.la/17667713.asp" style="border: none" /></a>
+	</noscript>
 </body>
 <script language="javascript" type="text/javascript"
-			src="http://js.users.51.la/17667713.js"></script>
+	src="http://js.users.51.la/17667713.js"></script>
 <script>
 	var pics1 = <c:out value="${indexPageContent.pics}" escapeXml="false" />;
 	//$("#searchtext").css

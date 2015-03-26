@@ -3,7 +3,6 @@ package com.mongolia.website.manager.impls;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.mongolia.website.manager.interfaces.WechatManager;
 import com.mongolia.website.model.WechatAccountEntity;

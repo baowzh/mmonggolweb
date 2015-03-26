@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="t" uri="/css-tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -11,6 +12,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <meta name="format-detection" content="telephone=no" />
 <title>博主的主页</title>
+<t:font_css type="jquery,easyui,tools"></t:font_css>
 <link href="img/css/login.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="js/jqGrid/js/jquery-1.9.1.js"></script>
 <script type="text/javascript" src="js/util/js/messageWindow.js"></script>

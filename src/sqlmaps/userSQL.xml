@@ -453,7 +453,7 @@
 	</update>
 	<select id="pagingQueryFriends" parameterClass="java.util.Map"
 		resultClass="FriendValue">
-		select friend.* from friend ,user where friend.friendid=user.userid
+		select friend.*,user.headurl as headurl from friend ,user where friend.friendid=user.userid
 		<dynamic prepend="and">
 			<isNotNull prepend="and" property="userid">
 				friend.userid=#userid#

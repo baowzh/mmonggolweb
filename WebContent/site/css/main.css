@@ -1,10 +1,5 @@
 @charset "utf-8";
 /* CSS Document */
-@font-face {
-	src: url(../../font/MenksoftQagan_cn.ttf);
-	font-family: "MenksoftQagan";
-}
-
 body {
 /* 	background: url(../img/arv_y.jpg); */
 	padding: 0;
