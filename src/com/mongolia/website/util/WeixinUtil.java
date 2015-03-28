@@ -34,6 +34,7 @@ import com.mongolia.website.manager.interfaces.WeixinAccountServiceI;
 import com.mongolia.website.model.AccessToken;
 import com.mongolia.website.model.AccessTokenYw;
 import com.mongolia.website.model.AttentionValue;
+import com.mongolia.website.model.WechatAccountEntity;
 import com.mongolia.website.model.WechatUserValue;
 import com.mongolia.website.model.WeixinAccountEntity;
 
@@ -53,7 +54,7 @@ public class WeixinUtil {
 	private static ResourceBundle bundler1 = ResourceBundle
 			.getBundle("sysConfig");
 	private static String authurl;
-	public static WeixinAccountEntity defaultAccountEntity;
+	public static WechatAccountEntity defaultAccountEntity;
 
 	/**
 	 * 发起https请求并获取结果
@@ -356,7 +357,7 @@ public class WeixinUtil {
 
 	public static JSONObject sendServiceMess(String accountid, String openid,
 			String mess) {
-		List<WeixinAccountEntity> accounts = getAccountEntity(accountid);
+		List<WechatAccountEntity> accounts = getAccountEntity(accountid);
 		AccessToken accesstokeni = getAccessToken(accounts.get(0)
 				.getAccountappid(), accounts.get(0).getAccountappsecret());
 
@@ -377,10 +378,10 @@ public class WeixinUtil {
 		return jsonObject;
 	}
 
-	public static List<WeixinAccountEntity> getAccountEntity(String account_id) {
+	public static List<WechatAccountEntity> getAccountEntity(String account_id) {
 		Map<String, Object> queryParams = new HashMap<String, Object>();
 		queryParams.put("accountid", account_id);
-		List<WeixinAccountEntity> accountentities = ((WeixinAccountServiceI) SpringUtils
+		List<WechatAccountEntity> accountentities = ((WeixinAccountServiceI) SpringUtils
 				.getBean("weixinAccountService"))
 				.getWechatAccounts(queryParams);
 		return accountentities;
@@ -438,9 +439,9 @@ public class WeixinUtil {
 					.getBean("weixinAccountService");
 			String account_id = bundler1.getString("account_id");
 			if (defaultAccountEntity == null) {
-				List<WeixinAccountEntity> accounts = weixinAccountServiceI
+				List<WechatAccountEntity> accounts = weixinAccountServiceI
 						.getWechatAccounts(new HashMap<String, Object>());
-				for (WeixinAccountEntity weixinAccountEntity : accounts) {
+				for (WechatAccountEntity weixinAccountEntity : accounts) {
 					if (weixinAccountEntity.getAccountid().equalsIgnoreCase(
 							account_id)) {
 						defaultAccountEntity = weixinAccountEntity;

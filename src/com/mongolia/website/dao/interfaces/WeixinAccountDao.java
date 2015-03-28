@@ -4,8 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.mongolia.website.model.AccessTokenYw;
-import com.mongolia.website.model.PagingPrams;
-import com.mongolia.website.model.WeixinAccountEntity;
+import com.mongolia.website.model.WechatAccountEntity;
 
 /**
  * 微信账户dao
@@ -15,15 +14,15 @@ import com.mongolia.website.model.WeixinAccountEntity;
  */
 public interface WeixinAccountDao 
 		 {
-	public List<WeixinAccountEntity> getAccountByUserName(String username);
+	public List<WechatAccountEntity> getAccountByUserName(String username);
 
-	public WeixinAccountEntity getAccountById(String id);
+	public WechatAccountEntity getAccountById(String id);
 
-	public void saveOrUpdate(WeixinAccountEntity weixinAccountEntity);
+	public void saveOrUpdate(WechatAccountEntity weixinAccountEntity);
 
-	public void deleteAccount(WeixinAccountEntity weixinAccountEntity);
+	public void deleteAccount(WechatAccountEntity weixinAccountEntity);
 
-	public List<WeixinAccountEntity> getWechatAccounts(
+	public List<WechatAccountEntity> getWechatAccounts(
 			Map<String, Object> params);
 
 	public AccessTokenYw getAccessToken(String appid) throws Exception;

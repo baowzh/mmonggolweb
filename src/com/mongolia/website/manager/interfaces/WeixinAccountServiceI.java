@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.mongolia.website.model.AccessTokenYw;
-import com.mongolia.website.model.WeixinAccountEntity;
+import com.mongolia.website.model.WechatAccountEntity;
 
 public interface WeixinAccountServiceI  {
 	/**
@@ -17,40 +17,40 @@ public interface WeixinAccountServiceI  {
 	 * 
 	 * @return
 	 */
-	public WeixinAccountEntity findLoginWeixinAccount();
+	public WechatAccountEntity findLoginWeixinAccount();
 
 	/**
 	 * 
 	 * @param username
 	 * @return
 	 */
-	public List<WeixinAccountEntity> findByUsername(String username);
+	public List<WechatAccountEntity> findByUsername(String username);
 
 	/**
 	 * 
 	 * @param id
 	 * @return
 	 */
-	public WeixinAccountEntity getAccountEntity(String id);
+	public WechatAccountEntity getAccountEntity(String id);
 
 	/**
 	 * 
 	 * @param weixinAccountEntity
 	 */
-	public void saveOrUpdate(WeixinAccountEntity weixinAccountEntity);
+	public void saveOrUpdate(WechatAccountEntity weixinAccountEntity);
 
 	/**
 	 * 
 	 * @param weixinAccountEntity
 	 */
-	public void deleteAccount(WeixinAccountEntity weixinAccountEntity);
+	public void deleteAccount(WechatAccountEntity weixinAccountEntity);
 
 	/**
 	 * 
 	 * @param params
 	 * @return
 	 */
-	public List<WeixinAccountEntity> getWechatAccounts(
+	public List<WechatAccountEntity> getWechatAccounts(
 			Map<String, Object> params);
 
 	/**

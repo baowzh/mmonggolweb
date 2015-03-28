@@ -11,13 +11,12 @@ import net.sf.json.JSONObject;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.mongolia.website.dao.interfaces.BaseDao;
 import com.mongolia.website.dao.interfaces.WechatDao;
 import com.mongolia.website.dao.interfaces.WeixinAccountDao;
 import com.mongolia.website.manager.interfaces.WeixinAccountServiceI;
 import com.mongolia.website.model.AccessTokenYw;
 import com.mongolia.website.model.AttentionValue;
-import com.mongolia.website.model.PagingPrams;
+import com.mongolia.website.model.WechatAccountEntity;
 import com.mongolia.website.model.WeixinAccountEntity;
 import com.mongolia.website.util.WeixinUtil;
 
@@ -35,7 +34,7 @@ public class WeixinAccountServiceImpl implements WeixinAccountServiceI {
 	public String getAccessToken() {
 		// TODO Auto-generated method stub
 		String token = "";
-		WeixinAccountEntity account = findLoginWeixinAccount();
+		WechatAccountEntity account = findLoginWeixinAccount();
 
 		token = account.getAccountaccesstoken();
 		if (token != null && !"".equals(token)) {
@@ -70,7 +69,7 @@ public class WeixinAccountServiceImpl implements WeixinAccountServiceI {
 							String jstoken = jsticketObject.getString("ticket");
 							account.setJsaccounttoken(jstoken);
 						}
-						this.saveOrUpdate(account);
+						//this.saveOrUpdate(account);
 						// }
 						// catch (Exception e) {
 					}
@@ -114,7 +113,7 @@ public class WeixinAccountServiceImpl implements WeixinAccountServiceI {
 						account.setJsaccounttoken(jstoken);
 					}
 					//
-					this.saveOrUpdate(account);
+					//this.saveOrUpdate(account);
 				} catch (Exception e) {
 					token = null;
 
@@ -129,7 +128,7 @@ public class WeixinAccountServiceImpl implements WeixinAccountServiceI {
 	}
 
 	@Override
-	public WeixinAccountEntity findLoginWeixinAccount() {
+	public WechatAccountEntity findLoginWeixinAccount() {
 		/*
 		 * UserValue user = ResourceUtil.getSessionUserName();
 		 * List<WeixinAccountEntity> acclst =
@@ -143,34 +142,34 @@ public class WeixinAccountServiceImpl implements WeixinAccountServiceI {
 	}
 
 	@Override
-	public List<WeixinAccountEntity> findByUsername(String username) {
+	public List<WechatAccountEntity> findByUsername(String username) {
 		// TODO Auto-generated method stub
-		List<WeixinAccountEntity> acclst = weixinAccountDao
+		List<WechatAccountEntity> acclst = weixinAccountDao
 				.getAccountByUserName(username);
 		return acclst;
 	}
 
 	@Override
-	public WeixinAccountEntity getAccountEntity(String id) {
+	public WechatAccountEntity getAccountEntity(String id) {
 		// TODO Auto-generated method stub
 		return this.weixinAccountDao.getAccountById(id);
 	}
 
 	@Override
-	public void saveOrUpdate(WeixinAccountEntity weixinAccountEntity) {
+	public void saveOrUpdate(WechatAccountEntity weixinAccountEntity) {
 		// TODO Auto-generated method stub
 		this.weixinAccountDao.saveOrUpdate(weixinAccountEntity);
 
 	}
 
 	@Override
-	public void deleteAccount(WeixinAccountEntity weixinAccountEntity) {
+	public void deleteAccount(WechatAccountEntity weixinAccountEntity) {
 		// TODO Auto-generated method stub
 		this.weixinAccountDao.deleteAccount(weixinAccountEntity);
 	}
 
 	@Override
-	public List<WeixinAccountEntity> getWechatAccounts(
+	public List<WechatAccountEntity> getWechatAccounts(
 			Map<String, Object> params) {
 		// TODO Auto-generated method stub
 		return this.weixinAccountDao.getWechatAccounts(params);
@@ -203,7 +202,7 @@ public class WeixinAccountServiceImpl implements WeixinAccountServiceI {
 	@Override
 	public void synAttentionUsers() throws Exception {
 		// TODO Auto-generated method stub
-		List<WeixinAccountEntity> account = WeixinUtil
+		List<WechatAccountEntity> account = WeixinUtil
 				.getAccountEntity(this.sysConfig.getAccountid());
 		List<String> ids = WeixinUtil.getAttentionUserList(account.get(0)
 				.getAccountappid(), account.get(0).getAccountappsecret());

@@ -20,7 +20,7 @@ import org.springframework.stereotype.Repository;
 
 import com.mongolia.website.dao.interfaces.WeixinAccountDao;
 import com.mongolia.website.model.AccessTokenYw;
-import com.mongolia.website.model.PagingPrams;
+import com.mongolia.website.model.WechatAccountEntity;
 import com.mongolia.website.model.WeixinAccountEntity;
 
 @Repository("weixinAccountDaoImpl")
@@ -31,23 +31,23 @@ public class WeixinAccountDaoImpl  implements
 	
 
 	@Override
-	public List<WeixinAccountEntity> getAccountByUserName(String username) {
+	public List<WechatAccountEntity> getAccountByUserName(String username) {
 
-		RowMapper<WeixinAccountEntity> rm = ParameterizedBeanPropertyRowMapper
-				.newInstance(WeixinAccountEntity.class);
+		RowMapper<WechatAccountEntity> rm = ParameterizedBeanPropertyRowMapper
+				.newInstance(WechatAccountEntity.class);
 		
-		List<WeixinAccountEntity> wechataccount = jdbcTemplate
+		List<WechatAccountEntity> wechataccount = jdbcTemplate
 				.query("select * from WECHATACCOUNT where USERNAME='"
 						+ username + "'", rm);
 		return wechataccount;
 	}
 
 	@Override
-	public WeixinAccountEntity getAccountById(String id) {
+	public WechatAccountEntity getAccountById(String id) {
 
-		RowMapper<WeixinAccountEntity> rm = ParameterizedBeanPropertyRowMapper
-				.newInstance(WeixinAccountEntity.class);
-		List<WeixinAccountEntity> entityes = jdbcTemplate.query(
+		RowMapper<WechatAccountEntity> rm = ParameterizedBeanPropertyRowMapper
+				.newInstance(WechatAccountEntity.class);
+		List<WechatAccountEntity> entityes = jdbcTemplate.query(
 				"select * from WECHATACCOUNT where id='" + id + "'", rm);
 		if (entityes != null && !entityes.isEmpty()) {
 			return entityes.get(0);
@@ -57,7 +57,7 @@ public class WeixinAccountDaoImpl  implements
 	}
 
 	@Override
-	public void saveOrUpdate(final WeixinAccountEntity weixinAccountEntity) {
+	public void saveOrUpdate(final WechatAccountEntity weixinAccountEntity) {
 		// TODO Auto-generated method stub
 		if (checkExist(weixinAccountEntity)) {
 			List<Object> prams = new ArrayList<Object>();
@@ -181,14 +181,14 @@ public class WeixinAccountDaoImpl  implements
 	}
 
 	@Override
-	public void deleteAccount(WeixinAccountEntity weixinAccountEntity) {
+	public void deleteAccount(WechatAccountEntity weixinAccountEntity) {
 		// TODO Auto-generated method stub
 		String delSql = "delete from wechataccount where wechataccount.id='"
 				+ weixinAccountEntity.getId() + "'";
 		this.jdbcTemplate.execute(delSql);
 	}
 
-	private boolean checkExist(WeixinAccountEntity weixinAccountEntity) {
+	private boolean checkExist(WechatAccountEntity weixinAccountEntity) {
 		String querySql = "select count(1) from wechataccount where id=? ";
 		List<Object> params = new ArrayList<Object>();
 		params.add(weixinAccountEntity.getId());
@@ -203,11 +203,11 @@ public class WeixinAccountDaoImpl  implements
 	}
 
 	@Override
-	public List<WeixinAccountEntity> getWechatAccounts(
+	public List<WechatAccountEntity> getWechatAccounts(
 			Map<String, Object> params) {
 		// TODO Auto-generated method stub
-		RowMapper<WeixinAccountEntity> rm = ParameterizedBeanPropertyRowMapper
-				.newInstance(WeixinAccountEntity.class);
+		RowMapper<WechatAccountEntity> rm = ParameterizedBeanPropertyRowMapper
+				.newInstance(WechatAccountEntity.class);
 		String querySql = "select * from wechataccount where 1=1";
 		List<Object> queryparams = new ArrayList<Object>();
 		if (params.get("accountid") != null) {
