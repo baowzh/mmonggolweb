@@ -13,7 +13,7 @@ import com.mongolia.website.model.ProgramValue;
 import com.mongolia.website.model.TopDocumentValue;
 import com.mongolia.website.model.UserValue;
 
-public interface WebSiteVisitorDao extends BaseDao {
+public interface WebSiteVisitorDao extends IBatisBaseDao {
 	/**
 	 * 获取栏目列表
 	 * 

@@ -8,7 +8,7 @@ import com.mongolia.website.model.FriendValue;
 import com.mongolia.website.model.ProfessionValue;
 import com.mongolia.website.model.UserValue;
 
-public interface UserManagerDao extends BaseDao {
+public interface UserManagerDao extends IBatisBaseDao {
 	/**
 	 * list users
 	 * 

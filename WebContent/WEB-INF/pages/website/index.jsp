@@ -11,7 +11,6 @@
 <link href="site/css/index.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="js\messagebox\jquery.msgbox.css" />
 <link rel="stylesheet" href="site/css/scroll.css" />
-<!-- <link href="bubai/css/race.css" type="text/css" rel="stylesheet" /> -->
 <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="js/sitejs/index.js"></script>
 <script type="text/javascript" src="js/sitejs/changevalidcode.js"></script>
@@ -240,21 +239,20 @@
 								     
 								  <a
 								href="getuserdocdetail.do?docid=CDB4BF78D0FF11E49F4B8BD59167622F"
-								target="_blank" style="color: #036;">   </a>
-				<br /> <br />
-				<!--  
+								target="_blank" style="color: #036;">   </a> <br />
+								<br /> <!--  
 					<a
 					href="getuserdocdetail.do?docid=2342DDA8C67711E4991909EC2D952D50"
 					style="color: #f00;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					  </a> 
-					-->
-				<a href="raceindex.do" style="color: #f00;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					 </a> <a href="raceindex.do" style="color: #f00;">&nbsp;&nbsp;
-					  </a> <br /> <br /> <a style="color: #f00;"
-					href="racestatus.do?raceid=10000222&round=1">
-					&nbsp;&nbsp;<   ></a>  <a style="color: #f00;"
-					href="racestatus.do?raceid=10000222&round=2">< 
-					 ></a> <br />
+					--> <a href="raceindex.do" style="color: #f00;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									 </a> <a href="raceindex.do" style="color: #f00;">&nbsp;&nbsp;
+									  </a> <br /> <br /> <a style="color: #f00;"
+								href="racestatus.do?raceid=10000222&round=1">
+									&nbsp;&nbsp;<   ></a>  <a
+								style="color: #f00;"
+								href="racestatus.do?raceid=10000222&round=2"><
+									  ></a> <br />
 			</div>
 
 		</div>

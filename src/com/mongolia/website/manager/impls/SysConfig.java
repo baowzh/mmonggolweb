@@ -8,7 +8,6 @@ public class SysConfig {
 
 	@Value("${sitename}")
 	private String sitename;
-
 	@Value("${recentlogusercount}")
 	private Integer recentlogusercount;
 	@Value("${recentcommcount}")
@@ -35,6 +34,7 @@ public class SysConfig {
 	private Integer selbookcount;
 	@Value("${checkpassurl}")
 	private String checkpassurl;
+	private String accountid;
 
 	public String getSitename() {
 		return sitename;
@@ -146,6 +146,14 @@ public class SysConfig {
 
 	public void setCheckpassurl(String checkpassurl) {
 		this.checkpassurl = checkpassurl;
+	}
+
+	public String getAccountid() {
+		return accountid;
+	}
+
+	public void setAccountid(String accountid) {
+		this.accountid = accountid;
 	}
 
 }

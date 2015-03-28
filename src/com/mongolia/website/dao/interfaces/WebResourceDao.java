@@ -21,7 +21,7 @@ import com.mongolia.website.model.VoteResultDetailValue;
 import com.mongolia.website.model.VoteResultValue;
 import com.mongolia.website.model.VoteValue;
 
-public interface WebResourceDao extends BaseDao {
+public interface WebResourceDao extends IBatisBaseDao {
 
 	public void adddoc(DocumentValue docValue) throws Exception;
 

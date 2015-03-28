@@ -5,7 +5,7 @@ import java.util.Map;
 
 import com.mongolia.website.model.Channel;
 
-public interface ChannelManagerDao extends BaseDao {
+public interface ChannelManagerDao extends IBatisBaseDao {
 	/**
 	 * 
 	 * @param params

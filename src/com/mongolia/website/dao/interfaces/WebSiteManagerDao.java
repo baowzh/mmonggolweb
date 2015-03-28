@@ -12,7 +12,7 @@ import com.mongolia.website.model.ProgramValue;
 import com.mongolia.website.model.QueryOpinionFrom;
 import com.mongolia.website.model.TopDocumentValue;
 
-public interface WebSiteManagerDao extends BaseDao {
+public interface WebSiteManagerDao extends IBatisBaseDao {
 	/**
 	 * 网站栏目列表
 	 * 
