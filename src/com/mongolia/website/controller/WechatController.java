@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mongolia.website.manager.interfaces.WechatManager;
+import com.mongolia.website.manager.interfaces.WechatService;
 import com.mongolia.website.model.WechatAccountEntity;
 import com.mongolia.website.util.SignUtil;
 
@@ -20,16 +21,24 @@ import com.mongolia.website.util.SignUtil;
 public class WechatController {
 	@Resource(name = "wechatManagerImpl")
 	private WechatManager wechatManager;
+	@Resource(name = "wechatServiceImpl")
+	private WechatService wechatService;
+
 	@ResponseBody
 	@RequestMapping(value = "/index/{uid}", method = RequestMethod.GET, produces = "text/plain; charset=utf-8")
 	public String wechatGet(@PathVariable String uid, String signature,
 			String timestamp, String nonce, String echostr) {
 		try {
+			System.out.println("uid=" + uid + "signature=" + signature
+					+ "timestamp=" + timestamp + "nonce=" + nonce + "echostr="
+					+ echostr);
 			WechatAccountEntity wechatAccountEntity = wechatManager
 					.getWechatAccountEntity(null);
 			if (SignUtil.checkSignature(wechatAccountEntity.getAccounttoken(),
 					signature, timestamp, nonce)) {
 				return echostr;
+			} else {
+				echostr = "";
 			}
 		}
 
@@ -43,10 +52,10 @@ public class WechatController {
 
 	@ResponseBody
 	@RequestMapping(value = "/index/{uid}", method = RequestMethod.POST, produces = "application/xml; charset=utf-8")
-	public void wechatPost(HttpServletResponse response,
-			HttpServletRequest reques) {
-		//String respMessage = wechatService.coreService(reques);
-		
+	public String wechatPost(HttpServletResponse response,
+			HttpServletRequest reques) throws Exception {
+		String respMessage = wechatService.coreService(reques);
+		return respMessage;
 	}
 
 }

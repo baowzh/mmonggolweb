@@ -22,7 +22,7 @@ public class WechatManagerImpl implements WechatManager {
 		// TODO Auto-generated method stub
 		List<WechatAccountEntity> accounts = this.weixinAccountDao
 				.getWechatAccounts(new HashMap<String, Object>());
-		return null;
+		return accounts.get(0);
 	}
 
 	@Override

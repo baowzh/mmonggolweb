@@ -21,7 +21,6 @@ import org.springframework.stereotype.Repository;
 import com.mongolia.website.dao.interfaces.WeixinAccountDao;
 import com.mongolia.website.model.AccessTokenYw;
 import com.mongolia.website.model.WechatAccountEntity;
-import com.mongolia.website.model.WeixinAccountEntity;
 
 @Repository("weixinAccountDaoImpl")
 public class WeixinAccountDaoImpl  implements

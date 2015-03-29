@@ -1,6 +1,5 @@
 package com.mongolia.website.manager.impls;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -10,17 +9,12 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.mongolia.website.manager.interfaces.AutoResponseManager;
 import com.mongolia.website.manager.interfaces.TextTemplateManager;
 import com.mongolia.website.manager.interfaces.WechatService;
-import com.mongolia.website.model.Article;
 import com.mongolia.website.model.AutoResponse;
-import com.mongolia.website.model.NewsItem;
-import com.mongolia.website.model.NewsMessageResp;
 import com.mongolia.website.model.TextMessageResp;
-import com.mongolia.website.model.TextTemplate;
 import com.mongolia.website.util.MessageUtil;
 
 @Service("wechatServiceImpl")
@@ -35,93 +29,93 @@ public class WechatServiceImpl implements WechatService {
 	private NewsItemManagerImpl newsItemManagerImpl;
 
 	public String coreService(HttpServletRequest request) throws Exception {
+
 		String respMessage = null;
 		TextMessageResp textMessage = new TextMessageResp();
 		String fromUserName = "";
 		String toUserName = "";
 		try {
-
-		} catch (Exception ex) {
-			throw ex;
-		}
-		Map<String, String> requestMap = MessageUtil.parseXml(request);
-		fromUserName = requestMap.get("FromUserName");
-		String openid = requestMap.get("FromUserName");
-		// 公众帐号
-		toUserName = requestMap.get("ToUserName");
-		// 消息类型
-		String msgType = requestMap.get("MsgType");
-		String msgId = requestMap.get("MsgId");
-		// 默认回复此文本消息
-		textMessage.setToUserName(fromUserName);
-		textMessage.setFromUserName(toUserName);
-		textMessage.setCreateTime(new Date().getTime());
-		textMessage.setMsgType(MessageUtil.RESP_MESSAGE_TYPE_TEXT);
-		respMessage = MessageUtil.textMessageToXml(textMessage);
-		if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_TEXT)) {// 收到文本消息
-			String content = requestMap.get("Content");
-			AutoResponse autoResponse = findKey(content, toUserName);
-			// 找到关键字
-			if (autoResponse != null) {
-				String resMsgType = autoResponse.getMsgtype();
-				if ("text".equals(resMsgType)) {
-					Map<String, Object> queryparams = new HashMap<String, Object>();
-					queryparams.put("templatename",
-							autoResponse.getTemplatename());
-					List<TextTemplate> textTemplates = this.textTemplateManager
-							.queryTextTemplate(queryparams);
-					TextTemplate textTemplate = textTemplates.get(0);
-					textMessage.setContent(textTemplate.getContent());
-					respMessage = MessageUtil.textMessageToXml(textMessage);
-				} else if ("news".equals(resMsgType)) {
-					Map<String, Object> newitemparams = new HashMap<String, Object>();
-					newitemparams.put("templatename",
-							autoResponse.getTemplatename());
-					newitemparams.put("responsecontent",
-							autoResponse.getRescontent());
-					List<NewsItem> newsList = this.newsItemManagerImpl
-							.queryNewsItems(newitemparams);
-					List<Article> articles = new ArrayList<Article>();
-					for (NewsItem news : newsList) {
-						Article article = new Article();
-						article.setTitle(news.getTitle());
-						article.setPicUrl(this.sysConfig.getSiteaddress() + "/"
-								+ news.getImagePath());
-						String url = "";
-						url = news.getContent();
-						article.setUrl(url);
-						article.setDescription(news.getContent());
-						articles.add(article);
-					}
-					NewsMessageResp newsResp = new NewsMessageResp();
-					newsResp.setCreateTime(new Date().getTime());
-					newsResp.setFromUserName(toUserName);
-					newsResp.setToUserName(fromUserName);
-					newsResp.setMsgType(MessageUtil.RESP_MESSAGE_TYPE_NEWS);
-					newsResp.setArticleCount(newsList.size());
-					newsResp.setArticles(articles);
-					respMessage = MessageUtil.newsMessageToXml(newsResp);
+			// 默认返回的文本消息内容
+			String respContent = "请求处理异常，请稍候尝试！";
+			// xml请求解析
+			Map<String, String> requestMap = MessageUtil.parseXml(request);
+			fromUserName = requestMap.get("FromUserName");
+			// 公众帐号
+			toUserName = requestMap.get("ToUserName");
+			// 消息类型
+			String msgType = requestMap.get("MsgType");
+			// 默认回复此文本消息
+			textMessage.setToUserName(fromUserName);
+			textMessage.setFromUserName(toUserName);
+			textMessage.setCreateTime(new Date().getTime());
+			textMessage.setMsgType(MessageUtil.RESP_MESSAGE_TYPE_TEXT);
+			// 文本消息
+			if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_TEXT)) {
+				// 根据收到的文本消息返回内容
+				String content = requestMap.get("Content");
+				AutoResponse autoResponse = findKey(content, toUserName);
+				if (autoResponse != null) {
+					// 根据此自动回复设置组织图文消息比你更返回
 				}
 
-				//
+			}
+			// 图片消息
+			else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_IMAGE)) {
+				respContent = "您发送的是图片消息！";
+				textMessage.setContent(respContent);
+				respMessage = MessageUtil.textMessageToXml(textMessage);
+			}
+			// 地理位置消息
+			else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_LOCATION)) {
+				respContent = "您发送的是地理位置消息！";
+				textMessage.setContent(respContent);
+				respMessage = MessageUtil.textMessageToXml(textMessage);
+			}
+			// 链接消息
+			else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_LINK)) {
+				respContent = "您发送的是链接消息！";
+				textMessage.setContent(respContent);
+				respMessage = MessageUtil.textMessageToXml(textMessage);
+			}
+			// 音频消息
+			else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_VOICE)) {
+				respContent = "您发送的是音频消息！";
+				textMessage.setContent(respContent);
+				respMessage = MessageUtil.textMessageToXml(textMessage);
+			}
+			// 事件推送
+			else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_EVENT)) {
+				// 事件类型
+				String eventType = requestMap.get("Event");
+				// 订阅
+				if (eventType.equals(MessageUtil.EVENT_TYPE_SUBSCRIBE)) {
+					textMessage.setContent("谢谢您的关注");
+					respMessage = MessageUtil.textMessageToXml(textMessage);
+				}
+				// 取消订阅
+				else if (eventType.equals(MessageUtil.EVENT_TYPE_UNSUBSCRIBE)) {
+					// 取消订阅后用户再收不到公众号发送的消息，因此不需要回复消息
 
-			} else {
-				// 返回默认的信息
+				}
+				// 自定义菜单点击事件
+				else if (eventType.equals(MessageUtil.EVENT_TYPE_CLICK)) {
+
+					// 如果是点击了优秀作品
+				}
+
 			}
 
-		} else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_IMAGE)) {// 收到图片消息
-
-		} else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_LOCATION)) {// 收到地理位置
-
-		} else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_LINK)) {// 收到连接消息
-
-		} else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_VOICE)) {// 收到语音消息
-
-		} else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_EVENT)) {// 收到事件
-
-			// 目前没有设置
+		} catch (Exception e) {
+			e.printStackTrace();
+			textMessage.setToUserName(fromUserName);
+			textMessage.setFromUserName(toUserName);
+			textMessage.setCreateTime(new Date().getTime());
+			textMessage.setMsgType(MessageUtil.RESP_MESSAGE_TYPE_TEXT);
+			textMessage.setContent(e.getMessage());
+			return MessageUtil.textMessageToXml(textMessage);
 		}
-		return "";
+		return respMessage;
+
 	}
 
 	private AutoResponse findKey(String content, String accountId) {
@@ -129,9 +123,12 @@ public class WechatServiceImpl implements WechatService {
 		Map<String, Object> prams = new HashMap<String, Object>();
 		prams.put("accountId", accountId);
 		try {
-			List<AutoResponse> autoResponses = autoResponseManager
+			List<AutoResponse> autoResponses = this.autoResponseManager
 					.getAutoResponses(prams);
+			// (
+			// AutoResponse.class, "accountId", accountId);
 			for (AutoResponse r : autoResponses) {
+				// 如果包含关键字
 				String kw = r.getKeyword();
 				String[] allkw = kw.split(",");
 				for (String k : allkw) {
@@ -145,4 +142,5 @@ public class WechatServiceImpl implements WechatService {
 		}
 		return null;
 	}
+
 }
