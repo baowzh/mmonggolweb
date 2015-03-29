@@ -3,6 +3,7 @@ package com.mongolia.website.dao.impls;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -18,6 +19,8 @@ import org.springframework.stereotype.Repository;
 
 import com.mongolia.website.dao.interfaces.AutoResponseDao;
 import com.mongolia.website.model.AutoResponse;
+import com.mongolia.website.model.PagingAutoResModel;
+
 @Repository("autoResponseDaoImpl")
 public class AutoResponseDaoImpl implements AutoResponseDao {
 
@@ -120,6 +123,48 @@ public class AutoResponseDaoImpl implements AutoResponseDao {
 		} else {
 			return true;
 		}
+	}
+
+	@Override
+	public List<AutoResponse> pagingQueryAutoResponse(
+			PagingAutoResModel paingModel) throws Exception {
+		// TODO Auto-generated method stub
+		List<Object> args = new ArrayList<Object>();
+		String querySql = "select * from wechatautoresponse where accountid=?  ";
+		args.add(paingModel.getAccountid());
+		if (paingModel.getBegindate() != null) {
+			querySql = querySql + " and addtime>=?";
+			args.add(paingModel.getBegindate());
+		}
+		if (paingModel.getEndate() != null) {
+			querySql = querySql + " and addtime<=?";
+			args.add(paingModel.getEndate());
+		}
+		querySql = querySql + " order by addtime desc limit ?, ? ";
+		args.add((paingModel.getStartrow() - 1) * 10);
+		args.add(10);
+		RowMapper<AutoResponse> rm = ParameterizedBeanPropertyRowMapper
+				.newInstance(AutoResponse.class);
+		return this.jdbcTemplate.query(querySql, rm, args.toArray());
+	}
+
+	@Override
+	public Integer getAutoResponseCount(PagingAutoResModel paingModel)
+			throws Exception {
+		// TODO Auto-generated method stub
+		List<Object> args = new ArrayList<Object>();
+		String querySql = "select count(1) from wechatautoresponse where accountid=?  ";
+		args.add(paingModel.getAccountid());
+		if (paingModel.getBegindate() != null) {
+			querySql = querySql + " and addtime>=?";
+			args.add(paingModel.getBegindate());
+		}
+		if (paingModel.getEndate() != null) {
+			querySql = querySql + " and addtime<=?";
+			args.add(paingModel.getEndate());
+		}
+		return this.jdbcTemplate.queryForObject(querySql,
+				Integer.class, args);
 	}
 
 }
