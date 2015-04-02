@@ -21,7 +21,6 @@
 <script src="js/messagebox/jquery.dragndrop.min.js"></script>
 <script type="text/javascript" src="js/scroll/utilities.js"></script>
 <script type="text/javascript" src="js/scroll/sodon-min.js"></script>
-<script type="text/javascript" src="js/scroll/JQScrollView.js"></script>
 <script type="text/javascript" src="js/scroll/scrollview-min.js"></script>
 <script type="text/javascript" src="js/scroll/jquery.totemticker.min.js"></script>
 <script src="js/sitejs/galleria-1.4.2.min.js"></script>
@@ -198,8 +197,7 @@
 				<div class="ctail"></div>
 			</div>
 			<div style="height: 320px; padding: 2px; width: 380px; float: left;">
-				<iframe
-					src="http://www.tudou.com/programs/view/html5embed.action?type=0&code=PhLD7ul2Y0A&lcode=&resourceId=0_06_05_99"
+				<iframe src="http://player.youku.com/embed/XOTI0MDA2Mzk2"
 					allowtransparency="true" allowfullscreen="true" scrolling="no"
 					border="0" frameborder="0" style="width: 380px; height: 310px;"></iframe>
 			</div>
@@ -590,24 +588,26 @@
 				</div>
 				<div class="ctail"></div>
 			</div>
-			<c:forEach items="${indexPageContent.topUsers}" var="userValue"
-				varStatus="status">
-				<div class="xldgurg" style="height: 70px; width: 80px;">
-					<div class="avtr" style="width: 65px; float: left;">
-						<a
-							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />"><img
-							src="html/userhead/<c:out value="${userValue.headurl}" />"
-							style="width: 47px;" /></a>
+			<div class="listCardBody" style="padding-top: 0px; height: 318px;">
+				<c:forEach items="${indexPageContent.topUsers}" var="userValue"
+					varStatus="status">
+					<div class="xldgurg" style="height: 70px; width: 82px;">
+						<div class="avtr" style="width: 67px; float: left;">
+							<a
+								href="gouserindex.do?userid=<c:out value="${userValue.userid}" />"><img
+								src="html/userhead/<c:out value="${userValue.headurl}" />"
+								style="width: 49px;" /></a>
+						</div>
+						<div class="m1ln"
+							style="float: left; overflow: hidden; height: 80px;">
+							<a
+								href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
+								&nbsp;<c:out value="${userValue.artname}" />
+							</a>
+						</div>
 					</div>
-					<div class="m1ln"
-						style="float: left; overflow: hidden; height: 80px;">
-						<a
-							href="gouserindex.do?userid=<c:out value="${userValue.userid}" />">
-							&nbsp;<c:out value="${userValue.artname}" />
-						</a>
-					</div>
-				</div>
-			</c:forEach>
+				</c:forEach>
+			</div>
 		</div>
 		<div class="card3">
 			<div class="listCardTtl ttlStl1">
@@ -685,15 +685,15 @@
 				</div>
 				<div class="ctail"></div>
 			</div>
-			<div class="listCardBody">
+			<div class="listCardBody" style="padding-top: 0px; height: 318px;">
 				<c:forEach items="${indexPageContent.newUsers}" var="userValue"
 					varStatus="status">
-					<div class="xldgurg" style="height: 70px; width: 80px;">
-						<div class="avtr" style="width: 65px; float: left;">
+					<div class="xldgurg" style="height: 70px; width: 82px;">
+						<div class="avtr" style="width: 67px; float: left;">
 							<a
 								href="gouserindex.do?userid=<c:out value="${userValue.userid}" />"><img
 								src="html/userhead/<c:out value="${userValue.headurl}" />"
-								style="width: 47px;" /></a>
+								style="width: 49px;" /></a>
 						</div>
 						<div class="m1ln"
 							style="float: left; overflow: hidden; height: 80px;">
@@ -808,15 +808,15 @@
 				</div>
 				<div class="ctail"></div>
 			</div>
-			<div class="listCardBody" style="background: #fff;">
+			<div class="listCardBody" style="background: #fff;padding-top: 0px; height: 318px;">
 				<c:forEach items="${indexPageContent.topUsers}" var="userValue"
 					varStatus="status">
-					<div class="xldgurg" style="height: 70px; width: 80px;">
-						<div class="avtr" style="width: 65px; float: left;">
+					<div class="xldgurg" style="height: 70px; width: 82px;">
+						<div class="avtr" style="width: 67px; float: left;">
 							<a
 								href="gouserindex.do?userid=<c:out value="${userValue.userid}" />"><img
 								src="html/userhead/<c:out value="${userValue.headurl}" />"
-								style="width: 47px;" /></a>
+								style="width: 49px;" /></a>
 						</div>
 						<div class="m1ln"
 							style="float: left; overflow: hidden; height: 80px;">
@@ -992,6 +992,7 @@
 			</div>
 			 -->
 			<div class="videoBox" id="videoBox">
+
 				<c:forEach items="${indexPageContent.videos}" var="imgValue"
 					varStatus="status">
 					<div class="video" style="width: 303px; height: 320px;">
@@ -1022,8 +1023,10 @@
 				</c:forEach>
 			</div>
 			<ul class="flex-direction-nav">
-				<li><a class="flex-prev" href="#">Previous</a></li>
-				<li><a class="flex-next" href="#">Next</a></li>
+				<li><a class="flex-prev" href="javascript:void(0)"
+					id="flex-prev">Previous</a></li>
+				<li><a class="flex-next" href="javascript:void(0)"
+					id="flex-next">Next</a></li>
 			</ul>
 		</div>
 		<div class="cls"></div>
@@ -1129,15 +1132,15 @@
 				</div>
 				<div class="ctail"></div>
 			</div>
-			<div class="listCardBody" style="background: #fff;">
+			<div class="listCardBody" style="background: #fff;padding-top: 0px; height: 318px;">
 				<c:forEach items="${indexPageContent.recentLoginUsers}"
 					var="userValue" varStatus="status">
-					<div class="xldgurg" style="height: 70px; width: 80px;">
-						<div class="avtr" style="width: 65px; float: left;">
+					<div class="xldgurg" style="height: 70px; width: 82px;">
+						<div class="avtr" style="width: 67px; float: left;">
 							<a
 								href="gouserindex.do?userid=<c:out value="${userValue.userid}" />"><img
 								src="html/userhead/<c:out value="${userValue.headurl}" />"
-								style="width: 47px;" /></a>
+								style="width: 49px;" /></a>
 						</div>
 						<div class="m1ln"
 							style="float: left; overflow: hidden; height: 80px;">
@@ -1220,15 +1223,15 @@
 				</div>
 				<div class="ctail"></div>
 			</div>
-			<div class="listCardBody" style="background: #fff;">
+			<div class="listCardBody" style="background: #fff;padding-top: 0px; height: 318px;">
 				<c:forEach items="${indexPageContent.activeusers}" var="userValue"
 					varStatus="status">
-					<div class="xldgurg" style="height: 70px; width: 80px;">
-						<div class="avtr" style="width: 65px; float: left;">
+					<div class="xldgurg" style="height: 70px; width: 82px;">
+						<div class="avtr" style="width: 67px; float: left;">
 							<a
 								href="gouserindex.do?userid=<c:out value="${userValue.userid}" />"><img
 								src="html/userhead/<c:out value="${userValue.headurl}" />"
-								style="width: 47px;" /></a>
+								style="width: 49px;" /></a>
 						</div>
 						<div class="m1ln"
 							style="float: left; overflow: hidden; height: 80px;">
@@ -1601,7 +1604,6 @@
 	src="http://js.users.51.la/17667713.js"></script>
 <script>
 	var pics1 = <c:out value="${indexPageContent.pics}" escapeXml="false" />;
-	//$("#searchtext").css
 	if (/webkit/.test(navigator.userAgent.toLowerCase())) {
 		$("#searchtext").attr("style", "width:275px;height:15px;");
 	}
@@ -1609,8 +1611,8 @@
 		$("#searchtext").attr("style", "width:18px;height:275px;");
 	}
 	SODON.example.scrollViewHome = new SODON.widget.ScrollView("videoBox", {
-		nextButton : "home-scroll-next",
-		prevButton : "home-scroll-prev",
+		nextButton : "flex-next",
+		prevButton : "flex-prev",
 		direction : "horizontal",
 		screenSize : 3,
 		itemWidth : 302,
@@ -1628,7 +1630,5 @@
 		stop : '#stop',
 		start : '#start'
 	});
-	//Galleria.loadTheme('js/sitejs/galleria.classic.js');
-	//Galleria.run('#galleria');
 </script>
 </html>

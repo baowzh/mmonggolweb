@@ -335,7 +335,7 @@ var heartBeat = function() {
 			//+ percent + "px";
 	lastScrollY = lastScrollY + percent;
 };
-var suspendcode12 = "<DIV id=\"ALayer1\" style='left:0px;PosITION:absolute;TOP:10px;FILTER: alpha(opacity=85);'><div align=left><img src='img/close.gif' border=0 onclick='closeBanner();' /></div><a style='/display:block; margin-top:5px;'/ href='/ad/2015/hongoyol/hongoyol.jsp' target='_blank'><img src='img/haigur.png' border='0'></a></div>";
+var suspendcode12 = "<DIV id=\"ALayer1\" style='left:0px;PosITION:absolute;TOP:10px;FILTER: alpha(opacity=85);'><div align=left><img src='img/close.gif' border=0 onclick='closeBanner();' /></div><a style='/display:block; margin-top:5px;'/ href='browserlist.do' target='_blank'><img src='img/haigur.png' border='0' width='110'></a></div>";
 //var suspendcode14 = "<div id=\"ALayer2\" style='right:0px;PosITION:absolute;TOP:10px;FILTER: alpha(opacity=85);'><div align=right><img src='img/close.gif' border=0 onclick='closeBanner();' /></div><a href='/ad/2014/mgl/mglpx.jsp' target='_blank'><img src='img/haigur.png' border='0'></a></div>"
 document.write(suspendcode12);
 //document.write(suspendcode14);

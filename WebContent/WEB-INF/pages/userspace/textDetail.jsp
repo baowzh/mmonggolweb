@@ -34,11 +34,6 @@
 <script type="text/javascript" src="ckeditor/ckeditor.js"></script>
 <script language="javascript" type="text/javascript"
 	src="http://js.users.51.la/17667713.js"></script>
-<noscript>
-	<a href="http://www.51.la/?17667713" target="_blank"><img
-		alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;"
-		src="http://img.users.51.la/17667713.asp" style="border: none" /></a>
-</noscript>
 </head>
 <body style="background-color: #fff; scroll: none;">
 	<div id="viewhead" class="viewhead"
@@ -425,6 +420,13 @@
 		style="height: 30px; background-color: #dfa64f"></div>
 	<%@ include file="bloghiddendiv.jsp"%>
 	<%@ include file="logindiv.jsp"%>
+	<noscript>
+	<a href="http://www.51.la/?17667713" target="_blank">
+	<img
+		alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;"
+		src="http://img.users.51.la/17667713.asp" style="border: none;" />
+		</a>
+</noscript>
 </body>
 <script>
 	var raceModelJson = <c:out value="${raceModelJson}" escapeXml="false" />;

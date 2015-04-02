@@ -80,13 +80,14 @@ public class WebSiteVisiterAction {
 		Map<String, Object> indexPageContent = new HashMap<String, Object>();
 		try {
 			if (this.isphoneagent(request)) {
-				String loginsuccess=request.getParameter("loginsuccess");
-				if(loginsuccess!=null){
-					return new ModelAndView("redirect:phoneindex.do?loginsuccess=1");	
-				}else{
-					return new ModelAndView("redirect:phoneindex.do");	
+				String loginsuccess = request.getParameter("loginsuccess");
+				if (loginsuccess != null) {
+					return new ModelAndView(
+							"redirect:phoneindex.do?loginsuccess=1");
+				} else {
+					return new ModelAndView("redirect:phoneindex.do");
 				}
-				
+
 			}
 			String path = request.getSession().getServletContext()
 					.getRealPath("/");
@@ -288,11 +289,13 @@ public class WebSiteVisiterAction {
 
 				queryDocParams.put("channelid", queryDocForm.getChannel());
 			}
-			if (queryDocForm.getAuthorname()==null||(queryDocForm.getAuthorname() != null
-					&& queryDocForm.getAuthorname().equalsIgnoreCase(""))) {
+			if (queryDocForm.getAuthorname() == null
+					|| (queryDocForm.getAuthorname() != null && queryDocForm
+							.getAuthorname().equalsIgnoreCase(""))) {
 				queryDocParams.put("authorname", null);
 			} else {
-				queryDocParams.put("authorname", queryDocForm.getAuthorname().trim());
+				queryDocParams.put("authorname", queryDocForm.getAuthorname()
+						.trim());
 			}
 			if (queryDocForm.getStrcrtime() != null
 					&& queryDocForm.getStrcrtime().equalsIgnoreCase("")) {
@@ -306,11 +309,13 @@ public class WebSiteVisiterAction {
 			} else {
 				queryDocParams.put("endcrtime", queryDocForm.getEndcrtime());
 			}
-			if (queryDocForm.getDoctitle() == null||(queryDocForm.getDoctitle() != null
-					&& queryDocForm.getDoctitle().equalsIgnoreCase(""))) {
+			if (queryDocForm.getDoctitle() == null
+					|| (queryDocForm.getDoctitle() != null && queryDocForm
+							.getDoctitle().equalsIgnoreCase(""))) {
 				queryDocParams.put("doctitle", null);
 			} else {
-				queryDocParams.put("doctitle", queryDocForm.getDoctitle().trim());
+				queryDocParams.put("doctitle", queryDocForm.getDoctitle()
+						.trim());
 			}
 			if (queryDocForm.getTop() != null
 					&& queryDocForm.getTop().intValue() != 0) {
@@ -595,7 +600,7 @@ public class WebSiteVisiterAction {
 	public ModelAndView phoneindex(HttpServletRequest request,
 			PaingModel<DocumentValue> paingModel, ModelMap map) {
 		try {
-			String loginsuccess=request.getParameter("loginsuccess");
+			String loginsuccess = request.getParameter("loginsuccess");
 			List<TopDocumentValue> selecteddocs = this.webSiteVisitorManager
 					.getTopDocuments(StaticConstants.TOP_TYPE4, null, 14);
 			map.put("selecteddocs", selecteddocs);
@@ -673,6 +678,7 @@ public class WebSiteVisiterAction {
 		map.put("pagestr", pagestr);
 		return new ModelAndView("wap/selblogs");
 	}
+
 	@RequestMapping("/phoneracelist.do")
 	public ModelAndView phoneracelist(HttpServletRequest request,
 			PaingModel<DocumentValue> paingModel, ModelMap map) {
@@ -680,7 +686,8 @@ public class WebSiteVisiterAction {
 			paingModel.setPagesize(12);
 			paingModel.setStartrow(1 * paingModel.getPagesize());
 			paingModel.setEndrow(12);
-			PaingModel<DocumentValue> pamodel = this.raceManager.pagingqueryracedoc(paingModel);
+			PaingModel<DocumentValue> pamodel = this.raceManager
+					.pagingqueryracedoc(paingModel);
 			String pagingstr = PageUtil.getPagingLink(pamodel, 1);
 			map.put("pagingstr", pagingstr);
 			map.put("selecteddocs", pamodel.getModelList());
@@ -689,6 +696,11 @@ public class WebSiteVisiterAction {
 			ex.printStackTrace();
 		}
 		return new ModelAndView("wap/racelist", map);
+	}
+
+	@RequestMapping("/browserlist.do")
+	public ModelAndView browserlist(HttpServletRequest request, ModelMap map) {
+		return new ModelAndView("website/browserlist", map);
 	}
 
 }
