@@ -32,8 +32,6 @@
 <script src="js/messagebox/jquery.msgbox.js"></script>
 <script src="js/messagebox/jquery.dragndrop.min.js"></script>
 <script type="text/javascript" src="ckeditor/ckeditor.js"></script>
-<script language="javascript" type="text/javascript"
-	src="http://js.users.51.la/17667713.js"></script>
 </head>
 <body style="background-color: #fff; scroll: none;">
 	<div id="viewhead" class="viewhead"
@@ -151,7 +149,9 @@
 		</div>
 		<div class="msheet shareBookmark"
 			style="float: left; height: 340px; margin-top: 0px; padding-top: 90px;">
-			<img src="getQRCode.do?docid=<c:out value="${documentValue.docid}" />" width="200" height="240">
+			<img
+				src="getQRCode.do?docid=<c:out value="${documentValue.docid}" />"
+				width="200" height="240">
 		</div>
 		<div class="msheet shareBookmark"
 			style="float: left; height: 340px; margin-top: 0px; padding-top: 150px;">
@@ -414,19 +414,21 @@
 		</div>
 		<div class="mln"
 			style="float: right; width: 30px; height: 100%; background-color: #dfa64f; color: #fff;">
+			<script language="javascript" type="text/javascript"
+				src="http://js.users.51.la/17667713.js"></script>
+			<noscript>
+				<a href="http://www.51.la/?17667713" target="_blank"> <img
+					alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;"
+					src="http://img.users.51.la/17667713.asp" style="border: none;" />
+				</a>
+			</noscript>
 		</div>
 	</div>
 	<div id="viewhead" class="viewhead"
 		style="height: 30px; background-color: #dfa64f"></div>
 	<%@ include file="bloghiddendiv.jsp"%>
 	<%@ include file="logindiv.jsp"%>
-	<noscript>
-	<a href="http://www.51.la/?17667713" target="_blank">
-	<img
-		alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;"
-		src="http://img.users.51.la/17667713.asp" style="border: none;" />
-		</a>
-</noscript>
+
 </body>
 <script>
 	var raceModelJson = <c:out value="${raceModelJson}" escapeXml="false" />;
