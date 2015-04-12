@@ -373,6 +373,8 @@ body {
 	float: left;
 	height: 7em;
 	color: #014886;
+	font-family: "MenksoftQagan";
+	font-size: 17px;
 }
 
 .mglForm .label a {
@@ -578,6 +580,7 @@ body {
 	width: 1000px;
 	background: #081E4F;
 }
+
 .footer-sec {
 	float: left;
 	width: 980px;
@@ -597,16 +600,19 @@ body {
 	padding-top: 5px;
 	background: #081E4F;
 }
+
 .ftig {
 	font-family: "MenksoftQagan";
 	-webkit-writing-mode: vertical-lr;
 	-webkit-text-orientation: sideways-right;
 	writing-mode: tb-lr;
 }
-.ftig a{
+
+.ftig a {
 	text-decoration: none;
-	color:#fff;
+	color: #fff;
 }
+
 .footer-sec_2 {
 	float: left;
 	width: auto;
@@ -617,14 +623,16 @@ body {
 	padding-top: 15px;
 	background: #081E4F;
 }
-.tail{
+
+.tail {
 	float: left;
 	width: 980px;
 	height: 160px;
 	margin-left: 10px;
 	margin-top: 5px;
 }
-.tail-sec_1{
+
+.tail-sec_1 {
 	margin-left: auto;
 	margin-right: auto;
 	width: 300px;
@@ -634,7 +642,8 @@ body {
 	line-height: 20px;
 	padding-top: 0px;
 }
-.tail-sec_2{
+
+.tail-sec_2 {
 	float: left;
 	width: 945px;
 	height: 60px;
@@ -871,4 +880,54 @@ body {
 	cursor: pointer;
 	text-indent: -9999px;
 	opacity: 0;
+}
+
+div.photo-slider {
+	overflow: hidden;
+}
+
+div.photo-slider-wrapper {
+	position: relative;
+	float: none;
+	margin: 0px 0px 10px 0px;
+	overflow: hidden;
+	width: 840px;
+	height: 200px;
+}
+
+div.photo-slider-content {
+	position: absolute;
+	overflow: hidden;
+	height: 200px;
+	width: 1800px;
+}
+
+div.photo-slider-content div.photo-slider-item {
+	width: 130px;
+	height: auto;
+	overflow: hidden;
+	float: left;
+}
+
+div.photo-slider-controls {
+	width: 65px;
+	height: 31px;
+	overflow: hidden;
+	float: right;
+	background: url(../img/sprite.png) no-repeat -887px -245px;
+	margin-right: 10px;
+}
+
+.photo-slider-controls a {
+	display: inline-block;
+	float: left;
+	width: 31px;
+	height: 25px;
+}
+
+div.photo-slider-content div.photo-slider-item a {
+	font-family: Arial;
+	font-size: 0.8em;
+	margin-bottom: 10px;
+	color: #393939;
 }

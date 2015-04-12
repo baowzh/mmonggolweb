@@ -59,11 +59,11 @@
 		<div class="mnlist">
 			<li><a href="booklist.do"> </a></li>
 		</div>
-		<!--  
+		
 		<div class="mnlist">
 			<li><a href="createsitepage.do"> </a></li>
 		</div>
-		-->
+		
 	</div>
 	<!-- 444 -->
 	<div class="content" id="astopwriting"

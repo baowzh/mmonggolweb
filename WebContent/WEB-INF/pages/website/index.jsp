@@ -796,7 +796,6 @@
 				</c:forEach>
 			</div>
 		</div>
-		<!-- 		<div class="cls"></div> -->
 	</div>
 	<div class="layer m0a">
 		<div class="card3">
@@ -808,7 +807,8 @@
 				</div>
 				<div class="ctail"></div>
 			</div>
-			<div class="listCardBody" style="background: #fff;padding-top: 0px; height: 318px;">
+			<div class="listCardBody"
+				style="background: #fff; padding-top: 0px; height: 318px;">
 				<c:forEach items="${indexPageContent.topUsers}" var="userValue"
 					varStatus="status">
 					<div class="xldgurg" style="height: 70px; width: 82px;">
@@ -1132,7 +1132,8 @@
 				</div>
 				<div class="ctail"></div>
 			</div>
-			<div class="listCardBody" style="background: #fff;padding-top: 0px; height: 318px;">
+			<div class="listCardBody"
+				style="background: #fff; padding-top: 0px; height: 318px;">
 				<c:forEach items="${indexPageContent.recentLoginUsers}"
 					var="userValue" varStatus="status">
 					<div class="xldgurg" style="height: 70px; width: 82px;">
@@ -1223,7 +1224,8 @@
 				</div>
 				<div class="ctail"></div>
 			</div>
-			<div class="listCardBody" style="background: #fff;padding-top: 0px; height: 318px;">
+			<div class="listCardBody"
+				style="background: #fff; padding-top: 0px; height: 318px;">
 				<c:forEach items="${indexPageContent.activeusers}" var="userValue"
 					varStatus="status">
 					<div class="xldgurg" style="height: 70px; width: 82px;">
@@ -1623,6 +1625,19 @@
 		auto : true,
 		repeat : "repeat-back"
 	});
+	/*
+	SODON.example.scrollViewH = new SODON.widget.ScrollView(
+			"h-scroll-container", {
+				direction : "horizontal",
+				screenSize : 4,
+				itemWidth : 240,
+				itemHeight : 280,
+				itemSpace : 4,
+				prevButton : "h-scrollview-prevbutton-bs",
+				nextButton : "h-scrollview-nextbutton-bs",
+				auto : true
+			});
+	*/
 	$('#vertical-ticker').totemticker({
 		row_height : '100px',
 		next : '#ticker-next',

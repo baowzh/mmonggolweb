@@ -4,10 +4,13 @@
 
 <sqlMap namespace="wechat">
 	<typeAlias alias="WechatDocValue" type="com.mongolia.website.model.WechatDocValue" />
-	<typeAlias alias="WechatReceiveMessValue" type="com.mongolia.website.model.WechatReceiveMessValue" />
+	<typeAlias alias="WechatReceiveMessValue"
+		type="com.mongolia.website.model.WechatReceiveMessValue" />
+	<typeAlias alias="AutoResponse" type="com.mongolia.website.model.AutoResponse" />
 	<insert id="addWechatDocValue" parameterClass="WechatDocValue">
 		insert into
 		wechatdoc(
+		id,
 		responseid,
 		docid,
 		docimg,
@@ -17,6 +20,7 @@
 		)
 		values
 		(
+		#id#,
 		#responseid#,
 		#docid#,
 		#docimg#,
@@ -26,7 +30,8 @@
 		)
 	</insert>
 	<insert id="addWechatReceiveMessValue" parameterClass="WechatReceiveMessValue">
-		insert into wechatreceivemess(
+		insert
+		into wechatreceivemess(
 		messid,
 		tousername,
 		fromusername,
@@ -45,8 +50,8 @@
 		)
 	</insert>
 	<select id="getWechatDocWithAutoResId" parameterClass="java.lang.String"
-		resultClass="bookStoreValue">
-		select * from wechatdoc where responseid=$resId$
+		resultClass="WechatDocValue">
+		select a.*,b.doctitle as mgltitle from wechatdoc a,document b where a.docid=b.docid and a.responseid='$resId$'
 	</select>
 	<delete id="delAllAutoResDoc" parameterClass="java.lang.String">
 		delete from
@@ -57,5 +62,111 @@
 		where wechatdoc.responseid=#responseid#
 		and docid=#docid#
 	</delete>
+	<delete id="delAutoResponse" parameterClass="AutoResponse">
+		delete from
+		wechatautoresponse
+		where id=#id#
+	</delete>
+	<select id="getAutoResponses" parameterClass="java.util.Map"
+		resultClass="AutoResponse">
+		select * from wechatautoresponse
+		<dynamic prepend="where">
+			<isNotNull prepend="and" property="id">
+				id=#id#
+			</isNotNull>
+			<isNotNull prepend="and" property="accountId">
+				accountId=#accountId#
+			</isNotNull>
+		</dynamic>
+	</select>
+	<insert id="addWechatautoresponse" parameterClass="AutoResponse">
+		insert into
+		wechatautoresponse(
+		id,
+		addtime,
+		keyword,
+		msgtype,
+		rescontent,
+		templatename,
+		accountid
+		)
+		values
+		(
+		#id#,
+		#addtime#,
+		#keyword#,
+		#msgtype#,
+		#rescontent#,
+		#templatename#,
+		#accountid#
+		)
+	</insert>
+	<update id="updWechatautoresponse" parameterClass="AutoResponse">
+		update wechatautoresponse 
+		<dynamic prepend="set">
+			<isNotNull prepend="," property="keyword">
+				keyword= #keyword#
+			</isNotNull>
+			<isNotNull prepend="," property="msgtype">
+				msgtype= #msgtype#
+			</isNotNull>
+			<isNotNull prepend="," property="rescontent">
+				rescontent= #rescontent#
+			</isNotNull>
+			<isNotNull prepend="," property="templatename">
+				templatename= #templatename#
+			</isNotNull>
+		</dynamic>
+		where id=#id# 
+	</update>
+	<select id="checkexistsAutoResponses" parameterClass="java.util.Map"
+		resultClass="AutoResponse">
+		select * from wechatautoresponse
+		<dynamic prepend="where">
+			<isNotNull prepend="and" property="rescontent">
+				rescontent=#rescontent#
+			</isNotNull>
+			<isNotNull prepend="and" property="templatename">
+				templatename=#templatename#
+			</isNotNull>
+		</dynamic>
+	</select>
+	<select id="pagingAutoResponses" parameterClass="com.mongolia.website.model.PagingAutoResModel"
+		resultClass="AutoResponse">
+		select * from wechatautoresponse
+		<dynamic prepend="where">
+			<isNotNull prepend="and" property="id">
+				id=#id#
+			</isNotNull>
+			<isNotNull prepend="and" property="accountid">
+				accountId=#accountid#
+			</isNotNull>
+			<isNotNull prepend="and" property="begindate">
+				<![CDATA[addtime=#begindate#]]>
+			</isNotNull>
+			<isNotNull prepend="and" property="endate">
+				<![CDATA[addtime=#endate#]]>
+			</isNotNull>
+		</dynamic>
+		order by addtime desc limit #startrow#, #pagesize#
+	</select>
+		<select id="pagingAutoResCount" parameterClass="com.mongolia.website.model.PagingAutoResModel"
+		resultClass="java.lang.Integer">
+		select count(1) from wechatautoresponse
+		<dynamic prepend="where">
+			<isNotNull prepend="and" property="id">
+				id=#id#
+			</isNotNull>
+			<isNotNull prepend="and" property="accountid">
+				accountId=#accountid#
+			</isNotNull>
+			<isNotNull prepend="and" property="begindate">
+				<![CDATA[addtime=#begindate#]]>
+			</isNotNull>
+			<isNotNull prepend="and" property="endate">
+				<![CDATA[addtime=#endate#]]>
+			</isNotNull>
+		</dynamic>
+	</select>
 
 </sqlMap>

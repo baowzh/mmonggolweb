@@ -1,5 +1,6 @@
 package com.mongolia.website.manager.impls;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -39,7 +40,8 @@ public class AutoResponseManagerImpl implements AutoResponseManager {
 	@Override
 	public void saveOrUpdate(AutoResponse entity) throws Exception {
 		// TODO Auto-generated method stub
-		if (this.autoResponseDao.checkexists(entity.getId())) {
+		if (entity.getId() != null
+				&& !entity.getId().equalsIgnoreCase("_empty")) {
 			this.autoResponseDao.update(entity);
 		} else {
 			entity.setId(UUIDMaker.getUUID());
@@ -48,12 +50,12 @@ public class AutoResponseManagerImpl implements AutoResponseManager {
 	}
 
 	@Override
-	public PagingAutoResModel pagingquerydoc(PagingAutoResModel paingModel)
+	public PagingAutoResModel pagingqueryAutoResp(PagingAutoResModel paingModel)
 			throws Exception {
 		// TODO Auto-generated method stub
-		if (paingModel.getStartrow() == null) {
-			paingModel.setStartrow(1);
-		}
+		paingModel.setPagesize(10);
+		paingModel.setStartrow((paingModel.getPageindex() - 1)
+				* paingModel.getPagesize());
 		List<AutoResponse> autoResponses = this.autoResponseDao
 				.pagingQueryAutoResponse(paingModel);
 		paingModel.setModelList(autoResponses);
@@ -69,11 +71,10 @@ public class AutoResponseManagerImpl implements AutoResponseManager {
 	}
 
 	@Override
-	public void addWechatDoc(String docid, String autoresid) throws Exception {
-		// TODO Auto-generated method stub
-		WechatDocValue wechatDocValue = new WechatDocValue();
-		wechatDocValue.setDocid(docid);
-		wechatDocValue.setResponseid(autoresid);
+	public void addWechatDoc(WechatDocValue wechatDocValue) throws Exception {
+		// TODO Auto-generated method stube
+		wechatDocValue.setSeldate(new Date());
+		wechatDocValue.setId(UUIDMaker.getUUID());
 		this.wechatDocDao.addWechatDoc(wechatDocValue);
 	}
 
@@ -85,6 +86,13 @@ public class AutoResponseManagerImpl implements AutoResponseManager {
 		wechatDocValue.setResponseid(autoresid);
 		this.wechatDocDao.delWechatDoc(wechatDocValue);
 
+	}
+
+	@Override
+	public List<WechatDocValue> getWechatDocValues(String autoresid)
+			throws Exception {
+		// TODO Auto-generated method stub
+		return this.wechatDocDao.getWechatDocWithAutoResId(autoresid);
 	}
 
 }

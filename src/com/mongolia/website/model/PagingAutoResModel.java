@@ -6,6 +6,7 @@ public class PagingAutoResModel extends PaingModel<AutoResponse> {
 	private Date begindate;
 	private Date endate;
 	private String accountid;
+	private String id;
 
 	public Date getBegindate() {
 		return begindate;
@@ -29,6 +30,14 @@ public class PagingAutoResModel extends PaingModel<AutoResponse> {
 
 	public void setAccountid(String accountid) {
 		this.accountid = accountid;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 }
