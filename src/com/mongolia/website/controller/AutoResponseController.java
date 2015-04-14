@@ -64,14 +64,26 @@ public class AutoResponseController {
 	@RequestMapping("/addAutoresponse.do")
 	public ModelAndView addAutoresponse(HttpServletRequest request,
 			AutoResponse autoResponse, ModelMap map) throws Exception {
-		this.autoResponseManager.saveOrUpdate(autoResponse);
+		try {
+			this.autoResponseManager.saveOrUpdate(autoResponse);
+			map.put("status", 1);
+		} catch (Exception ex) {
+			map.put("status", "404");
+			map.put("mess", ex.getMessage());
+		}
 		return new ModelAndView("jsonView", map);
 	}
 
 	@RequestMapping("/updAutoresponse.do")
 	public ModelAndView updAutoresponse(HttpServletRequest request,
 			AutoResponse autoResponse, ModelMap map) throws Exception {
-		this.autoResponseManager.saveOrUpdate(autoResponse);
+		try {
+			this.autoResponseManager.saveOrUpdate(autoResponse);
+			map.put("status", 1);
+		} catch (Exception ex) {
+			map.put("status", "404");
+			map.put("mess", ex.getMessage());
+		}
 		return new ModelAndView("jsonView", map);
 	}
 
@@ -148,6 +160,13 @@ public class AutoResponseController {
 		map.put("records", wechatDocValues.size());
 		map.put("page", 1);
 		map.put("total", 1);
+		return new ModelAndView("jsonView", map);
+	}
+
+	@RequestMapping("/testSendMess.do")
+	public ModelAndView testSendMess(HttpServletRequest request, ModelMap map)
+			throws Exception {
+		this.autoResponseManager.sendServiceMess();
 		return new ModelAndView("jsonView", map);
 	}
 

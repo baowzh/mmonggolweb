@@ -7,6 +7,7 @@ public class PagingAutoResModel extends PaingModel<AutoResponse> {
 	private Date endate;
 	private String accountid;
 	private String id;
+	private Integer defaultmess;
 
 	public Date getBegindate() {
 		return begindate;
@@ -38,6 +39,14 @@ public class PagingAutoResModel extends PaingModel<AutoResponse> {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	public Integer getDefaultmess() {
+		return defaultmess;
+	}
+
+	public void setDefaultmess(Integer defaultmess) {
+		this.defaultmess = defaultmess;
 	}
 
 }

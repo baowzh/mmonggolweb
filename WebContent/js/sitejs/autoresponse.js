@@ -26,7 +26,7 @@ $(document).ready(function() {
 		}, {
 			label : '消息类型',
 			name : 'msgtype',
-			formatter : formatRating,
+			formatter : formatMsgType,
 			width : 75,
 			key : true,
 			editable : true,
@@ -67,7 +67,7 @@ $(document).ready(function() {
 			}
 		}, {
 			label : '是否默认消息',
-			name : 'msgtype',
+			name : 'defaultmess',
 			formatter : formatRating,
 			width : 80,
 			editable : true,
@@ -109,8 +109,15 @@ $(document).ready(function() {
 		checkOnUpdate : true,
 		checkOnSubmit : true,
 		closeAfterEdit : true,
-		errorTextFormat : function(data) {
-			return 'Error: ' + data.responseText
+		afterSubmit : function(response, postdata) {
+			var res = $.parseJSON(response.responseText);
+			if(res.status==1){
+				alert('成功');
+				return true;
+			}else{
+				alert( res.mess);
+				return true;
+			}
 		},
 		height : 'auto',
 		width : 450,
@@ -122,9 +129,19 @@ $(document).ready(function() {
 		closeAfterAdd : true,
 		recreateForm : true,
 		checkOnSubmit : true,
-		errorTextFormat : function(data) {
-			return 'Error: ' + data.responseText
+		afterSubmit : function(response, postdata) {
+			var res = $.parseJSON(response.responseText);
+			if(res.status==1){
+				alert('成功');
+				return true;
+			}else{
+				alert( res.mess);
+				return true;
+			}
 		},
+//		errorTextFormat : function(data) {
+//			return 'Error: ' + data.responseText
+//		},
 		height : 'auto',
 		width : 450,
 		url : "addAutoresponse.do"
@@ -132,7 +149,7 @@ $(document).ready(function() {
 		url : "delAutoresponse.do"
 	}, {
 		errorTextFormat : function(data) {
-			return 'Error: ' + data.responseText
+			return 'Error: ' + data.mess
 		}
 	});
 	// 选择文件table
@@ -243,27 +260,31 @@ $(document).ready(function() {
 
 });
 
-var formatRating = function(cellValue, options, rowObject) {
-	if (options.pos == 3) {
-		if (cellValue == 1) {
-			return "图文消息";
-		} else {
-			return "文本消息";
-		}
+var formatMsgType = function(cellValue, options, rowObject) {
+	if (cellValue == 1) {
+		return "图文消息";
 	} else {
-		if (cellValue == 1) {
-			return "是";
-		} else {
-			return "否";
-		}
+		return "文本消息";
 	}
+}
 
+var formatRating = function(cellValue, options, rowObject) {
+	if (cellValue == 1) {
+		return "是";
+	} else {
+		return "否";
+	}
 };
 var addwechatdoc = function() {
 	var grid = $("#jqGrid");
 	var rowKey = grid.jqGrid('getGridParam', "selrow");
 	if (rowKey == null || rowKey == '') {
 		alert('请选择自动回复设置!');
+		return;
+	}
+	var rowData = grid.jqGrid('getRowData', rowKey);
+	if (rowData.msgtype == '文本消息') {
+		alert('文本消息不能维护关联文章!');
 		return;
 	}
 	$('#responseid').val(rowKey);

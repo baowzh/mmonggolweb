@@ -74,7 +74,7 @@
 				<a href="javascript:addwechatdoc();"></a>
 			</div>
 			<div class="title" style="height: 90px; width: 25px;">
-				<a href="#"></a>
+				<a href="javascript:delwechatdoc();"></a>
 			</div>
 		</div>
 	</div>

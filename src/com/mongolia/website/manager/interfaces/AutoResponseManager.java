@@ -70,4 +70,8 @@ public interface AutoResponseManager {
 	 */
 	public List<WechatDocValue> getWechatDocValues(String autoresid)
 			throws Exception;
+   /**
+    * 
+    */
+	public void sendServiceMess();
 }

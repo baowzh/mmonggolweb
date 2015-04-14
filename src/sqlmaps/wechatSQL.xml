@@ -77,6 +77,15 @@
 			<isNotNull prepend="and" property="accountId">
 				accountId=#accountId#
 			</isNotNull>
+			<isNotNull prepend="and" property="defaultmess">
+				defaultmess=#defaultmess#
+			</isNotNull>
+			<isNotNull prepend="and" property="addtime">
+				<![CDATA[addtime=cast(#addtime# as date)]]>
+			</isNotNull>
+			<isNotNull prepend="and" property="keyword">
+				keyword like '%'||#keyword#||'%'
+			</isNotNull>
 		</dynamic>
 	</select>
 	<insert id="addWechatautoresponse" parameterClass="AutoResponse">
@@ -88,7 +97,8 @@
 		msgtype,
 		rescontent,
 		templatename,
-		accountid
+		accountid,
+		defaultmess
 		)
 		values
 		(
@@ -98,7 +108,8 @@
 		#msgtype#,
 		#rescontent#,
 		#templatename#,
-		#accountid#
+		#accountid#,
+		#defaultmess#
 		)
 	</insert>
 	<update id="updWechatautoresponse" parameterClass="AutoResponse">
@@ -116,6 +127,10 @@
 			<isNotNull prepend="," property="templatename">
 				templatename= #templatename#
 			</isNotNull>
+			<isNotNull prepend="," property="defaultmess">
+				defaultmess= #defaultmess#
+			</isNotNull>
+			
 		</dynamic>
 		where id=#id# 
 	</update>
@@ -141,6 +156,9 @@
 			<isNotNull prepend="and" property="accountid">
 				accountId=#accountid#
 			</isNotNull>
+			<isNotNull prepend="and" property="defaultmess">
+				defaultmess=#defaultmess#
+			</isNotNull>
 			<isNotNull prepend="and" property="begindate">
 				<![CDATA[addtime=#begindate#]]>
 			</isNotNull>
@@ -160,11 +178,23 @@
 			<isNotNull prepend="and" property="accountid">
 				accountId=#accountid#
 			</isNotNull>
+			<isNotNull prepend="and" property="defaultmess">
+				defaultmess=#defaultmess#
+			</isNotNull>
 			<isNotNull prepend="and" property="begindate">
 				<![CDATA[addtime=#begindate#]]>
 			</isNotNull>
 			<isNotNull prepend="and" property="endate">
 				<![CDATA[addtime=#endate#]]>
+			</isNotNull>
+		</dynamic>
+	</select>
+	<select id="getRecentReqUserId" parameterClass="java.util.Map"
+		resultClass="java.lang.String">
+		 select  DISTINCT a.fromusername from wechatreceivemess a
+		<dynamic prepend="where">
+			<isNotNull prepend="and" property="begindate">
+				<![CDATA[a.createtime>=#begindate#]]>
 			</isNotNull>
 		</dynamic>
 	</select>
