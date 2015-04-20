@@ -74,9 +74,11 @@
 			<isNotNull prepend="and" property="id">
 				id=#id#
 			</isNotNull>
+			<!--  
 			<isNotNull prepend="and" property="accountId">
 				accountId=#accountId#
 			</isNotNull>
+			-->
 			<isNotNull prepend="and" property="defaultmess">
 				defaultmess=#defaultmess#
 			</isNotNull>
@@ -84,7 +86,7 @@
 				<![CDATA[addtime=cast(#addtime# as date)]]>
 			</isNotNull>
 			<isNotNull prepend="and" property="keyword">
-				keyword like '%'||#keyword#||'%'
+				INSTR(keyword ,#keyword#)>0
 			</isNotNull>
 		</dynamic>
 	</select>

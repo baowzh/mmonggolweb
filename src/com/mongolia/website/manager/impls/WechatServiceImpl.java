@@ -205,7 +205,7 @@ public class WechatServiceImpl implements WechatService {
 			if (autoResponses != null && !autoResponses.isEmpty()) {
 				return autoResponses.get(0).getKeyword();
 			} else {
-				return "欢迎年关注金轮文化网！";
+				return "欢迎您关注金轮文化网！";
 			}
 		}
 
