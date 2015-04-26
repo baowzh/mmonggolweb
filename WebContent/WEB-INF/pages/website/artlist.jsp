@@ -7,11 +7,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
-<link href="site/css/main.css" rel="stylesheet" type="text/css" />
+<link href="css/main.css" rel="stylesheet" type="text/css" />
+<!-- <link href="site/css/main.css" rel="stylesheet" type="text/css" /> -->
 <t:font_css type="jquery,easyui,tools"></t:font_css>
-<link href="site/css/index.css" rel="stylesheet" type="text/css" />
+<!-- <link href="site/css/index.css" rel="stylesheet" type="text/css" /> -->
+<link href="css/index.css" rel="stylesheet" type="text/css" />
 <link href="img/css/main.css" type="text/css" rel="stylesheet" />
-<!-- <link href="img/css/huh.css" type="text/css" rel="stylesheet" /> -->
 <link href="img/css/doccheck.css" type="text/css" rel="stylesheet" />
 <link href="img/css/listpages.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="js/jqGrid/js/jquery-1.9.1.js"></script>
@@ -43,7 +44,7 @@
 							<td>
 								<div class="inputHolder">
 									<select id="channel" name="channel"
-										style="writing-mode: tb-lr; -webkit-writing-mode: vertical-lr;background:#fff;color:#000;">
+										style="writing-mode: tb-lr; -webkit-writing-mode: vertical-lr; background: #fff; color: #000;">
 										<option value="#"> </option>
 									</select>
 								</div>
@@ -55,11 +56,13 @@
 								<div class="inputHolder" style="background: #eee;">
 									<input type="text" name="strcrtime" id="strcrtime"
 										value="<c:out value="${queryDocForm.strcrtime}"/>"
-										style="height: 40px;background:#fff;color:#000;" class="modTxtTime" readonly="readonly"
+										style="height: 40px; background: #fff; color: #000;"
+										class="modTxtTime" readonly="readonly"
 										onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" /> - <input
 										type="text" name="endcrtime" id="endcrtime"
 										value="<c:out value="${queryDocForm.endcrtime}"/>"
-										style="height: 40px;background:#fff;color:#000;" class="modTxtTime" readonly="readonly"
+										style="height: 40px; background: #fff; color: #000;"
+										class="modTxtTime" readonly="readonly"
 										onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" />
 								</div>
 							</td>
@@ -70,7 +73,8 @@
 							</td>
 							<td style="background: #eee;">
 								<div class="inputHolder">
-									<input type="text" style="background:#fff;color:#000;" name="authorname" id="authorname"
+									<input type="text" style="background: #fff; color: #000;"
+										name="authorname" id="authorname"
 										value="<c:out value="${queryDocForm.authorname}"/>" />
 								</div>
 							</td>
@@ -80,7 +84,7 @@
 							<td>
 								<div class="inputHolder">
 									<select name="top" id="top"
-										style="writing-mode: tb-lr; -webkit-writing-mode: vertical-lr;background:#fff;color:#000;">
+										style="writing-mode: tb-lr; -webkit-writing-mode: vertical-lr; background: #fff; color: #000;">
 										<option value="3">  </option>
 										<option value="2">  </option>
 										<option value="1">  </option>
@@ -95,7 +99,8 @@
 							</td>
 							<td>
 								<div class="inputHolder">
-									<input type="text" name="doctitle" id="doctitle" style="background:#fff;color:#000;"
+									<input type="text" name="doctitle" id="doctitle"
+										style="background: #fff; color: #000;"
 										value="<c:out value="${queryDocForm.doctitle}"/>" />
 								</div>
 							</td>

@@ -8,8 +8,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
 <t:font_css type="jquery,easyui,tools"></t:font_css>
-<link href="site/css/main.css" rel="stylesheet" type="text/css" />
-<link href="site/css/index.css" rel="stylesheet" type="text/css" />
+<!-- <link href="site/css/main.css" rel="stylesheet" type="text/css" /> -->
+<!-- <link href="site/css/index.css" rel="stylesheet" type="text/css" /> -->
+<link href="css/main.css" rel="stylesheet" type="text/css" />
+<link href="css/index.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/jqGrid/js/jquery-1.9.1.js"></script>
 </head>
 <body>

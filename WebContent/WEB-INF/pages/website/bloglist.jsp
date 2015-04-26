@@ -8,8 +8,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>  blog</title>
 <t:font_css type="jquery,easyui,tools"></t:font_css>
-<link href="site/css/main.css" rel="stylesheet" type="text/css" />
-<link href="site/css/index.css" rel="stylesheet" type="text/css" />
+<link href="css/main.css" rel="stylesheet" type="text/css" />
+<!-- <link href="site/css/main.css" rel="stylesheet" type="text/css" /> -->
+<!-- <link href="site/css/index.css" rel="stylesheet" type="text/css" /> -->
+<link href="css/index.css" rel="stylesheet" type="text/css" />
 <link href="img/css/main.css" type="text/css" rel="stylesheet" />
 <!-- <link href="img/css/huh.css" type="text/css" rel="stylesheet" /> -->
 <link href="img/css/doccheck.css" type="text/css" rel="stylesheet" />

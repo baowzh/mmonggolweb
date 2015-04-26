@@ -1869,4 +1869,15 @@ public class WebResourceManagerImpl implements WebResourceManager {
 		return this.webResourceDao.getVisitorList(resourceid, fechtcount);
 	}
 
+	/* (non-Javadoc)
+	 * @see com.mongolia.website.manager.interfaces.WebResourceManager#confiremMess(java.lang.String)
+	 */
+	@Override
+	public void confiremMess(String messid) throws Exception {
+		// TODO Auto-generated method stub
+		this.webResourceDao.confiremMess(messid);
+		
+	}
+	
+
 }

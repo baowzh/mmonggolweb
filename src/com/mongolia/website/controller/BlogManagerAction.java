@@ -1393,6 +1393,8 @@ public class BlogManagerAction {
 					.getSendMessList(currentuserid, null,
 							Integer.parseInt(pageIndex), 8);
 			map.put("pageindexs", pageindexs);
+			map.put("rowcount", messagepage.getRowcount());
+			map.put("sendrowcount", messagepage1.getRowcount());
 			List<MessageValue> sendMessList = messagepage1.getModelList();
 			showemotion(sendMessList);
 			List<PagingIndex> pageindexs1 = getMessagePageindexs(
@@ -1875,6 +1877,13 @@ public class BlogManagerAction {
 		try {
 			MessageValue messageValue = this.webResourceManager
 					.getMessageValueContent(messageid);
+			UserValue sessionUser = (UserValue) request.getSession()
+					.getAttribute("user");
+			if (sessionUser != null
+					&& sessionUser.getUserid().equalsIgnoreCase(
+							messageValue.getUserid())) {
+				this.webResourceManager.confiremMess(messageValue.getMessageid());
+			}
 			// 修改格式
 			List<MessageValue> mess = new ArrayList<MessageValue>();
 			mess.add(messageValue);
