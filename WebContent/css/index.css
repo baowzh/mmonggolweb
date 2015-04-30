@@ -8,18 +8,18 @@ body {
 }
 
 .logo {
-	height: 203px;
+	height: 153px;
 	background: url(../img/LOGO.png) no-repeat;
 }
 
 .navItem {
-	color: #fff;
-	width: 24px;
+	color: #00698c;
+	width: 22px;
 	line-height: 25px;
 	height: 105px;
 	overflow: hidden;
 	float: left;
-	font-size: 19px;
+	font-size: 17px;
 }
 
 .mln {
@@ -33,13 +33,13 @@ body {
 
 .mln a {
 	/* 	color: #666; */
-	color: #fff;
+	color: #536879;
 	text-decoration: none;
 }
 
 .naveFrame {
 	position: relative;
-	left: 346px;
+	left: 476px;
 	top: 46px;
 }
 
@@ -80,6 +80,7 @@ body {
 .ttlStl1 {
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%,from(#006699 ), to(#6da8c5));  
 	background: -ms-linear-gradient(top, #006699,  #6da8c5);
+	background-color: #006699;
 	color: #fff;
 	font-size: 18px;
 }
@@ -206,7 +207,7 @@ body {
 	height: 330px;
 	float: left;
 	overflow: hidden;
-	margin: 10px 10px 0px 10px;
+	margin: 10px 0px 0px 0px;
 }
 
 .card2 {
@@ -278,7 +279,7 @@ body {
 	text-overflow: ellipsis;
 	float: left;
 	background: url(../img/qig_1_v.png) center top no-repeat;
-	background-size:7px 7px;
+	background-size:8px 8px;
 	text-indent: 12px;
 	width: 20px;
 }

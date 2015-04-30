@@ -114,10 +114,26 @@
 				<c:forEach items="${indexPageContent.imgNews}" var="imgValue"
 					varStatus="status">
 					<div class="video"
-						style="width: 245px; height: 240px; margin: 0px 0px; position: relative;">
+						style="width: 250px; height: 240px; margin: 0px 0px; position: relative;">
 						<a href="<c:out value="${imgValue.link}"/>" target="_blank"
 							class="tit_text_overflow"><img
-							src="<c:out value="${imgValue.url}" /> "
+							src="img/news3.jpg"
+							style="width: 245px; height: 240px;" /> </a>
+						<div class="m1ln"
+							style="position: absolute; right: 0px; height: 236px; width: 38px; font-size: 17px; background: #000; opacity: 0.6; color: #fff; padding-left: 2px;">
+							<a href="<c:out value="${imgValue.link}"/>" target="_blank"
+								class="tit_text_overflow" style="color:#fff;"><c:out value="${imgValue.title}" />
+							</a>
+						</div>
+					</div>
+				</c:forEach>
+				<c:forEach items="${indexPageContent.imgNews}" var="imgValue"
+					varStatus="status">
+					<div class="video"
+						style="width: 250px; height: 240px; margin: 0px 0px; position: relative;">
+						<a href="<c:out value="${imgValue.link}"/>" target="_blank"
+							class="tit_text_overflow"><img
+							src="img/news3.jpg"
 							style="width: 245px; height: 240px;" /> </a>
 						<div class="m1ln"
 							style="position: absolute; right: 0px; height: 236px; width: 38px; font-size: 17px; background: #000; opacity: 0.6; color: #fff; padding-left: 2px;">
@@ -1552,7 +1568,7 @@
 	SODON.example.scrollViewH = new SODON.widget.ScrollView("imgnews", {
 		direction : "horizontal",
 		screenSize : 4,
-		itemWidth : 245,
+		itemWidth : 250,
 		itemHeight : 240,
 		itemSpace : 0,
 		prevButton : "h-scrollview-prevbutton-bs",
