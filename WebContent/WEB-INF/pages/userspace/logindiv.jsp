@@ -9,7 +9,7 @@
 			<div class="m1ln" style="text-align: center;">  </div>
 			<div class="m1ln" style="height: 32px; width: 270px;">
 				<input type="text" name="username" id="username"
-					style="-webkit-transform-origin: 10px 20px;" />
+					style="" />
 			</div>
 			<div class="m1ln" style="text-align: center;">  </div>
 			<div class="m1ln" style="height: 32px; width: 270px;">

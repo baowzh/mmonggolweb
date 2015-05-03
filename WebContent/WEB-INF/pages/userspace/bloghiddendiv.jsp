@@ -90,7 +90,7 @@
 			<div class="m1ln">
 				  <a href="javascript:replaceverifycode();"></a> :
 			</div>
-			<div class="m1ln">
+			<div class="m1ln" style="height:20px;">
 				<img src="verifyCodeServlet" id="varifyimg" width="18" height="100">
 			</div>
 			<div class="m1ln" style="height: 32px; width: 270px;">
@@ -128,7 +128,7 @@
 <!-- class="lmainR" -->
 <!-- -webkit-writing-mode: vertical-lr; writing-mode: tb-lr;  -->
 <div id="accordion" style="display: none">
-	<div class="mnlist" style="float: left;"
+	<div class="m1ln rotatesection" style="height:20px;"
 		onclick="javascript:switchdiv('receivediv','senddiv');">
 		</div>
 	<!--  -->
@@ -139,7 +139,7 @@
 				scrolling="auto" src="getMessage.do?type=1"></iframe>
 		</c:if>
 	</div>
-	<div class="mnlist" style="float: left;"
+	<div class="m1ln rotatesection"  style="height:20px;"
 		onclick="javascript:switchdiv('senddiv','receivediv');">
 		 </div>
 	<div class="  lcell"
@@ -154,8 +154,8 @@
 </div>
 <div class="cardt1" id="userinfo"
 	style="margin: 0px; height: 478px; width: 750px; display: none;">
-	<div class="  lcell" style="width: 600px; height: 470px;">
-		<div class="lcell userinfotab" style="width: 790px; height: 100%;">
+	<div class="  lcell" style="width: 260px; height: 200px;">
+		<div class="lcell userinfotab rotatesection" style="height: 790px; width: 100%;">
 			<table class="m1ln h100">
 
 				<tr>
@@ -163,7 +163,7 @@
 						<div class="m1ln h100">  :</div>
 					</td>
 					<td>
-						<div class="mfl">
+						<div class="m1ln">
 							<c:out value="${user.bolgname}" />
 						</div>
 					</td>
@@ -175,7 +175,7 @@
 						<div class="m1ln h100">:</div>
 					</td>
 					<td>
-						<div class="mfl">
+						<div class="m1ln">
 							<c:out value="${user.firstname}" />
 						</div>
 					</td>
@@ -196,7 +196,7 @@
 						<div class="m1ln h100">  </div>
 					</td>
 					<td>
-						<div class="mfl">
+						<div class="m1ln">
 							<c:out value="${user.birthday}" />
 						</div>
 					</td>
@@ -207,7 +207,7 @@
 						<div class="m1ln h100"> </div>
 					</td>
 					<td>
-						<div class="mfl">
+						<div class="m1ln">
 							<c:choose>
 								<c:when test="${user.sex==1}">
 									<input type="radio" name="sex" checked="true" id="sex"></input>
@@ -234,7 +234,7 @@
 						<div class="m1ln h100"> </div>
 					</td>
 					<td>
-						<div class="mfl">
+						<div class="m1ln">
 							<c:out value="${user.unit}" />
 						</div>
 					</td>
@@ -245,7 +245,7 @@
 						<div class="m1ln h100"> </div>
 					</td>
 					<td style="height: 90px">
-						<div class="mfl">
+						<div class="m1ln">
 							<c:out value="${user.provincename}" />
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							<c:out value="${user.hsienname}" />
@@ -259,7 +259,7 @@
 						<div class="m1ln h100">   </div>
 					</td>
 					<td>
-						<div class="mfl">
+						<div class="m1ln">
 
 							<c:out value="${user.nowprovincename}" />
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -274,7 +274,7 @@
 						<div class="m1ln h100">  </div>
 					</td>
 					<td colspan="3">
-						<div class="mfl">
+						<div class="m1ln">
 							<c:out value="${user.phone}" />
 						</div>
 					</td>
@@ -285,7 +285,7 @@
 						<div class="m1ln h100">  (QQ) </div>
 					</td>
 					<td colspan="3">
-						<div class="mfl">
+						<div class="m1ln">
 							<c:out value="${user.qq}" />
 						</div>
 					</td>
@@ -295,7 +295,7 @@
 						<div class="m1ln h100"> (Email) </div>
 					</td>
 					<td colspan="3">
-						<div class="mfl">
+						<div class="m1ln">
 							<c:out value="${user.email}" />
 						</div>
 					</td>
@@ -305,7 +305,7 @@
 						<div class="m1ln h100"> </div>
 					</td>
 					<td colspan="3">
-						<div class="mfl">
+						<div class="m1ln">
 							<c:out value="${user.hope}" />
 						</div>
 					</td>
@@ -315,7 +315,7 @@
 						<div class="m1ln h100"> </div>
 					</td>
 					<td colspan="3">
-						<div class="mfl">
+						<div class="m1ln">
 							<c:out value="${user.belief}" />
 						</div>
 					</td>
@@ -326,7 +326,7 @@
 						<div class="m1ln h100">  </div>
 					</td>
 					<td colspan="3">
-						<div class="mfl">
+						<div class="m1ln">
 							<c:out value="${user.idol}" />
 						</div>
 					</td>
@@ -337,7 +337,7 @@
 						<div class="m1ln h100">  </div>
 					</td>
 					<td colspan="3">
-						<div class="mfl">
+						<div class="m1ln">
 							<c:out value="${user.maxim}" />
 						</div>
 					</td>
@@ -347,7 +347,7 @@
 						<div class="m1ln h100">  </div>
 					</td>
 					<td colspan="3">
-						<div class="mfl">
+						<div class="m1ln">
 							<c:out value="${user.music}" />
 						</div>
 					</td>
@@ -357,7 +357,7 @@
 						<div class="m1ln h100">  </div>
 					</td>
 					<td>
-						<div class="mfl">
+						<div class="m1ln">
 							<c:out value="${user.book}" />
 						</div>
 					</td>
@@ -367,7 +367,7 @@
 						<div class="m1ln h100">  </div>
 					</td>
 					<td colspan="3">
-						<div class="mfl">
+						<div class="m1ln">
 							<c:out value="${user.singer}" />
 						</div>
 					</td>

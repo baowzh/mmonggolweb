@@ -20,9 +20,10 @@
 <script type="text/javascript" src="js/sitejs/uploaddoc.js"></script>
 <script type="text/javascript" src="js/sitejs/changevalidcode.js"></script>
 <script type="text/javascript" src="js/util/js/messageWindow.js"></script>
-<link rel="stylesheet"
-	href="js/jqui/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
-<script src="js/jqui/js/jquery-ui-1.10.3.custom.min.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="plugins/jquery.jqGrid-4.4.3/css/jquery-ui.css" media="screen" />
+<script src="plugins/jquery.jqGrid-4.4.3/js/jquery-ui.min.js"
+	type="text/javascript"></script>
 <script type="text/javascript"
 	src="js/sitejs/emotion/jquery.emoticons.js"></script>
 <link href="js/sitejs/emotion/emoticon.css" type="text/css"
@@ -67,7 +68,7 @@
 			</div>
 			<div class="cbt"></div>
 		</div>
-		<div class="wrp m0a ribbon"></div>
+<!-- 		<div class="wrp m0a ribbon"></div> -->
 		<div class="lmainR  " style="width: 1000px;">
 			<div class="roundCornerFrame"
 				style="width: 1000px; height: 600px; margin: 0px;">

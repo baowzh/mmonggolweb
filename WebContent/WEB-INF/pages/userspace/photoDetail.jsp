@@ -24,9 +24,10 @@
 <link href="js/sitejs/emotion/emoticon.css" type="text/css"
 	rel="stylesheet" />
 <script type="text/javascript" src="js/util/js/messageWindow.js"></script>
-<link rel="stylesheet"
-	href="js/jqui/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
-<script src="js/jqui/js/jquery-ui-1.10.3.custom.min.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="plugins/jquery.jqGrid-4.4.3/css/jquery-ui.css" media="screen" />
+<script src="plugins/jquery.jqGrid-4.4.3/js/jquery-ui.min.js"
+	type="text/javascript"></script>
 <script src="js/messagebox/jquery.msgbox.js"></script>
 <script src="js/messagebox/jquery.dragndrop.min.js"></script>
 <script type="text/javascript" src="ckeditorrot/ckeditor.js"></script>
@@ -179,10 +180,12 @@
 			</div>
 			<div style="clear: both"></div>
 			<div class="titlebar" style="text-align: right;">
-				<div class="mglsection" style="width: 180px; padding-right: 15px;">
-					</div>
+				<div class="mglsection" style="width: 180px; padding-right: 15px;">
+					<c:out value="${documentValue.doctitle}" />
+				</div>
 			</div>
-			<div class="flt" style="width: 100%; min-height: 230px;">
+			<div class="flt rerotatesection"
+				style="width: 100%; min-height: 230px;">
 				<div id="galleria" style="height: 500px; width: 410px;">
 
 					<c:forEach items="${imgs}" var="imgValue" varStatus="status">
@@ -221,7 +224,8 @@
 				<div class="mglsection" style="width: 180px; padding-right: 15px;">
 					 </div>
 			</div>
-			<div class="flt" style="width: 100%; max-height: 230px;">
+			<div class="flt"
+				style="width: 100%; min-height: 230px; height: auto !important;">
 				<c:forEach items="${visitors}" var="visitorValue" varStatus="status">
 					<div class="persooninfo" style="height: 100px; width: 105px;">
 						<div class="headimg rotate" style="height: 75px; width: 90px;">
@@ -247,7 +251,8 @@
 			</div>
 			<c:if test="${fn:length(comments)!=0}">
 				<div style="clear: both"></div>
-				<div class="flt" style="width: 98%; min-height: 230px;">
+				<div class="flt"
+					style="width: 98%; min-height: 230px; height: auto !important;">
 					<c:forEach items="${comments}" var="messageValue"
 						varStatus="status">
 						<div class="postSheet" style="width: 600px;">

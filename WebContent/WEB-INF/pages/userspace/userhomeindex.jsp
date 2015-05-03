@@ -24,9 +24,11 @@
 <link href="js/sitejs/emotion/emoticon.css" type="text/css"
 	rel="stylesheet" />
 <script type="text/javascript" src="js/util/js/messageWindow.js"></script>
-<link rel="stylesheet"
-	href="js/jqui/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
-<script src="js/jqui/js/jquery-ui-1.10.3.custom.min.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="plugins/jquery.jqGrid-4.4.3/css/jquery-ui.css" media="screen" />
+<!-- <script src="js/jqui/js/jquery-ui-1.10.3.custom.min.js"></script> -->
+<script src="plugins/jquery.jqGrid-4.4.3/js/jquery-ui.min.js"
+	type="text/javascript"></script>
 <script src="js/messagebox/jquery.rotmsgbox.js"></script>
 <script src="js/messagebox/jquery.dragndrop.min.js"></script>
 <script type="text/javascript" src="ckeditorrot/ckeditor.js"></script>

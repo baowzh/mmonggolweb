@@ -24,9 +24,13 @@
 <link href="js/sitejs/emotion/emoticon.css" type="text/css"
 	rel="stylesheet" />
 <script type="text/javascript" src="js/util/js/messageWindow.js"></script>
-<link rel="stylesheet"
-	href="js/jqui/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
-<script src="js/jqui/js/jquery-ui-1.10.3.custom.min.js"></script>
+<!-- <link rel="stylesheet" -->
+<!-- 	href="js/jqui/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" /> -->
+<link rel="stylesheet" type="text/css"
+	href="plugins/jquery.jqGrid-4.4.3/css/jquery-ui.css" media="screen" />
+<!-- <script src="js/jqui/js/jquery-ui-1.10.3.custom.min.js"></script> -->
+<script src="plugins/jquery.jqGrid-4.4.3/js/jquery-ui.min.js"
+	type="text/javascript"></script>
 <script src="js/messagebox/jquery.rotmsgbox.js"></script>
 <script src="js/messagebox/jquery.dragndrop.min.js"></script>
 <script type="text/javascript" src="ckeditorrot/ckeditor.js"></script>
@@ -174,7 +178,7 @@
 					</div>
 					<div class="blogarea mglcontent">
 						<c:out value="${documentValue.htmlstr}" escapeXml="false" />
-						<div class="m1ln" style="text-align:center;color:#00f">
+						<div class="m1ln" style="text-align: center; color: #00f">
 							<c:if test="${self==1}">
 								<a
 									href="toupddoc.do?docid=<c:out value="${documentValue.docid}" />">
@@ -201,6 +205,17 @@
 								</c:if>
 							</c:if>
 						</div>
+					</div>
+					<div class="shareBookmark mgldiv" style="margin: 50px 100px 5px 0px">
+						<div class="mgldiv" style="margin:5px;">
+							<img
+								src="getQRCode.do?docid=<c:out value="${documentValue.docid}" />"
+								width="200" height="240">
+							<div class="m1ln" style="color: #00f">
+						 &nbsp; &nbsp; &nbsp;    <br> &nbsp; &nbsp; &nbsp;    
+						</div>
+						</div>
+						
 					</div>
 				</div>
 				<div style="clear: both"></div>
@@ -270,7 +285,7 @@
 								</c:if>
 							</p>
 							<c:if test="${messageValue.showdel==1}">
-								<div class="m1ln" style="color: #fff;margin-right:210px;">
+								<div class="m1ln" style="color: #fff; margin-right: 210px;">
 
 									<a
 										href="javascript:delcomment('<c:out value="${messageValue.messageid}" />');"></a><a

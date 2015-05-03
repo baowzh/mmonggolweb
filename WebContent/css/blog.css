@@ -275,7 +275,7 @@ body {
 	direction: rtl;
 	word-break: keep-all;
 	letter-spacing: -0.015em;
-	font-family: chagaan;
+	font-family: chagaan !important;
 }
 
 .photoalbum {
@@ -346,6 +346,16 @@ body {
 	border: solid 5px #eee;
 	width: 60px;
 	margin-right: 10px;
+}
+.rerotatesection {
+	-ms-transform-origin: right top;
+	-ms-transform: translate(10%, -100px) rotate(-270deg)
+	-moz-transform-origin: right top;
+	-moz-transform: translate(10%, -100px) rotate(-270deg)
+	-o-transform-orign: right top;
+	-o-transform: translate(10%, -100px) rotate(-270deg)
+	-webkit-transform-origin: right top;
+	-webkit-transform:translate(10%, -100px) rotate(-270deg)
 }
 
 .avtThumb img {
