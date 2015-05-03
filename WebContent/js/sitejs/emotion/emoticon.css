@@ -48,7 +48,7 @@ li {
     border-bottom: solid 1px #0095cd;
 }
 #face {
-    position: absolute;
+
     display: none;
     background: #fff none repeat scroll 0 0;
     border: 1px solid #CCCCCC;
@@ -62,8 +62,8 @@ li {
     margin: 10px 12px 20px;
     border-top: 1px solid #e8e8e8;
     border-left: 1px solid #e8e8e8;
-    width: 372px;
-     height: 260px;
+   height  : 372px;
+     width: 260px;
 }
 #texttb {
 /*     height: 28px; */
@@ -74,7 +74,7 @@ li {
     
 }
 #texttb .f_close {
-    position: absolute;
+/*     position: relative; */
     right: 14px;
     top: 5px;
     z-index: 99;

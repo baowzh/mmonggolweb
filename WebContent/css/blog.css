@@ -87,7 +87,6 @@ body {
 }
 /* 标题栏 */
 .titlebar {
-	/* 	background-color: #dfa64f; */
 	width: 99%;
 	height: 28px;
 	float: left;
@@ -96,6 +95,7 @@ body {
 		to(#6da8c5));
 	background: -ms-linear-gradient(top, #006699, #6da8c5);
 	text-align: right;
+	background-color: #006699;
 }
 /* 内容段落 */
 .mglsection {
@@ -109,8 +109,13 @@ body {
 	text-align: justify;
 	text-indent: 1em;
 	padding-right: 10px;
-	font-size: 17px;
+	font-size: 18px;
 	float: right;
+	color: #fff;
+}
+
+.mglsection a {
+	text-decoration: none;
 	color: #fff;
 }
 /* 横向展开的div */
@@ -131,22 +136,52 @@ body {
 }
 /* 人员列表 */
 .persooninfo {
-	width: 120px;
-	height: 120px;
+	width: 160px;
+	height: 160px;
 	float: right;
 	background: #eee;
-	margin: 6px;
+	margin: 2px;
+	border-radius: 10px 10px 10px 10px;
 }
 /* 人员列表头像div */
 .persooninfo .headimg {
-	height: 80px;
-	width: 110px;
+	height: 130px;
+	width: 140px;
 	margin: 5px;
+	padding-right: 5px;
 }
 /* 人员列表头像图片 */
 .persooninfo .headimg img {
-	height: 110px;
-	width: 80px;
+	height: 130px;
+	width: 130px;
+	/* 	border-radius: 50%; */
+}
+
+.rotate {
+	
+}
+
+.rotate p {
+	unicode-bidi: bidi-override;
+	direction: rtl;
+	word-break: keep-all;
+	letter-spacing: -0.015em;
+	font-family: chagaan;
+	line-height: 25px;
+	font-size: 18px;
+}
+
+.mglcontent p {
+	unicode-bidi: bidi-override;
+	direction: rtl;
+	word-break: keep-all;
+	letter-spacing: -0.015em;
+	font-family: chagaan;
+	line-height: 25px;
+	font-size: 18px;
+}
+
+.mglcontent img {
 	-ms-transform-origin: left top;
 	-ms-transform: translate(100%, 0px) rotate(90deg);
 	-moz-transform-origin: left top;
@@ -155,8 +190,41 @@ body {
 	-o-transform: translate(100%, 0px) rotate(90deg);
 	-webkit-transform-origin: left top;
 	-webkit-transform: translate(100%, 0%) rotate(90deg);
-	border-radius: 50%;
 }
+
+.mglcontent iframe {
+	-ms-transform-origin: left top;
+	-ms-transform: translate(100%, 0px) rotate(90deg);
+	-moz-transform-origin: left top;
+	-moz-transform: translate(100%, 0px) rotate(90deg);
+	-o-transform-orign: left top;
+	-o-transform: translate(100%, 0px) rotate(90deg);
+	-webkit-transform-origin: left top;
+	-webkit-transform: translate(100%, 0%) rotate(90deg);
+}
+
+.mglcontent embed {
+	-ms-transform-origin: left top;
+	-ms-transform: translate(100%, 0px) rotate(90deg);
+	-moz-transform-origin: left top;
+	-moz-transform: translate(100%, 0px) rotate(90deg);
+	-o-transform-orign: left top;
+	-o-transform: translate(100%, 0px) rotate(90deg);
+	-webkit-transform-origin: left top;
+	-webkit-transform: translate(100%, 0%) rotate(90deg);
+}
+
+.rotate img {
+	-ms-transform-origin: left top;
+	-ms-transform: translate(100%, 0px) rotate(90deg);
+	-moz-transform-origin: left top;
+	-moz-transform: translate(100%, 0px) rotate(90deg);
+	-o-transform-orign: left top;
+	-o-transform: translate(100%, 0px) rotate(90deg);
+	-webkit-transform-origin: left top;
+	-webkit-transform: translate(100%, 0%) rotate(90deg);
+}
+
 /* 一个段落 */
 .flt {
 	padding-right: 10px;
@@ -179,20 +247,7 @@ body {
 	text-decoration: none;
 }
 
-.photoalbum {
-	width: 175px;
-	height: 170px;
-	float: right;
-	background: #eee;
-	margin: 5px;
-}
-
-.photoalbum img {
-	width: 130px;
-	height: 140px;
-	float: right;
-	background: #eee;
-	margin: 5px;
+.m1ln img {
 	-ms-transform-origin: left top;
 	-ms-transform: translate(100%, 0px) rotate(90deg);
 	-moz-transform-origin: left top;
@@ -201,6 +256,42 @@ body {
 	-o-transform: translate(100%, 0px) rotate(90deg);
 	-webkit-transform-origin: left top;
 	-webkit-transform: translate(100%, 0%) rotate(90deg);
+}
+
+.m1ln a img {
+	-ms-transform-origin: left top;
+	-ms-transform: translate(100%, 0px) rotate(90deg);
+	-moz-transform-origin: left top;
+	-moz-transform: translate(100%, 0px) rotate(90deg);
+	-o-transform-orign: left top;
+	-o-transform: translate(100%, 0px) rotate(90deg);
+	-webkit-transform-origin: left top;
+	-webkit-transform: translate(100%, 0%) rotate(90deg);
+}
+
+.m1ln input {
+	font-family: chagaan;
+	unicode-bidi: bidi-override;
+	direction: rtl;
+	word-break: keep-all;
+	letter-spacing: -0.015em;
+	font-family: chagaan;
+}
+
+.photoalbum {
+	width: 150px;
+	height: 170px;
+	float: right;
+	background: #eee;
+	margin: 2px;
+}
+
+.photoalbum img {
+	width: 130px;
+	height: 140px;
+	float: right;
+	background: #eee;
+	margin: 5px;
 }
 /* 分组快 */
 .docgroup {
@@ -221,4 +312,46 @@ body {
 
 .shareBookmark {
 	margin: 20px 200px 20px 20px;
+}
+
+.sharenwsl1 {
+	line-height: 20px;
+	width: 600px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.postSheet {
+	border: solid 10px #006699;
+	display: run-in;
+	width: 470px;
+	margin: 5px 0 5px 5px;
+	border-radius: 10px 10px 10px 10px;
+}
+
+.postSheet .posterInf {
+	width: 470px;
+	display: inline-block;
+	height: 70px;
+	padding: 5px;
+	background: #006699;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#006699),
+		to(#6da8c5));
+	background: -ms-linear-gradient(top, #006699, #6da8c5);
+}
+
+.posterInf .avtThumb {
+	height: 45px;
+	border: solid 5px #eee;
+	width: 60px;
+	margin-right: 10px;
+}
+
+.avtThumb img {
+	-webkit-transform-origin: left top;
+	-webkit-transform: translate(100%, 0%) rotate(90deg);
+	width: 45px;
+	height: 60px;
+	border: none;
 }

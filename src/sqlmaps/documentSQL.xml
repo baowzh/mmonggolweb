@@ -245,7 +245,8 @@
 	</select>
 	<select id="pagingquerydoc" parameterClass="com.mongolia.website.model.PaingModel"
 		resultClass="DocumentValue">
-		SELECT document.*,IFNULL(document.readcount,0) as ireadcount FROM
+		SELECT document.*,IFNULL(document.readcount,0) as ireadcount,(select channel.CHNLNAME from channel where
+		channel.CHANNELID=document.DOCCHANNEL ) as chnaname FROM
 		document
 		<dynamic prepend="where">
 			<isNotNull prepend="and" property="docchannel">

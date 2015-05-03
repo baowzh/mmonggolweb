@@ -4,9 +4,8 @@ $(document).ready(function() {
 		txtAreaObj : $("#commentdiv"),
 		containerObj : $('#commentcontainer'),
 		top : 25,
-		left : -27
+		right : -27
 	});
-	CKEDITOR.config.height = 400;
 });
 /**
  * 给文章增加留言

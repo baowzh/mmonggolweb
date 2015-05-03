@@ -390,41 +390,6 @@
 			<%@ include file="../website/tail.jsp"%>
 		</div>
 	</form>
-	<div id="addphotoalbum"
-		style="width: 270px; height: 320px; display: none;">
-		<div class="content"
-			style="width: 270px; height: 300px; background: white; padding: 5px; border-radius: 5px;">
-			<form action="addimggroup.do" id="addphotoalbumform" class="mglForm"
-				method="post" enctype="multipart/form-data">
-				<div class="label" style="text-align: center;"> 
-					:</div>
-				<div class="inputHolder" style="width: 32px; height: 270px;">
-					<input type="text" name="imggroupname" id="imggroupname"
-						style="-webkit-transform-origin: 10px 20px;" /> <input
-						type="hidden" name="userid" id="userid"
-						value="<c:out value="${user.userid}" />"></input>
-				</div>
-
-				<div class="label" style="text-align: center;">:</div>
-				<div class="inputHolder" style="width: 32px; height: 270px;">
-					<input type="text" name="comm" id="comm"
-						style="-webkit-transform-origin: 10px 20px;" />
-				</div>
-				<div class="label" style="text-align: center;"> 
-					:</div>
-				<div class="inputHolder" style="width: 32px; height: 270px;">
-					<input type="file" name="imgurl" id="imgurl"
-						style="-webkit-transform-origin: 10px 20px;" />
-				</div>
-				<div class="mnlist" style="height: 270px;"></div>
-				<div class="mnlist"
-					style="width: 24px; height: 200px; text-align: center;">
-					<a href="javascript:addphotoalbum();"></a>
-
-				</div>
-			</form>
-		</div>
-	</div>
 	<!-- 隐藏的div -->
 	<%@ include file="bloghiddendiv.jsp"%>
 	<!-- 隐藏的div -->
@@ -454,38 +419,6 @@
 					src="http://v3.jiathis.com/code/jiathis_slide.js" charset="utf-8"></script>
 			</div>
 		</div>
-	</div>
-	<div class="content" id="updpassdiv"
-		style="padding-left: 8px; display: none; background: white; padding: 5px; border-radius: 5px;">
-		<form class="mglForm" action="#" id="loginform" method="post">
-			<c:if test="${maillogin==0}">
-				<div class="label"> </div>
-				<div class="inputHolder" style="width: 32px; height: 270px;">
-					<input name="oldpassword" id="oldpassword" type="password"
-						style="-webkit-transform-origin: 10px 20px;">
-				</div>
-			</c:if>
-			<div class="label">   </div>
-			<div class="inputHolder" style="width: 32px; height: 270px;">
-				<input name="password" id="password" type="password"
-					style="-webkit-transform-origin: 10px 20px;">
-			</div>
-			<div class="label">
-				  <a href="javascript:replaceverifycode();"></a> :
-			</div>
-			<div class="label">
-				<img src="verifyCodeServlet" id="varifyimg" width="18" height="100">
-			</div>
-			<div class="inputHolder" style="width: 32px; height: 270px;">
-				<input name="validcode" id="varifycode"
-					style="-webkit-transform-origin: 10px 20px;">
-			</div>
-			<div class="mnlist" style="text-align: center; height: 210px;">
-				<a href="javascript:modifypass();">  </a>
-			</div>
-			<input type="hidden" name="maillogin" id="maillogin"
-				value="<c:out value="${maillogin}" />">
-		</form>
 	</div>
 	<%@ include file="logindiv.jsp"%>
 	<!-- JiaThis Button END -->
