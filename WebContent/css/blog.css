@@ -349,6 +349,12 @@ body {
 }
 
 .avtThumb img {
+	-ms-transform-origin: left top;
+	-ms-transform: translate(100%, 0px) rotate(90deg);
+	-moz-transform-origin: left top;
+	-moz-transform: translate(100%, 0px) rotate(90deg);
+	-o-transform-orign: left top;
+	-o-transform: translate(100%, 0px) rotate(90deg);
 	-webkit-transform-origin: left top;
 	-webkit-transform: translate(100%, 0%) rotate(90deg);
 	width: 45px;

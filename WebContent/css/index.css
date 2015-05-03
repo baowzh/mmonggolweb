@@ -576,8 +576,7 @@ body {
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%,from(#006699 ), to(#6da8c5));  
 	background: -ms-linear-gradient(top, #006699,  #6da8c5);
 	border-radius: 5px 5px 5px 5px;
-	
-	
+	background-color:#006699;
 }
 
 .footer-sec {

@@ -3,29 +3,46 @@ Copyright (c) 2003-2013, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.html or http://ckeditor.com/license
 */
 @font-face {
-	font-family: "MenksoftQagan";
-	src: url(../font/MenksoftQagan_cn.ttf);
+	/* 	font-family: "MenksoftQagan"; */
+	/* 	src: url(../font/MenksoftQagan_cn.ttf); */
+	font-family: chagaan;
+	src: url(../font/mchagaan.woff) format("woff"),
+		url(../font/mchagaan.ttf) format("truetype");
 }
+
 body {
-	writing-mode: tb-lr;
-	-webkit-writing-mode: vertical-lr;
-	-webkit-text-orientation: sideways-right;
-	/* Font */
-	/*font-family: sans-serif, Arial, Verdana, "Trebuchet MS";*/
-	font-family: "MenksoftQagan";
-	/* 	font-family: "Menksoft ú¯øöùÆøëùÄ ú¹øëù÷"; */
-	/* 	font-size: 30px; */
-	height: 500px;
-	/* Text color */
+	height: 120px;
+	unicode-bidi: bidi-override;
+	direction: rtl;
+	word-break: keep-all;
+	letter-spacing: -0.015em;
+	font-family: chagaan;
 	color: #333;
-	/* Remove the background color to make it transparent */
-	background-color: #fff;
-	margin: 20px;
+	height: 100%;
+	width:98%;
+	line-height: 30px;
+	text-align: justify;
+	text-indent: 1em;
+	font-size: 18px;
 }
 
 .cke_editable {
 	font-size: 15px;
 	line-height: 1.6em;
+}
+
+.cke_editable p {
+	unicode-bidi: bidi-override;
+	direction: rtl;
+	word-break: keep-all;
+	letter-spacing: -0.015em;
+	font-family: chagaan;
+	color: #333;
+	height: 100%;
+	line-height: 30px;
+	text-align: justify;
+	text-indent: 1em;
+	font-size: 18px;
 }
 
 blockquote {

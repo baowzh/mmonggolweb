@@ -29,7 +29,7 @@
 <script src="js/jqui/js/jquery-ui-1.10.3.custom.min.js"></script>
 <script src="js/messagebox/jquery.msgbox.js"></script>
 <script src="js/messagebox/jquery.dragndrop.min.js"></script>
-<script type="text/javascript" src="ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="ckeditorrot/ckeditor.js"></script>
 <script src="js/sitejs/galleria-1.4.2.min.js"></script>
 <script type="text/javascript">
 	window.onload = function() {
