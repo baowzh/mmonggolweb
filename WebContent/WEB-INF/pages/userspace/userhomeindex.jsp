@@ -184,9 +184,15 @@
 					<a href="photoAlbumList.do?userid=<c:out value="${user.userid}" />">
 						 </a>
 				</div>
+				<c:if test="${self==1}">
+					<div class="mglsection" style="width: 180px; padding-right: 15px;">
+						<a href="javascript:openaddphotoalbumdialog();"> 
+							  </a>
+					</div>
+				</c:if>
 			</div>
 			<div class="flt"
-				style="width: 100%; margin: 2px;min-height:185px; height: auto !important;">
+				style="width: 100%; margin: 2px; min-height: 185px; height: auto !important;">
 				<c:forEach items="${imggroupValues}" var="imgGrpupValue"
 					varStatus="status">
 					<div class="photoalbum rotate" style="position: relative;">
@@ -210,24 +216,30 @@
 					</div>
 				</c:forEach>
 			</div>
-			<div class="flt" style="width: 100%; margin: 2px; min-height: 40px;">
-				<div class="shareBookmark mgldiv"
-					style="margin: 10px 360px 0px 0px;">
-					<div class="mgldiv">
-						<c:if test="${self==1}">
-							<a href="javascript:openaddphotoalbumdialog();"> 
-								  </a>
-						</c:if>
-					</div>
-				</div>
+			<!-- 			<div class="flt" style="width: 100%; margin: 2px; min-height: 40px;"> -->
+			<!-- 				<div class="shareBookmark mgldiv" -->
+			<!-- 					style="margin: 10px 360px 0px 0px;"> -->
+			<!-- 					<div class="mgldiv"> -->
+			<%-- 						<c:if test="${self==1}"> --%>
+			<!-- 							<a href="javascript:openaddphotoalbumdialog();">  -->
+			<!-- 								  </a> -->
+			<%-- 						</c:if> --%>
+			<!-- 					</div> -->
+			<!-- 				</div> -->
 
-			</div>
+			<!-- 			</div> -->
 
 			<div style="clear: both"></div>
 
 			<div class="titlebar" style="text-align: right;">
 				<div class="mglsection" style="width: 180px; padding-right: 15px;">
 					</div>
+				<c:if test="${self==1}">
+					<div class="mglsection" style="width: 180px; padding-right: 15px;">
+						<a href="toadddoc.do">    </a>
+					</div>
+				</c:if>
+					
 			</div>
 			<div class="flt" style="width: 100%; height: 25px;"></div>
 			<div class="flt"
