@@ -64,7 +64,6 @@ import com.mongolia.website.model.VoteDetailValue;
 import com.mongolia.website.model.VoteResultDetailValue;
 import com.mongolia.website.model.VoteResultValue;
 import com.mongolia.website.model.VoteValue;
-import com.mongolia.website.util.DocAbstractUtil;
 import com.mongolia.website.util.ImgeUtil;
 import com.mongolia.website.util.PageUtil;
 import com.mongolia.website.util.StaticConstants;

@@ -668,35 +668,13 @@
 		message.received=1 where message.messageid=#messageid#
 	</update>
 	<select id="nextdoc" parameterClass="java.util.Map" resultClass="DocumentValue">
-		select * from document
-		<dynamic prepend="where">
-			<isNotNull prepend="and" property="imggroupid">
-				exists(select 1 from
-				img,imggroup where img.imggroupid=imggroup.imggroupid
-				and
-				img.imgid=document.docid and imggroup.imggroupid=#imggroupid#)
-			</isNotNull>
-			<isNotNull prepend="and" property="docid">
-			 	<![CDATA[  document.docid>#docid# ]]>
-			</isNotNull>
-		</dynamic>
-		order by document.docid desc limit 1
+	 select * from document,(select * from document where document.DOCID=#docid#) a where 
+    document.userid=a.userid and <![CDATA[document.DOCRELTIME>a.DOCRELTIME]]> order by document.DOCRELTIME asc limit 1
 	</select>
 	<select id="previosdoc" parameterClass="java.util.Map"
 		resultClass="DocumentValue">
-		select * from document
-		<dynamic prepend="where">
-			<isNotNull prepend="and" property="imggroupid">
-				exists(select 1 from
-				img,imggroup where img.imggroupid=imggroup.imggroupid
-				and
-				img.imgid=document.docid and imggroup.imggroupid=#imggroupid#)
-			</isNotNull>
-			<isNotNull prepend="and" property="docid">
-			 	<![CDATA[  document.docid<#docid# ]]>
-			</isNotNull>
-		</dynamic>
-		order by document.docid asc limit 1
+		select * from document,(select * from document where document.DOCID=#docid#) a where 
+    document.userid=a.userid and <![CDATA[document.DOCRELTIME<a.DOCRELTIME]]> order by document.DOCRELTIME desc limit 1
 	</select>
 	<select id="messageValueContent" parameterClass="java.util.Map"
 		resultClass="MessageValue">

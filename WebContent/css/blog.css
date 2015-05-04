@@ -279,16 +279,16 @@ body {
 }
 
 .photoalbum {
-	width: 150px;
-	height: 170px;
+	width: 180px;
+	height: 192px;
 	float: right;
-	background: #eee;
-	margin: 2px;
+	background: #eee; 
+	margin: 3px 1px 3px 1px;
 }
 
 .photoalbum img {
-	width: 130px;
-	height: 140px;
+	width: 165px;
+	height: 180px;
 	float: right;
 	background: #eee;
 	margin: 5px;

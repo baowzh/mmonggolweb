@@ -48,7 +48,7 @@
 <body onmousewheel="wheel(event)" onload="setmglconimgWidht();"
 	style="background-color: #fff; scroll: none; height: 780px;">
 	<div class="rotatesection" style="width: 630px;" id="myDIV">
-		<div class="blogcon" id="blogcon">
+		<div class="blogcon" id="blogcon" style="position: relative;">
 			<div class="titlebar">
 				<div class="mglsection" style="width: 50px; padding-right: 15px;">
 					<a href="tologin.do"></a>
@@ -153,7 +153,7 @@
 			<div class="titlebar" style="text-align: right;">
 				<div class="mglsection" style="width: 180px; padding-right: 15px;">
 					<a href="friendlist.do?userid=<c:out value="${user.userid}" />">
-						 :</a>
+						 </a>
 				</div>
 			</div>
 			<div class="flt"
@@ -186,10 +186,10 @@
 				</div>
 			</div>
 			<div class="flt"
-				style="width: 100%; margin: 2px; min-height: 230px; height: auto !important;">
+				style="width: 100%; margin: 2px;min-height:185px; height: auto !important;">
 				<c:forEach items="${imggroupValues}" var="imgGrpupValue"
 					varStatus="status">
-					<div class="photoalbum rotate">
+					<div class="photoalbum rotate" style="position: relative;">
 						<a
 							href="javascript:openPhotoList('<c:out value="${imgGrpupValue.imggroupid}"/>')">
 							<c:if test="${imgGrpupValue.faceurl!=null}">
@@ -201,9 +201,10 @@
 
 						</a>
 						<div class="m1ln"
-							style="text-align: center; width: 138px; margin: 5px;">
+							style="text-align: center; width: 180px; margin: 5px; position: absolute; bottom: 0px; background: #000; opacity: 0.6;">
 							<a title="<c:out value="${imgGrpupValue.imggroupname}"/>"
-								href="javascript:openPhotoList('<c:out value="${imgGrpupValue.imggroupid}"/>')"><c:out
+								href="javascript:openPhotoList('<c:out value="${imgGrpupValue.imggroupid}"/>')"
+								style="color: #fff;"><c:out
 									value="${imgGrpupValue.imggroupname}" escapeXml="false" /></a>
 						</div>
 					</div>
@@ -229,7 +230,9 @@
 					</div>
 			</div>
 			<div class="flt" style="width: 100%; height: 25px;"></div>
-			<div class="flt" style="width: 100%;" id="doclist">
+			<div class="flt"
+				style="width: 100%; min-height: 300px; height: auto !important;"
+				id="doclist">
 
 				<c:forEach items="${docList}" var="documentValue" varStatus="status">
 					<div class="cont_box">
@@ -411,6 +414,16 @@
 				<div class="mglsection" style="width: 100%; padding-right: 15px;">
 					      
 					     </div>
+				<div class="mglsection rotate">
+					<script language="javascript" type="text/javascript"
+						src="http://js.users.51.la/17667713.js"></script>
+					<noscript>
+						<a href="http://www.51.la/?17667713" target="_blank"> <img
+							alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;"
+							src="http://img.users.51.la/17667713.asp" style="border: none;" />
+						</a>
+					</noscript>
+				</div>
 			</div>
 		</div>
 	</div>

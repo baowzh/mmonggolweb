@@ -206,16 +206,18 @@
 							</c:if>
 						</div>
 					</div>
-					<div class="shareBookmark mgldiv" style="margin: 50px 100px 5px 0px">
-						<div class="mgldiv" style="margin:5px;">
+					<div class="shareBookmark mgldiv"
+						style="margin: 50px 100px 5px 0px">
+						<div class="mgldiv" style="margin: 5px;">
 							<img
 								src="getQRCode.do?docid=<c:out value="${documentValue.docid}" />"
 								width="200" height="240">
 							<div class="m1ln" style="color: #00f">
-						 &nbsp; &nbsp; &nbsp;    <br> &nbsp; &nbsp; &nbsp;    
+								&nbsp; &nbsp; &nbsp;    <br>
+								&nbsp; &nbsp; &nbsp;   
+							</div>
 						</div>
-						</div>
-						
+
 					</div>
 				</div>
 				<div style="clear: both"></div>
@@ -226,7 +228,7 @@
 					<div class="mglsection" style="width: 180px; padding-right: 15px;">
 						</div>
 				</div>
-				<div class="flt" style="width: 100%; max-height: 230px;">
+				<div class="flt" style="width: 100%; height: auto !important;">
 					<c:forEach items="${visitors}" var="visitorValue"
 						varStatus="status">
 						<div class="persooninfo" style="height: 100px; width: 105px;">
@@ -248,7 +250,7 @@
 			</div>
 			<c:if test="${fn:length(comments)!=0}">
 				<div style="clear: both"></div>
-				<div class="flt" style="width: 98%; min-height: 230px;">
+				<div class="flt" style="width: 98%; height: auto !important;">
 					<c:forEach items="${comments}" var="messageValue"
 						varStatus="status">
 						<div class="postSheet" style="width: 600px;">
@@ -349,10 +351,40 @@
 			<div style="clear: both"></div>
 			<div class="titlebar" style="text-align: right;">
 				<div class="mglsection" style="width: 180px; padding-right: 15px;">
-					  </div>
+					   </div>
 			</div>
 			<div class="flt" style="width: 100%;" id="doclist">
-
+				<c:if test="${nextdoc!=null}">
+					<div class="sharenwsl1" style="margin:8px 0px 8px 0px;">
+						<div class="m1ln"
+							style="width: 10px; height: 10px; float: right; padding-top: 5px;">
+							<img src="site/img/qig_1_v.png">
+						</div>
+						<div class="m1ln" style="width: 470px; float: right;">
+							<a
+								href="getuserdocdetail.do?docid=<c:out value="${nextdoc.docid}" />"><c:out
+									value="${nextdoc.doctitle}" escapeXml="false" /> </a>
+						</div>
+						<div class="m1ln" style="width: 100px; float: right;">
+							 </div>
+					</div>
+				</c:if>
+				<c:if test="${previousdocsdoc!=null}">
+					<div class="sharenwsl1" style="margin:8px 0px 8px 0px;">
+						<div class="m1ln"
+							style="width: 10px; height: 10px; float: right; padding-top: 5px;">
+							<img src="site/img/qig_1_v.png">
+						</div>
+						<div class="m1ln" style="width: 470px; float: right;">
+							<a
+								href="getuserdocdetail.do?docid=<c:out value="${previousdocsdoc.docid}" />"><c:out
+									value="${previousdocsdoc.doctitle}" escapeXml="false" /> </a>
+						</div>
+						<div class="m1ln" style="width: 100px; float: right;">
+							 </div>
+					</div>
+				</c:if>
+				<!--  
 				<c:forEach items="${docList}" var="documentValue" varStatus="status">
 					<div class="cont_box">
 						<div class="title mglcontent">
@@ -391,8 +423,10 @@
 					</div>
 					<div style="clear: both"></div>
 				</c:forEach>
+				-->
 			</div>
 			<div style="clear: both"></div>
+			<!--  
 			<div class="paginationArea" style="margin: 5px;">
 				<div class="pagination" id="docpagelist">
 					<a class="first disabled" id="firsta"
@@ -431,11 +465,23 @@
 						value="<c:out value="${pageCount}" />" />
 				</div>
 			</div>
+			-->
+
 			<div class="titlebar"
 				style="text-align: right; height: 60px; padding-top: 20px;">
 				<div class="mglsection" style="width: 100%; padding-right: 15px;">
 					      
 					     </div>
+				<div class="mglsection rotate">
+					<script language="javascript" type="text/javascript"
+						src="http://js.users.51.la/17667713.js"></script>
+					<noscript>
+						<a href="http://www.51.la/?17667713" target="_blank"> <img
+							alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;"
+							src="http://img.users.51.la/17667713.asp" style="border: none;" />
+						</a>
+					</noscript>
+				</div>
 			</div>
 		</div>
 	</div>

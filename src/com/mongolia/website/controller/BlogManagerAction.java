@@ -354,6 +354,17 @@ public class BlogManagerAction {
 					StaticConstants.DOCTYPE_DOC, null, null, null, null);
 			// 计算每个comments 是否要显示
 		}
+		// 获取上一个文章和下一个文章
+		List<DocumentValue> nextdocs = this.webResourceManager.getNextDoc(
+				docid, null);
+		if (nextdocs != null && !nextdocs.isEmpty()) {
+			map.put("nextdoc", nextdocs.get(0));
+		}
+		List<DocumentValue> previousdocs = this.webResourceManager
+				.getPreviousDoc(docid, null);
+		if (previousdocs != null && !previousdocs.isEmpty()) {
+			map.put("previousdocsdoc", previousdocs.get(0));
+		}
 		if (sessionUser != null) {
 			map.put("login", 1);
 		} else {
@@ -1882,7 +1893,8 @@ public class BlogManagerAction {
 			if (sessionUser != null
 					&& sessionUser.getUserid().equalsIgnoreCase(
 							messageValue.getUserid())) {
-				this.webResourceManager.confiremMess(messageValue.getMessageid());
+				this.webResourceManager.confiremMess(messageValue
+						.getMessageid());
 			}
 			// 修改格式
 			List<MessageValue> mess = new ArrayList<MessageValue>();

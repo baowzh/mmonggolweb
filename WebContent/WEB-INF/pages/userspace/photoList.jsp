@@ -259,37 +259,47 @@
 				<div class="mglsection" style="width: 100%; padding-right: 15px;">
 					      
 					     </div>
+				<div class="mglsection rotate">
+					<script language="javascript" type="text/javascript"
+						src="http://js.users.51.la/17667713.js"></script>
+					<noscript>
+						<a href="http://www.51.la/?17667713" target="_blank"> <img
+							alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;"
+							src="http://img.users.51.la/17667713.asp" style="border: none;" />
+						</a>
+					</noscript>
+				</div>
 			</div>
 		</div>
 	</div>
 	<div style="display: none" id="addimg"
 		style="height:270px;width:300px;">
 		<div class="content rotatesection"
-			style="height: 280px;width: 310px; background: white; padding: 5px; border-radius: 5px;">
+			style="height: 280px; width: 310px; background: white; padding: 5px; border-radius: 5px;">
 			<form action="addimg.do" id="addimgform" method="post"
 				class="mglForm" enctype="multipart/form-data" />
-			<div class="m1ln" style="padding-right:80px;">  :</div>
-			<div class="m1ln" style="height : 32px; width: 270px;">
+			<div class="m1ln" style="padding-right: 80px;">  :</div>
+			<div class="m1ln" style="height: 32px; width: 270px;">
 				<input type="text" name="albumname" id="albumname" readonly="true"
 					value="<c:out value="${albumValue.imggroupname}" />" />
 			</div>
 
-			<div class="m1ln" style="padding-right:80px;">:</div>
+			<div class="m1ln" style="padding-right: 80px;">:</div>
 			<div class="m1ln" style="height: 32px; width: 270px;">
 				<input type="text" name="imgcomm" id="imgcomm"></input>
 			</div>
 
-			<div class="m1ln" style="padding-right:80px; width: 210px;">
+			<div class="m1ln" style="padding-right: 80px; width: 210px;">
 				   :<input type="checkbox" name="cover"
 					id="cover"></input>
 			</div>
 			<c:if test="${racemodel!=null&&sessionuser.managerflag==1}">
-				<div class="m1ln" style="padding-right:80px; width: 210px;">
+				<div class="m1ln" style="padding-right: 80px; width: 210px;">
 					   :<input type="checkbox" name="forrace"
 						id="forrace"></input>
 				</div>
 			</c:if>
-			<div class="m1ln" style="padding-right:80px;">:</div>
+			<div class="m1ln" style="padding-right: 80px;">:</div>
 			<div class="m1ln" style="height: 32px; width: 270px;">
 				<input type="file" name="img" id="img" style="width: 210px;"></input>
 			</div>

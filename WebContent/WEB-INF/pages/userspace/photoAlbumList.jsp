@@ -46,7 +46,8 @@
 </head>
 
 <body onmousewheel="wheel(event)" onload="setmglconimgWidht();
-	style="background-color: #fff; scroll: none; ">
+	style="
+	background-color: #fff; scroll:none; ">
 	<div class="rotatesection" style="width: 630px;" id="myDIV">
 		<div class="blogcon">
 			<div class="titlebar">
@@ -187,12 +188,12 @@
 				</div>
 			</div>
 			<div class="flt"
-				style="width: 100%; margin: 2px; min-height: 230px; height: auto !important;">
+				style="width: 100%; margin: 2px; min-height: 185px; height: auto !important;">
 				<c:forEach items="${photoAlbumList}" var="imgGrpupValue"
 					varStatus="status">
-					<div class="photoalbum rotate">
+					<div class="photoalbum rotate" style="position: relative;">
 						<a
-							href="javascript:openPhotoList('60C79955EC8011E4ADC7D3E228C11886')">
+							href="javascript:openPhotoList('<c:out value="${imgGrpupValue.imggroupid}"/>')">
 							<c:if test="${imgGrpupValue.faceurl!=null}">
 								<img
 									src="html/photoalbum/<c:out value="${imgGrpupValue.faceurl}"/>">
@@ -202,9 +203,9 @@
 
 						</a>
 						<div class="m1ln"
-							style="text-align: center; width: 138px; margin: 5px;">
-							<a title="<c:out value="${imgGrpupValue.imggroupname}"/>"
-								href="javascript:openPhotoList('<c:out value="${imgGrpupValue.imggroupid}"/>')"><c:out
+							style="text-align: center; width: 180px; margin: 5px;position: absolute; bottom: 0px; background: #000; opacity: 0.6;">
+							<a style="color: #fff;" title="<c:out value="${imgGrpupValue.imggroupname}"/>"
+								href="javascript:openPhotoList('<c:out value="${imgGrpupValue.imggroupid}"/>')" ><c:out
 									value="${imgGrpupValue.imggroupname}" escapeXml="false" /></a>
 						</div>
 					</div>
@@ -255,6 +256,16 @@
 				<div class="mglsection" style="width: 100%; padding-right: 15px;">
 					      
 					     </div>
+				<div class="mglsection rotate">
+					<script language="javascript" type="text/javascript"
+						src="http://js.users.51.la/17667713.js"></script>
+					<noscript>
+						<a href="http://www.51.la/?17667713" target="_blank"> <img
+							alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;"
+							src="http://img.users.51.la/17667713.asp" style="border: none;" />
+						</a>
+					</noscript>
+				</div>
 			</div>
 		</div>
 	</div>
