@@ -1005,7 +1005,7 @@
 							</div>
 						</div>
 						<div class="m1ln"
-							style="height: 288px; width: 20px; padding-left: 5px;">
+							style="height: 288px; width: 20px;">
 							<c:out value="${imgValue.doctitle}" />
 						</div>
 					</div>
