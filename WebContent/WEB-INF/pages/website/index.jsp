@@ -111,24 +111,6 @@
 	<div class="layer m0a" style="padding-top: 0px;">
 		<div class="card1" style="height: 300px; width: 1000px;">
 			<div class="videoBox" id="imgnews">
-			<!--
-				<c:forEach items="${indexPageContent.imgNews}" var="imgValue"
-					varStatus="status">
-					<div class="video"
-						style="width: 250px; height: 240px; margin: 0px 0px; position: relative;">
-						<a href="<c:out value="${imgValue.link}"/>" target="_blank"
-							class="tit_text_overflow"><img
-							src="img/news3.jpg"
-							style="width: 245px; height: 240px;" /> </a>
-						<div class="m1ln"
-							style="position: absolute; right: 0px; height: 236px; width: 38px; font-size: 17px; background: #000; opacity: 0.6; color: #fff; padding-left: 2px;">
-							<a href="<c:out value="${imgValue.link}"/>" target="_blank"
-								class="tit_text_overflow" style="color:#fff;"><c:out value="${imgValue.title}" />
-							</a>
-						</div>
-					</div>
-				</c:forEach>
-				-->
 				<c:forEach items="${indexPageContent.imgNews}" var="imgValue"
 					varStatus="status">
 					<div class="video"
@@ -140,8 +122,8 @@
 						<div class="m1ln"
 							style="position: absolute; right: 0px; height: 236px; width: 38px; font-size: 17px; background: #000; opacity: 0.6; color: #fff; padding-left: 2px;">
 							<a href="<c:out value="${imgValue.link}"/>" target="_blank"
-								class="tit_text_overflow" style="color:#fff;"><c:out value="${imgValue.title}" />
-							</a>
+								class="tit_text_overflow" style="color: #fff;"><c:out
+									value="${imgValue.title}" /> </a>
 						</div>
 					</div>
 				</c:forEach>
@@ -888,7 +870,7 @@
 				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody"
-				style="padding-left: 10px; height: 213px; width: 930px;">
+				style="padding-left: 10px; height: 215px; width: 930px;">
 				<c:forEach items="${indexPageContent.professionValues}"
 					var="professionValue" varStatus="status">
 					<div class="nwsl1" style="height: 156px; width: 36px; margin: 2px;">
@@ -1004,23 +986,28 @@
 				<c:forEach items="${indexPageContent.videos}" var="imgValue"
 					varStatus="status">
 					<div class="video" style="width: 303px; height: 290px;">
-						<c:if test="${imgValue.facepath!=null}">
-							<a
-								href="getuserdocdetail.do?docid=<c:out value="${imgValue.docid}"/>"><img
-								src="<c:out value="${imgValue.facepath}"/>"
-								style="width: 273px; height: 288px;" /></a>
-						</c:if>
-						<c:if test="${imgValue.facepath==null}">
-							<a
-								href="getuserdocdetail.do?docid=<c:out value="${imgValue.docid}"/>"><img
-								src="img/vido.jpg" style="width: 273px; height: 288px;" /></a>
-						</c:if>
-
+						<div style="width: 283px; height: 290px; position: relative;">
+							<c:if test="${imgValue.facepath!=null}">
+								<a
+									href="getuserdocdetail.do?docid=<c:out value="${imgValue.docid}"/>"><img
+									src="<c:out value="${imgValue.facepath}"/>"
+									style="width: 273px; height: 288px;" /></a>
+							</c:if>
+							<c:if test="${imgValue.facepath==null}">
+								<a
+									href="getuserdocdetail.do?docid=<c:out value="${imgValue.docid}"/>"><img
+									src="img/vido.jpg" style="width: 273px; height: 288px;" /></a>
+							</c:if>
+							<div
+								style="position:absolute ;top:130px; left: 100px; opacity: 0.8;">
+								<a href="getuserdocdetail.do?docid=<c:out value="${imgValue.docid}"/>"><img src="img/play_icon.png"></img>
+								</a>
+							</div>
+						</div>
 						<div class="m1ln"
-							style="height: 288px; width: 18px; padding-left: 5px;">
+							style="height: 288px; width: 20px; padding-left: 5px;">
 							<c:out value="${imgValue.doctitle}" />
 						</div>
-
 					</div>
 
 				</c:forEach>
@@ -1277,46 +1264,43 @@
 		<div class="cls"></div>
 	</div>
 	<div class="layer m0a">
-		<div class="card1">
+		<div class="card1" style="width: 340px;">
 			<div class="listCardTtl ttlStl1">
 				<div class="top"></div>
 				<div class="ttl" style="height: 210px;">  
 					</div>
 				<div class="ctail"></div>
 			</div>
-			<!-- 			<div id="ticker-next" class="ticker-btn prev"> -->
-			<!-- 				<span class="glyphicon glyphicon-chevron-up"></span> -->
-			<!-- 			</div> -->
-			<ul id="vertical-ticker">
-				<c:forEach items="${indexPageContent.selBooks}" var="bookStoreValue"
-					varStatus="status">
-					<li>
-						<div class="xldgurg"
-							style="width: 290px; height: 340px; margin: 0px; border: none;">
-							<div class=" avatar" style="height: 340px;" >
-								<a href="<c:out value="${bookStoreValue.booklink}" />"
-									target="_blank"><img
-									src="html/img/<c:out value="${bookStoreValue.bookimg}" />"
-									title="" style="width: 220px; height: 340px;"></a>
+			<div>
+				<ul id="vertical-ticker">
+					<c:forEach items="${indexPageContent.selBooks}"
+						var="bookStoreValue" varStatus="status">
+						<li>
+							<div class="xldgurg"
+								style="width: 290px; height: 340px; margin: 0px; border: none;">
+								<div class=" avatar" style="height: 330px;">
+									<a href="<c:out value="${bookStoreValue.booklink}" />"
+										target="_blank"><img
+										src="html/img/<c:out value="${bookStoreValue.bookimg}" />"
+										title="" style="width: 220px; height: 330px;"></a>
 
+								</div>
+								<div class="m1ln"
+									style="float: left; padding-left: 15px; width: 60px;">
+									<a
+										href="gouserindex.do?userid=8F995C07E46C11E3BB214D96A0031390">
+										&nbsp;   : <c:out value="${bookStoreValue.bookname}" />
+										<br> &nbsp; :<c:out
+												value="${bookStoreValue.bookprice}" />  <br>
+												&nbsp;  : <c:out
+													value="${bookStoreValue.bookauthor}" />
+									</a>
+								</div>
 							</div>
-							<div class="m1ln"
-								style="float: left; padding-left: 15px; width: 60px;">
-								<a href="gouserindex.do?userid=8F995C07E46C11E3BB214D96A0031390">
-									&nbsp;   : <c:out value="${bookStoreValue.bookname}" />
-									<br> &nbsp; :<c:out
-											value="${bookStoreValue.bookprice}" />  <br>
-											&nbsp;  : <c:out
-												value="${bookStoreValue.bookauthor}" />
-								</a>
-							</div>
-						</div>
-					</li>
-				</c:forEach>
-			</ul>
-			<!-- 			<div id="ticker-previous" class="ticker-btn prev"> -->
-			<!-- 				<span class="glyphicon glyphicon-chevron-up"></span> -->
-			<!-- 			</div> -->
+						</li>
+					</c:forEach>
+				</ul>
+			</div>
 		</div>
 		<div class="card1" style="width: 560px;">
 			<div class="listCardTtl ttlStl1">
@@ -1348,7 +1332,7 @@
 			</div>
 		</div>
 		<div class="layer m0a">
-			<div class="card1" style="width: 400px; height: 400px;">
+			<div class="card1" style="width: 340px; height: 400px;">
 				<div class="listCardTtl ttlStl1" style="height: 400px;">
 					<div class="top"></div>
 					<div class="ttl" style="height: 210px;"></div>
@@ -1357,7 +1341,7 @@
 					</div>
 					<div class="ctail"></div>
 				</div>
-				<div class="listCardBody" style="width: 290px; height: 393px;">
+				<div class="listCardBody" style="width: 290px; height: 394px;">
 					<div class="nwsl1" style="height: 400px;">
 						<div class="title" style="height: 400px;">  
 							       </div>
@@ -1403,7 +1387,7 @@
 					<div class="ctail"></div>
 				</div>
 				<div class="listCardBody"
-					style="width: 500px; height: 393px; line-height: 23px; padding-top: 4px;">
+					style="width: 500px; height: 394px; line-height: 23px; padding-top: 4px;">
 					<div class="nwsl1">
 						<div class="title">
 							<a href="gouserindex.do?userid=3938AFBB9E3C11E4BC9D199A577C4ABB"
@@ -1577,14 +1561,27 @@
 		nextButton : "h-scrollview-nextbutton-bs",
 		auto : true
 	});
+	/*
+	SODON.example.scrollViewH = new SODON.widget.ScrollView("vertical-ticker",
+			{
+				direction : "vertical",
+				screenSize : 1,
+				itemWidth : 300,
+				itemHeight : 330,
+				itemSpace : 0,
+				// 		prevButton : "h-scrollview-prevbutton-bs",
+				// 		nextButton : "h-scrollview-nextbutton-bs",
+				auto : true
+			});
+	 */
 
 	$('#vertical-ticker').totemticker({
-		row_height : '100px',
+		row_height : '330px',
 		next : '#ticker-next',
 		previous : '#ticker-previous',
 		stop : '#stop',
 		start : '#start',
-		mousestop:true
+		mousestop : true
 	});
 </script>
 </html>
