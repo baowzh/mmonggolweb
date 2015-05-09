@@ -568,6 +568,14 @@ $(document).ready(function() {
 	$('#myDIV').css('width', availWidth - 10);
 	$('#myDIV').css('min-height', availheight);
 	$('#blogcon').css('min-height', availheight);
+	//
+	/*
+	$("#message_face").jqfaceedit({
+		txtAreaObj : $("#commentdiv"),
+		containerObj : $('#commentcontainer'),
+		top : 25,
+		right : -27
+	});*/
 });
 var setmglconimgWidht = function() {
 
@@ -584,9 +592,12 @@ var setmglconimgWidht = function() {
 				}
 				$(this).attr('height', height);
 				$(this).attr('width', width);
-				$(this).after(
-						'<div style="height:' + (width - height)
-								+ 'px;"></div>');
+				if(width - height>0){
+					$(this).after(
+							'<div style="height:' + (width - height)
+									+ 'px;"></div>');	
+				}
+			
 			});
 	$(".mglcontent iframe").each(
 			function() {
@@ -601,9 +612,12 @@ var setmglconimgWidht = function() {
 				}
 				$(this).attr('height', height);
 				$(this).attr('width', width);
-				$(this).after(
-						'<div style="height:' + (width - height)
-								+ 'px;"></div>');
+				if(width - height>0){
+					$(this).after(
+							'<div style="height:' + (width - height)
+									+ 'px;"></div>');	
+				}
+				
 			});
 	$(".mglcontent embed").each(
 			function() {
@@ -618,8 +632,11 @@ var setmglconimgWidht = function() {
 				}
 				$(this).attr('height', height);
 				$(this).attr('width', width);
-				$(this).after(
-						'<div style="height:' + (width - height)
-								+ 'px;"></div>');
+				if(width - height-0>0){
+					$(this).after(
+							'<div style="height:' + (width - height)
+									+ 'px;"></div>');
+				}
+				
 			});
 };

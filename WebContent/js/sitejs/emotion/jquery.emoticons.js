@@ -320,7 +320,7 @@
 													var faceHtml = '<div id="face" >';
 													faceHtml += '<div id="texttb"><a class="f_close" title="关闭" href="javascript:void(0);"></a></div>';
 													faceHtml += '<div id="facebox">';
-													faceHtml += '<div id="face_detail" class="facebox clearfix" ><ul>';
+													faceHtml += '<div id="face_detail" class="facebox clearfix rerotatesection" ><ul>';
 
 													for (i = 0; i < options.emotions.length; i++) {
 														faceHtml += '<li text='

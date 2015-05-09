@@ -111,6 +111,7 @@
 	<div class="layer m0a" style="padding-top: 0px;">
 		<div class="card1" style="height: 300px; width: 1000px;">
 			<div class="videoBox" id="imgnews">
+			<!--
 				<c:forEach items="${indexPageContent.imgNews}" var="imgValue"
 					varStatus="status">
 					<div class="video"
@@ -127,13 +128,14 @@
 						</div>
 					</div>
 				</c:forEach>
+				-->
 				<c:forEach items="${indexPageContent.imgNews}" var="imgValue"
 					varStatus="status">
 					<div class="video"
 						style="width: 250px; height: 240px; margin: 0px 0px; position: relative;">
 						<a href="<c:out value="${imgValue.link}"/>" target="_blank"
 							class="tit_text_overflow"><img
-							src="img/news3.jpg"
+							src="<c:out value="${imgValue.url}"/>"
 							style="width: 245px; height: 240px;" /> </a>
 						<div class="m1ln"
 							style="position: absolute; right: 0px; height: 236px; width: 38px; font-size: 17px; background: #000; opacity: 0.6; color: #fff; padding-left: 2px;">
@@ -1290,12 +1292,12 @@
 					varStatus="status">
 					<li>
 						<div class="xldgurg"
-							style="width: 290px; height: 320px; margin: 0px; border: none;">
-							<div class=" avatar">
+							style="width: 290px; height: 340px; margin: 0px; border: none;">
+							<div class=" avatar" style="height: 340px;" >
 								<a href="<c:out value="${bookStoreValue.booklink}" />"
 									target="_blank"><img
 									src="html/img/<c:out value="${bookStoreValue.bookimg}" />"
-									title="" style="width: 220px; height: 300px;"></a>
+									title="" style="width: 220px; height: 340px;"></a>
 
 							</div>
 							<div class="m1ln"
@@ -1581,7 +1583,8 @@
 		next : '#ticker-next',
 		previous : '#ticker-previous',
 		stop : '#stop',
-		start : '#start'
+		start : '#start',
+		mousestop:true
 	});
 </script>
 </html>

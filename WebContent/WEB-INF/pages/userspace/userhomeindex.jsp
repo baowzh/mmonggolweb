@@ -31,7 +31,7 @@
 	type="text/javascript"></script>
 <script src="js/messagebox/jquery.rotmsgbox.js"></script>
 <script src="js/messagebox/jquery.dragndrop.min.js"></script>
-<script type="text/javascript" src="ckeditorrot/ckeditor.js"></script>
+<!-- <script type="text/javascript" src="ckeditorrot/ckeditor.js"></script> -->
 <script type="text/javascript">
 	window.onload = function() {
 		function setheight() {

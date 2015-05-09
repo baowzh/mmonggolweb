@@ -24,11 +24,8 @@
 <link href="js/sitejs/emotion/emoticon.css" type="text/css"
 	rel="stylesheet" />
 <script type="text/javascript" src="js/util/js/messageWindow.js"></script>
-<!-- <link rel="stylesheet" -->
-<!-- 	href="js/jqui/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" /> -->
 <link rel="stylesheet" type="text/css"
 	href="plugins/jquery.jqGrid-4.4.3/css/jquery-ui.css" media="screen" />
-<!-- <script src="js/jqui/js/jquery-ui-1.10.3.custom.min.js"></script> -->
 <script src="plugins/jquery.jqGrid-4.4.3/js/jquery-ui.min.js"
 	type="text/javascript"></script>
 <script src="js/messagebox/jquery.rotmsgbox.js"></script>
@@ -161,7 +158,7 @@
 					<div class="shareBookmark mgldiv">
 						<div class="mgldiv" style="margin: 0px 20px 20px 20px;">
 							 
-							<c:out value="${documentValue.chnaname}" />
+							<c:out value="${documentValue.docchannelname}" />
 							<br> <a href="javascript:sharedocument()"> </a> 
 							<c:out value="${documentValue.sharecount}" default="0" />
 							  <a href="javascript:markdocument()">  </a> <span
@@ -352,6 +349,11 @@
 			<div class="titlebar" style="text-align: right;">
 				<div class="mglsection" style="width: 180px; padding-right: 15px;">
 					   </div>
+				<c:if test="${self==1}">
+					<div class="mglsection" style="width: 180px; padding-right: 15px;">
+						<a href="toadddoc.do">    </a>
+					</div>
+				</c:if>
 			</div>
 			<div class="flt" style="width: 100%;" id="doclist">
 				<c:if test="${nextdoc!=null}">
@@ -366,7 +368,8 @@
 									value="${nextdoc.doctitle}" escapeXml="false" /> </a>
 						</div>
 						<div class="m1ln" style="width: 100px; float: right;">
-							 </div>
+							
+							 </div>
 					</div>
 				</c:if>
 				<c:if test="${previousdocsdoc!=null}">
@@ -381,7 +384,7 @@
 									value="${previousdocsdoc.doctitle}" escapeXml="false" /> </a>
 						</div>
 						<div class="m1ln" style="width: 100px; float: right;">
-							 </div>
+							 </div>
 					</div>
 				</c:if>
 				<!--  
