@@ -85,7 +85,7 @@ writing-mode: tb-lr;
 						style="width: 90px; height: 600px; background: #def">
 						<div class="label">  </div>
 						<div class="label">   :</div>
-						<div class="label">   :</div>
+						<div class="label" style="height:150px;font-size:15px;">  (用汉子写微信转发使用):</div>
 						<c:if test="${agentkind==1}">
 							<div class="inputHolder">
 								<input name="doctitle" id="doctitle" class="title"
@@ -143,7 +143,7 @@ writing-mode: tb-lr;
 						</div>
 						<div>
 							<div class="inputHolder" style="width: 15px;">
-								<a href="javascript:checkAndSubmit();"></a> <a
+								<a href="javascript:checkAndSubmit();"></a> <a
 									href="javascript:openemfacewindow"></a>
 
 							</div>
@@ -197,7 +197,7 @@ writing-mode: tb-lr;
 			return;
 		}
 		if (docabstract == null || docabstract == '') {
-			MessageWindow.showMess('        ');
+			MessageWindow.showMess('    ');
 			return;
 		}
 		if (docchannel == null || docchannel == '') {

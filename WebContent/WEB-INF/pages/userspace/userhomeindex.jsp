@@ -249,7 +249,7 @@
 				<c:forEach items="${docList}" var="documentValue" varStatus="status">
 					<div class="cont_box">
 						<div class="title mglcontent">
-							<c:out value="${documentValue.doctitle}" escapeXml="false" />
+							<a  style="color:#333;text-decoration: none;font-size:25px;" href="getuserdocdetail.do?docid=<c:out value="${documentValue.docid}" />"><c:out value="${documentValue.doctitle}" escapeXml="false" /></a>
 						</div>
 						<div class="shareBookmark mgldiv">
 							<div class="mgldiv" style="margin: 0px 20px 20px 20px;">

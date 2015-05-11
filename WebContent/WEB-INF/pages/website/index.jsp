@@ -139,7 +139,7 @@
 				<div class="more"></div>
 				<div class="ctail"></div>
 			</div>
-			<div class="listCardBody" style="height: 334px; padding-left: 5px;">
+			<div class="listCardBody" style="height: 335px; padding-left: 5px;">
 				<c:forEach items="${indexPageContent.selecteddocs}"
 					var="documentValue" varStatus="status">
 					<div class="nwsl1">
@@ -162,7 +162,7 @@
 		</div>
 		<div class="card1"
 			style="height: 340px; width: 180px; margin: 10px 0px;">
-			<div class="listCardBody" style="height: 334px;">
+			<div class="listCardBody" style="height: 335px;">
 
 				<form id="searchform" class="mglForm" method="post">
 					<div class="inputHolder"></div>
@@ -205,7 +205,7 @@
 				<div class="more"></div>
 				<div class="ctail"></div>
 			</div>
-			<div class="listCardBody" style="height: 334px; padding-left: 5px;">
+			<div class="listCardBody" style="height: 335px; padding-left: 5px;">
 				<div style="height: 320px; padding: 2px; width: 380px; float: left;">
 					<iframe src="http://player.youku.com/embed/XOTI0MDA2Mzk2"
 						allowtransparency="true" allowfullscreen="true" scrolling="no"
@@ -221,7 +221,7 @@
 				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody"
-				style="height: 334px; padding-left: 5px; background-color: #fff;">
+				style="height: 335px; padding-left: 5px; background-color: #fff;">
 				<div class="ftig"
 					style="padding: 2px; width: 456px; overflow: hidden; color: #000;">
 					&nbsp;         
@@ -593,7 +593,7 @@
 				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody"
-				style="padding-top: 10px; height: 208px; width: 930px;">
+				style="padding-top: 10px; height: 209px; width: 930px;">
 				<c:forEach items="${indexPageContent.topUsers}" var="userValue"
 					varStatus="status">
 					<div class="xldgurg" style="height: 95px; width: 82px;">
@@ -722,7 +722,7 @@
 				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody"
-				style="padding-top: 10px; height: 208px; width: 930px;">
+				style="padding-top: 10px; height: 209px; width: 930px;">
 				<c:forEach items="${indexPageContent.newUsers}" var="userValue"
 					varStatus="status">
 					<div class="xldgurg" style="height: 95px; width: 82px;">
@@ -1120,7 +1120,7 @@
 				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody"
-				style="padding-top: 10px; height: 208px; width: 930px;">
+				style="padding-top: 10px; height: 209px; width: 930px;">
 				<c:forEach items="${indexPageContent.recentLoginUsers}"
 					var="userValue" varStatus="status">
 					<div class="xldgurg" style="height: 95px; width: 82px;">
@@ -1240,7 +1240,7 @@
 				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody"
-				style="padding-top: 10px; height: 208px; width: 930px;">
+				style="padding-top: 10px; height: 209px; width: 930px;">
 				<c:forEach items="${indexPageContent.activeusers}" var="userValue"
 					varStatus="status">
 					<div class="xldgurg" style="height: 95px; width: 82px;">
@@ -1341,7 +1341,7 @@
 					</div>
 					<div class="ctail"></div>
 				</div>
-				<div class="listCardBody" style="width: 290px; height: 394px;">
+				<div class="listCardBody" style="width: 290px; height: 395px;">
 					<div class="nwsl1" style="height: 400px;">
 						<div class="title" style="height: 400px;">  
 							       </div>
@@ -1387,7 +1387,7 @@
 					<div class="ctail"></div>
 				</div>
 				<div class="listCardBody"
-					style="width: 500px; height: 394px; line-height: 23px; padding-top: 4px;">
+					style="width: 500px; height: 395px; line-height: 23px; padding-top: 4px;">
 					<div class="nwsl1">
 						<div class="title">
 							<a href="gouserindex.do?userid=3938AFBB9E3C11E4BC9D199A577C4ABB"

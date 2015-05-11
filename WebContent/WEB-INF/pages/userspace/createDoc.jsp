@@ -71,14 +71,14 @@
 <!-- 		<div class="wrp m0a ribbon"></div> -->
 		<div class="lmainR  " style="width: 1000px;">
 			<div class="roundCornerFrame"
-				style="width: 1000px; height: 600px; margin: 0px;">
+				style="width: 1000px; height: 620px; margin: 0px;">
 				<div class="content" id="contentdiv"
 					style="width: 970px; height: 570px; padding-top: 30px;">
 					<div class="flt"
-						style="width: 90px; height: 520px; background: #def; border-radius: 5px; border: solid 1px #def; padding-top: 1px;">
+						style="width: 95px; height: 520px; background: #def; border-radius: 5px; border: solid 1px #def; padding-top: 1px;">
 						<div class="label">  </div>
 						<div class="label">   :</div>
-						<div class="label">   :</div>
+						<div class="label" style="height:150px;font-size:15px;">  (用汉子写微信转发使用):</div>
 						<c:if test="${agentkind==1}">
 							<div class="inputHolder">
 								<input name="doctitle" id="doctitle" class="title"
@@ -106,20 +106,23 @@
 						<c:if test="${agentkind==1}">
 							<div class="inputHolder">
 								<input name="docabstract" id="docabstract" class="title"
-									style="width: 210px; height: 15px;" />
+									style="width: 210px; height: 15px;" />																									
 							</div>
+							
+							
 						</c:if>
 						<c:if test="${agentkind==0}">
 							<div class="inputHolder">
 								<input name="docabstract" id="docabstract" class="title"
-									style="height: 210px;" />
-							</div>
+									style="height: 210px;" />																	
+							</div>							
+							
 						</c:if>
 					</div>
 
 					<div class="richeditBox">
-						<textarea id="editor1" name="htmlcon" class="ckeditor" row="1300"
-							cols="1300"></textarea>
+						<textarea id="editor1" name="htmlcon" class="ckeditor" row="1200"
+							cols="1200"></textarea>
 					</div>
 					<div class="mnlist" style="width: 70px; height: 570px;">
 						<div>
@@ -144,7 +147,7 @@
 								style="width: 24px; height: 400px; text-align: center;">
 								<a href="javascript:openlinkwindow();"> &nbsp;</a>
 								<a href="javascript:openmp3window();">MP3 </a>&nbsp;&nbsp; <a
-									href="javascript:checkAndSubmit();"></a>&nbsp;&nbsp;
+									href="javascript:checkAndSubmit();"></a>&nbsp;&nbsp;
 								<a href="javascript:openemfacewindow">&nbsp;&nbsp; </a>
 
 							</div>
@@ -176,7 +179,7 @@
 					<div class="mnlist" style="height: 270px;"></div>
 					<div class="mnlist"
 						style="width: 24px; height: 200px; text-align: center;">
-						<a href="javascript:submit();"></a>&nbsp;&nbsp; <a
+						<a href="javascript:submit();"> </a>&nbsp;&nbsp; <a
 							href="javascript:openemfacewindow">&nbsp;&nbsp; </a>
 
 					</div>
@@ -220,7 +223,7 @@
 			return;
 		}
 		if (docabstract == null || docabstract == '') {
-			MessageWindow.showMess('     ');
+			MessageWindow.showMess('    ');
 			return;
 		}
 		if (docchannel == null || docchannel == '') {
