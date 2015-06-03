@@ -9,6 +9,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLConnection;
+import java.net.URLEncoder;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -39,6 +44,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.WebDataBinder;
@@ -515,7 +521,7 @@ public class BlogManagerAction {
 					.getRealPath("html/img");
 			imgname = UUIDMaker.getUUID() + ".jpg";
 			if (imgValue.getImg() != null && imgValue.getImg().length != 0) {
-				ImgeUtil.CompressPic(imgValue.getImg(), path, imgname);
+				ImgeUtil.CompressPic(imgValue.getImg(), path, imgname,true);
 			}
 			//
 		} catch (Exception ex) {
@@ -726,8 +732,8 @@ public class BlogManagerAction {
 			if (imgGrpupValue.getImgurl() != null
 					&& imgGrpupValue.getImgurl().length != 0) {
 				tempImgValue = ImgeUtil.CompressPic(imgGrpupValue.getImgurl(),
-						path, imgname);
-				ImgeUtil.CompressPic(imgGrpupValue.getImgurl(), path1, imgname);
+						path, imgname,true);
+				ImgeUtil.CompressPic(imgGrpupValue.getImgurl(), path1, imgname,true);
 				imgValue.setImgurl(imgname);
 				// ImgeUtil.CompressPic(imgGrpupValue.getImgurl(), path,
 				// imgname);
@@ -772,7 +778,7 @@ public class BlogManagerAction {
 			imgname = UUIDMaker.getUUID() + ".jpg";
 			if (imgGrpupValue.getImgurl() != null
 					&& imgGrpupValue.getImgurl() != null) {
-				ImgeUtil.CompressPic(imgGrpupValue.getImgurl(), path, imgname);
+				ImgeUtil.CompressPic(imgGrpupValue.getImgurl(), path, imgname,true);
 			}
 			this.webResourceManager.doUpdIImgGroup(imgGrpupValue);
 		} catch (Exception ex) {
@@ -802,7 +808,7 @@ public class BlogManagerAction {
 			String imgname = imgid + ".jpg";
 			if (imgValue.getImg() != null && imgValue.getImg().length != 0) {
 				ImgValue tempImgValue = ImgeUtil.CompressPic(imgValue.getImg(),
-						path, imgname);
+						path, imgname,true);
 				imgValue.setImgurl(imgname);
 				imgValue.setImgid(imgid);
 				imgValue.setImgname(imgValue.getImgid());
@@ -2478,7 +2484,7 @@ public class BlogManagerAction {
 			imgname = UUIDMaker.getUUID() + ".jpg";
 			if (bookStoreValue.getImgurl() != null
 					&& bookStoreValue.getImgurl().length != 0) {
-				ImgeUtil.CompressPic(bookStoreValue.getImgurl(), path, imgname);
+				ImgeUtil.CompressPic(bookStoreValue.getImgurl(), path, imgname,false);
 				map.put("picurl", "html/img/" + imgname);
 			}
 
@@ -2547,5 +2553,36 @@ public class BlogManagerAction {
 		return new ResponseEntity<byte[]>(imgcontent, responseHeaders,
 				HttpStatus.OK);
 	}
+	@RequestMapping("/senDuanxin.do")
+	public ModelAndView senDuanxin(HttpServletRequest request,
+			HttpServletResponse response, ModelMap map) {
+		try{
+		Md5PasswordEncoder md5 = new Md5PasswordEncoder();
+		String urlstr = "http://api.duanxin.cm/?action=send&username=70208213&password=8cf99706f967d0c04c19d18d2f3a0fb6&phone=15184707203&content="+URLEncoder.encode("测试短信","gbk")+"";
+		URL url = new URL(urlstr);
+		URLConnection rulConnection = url.openConnection();
+		HttpURLConnection httpUrlConnection = (HttpURLConnection) rulConnection;
+		httpUrlConnection.connect();
+		InputStream iniputStream = httpUrlConnection.getInputStream();
+		byte reader[] = new byte[1024];
+		int length = 0;
+		ByteArrayOutputStream ooutStream = new ByteArrayOutputStream();
+		while ((length = iniputStream.read(reader)) != -1) {
+			ooutStream.write(reader, 0, length);
+		}
+		String encripedPass = ooutStream.toString();
+		map.put("result", encripedPass);
+		map.put("urlstr", urlstr);
+		map.put("url", url.toString());
+		
+		//UserValue.setEncripedPass(encripedPass);
+		ooutStream.close();
+		iniputStream.close();
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+		return new ModelAndView("jsonView", map);
+	}
+	
 
 }

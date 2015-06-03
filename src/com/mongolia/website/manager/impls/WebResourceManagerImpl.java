@@ -136,7 +136,7 @@ public class WebResourceManagerImpl implements WebResourceManager {
 					String imgname = UUIDMaker.getUUID() + ".jpg";
 					imgGrpupValue.setFaceurl(imgname);
 					ImgValue tempImgValue = ImgeUtil.CompressPic(
-							imgValue.getImg(), facepath, imgname);
+							imgValue.getImg(), facepath, imgname,true);
 					// imgGrpupValue.setFaceimg(imgcontent);
 					this.webResourceDao.updIImgGroup(imgGrpupValue);
 				}

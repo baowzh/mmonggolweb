@@ -124,6 +124,7 @@
 						<textarea id="editor1" name="htmlcon" class="ckeditor" row="1200"
 							cols="1200"></textarea>
 					</div>
+					
 					<div class="mnlist" style="width: 70px; height: 570px;">
 						<div>
 							<div class="mnlist"
@@ -161,6 +162,7 @@
 		<div class="lmainR ofh" style="text-align: center; width: 1000px;">
 			<%@ include file="../website/tail.jsp"%>
 		</div>
+		
 		<div id="validcodediv"
 			style="width: 140px; height: 210px; display: none;z-index:99;">
 			<div class="content" style="width: 150px; height: 270px;">

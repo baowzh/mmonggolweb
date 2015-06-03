@@ -57,14 +57,14 @@
 					<a href="index.do"> </a>
 				</div>
 				<div class="mglsection" style="width: 90px;">
-					<a href="gouserindex.do?userid=<c:out value="${user.userid}" />">
+					<a href="gouserindex.do?userid=<c:out value="${user.userid}" />"> 
 						 </a>
 				</div>
 				<div class="mglsection" style="width: 80px;">
 					<a href="registe.do"></a>
 				</div>
 				<div class="mglsection" style="width: 100px;">
-					<a href="gouserindex.do?userid=<c:out value="${loginuserid}" />">
+					<a href="gouserindex.do?userid=<c:out value="${loginuserid}" />"> 
 						 </a>
 				</div>
 				<div class="mglsection" style="width: 100px;">

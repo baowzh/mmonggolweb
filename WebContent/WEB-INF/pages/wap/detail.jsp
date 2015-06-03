@@ -51,7 +51,7 @@
 		<div class="emptyItem" style="height: 70px; float: left;"></div>
 		<div class="mln"
 			style="height: 90px; width: 22px; font-size: 18px; float: right; color: #fff; padding-top: 0px;">
-			<a href="phonebloglist.do" style="font-size: 18px;"> </a>
+			<a href="phonebloglist.do" style="font-size: 18px;"> </a>
 		</div>
 		<div class="emptyItem" style="height: 70px; float: right;"></div>
 		<div class="mln"

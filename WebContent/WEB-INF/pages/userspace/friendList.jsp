@@ -53,10 +53,10 @@
 				<div class="mglsection" style="width: 50px; padding-right: 15px;"></div>
 				<div class="mglsection" style="width: 100px; padding-right: 15px;">
 					</div>
-				<div class="mglsection" style="width: 120px; padding-right: 15px;">
+				<div class="mglsection" style="width: 120px; padding-right: 15px;"> 
 					 </div>
 				<div class="mglsection" style="width: 80px; padding-right: 15px;"></div>
-				<div class="mglsection" style="width: 130px; padding-right: 15px;">
+				<div class="mglsection" style="width: 130px; padding-right: 15px;"> 
 					 </div>
 			</div>
 			<!--  -->
@@ -97,7 +97,7 @@
 			<div style="clear: both"></div>
 			<div class="titlebar" style="text-align: right;">
 				<div class="mglsection" style="width: 180px; padding-right: 15px;">
-					 </div>
+					  </div>
 			</div>
 			<div class="flt"
 				style="width: 100%; margin: 5px; height: auto !important;">

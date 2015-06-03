@@ -216,14 +216,93 @@
 		<div class="card2" style="width: 532px; height: 340px;">
 			<div class="listCardTtl ttlStl1" style="height: 340px;">
 				<div class="top"></div>
-				<div class="ttl" style="height: 146px;">  </div>
+				<div class="ttl" style="height: 146px;"> </div>
 				<div class="more"></div>
 				<div class="ctail"></div>
 			</div>
 			<div class="listCardBody"
 				style="height: 335px; padding-left: 5px; background-color: #fff;">
+				<div class="nwsl1">
+						<div class="title">
+							<a
+								href="getuserdocdetail.do?docid=3CF31D4602C011E5856ADBF28753CC47"
+								target="_blank" class="tit_text_overflow">
+								     
+								</a>
+						</div>
+						<div class="author">
+							<a
+								href="http://mgl.altanhurd.com/gouserindex.do?userid=509E859D9E3C11E4BC9D199A577C4ABB">
+								
+							</a>
+						</div>
+					</div>
+					<div class="nwsl1">
+						<div class="title">
+							<a
+								href="getuserdocdetail.do?docid=48C2892402B611E5856ADBF28753CC47"
+								target="_blank" class="tit_text_overflow">
+								     
+								</a>
+						</div>
+						<div class="author">
+							<a
+								href="http://mgl.altanhurd.com/gouserindex.do?userid=509E859D9E3C11E4BC9D199A577C4ABB">
+								
+							</a>
+						</div>
+					</div>
+					<div class="nwsl1">
+						<div class="title">
+							<a
+								href="getuserdocdetail.do?docid=E361520C02CF11E5856ADBF28753CC47"
+								target="_blank" class="tit_text_overflow">
+								     
+								</a>
+						</div>
+						<div class="author">
+							<a
+								href="http://mgl.altanhurd.com/gouserindex.do?userid=509E859D9E3C11E4BC9D199A577C4ABB">
+								
+							</a>
+						</div>
+					</div>
+					<div class="nwsl1">
+						<div class="title">
+							<a
+								href="getuserdocdetail.do?docid=4820365402CD11E5856ADBF28753CC47"
+								target="_blank" class="tit_text_overflow">
+								      
+								</a>
+						</div>
+						<div class="author">
+							<a
+								href="http://mgl.altanhurd.com/gouserindex.do?userid=509E859D9E3C11E4BC9D199A577C4ABB">
+								
+							</a>
+						</div>
+					</div>
+					<div class="nwsl1">
+						<div class="title">
+							<a
+								href="getuserdocdetail.do?docid=7690D15202D511E5856ADBF28753CC47"
+								target="_blank" class="tit_text_overflow">
+								     
+								</a>
+						</div>
+						<div class="author">
+							<a
+								href="http://mgl.altanhurd.com/gouserindex.do?userid=509E859D9E3C11E4BC9D199A577C4ABB">
+								
+							</a>
+						</div>
+					</div>
+				
+				
+				
+				<!--  
 				<div class="ftig"
-					style="padding: 2px; width: 456px; overflow: hidden; color: #000;">
+					style="padding: 2px; width: 490px; overflow: hidden; color: #000;">
 					&nbsp;         
 					 <br> &nbsp;&nbsp; 3   21   
 						     16       
@@ -260,6 +339,7 @@
 									href="racestatus.do?raceid=10000222&round=2"><
 										  ></a> <br />
 				</div>
+				-->
 			</div>
 		</div>
 
@@ -865,7 +945,7 @@
 	<div class="layer m0a">
 		<div class="card1" style="width: 1000px; height: 220px;">
 			<div class="listCardTtl ttlStl1">
-				<div class="ttl" style="padding-top: 50px;">
+				<div class="ttl" style="padding-top: 50px;"> 
 					</div>
 				<div class="ctail"></div>
 			</div>

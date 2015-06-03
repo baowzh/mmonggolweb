@@ -46,7 +46,7 @@
 		style="height: 270px; width: 300px; background: white; padding: 5px; border-radius: 5px;">
 		<form action="addimggroup.do" id="addphotoalbumform" class="mglForm"
 			method="post" enctype="multipart/form-data">
-			<div class="m1ln" style="text-align: center;">  :</div>
+			<div class="m1ln" style="text-align: center;">  :</div>
 			<div class="m1ln" style="height: 32px; width: 270px;">
 				<input type="text" name="imggroupname" id="imggroupname"
 					style="-webkit-transform-origin: 10px 20px;" /> <input
@@ -54,12 +54,12 @@
 					value="<c:out value="${user.userid}" />"></input>
 			</div>
 
-			<div class="m1ln" style="text-align: center;">:</div>
+			<div class="m1ln" style="text-align: center;">  :</div>
 			<div class="m1ln" style="height: 32px; width: 270px;">
 				<input type="text" name="comm" id="comm"
 					style="-webkit-transform-origin: 10px 20px;" />
 			</div>
-			<div class="m1ln" style="text-align: center;">  :</div>
+			<div class="m1ln" style="text-align: center;"> :</div>
 			<div class="m1ln" style="height: 32px; width: 270px;">
 				<input type="file" name="imgurl" id="imgurl"
 					style="-webkit-transform-origin: 10px 20px;" />

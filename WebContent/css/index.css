@@ -3,23 +3,23 @@
 body {
 	margin: 0;
 	font-family: "MenksoftQagan";
-	font-size: 17px;
+	font-size: 18px;
 	line-height: 100%;
 }
 
 .logo {
-	height: 153px;
+	height: 203px;
 	background: url(../img/LOGO.png) no-repeat;
 }
 
 .navItem {
-	color: #00698c;
-	width: 22px;
+	color: #fff;
+	width: 24px;
 	line-height: 25px;
 	height: 105px;
 	overflow: hidden;
 	float: left;
-	font-size: 17px;
+	font-size: 18px;
 }
 
 .mln {
@@ -33,13 +33,13 @@ body {
 
 .mln a {
 	/* 	color: #666; */
-	color: #536879;
+	color: #fff;
 	text-decoration: none;
 }
 
 .naveFrame {
 	position: relative;
-	left: 476px;
+	left: 346px;
 	top: 46px;
 }
 
@@ -577,6 +577,7 @@ body {
 	background: -ms-linear-gradient(top, #006699,  #6da8c5);
 	border-radius: 5px 5px 5px 5px;
 	background-color:#006699;
+	
 }
 
 .footer-sec {

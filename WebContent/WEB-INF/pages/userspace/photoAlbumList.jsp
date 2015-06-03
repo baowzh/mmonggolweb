@@ -58,14 +58,14 @@
 					<a href="index.do"> </a>
 				</div>
 				<div class="mglsection" style="width: 90px;">
-					<a href="gouserindex.do?userid=<c:out value="${user.userid}" />">
+					<a href="gouserindex.do?userid=<c:out value="${user.userid}" />"> 
 						 </a>
 				</div>
 				<div class="mglsection" style="width: 80px;">
 					<a href="registe.do"></a>
 				</div>
 				<div class="mglsection" style="width: 100px;">
-					<a href="gouserindex.do?userid=<c:out value="${loginuserid}" />">
+					<a href="gouserindex.do?userid=<c:out value="${loginuserid}" />"> 
 						 </a>
 				</div>
 				<div class="mglsection" style="width: 100px;">
@@ -183,8 +183,7 @@
 
 			<div class="titlebar" style="text-align: right;">
 				<div class="mglsection" style="width: 180px; padding-right: 15px;">
-					<a href="photoAlbumList.do?userid=<c:out value="${user.userid}" />">
-						 </a>
+					<a href="photoAlbumList.do?userid=<c:out value="${user.userid}" />">   </a>
 				</div>
 			</div>
 			<div class="flt"

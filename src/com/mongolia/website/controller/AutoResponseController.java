@@ -104,7 +104,7 @@ public class AutoResponseController {
 		String imgname = imgid + ".jpg";
 		if (wechatDocValue.getImg() != null
 				&& wechatDocValue.getImg().length != 0) {
-			ImgeUtil.CompressPic(wechatDocValue.getImg(), path, imgname);
+			ImgeUtil.CompressPic(wechatDocValue.getImg(), path, imgname,true);
 			wechatDocValue.setDocimg(imgname);
 		}
 		this.autoResponseManager.addWechatDoc(wechatDocValue);
