@@ -251,7 +251,7 @@
 			<table border="0" style="margin: 1em auto;">
 				<tr>
 					<td height="100"><div class="m1ln h100">  
-							ᠲ</div></td>
+							</div></td>
 					<td><div class="m1ln h100"></div></td>
 				</tr>
 				<tr>

@@ -469,7 +469,7 @@ public class BlogManagerAction {
 				DocumentValue documentValue = (DocumentValue) docList.get(0);
 				if (documentValue.getDoctype().intValue() == StaticConstants.RESOURCE_TYPE_DOC) {
 					String docContent = new String(
-							documentValue.getDoccontent());
+							documentValue.getDoccontent(),"GBK");
 					if (opertype != null && opertype.equalsIgnoreCase("2")) {
 						documentValue.setHtmlstr(docContent);
 					} else {
@@ -554,7 +554,7 @@ public class BlogManagerAction {
 	 */
 	@RequestMapping("/adddoc.do")
 	public ModelAndView adddoc(HttpServletRequest request,
-			HttpServletResponse response, ModelMap map, DocumentValue docValue) {
+			HttpServletResponse response, ModelMap map, DocumentValue docValue) throws Exception{
 		UserValue sessionUser = (UserValue) request.getSession().getAttribute(
 				"user");// 在线session
 		List<UserValue> users = this.userManager.getUsers(
@@ -562,7 +562,7 @@ public class BlogManagerAction {
 		UserValue userValue = users.get(0);
 		SamplePostData samplePostData = new SamplePostData(request);
 		String content = samplePostData.getAllFormFieldsAndValues();
-		docValue.setDoccontent(content.getBytes());
+		docValue.setDoccontent(content.getBytes("GBK"));
 		docValue.setDocauthor(userValue.getArtname());
 		docValue.setUserid(userValue.getUserid());
 		docValue.setDocstatus(1);
@@ -683,7 +683,7 @@ public class BlogManagerAction {
 			DocumentValue documentValue = docList.get(0);
 			SamplePostData samplePostData = new SamplePostData(request);
 			String content = samplePostData.getAllFormFieldsAndValues();
-			documentValue.setDoccontent(content.getBytes());
+			documentValue.setDoccontent(content.getBytes("GBK"));
 			documentValue.setDocstatus(1);
 			documentValue.setDocsource(new Double(1));
 			documentValue.setDoctype(1);

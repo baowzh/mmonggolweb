@@ -589,7 +589,7 @@ public class WebResourceManagerImpl implements WebResourceManager {
 		}
 	}
 
-	private void setdocview(DocumentValue documentValue) {
+	private void setdocview(DocumentValue documentValue) throws Exception{
 		byte newcontent[] = null;
 		if (documentValue.getDoccontent() != null) {
 			newcontent = ungzipdoccontent(documentValue.getDoccontent());
@@ -597,7 +597,7 @@ public class WebResourceManagerImpl implements WebResourceManager {
 		}
 		//
 		if (documentValue.getDoctype().intValue() == StaticConstants.RESOURCE_TYPE_DOC) {
-			String docContent = new String(documentValue.getDoccontent());
+			String docContent = new String(documentValue.getDoccontent(),"GBK");
 			// 替换flash 视频地址
 			String matchStr = "\\[\\[http[s]?:\\/\\/([\\w-]+\\.)+[\\w-]+([\\w-./?%&=]*)?\\]\\]";
 			Pattern destStri = Pattern.compile(matchStr);// ^

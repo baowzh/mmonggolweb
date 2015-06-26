@@ -54,7 +54,7 @@
 										<div class="addNewAlbum">
 											<div class="m1ln borderOuter" style="height: 110px;">
 												<a href="javascript:openaddphotoalbumdialog();">
-													  </a>
+													   </a>
 											</div>
 											<div class="m1ln borderOuter"
 												style="height: 80px; margin-top: 5px; background: #eee url(img/delete.png) center top no-repeat;">
@@ -138,8 +138,7 @@
 			<form action="addimggroup.do" 
 				id="addphotoalbumform" class="mglForm" method="post"
 				enctype="multipart/form-data" >
-				<div class="label" style="text-align: center;"> 
-					:</div>
+				<div class="label" style="text-align: center;">  :</div>
 				<div class="inputHolder" style="width: 32px; height: 270px;">
 					<input type="text" name="imggroupname" id="imggroupname"
 						style="-webkit-transform-origin: 10px 20px;" /> <input
@@ -152,8 +151,7 @@
 					<input type="text" name="comm" id="comm"
 						style="-webkit-transform-origin: 10px 20px;" />
 				</div>
-				<div class="label" style="text-align: center;"> 
-					:</div>
+				<div class="label" style="text-align: center;"> :</div>
 				<div class="inputHolder" style="width: 32px; height: 270px;">
 					<input type="file" name="imgurl" id="imgurl"
 						style="-webkit-transform-origin: 10px 20px;" />

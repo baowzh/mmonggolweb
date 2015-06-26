@@ -759,8 +759,8 @@
 
 	<select id="getRecentDocComm" parameterClass="java.util.Map"
 		resultClass="MessageValue">
-		SELECT message.*,user.artname FROM message ,user where
-		message.userid=USER.userid
+		SELECT message.*,`user`.artname FROM message ,`user` where
+		message.userid=`user`.userid
 		<dynamic prepend="and">
 			<isNotNull prepend="and" property="resourceid">
 				resourceid=#resourceid#
