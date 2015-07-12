@@ -26,12 +26,10 @@
 <script type="text/javascript" src="js/util/js/messageWindow.js"></script>
 <link rel="stylesheet" type="text/css"
 	href="plugins/jquery.jqGrid-4.4.3/css/jquery-ui.css" media="screen" />
-<!-- <script src="js/jqui/js/jquery-ui-1.10.3.custom.min.js"></script> -->
 <script src="plugins/jquery.jqGrid-4.4.3/js/jquery-ui.min.js"
 	type="text/javascript"></script>
 <script src="js/messagebox/jquery.rotmsgbox.js"></script>
 <script src="js/messagebox/jquery.dragndrop.min.js"></script>
-<!-- <script type="text/javascript" src="ckeditorrot/ckeditor.js"></script> -->
 <script type="text/javascript">
 	window.onload = function() {
 		function setheight() {
@@ -151,10 +149,15 @@
 				</div>
 			</div>
 			<div class="titlebar" style="text-align: right;">
-				<div class="mglsection" style="width: 180px; padding-right: 15px;">
-					<a href="friendlist.do?userid=<c:out value="${user.userid}" />">
+			   <div class="mglsection" style="width: 180px; padding-right: 15px;">
+				<a href="friendlist.do?userid=<c:out value="${user.userid}" />">
 						 </a>
 				</div>
+				
+				<div class="mglsection" style="width: 180px; padding-right: 15px;">
+					<a href="friendlist.do?userid=<c:out value="${user.userid}" />">     </a>
+				</div>
+				
 			</div>
 			<div class="flt"
 				style="width: 100%; min-height: 230px; height: auto !important;">
@@ -212,8 +215,27 @@
 								style="color: #fff;"><c:out
 									value="${imgGrpupValue.imggroupname}" escapeXml="false" /></a>
 						</div>
+						<c:if test="${self==1}">
+							<div style="position:absolute;bottom:3px;left:6px;">
+								<input type="radio" name="selectedradio"
+										id="<c:out value="${friendValue.friendid}" />" />
+							</div>
+						</c:if>
 					</div>
 				</c:forEach>
+			</div>
+			<div style="clear: both"></div>
+			<div class="flt" style="width: 100%; margin: 2px; min-height: 40px;">
+				<div class="shareBookmark mgldiv"
+					style="margin: 10px 360px 0px 0px;">
+					<div class="mgldiv">
+						<c:if test="${self==1}">
+							<a href="javascript:deletephotoalbum();"> </a>
+						</c:if>
+					</div>
+					
+				</div>
+
 			</div>
 			<!-- 			<div class="flt" style="width: 100%; margin: 2px; min-height: 40px;"> -->
 			<!-- 				<div class="shareBookmark mgldiv" -->

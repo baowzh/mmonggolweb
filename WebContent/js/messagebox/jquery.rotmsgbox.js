@@ -561,7 +561,7 @@
 //						});
 				//var center = $('<center/>').css('padding', '8px').append('<div class="mnlist"></div>').append(
 						//yesbutton).append('&nbsp;').append(nobutton);
-				var buttondiv= $('<div style="text-align:center;"></div>').addClass('mnlist');
+				var buttondiv= $('<div style="text-align:center;float:left;width:200px;"></div>').addClass('m1ln');
 				var okbutton=$('<a href="#">&nbsp;&nbsp;</a>').click(
 						function() {
 							_this.setValue(true);

@@ -137,24 +137,42 @@ var openpage = function(index, currentuserid, type, pagetype, neebarlocation) {
 							}
 
 						} else if (type == 2) {
-							var listdiv=$('<div></div>');
-							var dotimgdiv = $('<div></div>').addClass(
-									'"m1ln"');
-							dotimgdiv.css({"width": "10px", "height":"10px", "float":"right"," padding-top": 5});
-							dotimgdiv.append($('img').prop('src','site/img/qig_1_v.png'))
+							var listdiv = $('<div></div>');
+							var dotimgdiv = $('<div></div>').addClass('"m1ln"');
+							dotimgdiv.css({
+								"width" : "10px",
+								"height" : "10px",
+								"float" : "right",
+								" padding-top" : 5
+							});
+							dotimgdiv.append($('img').prop('src',
+									'site/img/qig_1_v.png'))
 							listdiv.append(dotimgdiv);
 							// 标题
-							var m1lndiv = $('<div></div>').addClass(
-									'm1ln');
-							m1lndiv.css({"width": "480px", "float":"right"});
-							m1lndiv.append($('<a></a>').prop('href','getuserdocdetail.do?docid='+data.doclist[i].docid).text(data.doclist[i].doctitle));
+							var m1lndiv = $('<div></div>').addClass('m1ln');
+							m1lndiv.css({
+								"width" : "480px",
+								"float" : "right"
+							});
+							m1lndiv.append($('<a></a>').prop(
+									'href',
+									'getuserdocdetail.do?docid='
+											+ data.doclist[i].docid).text(
+									data.doclist[i].doctitle));
 							listdiv.append(m1lndiv);
-							var authdiv = $('<div></div>').addClass(
-							'm1ln');
-							authdiv.css({"width":" 100px"," float": "right"});
-							authdiv.append($('<a></a>').prop('href','gouserindex.do?userid='+data.doclist[i].userid).text(data.doclist[i].docauthor));
+							var authdiv = $('<div></div>').addClass('m1ln');
+							authdiv.css({
+								"width" : " 100px",
+								" float" : "right"
+							});
+							authdiv.append($('<a></a>').prop(
+									'href',
+									'gouserindex.do?userid='
+											+ data.doclist[i].userid).text(
+									data.doclist[i].docauthor));
 							listdiv.append(authdiv);
-							htmlstrr = htmlstrr+'<div class="sharenwsl1">'+listdiv.html()+'</div>';
+							htmlstrr = htmlstrr + '<div class="sharenwsl1">'
+									+ listdiv.html() + '</div>';
 						}
 					}
 					if (type == 1) {
@@ -395,11 +413,16 @@ var sendaddfriendmess = function(visiteduserid) {
 
 };
 var delfriend = function() {
-	showConfirmMess("      ", function() {
-		if (this.getValue() == true) {
-			delfriend();
-		}
-	});
+	var ids = $("[name=selectedradio]").filter(':checked');
+	if (ids.length > 0) {
+		showConfirmMess("      ", function() {
+			if (this.getValue() == true) {
+				delfriend();
+			}
+		});
+	}else{
+		MessageWindow.showMess('    ');
+	}
 
 }
 var deletefriend = function() {
@@ -570,12 +593,9 @@ $(document).ready(function() {
 	$('#blogcon').css('min-height', availheight);
 	//
 	/*
-	$("#message_face").jqfaceedit({
-		txtAreaObj : $("#commentdiv"),
-		containerObj : $('#commentcontainer'),
-		top : 25,
-		right : -27
-	});*/
+	 * $("#message_face").jqfaceedit({ txtAreaObj : $("#commentdiv"),
+	 * containerObj : $('#commentcontainer'), top : 25, right : -27 });
+	 */
 });
 var setmglconimgWidht = function() {
 
@@ -592,12 +612,12 @@ var setmglconimgWidht = function() {
 				}
 				$(this).attr('height', height);
 				$(this).attr('width', width);
-				if(width - height>0){
+				if (width - height > 0) {
 					$(this).after(
 							'<div style="height:' + (width - height)
-									+ 'px;"></div>');	
+									+ 'px;"></div>');
 				}
-			
+
 			});
 	$(".mglcontent iframe").each(
 			function() {
@@ -612,12 +632,12 @@ var setmglconimgWidht = function() {
 				}
 				$(this).attr('height', height);
 				$(this).attr('width', width);
-				if(width - height>0){
+				if (width - height > 0) {
 					$(this).after(
 							'<div style="height:' + (width - height)
-									+ 'px;"></div>');	
+									+ 'px;"></div>');
 				}
-				
+
 			});
 	$(".mglcontent embed").each(
 			function() {
@@ -632,11 +652,11 @@ var setmglconimgWidht = function() {
 				}
 				$(this).attr('height', height);
 				$(this).attr('width', width);
-				if(width - height-0>0){
+				if (width - height - 0 > 0) {
 					$(this).after(
 							'<div style="height:' + (width - height)
 									+ 'px;"></div>');
 				}
-				
+
 			});
 };

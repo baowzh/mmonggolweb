@@ -315,16 +315,19 @@
 						value="<c:out value="${documentValue.docid}" />">
 				</div>
 				<div style="display: block; float: right; height: 50px;">
-					<div class="commoper" style="height: 40px; width: 100%">
+					<div class="commoper" id="commdiv" style="height: 40px; width: 100%">
 						<div class="m1ln"
-							style="height: 50px; width: 240px; padding-top: 10px; float: right;">
+							style="height: 50px; width: 50px; padding-top: 10px; float: right;">
 							<a href="JavaScript:void(0)" id="message_face"
 								style="display: block; float: right;"> <img
 								src="img/pl_bq.png" />
-							</a> <a href="javascript:replaceverifycode();"
+							</a> 
+							<!--  
+							<a href="javascript:replaceverifycode();"
 								style="display: block; float: right; width: 80px; height: 30px;">
 								<img src="verifyCodeServlet" id="varifyimg" />
 							</a>&nbsp;&nbsp;
+							
 							<c:if test="${agentkind==1}">
 								<input type="text" name="validcode" id="validcode"
 									style="width: 100px; height: 20px;" />
@@ -334,6 +337,7 @@
 								<input type="text" name="validcode" id="validcode"
 									style="width: 100px; height: 20px;" />
 							</c:if>
+							-->
 						</div>
 						<div class="m1ln"
 							style="height: 40px; width: 150px; padding-top: 10px; float: right;">

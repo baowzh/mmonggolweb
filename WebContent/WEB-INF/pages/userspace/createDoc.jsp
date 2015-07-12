@@ -148,7 +148,7 @@
 								style="width: 24px; height: 400px; text-align: center;">
 								<a href="javascript:openlinkwindow();"> &nbsp;</a>
 								<a href="javascript:openmp3window();">MP3 </a>&nbsp;&nbsp; <a
-									href="javascript:checkAndSubmit();"></a>&nbsp;&nbsp;
+									href="javascript:submit();"></a>&nbsp;&nbsp;
 								<a href="javascript:openemfacewindow">&nbsp;&nbsp; </a>
 
 							</div>
@@ -168,6 +168,7 @@
 			<div class="content" style="width: 150px; height: 270px;">
 				<form action="addfriend.do" name="addfriendform" id="addfriendform"
 					class="mglForm">
+					<!--  
 					<div class="label" style="text-align: center;">
 						<a href="javascript:replaceverifycode();"><img
 							src="verifyCodeServlet" id="varifyimg" width="21" height="100" /></a>
@@ -178,6 +179,7 @@
 						<input type="text" name="validcode" id="validcode"
 							style="-webkit-transform-origin: 10px 20px;" />
 					</div>
+					-->
 					<div class="mnlist" style="height: 270px;"></div>
 					<div class="mnlist"
 						style="width: 24px; height: 200px; text-align: center;">
@@ -222,29 +224,31 @@
 		var docchannel = $("#docchannel").val();
 		if (doctitle == null || doctitle == '') {
 			MessageWindow.showMess('       ');
-			return;
+			return false;
 		}
 		if (docabstract == null || docabstract == '') {
 			MessageWindow.showMess('    ');
-			return;
+			return false ;
 		}
 		if (docchannel == null || docchannel == '') {
 			MessageWindow.showMess('     ');
-			return;
+			return false ;
 		}
 		var editor1 = CKEDITOR.instances.editor1.getData();
 		if (editor1 == null || editor1 == '') {
 			MessageWindow.showMess('     ');
-			return;
+			return false ; 
 		}
+		return true;
 		// 弹出验证码框
+		/*
 		$("#validcodediv").dialog({
 			height : 370,
 			width : 210,
 			resizable : false,
 			modal : true
 
-		});
+		});*/
 		// 		if ($('#opertype').val() == 2) {
 		// 			$('#addnews').action = "updatedoc.do";
 		// 		} else {
@@ -253,13 +257,15 @@
 		// 		document.getElementById("addnews").submit();
 	}
 	function submit() {
-
-		if ($('#opertype').val() == 2 || $('#opertype').val() == 3) {
-			$('#addnews')[0].action = "updatedoc.do";
-		} else {
-			$('#addnews')[0].action = "adddoc.do";
-		}
-		document.getElementById("addnews").submit();
+        if(checkAndSubmit()){
+        	if ($('#opertype').val() == 2 || $('#opertype').val() == 3) {
+    			$('#addnews')[0].action = "updatedoc.do";
+    		} else {
+    			$('#addnews')[0].action = "adddoc.do";
+    		}
+    		document.getElementById("addnews").submit();
+        }
+		
 	}
 </SCRIPT>
 </html>

@@ -13,10 +13,9 @@
 <link href="css/blog.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="js\messagebox\jquery.msgbox.css" />
 <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
-<!-- <script type="text/javascript" src="js/sitejs/viewdoc.js"></script> -->
 <link href="site/css/waplist.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/sitejs/userdocdetail.js"></script>
 <script type="text/javascript" src="js/sitejs/race.js"></script>
+<script type="text/javascript" src="js/sitejs/photoalbumlist.js"></script>
 <script type="text/javascript" src="js/sitejs/userhomeindex.js"></script>
 <script type="text/javascript" src="js/sitejs/userlogin.js"></script>
 <script type="text/javascript" src="js/sitejs/changevalidcode.js"></script>
@@ -185,6 +184,12 @@
 				<div class="mglsection" style="width: 180px; padding-right: 15px;">
 					<a href="photoAlbumList.do?userid=<c:out value="${user.userid}" />">   </a>
 				</div>
+				<c:if test="${self==1}">
+					<div class="mglsection" style="width: 180px; padding-right: 15px;">
+						<a href="javascript:openaddphotoalbumdialog();"> 
+							  </a>
+					</div>
+				</c:if>
 			</div>
 			<div class="flt"
 				style="width: 100%; margin: 2px; min-height: 185px; height: auto !important;">
@@ -207,16 +212,22 @@
 								href="javascript:openPhotoList('<c:out value="${imgGrpupValue.imggroupid}"/>')" ><c:out
 									value="${imgGrpupValue.imggroupname}" escapeXml="false" /></a>
 						</div>
+							<c:if test="${self==1}">
+							<div style="position:absolute;bottom:3px;left:6px;">
+								<input type="radio" name="selectedradio"
+										id="<c:out value="${friendValue.friendid}" />" />
+							</div>
+						</c:if>
 					</div>
 				</c:forEach>
 			</div>
+			<div style="clear: both"></div>
 			<div class="flt" style="width: 100%; margin: 2px; min-height: 40px;">
 				<div class="shareBookmark mgldiv"
 					style="margin: 10px 360px 0px 0px;">
 					<div class="mgldiv">
 						<c:if test="${self==1}">
-							<a href="javascript:openaddphotoalbumdialog();"> 
-								  </a>
+							<a href="javascript:deletephotoalbum();"> </a>
 						</c:if>
 					</div>
 				</div>

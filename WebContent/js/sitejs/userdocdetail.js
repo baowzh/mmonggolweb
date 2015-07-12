@@ -17,11 +17,13 @@ var addcomment = function(dtype, hidden) {
 		return;
 	}
 	//
+	/*
 	var validcode = $("#validcode").val();
 	if (validcode == null || validcode == '') {
 		MessageWindow.showMess('     ');
 		return;
 	}
+	*/
 	var commentdiv = '';
 	var agentkind = $('#agentkind').val();
 	// if(agentkind=='1'){
@@ -54,8 +56,7 @@ var addcomment = function(dtype, hidden) {
 			comment : commentdiv,
 			userid : $("#userid").val(),
 			doctype : dtype,
-			ishidden : hidden,
-			validcode : validcode
+			ishidden : hidden
 		},
 		success : function(data) { // 请求成功后处理函数。
 			if (data.success == 1) {

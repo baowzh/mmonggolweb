@@ -445,7 +445,7 @@
 	</select>
 	<update id="modifyUserPass" parameterClass="java.util.Map">
 		update user set
-		password=#pass# where userid=#userid#
+		password=#pass# , oldid=null where userid=#userid#
 	</update>
 	<update id="delfriend" parameterClass="java.util.Map">
 		delete from friend where

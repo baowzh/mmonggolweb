@@ -557,6 +557,9 @@ public class BlogManagerAction {
 			HttpServletResponse response, ModelMap map, DocumentValue docValue) throws Exception{
 		UserValue sessionUser = (UserValue) request.getSession().getAttribute(
 				"user");// 在线session
+		if(sessionUser==null){
+			return new ModelAndView("redirect:tologin.do");
+		}
 		List<UserValue> users = this.userManager.getUsers(
 				sessionUser.getUserid(), sessionUser.getUsername());
 		UserValue userValue = users.get(0);
@@ -669,6 +672,9 @@ public class BlogManagerAction {
 			HttpServletResponse response, ModelMap map, DocumentValue docValue) {
 		UserValue sessionUser = (UserValue) request.getSession().getAttribute(
 				"user");// 在线session
+		if(sessionUser==null){
+			return new ModelAndView("redirect:tologin.do");
+		}
 		try {
 			Map<String, Object> params = new HashMap<String, Object>();
 			params.put("docid", docValue.getDocid());
@@ -1174,6 +1180,7 @@ public class BlogManagerAction {
 			String validcode = request.getParameter("validcode");
 			Map<String, Object> queryParams = new HashMap<String, Object>();
 			queryParams.put("docid", docid);
+			/*
 			Object sysValidcode = request.getSession().getAttribute(
 					"validateCode");
 			if (sysValidcode == null) {
@@ -1187,6 +1194,7 @@ public class BlogManagerAction {
 				return new ModelAndView("jsonView", map);
 			}
 			request.getSession().removeAttribute("validateCode");
+			*/
 			List<DocumentValue> docList = this.webResourceManager
 					.getDocList(queryParams);
 			if (docList != null && !docList.isEmpty()) {

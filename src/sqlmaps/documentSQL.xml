@@ -345,7 +345,7 @@
 		SELECT message.*,user.artname,(select headurl from user where
 		`user`.userid=message.messagesenderid) as messagesenderurl FROM
 		message ,user where
-		message.userid=USER.userid
+		message.userid=user.userid
 		<dynamic prepend="and">
 			<isNotNull prepend="and" property="resourceid">
 				resourceid=#resourceid#
@@ -420,7 +420,7 @@
 	<select id="getResourceCommentCount" parameterClass="java.util.Map"
 		resultClass="java.lang.Integer">
 		SELECT count(1) FROM message ,user where
-		message.messagesenderid=USER.userid
+		message.messagesenderid=user.userid
 		<dynamic prepend="and">
 			<isNotNull prepend="and" property="resourceid">
 				resourceid=#resourceid#
@@ -603,11 +603,11 @@
 
 		<dynamic prepend="where">
 			<isEqual prepend="and" property="recorsend" compareValue="1">
-				message.userid=USER.userid
+				message.userid=user.userid
 				and messagesenderid!=#userid#
 			</isEqual>
 			<isEqual prepend="and" property="recorsend" compareValue="2">
-				message.messagesenderid=USER.userid
+				message.messagesenderid=user.userid
 				and message.userid!=#userid#
 			</isEqual>
 
@@ -636,11 +636,11 @@
 
 		<dynamic prepend="where">
 			<isEqual prepend="and" property="recorsend" compareValue="1">
-				message.userid=USER.userid
+				message.userid=user.userid
 				and messagesenderid!=#userid#
 			</isEqual>
 			<isEqual prepend="and" property="recorsend" compareValue="2">
-				message.messagesenderid=USER.userid
+				message.messagesenderid=user.userid
 				and message.userid!=#userid#
 			</isEqual>
 
@@ -787,7 +787,7 @@
 	<select id="paingquerycomment" parameterClass="java.util.Map"
 		resultClass="MessageValue">
 		SELECT message.*,user.artname FROM message ,user where
-		message.userid=USER.userid
+		message.userid=user.userid
 		<dynamic prepend="and">
 			<isNotNull prepend="and" property="resourcekind">
 				resourcekind=#resourcekind#
